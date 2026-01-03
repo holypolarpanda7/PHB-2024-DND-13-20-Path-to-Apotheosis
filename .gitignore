@@ -1,6 +1,2 @@
 // Ignore Editor directories
 Editor/
-
-
-// Ignore script files
-*.ps1

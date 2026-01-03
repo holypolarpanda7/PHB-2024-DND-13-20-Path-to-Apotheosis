@@ -1,0 +1,819 @@
+// ==================================================================================
+// PHB 2024 DND 13-20: Path to Apotheosis - Status Effects
+// ==================================================================================
+
+// ==============================================================================
+// BARBARIAN - Improved Brutal Strike Status Effects (Level 13+)
+// ==============================================================================
+
+// Staggering Blow: Target has disadvantage on next save, can't make opportunity attacks
+new entry "BRUTAL_STRIKE_STAGGERED"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "haa11111111111111111111111111b001;1"
+data "Description" "haa11111111111111111111111111b002;1"
+data "Icon" "Spell_Enchantment_HideousLaughter"
+data "StackId" "BRUTAL_STRIKE_STAGGERED"
+data "StackType" "Overwrite"
+data "Boosts" "Disadvantage(SavingThrow)"
+data "StatusPropertyFlags" "DisableOverhead"
+data "RemoveEvents" "OnSavingThrowRolled"
+
+// Technical status to block opportunity attacks (applied alongside STAGGERED)
+new entry "BRUTAL_STRIKE_STAGGERED_NO_OA"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "haa11111111111111111111111111b001;1"
+data "Description" "haa11111111111111111111111111b003;1"
+data "Icon" "Spell_Enchantment_HideousLaughter"
+data "StackId" "BRUTAL_STRIKE_STAGGERED_NO_OA"
+data "Boosts" "CannotMakeOpportunityAttack()"
+data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog"
+
+// Sundering Blow: Next attack against target gets +5 bonus
+new entry "BRUTAL_STRIKE_SUNDERED"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "haa11111111111111111111111111b004;1"
+data "Description" "haa11111111111111111111111111b005;1"
+data "DescriptionParams" "5"
+data "Icon" "Action_SunderingBlow"
+data "StackId" "BRUTAL_STRIKE_SUNDERED"
+data "StackType" "Overwrite"
+data "Boosts" "AC(-5)"
+data "RemoveEvents" "OnAttacked"
+
+
+// ==============================================================================
+// WILD HEART (TOTEM WARRIOR) - Power of the Wilds Status Effects (Level 14)
+// ==============================================================================
+
+// Falcon: Fly Speed while raging (no armor)
+new entry "WILDHEART_FALCON_FLIGHT"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "hbb11111111111111111111111111c009;1"
+data "Description" "hbb11111111111111111111111111c010;1"
+data "Icon" "PassiveFeature_Aspect_Eagle"
+data "StackId" "WILDHEART_FALCON_FLIGHT"
+data "StackType" "Overwrite"
+data "Boosts" "FlySpeed(9)"
+data "RemoveConditions" "not HasStatus('SG_Rage')"
+data "RemoveEvents" "OnStatusRemoved"
+data "StatusPropertyFlags" "DisableOverhead"
+
+// Lion: Enemies have disadvantage on attacks vs others
+new entry "WILDHEART_LION_PRESENCE"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "hbb11111111111111111111111111c011;1"
+data "Description" "hbb11111111111111111111111111c012;1"
+data "Icon" "PassiveFeature_Aspect_Elk"
+data "StackId" "WILDHEART_LION_PRESENCE"
+data "StackType" "Overwrite"
+data "AuraRadius" "3"
+data "AuraStatuses" "IF(Enemy() and not Tagged('WILDHEART_LION_IMMUNE')):ApplyStatus(WILDHEART_LION_DEBUFF)"
+data "RemoveConditions" "not HasStatus('SG_Rage')"
+data "RemoveEvents" "OnStatusRemoved"
+data "StatusPropertyFlags" "DisableOverhead"
+
+// Lion Debuff: Applied to enemies within 5ft aura
+new entry "WILDHEART_LION_DEBUFF"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "hbb11111111111111111111111111c013;1"
+data "Description" "hbb11111111111111111111111111c014;1"
+data "Icon" "PassiveFeature_Aspect_Elk"
+data "StackId" "WILDHEART_LION_DEBUFF"
+data "StackType" "Overwrite"
+data "Boosts" "IF(not Tagged('IS_LION_SOURCE')):Disadvantage(AttackRoll)"
+data "StatusPropertyFlags" "DisableOverhead"
+
+
+// ==============================================================================
+// WORLD TREE - Travel along the Tree Status Effects (Level 14)
+// ==============================================================================
+
+// Travel along the Tree: Bonus action teleport ready
+new entry "WORLDTREE_TRAVEL_READY"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "hbb11111111111111111111111111c021;1"
+data "Description" "hbb11111111111111111111111111c022;1"
+data "Icon" "Spell_Conjuration_DimensionDoor"
+data "StackId" "WORLDTREE_TRAVEL_READY"
+data "StackType" "Overwrite"
+data "Boosts" "UnlockSpell(Target_TravelAlongTheTree_Bonus)"
+data "RemoveConditions" "not HasStatus('SG_Rage')"
+data "RemoveEvents" "OnStatusRemoved"
+data "StatusPropertyFlags" "DisableOverhead"
+
+
+// ==============================================================================
+// ZEALOT - Rage of the Gods Status Effects (Level 14)
+// ==============================================================================
+
+// Rage of the Gods: Divine warrior form
+// Note: Flight and Resistances implemented. Revivification reaction requires interrupt system - TODO
+new entry "ZEALOT_RAGE_OF_THE_GODS"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "hbb11111111111111111111111111c027;1"
+data "Description" "hbb11111111111111111111111111c028;1"
+data "Icon" "Action_Paladin_DivineSense"
+data "StackId" "ZEALOT_RAGE_OF_THE_GODS"
+data "StackType" "Overwrite"
+data "Boosts" "FlySpeed(9);Resistance(Necrotic,Resistant);Resistance(Psychic,Resistant);Resistance(Radiant,Resistant)"
+data "RemoveConditions" "not HasStatus('SG_Rage')"
+data "RemoveEvents" "OnStatusRemoved"
+data "StatusPropertyFlags" "DisableOverhead"
+
+
+// ==============================================================================
+// WILD MAGIC BARBARIAN - Controlled Surge Status Effects (Level 14)
+// ==============================================================================
+
+// Darkness Shroud: Darkness aura moves with character, lasts through rage
+// Refreshes every 2 turns (via OnTurnEnded)
+new entry "WILDMAGIC_DARKNESS_SHROUD"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "hcc11111111111111111111111111d013;1"
+data "Description" "hcc11111111111111111111111111d014;1"
+data "Icon" "Spell_Evocation_Darkness"
+data "StackId" "WILDMAGIC_DARKNESS_SHROUD"
+data "StackType" "Overwrite"
+data "AuraRadius" "5"
+data "AuraStatuses" "IF(not Self()):ApplyStatus(HEAVILY_OBSCURED)"
+data "Passives" "WildMagic_DarknessShroud_Passive"
+data "RemoveConditions" "not HasStatus('SG_Rage')"
+data "RemoveEvents" "OnStatusRemoved"
+data "StatusPropertyFlags" "DisableOverhead"
+data "SoundLoop" "Spell_Status_Darkness_MO"
+data "StatusEffect" "d82e76f9-c891-4d0c-855c-5bff3bec8c1d"
+
+// Frozen Vortex: Ice Storm aura that deals cold damage, 5 turns
+new entry "WILDMAGIC_FROZEN_VORTEX"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "hcc11111111111111111111111111d017;1"
+data "Description" "hcc11111111111111111111111111d018;1"
+data "DescriptionParams" "DealDamage(2d8,Cold);DealDamage(2d8,Bludgeoning)"
+data "Icon" "Spell_Evocation_IceStorm"
+data "StackId" "WILDMAGIC_FROZEN_VORTEX"
+data "StackType" "Overwrite"
+data "AuraRadius" "6"
+data "AuraStatuses" "IF(not Self() and Enemy()):ApplyStatus(WILDMAGIC_FROZEN_VORTEX_DEBUFF)"
+data "RemoveConditions" "not HasStatus('SG_Rage')"
+data "RemoveEvents" "OnStatusRemoved"
+data "StatusPropertyFlags" "DisableOverhead"
+data "SoundLoop" "Spell_Status_IceStorm"
+data "StatusEffect" "9fe58c7b-1cb5-4d3b-9cb9-19fc26a6b52f"
+
+// Frozen Vortex Debuff: Applied to enemies in the aura
+new entry "WILDMAGIC_FROZEN_VORTEX_DEBUFF"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "hcc11111111111111111111111111d019;1"
+data "Description" "hcc11111111111111111111111111d020;1"
+data "Icon" "Spell_Evocation_IceStorm"
+data "StackId" "WILDMAGIC_FROZEN_VORTEX_DEBUFF"
+data "OnApplyFunctors" "DealDamage(2d8,Cold);DealDamage(2d8,Bludgeoning)"
+
+// Surge of Undeath: Target turns into aggressive zombie on death
+new entry "WILDMAGIC_SURGE_OF_UNDEATH"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "hcc11111111111111111111111111d023;1"
+data "Description" "hcc11111111111111111111111111d024;1"
+data "Icon" "Spell_Necromancy_AnimateDead"
+data "StackId" "WILDMAGIC_SURGE_OF_UNDEATH"
+data "StackType" "Overwrite"
+data "Passives" "WildMagic_SurgeOfUndeath_Passive"
+
+
+// ==============================================================================
+// WIZARD - SPELL MASTERY (Level 18 PHB 2024)
+// Cast chosen L1 and L2 spells at will, can change on long rest
+// ==============================================================================
+
+// Main status applied when selecting spells - grants resources and unlocks picker shouts
+new entry "SPELL_MASTERY_SELECTION"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "hsm0003a0000000000000000000000001;1"
+data "Description" "hsm0003a0000000000000000000000002;1"
+data "Icon" "PassiveFeature_MagicInitiateWizard"
+data "StackId" "SPELL_MASTERY_SELECTION"
+data "StackType" "Overwrite"
+data "Boosts" "ActionResource(LearnSpellMasteryL1,1,0);ActionResource(LearnSpellMasteryL2,1,0);UnlockSpell(Shout_SM_BurningHands);UnlockSpell(Shout_SM_CharmPerson);UnlockSpell(Shout_SM_ChromaticOrb);UnlockSpell(Shout_SM_ColorSpray);UnlockSpell(Shout_SM_DisguiseSelf);UnlockSpell(Shout_SM_ExpeditiousRetreat);UnlockSpell(Shout_SM_FalseLife);UnlockSpell(Shout_SM_FeatherFall);UnlockSpell(Shout_SM_FindFamiliar);UnlockSpell(Shout_SM_FogCloud);UnlockSpell(Shout_SM_Grease);UnlockSpell(Shout_SM_HideousLaughter);UnlockSpell(Shout_SM_Jump);UnlockSpell(Shout_SM_Longstrider);UnlockSpell(Shout_SM_MageArmor);UnlockSpell(Shout_SM_MagicMissile);UnlockSpell(Shout_SM_ProtectionFromEvilAndGood);UnlockSpell(Shout_SM_RayOfSickness);UnlockSpell(Shout_SM_Sleep);UnlockSpell(Shout_SM_Shield);UnlockSpell(Shout_SM_Thunderwave);UnlockSpell(Shout_SM_WitchBolt);UnlockSpell(Shout_SM_AcidArrow);UnlockSpell(Shout_SM_Blindness);UnlockSpell(Shout_SM_CloudOfDaggers);UnlockSpell(Shout_SM_CrownOfMadness);UnlockSpell(Shout_SM_Blur);UnlockSpell(Shout_SM_Darkness);UnlockSpell(Shout_SM_Darkvision);UnlockSpell(Shout_SM_DetectThoughts);UnlockSpell(Shout_SM_EnlargeReduce);UnlockSpell(Shout_SM_FlamingSphere);UnlockSpell(Shout_SM_HoldPerson);UnlockSpell(Shout_SM_Invisibility);UnlockSpell(Shout_SM_MagicWeapon);UnlockSpell(Shout_SM_MirrorImage);UnlockSpell(Shout_SM_MistyStep);UnlockSpell(Shout_SM_PhantasmalForce);UnlockSpell(Shout_SM_RayOfEnfeeblement);UnlockSpell(Shout_SM_ScorchingRay);UnlockSpell(Shout_SM_Shatter);UnlockSpell(Shout_SM_Web)"
+data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator"
+data "StatusGroups" "SG_RemoveOnRespec"
+
+// Block status - applied after selections are made
+new entry "SPELL_MASTERY_BLOCK"
+type "StatusData"
+data "StatusType" "BOOST"
+data "StackId" "SPELL_MASTERY_BLOCK"
+data "StackType" "Overwrite"
+data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator"
+data "StatusGroups" "SG_RemoveOnRespec"
+
+// ==============================================================================
+// Level 1 Spell Mastery Unlock Statuses (grant free-cast spells)
+// ==============================================================================
+
+// Base template for L1 spell mastery unlocks
+new entry "SM_UNLOCK_L1_BASE"
+type "StatusData"
+data "StatusType" "BOOST"
+data "StackType" "Ignore"
+data "StatusPropertyFlags" "IgnoreResting;DisableOverhead;DisableCombatlog;DisablePortraitIndicator;ApplyToDead;UnavailableInActiveRoll"
+data "StatusGroups" "SG_RemoveOnRespec"
+
+new entry "SM_UNLOCK_BURNINGHANDS"
+type "StatusData"
+data "StatusType" "BOOST"
+using "SM_UNLOCK_L1_BASE"
+data "Boosts" "UnlockSpell(Zone_BurningHands_SM)"
+
+new entry "SM_UNLOCK_CHARMPERSON"
+type "StatusData"
+data "StatusType" "BOOST"
+using "SM_UNLOCK_L1_BASE"
+data "Boosts" "UnlockSpell(Target_CharmPerson_SM)"
+
+new entry "SM_UNLOCK_CHROMATICORB"
+type "StatusData"
+data "StatusType" "BOOST"
+using "SM_UNLOCK_L1_BASE"
+data "Boosts" "UnlockSpell(Projectile_ChromaticOrb_SM)"
+
+new entry "SM_UNLOCK_COLORSPRAY"
+type "StatusData"
+data "StatusType" "BOOST"
+using "SM_UNLOCK_L1_BASE"
+data "Boosts" "UnlockSpell(Zone_ColorSpray_SM)"
+
+new entry "SM_UNLOCK_DISGUISESELF"
+type "StatusData"
+data "StatusType" "BOOST"
+using "SM_UNLOCK_L1_BASE"
+data "Boosts" "UnlockSpell(Shout_DisguiseSelf_SM)"
+
+new entry "SM_UNLOCK_EXPEDITIOUSRETREAT"
+type "StatusData"
+data "StatusType" "BOOST"
+using "SM_UNLOCK_L1_BASE"
+data "Boosts" "UnlockSpell(Shout_ExpeditiousRetreat_SM)"
+
+new entry "SM_UNLOCK_FALSELIFE"
+type "StatusData"
+data "StatusType" "BOOST"
+using "SM_UNLOCK_L1_BASE"
+data "Boosts" "UnlockSpell(Shout_FalseLife_SM)"
+
+new entry "SM_UNLOCK_FEATHERFALL"
+type "StatusData"
+data "StatusType" "BOOST"
+using "SM_UNLOCK_L1_BASE"
+data "Boosts" "UnlockSpell(Shout_FeatherFall_SM)"
+
+new entry "SM_UNLOCK_FINDFAMILIAR"
+type "StatusData"
+data "StatusType" "BOOST"
+using "SM_UNLOCK_L1_BASE"
+data "Boosts" "UnlockSpell(Target_FindFamiliar_SM)"
+
+new entry "SM_UNLOCK_FOGCLOUD"
+type "StatusData"
+data "StatusType" "BOOST"
+using "SM_UNLOCK_L1_BASE"
+data "Boosts" "UnlockSpell(Target_FogCloud_SM)"
+
+new entry "SM_UNLOCK_GREASE"
+type "StatusData"
+data "StatusType" "BOOST"
+using "SM_UNLOCK_L1_BASE"
+data "Boosts" "UnlockSpell(Target_Grease_SM)"
+
+new entry "SM_UNLOCK_HIDEOUSLAUGHTER"
+type "StatusData"
+data "StatusType" "BOOST"
+using "SM_UNLOCK_L1_BASE"
+data "Boosts" "UnlockSpell(Target_HideousLaughter_SM)"
+
+new entry "SM_UNLOCK_JUMP"
+type "StatusData"
+data "StatusType" "BOOST"
+using "SM_UNLOCK_L1_BASE"
+data "Boosts" "UnlockSpell(Target_Jump_SM)"
+
+new entry "SM_UNLOCK_LONGSTRIDER"
+type "StatusData"
+data "StatusType" "BOOST"
+using "SM_UNLOCK_L1_BASE"
+data "Boosts" "UnlockSpell(Target_Longstrider_SM)"
+
+new entry "SM_UNLOCK_MAGEARMOR"
+type "StatusData"
+data "StatusType" "BOOST"
+using "SM_UNLOCK_L1_BASE"
+data "Boosts" "UnlockSpell(Target_MageArmor_SM)"
+
+new entry "SM_UNLOCK_MAGICMISSILE"
+type "StatusData"
+data "StatusType" "BOOST"
+using "SM_UNLOCK_L1_BASE"
+data "Boosts" "UnlockSpell(Projectile_MagicMissile_SM)"
+
+new entry "SM_UNLOCK_PROTECTIONFROMEVILANDGOOD"
+type "StatusData"
+data "StatusType" "BOOST"
+using "SM_UNLOCK_L1_BASE"
+data "Boosts" "UnlockSpell(Target_ProtectionFromEvilAndGood_SM)"
+
+new entry "SM_UNLOCK_RAYOFSICKNESS"
+type "StatusData"
+data "StatusType" "BOOST"
+using "SM_UNLOCK_L1_BASE"
+data "Boosts" "UnlockSpell(Projectile_RayOfSickness_SM)"
+
+new entry "SM_UNLOCK_SLEEP"
+type "StatusData"
+data "StatusType" "BOOST"
+using "SM_UNLOCK_L1_BASE"
+data "Boosts" "UnlockSpell(Target_Sleep_SM)"
+
+new entry "SM_UNLOCK_SHIELD"
+type "StatusData"
+data "StatusType" "BOOST"
+using "SM_UNLOCK_L1_BASE"
+data "Boosts" "UnlockSpell(Shout_Shield_Wizard_SM)"
+
+new entry "SM_UNLOCK_THUNDERWAVE"
+type "StatusData"
+data "StatusType" "BOOST"
+using "SM_UNLOCK_L1_BASE"
+data "Boosts" "UnlockSpell(Zone_Thunderwave_SM)"
+
+new entry "SM_UNLOCK_WITCHBOLT"
+type "StatusData"
+data "StatusType" "BOOST"
+using "SM_UNLOCK_L1_BASE"
+data "Boosts" "UnlockSpell(Projectile_WitchBolt_SM)"
+
+// ==============================================================================
+// Level 2 Spell Mastery Unlock Statuses (grant free-cast spells)
+// ==============================================================================
+
+new entry "SM_UNLOCK_ACIDARROW"
+type "StatusData"
+data "StatusType" "BOOST"
+using "SM_UNLOCK_L1_BASE"
+data "Boosts" "UnlockSpell(Projectile_AcidArrow_SM)"
+
+new entry "SM_UNLOCK_BLINDNESS"
+type "StatusData"
+data "StatusType" "BOOST"
+using "SM_UNLOCK_L1_BASE"
+data "Boosts" "UnlockSpell(Target_Blindness_SM)"
+
+new entry "SM_UNLOCK_CLOUDOFDAGGERS"
+type "StatusData"
+data "StatusType" "BOOST"
+using "SM_UNLOCK_L1_BASE"
+data "Boosts" "UnlockSpell(Target_CloudOfDaggers_SM)"
+
+new entry "SM_UNLOCK_CROWNOFMADNESS"
+type "StatusData"
+data "StatusType" "BOOST"
+using "SM_UNLOCK_L1_BASE"
+data "Boosts" "UnlockSpell(Target_CrownOfMadness_SM)"
+
+new entry "SM_UNLOCK_BLUR"
+type "StatusData"
+data "StatusType" "BOOST"
+using "SM_UNLOCK_L1_BASE"
+data "Boosts" "UnlockSpell(Shout_Blur_SM)"
+
+new entry "SM_UNLOCK_DARKNESS"
+type "StatusData"
+data "StatusType" "BOOST"
+using "SM_UNLOCK_L1_BASE"
+data "Boosts" "UnlockSpell(Target_Darkness_SM)"
+
+new entry "SM_UNLOCK_DARKVISION"
+type "StatusData"
+data "StatusType" "BOOST"
+using "SM_UNLOCK_L1_BASE"
+data "Boosts" "UnlockSpell(Target_Darkvision_SM)"
+
+new entry "SM_UNLOCK_DETECTTHOUGHTS"
+type "StatusData"
+data "StatusType" "BOOST"
+using "SM_UNLOCK_L1_BASE"
+data "Boosts" "UnlockSpell(Shout_DetectThoughts_SM)"
+
+new entry "SM_UNLOCK_ENLARGEREDUCE"
+type "StatusData"
+data "StatusType" "BOOST"
+using "SM_UNLOCK_L1_BASE"
+data "Boosts" "UnlockSpell(Target_EnlargeReduce_SM)"
+
+new entry "SM_UNLOCK_FLAMINGSPHERE"
+type "StatusData"
+data "StatusType" "BOOST"
+using "SM_UNLOCK_L1_BASE"
+data "Boosts" "UnlockSpell(Target_FlamingSphere_SM)"
+
+new entry "SM_UNLOCK_HOLDPERSON"
+type "StatusData"
+data "StatusType" "BOOST"
+using "SM_UNLOCK_L1_BASE"
+data "Boosts" "UnlockSpell(Target_HoldPerson_SM)"
+
+new entry "SM_UNLOCK_INVISIBILITY"
+type "StatusData"
+data "StatusType" "BOOST"
+using "SM_UNLOCK_L1_BASE"
+data "Boosts" "UnlockSpell(Target_Invisibility_SM)"
+
+new entry "SM_UNLOCK_MAGICWEAPON"
+type "StatusData"
+data "StatusType" "BOOST"
+using "SM_UNLOCK_L1_BASE"
+data "Boosts" "UnlockSpell(Target_MagicWeapon_SM)"
+
+new entry "SM_UNLOCK_MIRRORIMAGE"
+type "StatusData"
+data "StatusType" "BOOST"
+using "SM_UNLOCK_L1_BASE"
+data "Boosts" "UnlockSpell(Shout_MirrorImage_SM)"
+
+new entry "SM_UNLOCK_MISTYSTEP"
+type "StatusData"
+data "StatusType" "BOOST"
+using "SM_UNLOCK_L1_BASE"
+data "Boosts" "UnlockSpell(Target_MistyStep_SM)"
+
+new entry "SM_UNLOCK_PHANTASMALFORCE"
+type "StatusData"
+data "StatusType" "BOOST"
+using "SM_UNLOCK_L1_BASE"
+data "Boosts" "UnlockSpell(Target_PhantasmalForce_SM)"
+
+new entry "SM_UNLOCK_RAYOFENFEEBLEMENT"
+type "StatusData"
+data "StatusType" "BOOST"
+using "SM_UNLOCK_L1_BASE"
+data "Boosts" "UnlockSpell(Projectile_RayOfEnfeeblement_SM)"
+
+new entry "SM_UNLOCK_SCORCHINGRAY"
+type "StatusData"
+data "StatusType" "BOOST"
+using "SM_UNLOCK_L1_BASE"
+data "Boosts" "UnlockSpell(Projectile_ScorchingRay_SM)"
+
+new entry "SM_UNLOCK_SHATTER"
+type "StatusData"
+data "StatusType" "BOOST"
+using "SM_UNLOCK_L1_BASE"
+data "Boosts" "UnlockSpell(Target_Shatter_SM)"
+
+new entry "SM_UNLOCK_WEB"
+type "StatusData"
+data "StatusType" "BOOST"
+using "SM_UNLOCK_L1_BASE"
+data "Boosts" "UnlockSpell(Target_Web_SM)"
+
+// ==============================================================================
+// REGENERATE - Level 7 Spell Status Effect
+// ==============================================================================
+
+// Regenerate: Regain 1 HP at start of turn for duration
+new entry "REGENERATE_SPELL"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "hrg0001a0000000000000000000000001;1"
+data "Description" "hrg0001a0000000000000000000000003;1"
+data "DescriptionParams" "RegainHitPoints(1)"
+data "Icon" "statIcons_Regeneration"
+data "StackId" "REGENERATE_SPELL"
+data "StackType" "Overwrite"
+data "TickType" "StartTurn"
+data "TickFunctors" "IF(HasHPPercentageLessThan(100)):RegainHitPoints(1)"
+data "StatusPropertyFlags" "TickingWithSource"
+
+// ==============================================================================
+// PROJECT IMAGE - Level 7 Illusion Status
+// ==============================================================================
+new entry "PROJECT_IMAGE"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "hpji0001a000000000000000000000001;1"
+data "Description" "hpji0001a000000000000000000000003;1"
+data "Icon" "Spell_Illusion_MirrorImage"
+data "StackId" "PROJECT_IMAGE"
+data "StackType" "Overwrite"
+data "Boosts" "Advantage(Ability,Deception);Advantage(Ability,Performance)"
+data "StatusPropertyFlags" "DisableOverhead"
+
+// ==============================================================================
+// GLIBNESS - Level 8 Transmutation Status
+// ==============================================================================
+new entry "GLIBNESS"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "hglb0001a000000000000000000000001;1"
+data "Description" "hglb0001a000000000000000000000003;1"
+data "Icon" "Spell_Enchantment_CharmPerson"
+data "StackId" "GLIBNESS"
+data "StackType" "Overwrite"
+data "Boosts" "MinimumRollResult(Ability,15,Charisma)"
+data "StatusPropertyFlags" "DisableOverhead"
+
+// ==============================================================================
+// FEEBLEMIND - Level 8 Enchantment Status
+// ==============================================================================
+new entry "FEEBLEMIND"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "hfbl0001a000000000000000000000001;1"
+data "Description" "hfbl0001a000000000000000000000003;1"
+data "Icon" "Spell_Enchantment_CrownOfMadness"
+data "StackId" "FEEBLEMIND"
+data "StackType" "Overwrite"
+data "Boosts" "Ability(Intelligence,1,20);Ability(Charisma,1,20)"
+data "StatusPropertyFlags" "DisableCombatlog;DisableOverhead"
+
+// ==============================================================================
+// FORESIGHT - Level 9 Divination Status
+// ==============================================================================
+new entry "FORESIGHT"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "hfrs0001a000000000000000000000001;1"
+data "Description" "hfrs0001a000000000000000000000003;1"
+data "Icon" "Spell_Divination_TrueSeeing"
+data "StackId" "FORESIGHT"
+data "StackType" "Overwrite"
+data "Boosts" "Advantage(AllAbilities);Advantage(AllSavingThrows);Advantage(AttackRoll)"
+data "StatusPropertyFlags" "DisableOverhead"
+
+// ==============================================================================
+// TRUE POLYMORPH - Level 9 Transmutation Status (Placeholder)
+// ==============================================================================
+new entry "TRUE_POLYMORPH"
+type "StatusData"
+data "StatusType" "POLYMORPHED"
+using "YOURFALLENCOMRADE"
+data "DisplayName" "htpm0001a000000000000000000000001;1"
+data "Description" "htpm0001a000000000000000000000003;1"
+data "Icon" "Spell_Transmutation_Polymorph"
+data "StackId" "TRUE_POLYMORPH"
+data "StackType" "Overwrite"
+
+// ==================================================================================
+// LEVEL 7-9 UPCAST SUPPORT STATUS EFFECTS
+// ==================================================================================
+
+// ==============================================================================
+// AID - Level 7/8/9 Status Effects (+5 max HP per level)
+// ==============================================================================
+new entry "AID_7"
+type "StatusData"
+data "StatusType" "BOOST"
+using "AID"
+data "DescriptionParams" "30"
+data "Boosts" "IncreaseMaxHP(30)"
+data "ManagedStatusEffectType" ""
+data "ManagedStatusEffectGroup" ""
+
+new entry "AID_8"
+type "StatusData"
+data "StatusType" "BOOST"
+using "AID"
+data "DescriptionParams" "35"
+data "Boosts" "IncreaseMaxHP(35)"
+data "ManagedStatusEffectType" ""
+data "ManagedStatusEffectGroup" ""
+
+new entry "AID_9"
+type "StatusData"
+data "StatusType" "BOOST"
+using "AID"
+data "DescriptionParams" "40"
+data "Boosts" "IncreaseMaxHP(40)"
+data "ManagedStatusEffectType" ""
+data "ManagedStatusEffectGroup" ""
+
+// ==============================================================================
+// HEAT METAL - Level 7/8/9 Status Effects
+// ==============================================================================
+new entry "HEAT_METAL_7"
+type "StatusData"
+data "StatusType" "BOOST"
+using "HEAT_METAL"
+data "DescriptionParams" "DealDamage(7d8,Fire)"
+
+new entry "HEAT_METAL_8"
+type "StatusData"
+data "StatusType" "BOOST"
+using "HEAT_METAL"
+data "DescriptionParams" "DealDamage(8d8,Fire)"
+
+new entry "HEAT_METAL_9"
+type "StatusData"
+data "StatusType" "BOOST"
+using "HEAT_METAL"
+data "DescriptionParams" "DealDamage(9d8,Fire)"
+
+new entry "HEAT_METAL_TECHNICAL_7"
+type "StatusData"
+data "StatusType" "BOOST"
+using "HEAT_METAL_TECHNICAL"
+data "TickFunctors" "IF(not HasStatus('HEAT_METAL_REAPPLY')):ApplyStatus(HEAT_METAL_REAPPLY_7,100,9)"
+data "OnRemoveFunctors" "RemoveStatus(HEAT_METAL_REAPPLY_7)"
+
+new entry "HEAT_METAL_TECHNICAL_8"
+type "StatusData"
+data "StatusType" "BOOST"
+using "HEAT_METAL_TECHNICAL"
+data "TickFunctors" "IF(not HasStatus('HEAT_METAL_REAPPLY')):ApplyStatus(HEAT_METAL_REAPPLY_8,100,9)"
+data "OnRemoveFunctors" "RemoveStatus(HEAT_METAL_REAPPLY_8)"
+
+new entry "HEAT_METAL_TECHNICAL_9"
+type "StatusData"
+data "StatusType" "BOOST"
+using "HEAT_METAL_TECHNICAL"
+data "TickFunctors" "IF(not HasStatus('HEAT_METAL_REAPPLY')):ApplyStatus(HEAT_METAL_REAPPLY_9,100,9)"
+data "OnRemoveFunctors" "RemoveStatus(HEAT_METAL_REAPPLY_9)"
+
+new entry "HEAT_METAL_REAPPLY_7"
+type "StatusData"
+data "StatusType" "BOOST"
+using "HEAT_METAL_REAPPLY"
+data "Boosts" "IF(not Tagged('MEPHIT',context.Source)):UnlockSpell(Target_HeatMetal_Reapply_7);IF(Tagged('MEPHIT',context.Source)):UnlockSpell(Target_HeatMetal_Reapply_MagmaMephit)"
+
+new entry "HEAT_METAL_REAPPLY_8"
+type "StatusData"
+data "StatusType" "BOOST"
+using "HEAT_METAL_REAPPLY"
+data "Boosts" "IF(not Tagged('MEPHIT',context.Source)):UnlockSpell(Target_HeatMetal_Reapply_8);IF(Tagged('MEPHIT',context.Source)):UnlockSpell(Target_HeatMetal_Reapply_MagmaMephit)"
+
+new entry "HEAT_METAL_REAPPLY_9"
+type "StatusData"
+data "StatusType" "BOOST"
+using "HEAT_METAL_REAPPLY"
+data "Boosts" "IF(not Tagged('MEPHIT',context.Source)):UnlockSpell(Target_HeatMetal_Reapply_9);IF(Tagged('MEPHIT',context.Source)):UnlockSpell(Target_HeatMetal_Reapply_MagmaMephit)"
+
+// ==============================================================================
+// CALL LIGHTNING - Level 7/8/9 Technical Status Effects (grants lightning bolt)
+// ==============================================================================
+new entry "CALL_LIGHTNING_TECHNICAL_7"
+type "StatusData"
+data "StatusType" "BOOST"
+using "CALL_LIGHTNING_TECHNICAL"
+data "StackPriority" "7"
+data "Boosts" "UnlockSpell(Target_CallLightning_LightningBolt_7)"
+
+new entry "CALL_LIGHTNING_TECHNICAL_8"
+type "StatusData"
+data "StatusType" "BOOST"
+using "CALL_LIGHTNING_TECHNICAL"
+data "StackPriority" "8"
+data "Boosts" "UnlockSpell(Target_CallLightning_LightningBolt_8)"
+
+new entry "CALL_LIGHTNING_TECHNICAL_9"
+type "StatusData"
+data "StatusType" "BOOST"
+using "CALL_LIGHTNING_TECHNICAL"
+data "StackPriority" "9"
+data "Boosts" "UnlockSpell(Target_CallLightning_LightningBolt_9)"
+
+// ==============================================================================
+// SPIRIT GUARDIANS - Level 7/8/9 Aura Status Effects (Radiant)
+// ==============================================================================
+new entry "SPIRIT_GUARDIANS_RADIANT_AURA_7"
+type "StatusData"
+data "StatusType" "BOOST"
+using "SPIRIT_GUARDIANS_RADIANT_AURA"
+data "DescriptionParams" "DealDamage(7d8,Radiant)"
+data "AuraStatuses" "TARGET:IF(Enemy() and not (Dead() or HasStatus('KNOCKED_OUT'))):ApplyStatus(SPIRIT_GUARDIANS_RADIANT_7,100,-1)"
+data "TooltipDamage" "DealDamage(7d8,Radiant)"
+
+new entry "SPIRIT_GUARDIANS_RADIANT_AURA_8"
+type "StatusData"
+data "StatusType" "BOOST"
+using "SPIRIT_GUARDIANS_RADIANT_AURA"
+data "DescriptionParams" "DealDamage(8d8,Radiant)"
+data "AuraStatuses" "TARGET:IF(Enemy() and not (Dead() or HasStatus('KNOCKED_OUT'))):ApplyStatus(SPIRIT_GUARDIANS_RADIANT_8,100,-1)"
+data "TooltipDamage" "DealDamage(8d8,Radiant)"
+
+new entry "SPIRIT_GUARDIANS_RADIANT_AURA_9"
+type "StatusData"
+data "StatusType" "BOOST"
+using "SPIRIT_GUARDIANS_RADIANT_AURA"
+data "DescriptionParams" "DealDamage(9d8,Radiant)"
+data "AuraStatuses" "TARGET:IF(Enemy() and not (Dead() or HasStatus('KNOCKED_OUT'))):ApplyStatus(SPIRIT_GUARDIANS_RADIANT_9,100,-1)"
+data "TooltipDamage" "DealDamage(9d8,Radiant)"
+
+// ==============================================================================
+// SPIRIT GUARDIANS - Level 7/8/9 Aura Status Effects (Necrotic)
+// ==============================================================================
+new entry "SPIRIT_GUARDIANS_NECROTIC_AURA_7"
+type "StatusData"
+data "StatusType" "BOOST"
+using "SPIRIT_GUARDIANS_NECROTIC_AURA"
+data "DescriptionParams" "DealDamage(7d8,Necrotic)"
+data "AuraStatuses" "TARGET:IF(Enemy() and not (Dead() or HasStatus('KNOCKED_OUT'))):ApplyStatus(SPIRIT_GUARDIANS_NECROTIC_7,100,-1)"
+data "TooltipDamage" "DealDamage(7d8,Necrotic)"
+
+new entry "SPIRIT_GUARDIANS_NECROTIC_AURA_8"
+type "StatusData"
+data "StatusType" "BOOST"
+using "SPIRIT_GUARDIANS_NECROTIC_AURA"
+data "DescriptionParams" "DealDamage(8d8,Necrotic)"
+data "AuraStatuses" "TARGET:IF(Enemy() and not (Dead() or HasStatus('KNOCKED_OUT'))):ApplyStatus(SPIRIT_GUARDIANS_NECROTIC_8,100,-1)"
+data "TooltipDamage" "DealDamage(8d8,Necrotic)"
+
+new entry "SPIRIT_GUARDIANS_NECROTIC_AURA_9"
+type "StatusData"
+data "StatusType" "BOOST"
+using "SPIRIT_GUARDIANS_NECROTIC_AURA"
+data "DescriptionParams" "DealDamage(9d8,Necrotic)"
+data "AuraStatuses" "TARGET:IF(Enemy() and not (Dead() or HasStatus('KNOCKED_OUT'))):ApplyStatus(SPIRIT_GUARDIANS_NECROTIC_9,100,-1)"
+data "TooltipDamage" "DealDamage(9d8,Necrotic)"
+
+// ==============================================================================
+// SPIRIT GUARDIANS - Level 7/8/9 Damage Status Effects (Radiant - applied by aura)
+// ==============================================================================
+new entry "SPIRIT_GUARDIANS_RADIANT_7"
+type "StatusData"
+data "StatusType" "BOOST"
+using "SPIRIT_GUARDIANS_RADIANT"
+data "DescriptionParams" "DealDamage(7d8,Radiant)"
+data "TooltipDamage" "DealDamage(7d8,Radiant)"
+data "OnApplySuccess" "IF(not HasStatus('SPIRIT_GUARDIANS_DAMAGE_RECEIVED')):DealDamage(7d8,Radiant,Magical);IF(not HasStatus('SPIRIT_GUARDIANS_DAMAGE_RECEIVED')):ApplyStatus(SPIRIT_GUARDIANS_DAMAGE_RECEIVED,100,1)"
+data "OnApplyFail" "IF(not HasStatus('SPIRIT_GUARDIANS_DAMAGE_RECEIVED')):DealDamage(7d8/2,Radiant,Magical);IF(not HasStatus('SPIRIT_GUARDIANS_DAMAGE_RECEIVED')):ApplyStatus(SPIRIT_GUARDIANS_DAMAGE_RECEIVED,100,1)"
+data "OnTickSuccess" "IF(not HasStatus('SPIRIT_GUARDIANS_DAMAGE_RECEIVED')or StatusDurationLessThan(context.Source,'SPIRIT_GUARDIANS_DAMAGE_RECEIVED',0.1)):DealDamage(7d8,Radiant,Magical);ApplyStatus(SPIRIT_GUARDIANS_DAMAGE_RECEIVED,100,1)"
+data "OnTickFail" "IF(not HasStatus('SPIRIT_GUARDIANS_DAMAGE_RECEIVED')or StatusDurationLessThan(context.Source,'SPIRIT_GUARDIANS_DAMAGE_RECEIVED',0.1)):DealDamage(7d8/2,Radiant,Magical);ApplyStatus(SPIRIT_GUARDIANS_DAMAGE_RECEIVED,100,1)"
+
+new entry "SPIRIT_GUARDIANS_RADIANT_8"
+type "StatusData"
+data "StatusType" "BOOST"
+using "SPIRIT_GUARDIANS_RADIANT"
+data "DescriptionParams" "DealDamage(8d8,Radiant)"
+data "TooltipDamage" "DealDamage(8d8,Radiant)"
+data "OnApplySuccess" "IF(not HasStatus('SPIRIT_GUARDIANS_DAMAGE_RECEIVED')):DealDamage(8d8,Radiant,Magical);IF(not HasStatus('SPIRIT_GUARDIANS_DAMAGE_RECEIVED')):ApplyStatus(SPIRIT_GUARDIANS_DAMAGE_RECEIVED,100,1)"
+data "OnApplyFail" "IF(not HasStatus('SPIRIT_GUARDIANS_DAMAGE_RECEIVED')):DealDamage(8d8/2,Radiant,Magical);IF(not HasStatus('SPIRIT_GUARDIANS_DAMAGE_RECEIVED')):ApplyStatus(SPIRIT_GUARDIANS_DAMAGE_RECEIVED,100,1)"
+data "OnTickSuccess" "IF(not HasStatus('SPIRIT_GUARDIANS_DAMAGE_RECEIVED')or StatusDurationLessThan(context.Source,'SPIRIT_GUARDIANS_DAMAGE_RECEIVED',0.1)):DealDamage(8d8,Radiant,Magical);ApplyStatus(SPIRIT_GUARDIANS_DAMAGE_RECEIVED,100,1)"
+data "OnTickFail" "IF(not HasStatus('SPIRIT_GUARDIANS_DAMAGE_RECEIVED')or StatusDurationLessThan(context.Source,'SPIRIT_GUARDIANS_DAMAGE_RECEIVED',0.1)):DealDamage(8d8/2,Radiant,Magical);ApplyStatus(SPIRIT_GUARDIANS_DAMAGE_RECEIVED,100,1)"
+
+new entry "SPIRIT_GUARDIANS_RADIANT_9"
+type "StatusData"
+data "StatusType" "BOOST"
+using "SPIRIT_GUARDIANS_RADIANT"
+data "DescriptionParams" "DealDamage(9d8,Radiant)"
+data "TooltipDamage" "DealDamage(9d8,Radiant)"
+data "OnApplySuccess" "IF(not HasStatus('SPIRIT_GUARDIANS_DAMAGE_RECEIVED')):DealDamage(9d8,Radiant,Magical);IF(not HasStatus('SPIRIT_GUARDIANS_DAMAGE_RECEIVED')):ApplyStatus(SPIRIT_GUARDIANS_DAMAGE_RECEIVED,100,1)"
+data "OnApplyFail" "IF(not HasStatus('SPIRIT_GUARDIANS_DAMAGE_RECEIVED')):DealDamage(9d8/2,Radiant,Magical);IF(not HasStatus('SPIRIT_GUARDIANS_DAMAGE_RECEIVED')):ApplyStatus(SPIRIT_GUARDIANS_DAMAGE_RECEIVED,100,1)"
+data "OnTickSuccess" "IF(not HasStatus('SPIRIT_GUARDIANS_DAMAGE_RECEIVED')or StatusDurationLessThan(context.Source,'SPIRIT_GUARDIANS_DAMAGE_RECEIVED',0.1)):DealDamage(9d8,Radiant,Magical);ApplyStatus(SPIRIT_GUARDIANS_DAMAGE_RECEIVED,100,1)"
+data "OnTickFail" "IF(not HasStatus('SPIRIT_GUARDIANS_DAMAGE_RECEIVED')or StatusDurationLessThan(context.Source,'SPIRIT_GUARDIANS_DAMAGE_RECEIVED',0.1)):DealDamage(9d8/2,Radiant,Magical);ApplyStatus(SPIRIT_GUARDIANS_DAMAGE_RECEIVED,100,1)"
+
+// ==============================================================================
+// SPIRIT GUARDIANS - Level 7/8/9 Damage Status Effects (Necrotic - applied by aura)
+// ==============================================================================
+new entry "SPIRIT_GUARDIANS_NECROTIC_7"
+type "StatusData"
+data "StatusType" "BOOST"
+using "SPIRIT_GUARDIANS_NECROTIC"
+data "DescriptionParams" "DealDamage(7d8,Necrotic)"
+data "TooltipDamage" "DealDamage(7d8,Necrotic)"
+data "OnApplySuccess" "IF(not HasStatus('SPIRIT_GUARDIANS_DAMAGE_RECEIVED')):DealDamage(7d8,Necrotic,Magical);IF(not HasStatus('SPIRIT_GUARDIANS_DAMAGE_RECEIVED')):ApplyStatus(SPIRIT_GUARDIANS_DAMAGE_RECEIVED,100,1)"
+data "OnApplyFail" "IF(not HasStatus('SPIRIT_GUARDIANS_DAMAGE_RECEIVED')):DealDamage(7d8/2,Necrotic,Magical);IF(not HasStatus('SPIRIT_GUARDIANS_DAMAGE_RECEIVED')):ApplyStatus(SPIRIT_GUARDIANS_DAMAGE_RECEIVED,100,1)"
+data "OnTickSuccess" "IF(not HasStatus('SPIRIT_GUARDIANS_DAMAGE_RECEIVED')or StatusDurationLessThan(context.Source,'SPIRIT_GUARDIANS_DAMAGE_RECEIVED',0.1)):DealDamage(7d8,Necrotic,Magical);ApplyStatus(SPIRIT_GUARDIANS_DAMAGE_RECEIVED,100,1)"
+data "OnTickFail" "IF(not HasStatus('SPIRIT_GUARDIANS_DAMAGE_RECEIVED')or StatusDurationLessThan(context.Source,'SPIRIT_GUARDIANS_DAMAGE_RECEIVED',0.1)):DealDamage(7d8/2,Necrotic,Magical);ApplyStatus(SPIRIT_GUARDIANS_DAMAGE_RECEIVED,100,1)"
+
+new entry "SPIRIT_GUARDIANS_NECROTIC_8"
+type "StatusData"
+data "StatusType" "BOOST"
+using "SPIRIT_GUARDIANS_NECROTIC"
+data "DescriptionParams" "DealDamage(8d8,Necrotic)"
+data "TooltipDamage" "DealDamage(8d8,Necrotic)"
+data "OnApplySuccess" "IF(not HasStatus('SPIRIT_GUARDIANS_DAMAGE_RECEIVED')):DealDamage(8d8,Necrotic,Magical);IF(not HasStatus('SPIRIT_GUARDIANS_DAMAGE_RECEIVED')):ApplyStatus(SPIRIT_GUARDIANS_DAMAGE_RECEIVED,100,1)"
+data "OnApplyFail" "IF(not HasStatus('SPIRIT_GUARDIANS_DAMAGE_RECEIVED')):DealDamage(8d8/2,Necrotic,Magical);IF(not HasStatus('SPIRIT_GUARDIANS_DAMAGE_RECEIVED')):ApplyStatus(SPIRIT_GUARDIANS_DAMAGE_RECEIVED,100,1)"
+data "OnTickSuccess" "IF(not HasStatus('SPIRIT_GUARDIANS_DAMAGE_RECEIVED')or StatusDurationLessThan(context.Source,'SPIRIT_GUARDIANS_DAMAGE_RECEIVED',0.1)):DealDamage(8d8,Necrotic,Magical);ApplyStatus(SPIRIT_GUARDIANS_DAMAGE_RECEIVED,100,1)"
+data "OnTickFail" "IF(not HasStatus('SPIRIT_GUARDIANS_DAMAGE_RECEIVED')or StatusDurationLessThan(context.Source,'SPIRIT_GUARDIANS_DAMAGE_RECEIVED',0.1)):DealDamage(8d8/2,Necrotic,Magical);ApplyStatus(SPIRIT_GUARDIANS_DAMAGE_RECEIVED,100,1)"
+
+new entry "SPIRIT_GUARDIANS_NECROTIC_9"
+type "StatusData"
+data "StatusType" "BOOST"
+using "SPIRIT_GUARDIANS_NECROTIC"
+data "DescriptionParams" "DealDamage(9d8,Necrotic)"
+data "TooltipDamage" "DealDamage(9d8,Necrotic)"
+data "OnApplySuccess" "IF(not HasStatus('SPIRIT_GUARDIANS_DAMAGE_RECEIVED')):DealDamage(9d8,Necrotic,Magical);IF(not HasStatus('SPIRIT_GUARDIANS_DAMAGE_RECEIVED')):ApplyStatus(SPIRIT_GUARDIANS_DAMAGE_RECEIVED,100,1)"
+data "OnApplyFail" "IF(not HasStatus('SPIRIT_GUARDIANS_DAMAGE_RECEIVED')):DealDamage(9d8/2,Necrotic,Magical);IF(not HasStatus('SPIRIT_GUARDIANS_DAMAGE_RECEIVED')):ApplyStatus(SPIRIT_GUARDIANS_DAMAGE_RECEIVED,100,1)"
+data "OnTickSuccess" "IF(not HasStatus('SPIRIT_GUARDIANS_DAMAGE_RECEIVED')or StatusDurationLessThan(context.Source,'SPIRIT_GUARDIANS_DAMAGE_RECEIVED',0.1)):DealDamage(9d8,Necrotic,Magical);ApplyStatus(SPIRIT_GUARDIANS_DAMAGE_RECEIVED,100,1)"
+data "OnTickFail" "IF(not HasStatus('SPIRIT_GUARDIANS_DAMAGE_RECEIVED')or StatusDurationLessThan(context.Source,'SPIRIT_GUARDIANS_DAMAGE_RECEIVED',0.1)):DealDamage(9d8/2,Necrotic,Magical);ApplyStatus(SPIRIT_GUARDIANS_DAMAGE_RECEIVED,100,1)"

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<save>
+    <version major="4" minor="0" revision="9" build="319"/>
+    <region id="Outcomes">
+        <node id="root">
+            <children>
+                <!-- ==================== WILD MAGIC BARBARIAN CONTROLLED SURGE (Level 14) ==================== -->
+                <!-- 9 effects for the secondary wild magic table -->
+                
+                <!-- 1. Force Explosion - 3d6 Force + Dazed in 3m AoE -->
+                <node id="Outcome">
+                    <attribute id="GroupName" type="FixedString" value="WildMagicBarbarianControlled"/>
+                    <attribute id="Spell" type="FixedString" value="Shout_WildMagicControlled_ForceExplosion"/>
+                    <attribute id="UUID" type="guid" value="a1b2c3d4-e5f6-7890-abcd-ef1234567801"/>
+                </node>
+                
+                <!-- 2. Action Surge - Extra action -->
+                <node id="Outcome">
+                    <attribute id="GroupName" type="FixedString" value="WildMagicBarbarianControlled"/>
+                    <attribute id="Spell" type="FixedString" value="Shout_WildMagicControlled_ActionSurge"/>
+                    <attribute id="UUID" type="guid" value="a1b2c3d4-e5f6-7890-abcd-ef1234567802"/>
+                </node>
+                
+                <!-- 3. Summon 2 Mephits -->
+                <node id="Outcome">
+                    <attribute id="GroupName" type="FixedString" value="WildMagicBarbarianControlled"/>
+                    <attribute id="Spell" type="FixedString" value="Shout_WildMagicControlled_DoubleMephit"/>
+                    <attribute id="UUID" type="guid" value="a1b2c3d4-e5f6-7890-abcd-ef1234567803"/>
+                </node>
+                
+                <!-- 4. Haste on Self (5 turns) -->
+                <node id="Outcome">
+                    <attribute id="GroupName" type="FixedString" value="WildMagicBarbarianControlled"/>
+                    <attribute id="Spell" type="FixedString" value="Shout_WildMagicControlled_Haste"/>
+                    <attribute id="UUID" type="guid" value="a1b2c3d4-e5f6-7890-abcd-ef1234567804"/>
+                </node>
+                
+                <!-- 5. Darkness Shroud (moves with character, lasts through rage) -->
+                <node id="Outcome">
+                    <attribute id="GroupName" type="FixedString" value="WildMagicBarbarianControlled"/>
+                    <attribute id="Spell" type="FixedString" value="Shout_WildMagicControlled_DarknessShroud"/>
+                    <attribute id="UUID" type="guid" value="a1b2c3d4-e5f6-7890-abcd-ef1234567805"/>
+                </node>
+                
+                <!-- 6. Frozen Vortex (Ice Storm aura, 5 turns, moves with character) -->
+                <node id="Outcome">
+                    <attribute id="GroupName" type="FixedString" value="WildMagicBarbarianControlled"/>
+                    <attribute id="Spell" type="FixedString" value="Shout_WildMagicControlled_FrozenVortex"/>
+                    <attribute id="UUID" type="guid" value="a1b2c3d4-e5f6-7890-abcd-ef1234567806"/>
+                </node>
+                
+                <!-- 7. Surge of Undeath (enemies turn to zombies on death, 3 turns) -->
+                <node id="Outcome">
+                    <attribute id="GroupName" type="FixedString" value="WildMagicBarbarianControlled"/>
+                    <attribute id="Spell" type="FixedString" value="Shout_WildMagicControlled_SurgeOfUndeath"/>
+                    <attribute id="UUID" type="guid" value="a1b2c3d4-e5f6-7890-abcd-ef1234567807"/>
+                </node>
+                
+                <!-- 8. Lightning Strike (Lightning Bolt at closest enemy) -->
+                <node id="Outcome">
+                    <attribute id="GroupName" type="FixedString" value="WildMagicBarbarianControlled"/>
+                    <attribute id="Spell" type="FixedString" value="Shout_WildMagicControlled_LightningStrike"/>
+                    <attribute id="UUID" type="guid" value="a1b2c3d4-e5f6-7890-abcd-ef1234567808"/>
+                </node>
+                
+                <!-- 9. Temporal Backlash (Slow on self, 3 turns - the bad roll) -->
+                <node id="Outcome">
+                    <attribute id="GroupName" type="FixedString" value="WildMagicBarbarianControlled"/>
+                    <attribute id="Spell" type="FixedString" value="Shout_WildMagicControlled_TemporalBacklash"/>
+                    <attribute id="UUID" type="guid" value="a1b2c3d4-e5f6-7890-abcd-ef1234567809"/>
+                </node>
+            </children>
+        </node>
+    </region>
+</save>

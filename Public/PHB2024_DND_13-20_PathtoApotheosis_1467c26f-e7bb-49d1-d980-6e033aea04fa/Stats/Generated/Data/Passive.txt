@@ -3,43 +3,25 @@
 // ==================================================================================
 
 // ==============================================================================
-// UTILITY PASSIVES - Spell Slot Unlocks
+// SPELL SLOT UNLOCK PASSIVES (Required for UI to show spell slots)
 // ==============================================================================
 
-new entry "UnlockSpellSlotLevel4"
-type "PassiveData"
-data "DisplayName" "h7f8a9b0c00000000000000000000001"
-data "Description" "h7f8a9b0d00000000000000000000002"
-data "Icon" "PassiveFeature_Generic_Magical"
-data "Properties" "IsHidden"
+// These passives tell the game to display higher-level spell slots in the UI
+// Without them, the ActionResource grants the slots but they won't be visible
+// Note: Level 9 uses a custom ActionResource (NinthLevelSpellSlot) instead
 
-new entry "UnlockSpellSlotLevel5"
+new entry "UnlockedSpellSlotLevel7"
 type "PassiveData"
-data "DisplayName" "h8a9b0c1d00000000000000000000003"
-data "Description" "h8a9b0c1e00000000000000000000004"
-data "Icon" "PassiveFeature_Generic_Magical"
-data "Properties" "IsHidden"
+using "UnlockedSpellSlotLevel1"
+data "DisplayName" "h7777777777777777777777777777001;1"
 
-new entry "UnlockSpellSlotLevel7"
+new entry "UnlockedSpellSlotLevel8"
 type "PassiveData"
-data "DisplayName" "h9b0c1d2e00000000000000000000005"
-data "Description" "h9b0c1d2f00000000000000000000006"
-data "Icon" "PassiveFeature_Generic_Magical"
-data "Properties" "IsHidden"
+using "UnlockedSpellSlotLevel1"
+data "DisplayName" "h8888888888888888888888888888001;1"
 
-new entry "UnlockSpellSlotLevel8"
-type "PassiveData"
-data "DisplayName" "ha0c1d2e300000000000000000000007"
-data "Description" "ha0c1d2e400000000000000000000008"
-data "Icon" "PassiveFeature_Generic_Magical"
-data "Properties" "IsHidden"
-
-new entry "UnlockSpellSlotLevel9"
-type "PassiveData"
-data "DisplayName" "hb1d2e3f400000000000000000000009"
-data "Description" "hb1d2e3f50000000000000000000000a"
-data "Icon" "PassiveFeature_Generic_Magical"
-data "Properties" "IsHidden"
+// Level 9 spell slots use a custom ActionResource (NinthLevelSpellSlot)
+// which displays in the UI without needing an unlock passive
 
 // ==============================================================================
 // FIGHTER - Base Class Passives (Levels 13-20)
@@ -64,6 +46,7 @@ data "Boosts" "ExtraAttack(3)"
 // BARBARIAN - Base Class Passives (Levels 13-20)
 // ==============================================================================
 
+// Level 13: Improved Brutal Strike - Adds Staggering Blow and Sundering Blow options
 new entry "Barbarian_BrutalStrike_Improved"
 type "PassiveData"
 data "DisplayName" "he4a5b6c70000000000000000000000f"
@@ -75,6 +58,7 @@ new entry "Barbarian_PersistentRage"
 type "PassiveData"
 using "PersistentRage"
 
+// Level 17: Improved Brutal Strike - 2d10 damage and two effects at once
 new entry "Barbarian_BrutalStrike_17"
 type "PassiveData"
 data "DisplayName" "hf5b6c7d800000000000000000000011"
@@ -82,20 +66,24 @@ data "Description" "hf5b6c7d900000000000000000000012"
 data "Icon" "PassiveFeature_BrutalCritical"
 data "Properties" "Highlighted"
 
+// Level 18: Indomitable Might - Strength checks/saves can't be lower than Strength score
+// Note: Uses minimum of 20 as approximation since dynamic Strength score reference isn't supported
+// For Strength saves and Athletics checks (most common Strength-based check)
 new entry "Barbarian_IndomitableMight"
 type "PassiveData"
 data "DisplayName" "ha6c7d8e900000000000000000000013"
 data "Description" "ha6c7d8ea00000000000000000000014"
 data "Icon" "PassiveFeature_RelentlessRage"
 data "Properties" "Highlighted"
+data "Boosts" "IF(HasSavingThrowWithAbility(Ability.Strength)):MinimumRollResult(SavingThrow,24);IF(IsSkill(Skill.Athletics)):MinimumRollResult(SkillCheck,24)"
 
 new entry "Barbarian_PrimalChampion"
 type "PassiveData"
 data "DisplayName" "hb7d8e9f000000000000000000000015"
 data "Description" "hb7d8e9f100000000000000000000016"
 data "Icon" "PassiveFeature_PrimalChampion"
-data "Properties" "Highlighted"
-data "Boosts" "Ability(Strength,4,25);Ability(Constitution,4,25)"
+data "Properties" "Highlighted;ForceShowInCC"
+data "Boosts" "Ability(Strength, 4, 24);Ability(Constitution, 4, 24)"
 
 // ==============================================================================
 // MONK - Base Class Passives (Levels 13-20)
@@ -216,12 +204,20 @@ data "Properties" "Highlighted"
 // WIZARD - Base Class Passives (Levels 13-20)
 // ==============================================================================
 
-new entry "Wizard_SpellMastery"
+// SpellMastery (Level 18): Override dnd2024 implementation with proper PHB 2024 version
+// Choose a L1 and L2 spell that you can cast at will. Can change on Long Rest.
+new entry "SpellMastery"
 type "PassiveData"
-data "DisplayName" "hd1f2a3b400000000000000000000031"
-data "Description" "hd1f2a3b500000000000000000000032"
-data "Icon" "PassiveFeature_ArcaneTradition"
-data "Properties" "Highlighted"
+data "DisplayName" "hsm0004a0000000000000000000000001;1"
+data "Description" "hsm0004a0000000000000000000000002;1"
+data "Icon" "PassiveFeature_MagicInitiateWizard"
+data "Properties" "Highlighted;ForceShowInCC"
+data "BoostContext" "OnCreate"
+data "BoostConditions" "not HasStatus('SPELL_MASTERY_BLOCK',context.Source)"
+data "Boosts" "IF(not HasStatus('SPELL_MASTERY_BLOCK',context.Source)):UnlockSpell(Shout_SpellMastery);UnlockSpellVariant(SpellId('Shout_SpellMastery'),ModifyIconGlow())"
+data "StatsFunctorContext" "OnCast;OnLongRest"
+data "Conditions" "SpellId('Shout_SpellMastery') or IsLongRestSpell()"
+data "StatsFunctors" "IF(not HasActionResource('LearnSpellMasteryL1', 1, 0, false) and not HasActionResource('LearnSpellMasteryL2', 1, 0, false)):ApplyStatus(SELF,SPELL_MASTERY_BLOCK,100,-1);IF(not HasActionResource('LearnSpellMasteryL1', 1, 0, false) and not HasActionResource('LearnSpellMasteryL2', 1, 0, false)):RemoveStatus(SELF,SPELL_MASTERY_SELECTION);IF(IsLongRestSpell()):RemoveStatus(SELF,SPELL_MASTERY_BLOCK);IF(IsLongRestSpell()):RemoveStatus(SELF,SM_UNLOCK_BURNINGHANDS);IF(IsLongRestSpell()):RemoveStatus(SELF,SM_UNLOCK_CHARMPERSON);IF(IsLongRestSpell()):RemoveStatus(SELF,SM_UNLOCK_CHROMATICORB);IF(IsLongRestSpell()):RemoveStatus(SELF,SM_UNLOCK_COLORSPRAY);IF(IsLongRestSpell()):RemoveStatus(SELF,SM_UNLOCK_DISGUISESELF);IF(IsLongRestSpell()):RemoveStatus(SELF,SM_UNLOCK_EXPEDITIOUSRETREAT);IF(IsLongRestSpell()):RemoveStatus(SELF,SM_UNLOCK_FALSELIFE);IF(IsLongRestSpell()):RemoveStatus(SELF,SM_UNLOCK_FEATHERFALL);IF(IsLongRestSpell()):RemoveStatus(SELF,SM_UNLOCK_FINDFAMILIAR);IF(IsLongRestSpell()):RemoveStatus(SELF,SM_UNLOCK_FOGCLOUD);IF(IsLongRestSpell()):RemoveStatus(SELF,SM_UNLOCK_GREASE);IF(IsLongRestSpell()):RemoveStatus(SELF,SM_UNLOCK_HIDEOUSLAUGHTER);IF(IsLongRestSpell()):RemoveStatus(SELF,SM_UNLOCK_JUMP);IF(IsLongRestSpell()):RemoveStatus(SELF,SM_UNLOCK_LONGSTRIDER);IF(IsLongRestSpell()):RemoveStatus(SELF,SM_UNLOCK_MAGEARMOR);IF(IsLongRestSpell()):RemoveStatus(SELF,SM_UNLOCK_MAGICMISSILE);IF(IsLongRestSpell()):RemoveStatus(SELF,SM_UNLOCK_PROTECTIONFROMEVILANDGOOD);IF(IsLongRestSpell()):RemoveStatus(SELF,SM_UNLOCK_RAYOFSICKNESS);IF(IsLongRestSpell()):RemoveStatus(SELF,SM_UNLOCK_SLEEP);IF(IsLongRestSpell()):RemoveStatus(SELF,SM_UNLOCK_SHIELD);IF(IsLongRestSpell()):RemoveStatus(SELF,SM_UNLOCK_THUNDERWAVE);IF(IsLongRestSpell()):RemoveStatus(SELF,SM_UNLOCK_WITCHBOLT);IF(IsLongRestSpell()):RemoveStatus(SELF,SM_UNLOCK_ACIDARROW);IF(IsLongRestSpell()):RemoveStatus(SELF,SM_UNLOCK_BLINDNESS);IF(IsLongRestSpell()):RemoveStatus(SELF,SM_UNLOCK_CLOUDOFDAGGERS);IF(IsLongRestSpell()):RemoveStatus(SELF,SM_UNLOCK_CROWNOFMADNESS);IF(IsLongRestSpell()):RemoveStatus(SELF,SM_UNLOCK_BLUR);IF(IsLongRestSpell()):RemoveStatus(SELF,SM_UNLOCK_DARKNESS);IF(IsLongRestSpell()):RemoveStatus(SELF,SM_UNLOCK_DARKVISION);IF(IsLongRestSpell()):RemoveStatus(SELF,SM_UNLOCK_DETECTTHOUGHTS);IF(IsLongRestSpell()):RemoveStatus(SELF,SM_UNLOCK_ENLARGEREDUCE);IF(IsLongRestSpell()):RemoveStatus(SELF,SM_UNLOCK_FLAMINGSPHERE);IF(IsLongRestSpell()):RemoveStatus(SELF,SM_UNLOCK_HOLDPERSON);IF(IsLongRestSpell()):RemoveStatus(SELF,SM_UNLOCK_INVISIBILITY);IF(IsLongRestSpell()):RemoveStatus(SELF,SM_UNLOCK_MAGICWEAPON);IF(IsLongRestSpell()):RemoveStatus(SELF,SM_UNLOCK_MIRRORIMAGE);IF(IsLongRestSpell()):RemoveStatus(SELF,SM_UNLOCK_MISTYSTEP);IF(IsLongRestSpell()):RemoveStatus(SELF,SM_UNLOCK_PHANTASMALFORCE);IF(IsLongRestSpell()):RemoveStatus(SELF,SM_UNLOCK_RAYOFENFEEBLEMENT);IF(IsLongRestSpell()):RemoveStatus(SELF,SM_UNLOCK_SCORCHINGRAY);IF(IsLongRestSpell()):RemoveStatus(SELF,SM_UNLOCK_SHATTER);IF(IsLongRestSpell()):RemoveStatus(SELF,SM_UNLOCK_WEB)"
 
 new entry "Wizard_SignatureSpells"
 type "PassiveData"
@@ -277,17 +273,27 @@ data "Properties" "Highlighted"
 // BARD - Base Class Passives (Levels 13-20)
 // ==============================================================================
 
+// Superior Inspiration (PHB 2024 - Bard Level 18)
+// If you have no uses of Bardic Inspiration when you roll initiative, you regain one use.
 new entry "Bard_SuperiorInspiration"
 type "PassiveData"
 data "DisplayName" "hc6e7f8a90000000000000000000003b"
 data "Description" "hc6e7f8aa0000000000000000000003c"
 data "Icon" "PassiveFeature_BardicInspiration"
 data "Properties" "Highlighted"
+data "StatsFunctorContext" "OnCombatStarted"
+data "StatsFunctors" "IF(not HasActionResource('BardicInspiration', 1, 0, false)):RestoreResource(BardicInspiration,1,0)"
 
+// Words of Creation (Bard Level 20)
+// You have mastered the Words of Creation - primal sounds that shaped reality.
+// Your Power Word spells become more potent:
+// - Power Word Kill: Threshold raised to 150 HP
+// - Power Word Heal: Also heals up to 6 allies within 30 ft for HP = their level
 new entry "Bard_WordsOfCreation"
 type "PassiveData"
 data "DisplayName" "hd7f8a9b00000000000000000000003d"
 data "Description" "hd7f8a9b10000000000000000000003e"
+data "Boosts" "UnlockSpell(Target_PowerWordKill_WordsOfCreation);UnlockSpell(Target_PowerWordHeal_WordsOfCreation)"
 data "Icon" "PassiveFeature_BardicInspiration"
 data "Properties" "Highlighted"
 
@@ -1067,9 +1073,110 @@ data "Properties" "Highlighted"
 
 new entry "Berserker_14_IntimidatingPresence"
 type "PassiveData"
-data "DisplayName" "hb5e2a1c3g8d7fg4e2bgb1a9g3c7f8e9d0a1b2;1"
-data "Description" "h9a8b7c6gd5e4gf3a2g1b0cg2d3e4f5a6b7c8;1"
+data "DisplayName" "hb5e2a1c3g8d7f4e2gbba19g3c7f8e9d0a1b2;1"
+data "Description" "h9a8b7c6dgd5e4gf3a2g1b0c2gd3e4f5a6b7c8;1"
 data "Icon" "PassiveFeature_Menacing"
 data "Properties" "IsToggled;ToggledDefaultAddToHotbar"
 data "Boosts" "UnlockSpell(Target_IntimidatingPresence)"
+
+
+// ==================== WILD HEART (TOTEM WARRIOR) SUBCLASS ====================
+
+// Wild Heart Level 14: Power of the Wilds - Falcon
+// Fly Speed equal to Speed while Rage is active (no armor)
+new entry "WildHeart_14_Falcon"
+type "PassiveData"
+data "DisplayName" "he3f4g5h6g7a8b9c0gd1e2f3ga4b5c6d7e8f9;1"
+data "Description" "hf4g5h6i7g8a9b0c1gd2e3f4ga5b6c7d8e9f0;1"
+data "Icon" "PassiveFeature_Aspect_Eagle"
+data "Properties" "Highlighted;OncePerTurn"
+data "StatsFunctorContext" "OnCast"
+data "Conditions" "SpellId('Shout_Rage') and not HasArmor('Light') and not HasArmor('Medium') and not HasArmor('Heavy')"
+data "StatsFunctors" "ApplyStatus(SELF,WILDHEART_FALCON_FLIGHT,100,-1)"
+
+
+// Wild Heart Level 14: Power of the Wilds - Lion
+// Enemies within 5ft have Disadvantage on attacks against others
+new entry "WildHeart_14_Lion"
+type "PassiveData"
+data "DisplayName" "hg5h6i7j8g9a0b1c2gd3e4f5ga6b7c8d9e0f1;1"
+data "Description" "hh6i7j8k9g0a1b2c3gd4e5f6ga7b8c9d0e1f2;1"
+data "Icon" "PassiveFeature_Aspect_Elk"
+data "Properties" "Highlighted;OncePerTurn"
+data "StatsFunctorContext" "OnCast"
+data "Conditions" "SpellId('Shout_Rage')"
+data "StatsFunctors" "ApplyStatus(SELF,WILDHEART_LION_PRESENCE,100,-1)"
+
+
+// Wild Heart Level 14: Power of the Wilds - Ram
+// Prone on melee hit vs Large or smaller while Rage active
+new entry "WildHeart_14_Ram"
+type "PassiveData"
+data "DisplayName" "hi7j8k9l0g1a2b3c4gd5e6f7ga8b9c0d1e2f3;1"
+data "Description" "hj8k9l0m1g2a3b4c5gd6e7f8ga9b0c1d2e3f4;1"
+data "Icon" "PassiveFeature_Aspect_Wolf"
+data "Properties" "Highlighted"
+data "StatsFunctorContext" "OnAttack"
+data "Conditions" "HasStatus('SG_Rage',context.Source) and not Item() and TargetSizeEqualOrSmaller(Size.Large) and IsMeleeWeaponAttack() and not IsMiss()"
+data "StatsFunctors" "ApplyStatus(PRONE,100,1)"
+
+
+// ==================== WORLD TREE SUBCLASS ====================
+
+// World Tree Level 14: Travel along the Tree
+// Teleport 60ft on Rage activation or as Bonus Action
+new entry "WorldTree_14_TravelAlongTheTree"
+type "PassiveData"
+data "DisplayName" "hk9l0m1n2g3a4b5c6gd7e8f9ga0b1c2d3e4f5;1"
+data "Description" "hl0m1n2o3g4a5b6c7gd8e9f0ga1b2c3d4e5f6;1"
+data "Icon" "Spell_Conjuration_DimensionDoor"
+data "Properties" "Highlighted"
+data "Boosts" "UnlockSpell(Target_TravelAlongTheTree)"
+data "StatsFunctorContext" "OnCast"
+data "Conditions" "SpellId('Shout_Rage')"
+data "StatsFunctors" "ApplyStatus(SELF,WORLDTREE_TRAVEL_READY,100,-1)"
+
+
+// ==================== ZEALOT SUBCLASS ====================
+
+// Zealot Level 14: Rage of the Gods
+// Divine warrior form: Flight, Resistances, Revivification reaction
+new entry "Zealot_14_RageOfTheGods"
+type "PassiveData"
+data "DisplayName" "hm1n2o3p4g5a6b7c8gd9e0f1ga2b3c4d5e6f7;1"
+data "Description" "hn2o3p4q5g6a7b8c9gd0e1f2ga3b4c5d6e7f8;1"
+data "Icon" "Action_Paladin_DivineSense"
+data "Properties" "Highlighted"
+data "Boosts" "UnlockSpell(Shout_RageOfTheGods)"
+
+
+// ==================== WILD MAGIC PATH SUBCLASS ====================
+
+// Wild Magic Path Level 14: Controlled Surge
+// Triggers a second wild magic effect from the enhanced table when raging
+new entry "WildMagic_14_ControlledSurge"
+type "PassiveData"
+data "DisplayName" "hcc11111111111111111111111111d001;1"
+data "Description" "hcc11111111111111111111111111d002;1"
+data "Icon" "PassiveFeature_WildMagicRage"
+data "Properties" "Highlighted"
+data "StatsFunctorContext" "OnCast"
+data "Conditions" "SpellId('Shout_Rage_WildMagic')"
+data "StatsFunctors" "TriggerRandomCast(1,0,WildMagicBarbarianControlled)"
+
+
+// Wild Magic Darkness Shroud: Apply Heavily Obscured via passive (linked to status)
+new entry "WildMagic_DarknessShroud_Passive"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "Boosts" "ObjectSize(Medium)"
+
+
+// Wild Magic Surge of Undeath: Spawn zombie on death
+new entry "WildMagic_SurgeOfUndeath_Passive"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "StatsFunctorContext" "OnDeath"
+data "StatsFunctors" "Spawn(c2a2c269-ede8-4887-99f1-e0c044cc0c75)"
+
 

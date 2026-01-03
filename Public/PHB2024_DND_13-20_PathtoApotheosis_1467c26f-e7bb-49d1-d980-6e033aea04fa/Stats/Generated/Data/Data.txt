@@ -1,1 +1,9 @@
 key "MaximumXPCap","170000"
+
+key "AbilitySoftCap","99"
+
+key "GMCharacterAbilityCap","99"
+
+key "GMItemAbilityCap","99"
+
+key "AbilityMaxValue","99"

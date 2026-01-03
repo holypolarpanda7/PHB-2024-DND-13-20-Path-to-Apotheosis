@@ -1,0 +1,1720 @@
+// ==================================================================================
+// PHB 2024 DND 13-20: Path to Apotheosis - Level 9 Spell Overrides
+// ==================================================================================
+// These spells use the built-in level 9 spell slot system.
+// Note: Level 9 slots don't show in the UI but function correctly.
+
+// ==============================================================================
+// Level 9 Spells
+// ==============================================================================
+
+// Power Word Kill (PHB 2024)
+// 9th-level Enchantment - Bard, Sorcerer, Warlock, Wizard
+// Instantly kill a creature with 100 HP or fewer - no save
+new entry "Target_PowerWordKill"
+type "SpellData"
+data "SpellType" "Target"
+data "Level" "9"
+data "SpellSchool" "Enchantment"
+data "SpellProperties" "IF(HasHPLessThan(101)):Kill()"
+data "TargetRadius" "18"
+data "TargetConditions" "Character() and not Dead() and not Self()"
+data "Icon" "Spell_Enchantment_PowerWordKill"
+data "DisplayName" "hpwk00000000000000000000000000001;1"
+data "Description" "hpwk00000000000000000000000000002;1"
+data "PrepareSound" "Spell_Prepare_Damage_Necrotic_Gen_L7to9"
+data "PrepareLoopSound" "Spell_Prepare_Damage_Necrotic_Gen_L7to9_Loop"
+data "CastSound" "Spell_Cast_Damage_Necrotic_FingerOfDeath_L7to9"
+data "TargetSound" "Spell_Impact_Damage_Necrotic_FingerOfDeath_L7to9"
+data "VocalComponentSound" "Vocal_Component_KillThisOne"
+data "CastTextEvent" "Cast"
+data "CycleConditions" "Enemy() and not Dead()"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:9"
+data "SpellAnimation" "554a18f7-952e-494a-b301-7702a85d4bc9,,;,,;e334be54-dd63-4bab-8009-de0f9ced73ce,12afdff1-6b1b-430a-9161-63ae25be4c32,76073f60-94ba-411a-b3fb-688f75772bfa;ed314891-666b-4e97-84a4-15353a3d999a,,;22dfbbf4-f417-4c84-b39e-2039315961e6,,;,,;5bfbe9f9-4fc3-4f26-b112-43d404db6a89,,;,,;,,"
+data "VerbalIntent" "Damage"
+data "SpellFlags" "HasVerbalComponent;IsSpell;HasHighGroundRangeExtension;IsHarmful"
+data "HitAnimationType" "MagicalDamage_Internal"
+data "MemoryCost" "1"
+data "PrepareEffect" "2fa6b127-6f8a-4150-8be6-6f62b7a85911"
+data "CastEffect" "b45f81f3-389f-4404-a0a0-c66a586229c0"
+data "TargetEffect" "4b5dc428-d623-4203-a7f0-a86c47bf9aa8"
+
+// Power Word Heal (PHB 2024)
+// 9th-level Enchantment - Bard, Cleric
+// Restore creature to full HP, cure conditions, end charmed/frightened/paralyzed/stunned
+new entry "Target_PowerWordHeal"
+type "SpellData"
+data "SpellType" "Target"
+data "Level" "9"
+data "SpellSchool" "Enchantment"
+data "SpellProperties" "RegainHitPoints(MaxHP);RemoveStatus(SG_Blinded);RemoveStatus(SG_Charmed);RemoveStatus(SG_Disease);RemoveStatus(SG_Frightened);RemoveStatus(SG_Paralyzed);RemoveStatus(SG_Stunned);RemoveStatus(SG_Prone)"
+data "TargetRadius" "18"
+data "TargetConditions" "Character() and not Dead()"
+data "Icon" "Spell_Evocation_Heal"
+data "DisplayName" "hpwh00000000000000000000000000001;1"
+data "Description" "hpwh00000000000000000000000000002;1"
+data "TooltipDamageList" "RegainHitPoints(MaxHP)"
+data "PrepareSound" "Spell_Prepare_Buff_Gen_L9"
+data "PrepareLoopSound" "Spell_Prepare_Buff_Gen_L9_Loop"
+data "CastSound" "Spell_Cast_Buff_MageArmor_L1to3"
+data "TargetSound" "Spell_Impact_Buff_Bless_L1to3"
+data "CastTextEvent" "Cast"
+data "CycleConditions" "Ally() and not Dead()"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:9"
+data "SpellAnimation" "03496c4a-49e0-4132-b585-3e5ecd1ad8e5,,;,,;5e7e63e1-0e69-46e7-ade7-fe3dadcc9184,5e7e63e1-0e69-46e7-ade7-fe3dadcc9184,5e7e63e1-0e69-46e7-ade7-fe3dadcc9184;e9ad50df-e7f1-43a0-b782-4c08f92b0f5a,,;a9682ef9-5d9e-4ac0-8144-2c7fe6eb868c,,;,,;32fb4d91-7fde-4b05-9144-ea87b9a4284a,,;,,;,,"
+data "VerbalIntent" "Healing"
+data "SpellFlags" "HasVerbalComponent;IsSpell;IsMelee"
+data "HitAnimationType" "MagicalNonDamage"
+data "MemoryCost" "1"
+data "PrepareEffect" "d39761b2-330d-455b-9225-b54dedc8c1c6"
+data "CastEffect" "0a0b5aa5-a6d0-464d-8fa1-20a1c48530f2"
+data "TargetEffect" "4df0bae6-fccf-48a0-804c-3edc40264d07"
+
+// ==============================================================================
+// WORDS OF CREATION - Enhanced Power Words (Bard Level 20)
+// When you cast either spell, you can target a second creature within 10 feet
+// ==============================================================================
+
+// Power Word Kill - Words of Creation (PHB 2024)
+// Affects target and all valid creatures within 10 feet of the target
+// RootSpellID links this to the base spell so it shares spell slots
+new entry "Target_PowerWordKill_WordsOfCreation"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_PowerWordKill"
+data "RootSpellID" "Target_PowerWordKill"
+data "SpellContainerID" "Target_PowerWordKill"
+data "AreaRadius" "3"
+data "DisplayName" "hpwk00000000000000000000000000003;1"
+data "Description" "hpwk00000000000000000000000000004;1"
+
+// Power Word Heal - Words of Creation (PHB 2024)
+// Affects target and all valid creatures within 10 feet of the target
+// RootSpellID links this to the base spell so it shares spell slots
+new entry "Target_PowerWordHeal_WordsOfCreation"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_PowerWordHeal"
+data "RootSpellID" "Target_PowerWordHeal"
+data "SpellContainerID" "Target_PowerWordHeal"
+data "AreaRadius" "3"
+data "DisplayName" "hpwh00000000000000000000000000003;1"
+data "Description" "hpwh00000000000000000000000000004;1"
+
+// ==============================================================================
+// REGENERATE - Level 7 Transmutation (PHB 2024)
+// ==============================================================================
+// Target regains 4d8 + 15 HP immediately, then 1 HP at start of each turn
+// for the duration (1 hour). Severed limbs regrow after 2 minutes.
+// Note: Limb regrowth not implementable in BG3
+// Available to: Bard, Cleric, Druid
+
+new entry "Target_Regenerate"
+type "SpellData"
+data "SpellType" "Target"
+data "Level" "7"
+data "SpellSchool" "Transmutation"
+data "SpellProperties" "RegainHitPoints(4d8+15);ApplyStatus(REGENERATE_SPELL,100,600)"
+data "TargetRadius" "1.5"
+data "TargetConditions" "Character() and not Dead() and not Tagged('UNDEAD') and not Tagged('CONSTRUCT')"
+data "Icon" "Spell_Transmutation_Regenerate"
+data "DisplayName" "hrg0001a0000000000000000000000001;1"
+data "Description" "hrg0001a0000000000000000000000002;1"
+data "DescriptionParams" "RegainHitPoints(4d8+15);RegainHitPoints(1)"
+data "TooltipDamageList" "RegainHitPoints(4d8+15)"
+data "TooltipStatusApply" "ApplyStatus(REGENERATE_SPELL,100,600)"
+data "TooltipPermanentWarnings" "662e013d-e5cb-4669-9a4b-771636b24aa2"
+data "CastSound" "Spell_Cast_Healing_Heal_L6to8"
+data "TargetSound" "Spell_Impact_Healing_Heal_L6to8"
+data "CastTextEvent" "Cast"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:7"
+data "SpellAnimation" "414bbf02-2918-4f01-83fb-1ddc7a588d88,,;,,;8252328a-66dd-4dc0-bbe0-00eea3204922,,;982d842b-5d44-4ef6-ab33-14d5ae514a50,,;0c5dcc83-fa78-41da-b6a5-440b5ea30936,,;,,;bea988a0-2ec5-40d8-a67e-ffbd7454bc53,,;bcc3b0d9-f04f-4448-aab0-e0ad641167cc,,;bf924cc6-8b39-4c3b-b1c0-eda264cf6150,,"
+data "VerbalIntent" "Healing"
+data "SpellFlags" "HasVerbalComponent;HasSomaticComponent;HasMaterialComponent;IsSpell;IsMelee"
+data "HitAnimationType" "MagicalNonDamage"
+data "MemoryCost" "1"
+data "PrepareEffect" "96a51ac8-2e7e-4718-bb62-dcfd18964a02"
+data "CastEffect" "d80fd679-8993-4a19-b732-29c7d03dd5ff"
+data "TargetEffect" "c169922f-8636-46ce-aa1a-4c86a6cc7d08"
+
+// ==============================================================================
+// RESURRECTION - Level 7 Necromancy (PHB 2024)
+// ==============================================================================
+// Return a dead creature to life with 1 HP if it died within the last century
+// Available to: Bard, Cleric, Druid
+
+new entry "Target_Resurrection"
+type "SpellData"
+data "SpellType" "Target"
+data "Level" "7"
+data "SpellSchool" "Necromancy"
+data "SpellProperties" "Resurrect(1)"
+data "TargetRadius" "1.5"
+data "TargetConditions" "Dead() and not Tagged('YOURFACTION') and not Tagged('YOURFACTION')"
+data "Icon" "Spell_Necromancy_Revivify"
+data "DisplayName" "hres0001a000000000000000000000001;1"
+data "Description" "hres0001a000000000000000000000002;1"
+data "TooltipDamageList" "RegainHitPoints(1)"
+data "CastSound" "Spell_Cast_Healing_Heal_L6to8"
+data "TargetSound" "Spell_Impact_Healing_Revivify_L1to3"
+data "CastTextEvent" "Cast"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:7"
+data "SpellAnimation" "414bbf02-2918-4f01-83fb-1ddc7a588d88,,;,,;8252328a-66dd-4dc0-bbe0-00eea3204922,,;982d842b-5d44-4ef6-ab33-14d5ae514a50,,;0c5dcc83-fa78-41da-b6a5-440b5ea30936,,;,,;bea988a0-2ec5-40d8-a67e-ffbd7454bc53,,;bcc3b0d9-f04f-4448-aab0-e0ad641167cc,,;bf924cc6-8b39-4c3b-b1c0-eda264cf6150,,"
+data "VerbalIntent" "Healing"
+data "SpellFlags" "HasVerbalComponent;HasSomaticComponent;HasMaterialComponent;IsSpell;IsMelee"
+data "HitAnimationType" "MagicalNonDamage"
+data "MemoryCost" "1"
+
+// ==============================================================================
+// PROJECT IMAGE - Level 7 Illusion (PHB 2024)
+// ==============================================================================
+// Create an illusory copy of yourself. Concentration, up to 1 day.
+// Available to: Bard, Wizard
+
+new entry "Target_ProjectImage"
+type "SpellData"
+data "SpellType" "Target"
+data "Level" "7"
+data "SpellSchool" "Illusion"
+data "SpellProperties" "ApplyStatus(PROJECT_IMAGE,100,100)"
+data "TargetRadius" "150"
+data "TargetConditions" "not Dead()"
+data "Icon" "Spell_Illusion_MirrorImage"
+data "DisplayName" "hpji0001a000000000000000000000001;1"
+data "Description" "hpji0001a000000000000000000000002;1"
+data "CastSound" "Spell_Cast_Illusion_MirrorImage_L1to3"
+data "CastTextEvent" "Cast"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:7"
+data "SpellAnimation" "dd86aa43-8189-4d9f-9a5c-454b5fe4a197,,;,,;8252328a-66dd-4dc0-bbe0-00eea3204922,,;982d842b-5d44-4ef6-ab33-14d5ae514a50,,;,,;,,;0b07883a-08b8-43b6-ac18-84dc9e8cd6a4,,;,,;,,"
+data "VerbalIntent" "Utility"
+data "SpellFlags" "HasVerbalComponent;HasSomaticComponent;HasMaterialComponent;IsSpell;IsConcentration"
+data "MemoryCost" "1"
+data "ConcentrationSpellID" "Target_ProjectImage"
+
+// ==============================================================================
+// POWER WORD STUN - Level 8 Enchantment (PHB 2024)
+// ==============================================================================
+// Stun a creature with 150 HP or fewer - no save
+// Available to: Bard, Sorcerer, Warlock, Wizard
+
+new entry "Shout_PowerWordStun"
+type "SpellData"
+data "SpellType" "Shout"
+data "Level" "8"
+data "SpellSchool" "Enchantment"
+data "SpellProperties" "IF(HasHPLessThan(151)):ApplyStatus(STUNNED,100,10)"
+data "TargetRadius" "18"
+data "TargetConditions" "Character() and not Dead() and not Self()"
+data "Icon" "Spell_Enchantment_PowerWordKill"
+data "DisplayName" "hpws0001a000000000000000000000001;1"
+data "Description" "hpws0001a000000000000000000000002;1"
+data "DescriptionParams" "150"
+data "TooltipStatusApply" "ApplyStatus(STUNNED,100,10)"
+data "CastSound" "Spell_Cast_Control_PowerWordKill_L9"
+data "TargetSound" "Spell_Impact_Control_PowerWordKill_L9"
+data "CastTextEvent" "Cast"
+data "CycleConditions" "Enemy() and not Dead()"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:8"
+data "SpellAnimation" "554a18f7-952e-494a-b301-7702a85d4bc9,,;,,;e334be54-dd63-4bab-8009-de0f9ced73ce,12afdff1-6b1b-430a-9161-63ae25be4c32,76073f60-94ba-411a-b3fb-688f75772bfa;ed314891-666b-4e97-84a4-15353a3d999a,,;22dfbbf4-f417-4c84-b39e-2039315961e6,,;,,;5bfbe9f9-4fc3-4f26-b112-43d404db6a89,,;,,;,,"
+data "VerbalIntent" "Control"
+data "SpellFlags" "HasVerbalComponent;IsSpell;HasHighGroundRangeExtension;IsHarmful"
+data "HitAnimationType" "MagicalDamage_Internal"
+data "MemoryCost" "1"
+
+// ==============================================================================
+// GLIBNESS - Level 8 Transmutation (PHB 2024)
+// ==============================================================================
+// For 1 hour, you can replace any Charisma check roll with a 15
+// Available to: Bard, Warlock
+
+new entry "Target_Glibness"
+type "SpellData"
+data "SpellType" "Target"
+data "Level" "8"
+data "SpellSchool" "Transmutation"
+data "TargetRadius" "0"
+data "TargetConditions" "Self()"
+data "SpellProperties" "ApplyStatus(GLIBNESS,100,600)"
+data "Icon" "Spell_Enchantment_CharmPerson"
+data "DisplayName" "hglb0001a000000000000000000000001;1"
+data "Description" "hglb0001a000000000000000000000002;1"
+data "TooltipStatusApply" "ApplyStatus(GLIBNESS,100,600)"
+data "CastSound" "Spell_Cast_Buff_MageArmor_L1to3"
+data "CastTextEvent" "Cast"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:8"
+data "SpellAnimation" "dd86aa43-8189-4d9f-9a5c-454b5fe4a197,,;,,;8252328a-66dd-4dc0-bbe0-00eea3204922,,;982d842b-5d44-4ef6-ab33-14d5ae514a50,,;,,;,,;0b07883a-08b8-43b6-ac18-84dc9e8cd6a4,,;,,;,,"
+data "VerbalIntent" "Buff"
+data "SpellFlags" "HasVerbalComponent;IsSpell"
+data "MemoryCost" "1"
+
+// ==============================================================================
+// FEEBLEMIND - Level 8 Enchantment (PHB 2024)
+// ==============================================================================
+// Deal 4d6 psychic damage and reduce INT/CHA to 1 on failed save
+// Available to: Bard, Druid, Warlock, Wizard
+
+new entry "Target_Feeblemind"
+type "SpellData"
+data "SpellType" "Target"
+data "Level" "8"
+data "SpellSchool" "Enchantment"
+data "SpellProperties" "DealDamage(4d6,Psychic);ApplyStatus(FEEBLEMIND,100,-1)"
+data "TargetRadius" "45"
+data "TargetConditions" "Character() and not Dead() and not Self()"
+data "Icon" "Spell_Enchantment_CrownOfMadness"
+data "DisplayName" "hfbl0001a000000000000000000000001;1"
+data "Description" "hfbl0001a000000000000000000000002;1"
+data "DescriptionParams" "DealDamage(4d6,Psychic)"
+data "TooltipDamageList" "DealDamage(4d6,Psychic)"
+data "TooltipStatusApply" "ApplyStatus(FEEBLEMIND,100,-1)"
+data "CastSound" "Spell_Cast_Damage_Psychic_FingerOfDeath_L7to9"
+data "TargetSound" "Spell_Impact_Damage_Psychic_FingerOfDeath_L7to9"
+data "CastTextEvent" "Cast"
+data "CycleConditions" "Enemy() and not Dead()"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:8"
+data "SpellAnimation" "554a18f7-952e-494a-b301-7702a85d4bc9,,;,,;e334be54-dd63-4bab-8009-de0f9ced73ce,12afdff1-6b1b-430a-9161-63ae25be4c32,76073f60-94ba-411a-b3fb-688f75772bfa;ed314891-666b-4e97-84a4-15353a3d999a,,;22dfbbf4-f417-4c84-b39e-2039315961e6,,;,,;5bfbe9f9-4fc3-4f26-b112-43d404db6a89,,;,,;,,"
+data "VerbalIntent" "Damage"
+data "SpellFlags" "HasVerbalComponent;HasSomaticComponent;HasMaterialComponent;IsSpell;HasHighGroundRangeExtension;IsHarmful"
+data "SpellRoll" "Attack(AttackType.RangedSpellAttack)"
+data "SaveDC" "14"
+data "HitAnimationType" "MagicalDamage_Internal"
+data "MemoryCost" "1"
+
+// ==============================================================================
+// FORESIGHT - Level 9 Divination (PHB 2024)
+// ==============================================================================
+// Grant advantage on all rolls and attackers have disadvantage for 8 hours
+// Available to: Bard, Druid, Warlock, Wizard
+
+new entry "Target_Foresight"
+type "SpellData"
+data "SpellType" "Target"
+data "Level" "9"
+data "SpellSchool" "Divination"
+data "SpellProperties" "ApplyStatus(FORESIGHT,100,4800)"
+data "TargetRadius" "1.5"
+data "TargetConditions" "Character() and not Dead()"
+data "Icon" "Spell_Divination_TrueSeeing"
+data "DisplayName" "hfrs0001a000000000000000000000001;1"
+data "Description" "hfrs0001a000000000000000000000002;1"
+data "TooltipStatusApply" "ApplyStatus(FORESIGHT,100,4800)"
+data "CastSound" "Spell_Cast_Buff_TrueSeeing_L4to6"
+data "TargetSound" "Spell_Impact_Buff_TrueSeeing_L4to6"
+data "CastTextEvent" "Cast"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:9"
+data "SpellAnimation" "414bbf02-2918-4f01-83fb-1ddc7a588d88,,;,,;8252328a-66dd-4dc0-bbe0-00eea3204922,,;982d842b-5d44-4ef6-ab33-14d5ae514a50,,;0c5dcc83-fa78-41da-b6a5-440b5ea30936,,;,,;bea988a0-2ec5-40d8-a67e-ffbd7454bc53,,;bcc3b0d9-f04f-4448-aab0-e0ad641167cc,,;bf924cc6-8b39-4c3b-b1c0-eda264cf6150,,"
+data "VerbalIntent" "Buff"
+data "SpellFlags" "HasVerbalComponent;HasSomaticComponent;HasMaterialComponent;IsSpell;IsMelee"
+data "HitAnimationType" "MagicalNonDamage"
+data "MemoryCost" "1"
+
+// ==============================================================================
+// TRUE POLYMORPH - Level 9 Transmutation (PHB 2024)
+// ==============================================================================
+// Transform creature or object into another creature or object. Concentration.
+// Available to: Bard, Warlock, Wizard
+
+new entry "Target_TruePolymorph"
+type "SpellData"
+data "SpellType" "Target"
+data "Level" "9"
+data "SpellSchool" "Transmutation"
+using "Target_Polymorph"
+data "SpellProperties" "ApplyStatus(TRUE_POLYMORPH,100,-1)"
+data "TargetRadius" "9"
+data "Icon" "Spell_Transmutation_Polymorph"
+data "DisplayName" "htpm0001a000000000000000000000001;1"
+data "Description" "htpm0001a000000000000000000000002;1"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:9"
+data "MemoryCost" "1"
+data "ConcentrationSpellID" "Target_TruePolymorph"
+
+// ==============================================================================
+// POWER WORD KILL - Enchantment Level 9
+// ==============================================================================
+// Override the base game spell to add spell slot cost
+new entry "Target_PowerWordKill"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_PowerWordKill"
+data "Icon" "Spell_Enchantment_PowerWordKill"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:9"
+
+// ==============================================================================
+// POWER WORD HEAL - Evocation Level 9
+// ==============================================================================
+new entry "Target_PowerWordHeal"
+type "SpellData"
+data "SpellType" "Target"
+data "Level" "9"
+data "SpellSchool" "Evocation"
+data "TargetRadius" "18"
+data "TargetConditions" "Character() and not Enemy()"
+data "Icon" "Spell_Evocation_Heal"
+data "DisplayName" "h9lvlheal0001g0001g0001g0001g000000000001;1"
+data "Description" "h9lvlheal0002g0001g0001g0001g000000000002;1"
+data "DescriptionParams" "RegainHitPoints(700)"
+data "PrepareSound" "Spell_Prepare_Healing_HealingWord_L1_part01"
+data "PrepareLoopSound" "Spell_Prepare_Healing_HealingWord_L1_part02"
+data "CastSound" "Spell_Cast_Healing_HealingWord_L1"
+data "TargetSound" "Spell_Impact_Healing_HealingWord_L1"
+data "CastTextEvent" "Cast"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:9"
+data "SpellAnimation" "414bbf02-2918-4f01-83fb-1ddc7a588d88,,;,,;8252328a-66dd-4dc0-bbe0-00eea3204922,,;982d842b-5d44-4ef6-ab33-14d5ae514a50,,;0c5dcc83-fa78-41da-b6a5-440b5ea30936,,;,,;bea988a0-2ec5-40d8-a67e-ffbd7454bc53,,;bcc3b0d9-f04f-4448-aab0-e0ad641167cc,,;bf924cc6-8b39-4c3b-b1c0-eda264cf6150,,"
+data "SpellProperties" "RegainHitPoints(700);RemoveStatus(SG_Charmed);RemoveStatus(SG_Frightened);RemoveStatus(SG_Paralyzed);RemoveStatus(SG_Stunned)"
+data "VerbalIntent" "Healing"
+data "SpellFlags" "HasVerbalComponent;IsSpell"
+
+// ==============================================================================
+// WISH - Conjuration Level 9
+// ==============================================================================
+// Wish is extremely powerful and complex. For now, we implement a simplified version
+// that duplicates any 8th level or lower spell without material components.
+new entry "Shout_Wish"
+type "SpellData"
+data "SpellType" "Shout"
+data "Level" "9"
+data "SpellSchool" "Conjuration"
+data "Icon" "Spell_Abjuration_ArcaneGate"
+data "DisplayName" "h9lvlwish0001g0001g0001g0001g000000000001;1"
+data "Description" "h9lvlwish0002g0001g0001g0001g000000000002;1"
+data "CastTextEvent" "Cast"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:9"
+data "SpellAnimation" "dd86aa43-8189-4d9f-9a5c-454b5fe4a197,,;,,;bcc3b0d9-f04f-4448-aab0-e0ad641167cc,,;bf924cc6-8b39-4c3b-b1c0-eda264cf6150,,;cc5b0caf-3ed1-4711-a50d-11dc3f1fdc6a,,;,,;1715b877-4512-472e-9bd0-fd568a112e90,,;,,;,,"
+data "SpellProperties" "ApplyStatus(WISH_SPELLCASTING,100,1)"
+data "VerbalIntent" "Utility"
+data "SpellFlags" "HasVerbalComponent;IsSpell"
+
+// ==============================================================================
+// TRUE POLYMORPH - Transmutation Level 9
+// ==============================================================================
+new entry "Target_TruePolymorph"
+type "SpellData"
+data "SpellType" "Target"
+data "Level" "9"
+data "SpellSchool" "Transmutation"
+data "SpellContainerID" "Target_TruePolymorph"
+data "TargetRadius" "18"
+data "TargetConditions" "Character() and not Dead()"
+data "Icon" "Spell_Transmutation_Polymorph"
+data "DisplayName" "h9lvltpoly001g0001g0001g0001g000000000001;1"
+data "Description" "h9lvltpoly002g0001g0001g0001g000000000002;1"
+data "CastTextEvent" "Cast"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:9"
+data "SpellAnimation" "03496c4a-49e0-4132-b585-3e5ecd1ad8e5,,;,,;5e7e63e1-0e69-46e7-ade7-fe3dadcc9184,5e7e63e1-0e69-46e7-ade7-fe3dadcc9184,5e7e63e1-0e69-46e7-ade7-fe3dadcc9184;e9ad50df-e7f1-43a0-b782-4c08f92b0f5a,,;a9682ef9-5d9e-4ac0-8144-2c7fe6eb868c,,;,,;32fb4d91-7fde-4b05-9144-ea87b9a4284a,,;,,;,,"
+data "VerbalIntent" "Utility"
+data "SpellFlags" "HasVerbalComponent;HasSomaticComponent;IsConcentration;IsSpell"
+data "ConcentrationSpellID" "Target_TruePolymorph"
+
+// ==============================================================================
+// METEOR SWARM - Evocation Level 9
+// ==============================================================================
+new entry "Projectile_MeteorSwarm"
+type "SpellData"
+data "SpellType" "Projectile"
+data "Level" "9"
+data "SpellSchool" "Evocation"
+data "TargetRadius" "150"
+data "AreaRadius" "12"
+data "ExplodeRadius" "12"
+data "Icon" "Spell_Evocation_Fireball"
+data "DisplayName" "h9lvlmeteor01g0001g0001g0001g000000000001;1"
+data "Description" "h9lvlmeteor02g0001g0001g0001g000000000002;1"
+data "DescriptionParams" "DealDamage(20d6,Fire);DealDamage(20d6,Bludgeoning)"
+data "CastTextEvent" "Cast"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:9"
+data "SpellAnimation" "3ff87abf-1ea1-4c32-aadf-c822d74c7dc0,,;,,;70a28457-dba7-46f7-b03c-ceb3b9e12bad,,;68868848-6341-448a-97e3-94aa43ad5faf,,;d8925ce4-d6d9-400c-92f5-ad772ef7f178,,;,,;eadedcce-d01b-4fbb-a1ae-d218f13aa5d6,,;,,;,,"
+data "SpellAnimationIntentType" "Aggressive"
+data "SpellProperties" "GROUND:SurfaceChange(Ignite);GROUND:CreateSurface(6,3,Fire)"
+data "VerbalIntent" "Damage"
+data "SpellFlags" "HasVerbalComponent;HasSomaticComponent;IsSpell;IsHarmful"
+
+// ==============================================================================
+// GATE - Conjuration Level 9
+// ==============================================================================
+new entry "Target_Gate"
+type "SpellData"
+data "SpellType" "Target"
+data "Level" "9"
+data "SpellSchool" "Conjuration"
+data "TargetRadius" "18"
+data "Icon" "Spell_Conjuration_PlanarAlly"
+data "DisplayName" "h9lvlgate0001g0001g0001g0001g000000000001;1"
+data "Description" "h9lvlgate0002g0001g0001g0001g000000000002;1"
+data "CastTextEvent" "Cast"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:9"
+data "SpellAnimation" "6f42f5f3-7a5a-4441-a02e-71b0450ac4b7,,;,,;c0513845-6e0e-42e8-9a8c-baa5e2b6ead6,,;fbf20742-9dbf-475b-9ff5-42e4b08064ad,,;42aaefdc-cf9b-4249-b159-285041851f69,,;,,;20e11c98-fff9-4417-88de-5bcc2368a1bd,,;,,;,,"
+data "VerbalIntent" "Summon"
+data "SpellFlags" "HasVerbalComponent;HasSomaticComponent;IsConcentration;IsSpell"
+data "ConcentrationSpellID" "Target_Gate"
+
+// ==============================================================================
+// FORESIGHT - Divination Level 9
+// ==============================================================================
+new entry "Target_Foresight"
+type "SpellData"
+data "SpellType" "Target"
+data "Level" "9"
+data "SpellSchool" "Divination"
+data "TargetRadius" "1.5"
+data "TargetConditions" "Character() and not Enemy()"
+data "Icon" "Spell_Divination_TrueSeeing"
+data "DisplayName" "h9lvlfore0001g0001g0001g0001g000000000001;1"
+data "Description" "h9lvlfore0002g0001g0001g0001g000000000002;1"
+data "CastTextEvent" "Cast"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:9"
+data "SpellAnimation" "850cd2f3-dde2-475d-b3a3-f35c47333523,,;,,;62819708-175d-4ad4-95d5-55757e18d981,,;2a6a403d-1b6f-41ea-9324-445761b2cbb3,,;ad775f69-0d9f-4215-bfc2-8e0ec7e32189,,;,,;6bfce8a0-80f1-47a8-97f4-34f4b8b6fe9e,,;,,;,,"
+data "SpellProperties" "ApplyStatus(FORESIGHT,100,-1)"
+data "VerbalIntent" "Buff"
+data "SpellFlags" "HasVerbalComponent;HasSomaticComponent;IsSpell"
+
+// ==============================================================================
+// TIME STOP - Transmutation Level 9
+// ==============================================================================
+new entry "Shout_TimeStop"
+type "SpellData"
+data "SpellType" "Shout"
+data "Level" "9"
+data "SpellSchool" "Transmutation"
+data "Icon" "Spell_Transmutation_Haste"
+data "DisplayName" "h9lvltstop001g0001g0001g0001g000000000001;1"
+data "Description" "h9lvltstop002g0001g0001g0001g000000000002;1"
+data "CastTextEvent" "Cast"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:9"
+data "SpellAnimation" "9fd22d7d-5d7a-470b-a939-810046915bed,,;,,;4222840e-85c4-41d4-89f3-cf525ab7a2ce,,;d58199b1-9bc5-4715-99d4-43a5b5c1ec16,,;2d19a206-bf18-4f4d-ba95-f83c5fc38fd7,,;,,;57db495b-2467-467b-a599-d7df2fa4d659,,;,,;,,"
+data "SpellProperties" "ApplyStatus(TIME_STOP,100,3)"
+data "VerbalIntent" "Control"
+data "SpellFlags" "HasVerbalComponent;IsSpell"
+
+// ==============================================================================
+// MASS HEAL - Evocation Level 9
+// ==============================================================================
+new entry "Target_MassHeal"
+type "SpellData"
+data "SpellType" "Target"
+data "Level" "9"
+data "SpellSchool" "Evocation"
+data "TargetRadius" "18"
+data "AreaRadius" "18"
+data "TargetConditions" "Character() and not Enemy()"
+data "Icon" "Spell_Evocation_MassCureWounds"
+data "DisplayName" "h9lvlmheal001g0001g0001g0001g000000000001;1"
+data "Description" "h9lvlmheal002g0001g0001g0001g000000000002;1"
+data "DescriptionParams" "RegainHitPoints(700)"
+data "CastTextEvent" "Cast"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:9"
+data "SpellAnimation" "414bbf02-2918-4f01-83fb-1ddc7a588d88,,;,,;8252328a-66dd-4dc0-bbe0-00eea3204922,,;982d842b-5d44-4ef6-ab33-14d5ae514a50,,;0c5dcc83-fa78-41da-b6a5-440b5ea30936,,;,,;bea988a0-2ec5-40d8-a67e-ffbd7454bc53,,;bcc3b0d9-f04f-4448-aab0-e0ad641167cc,,;bf924cc6-8b39-4c3b-b1c0-eda264cf6150,,"
+data "SpellProperties" "RegainHitPoints(700);RemoveStatus(SG_Disease);RemoveStatus(SG_Blinded);RemoveStatus(SG_Deafened)"
+data "VerbalIntent" "Healing"
+data "SpellFlags" "HasVerbalComponent;HasSomaticComponent;IsSpell"
+
+// ==============================================================================
+// PRISMATIC WALL - Abjuration Level 9
+// ==============================================================================
+new entry "Target_PrismaticWall"
+type "SpellData"
+data "SpellType" "Target"
+data "Level" "9"
+data "SpellSchool" "Abjuration"
+data "TargetRadius" "18"
+data "Icon" "Spell_Evocation_WallofForce"
+data "DisplayName" "h9lvlpwall001g0001g0001g0001g000000000001;1"
+data "Description" "h9lvlpwall002g0001g0001g0001g000000000002;1"
+data "CastTextEvent" "Cast"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:9"
+data "SpellAnimation" "554a18f7-952e-494a-b301-7702a85d4bc9,,;,,;5e7e63e1-0e69-46e7-ade7-fe3dadcc9184,,;e9ad50df-e7f1-43a0-b782-4c08f92b0f5a,,;22dfbbf4-f417-4c84-b39e-2039315961e6,,;,,;5bfbe9f9-4fc3-4f26-b112-43d404db6a89,,;,,;,,"
+data "VerbalIntent" "Control"
+data "SpellFlags" "HasVerbalComponent;HasSomaticComponent;IsSpell"
+
+// ==================================================================================
+// BATCH 1: DAMAGE SPELL UPCASTS (Levels 7-9)
+// ==================================================================================
+
+// ==============================================================================
+// INFLICT WOUNDS - Level 7/8/9 Upcasts (+1d10 per level, base 3d10)
+// ==============================================================================
+new entry "Target_InflictWounds_7"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_InflictWounds"
+data "SpellSuccess" "DealDamage(9d10,Necrotic,Magical)"
+data "TooltipDamageList" "DealDamage(9d10,Necrotic)"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:7"
+data "RootSpellID" "Target_InflictWounds"
+data "PowerLevel" "7"
+
+new entry "Target_InflictWounds_8"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_InflictWounds"
+data "SpellSuccess" "DealDamage(10d10,Necrotic,Magical)"
+data "TooltipDamageList" "DealDamage(10d10,Necrotic)"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:8"
+data "RootSpellID" "Target_InflictWounds"
+data "PowerLevel" "8"
+
+new entry "Target_InflictWounds_9"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_InflictWounds"
+data "SpellSuccess" "DealDamage(11d10,Necrotic,Magical)"
+data "TooltipDamageList" "DealDamage(11d10,Necrotic)"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:9"
+data "RootSpellID" "Target_InflictWounds"
+data "PowerLevel" "9"
+
+// ==============================================================================
+// GUIDING BOLT - Level 7/8/9 Upcasts (+1d6 per level, base 4d6)
+// ==============================================================================
+new entry "Projectile_GuidingBolt_7"
+type "SpellData"
+data "SpellType" "Projectile"
+using "Projectile_GuidingBolt"
+data "SpellSuccess" "DealDamage(10d6,Radiant,Magical); ApplyStatus(GUIDING_BOLT, 100, 2)"
+data "TooltipDamageList" "DealDamage(10d6,Radiant)"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:7"
+data "RootSpellID" "Projectile_GuidingBolt"
+data "PowerLevel" "7"
+
+new entry "Projectile_GuidingBolt_8"
+type "SpellData"
+data "SpellType" "Projectile"
+using "Projectile_GuidingBolt"
+data "SpellSuccess" "DealDamage(11d6,Radiant,Magical); ApplyStatus(GUIDING_BOLT, 100, 2)"
+data "TooltipDamageList" "DealDamage(11d6,Radiant)"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:8"
+data "RootSpellID" "Projectile_GuidingBolt"
+data "PowerLevel" "8"
+
+new entry "Projectile_GuidingBolt_9"
+type "SpellData"
+data "SpellType" "Projectile"
+using "Projectile_GuidingBolt"
+data "SpellSuccess" "DealDamage(12d6,Radiant,Magical); ApplyStatus(GUIDING_BOLT, 100, 2)"
+data "TooltipDamageList" "DealDamage(12d6,Radiant)"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:9"
+data "RootSpellID" "Projectile_GuidingBolt"
+data "PowerLevel" "9"
+
+// ==============================================================================
+// MAGIC MISSILE - Level 7/8/9 Upcasts (+1 missile per level, base 3)
+// ==============================================================================
+new entry "Projectile_MagicMissile_7"
+type "SpellData"
+data "SpellType" "Projectile"
+using "Projectile_MagicMissile"
+data "AmountOfTargets" "9"
+data "DescriptionParams" "DealDamage(1d4+1,Force);9"
+data "TooltipDamageList" "DealDamage(9d4+9,Force)"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:7"
+data "RootSpellID" "Projectile_MagicMissile"
+data "PowerLevel" "7"
+
+new entry "Projectile_MagicMissile_8"
+type "SpellData"
+data "SpellType" "Projectile"
+using "Projectile_MagicMissile"
+data "AmountOfTargets" "10"
+data "DescriptionParams" "DealDamage(1d4+1,Force);10"
+data "TooltipDamageList" "DealDamage(10d4+10,Force)"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:8"
+data "RootSpellID" "Projectile_MagicMissile"
+data "PowerLevel" "8"
+
+new entry "Projectile_MagicMissile_9"
+type "SpellData"
+data "SpellType" "Projectile"
+using "Projectile_MagicMissile"
+data "AmountOfTargets" "11"
+data "DescriptionParams" "DealDamage(1d4+1,Force);11"
+data "TooltipDamageList" "DealDamage(11d4+11,Force)"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:9"
+data "RootSpellID" "Projectile_MagicMissile"
+data "PowerLevel" "9"
+
+// ==============================================================================
+// BLIGHT - Level 7/8/9 Upcasts (+1d8 per level, base 8d8, plants +8 per level)
+// ==============================================================================
+new entry "Target_Blight_7"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_Blight"
+data "SpellSuccess" "IF(not Tagged('PLANT')):DealDamage(11d8,Necrotic,Magical);IF(Tagged('PLANT')):DealDamage(88,Necrotic,Magical)"
+data "SpellFail" "IF(not Tagged('PLANT')):DealDamage((11d8)/2,Necrotic,Magical);IF(Tagged('PLANT')):DealDamage(44,Necrotic,Magical)"
+data "TooltipDamageList" "DealDamage(11d8,Necrotic)"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:7"
+data "RootSpellID" "Target_Blight"
+data "PowerLevel" "7"
+
+new entry "Target_Blight_8"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_Blight"
+data "SpellSuccess" "IF(not Tagged('PLANT')):DealDamage(12d8,Necrotic,Magical);IF(Tagged('PLANT')):DealDamage(96,Necrotic,Magical)"
+data "SpellFail" "IF(not Tagged('PLANT')):DealDamage((12d8)/2,Necrotic,Magical);IF(Tagged('PLANT')):DealDamage(48,Necrotic,Magical)"
+data "TooltipDamageList" "DealDamage(12d8,Necrotic)"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:8"
+data "RootSpellID" "Target_Blight"
+data "PowerLevel" "8"
+
+new entry "Target_Blight_9"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_Blight"
+data "SpellSuccess" "IF(not Tagged('PLANT')):DealDamage(13d8,Necrotic,Magical);IF(Tagged('PLANT')):DealDamage(104,Necrotic,Magical)"
+data "SpellFail" "IF(not Tagged('PLANT')):DealDamage((13d8)/2,Necrotic,Magical);IF(Tagged('PLANT')):DealDamage(52,Necrotic,Magical)"
+data "TooltipDamageList" "DealDamage(13d8,Necrotic)"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:9"
+data "RootSpellID" "Target_Blight"
+data "PowerLevel" "9"
+
+// ==============================================================================
+// CONE OF COLD - Level 7/8/9 Upcasts (+1d8 per level, base 8d8)
+// ==============================================================================
+new entry "Zone_ConeOfCold_7"
+type "SpellData"
+data "SpellType" "Zone"
+using "Zone_ConeOfCold"
+data "SpellSuccess" "DealDamage(10d8,Cold,Magical)"
+data "SpellFail" "DealDamage((10d8)/2,Cold,Magical)"
+data "TooltipDamageList" "DealDamage(10d8,Cold)"
+data "TooltipUpcastDescription" "66388a6f-44dd-4c9f-a9e7-910c50e70755"
+data "TooltipUpcastDescriptionParams" "DealDamage(1d8,Cold)"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:7"
+data "RootSpellID" "Zone_ConeOfCold"
+data "PowerLevel" "7"
+
+new entry "Zone_ConeOfCold_8"
+type "SpellData"
+data "SpellType" "Zone"
+using "Zone_ConeOfCold"
+data "SpellSuccess" "DealDamage(11d8,Cold,Magical)"
+data "SpellFail" "DealDamage((11d8)/2,Cold,Magical)"
+data "TooltipDamageList" "DealDamage(11d8,Cold)"
+data "TooltipUpcastDescription" "66388a6f-44dd-4c9f-a9e7-910c50e70755"
+data "TooltipUpcastDescriptionParams" "DealDamage(1d8,Cold)"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:8"
+data "RootSpellID" "Zone_ConeOfCold"
+data "PowerLevel" "8"
+
+new entry "Zone_ConeOfCold_9"
+type "SpellData"
+data "SpellType" "Zone"
+using "Zone_ConeOfCold"
+data "SpellSuccess" "DealDamage(12d8,Cold,Magical)"
+data "SpellFail" "DealDamage((12d8)/2,Cold,Magical)"
+data "TooltipDamageList" "DealDamage(12d8,Cold)"
+data "TooltipUpcastDescription" "66388a6f-44dd-4c9f-a9e7-910c50e70755"
+data "TooltipUpcastDescriptionParams" "DealDamage(1d8,Cold)"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:9"
+data "RootSpellID" "Zone_ConeOfCold"
+data "PowerLevel" "9"
+
+// ==============================================================================
+// ICE STORM - Level 7/8/9 Upcasts (+1d8 bludgeoning per level, cold stays 4d6)
+// ==============================================================================
+new entry "Target_IceStorm_7"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_IceStorm"
+data "SpellSuccess" "DealDamage(5d8,Bludgeoning,Magical);DealDamage(4d6,Cold,Magical)"
+data "SpellFail" "DealDamage((5d8)/2,Bludgeoning,Magical);DealDamage((4d6)/2,Cold,Magical)"
+data "TooltipDamageList" "DealDamage(5d8, Bludgeoning);DealDamage(4d6, Cold)"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:7"
+data "RootSpellID" "Target_IceStorm"
+data "PowerLevel" "7"
+
+new entry "Target_IceStorm_8"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_IceStorm"
+data "SpellSuccess" "DealDamage(6d8,Bludgeoning,Magical);DealDamage(4d6,Cold,Magical)"
+data "SpellFail" "DealDamage((6d8)/2,Bludgeoning,Magical);DealDamage((4d6)/2,Cold,Magical)"
+data "TooltipDamageList" "DealDamage(6d8, Bludgeoning);DealDamage(4d6, Cold)"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:8"
+data "RootSpellID" "Target_IceStorm"
+data "PowerLevel" "8"
+
+new entry "Target_IceStorm_9"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_IceStorm"
+data "SpellSuccess" "DealDamage(7d8,Bludgeoning,Magical);DealDamage(4d6,Cold,Magical)"
+data "SpellFail" "DealDamage((7d8)/2,Bludgeoning,Magical);DealDamage((4d6)/2,Cold,Magical)"
+data "TooltipDamageList" "DealDamage(7d8, Bludgeoning);DealDamage(4d6, Cold)"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:9"
+data "RootSpellID" "Target_IceStorm"
+data "PowerLevel" "9"
+
+// ==============================================================================
+// WITCH BOLT - Level 7/8/9 Upcasts (+1d12 per level)
+// ==============================================================================
+new entry "Projectile_WitchBolt_7"
+type "SpellData"
+data "SpellType" "Projectile"
+using "Projectile_WitchBolt"
+data "SpellSuccess" "ApplyStatus(WITCH_BOLT,100,10);DealDamage(7d12,Lightning,Magical);ApplyStatus(AI_HELPER_WITCHBOLT,100,2)"
+data "TooltipDamageList" "DealDamage(7d12,Lightning)"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:7"
+data "RootSpellID" "Projectile_WitchBolt"
+data "PowerLevel" "7"
+
+new entry "Projectile_WitchBolt_8"
+type "SpellData"
+data "SpellType" "Projectile"
+using "Projectile_WitchBolt"
+data "SpellSuccess" "ApplyStatus(WITCH_BOLT,100,10);DealDamage(8d12,Lightning,Magical);ApplyStatus(AI_HELPER_WITCHBOLT,100,2)"
+data "TooltipDamageList" "DealDamage(8d12,Lightning)"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:8"
+data "RootSpellID" "Projectile_WitchBolt"
+data "PowerLevel" "8"
+
+new entry "Projectile_WitchBolt_9"
+type "SpellData"
+data "SpellType" "Projectile"
+using "Projectile_WitchBolt"
+data "SpellSuccess" "ApplyStatus(WITCH_BOLT,100,10);DealDamage(9d12,Lightning,Magical);ApplyStatus(AI_HELPER_WITCHBOLT,100,2)"
+data "TooltipDamageList" "DealDamage(9d12,Lightning)"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:9"
+data "RootSpellID" "Projectile_WitchBolt"
+data "PowerLevel" "9"
+
+// ==================================================================================
+// BATCH 2: CONTROL SPELL UPCASTS (Levels 7-9)
+// ==================================================================================
+
+// ==============================================================================
+// HOLD PERSON - Level 7/8/9 Upcasts (+1 target per level)
+// ==============================================================================
+new entry "Target_HoldPerson_7"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_HoldPerson"
+data "AmountOfTargets" "6"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:7"
+data "RootSpellID" "Target_HoldPerson"
+data "PowerLevel" "7"
+
+new entry "Target_HoldPerson_8"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_HoldPerson"
+data "AmountOfTargets" "7"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:8"
+data "RootSpellID" "Target_HoldPerson"
+data "PowerLevel" "8"
+
+new entry "Target_HoldPerson_9"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_HoldPerson"
+data "AmountOfTargets" "8"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:9"
+data "RootSpellID" "Target_HoldPerson"
+data "PowerLevel" "9"
+
+// ==============================================================================
+// HOLD MONSTER - Level 7/8/9 Upcasts (+1 target per level)
+// ==============================================================================
+new entry "Target_HoldMonster_7"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_HoldMonster"
+data "AmountOfTargets" "3"
+data "TooltipUpcastDescription" "04cc3403-f67a-4747-b49e-a1802cc7a6ad"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:7"
+data "RootSpellID" "Target_HoldMonster"
+data "PowerLevel" "7"
+
+new entry "Target_HoldMonster_8"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_HoldMonster"
+data "AmountOfTargets" "4"
+data "TooltipUpcastDescription" "04cc3403-f67a-4747-b49e-a1802cc7a6ad"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:8"
+data "RootSpellID" "Target_HoldMonster"
+data "PowerLevel" "8"
+
+new entry "Target_HoldMonster_9"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_HoldMonster"
+data "AmountOfTargets" "5"
+data "TooltipUpcastDescription" "04cc3403-f67a-4747-b49e-a1802cc7a6ad"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:9"
+data "RootSpellID" "Target_HoldMonster"
+data "PowerLevel" "9"
+
+// ==============================================================================
+// BANISHMENT - Level 7/8/9 Upcasts (+1 target per level)
+// ==============================================================================
+new entry "Target_Banishment_7"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_Banishment"
+data "AmountOfTargets" "4"
+data "TooltipUpcastDescription" "04cc3403-f67a-4747-b49e-a1802cc7a6ad"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:7"
+data "RootSpellID" "Target_Banishment"
+data "PowerLevel" "7"
+
+new entry "Target_Banishment_8"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_Banishment"
+data "AmountOfTargets" "5"
+data "TooltipUpcastDescription" "04cc3403-f67a-4747-b49e-a1802cc7a6ad"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:8"
+data "RootSpellID" "Target_Banishment"
+data "PowerLevel" "8"
+
+new entry "Target_Banishment_9"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_Banishment"
+data "AmountOfTargets" "6"
+data "TooltipUpcastDescription" "04cc3403-f67a-4747-b49e-a1802cc7a6ad"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:9"
+data "RootSpellID" "Target_Banishment"
+data "PowerLevel" "9"
+
+// ==================================================================================
+// BATCH 3: HEALING SPELL UPCASTS (Levels 7-9)
+// ==================================================================================
+
+// ==============================================================================
+// CURE WOUNDS - Level 7/8/9 Upcasts (+1d8 per level)
+// ==============================================================================
+new entry "Target_CureWounds_7"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_CureWounds"
+data "SpellProperties" "RegainHitPoints(7d8+SpellCastingAbilityModifier)"
+data "TooltipDamageList" "RegainHitPoints(7d8+SpellCastingAbilityModifier)"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:7"
+data "RootSpellID" "Target_CureWounds"
+data "PowerLevel" "7"
+
+new entry "Target_CureWounds_8"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_CureWounds"
+data "SpellProperties" "RegainHitPoints(8d8+SpellCastingAbilityModifier)"
+data "TooltipDamageList" "RegainHitPoints(8d8+SpellCastingAbilityModifier)"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:8"
+data "RootSpellID" "Target_CureWounds"
+data "PowerLevel" "8"
+
+new entry "Target_CureWounds_9"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_CureWounds"
+data "SpellProperties" "RegainHitPoints(9d8+SpellCastingAbilityModifier)"
+data "TooltipDamageList" "RegainHitPoints(9d8+SpellCastingAbilityModifier)"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:9"
+data "RootSpellID" "Target_CureWounds"
+data "PowerLevel" "9"
+
+// ==============================================================================
+// MASS CURE WOUNDS - Level 7/8/9 Upcasts (+1d8 per level)
+// ==============================================================================
+new entry "Target_CureWounds_Mass_7"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_CureWounds_Mass"
+data "SpellProperties" "RegainHitPoints(5d8+SpellCastingAbilityModifier)"
+data "TooltipDamageList" "RegainHitPoints(5d8+SpellCastingAbilityModifier)"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:7"
+data "RootSpellID" "Target_CureWounds_Mass"
+data "PowerLevel" "7"
+
+new entry "Target_CureWounds_Mass_8"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_CureWounds_Mass"
+data "SpellProperties" "RegainHitPoints(6d8+SpellCastingAbilityModifier)"
+data "TooltipDamageList" "RegainHitPoints(6d8+SpellCastingAbilityModifier)"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:8"
+data "RootSpellID" "Target_CureWounds_Mass"
+data "PowerLevel" "8"
+
+new entry "Target_CureWounds_Mass_9"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_CureWounds_Mass"
+data "SpellProperties" "RegainHitPoints(7d8+SpellCastingAbilityModifier)"
+data "TooltipDamageList" "RegainHitPoints(7d8+SpellCastingAbilityModifier)"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:9"
+data "RootSpellID" "Target_CureWounds_Mass"
+data "PowerLevel" "9"
+
+// ==============================================================================
+// HEALING WORD - Level 7/8/9 Upcasts (+1d4 per level)
+// ==============================================================================
+new entry "Target_HealingWord_7"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_HealingWord"
+data "SpellProperties" "RegainHitPoints(7d4+SpellCastingAbilityModifier)"
+data "TooltipDamageList" "RegainHitPoints(7d4+SpellCastingAbilityModifier)"
+data "UseCosts" "BonusActionPoint:1;SpellSlotsGroup:1:1:7"
+data "RootSpellID" "Target_HealingWord"
+data "PowerLevel" "7"
+
+new entry "Target_HealingWord_8"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_HealingWord"
+data "SpellProperties" "RegainHitPoints(8d4+SpellCastingAbilityModifier)"
+data "TooltipDamageList" "RegainHitPoints(8d4+SpellCastingAbilityModifier)"
+data "UseCosts" "BonusActionPoint:1;SpellSlotsGroup:1:1:8"
+data "RootSpellID" "Target_HealingWord"
+data "PowerLevel" "8"
+
+new entry "Target_HealingWord_9"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_HealingWord"
+data "SpellProperties" "RegainHitPoints(9d4+SpellCastingAbilityModifier)"
+data "TooltipDamageList" "RegainHitPoints(9d4+SpellCastingAbilityModifier)"
+data "UseCosts" "BonusActionPoint:1;SpellSlotsGroup:1:1:9"
+data "RootSpellID" "Target_HealingWord"
+data "PowerLevel" "9"
+
+// ==============================================================================
+// MASS HEALING WORD - Level 7/8/9 Upcasts (+1d4 per level)
+// ==============================================================================
+new entry "Target_HealingWord_Mass_7"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_HealingWord_Mass"
+data "SpellProperties" "RegainHitPoints(5d4+SpellCastingAbilityModifier)"
+data "TooltipDamageList" "RegainHitPoints(5d4+SpellCastingAbilityModifier)"
+data "UseCosts" "BonusActionPoint:1;SpellSlotsGroup:1:1:7"
+data "RootSpellID" "Target_HealingWord_Mass"
+data "PowerLevel" "7"
+
+new entry "Target_HealingWord_Mass_8"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_HealingWord_Mass"
+data "SpellProperties" "RegainHitPoints(6d4+SpellCastingAbilityModifier)"
+data "TooltipDamageList" "RegainHitPoints(6d4+SpellCastingAbilityModifier)"
+data "UseCosts" "BonusActionPoint:1;SpellSlotsGroup:1:1:8"
+data "RootSpellID" "Target_HealingWord_Mass"
+data "PowerLevel" "8"
+
+new entry "Target_HealingWord_Mass_9"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_HealingWord_Mass"
+data "SpellProperties" "RegainHitPoints(7d4+SpellCastingAbilityModifier)"
+data "TooltipDamageList" "RegainHitPoints(7d4+SpellCastingAbilityModifier)"
+data "UseCosts" "BonusActionPoint:1;SpellSlotsGroup:1:1:9"
+data "RootSpellID" "Target_HealingWord_Mass"
+data "PowerLevel" "9"
+
+// ==================================================================================
+// BATCH 4: LEVEL 6 SPELL UPCASTS (Levels 7-9)
+// ==================================================================================
+
+// ==============================================================================
+// CHAIN LIGHTNING - Level 7/8/9 Upcasts (+1d8 per level, base 10d8)
+// Note: Also needs explosion variant for extra targets
+// ==============================================================================
+new entry "Projectile_ChainLightning_7"
+type "SpellData"
+data "SpellType" "Projectile"
+using "Projectile_ChainLightning"
+data "SpellSuccess" "DealDamage(11d8,Lightning,Magical);SpawnExtraProjectiles(Projectile_ChainLightning_Explosion_7)"
+data "SpellFail" "DealDamage((11d8)/2,Lightning,Magical);SpawnExtraProjectiles(Projectile_ChainLightning_Explosion_7)"
+data "TooltipDamageList" "DealDamage(11d8,Lightning)"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:7"
+data "RootSpellID" "Projectile_ChainLightning"
+data "PowerLevel" "7"
+
+new entry "Projectile_ChainLightning_Explosion_7"
+type "SpellData"
+data "SpellType" "Projectile"
+using "Projectile_ChainLightning_Explosion"
+data "SpellSuccess" "DealDamage(11d8,Lightning,Magical)"
+data "SpellFail" "DealDamage((11d8)/2,Lightning,Magical)"
+
+new entry "Projectile_ChainLightning_8"
+type "SpellData"
+data "SpellType" "Projectile"
+using "Projectile_ChainLightning"
+data "SpellSuccess" "DealDamage(12d8,Lightning,Magical);SpawnExtraProjectiles(Projectile_ChainLightning_Explosion_8)"
+data "SpellFail" "DealDamage((12d8)/2,Lightning,Magical);SpawnExtraProjectiles(Projectile_ChainLightning_Explosion_8)"
+data "TooltipDamageList" "DealDamage(12d8,Lightning)"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:8"
+data "RootSpellID" "Projectile_ChainLightning"
+data "PowerLevel" "8"
+
+new entry "Projectile_ChainLightning_Explosion_8"
+type "SpellData"
+data "SpellType" "Projectile"
+using "Projectile_ChainLightning_Explosion"
+data "SpellSuccess" "DealDamage(12d8,Lightning,Magical)"
+data "SpellFail" "DealDamage((12d8)/2,Lightning,Magical)"
+
+new entry "Projectile_ChainLightning_9"
+type "SpellData"
+data "SpellType" "Projectile"
+using "Projectile_ChainLightning"
+data "SpellSuccess" "DealDamage(13d8,Lightning,Magical);SpawnExtraProjectiles(Projectile_ChainLightning_Explosion_9)"
+data "SpellFail" "DealDamage((13d8)/2,Lightning,Magical);SpawnExtraProjectiles(Projectile_ChainLightning_Explosion_9)"
+data "TooltipDamageList" "DealDamage(13d8,Lightning)"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:9"
+data "RootSpellID" "Projectile_ChainLightning"
+data "PowerLevel" "9"
+
+new entry "Projectile_ChainLightning_Explosion_9"
+type "SpellData"
+data "SpellType" "Projectile"
+using "Projectile_ChainLightning_Explosion"
+data "SpellSuccess" "DealDamage(13d8,Lightning,Magical)"
+data "SpellFail" "DealDamage((13d8)/2,Lightning,Magical)"
+
+// ==============================================================================
+// DISINTEGRATE - Level 7/8/9 Upcasts (+3d6 per level, base 10d6+40)
+// ==============================================================================
+new entry "Projectile_Disintegrate_7"
+type "SpellData"
+data "SpellType" "Projectile"
+using "Projectile_Disintegrate"
+data "SpellSuccess" "DealDamage(13d6+40,Force,Magical)"
+data "DescriptionParams" "DealDamage(13d6+40,Force)"
+data "TooltipDamageList" "DealDamage(13d6+40,Force)"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:7"
+data "RootSpellID" "Projectile_Disintegrate"
+data "PowerLevel" "7"
+
+new entry "Projectile_Disintegrate_8"
+type "SpellData"
+data "SpellType" "Projectile"
+using "Projectile_Disintegrate"
+data "SpellSuccess" "DealDamage(16d6+40,Force,Magical)"
+data "DescriptionParams" "DealDamage(16d6+40,Force)"
+data "TooltipDamageList" "DealDamage(16d6+40,Force)"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:8"
+data "RootSpellID" "Projectile_Disintegrate"
+data "PowerLevel" "8"
+
+new entry "Projectile_Disintegrate_9"
+type "SpellData"
+data "SpellType" "Projectile"
+using "Projectile_Disintegrate"
+data "SpellSuccess" "DealDamage(19d6+40,Force,Magical)"
+data "DescriptionParams" "DealDamage(19d6+40,Force)"
+data "TooltipDamageList" "DealDamage(19d6+40,Force)"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:9"
+data "RootSpellID" "Projectile_Disintegrate"
+data "PowerLevel" "9"
+
+// ==============================================================================
+// FLAME STRIKE - Level 7/8/9 Upcasts (+1d6 each damage type per level)
+// ==============================================================================
+new entry "Target_FlameStrike_7"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_FlameStrike"
+data "SpellSuccess" "DealDamage(7d6,Fire);DealDamage(7d6,Radiant,Magical)"
+data "SpellFail" "DealDamage(7d6/2,Fire);DealDamage(7d6/2,Radiant,Magical)"
+data "TooltipDamageList" "DealDamage(7d6,Fire);DealDamage(7d6,Radiant)"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:7"
+data "RootSpellID" "Target_FlameStrike"
+data "PowerLevel" "7"
+
+new entry "Target_FlameStrike_8"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_FlameStrike"
+data "SpellSuccess" "DealDamage(8d6,Fire);DealDamage(8d6,Radiant,Magical)"
+data "SpellFail" "DealDamage(8d6/2,Fire);DealDamage(8d6/2,Radiant,Magical)"
+data "TooltipDamageList" "DealDamage(8d6,Fire);DealDamage(8d6,Radiant)"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:8"
+data "RootSpellID" "Target_FlameStrike"
+data "PowerLevel" "8"
+
+new entry "Target_FlameStrike_9"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_FlameStrike"
+data "SpellSuccess" "DealDamage(9d6,Fire);DealDamage(9d6,Radiant,Magical)"
+data "SpellFail" "DealDamage(9d6/2,Fire);DealDamage(9d6/2,Radiant,Magical)"
+data "TooltipDamageList" "DealDamage(9d6,Fire);DealDamage(9d6,Radiant)"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:9"
+data "RootSpellID" "Target_FlameStrike"
+data "PowerLevel" "9"
+
+// ==============================================================================
+// HARM - Level 7/8/9 Upcasts (+1d6 per level, base 14d6)
+// ==============================================================================
+new entry "Target_Harm_7"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_Harm"
+data "SpellSuccess" "DealDamage(15d6,Necrotic,Magical)"
+data "TooltipDamageList" "DealDamage(15d6,Necrotic)"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:7"
+data "RootSpellID" "Target_Harm"
+data "PowerLevel" "7"
+
+new entry "Target_Harm_8"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_Harm"
+data "SpellSuccess" "DealDamage(16d6,Necrotic,Magical)"
+data "TooltipDamageList" "DealDamage(16d6,Necrotic)"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:8"
+data "RootSpellID" "Target_Harm"
+data "PowerLevel" "8"
+
+new entry "Target_Harm_9"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_Harm"
+data "SpellSuccess" "DealDamage(17d6,Necrotic,Magical)"
+data "TooltipDamageList" "DealDamage(17d6,Necrotic)"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:9"
+data "RootSpellID" "Target_Harm"
+data "PowerLevel" "9"
+
+// ==============================================================================
+// HEAL - Level 7/8/9 Upcasts (+10 HP per level, base 70)
+// ==============================================================================
+new entry "Target_Heal_7"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_Heal"
+data "SpellProperties" "RegainHitPoints(80);RemoveStatus(SG_Blinded);RemoveStatus(SG_Disease)"
+data "TooltipDamageList" "RegainHitPoints(80)"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:7"
+data "RootSpellID" "Target_Heal"
+data "PowerLevel" "7"
+
+new entry "Target_Heal_8"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_Heal"
+data "SpellProperties" "RegainHitPoints(90);RemoveStatus(SG_Blinded);RemoveStatus(SG_Disease)"
+data "TooltipDamageList" "RegainHitPoints(90)"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:8"
+data "RootSpellID" "Target_Heal"
+data "PowerLevel" "8"
+
+new entry "Target_Heal_9"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_Heal"
+data "SpellProperties" "RegainHitPoints(100);RemoveStatus(SG_Blinded);RemoveStatus(SG_Disease)"
+data "TooltipDamageList" "RegainHitPoints(100)"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:9"
+data "RootSpellID" "Target_Heal"
+data "PowerLevel" "9"
+
+// ==============================================================================
+// INSECT PLAGUE - Level 7/8/9 Upcasts (+1d10 per level, base 4d10)
+// ==============================================================================
+new entry "Target_InsectPlague_7"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_InsectPlague"
+data "SpellSuccess" "DealDamage(6d10,Piercing,Magical)"
+data "SpellFail" "DealDamage((6d10)/2,Piercing,Magical)"
+data "TooltipDamageList" "DealDamage(6d10,Piercing)"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:7"
+data "RootSpellID" "Target_InsectPlague"
+data "PowerLevel" "7"
+
+new entry "Target_InsectPlague_8"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_InsectPlague"
+data "SpellSuccess" "DealDamage(7d10,Piercing,Magical)"
+data "SpellFail" "DealDamage((7d10)/2,Piercing,Magical)"
+data "TooltipDamageList" "DealDamage(7d10,Piercing)"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:8"
+data "RootSpellID" "Target_InsectPlague"
+data "PowerLevel" "8"
+
+new entry "Target_InsectPlague_9"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_InsectPlague"
+data "SpellSuccess" "DealDamage(8d10,Piercing,Magical)"
+data "SpellFail" "DealDamage((8d10)/2,Piercing,Magical)"
+data "TooltipDamageList" "DealDamage(8d10,Piercing)"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:9"
+data "RootSpellID" "Target_InsectPlague"
+data "PowerLevel" "9"
+
+// ==============================================================================
+// CIRCLE OF DEATH - Level 7/8/9 Upcasts (+2d6 per level, base 8d6)
+// ==============================================================================
+new entry "Target_CircleOfDeath_7"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_CircleOfDeath"
+data "SpellSuccess" "DealDamage(10d6,Necrotic,Magical)"
+data "SpellFail" "DealDamage((10d6)/2,Necrotic,Magical)"
+data "TooltipDamageList" "DealDamage(10d6,Necrotic)"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:7"
+data "RootSpellID" "Target_CircleOfDeath"
+data "PowerLevel" "7"
+
+new entry "Target_CircleOfDeath_8"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_CircleOfDeath"
+data "SpellSuccess" "DealDamage(12d6,Necrotic,Magical)"
+data "SpellFail" "DealDamage((12d6)/2,Necrotic,Magical)"
+data "TooltipDamageList" "DealDamage(12d6,Necrotic)"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:8"
+data "RootSpellID" "Target_CircleOfDeath"
+data "PowerLevel" "8"
+
+new entry "Target_CircleOfDeath_9"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_CircleOfDeath"
+data "SpellSuccess" "DealDamage(14d6,Necrotic,Magical)"
+data "SpellFail" "DealDamage((14d6)/2,Necrotic,Magical)"
+data "TooltipDamageList" "DealDamage(14d6,Necrotic)"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:9"
+data "RootSpellID" "Target_CircleOfDeath"
+data "PowerLevel" "9"
+
+// ==============================================================================
+// DESTRUCTIVE WAVE - Level 7/8/9 Upcasts (+1d6 each type per level)
+// ==============================================================================
+new entry "Target_DestructiveWave_7"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_DestructiveWave"
+data "SpellSuccess" "DealDamage(7d6,Thunder,Magical);DealDamage(7d6,Radiant,Magical);Force(6, TargetToEntity);ApplyStatus(PRONE,100,1)"
+data "SpellFail" "DealDamage((7d6)/2,Thunder,Magical);DealDamage((7d6)/2,Radiant,Magical)"
+data "TooltipDamageList" "DealDamage(7d6,Thunder);DealDamage(7d6,Radiant)"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:7"
+data "RootSpellID" "Target_DestructiveWave"
+data "PowerLevel" "7"
+
+new entry "Target_DestructiveWave_8"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_DestructiveWave"
+data "SpellSuccess" "DealDamage(8d6,Thunder,Magical);DealDamage(8d6,Radiant,Magical);Force(6, TargetToEntity);ApplyStatus(PRONE,100,1)"
+data "SpellFail" "DealDamage((8d6)/2,Thunder,Magical);DealDamage((8d6)/2,Radiant,Magical)"
+data "TooltipDamageList" "DealDamage(8d6,Thunder);DealDamage(8d6,Radiant)"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:8"
+data "RootSpellID" "Target_DestructiveWave"
+data "PowerLevel" "8"
+
+new entry "Target_DestructiveWave_9"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_DestructiveWave"
+data "SpellSuccess" "DealDamage(9d6,Thunder,Magical);DealDamage(9d6,Radiant,Magical);Force(6, TargetToEntity);ApplyStatus(PRONE,100,1)"
+data "SpellFail" "DealDamage((9d6)/2,Thunder,Magical);DealDamage((9d6)/2,Radiant,Magical)"
+data "TooltipDamageList" "DealDamage(9d6,Thunder);DealDamage(9d6,Radiant)"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:9"
+data "RootSpellID" "Target_DestructiveWave"
+data "PowerLevel" "9"
+
+// ==============================================================================
+// BLINDNESS/DEAFNESS - Level 7/8/9 Upcasts (+1 target per level)
+// ==============================================================================
+new entry "Target_Blindness_7"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_Blindness"
+data "AmountOfTargets" "6"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:7"
+data "RootSpellID" "Target_Blindness"
+data "PowerLevel" "7"
+
+new entry "Target_Blindness_8"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_Blindness"
+data "AmountOfTargets" "7"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:8"
+data "RootSpellID" "Target_Blindness"
+data "PowerLevel" "8"
+
+new entry "Target_Blindness_9"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_Blindness"
+data "AmountOfTargets" "8"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:9"
+data "RootSpellID" "Target_Blindness"
+data "PowerLevel" "9"
+
+// ==============================================================================
+// INVISIBILITY - Level 7/8/9 Upcasts (+1 target per level)
+// ==============================================================================
+new entry "Target_Invisibility_7"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_Invisibility"
+data "AmountOfTargets" "6"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:7"
+data "RootSpellID" "Target_Invisibility"
+data "PowerLevel" "7"
+
+new entry "Target_Invisibility_8"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_Invisibility"
+data "AmountOfTargets" "7"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:8"
+data "RootSpellID" "Target_Invisibility"
+data "PowerLevel" "8"
+
+new entry "Target_Invisibility_9"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_Invisibility"
+data "AmountOfTargets" "8"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:9"
+data "RootSpellID" "Target_Invisibility"
+data "PowerLevel" "9"
+
+// ==================================================================================
+// BATCH 5: LEVEL 2-3 SPELL UPCASTS (Levels 7-9)
+// ==================================================================================
+
+// ==============================================================================
+// AID - Level 7/8/9 Upcasts (+5 HP per level, base 5)
+// Note: Requires status entries for AID_7, AID_8, AID_9
+// ==============================================================================
+new entry "Target_Aid_7"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_Aid_3"
+data "SpellProperties" "ApplyStatus(AID_7,100,-1);RegainHitPoints(1);"
+data "DescriptionParams" "RegainHitPoints(30)"
+data "TooltipDamageList" "RegainHitPoints(30)"
+data "TooltipStatusApply" "ApplyStatus(AID_7,100,-1)"
+data "TooltipUpcastDescriptionParams" "RegainHitPoints(30)"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:7"
+data "RootSpellID" "Target_Aid"
+data "PowerLevel" "7"
+
+new entry "Target_Aid_8"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_Aid_3"
+data "SpellProperties" "ApplyStatus(AID_8,100,-1);RegainHitPoints(1);"
+data "DescriptionParams" "RegainHitPoints(35)"
+data "TooltipDamageList" "RegainHitPoints(35)"
+data "TooltipStatusApply" "ApplyStatus(AID_8,100,-1)"
+data "TooltipUpcastDescriptionParams" "RegainHitPoints(35)"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:8"
+data "RootSpellID" "Target_Aid"
+data "PowerLevel" "8"
+
+new entry "Target_Aid_9"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_Aid_3"
+data "SpellProperties" "ApplyStatus(AID_9,100,-1);RegainHitPoints(1);"
+data "DescriptionParams" "RegainHitPoints(40)"
+data "TooltipDamageList" "RegainHitPoints(40)"
+data "TooltipStatusApply" "ApplyStatus(AID_9,100,-1)"
+data "TooltipUpcastDescriptionParams" "RegainHitPoints(40)"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:9"
+data "RootSpellID" "Target_Aid"
+data "PowerLevel" "9"
+
+// ==============================================================================
+// HEAT METAL - Level 7/8/9 Upcasts (+1d8 per level, base 2d8)
+// Note: Requires status entries for HEAT_METAL_7, HEAT_METAL_8, HEAT_METAL_9
+// ==============================================================================
+new entry "Target_HeatMetal_7"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_HeatMetal"
+data "SpellProperties" "IF(IsMetalItem()):ApplyStatus(HEAT_METAL_7,100,10);IF(not IsMetalItem() and HasMetalWeapon(context.Target, true)):ApplyEquipmentStatus(MainHand,HEAT_METAL_7,100,10);IF(not IsMetalItem() and not HasMetalWeapon(context.Target, true) and HasMetalWeapon(context.Target, false)):ApplyEquipmentStatus(OffHand,HEAT_METAL_7,100,10);IF(not IsMetalItem() and not HasMetalWeapon(context.Target, true) and not HasMetalWeapon(context.Target, false) and HasMetalArmor() and Player()):ApplyEquipmentStatus(Breast,HEAT_METAL_7,100,10);IF(not IsMetalItem() and not HasMetalWeapon(context.Target, true) and not HasMetalWeapon(context.Target, false) and HasMetalArmor() and not Player()):ApplyStatus(HEAT_METAL_7,100,10);IF(not IsMetalItem() and not HasMetalWeapon(context.Target, true) and not HasMetalWeapon(context.Target, false) and HasMetalArmor() and not Player()):ApplyStatus(HEAT_METAL_DISADVANTAGE,100,10);IF(IsMetalCharacter()):ApplyStatus(HEAT_METAL_7,100,10);IF(IsMetalCharacter()):ApplyStatus(HEAT_METAL_DISADVANTAGE,100,10);IF(Character()):DealDamage(7d8,Fire);ApplyStatus(SELF,HEAT_METAL_TECHNICAL_7,100,10)"
+data "DescriptionParams" "DealDamage(7d8,Fire)"
+data "ExtraDescriptionParams" "DealDamage(7d8,Fire)"
+data "TooltipDamageList" "DealDamage(7d8,Fire)"
+data "TooltipStatusApply" "ApplyStatus(HEAT_METAL_7,100,10)"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:7"
+data "RootSpellID" "Target_HeatMetal"
+data "PowerLevel" "7"
+
+new entry "Target_HeatMetal_8"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_HeatMetal"
+data "SpellProperties" "IF(IsMetalItem()):ApplyStatus(HEAT_METAL_8,100,10);IF(not IsMetalItem() and HasMetalWeapon(context.Target, true)):ApplyEquipmentStatus(MainHand,HEAT_METAL_8,100,10);IF(not IsMetalItem() and not HasMetalWeapon(context.Target, true) and HasMetalWeapon(context.Target, false)):ApplyEquipmentStatus(OffHand,HEAT_METAL_8,100,10);IF(not IsMetalItem() and not HasMetalWeapon(context.Target, true) and not HasMetalWeapon(context.Target, false) and HasMetalArmor() and Player()):ApplyEquipmentStatus(Breast,HEAT_METAL_8,100,10);IF(not IsMetalItem() and not HasMetalWeapon(context.Target, true) and not HasMetalWeapon(context.Target, false) and HasMetalArmor() and not Player()):ApplyStatus(HEAT_METAL_8,100,10);IF(not IsMetalItem() and not HasMetalWeapon(context.Target, true) and not HasMetalWeapon(context.Target, false) and HasMetalArmor() and not Player()):ApplyStatus(HEAT_METAL_DISADVANTAGE,100,10);IF(IsMetalCharacter()):ApplyStatus(HEAT_METAL_8,100,10);IF(IsMetalCharacter()):ApplyStatus(HEAT_METAL_DISADVANTAGE,100,10);IF(Character()):DealDamage(8d8,Fire);ApplyStatus(SELF,HEAT_METAL_TECHNICAL_8,100,10)"
+data "DescriptionParams" "DealDamage(8d8,Fire)"
+data "ExtraDescriptionParams" "DealDamage(8d8,Fire)"
+data "TooltipDamageList" "DealDamage(8d8,Fire)"
+data "TooltipStatusApply" "ApplyStatus(HEAT_METAL_8,100,10)"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:8"
+data "RootSpellID" "Target_HeatMetal"
+data "PowerLevel" "8"
+
+new entry "Target_HeatMetal_9"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_HeatMetal"
+data "SpellProperties" "IF(IsMetalItem()):ApplyStatus(HEAT_METAL_9,100,10);IF(not IsMetalItem() and HasMetalWeapon(context.Target, true)):ApplyEquipmentStatus(MainHand,HEAT_METAL_9,100,10);IF(not IsMetalItem() and not HasMetalWeapon(context.Target, true) and HasMetalWeapon(context.Target, false)):ApplyEquipmentStatus(OffHand,HEAT_METAL_9,100,10);IF(not IsMetalItem() and not HasMetalWeapon(context.Target, true) and not HasMetalWeapon(context.Target, false) and HasMetalArmor() and Player()):ApplyEquipmentStatus(Breast,HEAT_METAL_9,100,10);IF(not IsMetalItem() and not HasMetalWeapon(context.Target, true) and not HasMetalWeapon(context.Target, false) and HasMetalArmor() and not Player()):ApplyStatus(HEAT_METAL_9,100,10);IF(not IsMetalItem() and not HasMetalWeapon(context.Target, true) and not HasMetalWeapon(context.Target, false) and HasMetalArmor() and not Player()):ApplyStatus(HEAT_METAL_DISADVANTAGE,100,10);IF(IsMetalCharacter()):ApplyStatus(HEAT_METAL_9,100,10);IF(IsMetalCharacter()):ApplyStatus(HEAT_METAL_DISADVANTAGE,100,10);IF(Character()):DealDamage(9d8,Fire);ApplyStatus(SELF,HEAT_METAL_TECHNICAL_9,100,10)"
+data "DescriptionParams" "DealDamage(9d8,Fire)"
+data "ExtraDescriptionParams" "DealDamage(9d8,Fire)"
+data "TooltipDamageList" "DealDamage(9d8,Fire)"
+data "TooltipStatusApply" "ApplyStatus(HEAT_METAL_9,100,10)"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:9"
+data "RootSpellID" "Target_HeatMetal"
+data "PowerLevel" "9"
+
+// ==============================================================================
+// PRAYER OF HEALING - Level 7/8/9 Upcasts (+1d8 per level, base 2d8)
+// ==============================================================================
+new entry "Shout_PrayerOfHealing_7"
+type "SpellData"
+data "SpellType" "Shout"
+using "Shout_PrayerOfHealing"
+data "SpellProperties" "RegainHitPoints(7d8+SpellCastingAbilityModifier)"
+data "DescriptionParams" "RegainHitPoints(7d8+SpellCastingAbilityModifier)"
+data "TooltipDamageList" "RegainHitPoints(7d8+SpellCastingAbilityModifier)"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:7"
+data "RootSpellID" "Shout_PrayerOfHealing"
+data "PowerLevel" "7"
+
+new entry "Shout_PrayerOfHealing_8"
+type "SpellData"
+data "SpellType" "Shout"
+using "Shout_PrayerOfHealing"
+data "SpellProperties" "RegainHitPoints(8d8+SpellCastingAbilityModifier)"
+data "DescriptionParams" "RegainHitPoints(8d8+SpellCastingAbilityModifier)"
+data "TooltipDamageList" "RegainHitPoints(8d8+SpellCastingAbilityModifier)"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:8"
+data "RootSpellID" "Shout_PrayerOfHealing"
+data "PowerLevel" "8"
+
+new entry "Shout_PrayerOfHealing_9"
+type "SpellData"
+data "SpellType" "Shout"
+using "Shout_PrayerOfHealing"
+data "SpellProperties" "RegainHitPoints(9d8+SpellCastingAbilityModifier)"
+data "DescriptionParams" "RegainHitPoints(9d8+SpellCastingAbilityModifier)"
+data "TooltipDamageList" "RegainHitPoints(9d8+SpellCastingAbilityModifier)"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:9"
+data "RootSpellID" "Shout_PrayerOfHealing"
+data "PowerLevel" "9"
+
+// ==============================================================================
+// CALL LIGHTNING - Level 7/8/9 Upcasts (+1d10 per level, base 3d10)
+// Note: Requires CALL_LIGHTNING_TECHNICAL_7/8/9 status entries
+// ==============================================================================
+new entry "Target_CallLightning_7"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_CallLightning"
+data "SpellProperties" "GROUND:ApplyStatus(SELF,CALL_LIGHTNING_TECHNICAL_7,100,10);GROUND:SurfaceChange(Electrify)"
+data "SpellSuccess" "DealDamage(7d10,Lightning,Magical)"
+data "SpellFail" "DealDamage((7d10)/2,Lightning,Magical)"
+data "TooltipDamageList" "DealDamage(7d10,Lightning)"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:7"
+data "RootSpellID" "Target_CallLightning"
+data "PowerLevel" "7"
+
+new entry "Target_CallLightning_8"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_CallLightning"
+data "SpellProperties" "GROUND:ApplyStatus(SELF,CALL_LIGHTNING_TECHNICAL_8,100,10);GROUND:SurfaceChange(Electrify)"
+data "SpellSuccess" "DealDamage(8d10,Lightning,Magical)"
+data "SpellFail" "DealDamage((8d10)/2,Lightning,Magical)"
+data "TooltipDamageList" "DealDamage(8d10,Lightning)"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:8"
+data "RootSpellID" "Target_CallLightning"
+data "PowerLevel" "8"
+
+new entry "Target_CallLightning_9"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_CallLightning"
+data "SpellProperties" "GROUND:ApplyStatus(SELF,CALL_LIGHTNING_TECHNICAL_9,100,10);GROUND:SurfaceChange(Electrify)"
+data "SpellSuccess" "DealDamage(9d10,Lightning,Magical)"
+data "SpellFail" "DealDamage((9d10)/2,Lightning,Magical)"
+data "TooltipDamageList" "DealDamage(9d10,Lightning)"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:9"
+data "RootSpellID" "Target_CallLightning"
+data "PowerLevel" "9"
+
+// ==============================================================================
+// SPIRIT GUARDIANS - Level 7/8/9 Upcasts (+1d8 per level, base 3d8)
+// Note: Requires SPIRIT_GUARDIANS_RADIANT/NECROTIC_AURA_7/8/9 status entries
+// ==============================================================================
+new entry "Shout_SpiritGuardians_7"
+type "SpellData"
+data "SpellType" "Shout"
+using "Shout_SpiritGuardians"
+data "SpellProperties" "IF(not Tagged('ALIGN_EVIL') and not Tagged('CLERIC_EVIL')):ApplyStatus(SPIRIT_GUARDIANS_RADIANT_AURA_7,100,100);IF(Tagged('ALIGN_EVIL') or Tagged('CLERIC_EVIL')):ApplyStatus(SPIRIT_GUARDIANS_NECROTIC_AURA_7,100,100);"
+data "DescriptionParams" "DealDamage(7d8,Radiant);DealDamage(7d8,Necrotic)"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:7;"
+data "RootSpellID" "Shout_SpiritGuardians"
+data "PowerLevel" "7"
+
+new entry "Shout_SpiritGuardians_8"
+type "SpellData"
+data "SpellType" "Shout"
+using "Shout_SpiritGuardians"
+data "SpellProperties" "IF(not Tagged('ALIGN_EVIL') and not Tagged('CLERIC_EVIL')):ApplyStatus(SPIRIT_GUARDIANS_RADIANT_AURA_8,100,100);IF(Tagged('ALIGN_EVIL') or Tagged('CLERIC_EVIL')):ApplyStatus(SPIRIT_GUARDIANS_NECROTIC_AURA_8,100,100);"
+data "DescriptionParams" "DealDamage(8d8,Radiant);DealDamage(8d8,Necrotic)"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:8;"
+data "RootSpellID" "Shout_SpiritGuardians"
+data "PowerLevel" "8"
+
+new entry "Shout_SpiritGuardians_9"
+type "SpellData"
+data "SpellType" "Shout"
+using "Shout_SpiritGuardians"
+data "SpellProperties" "IF(not Tagged('ALIGN_EVIL') and not Tagged('CLERIC_EVIL')):ApplyStatus(SPIRIT_GUARDIANS_RADIANT_AURA_9,100,100);IF(Tagged('ALIGN_EVIL') or Tagged('CLERIC_EVIL')):ApplyStatus(SPIRIT_GUARDIANS_NECROTIC_AURA_9,100,100);"
+data "DescriptionParams" "DealDamage(9d8,Radiant);DealDamage(9d8,Necrotic)"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:9;"
+data "RootSpellID" "Shout_SpiritGuardians"
+data "PowerLevel" "9"
+
+// ==============================================================================
+// ANIMATE DEAD - Level 7/8/9 Upcasts (+2 corpses per level)
+// Base: 1 corpse at L3, so L7=9, L8=11, L9=13 corpses
+// ==============================================================================
+new entry "Target_AnimateDead_7"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_AnimateDead"
+data "AmountOfTargets" "9"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:7"
+data "RootSpellID" "Target_AnimateDead"
+data "PowerLevel" "7"
+
+new entry "Target_AnimateDead_8"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_AnimateDead"
+data "AmountOfTargets" "11"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:8"
+data "RootSpellID" "Target_AnimateDead"
+data "PowerLevel" "8"
+
+new entry "Target_AnimateDead_9"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_AnimateDead"
+data "AmountOfTargets" "13"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:9"
+data "RootSpellID" "Target_AnimateDead"
+data "PowerLevel" "9"
+
+// ==============================================================================
+// SUNBEAM - Level 7/8/9 Upcasts (+1d8 per level, base 6d8)
+// ==============================================================================
+new entry "Target_Sunbeam_7"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_Sunbeam"
+data "SpellSuccess" "DealDamage(7d8,Radiant,Magical);ApplyStatus(BLINDED,100,3)"
+data "SpellFail" "DealDamage((7d8)/2,Radiant,Magical)"
+data "TooltipDamageList" "DealDamage(7d8,Radiant)"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:7"
+data "RootSpellID" "Target_Sunbeam"
+data "PowerLevel" "7"
+
+new entry "Target_Sunbeam_8"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_Sunbeam"
+data "SpellSuccess" "DealDamage(8d8,Radiant,Magical);ApplyStatus(BLINDED,100,3)"
+data "SpellFail" "DealDamage((8d8)/2,Radiant,Magical)"
+data "TooltipDamageList" "DealDamage(8d8,Radiant)"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:8"
+data "RootSpellID" "Target_Sunbeam"
+data "PowerLevel" "8"
+
+new entry "Target_Sunbeam_9"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_Sunbeam"
+data "SpellSuccess" "DealDamage(9d8,Radiant,Magical);ApplyStatus(BLINDED,100,3)"
+data "SpellFail" "DealDamage((9d8)/2,Radiant,Magical)"
+data "TooltipDamageList" "DealDamage(9d8,Radiant)"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:9"
+data "RootSpellID" "Target_Sunbeam"
+data "PowerLevel" "9"
+
+// ==============================================================================
+// CALL LIGHTNING LIGHTNING BOLT - Level 7/8/9 (follow-up spells from status)
+// ==============================================================================
+new entry "Target_CallLightning_LightningBolt_7"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_CallLightning_LightningBolt"
+data "SpellSuccess" "DealDamage(7d10,Lightning,Magical)"
+data "SpellFail" "DealDamage((7d10)/2,Lightning,Magical)"
+data "TooltipDamageList" "DealDamage(7d10,Lightning)"
+data "RootSpellID" "Target_CallLightning_LightningBolt"
+data "PowerLevel" "7"
+
+new entry "Target_CallLightning_LightningBolt_8"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_CallLightning_LightningBolt"
+data "SpellSuccess" "DealDamage(8d10,Lightning,Magical)"
+data "SpellFail" "DealDamage((8d10)/2,Lightning,Magical)"
+data "TooltipDamageList" "DealDamage(8d10,Lightning)"
+data "RootSpellID" "Target_CallLightning_LightningBolt"
+data "PowerLevel" "8"
+
+new entry "Target_CallLightning_LightningBolt_9"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_CallLightning_LightningBolt"
+data "SpellSuccess" "DealDamage(9d10,Lightning,Magical)"
+data "SpellFail" "DealDamage((9d10)/2,Lightning,Magical)"
+data "TooltipDamageList" "DealDamage(9d10,Lightning)"
+data "RootSpellID" "Target_CallLightning_LightningBolt"
+data "PowerLevel" "9"
+
+// ==============================================================================
+// HEAT METAL REAPPLY - Level 7/8/9 (follow-up spells from status)
+// ==============================================================================
+new entry "Target_HeatMetal_Reapply_7"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_HeatMetal_Reapply"
+data "SpellProperties" "DealDamage(7d8,Fire)"
+data "TargetConditions" "Character() and HasHeatMetalActiveHigherLevels()"
+data "DescriptionParams" "DealDamage(7d8,Fire)"
+data "TooltipDamageList" "DealDamage(7d8,Fire)"
+data "TooltipStatusApply" "ApplyStatus(HEAT_METAL_7,100,10)"
+data "RootSpellID" "Target_HeatMetal_Reapply"
+
+new entry "Target_HeatMetal_Reapply_8"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_HeatMetal_Reapply"
+data "SpellProperties" "DealDamage(8d8,Fire)"
+data "TargetConditions" "Character() and HasHeatMetalActiveHigherLevels()"
+data "DescriptionParams" "DealDamage(8d8,Fire)"
+data "TooltipDamageList" "DealDamage(8d8,Fire)"
+data "TooltipStatusApply" "ApplyStatus(HEAT_METAL_8,100,10)"
+data "RootSpellID" "Target_HeatMetal_Reapply"
+
+new entry "Target_HeatMetal_Reapply_9"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_HeatMetal_Reapply"
+data "SpellProperties" "DealDamage(9d8,Fire)"
+data "TargetConditions" "Character() and HasHeatMetalActiveHigherLevels()"
+data "DescriptionParams" "DealDamage(9d8,Fire)"
+data "TooltipDamageList" "DealDamage(9d8,Fire)"
+data "TooltipStatusApply" "ApplyStatus(HEAT_METAL_9,100,10)"
+data "RootSpellID" "Target_HeatMetal_Reapply"

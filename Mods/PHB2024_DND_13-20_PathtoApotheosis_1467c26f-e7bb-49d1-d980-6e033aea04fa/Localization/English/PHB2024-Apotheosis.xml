@@ -14,12 +14,12 @@
   <content contentuid="hc2e3f4a60000000000000000000000c" version="1">If you miss a creature with an attack roll, you have Advantage on your next attack roll against that creature before the end of your next turn.</content>
   <content contentuid="hd3f4a5b60000000000000000000000d" version="1">Extra Attack (3)</content>
   <content contentuid="hd3f4a5b70000000000000000000000e" version="1">You can attack four times whenever you take the Attack action on your turn.</content>
-  <content contentuid="he4a5b6c70000000000000000000000f" version="1">Brutal Strike (Improved)</content>
-  <content contentuid="he4a5b6c800000000000000000000010" version="1">Your Brutal Strike deals additional damage dice when you use it.</content>
-  <content contentuid="hf5b6c7d800000000000000000000011" version="1">Brutal Strike (17th Level)</content>
-  <content contentuid="hf5b6c7d900000000000000000000012" version="1">Your Brutal Strike is even more devastating, dealing maximum damage.</content>
+  <content contentuid="he4a5b6c70000000000000000000000f" version="1">Improved Brutal Strike</content>
+  <content contentuid="he4a5b6c800000000000000000000010" version="1">You have honed new ways to attack furiously. The following effects are now among your Brutal Strike options: &lt;LSTag Type="ItemPassive" Tooltip="haa11111111111111111111111111b014"&gt;Staggering Blow&lt;/LSTag&gt; and &lt;LSTag Type="ItemPassive" Tooltip="haa11111111111111111111111111b018"&gt;Sundering Blow&lt;/LSTag&gt;.</content>
+  <content contentuid="hf5b6c7d800000000000000000000011" version="1">Improved Brutal Strike (17th Level)</content>
+  <content contentuid="hf5b6c7d900000000000000000000012" version="1">The extra damage of your Brutal Strike increases to &lt;LSTag Tooltip="DealDamage"&gt;2d10&lt;/LSTag&gt;. In addition, you can use two different Brutal Strike effects whenever you use your Brutal Strike feature.</content>
   <content contentuid="ha6c7d8e900000000000000000000013" version="1">Indomitable Might</content>
-  <content contentuid="ha6c7d8ea00000000000000000000014" version="1">If your total for a Strength check is less than your Strength score, you can use that score in place of the total.</content>
+  <content contentuid="ha6c7d8ea00000000000000000000014" version="1">If your total for a Strength check or Strength saving throw is less than your Strength score, you can use that score in place of the total. Your minimum roll on Athletics checks and Strength saving throws is 24.</content>
   <content contentuid="hb7d8e9f000000000000000000000015" version="1">Primal Champion</content>
   <content contentuid="hb7d8e9f100000000000000000000016" version="1">You embody primal power. Your Strength and Constitution scores increase by 4, to a maximum of 25.</content>
   <content contentuid="hc8e9f0a100000000000000000000017" version="1">Deflect Energy</content>
@@ -61,7 +61,7 @@
   <content contentuid="hc6e7f8a90000000000000000000003b" version="1">Superior Inspiration</content>
   <content contentuid="hc6e7f8aa0000000000000000000003c" version="1">When you roll Initiative and have no Bardic Inspiration dice remaining, you regain one use.</content>
   <content contentuid="hd7f8a9b00000000000000000000003d" version="1">Words of Creation</content>
-  <content contentuid="hd7f8a9b10000000000000000000003e" version="1">You can cast Ottos Irresistible Dance and Power Word Kill once each per Long Rest without expending a spell slot.</content>
+  <content contentuid="hd7f8a9b10000000000000000000003e" version="1">You have mastered two of the Words of Creation: the words of life and death. You always have &lt;LSTag Type="Spell" Tooltip="Target_PowerWordHeal_WordsOfCreation"&gt;Power Word Heal&lt;/LSTag&gt; and &lt;LSTag Type="Spell" Tooltip="Target_PowerWordKill_WordsOfCreation"&gt;Power Word Kill&lt;/LSTag&gt; prepared. When you cast either spell, you can target a second creature if it is within 10 feet of the first target.</content>
   <content contentuid="he8a9b0c10000000000000000000003f" version="1">Arcane Apotheosis</content>
   <content contentuid="he8a9b0c200000000000000000000040" version="1">When you have no spell slots remaining, you can spend Sorcery Points to cast spells (points equal to the spell level).</content>
   <content contentuid="hf9b0c1d200000000000000000000041" version="1">Mystic Arcanum (7th)</content>
@@ -280,4 +280,287 @@
   <content contentuid="h0000000000000000000000000000d006" version="1">Your divine strikes deal an additional 2d8 radiant damage instead of 1d8.</content>
   <content contentuid="h0000000000000000000000000000d007" version="1">Improved Elemental Fury</content>
   <content contentuid="h0000000000000000000000000000d008" version="1">Your elemental attacks deal an additional 2d8 damage of the same type instead of 1d8.</content>
+  
+  <content contentuid="haa11111111111111111111111111b001" version="1">Staggered</content>
+  <content contentuid="haa11111111111111111111111111b002" version="1">Staggered by a brutal blow. Has Disadvantage on the next saving throw and cannot make Opportunity Attacks until the start of the attacker's next turn.</content>
+  <content contentuid="haa11111111111111111111111111b003" version="1">Cannot make Opportunity Attacks.</content>
+  <content contentuid="haa11111111111111111111111111b004" version="1">Sundered</content>
+  <content contentuid="haa11111111111111111111111111b005" version="1">Armor has been sundered. The next attack against this creature gains a +[1] bonus to the attack roll.</content>
+  
+  <content contentuid="haa11111111111111111111111111b006" version="1">Forceful Blow</content>
+  <content contentuid="haa11111111111111111111111111b007" version="1">Forgo Advantage to deal an extra &lt;LSTag Tooltip="DealDamage"&gt;1d10&lt;/LSTag&gt; damage, push the target 15 feet away, and move up to half your Speed toward them without provoking Opportunity Attacks.</content>
+  <content contentuid="haa11111111111111111111111111b008" version="1">Forgo Advantage to deal an extra &lt;LSTag Tooltip="DealDamage"&gt;2d10&lt;/LSTag&gt; damage, push the target 15 feet away, and move up to half your Speed toward them without provoking Opportunity Attacks.</content>
+  <content contentuid="haa11111111111111111111111111b009" version="1">Push Distance: [1]</content>
+  
+  <content contentuid="haa11111111111111111111111111b010" version="1">Hamstring Blow</content>
+  <content contentuid="haa11111111111111111111111111b011" version="1">Forgo Advantage to deal an extra &lt;LSTag Tooltip="DealDamage"&gt;1d10&lt;/LSTag&gt; damage and reduce the target's Speed by 15 feet until the start of your next turn.</content>
+  <content contentuid="haa11111111111111111111111111b012" version="1">Forgo Advantage to deal an extra &lt;LSTag Tooltip="DealDamage"&gt;2d10&lt;/LSTag&gt; damage and reduce the target's Speed by 15 feet until the start of your next turn.</content>
+  <content contentuid="haa11111111111111111111111111b013" version="1">Speed Reduction: [1]</content>
+  
+  <content contentuid="haa11111111111111111111111111b014" version="1">Staggering Blow</content>
+  <content contentuid="haa11111111111111111111111111b015" version="1">Forgo Advantage to deal an extra &lt;LSTag Tooltip="DealDamage"&gt;1d10&lt;/LSTag&gt; damage. The target has Disadvantage on the next saving throw it makes, and cannot make Opportunity Attacks until the start of your next turn.</content>
+  <content contentuid="haa11111111111111111111111111b016" version="1">Forgo Advantage to deal an extra &lt;LSTag Tooltip="DealDamage"&gt;2d10&lt;/LSTag&gt; damage. The target has Disadvantage on the next saving throw it makes, and cannot make Opportunity Attacks until the start of your next turn.</content>
+  <content contentuid="haa11111111111111111111111111b017" version="1">Inflicts: Disadvantage on next save, Cannot make Opportunity Attacks</content>
+  
+  <content contentuid="haa11111111111111111111111111b018" version="1">Sundering Blow</content>
+  <content contentuid="haa11111111111111111111111111b019" version="1">Forgo Advantage to deal an extra &lt;LSTag Tooltip="DealDamage"&gt;1d10&lt;/LSTag&gt; damage. Before the start of your next turn, the next attack roll made by another creature against the target gains a +5 bonus.</content>
+  <content contentuid="haa11111111111111111111111111b020" version="1">Forgo Advantage to deal an extra &lt;LSTag Tooltip="DealDamage"&gt;2d10&lt;/LSTag&gt; damage. Before the start of your next turn, the next attack roll made by another creature against the target gains a +5 bonus.</content>
+  <content contentuid="haa11111111111111111111111111b021" version="1">Next ally attack gains: +5 attack bonus</content>
+  
+  <content contentuid="haa11111111111111111111111111b022" version="1">Forceful Hamstring</content>
+  <content contentuid="haa11111111111111111111111111b023" version="1">Forgo Advantage to deal an extra &lt;LSTag Tooltip="DealDamage"&gt;2d10&lt;/LSTag&gt; damage, push the target 15 feet away, move toward them, AND reduce their Speed by 15 feet.</content>
+  
+  <content contentuid="haa11111111111111111111111111b024" version="1">Forceful Stagger</content>
+  <content contentuid="haa11111111111111111111111111b025" version="1">Forgo Advantage to deal an extra &lt;LSTag Tooltip="DealDamage"&gt;2d10&lt;/LSTag&gt; damage, push the target 15 feet away, move toward them, AND inflict Disadvantage on their next save while preventing Opportunity Attacks.</content>
+  
+  <content contentuid="haa11111111111111111111111111b026" version="1">Forceful Sunder</content>
+  <content contentuid="haa11111111111111111111111111b027" version="1">Forgo Advantage to deal an extra &lt;LSTag Tooltip="DealDamage"&gt;2d10&lt;/LSTag&gt; damage, push the target 15 feet away, move toward them, AND grant the next attack against them a +5 bonus.</content>
+  
+  <content contentuid="haa11111111111111111111111111b028" version="1">Crippling Stagger</content>
+  <content contentuid="haa11111111111111111111111111b029" version="1">Forgo Advantage to deal an extra &lt;LSTag Tooltip="DealDamage"&gt;2d10&lt;/LSTag&gt; damage, reduce the target's Speed by 15 feet, AND inflict Disadvantage on their next save while preventing Opportunity Attacks.</content>
+  
+  <content contentuid="haa11111111111111111111111111b030" version="1">Crippling Sunder</content>
+  <content contentuid="haa11111111111111111111111111b031" version="1">Forgo Advantage to deal an extra &lt;LSTag Tooltip="DealDamage"&gt;2d10&lt;/LSTag&gt; damage, reduce the target's Speed by 15 feet, AND grant the next attack against them a +5 bonus.</content>
+  
+  <content contentuid="haa11111111111111111111111111b032" version="1">Staggering Sunder</content>
+  <content contentuid="haa11111111111111111111111111b033" version="1">Forgo Advantage to deal an extra &lt;LSTag Tooltip="DealDamage"&gt;2d10&lt;/LSTag&gt; damage, inflict Disadvantage on their next save, prevent Opportunity Attacks, AND grant the next attack against them a +5 bonus.</content>
+
+  <content contentuid="hbb11111111111111111111111111c001" version="1">Intimidating Presence</content>
+  <content contentuid="hbb11111111111111111111111111c002" version="1">As a Bonus Action, strike terror into others. Each creature of your choice in a 30-foot Emanation must make a Wisdom saving throw or be Frightened for 1 minute. Once used, regain by finishing a Long Rest or expending a Rage use.</content>
+
+  <content contentuid="hbb11111111111111111111111111c003" version="1">Power of the Wilds: Falcon</content>
+  <content contentuid="hbb11111111111111111111111111c004" version="1">While your Rage is active, you have a Fly Speed equal to your Speed if you aren't wearing any armor.</content>
+
+  <content contentuid="hbb11111111111111111111111111c005" version="1">Power of the Wilds: Lion</content>
+  <content contentuid="hbb11111111111111111111111111c006" version="1">While your Rage is active, any of your enemies within 5 feet of you have Disadvantage on attack rolls against targets other than you.</content>
+
+  <content contentuid="hbb11111111111111111111111111c007" version="1">Power of the Wilds: Ram</content>
+  <content contentuid="hbb11111111111111111111111111c008" version="1">While your Rage is active, you can cause a Large or smaller creature to have the Prone condition when you hit it with a melee attack.</content>
+
+  <content contentuid="hbb11111111111111111111111111c009" version="1">Falcon Spirit</content>
+  <content contentuid="hbb11111111111111111111111111c010" version="1">You have a Fly Speed equal to your Speed while your Rage is active.</content>
+  <content contentuid="hbb11111111111111111111111111c011" version="1">Lion Spirit</content>
+  <content contentuid="hbb11111111111111111111111111c012" version="1">Enemies within 5 feet have Disadvantage on attacks against targets other than you.</content>
+  <content contentuid="hbb11111111111111111111111111c013" version="1">Lion's Menace</content>
+  <content contentuid="hbb11111111111111111111111111c014" version="1">Disadvantage on attack rolls against targets other than the Lion Barbarian.</content>
+
+  <content contentuid="hbb11111111111111111111111111c015" version="1">Travel along the Tree</content>
+  <content contentuid="hbb11111111111111111111111111c016" version="1">When you activate your Rage and as a Bonus Action while your Rage is active, you can teleport up to 60 feet to an unoccupied space you can see.</content>
+  <content contentuid="hbb11111111111111111111111111c017" version="1">Travel along the Tree</content>
+  <content contentuid="hbb11111111111111111111111111c018" version="1">Teleport up to 60 feet to an unoccupied space you can see.</content>
+  <content contentuid="hbb11111111111111111111111111c019" version="1">Travel along the Tree</content>
+  <content contentuid="hbb11111111111111111111111111c020" version="1">As a Bonus Action while Rage is active, teleport up to 60 feet to an unoccupied space you can see.</content>
+  <content contentuid="hbb11111111111111111111111111c021" version="1">World Tree Connection</content>
+  <content contentuid="hbb11111111111111111111111111c022" version="1">You can use Travel along the Tree as a Bonus Action while your Rage is active.</content>
+
+  <content contentuid="hbb11111111111111111111111111c023" version="1">Rage of the Gods</content>
+  <content contentuid="hbb11111111111111111111111111c024" version="1">When you activate your Rage, you can assume the form of a divine warrior for 1 minute. You gain Flight, and Resistance to Necrotic, Psychic, and Radiant damage. Once per Long Rest.</content>
+  <content contentuid="hbb11111111111111111111111111c025" version="1">Rage of the Gods</content>
+  <content contentuid="hbb11111111111111111111111111c026" version="1">Assume the form of a divine warrior. Gain Flight and Resistance to Necrotic, Psychic, and Radiant damage while your Rage is active.</content>
+  <content contentuid="hbb11111111111111111111111111c027" version="1">Divine Warrior</content>
+  <content contentuid="hbb11111111111111111111111111c028" version="1">You have assumed the form of a divine warrior. You have Flight and Resistance to Necrotic, Psychic, and Radiant damage.</content>
+
+  <content contentuid="hcc11111111111111111111111111d001" version="1">Living Havok</content>
+  <content contentuid="hcc11111111111111111111111111d002" version="1">When you enter your Rage, you roll on the Wild Magic table twice and also trigger a random effect from an enhanced Living Havok table, gaining two magical effects instead of one.</content>
+
+  <content contentuid="hcc11111111111111111111111111d003" version="1">Force Explosion</content>
+  <content contentuid="hcc11111111111111111111111111d004" version="1">Wild magic erupts from you in a concussive blast. Enemies within &lt;LSTag Tooltip="Distance" Type="Distance"&gt;3m&lt;/LSTag&gt; must make a Constitution saving throw or take &lt;LSTag Tooltip="DealDamage"&gt;3d6 Force&lt;/LSTag&gt; damage and become &lt;LSTag Type="Status" Tooltip="DAZED"&gt;Dazed&lt;/LSTag&gt; for 2 turns.</content>
+
+  <content contentuid="hcc11111111111111111111111111d005" version="1">Surge of Action</content>
+  <content contentuid="hcc11111111111111111111111111d006" version="1">Wild magic infuses you with incredible speed, granting you an additional Action this turn.</content>
+
+  <content contentuid="hcc11111111111111111111111111d007" version="1">Twin Mephit Manifestation</content>
+  <content contentuid="hcc11111111111111111111111111d008" version="1">Wild magic tears open small rifts, summoning two Mephits to fight by your side.</content>
+
+  <content contentuid="hcc11111111111111111111111111d009" version="1">Temporal Acceleration</content>
+  <content contentuid="hcc11111111111111111111111111d010" version="1">Wild magic warps time around you, granting you &lt;LSTag Type="Status" Tooltip="HASTE"&gt;Haste&lt;/LSTag&gt; for 5 turns.</content>
+
+  <content contentuid="hcc11111111111111111111111111d011" version="1">Darkness Shroud</content>
+  <content contentuid="hcc11111111111111111111111111d012" version="1">An aura of magical darkness envelops you, moving with you for the duration of your Rage. Creatures within 5m are &lt;LSTag Type="Status" Tooltip="HEAVILY_OBSCURED"&gt;Heavily Obscured&lt;/LSTag&gt;.</content>
+  <content contentuid="hcc11111111111111111111111111d013" version="1">Darkness Shroud</content>
+  <content contentuid="hcc11111111111111111111111111d014" version="1">Surrounded by an aura of magical darkness that moves with you. Creatures within 5m are Heavily Obscured.</content>
+
+  <content contentuid="hcc11111111111111111111111111d015" version="1">Frozen Vortex</content>
+  <content contentuid="hcc11111111111111111111111111d016" version="1">A swirling vortex of ice and hail surrounds you for 5 turns. Enemies within &lt;LSTag Tooltip="Distance" Type="Distance"&gt;6m&lt;/LSTag&gt; take &lt;LSTag Tooltip="DealDamage"&gt;2d8 Cold&lt;/LSTag&gt; + &lt;LSTag Tooltip="DealDamage"&gt;2d8 Bludgeoning&lt;/LSTag&gt; damage.</content>
+  <content contentuid="hcc11111111111111111111111111d017" version="1">Frozen Vortex</content>
+  <content contentuid="hcc11111111111111111111111111d018" version="1">Surrounded by a vortex of ice and hail. Enemies within 6m take 2d8 Cold + 2d8 Bludgeoning damage.</content>
+  <content contentuid="hcc11111111111111111111111111d019" version="1">Frozen Vortex</content>
+  <content contentuid="hcc11111111111111111111111111d020" version="1">Caught in a frozen vortex. Taking Cold and Bludgeoning damage.</content>
+
+  <content contentuid="hcc11111111111111111111111111d021" version="1">Surge of Undeath</content>
+  <content contentuid="hcc11111111111111111111111111d022" version="1">Necrotic energy pulses from you. Enemies within &lt;LSTag Tooltip="Distance" Type="Distance"&gt;6m&lt;/LSTag&gt; are marked - if they die within 3 turns, they rise as aggressive Zombies that attack all creatures.</content>
+  <content contentuid="hcc11111111111111111111111111d023" version="1">Marked by Undeath</content>
+  <content contentuid="hcc11111111111111111111111111d024" version="1">Marked by necrotic energy. If this creature dies, it will rise as an aggressive Zombie.</content>
+
+  <content contentuid="hcc11111111111111111111111111d025" version="1">Lightning Strike</content>
+  <content contentuid="hcc11111111111111111111111111d026" version="1">Wild magic discharges as a bolt of lightning toward the nearest enemy, dealing &lt;LSTag Tooltip="DealDamage"&gt;8d6 Lightning&lt;/LSTag&gt; damage (Dexterity save for half).</content>
+
+  <content contentuid="hcc11111111111111111111111111d027" version="1">Temporal Backlash</content>
+  <content contentuid="hcc11111111111111111111111111d028" version="1">The wild magic backfires, warping time against you. You are &lt;LSTag Type="Status" Tooltip="SLOW"&gt;Slowed&lt;/LSTag&gt; for 3 turns.</content>
+  <content contentuid="hpwk00000000000000000000000000001" version="1">Power Word Kill</content>
+  <content contentuid="hpwk00000000000000000000000000002" version="1">You speak a word of power that can compel one creature you can see to die instantly. If the creature has 100 hit points or fewer, it dies. Otherwise, the spell has no effect.</content>
+  <content contentuid="hpwh00000000000000000000000000001" version="1">Power Word Heal</content>
+  <content contentuid="hpwh00000000000000000000000000002" version="1">A wave of healing energy washes over a creature you can see. The target regains all its hit points. If the creature is &lt;LSTag Type="Status" Tooltip="CHARMED"&gt;Charmed&lt;/LSTag&gt;, &lt;LSTag Type="Status" Tooltip="FRIGHTENED"&gt;Frightened&lt;/LSTag&gt;, &lt;LSTag Type="Status" Tooltip="PARALYZED"&gt;Paralyzed&lt;/LSTag&gt;, &lt;LSTag Type="Status" Tooltip="STUNNED"&gt;Stunned&lt;/LSTag&gt;, &lt;LSTag Type="Status" Tooltip="PRONE"&gt;Prone&lt;/LSTag&gt;, &lt;LSTag Type="Status" Tooltip="BLINDED"&gt;Blinded&lt;/LSTag&gt;, or &lt;LSTag Type="Status" Tooltip="DISEASED"&gt;Diseased&lt;/LSTag&gt;, the condition ends.</content>
+  <content contentuid="hpwk00000000000000000000000000003" version="1">Power Word Kill: Words of Creation</content>
+  <content contentuid="hpwk00000000000000000000000000004" version="1">Speaking a word of death, you can compel up to two creatures within 10 feet of each other to die instantly. If a creature has 100 hit points or fewer, it dies. Otherwise, the spell has no effect on that creature.</content>
+  <content contentuid="hpwh00000000000000000000000000003" version="1">Power Word Heal: Words of Creation</content>
+  <content contentuid="hpwh00000000000000000000000000004" version="1">Speaking a word of life, a wave of healing energy washes over up to two creatures within 10 feet of each other. Each target regains all its hit points, and any &lt;LSTag Type="Status" Tooltip="CHARMED"&gt;Charmed&lt;/LSTag&gt;, &lt;LSTag Type="Status" Tooltip="FRIGHTENED"&gt;Frightened&lt;/LSTag&gt;, &lt;LSTag Type="Status" Tooltip="PARALYZED"&gt;Paralyzed&lt;/LSTag&gt;, &lt;LSTag Type="Status" Tooltip="STUNNED"&gt;Stunned&lt;/LSTag&gt;, &lt;LSTag Type="Status" Tooltip="PRONE"&gt;Prone&lt;/LSTag&gt;, &lt;LSTag Type="Status" Tooltip="BLINDED"&gt;Blinded&lt;/LSTag&gt;, or &lt;LSTag Type="Status" Tooltip="DISEASED"&gt;Diseased&lt;/LSTag&gt; conditions end.</content>
+
+  <content contentuid="h9lvlheal0001g0001g0001g0001g000000000001" version="1">Power Word Heal</content>
+  <content contentuid="h9lvlheal0002g0001g0001g0001g000000000002" version="1">A wave of healing energy washes over a creature you can see. The target regains all its hit points (up to 700). If the creature is Charmed, Frightened, Paralyzed, or Stunned, the condition ends.</content>
+  <content contentuid="h9lvlwish0001g0001g0001g0001g000000000001" version="1">Wish</content>
+  <content contentuid="h9lvlwish0002g0001g0001g0001g000000000002" version="1">The mightiest spell a mortal creature can cast. Simply by speaking aloud, you can alter reality itself.</content>
+  <content contentuid="h9lvltpoly001g0001g0001g0001g000000000001" version="1">True Polymorph</content>
+  <content contentuid="h9lvltpoly002g0001g0001g0001g000000000002" version="1">Transform a creature into another creature or object. The transformation lasts until dispelled or the creature drops to 0 hit points.</content>
+  <content contentuid="h9lvlmeteor01g0001g0001g0001g000000000001" version="1">Meteor Swarm</content>
+  <content contentuid="h9lvlmeteor02g0001g0001g0001g000000000002" version="1">Blazing orbs of fire plummet to the ground at four different points you can see, creating massive explosions. Each creature in a 40-foot-radius sphere centered on each point must make a Dexterity saving throw, taking 20d6 fire damage and 20d6 bludgeoning damage on a failed save, or half as much on a successful one.</content>
+  <content contentuid="h9lvlgate0001g0001g0001g0001g000000000001" version="1">Gate</content>
+  <content contentuid="h9lvlgate0002g0001g0001g0001g000000000002" version="1">You conjure a portal linking an unoccupied space you can see to a precise location on a different plane of existence.</content>
+  <content contentuid="h9lvlfore0001g0001g0001g0001g000000000001" version="1">Foresight</content>
+  <content contentuid="h9lvlfore0002g0001g0001g0001g000000000002" version="1">You touch a willing creature and bestow a limited ability to see into the immediate future. For the duration, the target can't be surprised and has advantage on attack rolls, ability checks, and saving throws. Other creatures have disadvantage on attack rolls against it.</content>
+  <content contentuid="h9lvltstop001g0001g0001g0001g000000000001" version="1">Time Stop</content>
+  <content contentuid="h9lvltstop002g0001g0001g0001g000000000002" version="1">You briefly stop the flow of time for everyone but yourself. You take 1d4+1 turns in a row, during which you can use actions and move as normal. This spell ends if you affect any creature other than yourself or an object being worn or carried by someone other than you.</content>
+  <content contentuid="h9lvlmheal001g0001g0001g0001g000000000001" version="1">Mass Heal</content>
+  <content contentuid="h9lvlmheal002g0001g0001g0001g000000000002" version="1">A flood of healing energy flows from you into injured creatures around you. You restore up to 700 hit points, divided as you choose among any number of creatures that you can see within range. Creatures healed are also cured of diseases and any effect making them blinded or deafened.</content>
+  <content contentuid="h9lvlpwall001g0001g0001g0001g000000000001" version="1">Prismatic Wall</content>
+  <content contentuid="h9lvlpwall002g0001g0001g0001g000000000002" version="1">A shimmering, multicolored plane of light forms a vertical opaque wall. Each layer has a different color and effect on creatures that pass through it.</content>
+
+  <content contentuid="hsm0001a0000000000000000000000001" version="1">Spell Mastery: Level 1 Selection</content>
+  <content contentuid="hsm0001a0000000000000000000000002" version="1">Choose a level 1 spell to cast at will.</content>
+  <content contentuid="hsm0002a0000000000000000000000001" version="1">Spell Mastery: Level 2 Selection</content>
+  <content contentuid="hsm0002a0000000000000000000000002" version="1">Choose a level 2 spell to cast at will.</content>
+  <content contentuid="hsm0003a0000000000000000000000001" version="1">Spell Mastery: Selecting Spells</content>
+  <content contentuid="hsm0003a0000000000000000000000002" version="1">Choose a level 1 and a level 2 spell from your spellbook to cast at will.</content>
+  <content contentuid="hsm0004a0000000000000000000000001" version="1">Spell Mastery</content>
+  <content contentuid="hsm0004a0000000000000000000000002" version="1">You have achieved such mastery over certain spells that you can cast them at will. Choose a level 1 and a level 2 spell in your spellbook that have a casting time of an action. You always have those spells prepared, and you can cast them at their lowest level without expending a spell slot. Whenever you finish a Long Rest, you can study your spellbook and replace one of those spells with an eligible spell of the same level.</content>
+  <content contentuid="hsm0005a0000000000000000000000001" version="1">Spell Mastery</content>
+  <content contentuid="hsm0005a0000000000000000000000002" version="1">Open your spellbook to select your mastered spells. Choose one level 1 and one level 2 spell to cast at will without expending spell slots. Your choices reset on Long Rest.</content>
+  <content contentuid="hsm1001a0000000000000000000000001" version="1">Master: Burning Hands</content>
+  <content contentuid="hsm1001a0000000000000000000000002" version="1">Select Burning Hands as your mastered level 1 spell. You can cast it at will without expending a spell slot.</content>
+  <content contentuid="hsm1002a0000000000000000000000001" version="1">Master: Charm Person</content>
+  <content contentuid="hsm1002a0000000000000000000000002" version="1">Select Charm Person as your mastered level 1 spell. You can cast it at will without expending a spell slot.</content>
+  <content contentuid="hsm1003a0000000000000000000000001" version="1">Master: Chromatic Orb</content>
+  <content contentuid="hsm1003a0000000000000000000000002" version="1">Select Chromatic Orb as your mastered level 1 spell. You can cast it at will without expending a spell slot.</content>
+  <content contentuid="hsm1004a0000000000000000000000001" version="1">Master: Color Spray</content>
+  <content contentuid="hsm1004a0000000000000000000000002" version="1">Select Color Spray as your mastered level 1 spell. You can cast it at will without expending a spell slot.</content>
+  <content contentuid="hsm1005a0000000000000000000000001" version="1">Master: Disguise Self</content>
+  <content contentuid="hsm1005a0000000000000000000000002" version="1">Select Disguise Self as your mastered level 1 spell. You can cast it at will without expending a spell slot.</content>
+  <content contentuid="hsm1006a0000000000000000000000001" version="1">Master: Expeditious Retreat</content>
+  <content contentuid="hsm1006a0000000000000000000000002" version="1">Select Expeditious Retreat as your mastered level 1 spell. You can cast it at will without expending a spell slot.</content>
+  <content contentuid="hsm1007a0000000000000000000000001" version="1">Master: False Life</content>
+  <content contentuid="hsm1007a0000000000000000000000002" version="1">Select False Life as your mastered level 1 spell. You can cast it at will without expending a spell slot.</content>
+  <content contentuid="hsm1008a0000000000000000000000001" version="1">Master: Feather Fall</content>
+  <content contentuid="hsm1008a0000000000000000000000002" version="1">Select Feather Fall as your mastered level 1 spell. You can cast it at will without expending a spell slot.</content>
+  <content contentuid="hsm1009a0000000000000000000000001" version="1">Master: Find Familiar</content>
+  <content contentuid="hsm1009a0000000000000000000000002" version="1">Select Find Familiar as your mastered level 1 spell. You can cast it at will without expending a spell slot.</content>
+  <content contentuid="hsm1010a0000000000000000000000001" version="1">Master: Fog Cloud</content>
+  <content contentuid="hsm1010a0000000000000000000000002" version="1">Select Fog Cloud as your mastered level 1 spell. You can cast it at will without expending a spell slot.</content>
+  <content contentuid="hsm1011a0000000000000000000000001" version="1">Master: Grease</content>
+  <content contentuid="hsm1011a0000000000000000000000002" version="1">Select Grease as your mastered level 1 spell. You can cast it at will without expending a spell slot.</content>
+  <content contentuid="hsm1012a0000000000000000000000001" version="1">Master: Hideous Laughter</content>
+  <content contentuid="hsm1012a0000000000000000000000002" version="1">Select Tasha's Hideous Laughter as your mastered level 1 spell. You can cast it at will without expending a spell slot.</content>
+  <content contentuid="hsm1013a0000000000000000000000001" version="1">Master: Jump</content>
+  <content contentuid="hsm1013a0000000000000000000000002" version="1">Select Jump as your mastered level 1 spell. You can cast it at will without expending a spell slot.</content>
+  <content contentuid="hsm1014a0000000000000000000000001" version="1">Master: Longstrider</content>
+  <content contentuid="hsm1014a0000000000000000000000002" version="1">Select Longstrider as your mastered level 1 spell. You can cast it at will without expending a spell slot.</content>
+  <content contentuid="hsm1015a0000000000000000000000001" version="1">Master: Mage Armor</content>
+  <content contentuid="hsm1015a0000000000000000000000002" version="1">Select Mage Armor as your mastered level 1 spell. You can cast it at will without expending a spell slot.</content>
+  <content contentuid="hsm1016a0000000000000000000000001" version="1">Master: Magic Missile</content>
+  <content contentuid="hsm1016a0000000000000000000000002" version="1">Select Magic Missile as your mastered level 1 spell. You can cast it at will without expending a spell slot.</content>
+  <content contentuid="hsm1017a0000000000000000000000001" version="1">Master: Protection from Evil and Good</content>
+  <content contentuid="hsm1017a0000000000000000000000002" version="1">Select Protection from Evil and Good as your mastered level 1 spell. You can cast it at will without expending a spell slot.</content>
+  <content contentuid="hsm1018a0000000000000000000000001" version="1">Master: Ray of Sickness</content>
+  <content contentuid="hsm1018a0000000000000000000000002" version="1">Select Ray of Sickness as your mastered level 1 spell. You can cast it at will without expending a spell slot.</content>
+  <content contentuid="hsm1019a0000000000000000000000001" version="1">Master: Sleep</content>
+  <content contentuid="hsm1019a0000000000000000000000002" version="1">Select Sleep as your mastered level 1 spell. You can cast it at will without expending a spell slot.</content>
+  <content contentuid="hsm1020a0000000000000000000000001" version="1">Master: Shield</content>
+  <content contentuid="hsm1020a0000000000000000000000002" version="1">Select Shield as your mastered level 1 spell. You can cast it at will without expending a spell slot.</content>
+  <content contentuid="hsm1021a0000000000000000000000001" version="1">Master: Thunderwave</content>
+  <content contentuid="hsm1021a0000000000000000000000002" version="1">Select Thunderwave as your mastered level 1 spell. You can cast it at will without expending a spell slot.</content>
+  <content contentuid="hsm1022a0000000000000000000000001" version="1">Master: Witch Bolt</content>
+  <content contentuid="hsm1022a0000000000000000000000002" version="1">Select Witch Bolt as your mastered level 1 spell. You can cast it at will without expending a spell slot.</content>
+  <content contentuid="hsm2001a0000000000000000000000001" version="1">Master: Acid Arrow</content>
+  <content contentuid="hsm2001a0000000000000000000000002" version="1">Select Melf's Acid Arrow as your mastered level 2 spell. You can cast it at will without expending a spell slot.</content>
+  <content contentuid="hsm2002a0000000000000000000000001" version="1">Master: Blindness</content>
+  <content contentuid="hsm2002a0000000000000000000000002" version="1">Select Blindness as your mastered level 2 spell. You can cast it at will without expending a spell slot.</content>
+  <content contentuid="hsm2003a0000000000000000000000001" version="1">Master: Cloud of Daggers</content>
+  <content contentuid="hsm2003a0000000000000000000000002" version="1">Select Cloud of Daggers as your mastered level 2 spell. You can cast it at will without expending a spell slot.</content>
+  <content contentuid="hsm2004a0000000000000000000000001" version="1">Master: Crown of Madness</content>
+  <content contentuid="hsm2004a0000000000000000000000002" version="1">Select Crown of Madness as your mastered level 2 spell. You can cast it at will without expending a spell slot.</content>
+  <content contentuid="hsm2005a0000000000000000000000001" version="1">Master: Blur</content>
+  <content contentuid="hsm2005a0000000000000000000000002" version="1">Select Blur as your mastered level 2 spell. You can cast it at will without expending a spell slot.</content>
+  <content contentuid="hsm2006a0000000000000000000000001" version="1">Master: Darkness</content>
+  <content contentuid="hsm2006a0000000000000000000000002" version="1">Select Darkness as your mastered level 2 spell. You can cast it at will without expending a spell slot.</content>
+  <content contentuid="hsm2007a0000000000000000000000001" version="1">Master: Darkvision</content>
+  <content contentuid="hsm2007a0000000000000000000000002" version="1">Select Darkvision as your mastered level 2 spell. You can cast it at will without expending a spell slot.</content>
+  <content contentuid="hsm2008a0000000000000000000000001" version="1">Master: Detect Thoughts</content>
+  <content contentuid="hsm2008a0000000000000000000000002" version="1">Select Detect Thoughts as your mastered level 2 spell. You can cast it at will without expending a spell slot.</content>
+  <content contentuid="hsm2009a0000000000000000000000001" version="1">Master: Enlarge/Reduce</content>
+  <content contentuid="hsm2009a0000000000000000000000002" version="1">Select Enlarge/Reduce as your mastered level 2 spell. You can cast it at will without expending a spell slot.</content>
+  <content contentuid="hsm2010a0000000000000000000000001" version="1">Master: Flaming Sphere</content>
+  <content contentuid="hsm2010a0000000000000000000000002" version="1">Select Flaming Sphere as your mastered level 2 spell. You can cast it at will without expending a spell slot.</content>
+  <content contentuid="hsm2011a0000000000000000000000001" version="1">Master: Hold Person</content>
+  <content contentuid="hsm2011a0000000000000000000000002" version="1">Select Hold Person as your mastered level 2 spell. You can cast it at will without expending a spell slot.</content>
+  <content contentuid="hsm2012a0000000000000000000000001" version="1">Master: Invisibility</content>
+  <content contentuid="hsm2012a0000000000000000000000002" version="1">Select Invisibility as your mastered level 2 spell. You can cast it at will without expending a spell slot.</content>
+  <content contentuid="hsm2013a0000000000000000000000001" version="1">Master: Magic Weapon</content>
+  <content contentuid="hsm2013a0000000000000000000000002" version="1">Select Magic Weapon as your mastered level 2 spell. You can cast it at will without expending a spell slot.</content>
+  <content contentuid="hsm2014a0000000000000000000000001" version="1">Master: Mirror Image</content>
+  <content contentuid="hsm2014a0000000000000000000000002" version="1">Select Mirror Image as your mastered level 2 spell. You can cast it at will without expending a spell slot.</content>
+  <content contentuid="hsm2015a0000000000000000000000001" version="1">Master: Misty Step</content>
+  <content contentuid="hsm2015a0000000000000000000000002" version="1">Select Misty Step as your mastered level 2 spell. You can cast it at will without expending a spell slot.</content>
+  <content contentuid="hsm2016a0000000000000000000000001" version="1">Master: Phantasmal Force</content>
+  <content contentuid="hsm2016a0000000000000000000000002" version="1">Select Phantasmal Force as your mastered level 2 spell. You can cast it at will without expending a spell slot.</content>
+  <content contentuid="hsm2017a0000000000000000000000001" version="1">Master: Ray of Enfeeblement</content>
+  <content contentuid="hsm2017a0000000000000000000000002" version="1">Select Ray of Enfeeblement as your mastered level 2 spell. You can cast it at will without expending a spell slot.</content>
+  <content contentuid="hsm2018a0000000000000000000000001" version="1">Master: Scorching Ray</content>
+  <content contentuid="hsm2018a0000000000000000000000002" version="1">Select Scorching Ray as your mastered level 2 spell. You can cast it at will without expending a spell slot.</content>
+  <content contentuid="hsm2019a0000000000000000000000001" version="1">Master: Shatter</content>
+  <content contentuid="hsm2019a0000000000000000000000002" version="1">Select Shatter as your mastered level 2 spell. You can cast it at will without expending a spell slot.</content>
+  <content contentuid="hsm2020a0000000000000000000000001" version="1">Master: Web</content>
+  <content contentuid="hsm2020a0000000000000000000000002" version="1">Select Web as your mastered level 2 spell. You can cast it at will without expending a spell slot.</content>
+
+  <content contentuid="hps0001a0000000000000000000000001" version="1">Prismatic Spray</content>
+  <content contentuid="hps0001a0000000000000000000000002" version="1">Unleash rays of prismatic light in a [1] cone. Choose which elemental ray to release - each creature in the area must make a Dexterity Saving Throw or take [2] damage (half on a successful save).</content>
+  <content contentuid="hps0002a0000000000000000000000001" version="1">Prismatic Spray: Fire</content>
+  <content contentuid="hps0002a0000000000000000000000002" version="1">Release a red ray of fire in a [1] cone. Each creature in the area must make a Dexterity Saving Throw or take [2] damage (half on a successful save).</content>
+  <content contentuid="hps0003a0000000000000000000000001" version="1">Prismatic Spray: Acid</content>
+  <content contentuid="hps0003a0000000000000000000000002" version="1">Release an orange ray of acid in a [1] cone. Each creature in the area must make a Dexterity Saving Throw or take [2] damage (half on a successful save).</content>
+  <content contentuid="hps0004a0000000000000000000000001" version="1">Prismatic Spray: Lightning</content>
+  <content contentuid="hps0004a0000000000000000000000002" version="1">Release a yellow ray of lightning in a [1] cone. Each creature in the area must make a Dexterity Saving Throw or take [2] damage (half on a successful save).</content>
+  <content contentuid="hps0005a0000000000000000000000001" version="1">Prismatic Spray: Poison</content>
+  <content contentuid="hps0005a0000000000000000000000002" version="1">Release a green ray of poison in a [1] cone. Each creature in the area must make a Dexterity Saving Throw or take [2] damage (half on a successful save).</content>
+  <content contentuid="hps0006a0000000000000000000000001" version="1">Prismatic Spray: Cold</content>
+  <content contentuid="hps0006a0000000000000000000000002" version="1">Release a blue ray of cold in a [1] cone. Each creature in the area must make a Dexterity Saving Throw or take [2] damage (half on a successful save).</content>
+
+  <content contentuid="hrg0001a0000000000000000000000001" version="1">Regenerate</content>
+  <content contentuid="hrg0001a0000000000000000000000002" version="1">Touch a creature to restore [1] Hit Points. For 1 hour, the target regains [2] at the start of each of its turns.</content>
+  <content contentuid="hrg0001a0000000000000000000000003" version="1">Regenerating [1] at the start of each turn.</content>
+
+  <content contentuid="hres0001a000000000000000000000001" version="1">Resurrection</content>
+  <content contentuid="hres0001a000000000000000000000002" version="1">Return a dead creature to life with 1 Hit Point. The creature must have died within the last century.</content>
+
+  <content contentuid="hpji0001a000000000000000000000001" version="1">Project Image</content>
+  <content contentuid="hpji0001a000000000000000000000002" version="1">Create an illusory duplicate of yourself at any location within range. You can see and hear through the duplicate and cast spells as if you were in its space. Requires Concentration.</content>
+  <content contentuid="hpji0001a000000000000000000000003" version="1">Projecting an illusory image. Advantage on Deception and Performance checks.</content>
+
+  <content contentuid="hpws0001a000000000000000000000001" version="1">Power Word Stun</content>
+  <content contentuid="hpws0001a000000000000000000000002" version="1">Speak a word of power that can overwhelm the mind of one creature you can see. If the target has [1] Hit Points or fewer, it is &lt;LSTag Tooltip="STUNNED"&gt;Stunned&lt;/LSTag&gt;. At the end of each of its turns, the target can make a Constitution Saving Throw to end this effect.</content>
+
+  <content contentuid="hglb0001a000000000000000000000001" version="1">Glibness</content>
+  <content contentuid="hglb0001a000000000000000000000002" version="1">For 1 hour, when you make a Charisma check, you can replace the number you roll with a 15. Additionally, no matter what you say, magic that would determine if you are telling the truth indicates you are being truthful.</content>
+  <content contentuid="hglb0001a000000000000000000000003" version="1">Charisma checks cannot roll below 15. Cannot be detected as lying by magic.</content>
+
+  <content contentuid="hfbl0001a000000000000000000000001" version="1">Feeblemind</content>
+  <content contentuid="hfbl0001a000000000000000000000002" version="1">Blast a creature's mind, dealing [1] and shattering its intellect. On a failed Intelligence Saving Throw, the target's Intelligence and Charisma scores become 1. The creature can't cast spells, activate magic items, or communicate until cured.</content>
+  <content contentuid="hfbl0001a000000000000000000000003" version="1">Intelligence and Charisma reduced to 1. Cannot cast spells or communicate effectively.</content>
+
+  <content contentuid="hfrs0001a000000000000000000000001" version="1">Foresight</content>
+  <content contentuid="hfrs0001a000000000000000000000002" version="1">Touch a willing creature and grant it limited ability to see into the immediate future. For 8 hours, the target has &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; on Attack Rolls, Ability Checks, and Saving Throws. Other creatures have &lt;LSTag Tooltip="Disadvantage"&gt;Disadvantage&lt;/LSTag&gt; on Attack Rolls against it.</content>
+  <content contentuid="hfrs0001a000000000000000000000003" version="1">Limited foresight grants Advantage on all d20 rolls. Attackers have Disadvantage.</content>
+
+  <content contentuid="htpm0001a000000000000000000000001" version="1">True Polymorph</content>
+  <content contentuid="htpm0001a000000000000000000000002" version="1">Transform a creature or object into a different creature or object. If you concentrate on this spell for the full duration, the transformation becomes permanent.</content>
+  <content contentuid="htpm0001a000000000000000000000003" version="1">Transformed into another form.</content>
+
 </contentList>

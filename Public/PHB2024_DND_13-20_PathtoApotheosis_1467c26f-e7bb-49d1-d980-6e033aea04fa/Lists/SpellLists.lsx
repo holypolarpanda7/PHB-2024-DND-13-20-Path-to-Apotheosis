@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<save>
+    <version major="4" minor="8" revision="0" build="500"/>
+    <region id="SpellLists">
+        <node id="root">
+            <children>
+                <!-- ================================ -->
+                <!-- Level 7/8/9 Spell Lists -->
+                <!-- Following all-in-one mod pattern: -->
+                <!-- - Cumulative classes (Wizard, Sorcerer, Bard): Higher levels include lower level spells -->
+                <!-- - Non-cumulative classes (Druid, Cleric): Each level only has that level's spells -->
+                <!-- - Warlock Mystic Arcanum: Non-cumulative (pick one spell per level) -->
+                <!-- ================================ -->
+
+                <!-- ==================== WIZARD SPELL LISTS (Levels 7-9) ==================== -->
+                <!-- Using MergedInto to add high-level spells to main wizard list -->
+                <node id="SpellList">
+                    <attribute id="Comment" type="LSString" value="Wizard Level 7 Spells merged into main list"/>
+                    <attribute id="MergedInto" type="guid" value="bc917f22-7f71-4a25-9a77-7d2f91a96a65"/>
+                    <attribute id="Name" type="FixedString" value="Wizard SLevel 7"/>
+                    <attribute id="Spells" type="LSString" value="Zone_PrismaticSpray"/>
+                    <attribute id="UUID" type="guid" value="00170001-0001-0001-0001-000000000001"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="Comment" type="LSString" value="Wizard Level 8 Spells merged into main list"/>
+                    <attribute id="MergedInto" type="guid" value="bc917f22-7f71-4a25-9a77-7d2f91a96a65"/>
+                    <attribute id="Name" type="FixedString" value="Wizard SLevel 8"/>
+                    <attribute id="Spells" type="LSString" value=""/>
+                    <attribute id="UUID" type="guid" value="00180001-0001-0001-0001-000000000001"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="Comment" type="LSString" value="Wizard Level 9 Spells merged into main list"/>
+                    <attribute id="MergedInto" type="guid" value="bc917f22-7f71-4a25-9a77-7d2f91a96a65"/>
+                    <attribute id="Name" type="FixedString" value="Wizard SLevel 9"/>
+                    <attribute id="Spells" type="LSString" value="Target_PowerWordKill;Shout_Wish;Target_Foresight;Shout_TimeStop;Projectile_MeteorSwarm;Target_TruePolymorph;Target_Gate;Target_PrismaticWall"/>
+                    <attribute id="UUID" type="guid" value="00190001-0001-0001-0001-000000000001"/>
+                </node>
+                
+                <!-- ==================== SORCERER SPELL LISTS (Levels 7-9) ==================== -->
+                <!-- CUMULATIVE: SLevel 8 includes 7+8, SLevel 9 includes 7+8+9 -->
+                <node id="SpellList">
+                    <attribute id="Comment" type="LSString" value="Sorcerer Level 7 Spells - available at character level 13"/>
+                    <attribute id="Name" type="FixedString" value="Sorcerer SLevel 7"/>
+                    <attribute id="Spells" type="LSString" value="Zone_PrismaticSpray"/>
+                    <attribute id="UUID" type="guid" value="00170001-0001-0001-0001-000000000002"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="Comment" type="LSString" value="Sorcerer Level 7+8 Spells - available at character level 15"/>
+                    <attribute id="Name" type="FixedString" value="Sorcerer SLevel 8"/>
+                    <attribute id="Spells" type="LSString" value=""/>
+                    <attribute id="UUID" type="guid" value="00180001-0001-0001-0001-000000000002"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="Comment" type="LSString" value="Sorcerer Level 7+8+9 Spells - available at character level 17"/>
+                    <attribute id="Name" type="FixedString" value="Sorcerer SLevel 9"/>
+                    <attribute id="Spells" type="LSString" value="Target_PowerWordKill;Shout_Wish;Shout_TimeStop;Projectile_MeteorSwarm;Target_Gate"/>
+                    <attribute id="UUID" type="guid" value="00190001-0001-0001-0001-000000000002"/>
+                </node>
+                
+                <!-- ==================== CLERIC SPELL LISTS (Levels 7-9) ==================== -->
+                <!-- NON-CUMULATIVE: Each level only has that level's spells -->
+                <node id="SpellList">
+                    <attribute id="Comment" type="LSString" value="Cleric Level 7 Spells only - available at character level 13"/>
+                    <attribute id="Name" type="FixedString" value="Cleric SLevel 7"/>
+                    <attribute id="Spells" type="LSString" value="Target_Regenerate"/>
+                    <attribute id="UUID" type="guid" value="00170001-0001-0001-0001-000000000003"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="Comment" type="LSString" value="Cleric Level 8 Spells only - available at character level 15"/>
+                    <attribute id="Name" type="FixedString" value="Cleric SLevel 8"/>
+                    <attribute id="Spells" type="LSString" value=""/>
+                    <attribute id="UUID" type="guid" value="00180001-0001-0001-0001-000000000003"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="Comment" type="LSString" value="Cleric Level 9 Spells only - available at character level 17"/>
+                    <attribute id="Name" type="FixedString" value="Cleric SLevel 9"/>
+                    <attribute id="Spells" type="LSString" value="Target_PowerWordHeal;Target_MassHeal;Target_Gate"/>
+                    <attribute id="UUID" type="guid" value="00190001-0001-0001-0001-000000000003"/>
+                </node>
+                
+                <!-- ==================== DRUID SPELL LISTS (Levels 7-9) ==================== -->
+                <!-- NON-CUMULATIVE: Each level only has that level's spells -->
+                <node id="SpellList">
+                    <attribute id="Comment" type="LSString" value="Druid Level 7 Spells only - available at character level 13"/>
+                    <attribute id="Name" type="FixedString" value="Druid SLevel 7"/>
+                    <attribute id="Spells" type="LSString" value="Target_Regenerate"/>
+                    <attribute id="UUID" type="guid" value="00170001-0001-0001-0001-000000000004"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="Comment" type="LSString" value="Druid Level 8 Spells only - available at character level 15"/>
+                    <attribute id="Name" type="FixedString" value="Druid SLevel 8"/>
+                    <attribute id="Spells" type="LSString" value=""/>
+                    <attribute id="UUID" type="guid" value="00180001-0001-0001-0001-000000000004"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="Comment" type="LSString" value="Druid Level 9 Spells only - available at character level 17"/>
+                    <attribute id="Name" type="FixedString" value="Druid SLevel 9"/>
+                    <attribute id="Spells" type="LSString" value="Target_Foresight;Shout_TimeStop;Target_TruePolymorph"/>
+                    <attribute id="UUID" type="guid" value="00190001-0001-0001-0001-000000000004"/>
+                </node>
+                
+                <!-- ==================== BARD SPELL LISTS (Levels 7-9) ==================== -->
+                <!-- CUMULATIVE: SLevel 7 includes all L6 + L7, SLevel 8 includes all L6-8, SLevel 9 includes L6-9 -->
+                <!-- SORTED: Highest level spells first for better UI display -->
+                <node id="SpellList">
+                    <attribute id="Comment" type="LSString" value="Bard Level 6+7 Spells - available at character level 13"/>
+                    <attribute id="Name" type="FixedString" value="Bard SLevel 7"/>
+                    <attribute id="Spells" type="LSString" value="Zone_PrismaticSpray;Target_ProjectImage;Target_Regenerate;Target_Resurrection;Target_Eyebite;Target_IrresistibleDance;Target_DominatePerson;Target_GreaterRestoration;Target_HoldMonster;Target_CureWounds_Mass;Target_PlanarBinding;Target_Seeming;Target_Confusion;Teleportation_DimensionDoor;Target_FreedomOfMovement;Target_Invisibility_Greater;Target_Polymorph;Target_BestowCurse;Zone_Fear;Target_FeignDeath;Target_GlyphOfWarding;Target_HypnoticPattern;Target_PlantGrowth;Target_SpeakWithDead;Target_StinkingCloud;Target_Blindness;Target_CalmEmotions;Target_CloudOfDaggers;Target_CrownOfMadness;Shout_DetectThoughts;Target_EnhanceAbility;Target_Enthrall;Target_HeatMetal;Target_HoldPerson;Target_Invisibility;Target_Knock;Target_LesserRestoration;Target_PhantasmalForce;Shout_SeeInvisibility;Target_Shatter;Target_Silence;Target_AnimalFriendship;Target_Bane;Target_CharmPerson;Target_CureWounds;Shout_DisguiseSelf;Target_DissonantWhispers;Target_FaerieFire;Shout_FeatherFall;Target_HealingWord;Target_Heroism;Target_Longstrider;Target_Sleep;Shout_SpeakWithAnimals;Target_HideousLaughter;Zone_Thunderwave"/>
+                    <attribute id="UUID" type="guid" value="00170001-0001-0001-0001-000000000005"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="Comment" type="LSString" value="Bard Level 6+7+8 Spells - available at character level 15"/>
+                    <attribute id="Name" type="FixedString" value="Bard SLevel 8"/>
+                    <attribute id="Spells" type="LSString" value="Shout_PowerWordStun;Target_Glibness;Target_Feeblemind;Zone_PrismaticSpray;Target_ProjectImage;Target_Regenerate;Target_Resurrection;Target_Eyebite;Target_IrresistibleDance;Target_DominatePerson;Target_GreaterRestoration;Target_HoldMonster;Target_CureWounds_Mass;Target_PlanarBinding;Target_Seeming;Target_Confusion;Teleportation_DimensionDoor;Target_FreedomOfMovement;Target_Invisibility_Greater;Target_Polymorph;Target_BestowCurse;Zone_Fear;Target_FeignDeath;Target_GlyphOfWarding;Target_HypnoticPattern;Target_PlantGrowth;Target_SpeakWithDead;Target_StinkingCloud;Target_Blindness;Target_CalmEmotions;Target_CloudOfDaggers;Target_CrownOfMadness;Shout_DetectThoughts;Target_EnhanceAbility;Target_Enthrall;Target_HeatMetal;Target_HoldPerson;Target_Invisibility;Target_Knock;Target_LesserRestoration;Target_PhantasmalForce;Shout_SeeInvisibility;Target_Shatter;Target_Silence;Target_AnimalFriendship;Target_Bane;Target_CharmPerson;Target_CureWounds;Shout_DisguiseSelf;Target_DissonantWhispers;Target_FaerieFire;Shout_FeatherFall;Target_HealingWord;Target_Heroism;Target_Longstrider;Target_Sleep;Shout_SpeakWithAnimals;Target_HideousLaughter;Zone_Thunderwave"/>
+                    <attribute id="UUID" type="guid" value="00180001-0001-0001-0001-000000000005"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="Comment" type="LSString" value="Bard Level 6+7+8+9 Spells - available at character level 17"/>
+                    <attribute id="Name" type="FixedString" value="Bard SLevel 9"/>
+                    <attribute id="Spells" type="LSString" value="Target_PowerWordKill;Target_PowerWordHeal;Target_Foresight;Target_TruePolymorph;Shout_PowerWordStun;Target_Glibness;Target_Feeblemind;Zone_PrismaticSpray;Target_ProjectImage;Target_Regenerate;Target_Resurrection;Target_Eyebite;Target_IrresistibleDance;Target_DominatePerson;Target_GreaterRestoration;Target_HoldMonster;Target_CureWounds_Mass;Target_PlanarBinding;Target_Seeming;Target_Confusion;Teleportation_DimensionDoor;Target_FreedomOfMovement;Target_Invisibility_Greater;Target_Polymorph;Target_BestowCurse;Zone_Fear;Target_FeignDeath;Target_GlyphOfWarding;Target_HypnoticPattern;Target_PlantGrowth;Target_SpeakWithDead;Target_StinkingCloud;Target_Blindness;Target_CalmEmotions;Target_CloudOfDaggers;Target_CrownOfMadness;Shout_DetectThoughts;Target_EnhanceAbility;Target_Enthrall;Target_HeatMetal;Target_HoldPerson;Target_Invisibility;Target_Knock;Target_LesserRestoration;Target_PhantasmalForce;Shout_SeeInvisibility;Target_Shatter;Target_Silence;Target_AnimalFriendship;Target_Bane;Target_CharmPerson;Target_CureWounds;Shout_DisguiseSelf;Target_DissonantWhispers;Target_FaerieFire;Shout_FeatherFall;Target_HealingWord;Target_Heroism;Target_Longstrider;Target_Sleep;Shout_SpeakWithAnimals;Target_HideousLaughter;Zone_Thunderwave"/>
+                    <attribute id="UUID" type="guid" value="00190001-0001-0001-0001-000000000005"/>
+                </node>
+                
+                <!-- ==================== BARD MAGICAL SECRETS (Levels 7-9) ==================== -->
+                <!-- CUMULATIVE: Merges into parent Magical Secrets list -->
+                <!-- Parent: Bard Magical Secrets = 858d4322-9e9f-4aa4-aada-9c68835dc6fe -->
+                <node id="SpellList">
+                    <attribute id="Comment" type="LSString" value="Bard Magical Secrets Level 7"/>
+                    <attribute id="MergedInto" type="guid" value="858d4322-9e9f-4aa4-aada-9c68835dc6fe"/>
+                    <attribute id="Name" type="FixedString" value="Bard Magical Secrets SLevel 7"/>
+                    <attribute id="Spells" type="LSString" value="Zone_PrismaticSpray;Target_Regenerate"/>
+                    <attribute id="UUID" type="guid" value="00170001-0001-0001-0001-000000000006"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="Comment" type="LSString" value="Bard Magical Secrets Level 8"/>
+                    <attribute id="MergedInto" type="guid" value="858d4322-9e9f-4aa4-aada-9c68835dc6fe"/>
+                    <attribute id="Name" type="FixedString" value="Bard Magical Secrets SLevel 8"/>
+                    <attribute id="Spells" type="LSString" value=""/>
+                    <attribute id="UUID" type="guid" value="00180001-0001-0001-0001-000000000006"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="Comment" type="LSString" value="Bard Magical Secrets Level 9 - All level 9 spells"/>
+                    <attribute id="MergedInto" type="guid" value="858d4322-9e9f-4aa4-aada-9c68835dc6fe"/>
+                    <attribute id="Name" type="FixedString" value="Bard Magical Secrets SLevel 9"/>
+                    <attribute id="Spells" type="LSString" value="Target_PowerWordKill;Target_PowerWordHeal;Shout_Wish;Target_Foresight;Shout_TimeStop;Projectile_MeteorSwarm;Target_TruePolymorph;Target_Gate;Target_MassHeal;Target_PrismaticWall"/>
+                    <attribute id="UUID" type="guid" value="00190001-0001-0001-0001-000000000006"/>
+                </node>
+                
+                <!-- ==================== WARLOCK MYSTIC ARCANUM (Levels 7-9) ==================== -->
+                <!-- NON-CUMULATIVE: Warlock picks ONE spell per arcanum level -->
+                <node id="SpellList">
+                    <attribute id="Comment" type="LSString" value="Warlock Mystic Arcanum Level 7 only - pick one at character level 13"/>
+                    <attribute id="Name" type="FixedString" value="MysticArcanum7"/>
+                    <attribute id="Spells" type="LSString" value="Zone_PrismaticSpray"/>
+                    <attribute id="UUID" type="guid" value="00170001-0001-0001-0001-000000000007"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="Comment" type="LSString" value="Warlock Mystic Arcanum Level 8 only - pick one at character level 15"/>
+                    <attribute id="Name" type="FixedString" value="MysticArcanum8"/>
+                    <attribute id="Spells" type="LSString" value=""/>
+                    <attribute id="UUID" type="guid" value="00180001-0001-0001-0001-000000000007"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="Comment" type="LSString" value="Warlock Mystic Arcanum Level 9 only - pick one at character level 17"/>
+                    <attribute id="Name" type="FixedString" value="MysticArcanum9"/>
+                    <attribute id="Spells" type="LSString" value="Target_PowerWordKill;Target_Foresight;Shout_TimeStop;Target_TruePolymorph;Target_Gate"/>
+                    <attribute id="UUID" type="guid" value="00190001-0001-0001-0001-000000000007"/>
+                </node>
+                
+            </children>
+        </node>
+    </region>
+</save>
