@@ -1,0 +1,24 @@
+// ==============================================================================
+// PHB 2024 Path to Apotheosis - Interrupt Definitions
+// For levels 13-20 features that require interrupts
+// ==============================================================================
+
+// ==============================================================================
+// GRAVE DOMAIN L17: KEEPER OF SOULS INTERRUPT
+// XGtE Feature: When an enemy dies within 60ft, heal an ally within 60ft
+// for hit points equal to the creature's number of Hit Dice (once per turn)
+// ==============================================================================
+
+new entry "Interrupt_KeeperOfSouls"
+type "InterruptData"
+data "DisplayName" "hgrv17keep00000000000000000000001"
+data "Description" "hgrv17keep00000000000000000000003"
+data "Icon" "PassiveFeature_CircleOfMortality"
+data "InterruptContext" "OnDeath"
+data "InterruptContextScope" "Nearby"
+data "Container" "YesNoDecision"
+data "Conditions" "IsAbleToReact(context.Observer) and Enemy(context.Target, context.Observer) and Character(context.Target) and not Self(context.Target, context.Observer)"
+data "Properties" "UseSpell(OBSERVER_OBSERVER,Shout_KeeperOfSouls_Heal,true,true,true)"
+data "InterruptDefaultValue" "Ask"
+data "Cost" "ReactionActionPoint:1"
+

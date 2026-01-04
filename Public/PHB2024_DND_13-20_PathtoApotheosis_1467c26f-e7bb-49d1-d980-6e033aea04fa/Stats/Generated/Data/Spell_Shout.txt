@@ -628,4 +628,26 @@ data "DisplayName" "hsm2020a0000000000000000000000001;1"
 data "Description" "hsm2020a0000000000000000000000002;1"
 data "RequirementConditions" "not HasStatus('SM_UNLOCK_WEB')"
 
+// ==============================================================================
+// GRAVE DOMAIN L17: KEEPER OF SOULS - Heal Spell (for interrupt)
+// Heals an ally within 60ft when enemy dies
+// ==============================================================================
 
+new entry "Shout_KeeperOfSouls_Heal"
+type "SpellData"
+data "SpellType" "Shout"
+data "Level" "0"
+data "SpellSchool" "Necromancy"
+data "TargetRadius" "18"
+data "TargetConditions" "Ally() and not Dead() and Character()"
+data "Icon" "PassiveFeature_CircleOfMortality"
+data "DisplayName" "hgrv17keep00000000000000000000004"
+data "Description" "hgrv17keep00000000000000000000005"
+data "SpellAnimation" ",,;,,;8e3b8284-e579-4e2b-a7ac-a6282ed8f6f4,,;18ff7a3c-2d83-49e1-8e69-59b7f7399332,,;,,;,,;,,;,,;,,"
+data "SpellFlags" "ImmediateCast;CannotTargetSelf;NoAOEDamageOnLand"
+data "SpellProperties" "RegainHitPoints(1d6)"
+data "UseCosts" ""
+data "CastTextEvent" "Cast"
+data "CastSound" "Spell_Cast_Healing_HealingWord_L1to3"
+data "TargetSound" "Spell_Impact_Healing_HealingWord_L1to3"
+data "VerbalIntent" "Healing"

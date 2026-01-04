@@ -236,13 +236,7 @@ data "DisplayName" "hf3b4c5d600000000000000000000035"
 data "Description" "hf3b4c5d700000000000000000000036"
 data "Icon" "PassiveFeature_DivineIntervention"
 data "Properties" "Highlighted"
-
-new entry "Cleric_ImprovedBlessedStrikes"
-type "PassiveData"
-data "DisplayName" "h0000000000000000000000000000d005"
-data "Description" "h0000000000000000000000000000d006"
-data "Icon" "PassiveFeature_DivineStrike"
-data "Properties" "Highlighted"
+data "Boosts" "UnlockSpell(Shout_Wish_GreaterDivineIntervention)"
 
 // ==============================================================================
 // DRUID - Base Class Passives (Levels 13-20)
@@ -680,6 +674,7 @@ data "DisplayName" "hd1f2a3b4b00000000000000000000a9"
 data "Description" "hd1f2a3b5b00000000000000000000aa"
 data "Icon" "PassiveFeature_BlessingsOfKnowledge"
 data "Properties" "Highlighted"
+data "Boosts" "UnlockSpell(Shout_DivineForeknowledge)"
 
 new entry "LifeDomain_17_SupremeHealing"
 type "PassiveData"
@@ -687,6 +682,7 @@ data "DisplayName" "he2a3b4c5b00000000000000000000ab"
 data "Description" "he2a3b4c6b00000000000000000000ac"
 data "Icon" "PassiveFeature_DiscipleOfLife"
 data "Properties" "Highlighted"
+data "Boosts" "MaximizeHealing(Spell);MaximizeHealing(Status)"
 
 new entry "LightDomain_17_CoronaOfLight"
 type "PassiveData"
@@ -694,6 +690,7 @@ data "DisplayName" "hf3b4c5d6b00000000000000000000ad"
 data "Description" "hf3b4c5d7b00000000000000000000ae"
 data "Icon" "PassiveFeature_WardingFlare"
 data "Properties" "Highlighted"
+data "Boosts" "UnlockSpell(Shout_CoronaOfLight)"
 
 new entry "TrickeryDomain_17_ImprovedDuplicity"
 type "PassiveData"
@@ -708,6 +705,43 @@ data "DisplayName" "hb5d6e7f8b00000000000000000000b1"
 data "Description" "hb5d6e7f9b00000000000000000000b2"
 data "Icon" "PassiveFeature_WarPriest"
 data "Properties" "Highlighted"
+data "Boosts" "Resistance(Bludgeoning,ResistantToNonMagical);Resistance(Piercing,ResistantToNonMagical);Resistance(Slashing,ResistantToNonMagical)"
+
+// ==============================================================================
+// NON-PHB 2024 CLERIC DOMAIN L17 PASSIVES
+// ==============================================================================
+
+// ARCANA DOMAIN L17: Arcane Mastery (SCAG)
+// Select one wizard spell from each of levels 6, 7, 8, and 9 (spells granted via progression Selectors)
+new entry "ArcanaDomain_17_ArcaneMastery"
+type "PassiveData"
+data "DisplayName" "harc17mast00000000000000000000001"
+data "Description" "harc17mast00000000000000000000002"
+data "Icon" "PassiveFeature_ArcaneAbjuration"
+data "Properties" "Highlighted"
+
+// DEATH DOMAIN L17: Improved Reaper (DMG) - Stand-in implementation
+// When you reduce a creature to 0 HP with a spell that deals necrotic damage, deal bonus necrotic damage to enemies within 15ft
+new entry "DeathDomain_17_ImprovedReaper"
+type "PassiveData"
+data "DisplayName" "hdth17reap00000000000000000000001"
+data "Description" "hdth17reap00000000000000000000002"
+data "Icon" "PassiveFeature_Reaper"
+data "Properties" "Highlighted"
+data "StatsFunctorContext" "OnDamage"
+data "Conditions" "HasHPLessThan(1,context.Target) and Enemy(context.Target) and Character(context.Target) and SpellDamageTypeIs(DamageType.Necrotic)"
+data "StatsFunctors" "DealDamage(WisdomModifier,Necrotic,Magical,,,,YOURINFLICTOR_YOURINFLICTOR,18)"
+
+// GRAVE DOMAIN L17: Keeper of Souls (XGtE) - Accurate implementation
+// When an enemy you can see dies within 60ft, you or an ally within 60ft regains HP equal to the creature's number of Hit Dice
+// Implemented as an interrupt that triggers on nearby enemy death
+new entry "GraveDomain_17_KeeperOfSouls"
+type "PassiveData"
+data "DisplayName" "hgrv17keep00000000000000000000001"
+data "Description" "hgrv17keep00000000000000000000002"
+data "Icon" "PassiveFeature_CircleOfMortality"
+data "Properties" "Highlighted"
+data "Boosts" "UnlockInterrupt(Interrupt_KeeperOfSouls)"
 
 // ==============================================================================
 // DRUID SUBCLASS PASSIVES

@@ -515,20 +515,29 @@
                 </node>
                 
                 <!-- ==================== CLERIC LEVELS 13-20 ==================== -->
+                <!-- Override All-in-One Level 12 to remove ImprovedBlessedStrikes (moved to 14 per PHB 2024) -->
+                <node id="Progression">
+                    <attribute id="AllowImprovement" type="bool" value="true"/>
+                    <attribute id="Level" type="uint8" value="12"/>
+                    <attribute id="Name" type="LSString" value="Cleric"/>
+                    <attribute id="ProgressionType" type="uint8" value="0"/>
+                    <attribute id="TableUUID" type="guid" value="64474b62-b4f5-46b3-b94a-c676c6da3116"/>
+                    <attribute id="UUID" type="guid" value="e209aba2-bb27-4416-af41-09ce37b7f08f"/>
+                </node>
                 <node id="Progression">
                     <attribute id="Boosts" type="LSString" value="ActionResource(SpellSlot,1,7)"/>
                     <attribute id="Level" type="uint8" value="13"/>
                     <attribute id="Name" type="LSString" value="Cleric"/>
                     <attribute id="PassivesAdded" type="LSString" value="UnlockedSpellSlotLevel7"/>
                     <attribute id="ProgressionType" type="uint8" value="0"/>
-                    <attribute id="Selectors" type="LSString" value="SelectSpells(00170001-0001-0001-0001-000000000003,1,0,ClericSLevel7);SelectSpells(00170001-0001-0001-0001-000000000003,1,0,ClericSLevel7)"/>
+                    <attribute id="Selectors" type="LSString" value="AddSpells(00170001-0001-0001-0001-000000000003)"/>
                     <attribute id="TableUUID" type="guid" value="64474b62-b4f5-46b3-b94a-c676c6da3116"/>
                     <attribute id="UUID" type="guid" value="77777777-7777-7777-7777-777777777701"/>
                 </node>
                 <node id="Progression">
                     <attribute id="Level" type="uint8" value="14"/>
                     <attribute id="Name" type="LSString" value="Cleric"/>
-                    <attribute id="PassivesAdded" type="LSString" value="Cleric_ImprovedBlessedStrikes"/>
+                    <attribute id="PassivesAdded" type="LSString" value="ImprovedBlessedStrikes"/>
                     <attribute id="ProgressionType" type="uint8" value="0"/>
                     <attribute id="TableUUID" type="guid" value="64474b62-b4f5-46b3-b94a-c676c6da3116"/>
                     <attribute id="UUID" type="guid" value="77777777-7777-7777-7777-777777777702"/>
@@ -539,7 +548,7 @@
                     <attribute id="Name" type="LSString" value="Cleric"/>
                     <attribute id="PassivesAdded" type="LSString" value="UnlockedSpellSlotLevel8"/>
                     <attribute id="ProgressionType" type="uint8" value="0"/>
-                    <attribute id="Selectors" type="LSString" value="SelectSpells(00180001-0001-0001-0001-000000000003,1,0,ClericSLevel8);SelectSpells(00180001-0001-0001-0001-000000000003,1,0,ClericSLevel8)"/>
+                    <attribute id="Selectors" type="LSString" value="AddSpells(00180001-0001-0001-0001-000000000003)"/>
                     <attribute id="TableUUID" type="guid" value="64474b62-b4f5-46b3-b94a-c676c6da3116"/>
                     <attribute id="UUID" type="guid" value="77777777-7777-7777-7777-777777777703"/>
                 </node>
@@ -557,12 +566,12 @@
                     <attribute id="Name" type="LSString" value="Cleric"/>
                     <attribute id="PassivesAdded" type="LSString" value="UnlockedSpellSlotLevel9"/>
                     <attribute id="ProgressionType" type="uint8" value="0"/>
-                    <attribute id="Selectors" type="LSString" value="SelectSpells(00190001-0001-0001-0001-000000000003,1,0,ClericSLevel9);SelectSpells(00190001-0001-0001-0001-000000000003,1,0,ClericSLevel9)"/>
+                    <attribute id="Selectors" type="LSString" value="AddSpells(00190001-0001-0001-0001-000000000003)"/>
                     <attribute id="TableUUID" type="guid" value="64474b62-b4f5-46b3-b94a-c676c6da3116"/>
                     <attribute id="UUID" type="guid" value="77777777-7777-7777-7777-777777777705"/>
                 </node>
                 <node id="Progression">
-                    <attribute id="Boosts" type="LSString" value="ActionResource(SpellSlot,1,5)"/>
+                    <attribute id="Boosts" type="LSString" value="ActionResource(SpellSlot,1,5);ActionResource(ChannelDivinity,1,0)"/>
                     <attribute id="Level" type="uint8" value="18"/>
                     <attribute id="Name" type="LSString" value="Cleric"/>
                     <attribute id="ProgressionType" type="uint8" value="0"/>
@@ -596,7 +605,7 @@
                     <attribute id="Name" type="LSString" value="Druid"/>
                     <attribute id="PassivesAdded" type="LSString" value="UnlockedSpellSlotLevel7"/>
                     <attribute id="ProgressionType" type="uint8" value="0"/>
-                    <attribute id="Selectors" type="LSString" value="SelectSpells(00170001-0001-0001-0001-000000000004,1,0,DruidSLevel7);SelectSpells(00170001-0001-0001-0001-000000000004,1,0,DruidSLevel7)"/>
+                    <attribute id="Selectors" type="LSString" value="AddSpells(00170001-0001-0001-0001-000000000004)"/>
                     <attribute id="TableUUID" type="guid" value="6e7b7bad-e122-4679-8b3c-8f8987a9d466"/>
                     <attribute id="UUID" type="guid" value="88888888-8888-8888-8888-888888888801"/>
                 </node>
@@ -613,7 +622,7 @@
                     <attribute id="Name" type="LSString" value="Druid"/>
                     <attribute id="PassivesAdded" type="LSString" value="Druid_ImprovedElementalFury;UnlockedSpellSlotLevel8"/>
                     <attribute id="ProgressionType" type="uint8" value="0"/>
-                    <attribute id="Selectors" type="LSString" value="SelectSpells(00180001-0001-0001-0001-000000000004,1,0,DruidSLevel8);SelectSpells(00180001-0001-0001-0001-000000000004,1,0,DruidSLevel8)"/>
+                    <attribute id="Selectors" type="LSString" value="AddSpells(00180001-0001-0001-0001-000000000004)"/>
                     <attribute id="TableUUID" type="guid" value="6e7b7bad-e122-4679-8b3c-8f8987a9d466"/>
                     <attribute id="UUID" type="guid" value="88888888-8888-8888-8888-888888888803"/>
                 </node>
@@ -631,7 +640,7 @@
                     <attribute id="Name" type="LSString" value="Druid"/>
                     <attribute id="PassivesAdded" type="LSString" value="UnlockedSpellSlotLevel9"/>
                     <attribute id="ProgressionType" type="uint8" value="0"/>
-                    <attribute id="Selectors" type="LSString" value="SelectSpells(00190001-0001-0001-0001-000000000004,1,0,DruidSLevel9);SelectSpells(00190001-0001-0001-0001-000000000004,1,0,DruidSLevel9)"/>
+                    <attribute id="Selectors" type="LSString" value="AddSpells(00190001-0001-0001-0001-000000000004)"/>
                     <attribute id="TableUUID" type="guid" value="6e7b7bad-e122-4679-8b3c-8f8987a9d466"/>
                     <attribute id="UUID" type="guid" value="88888888-8888-8888-8888-888888888805"/>
                 </node>
@@ -750,7 +759,7 @@
                     <attribute id="Name" type="LSString" value="Sorcerer"/>
                     <attribute id="PassivesAdded" type="LSString" value="UnlockedSpellSlotLevel7"/>
                     <attribute id="ProgressionType" type="uint8" value="0"/>
-                    <attribute id="Selectors" type="LSString" value="SelectSpells(00170001-0001-0001-0001-000000000002,1,0,SorcererSLevel7);SelectSpells(00170001-0001-0001-0001-000000000002,1,0,SorcererSLevel7)"/>
+                    <attribute id="Selectors" type="LSString" value="SelectSpells(00170001-0001-0001-0001-000000000002,1,0,SorcererSpell)"/>
                     <attribute id="TableUUID" type="guid" value="e2416b02-953a-4ce8-aa8f-eb98d549d86d"/>
                     <attribute id="UUID" type="guid" value="aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaa901"/>
                 </node>
@@ -759,6 +768,7 @@
                     <attribute id="Level" type="uint8" value="14"/>
                     <attribute id="Name" type="LSString" value="Sorcerer"/>
                     <attribute id="ProgressionType" type="uint8" value="0"/>
+                    <attribute id="Selectors" type="LSString" value="SelectSpells(00170001-0001-0001-0001-000000000002,1,0,SorcererSpell)"/>
                     <attribute id="TableUUID" type="guid" value="e2416b02-953a-4ce8-aa8f-eb98d549d86d"/>
                     <attribute id="UUID" type="guid" value="aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaa902"/>
                 </node>
@@ -768,7 +778,7 @@
                     <attribute id="Name" type="LSString" value="Sorcerer"/>
                     <attribute id="PassivesAdded" type="LSString" value="UnlockedSpellSlotLevel8"/>
                     <attribute id="ProgressionType" type="uint8" value="0"/>
-                    <attribute id="Selectors" type="LSString" value="SelectSpells(00180001-0001-0001-0001-000000000002,1,0,SorcererSLevel8);SelectSpells(00180001-0001-0001-0001-000000000002,1,0,SorcererSLevel8)"/>
+                    <attribute id="Selectors" type="LSString" value="SelectSpells(00180001-0001-0001-0001-000000000002,1,0,SorcererSpell)"/>
                     <attribute id="TableUUID" type="guid" value="e2416b02-953a-4ce8-aa8f-eb98d549d86d"/>
                     <attribute id="UUID" type="guid" value="aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaa903"/>
                 </node>
@@ -787,7 +797,7 @@
                     <attribute id="Name" type="LSString" value="Sorcerer"/>
                     <attribute id="PassivesAdded" type="LSString" value="UnlockedSpellSlotLevel9"/>
                     <attribute id="ProgressionType" type="uint8" value="0"/>
-                    <attribute id="Selectors" type="LSString" value="SelectSpells(00190001-0001-0001-0001-000000000002,1,0,SorcererSLevel9);SelectPassives(c3506532-36eb-4d18-823e-497a537a9619,1,Metamagic);SelectSpells(00190001-0001-0001-0001-000000000002,1,0,SorcererSLevel9)"/>
+                    <attribute id="Selectors" type="LSString" value="SelectSpells(00190001-0001-0001-0001-000000000002,1,0,SorcererSpell);SelectPassives(c3506532-36eb-4d18-823e-497a537a9619,1,Metamagic)"/>
                     <attribute id="TableUUID" type="guid" value="e2416b02-953a-4ce8-aa8f-eb98d549d86d"/>
                     <attribute id="UUID" type="guid" value="aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaa905"/>
                 </node>
@@ -2163,6 +2173,43 @@
                     <attribute id="ProgressionType" type="uint8" value="1"/>
                     <attribute id="TableUUID" type="guid" value="8f6048bc-47b8-49fa-956a-8a364807f6ec"/>
                     <attribute id="UUID" type="guid" value="47474747-4747-4747-4747-474747474701"/>
+                </node>
+                
+                <!-- ==================== NON-PHB 2024 CLERIC DOMAIN L17 FEATURES ==================== -->
+                
+                <!-- ARCANA DOMAIN (SCAG) -->
+                <!-- Level 17: Arcane Mastery - Select one wizard spell from each of levels 6, 7, 8, 9 -->
+                <!-- Note: Level 8 has no wizard spells in BG3, so only 3 selections available -->
+                <node id="Progression">
+                    <attribute id="Level" type="uint8" value="17"/>
+                    <attribute id="Name" type="LSString" value="ArcanaDomain"/>
+                    <attribute id="PassivesAdded" type="LSString" value="ArcanaDomain_17_ArcaneMastery"/>
+                    <attribute id="ProgressionType" type="uint8" value="1"/>
+                    <attribute id="Selectors" type="LSString" value="SelectSpells(00160001-aaaa-0001-0001-000000000001,1,0,ArcaneMasteryL6,,,AlwaysPrepared);SelectSpells(00170001-aaaa-0001-0001-000000000001,1,0,ArcaneMasteryL7,,,AlwaysPrepared);SelectSpells(00190001-aaaa-0001-0001-000000000001,1,0,ArcaneMasteryL9,,,AlwaysPrepared)"/>
+                    <attribute id="TableUUID" type="guid" value="03983b19-b0a4-47c6-96ca-ac8621d509ad"/>
+                    <attribute id="UUID" type="guid" value="50505050-5050-5050-5050-505050505001"/>
+                </node>
+                
+                <!-- DEATH DOMAIN (DMG) -->
+                <!-- Level 17: Improved Reaper (Stand-in) - Enhanced necrotic power -->
+                <node id="Progression">
+                    <attribute id="Level" type="uint8" value="17"/>
+                    <attribute id="Name" type="LSString" value="DeathDomain"/>
+                    <attribute id="PassivesAdded" type="LSString" value="DeathDomain_17_ImprovedReaper"/>
+                    <attribute id="ProgressionType" type="uint8" value="1"/>
+                    <attribute id="TableUUID" type="guid" value="b3505f8a-be78-401c-adea-bb466c14aa54"/>
+                    <attribute id="UUID" type="guid" value="51515151-5151-5151-5151-515151515101"/>
+                </node>
+                
+                <!-- GRAVE DOMAIN (XGtE) -->
+                <!-- Level 17: Keeper of Souls - Heal when enemies die nearby -->
+                <node id="Progression">
+                    <attribute id="Level" type="uint8" value="17"/>
+                    <attribute id="Name" type="LSString" value="GraveDomain"/>
+                    <attribute id="PassivesAdded" type="LSString" value="GraveDomain_17_KeeperOfSouls"/>
+                    <attribute id="ProgressionType" type="uint8" value="1"/>
+                    <attribute id="TableUUID" type="guid" value="f6cdcb01-9560-4e7b-856f-2ea65dfbed0c"/>
+                    <attribute id="UUID" type="guid" value="52525252-5252-5252-5252-525252525201"/>
                 </node>
                 
                 <!-- ==================== DRUID LEVEL 14 FEATURES ==================== -->

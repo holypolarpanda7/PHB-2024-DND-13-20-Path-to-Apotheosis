@@ -817,3 +817,79 @@ data "OnApplySuccess" "IF(not HasStatus('SPIRIT_GUARDIANS_DAMAGE_RECEIVED')):Dea
 data "OnApplyFail" "IF(not HasStatus('SPIRIT_GUARDIANS_DAMAGE_RECEIVED')):DealDamage(9d8/2,Necrotic,Magical);IF(not HasStatus('SPIRIT_GUARDIANS_DAMAGE_RECEIVED')):ApplyStatus(SPIRIT_GUARDIANS_DAMAGE_RECEIVED,100,1)"
 data "OnTickSuccess" "IF(not HasStatus('SPIRIT_GUARDIANS_DAMAGE_RECEIVED')or StatusDurationLessThan(context.Source,'SPIRIT_GUARDIANS_DAMAGE_RECEIVED',0.1)):DealDamage(9d8,Necrotic,Magical);ApplyStatus(SPIRIT_GUARDIANS_DAMAGE_RECEIVED,100,1)"
 data "OnTickFail" "IF(not HasStatus('SPIRIT_GUARDIANS_DAMAGE_RECEIVED')or StatusDurationLessThan(context.Source,'SPIRIT_GUARDIANS_DAMAGE_RECEIVED',0.1)):DealDamage(9d8/2,Necrotic,Magical);ApplyStatus(SPIRIT_GUARDIANS_DAMAGE_RECEIVED,100,1)"
+
+// ==============================================================================
+// CLERIC DOMAIN L17 STATUS EFFECTS
+// ==============================================================================
+
+// Divine Foreknowledge (Knowledge Domain L17)
+// PHB 2024: Advantage on D20 Tests for 1 hour
+new entry "DIVINE_FOREKNOWLEDGE"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "hknow17fore00000000000000000001;1"
+data "Description" "hknow17fore00000000000000000003;1"
+data "Icon" "PassiveFeature_BlessingsOfKnowledge"
+data "StackId" "DIVINE_FOREKNOWLEDGE"
+data "StackType" "Overwrite"
+data "Boosts" "Advantage(Ability);Advantage(AttackRoll);Advantage(SavingThrow);Advantage(SkillCheck)"
+data "StatusPropertyFlags" "DisableOverhead"
+
+// Corona of Light (Light Domain L17)
+// PHB 2024: Emit sunlight aura, enemies have disadvantage on saves vs Fire/Radiant spells
+new entry "CORONA_OF_LIGHT"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "hlight17cor00000000000000000001;1"
+data "Description" "hlight17cor00000000000000000003;1"
+data "Icon" "PassiveFeature_WardingFlare"
+data "StackId" "CORONA_OF_LIGHT"
+data "StackType" "Overwrite"
+data "AuraRadius" "18"
+data "AuraStatuses" "IF(Enemy()):ApplyStatus(CORONA_OF_LIGHT_DEBUFF)"
+data "StatusPropertyFlags" "DisableOverhead"
+
+// Corona of Light Debuff - Applied to enemies in aura
+new entry "CORONA_OF_LIGHT_DEBUFF"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "hlight17cor00000000000000000004;1"
+data "Description" "hlight17cor00000000000000000005;1"
+data "Icon" "PassiveFeature_WardingFlare"
+data "StackId" "CORONA_OF_LIGHT_DEBUFF"
+data "StackType" "Overwrite"
+data "Boosts" "Disadvantage(SavingThrow)"
+data "StatusPropertyFlags" "DisableOverhead"
+
+// Wish Blessing (Greater Divine Intervention L20)
+// PHB 2024: Representation of powerful Wish effect
+new entry "WISH_BLESSING"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "hclr20wish000000000000000000009;1"
+data "Description" "hclr20wish000000000000000000010;1"
+data "Icon" "Spell_Conjuration_Wish"
+data "StackId" "WISH_BLESSING"
+data "StackType" "Overwrite"
+data "Boosts" "Advantage(Ability);Advantage(AttackRoll);Advantage(SavingThrow);Resistance(All,Resistant)"
+data "StatusPropertyFlags" "DisableOverhead"
+
+// ==============================================================================
+// DOMINATE MONSTER - 8th Level Enchantment Status
+// ==============================================================================
+
+new entry "DOMINATE_MONSTER"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "hdominmonster000000000000000000003;1"
+data "Description" "hdominmonster000000000000000000004;1"
+data "Icon" "Spell_Enchantment_DominatePerson"
+data "StackId" "DOMINATED"
+data "Boosts" "FactionOverride(Source);Advantage(SourceDialogue,Charisma)"
+data "RemoveConditions" "SavingThrow(Ability.Wisdom, SourceSpellDC(), AdvantageOnCharmed())"
+data "RemoveEvents" "OnDamage"
+data "TooltipSave" "Wisdom"
+data "StatusPropertyFlags" "LoseControl"
+data "StatusGroups" "SG_Charmed;SG_Dominated"
+data "ApplyEffect" "0a13ccc8-8a1f-4035-8d15-ab53a21cca0c"
+data "StatusEffect" "566dbef7-e2b0-40ec-b731-5372c5ff0554"

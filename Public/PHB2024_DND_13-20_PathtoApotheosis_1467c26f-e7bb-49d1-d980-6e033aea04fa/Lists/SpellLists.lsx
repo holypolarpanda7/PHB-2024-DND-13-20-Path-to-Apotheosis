@@ -25,7 +25,7 @@
                     <attribute id="Comment" type="LSString" value="Wizard Level 8 Spells merged into main list"/>
                     <attribute id="MergedInto" type="guid" value="bc917f22-7f71-4a25-9a77-7d2f91a96a65"/>
                     <attribute id="Name" type="FixedString" value="Wizard SLevel 8"/>
-                    <attribute id="Spells" type="LSString" value=""/>
+                    <attribute id="Spells" type="LSString" value="Target_DominateMonster"/>
                     <attribute id="UUID" type="guid" value="00180001-0001-0001-0001-000000000001"/>
                 </node>
                 <node id="SpellList">
@@ -47,13 +47,13 @@
                 <node id="SpellList">
                     <attribute id="Comment" type="LSString" value="Sorcerer Level 7+8 Spells - available at character level 15"/>
                     <attribute id="Name" type="FixedString" value="Sorcerer SLevel 8"/>
-                    <attribute id="Spells" type="LSString" value=""/>
+                    <attribute id="Spells" type="LSString" value="Target_DominateMonster;Zone_PrismaticSpray"/>
                     <attribute id="UUID" type="guid" value="00180001-0001-0001-0001-000000000002"/>
                 </node>
                 <node id="SpellList">
                     <attribute id="Comment" type="LSString" value="Sorcerer Level 7+8+9 Spells - available at character level 17"/>
                     <attribute id="Name" type="FixedString" value="Sorcerer SLevel 9"/>
-                    <attribute id="Spells" type="LSString" value="Target_PowerWordKill;Shout_Wish;Shout_TimeStop;Projectile_MeteorSwarm;Target_Gate"/>
+                    <attribute id="Spells" type="LSString" value="Target_PowerWordKill;Shout_Wish;Shout_TimeStop;Projectile_MeteorSwarm;Target_Gate;Target_DominateMonster;Zone_PrismaticSpray"/>
                     <attribute id="UUID" type="guid" value="00190001-0001-0001-0001-000000000002"/>
                 </node>
                 
@@ -111,13 +111,13 @@
                 <node id="SpellList">
                     <attribute id="Comment" type="LSString" value="Bard Level 6+7+8 Spells - available at character level 15"/>
                     <attribute id="Name" type="FixedString" value="Bard SLevel 8"/>
-                    <attribute id="Spells" type="LSString" value="Shout_PowerWordStun;Target_Glibness;Target_Feeblemind;Zone_PrismaticSpray;Target_ProjectImage;Target_Regenerate;Target_Resurrection;Target_Eyebite;Target_IrresistibleDance;Target_DominatePerson;Target_GreaterRestoration;Target_HoldMonster;Target_CureWounds_Mass;Target_PlanarBinding;Target_Seeming;Target_Confusion;Teleportation_DimensionDoor;Target_FreedomOfMovement;Target_Invisibility_Greater;Target_Polymorph;Target_BestowCurse;Zone_Fear;Target_FeignDeath;Target_GlyphOfWarding;Target_HypnoticPattern;Target_PlantGrowth;Target_SpeakWithDead;Target_StinkingCloud;Target_Blindness;Target_CalmEmotions;Target_CloudOfDaggers;Target_CrownOfMadness;Shout_DetectThoughts;Target_EnhanceAbility;Target_Enthrall;Target_HeatMetal;Target_HoldPerson;Target_Invisibility;Target_Knock;Target_LesserRestoration;Target_PhantasmalForce;Shout_SeeInvisibility;Target_Shatter;Target_Silence;Target_AnimalFriendship;Target_Bane;Target_CharmPerson;Target_CureWounds;Shout_DisguiseSelf;Target_DissonantWhispers;Target_FaerieFire;Shout_FeatherFall;Target_HealingWord;Target_Heroism;Target_Longstrider;Target_Sleep;Shout_SpeakWithAnimals;Target_HideousLaughter;Zone_Thunderwave"/>
+                    <attribute id="Spells" type="LSString" value="Target_DominateMonster;Shout_PowerWordStun;Target_Glibness;Target_Feeblemind;Zone_PrismaticSpray;Target_ProjectImage;Target_Regenerate;Target_Resurrection;Target_Eyebite;Target_IrresistibleDance;Target_DominatePerson;Target_GreaterRestoration;Target_HoldMonster;Target_CureWounds_Mass;Target_PlanarBinding;Target_Seeming;Target_Confusion;Teleportation_DimensionDoor;Target_FreedomOfMovement;Target_Invisibility_Greater;Target_Polymorph;Target_BestowCurse;Zone_Fear;Target_FeignDeath;Target_GlyphOfWarding;Target_HypnoticPattern;Target_PlantGrowth;Target_SpeakWithDead;Target_StinkingCloud;Target_Blindness;Target_CalmEmotions;Target_CloudOfDaggers;Target_CrownOfMadness;Shout_DetectThoughts;Target_EnhanceAbility;Target_Enthrall;Target_HeatMetal;Target_HoldPerson;Target_Invisibility;Target_Knock;Target_LesserRestoration;Target_PhantasmalForce;Shout_SeeInvisibility;Target_Shatter;Target_Silence;Target_AnimalFriendship;Target_Bane;Target_CharmPerson;Target_CureWounds;Shout_DisguiseSelf;Target_DissonantWhispers;Target_FaerieFire;Shout_FeatherFall;Target_HealingWord;Target_Heroism;Target_Longstrider;Target_Sleep;Shout_SpeakWithAnimals;Target_HideousLaughter;Zone_Thunderwave"/>
                     <attribute id="UUID" type="guid" value="00180001-0001-0001-0001-000000000005"/>
                 </node>
                 <node id="SpellList">
                     <attribute id="Comment" type="LSString" value="Bard Level 6+7+8+9 Spells - available at character level 17"/>
                     <attribute id="Name" type="FixedString" value="Bard SLevel 9"/>
-                    <attribute id="Spells" type="LSString" value="Target_PowerWordKill;Target_PowerWordHeal;Target_Foresight;Target_TruePolymorph;Shout_PowerWordStun;Target_Glibness;Target_Feeblemind;Zone_PrismaticSpray;Target_ProjectImage;Target_Regenerate;Target_Resurrection;Target_Eyebite;Target_IrresistibleDance;Target_DominatePerson;Target_GreaterRestoration;Target_HoldMonster;Target_CureWounds_Mass;Target_PlanarBinding;Target_Seeming;Target_Confusion;Teleportation_DimensionDoor;Target_FreedomOfMovement;Target_Invisibility_Greater;Target_Polymorph;Target_BestowCurse;Zone_Fear;Target_FeignDeath;Target_GlyphOfWarding;Target_HypnoticPattern;Target_PlantGrowth;Target_SpeakWithDead;Target_StinkingCloud;Target_Blindness;Target_CalmEmotions;Target_CloudOfDaggers;Target_CrownOfMadness;Shout_DetectThoughts;Target_EnhanceAbility;Target_Enthrall;Target_HeatMetal;Target_HoldPerson;Target_Invisibility;Target_Knock;Target_LesserRestoration;Target_PhantasmalForce;Shout_SeeInvisibility;Target_Shatter;Target_Silence;Target_AnimalFriendship;Target_Bane;Target_CharmPerson;Target_CureWounds;Shout_DisguiseSelf;Target_DissonantWhispers;Target_FaerieFire;Shout_FeatherFall;Target_HealingWord;Target_Heroism;Target_Longstrider;Target_Sleep;Shout_SpeakWithAnimals;Target_HideousLaughter;Zone_Thunderwave"/>
+                    <attribute id="Spells" type="LSString" value="Target_PowerWordKill;Target_PowerWordHeal;Target_Foresight;Target_TruePolymorph;Target_DominateMonster;Shout_PowerWordStun;Target_Glibness;Target_Feeblemind;Zone_PrismaticSpray;Target_ProjectImage;Target_Regenerate;Target_Resurrection;Target_Eyebite;Target_IrresistibleDance;Target_DominatePerson;Target_GreaterRestoration;Target_HoldMonster;Target_CureWounds_Mass;Target_PlanarBinding;Target_Seeming;Target_Confusion;Teleportation_DimensionDoor;Target_FreedomOfMovement;Target_Invisibility_Greater;Target_Polymorph;Target_BestowCurse;Zone_Fear;Target_FeignDeath;Target_GlyphOfWarding;Target_HypnoticPattern;Target_PlantGrowth;Target_SpeakWithDead;Target_StinkingCloud;Target_Blindness;Target_CalmEmotions;Target_CloudOfDaggers;Target_CrownOfMadness;Shout_DetectThoughts;Target_EnhanceAbility;Target_Enthrall;Target_HeatMetal;Target_HoldPerson;Target_Invisibility;Target_Knock;Target_LesserRestoration;Target_PhantasmalForce;Shout_SeeInvisibility;Target_Shatter;Target_Silence;Target_AnimalFriendship;Target_Bane;Target_CharmPerson;Target_CureWounds;Shout_DisguiseSelf;Target_DissonantWhispers;Target_FaerieFire;Shout_FeatherFall;Target_HealingWord;Target_Heroism;Target_Longstrider;Target_Sleep;Shout_SpeakWithAnimals;Target_HideousLaughter;Zone_Thunderwave"/>
                     <attribute id="UUID" type="guid" value="00190001-0001-0001-0001-000000000005"/>
                 </node>
                 
@@ -135,7 +135,7 @@
                     <attribute id="Comment" type="LSString" value="Bard Magical Secrets Level 8"/>
                     <attribute id="MergedInto" type="guid" value="858d4322-9e9f-4aa4-aada-9c68835dc6fe"/>
                     <attribute id="Name" type="FixedString" value="Bard Magical Secrets SLevel 8"/>
-                    <attribute id="Spells" type="LSString" value=""/>
+                    <attribute id="Spells" type="LSString" value="Target_DominateMonster"/>
                     <attribute id="UUID" type="guid" value="00180001-0001-0001-0001-000000000006"/>
                 </node>
                 <node id="SpellList">
@@ -157,14 +157,42 @@
                 <node id="SpellList">
                     <attribute id="Comment" type="LSString" value="Warlock Mystic Arcanum Level 8 only - pick one at character level 15"/>
                     <attribute id="Name" type="FixedString" value="MysticArcanum8"/>
-                    <attribute id="Spells" type="LSString" value=""/>
+                    <attribute id="Spells" type="LSString" value="Target_DominateMonster"/>
                     <attribute id="UUID" type="guid" value="00180001-0001-0001-0001-000000000007"/>
                 </node>
                 <node id="SpellList">
                     <attribute id="Comment" type="LSString" value="Warlock Mystic Arcanum Level 9 only - pick one at character level 17"/>
                     <attribute id="Name" type="FixedString" value="MysticArcanum9"/>
-                    <attribute id="Spells" type="LSString" value="Target_PowerWordKill;Target_Foresight;Shout_TimeStop;Target_TruePolymorph;Target_Gate"/>
+                    <attribute id="Spells" type="LSString" value="Target_PowerWordKill;Shout_Wish;Target_Foresight;Shout_TimeStop;Target_TruePolymorph;Target_Gate"/>
                     <attribute id="UUID" type="guid" value="00190001-0001-0001-0001-000000000007"/>
+                </node>
+                
+                <!-- ==================== ARCANA DOMAIN ARCANE MASTERY SPELL LISTS ==================== -->
+                <!-- NON-CUMULATIVE: Each list contains only that level's wizard spells -->
+                <!-- Used for Arcana Domain L17 Arcane Mastery feature - pick 1 spell from each level -->
+                <node id="SpellList">
+                    <attribute id="Comment" type="LSString" value="Arcana Domain Arcane Mastery - Wizard Level 6 spells only"/>
+                    <attribute id="Name" type="FixedString" value="ArcanaMastery_WizardL6"/>
+                    <attribute id="Spells" type="LSString" value="Teleportation_ArcaneGate;Projectile_ChainLightning;Target_CircleOfDeath;Target_CreateUndead;Projectile_Disintegrate;Target_Eyebite;Target_FleshToStone;Target_GlobeOfInvulnerability;Target_FreezingSphere;Target_IrresistibleDance;Zone_Sunbeam;Wall_WallOfIce;Target_PlatinumShield;Shout_TensersTransformation"/>
+                    <attribute id="UUID" type="guid" value="00160001-aaaa-0001-0001-000000000001"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="Comment" type="LSString" value="Arcana Domain Arcane Mastery - Wizard Level 7 spells only"/>
+                    <attribute id="Name" type="FixedString" value="ArcanaMastery_WizardL7"/>
+                    <attribute id="Spells" type="LSString" value="Zone_PrismaticSpray"/>
+                    <attribute id="UUID" type="guid" value="00170001-aaaa-0001-0001-000000000001"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="Comment" type="LSString" value="Arcana Domain Arcane Mastery - Wizard Level 8 spells only"/>
+                    <attribute id="Name" type="FixedString" value="ArcanaMastery_WizardL8"/>
+                    <attribute id="Spells" type="LSString" value=""/>
+                    <attribute id="UUID" type="guid" value="00180001-aaaa-0001-0001-000000000001"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="Comment" type="LSString" value="Arcana Domain Arcane Mastery - Wizard Level 9 spells only"/>
+                    <attribute id="Name" type="FixedString" value="ArcanaMastery_WizardL9"/>
+                    <attribute id="Spells" type="LSString" value="Target_PowerWordKill;Shout_Wish;Target_Foresight;Shout_TimeStop;Projectile_MeteorSwarm;Target_TruePolymorph;Target_Gate;Target_PrismaticWall"/>
+                    <attribute id="UUID" type="guid" value="00190001-aaaa-0001-0001-000000000001"/>
                 </node>
                 
             </children>

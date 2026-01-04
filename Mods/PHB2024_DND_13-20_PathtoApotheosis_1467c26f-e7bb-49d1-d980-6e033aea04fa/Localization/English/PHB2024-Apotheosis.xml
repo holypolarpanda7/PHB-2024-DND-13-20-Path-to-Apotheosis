@@ -169,15 +169,15 @@
   <content contentuid="hc0e1f2a3b00000000000000000000a7" version="1">Create Thrall</content>
   <content contentuid="hc0e1f2a4b00000000000000000000a8" version="1">You can touch an incapacitated humanoid to charm it indefinitely, creating a telepathic link.</content>
   <content contentuid="hd1f2a3b4b00000000000000000000a9" version="1">Divine Foreknowledge</content>
-  <content contentuid="hd1f2a3b5b00000000000000000000aa" version="1">As a reaction, you can grant yourself or an ally advantage on an attack roll, saving throw, or ability check.</content>
+  <content contentuid="hd1f2a3b5b00000000000000000000aa" version="1">As a Bonus Action, you magically expand your mind to the future. For 1 hour, you have Advantage on D20 Tests. Once you use this feature, you can't use it again until you finish a Long Rest.</content>
   <content contentuid="he2a3b4c5b00000000000000000000ab" version="1">Supreme Healing</content>
-  <content contentuid="he2a3b4c6b00000000000000000000ac" version="1">When you roll dice to restore hit points with a spell, you instead use the maximum possible result.</content>
+  <content contentuid="he2a3b4c6b00000000000000000000ac" version="1">When you would normally roll one or more dice to restore Hit Points to a creature with a spell or Channel Divinity, don't roll those dice for the healing; instead use the highest number possible for each die.</content>
   <content contentuid="hf3b4c5d6b00000000000000000000ad" version="1">Corona of Light</content>
-  <content contentuid="hf3b4c5d7b00000000000000000000ae" version="1">You emit bright light in a 60-foot radius. Enemies in this light have disadvantage on saves against fire and radiant damage.</content>
+  <content contentuid="hf3b4c5d7b00000000000000000000ae" version="1">As a Magic action, emit an aura of sunlight for 1 minute. Enemies in the Bright Light have Disadvantage on saving throws against your Radiance of the Dawn and any spell that deals Fire or Radiant damage.</content>
   <content contentuid="ha4c5d6e7b00000000000000000000af" version="1">Improved Duplicity</content>
-  <content contentuid="ha4c5d6e8b00000000000000000000b0" version="1">You can create four duplicates instead of one, and you can teleport to swap places with any duplicate.</content>
+  <content contentuid="ha4c5d6e8b00000000000000000000b0" version="1">Your Invoke Duplicity illusion has grown more powerful. Allies making attack rolls against a creature within 5 feet of the illusion have Advantage. When the illusion ends, you or a creature within 5 feet of it regains Hit Points equal to your Cleric level.</content>
   <content contentuid="hb5d6e7f8b00000000000000000000b1" version="1">Avatar of Battle</content>
-  <content contentuid="hb5d6e7f9b00000000000000000000b2" version="1">You gain resistance to bludgeoning, piercing, and slashing damage from nonmagical weapons.</content>
+  <content contentuid="hb5d6e7f9b00000000000000000000b2" version="1">You gain Resistance to Bludgeoning, Piercing, and Slashing damage.</content>
   <content contentuid="hc6e7f8a9b00000000000000000000b3" version="1">Natures Sanctuary</content>
   <content contentuid="hc6e7f8aab00000000000000000000b4" version="1">Beasts and plants must make a Wisdom save to attack you. On a failure, they must choose a different target.</content>
   <content contentuid="hd7f8a9b0b00000000000000000000b5" version="1">Lunar Form</content>
@@ -409,7 +409,13 @@
   <content contentuid="h9lvlheal0001g0001g0001g0001g000000000001" version="1">Power Word Heal</content>
   <content contentuid="h9lvlheal0002g0001g0001g0001g000000000002" version="1">A wave of healing energy washes over a creature you can see. The target regains all its hit points (up to 700). If the creature is Charmed, Frightened, Paralyzed, or Stunned, the condition ends.</content>
   <content contentuid="h9lvlwish0001g0001g0001g0001g000000000001" version="1">Wish</content>
-  <content contentuid="h9lvlwish0002g0001g0001g0001g000000000002" version="1">The mightiest spell a mortal creature can cast. Simply by speaking aloud, you can alter reality itself.</content>
+  <content contentuid="h9lvlwish0002g0001g0001g0001g000000000002" version="1">The mightiest spell a mortal creature can cast. Simply by speaking aloud, you can alter reality itself. Choose from powerful effects: mass heal all allies, resurrect the fallen, or grant a divine blessing.</content>
+  <content contentuid="hwish00000000000000000000000003" version="1">Wish: Mass Heal</content>
+  <content contentuid="hwish00000000000000000000000004" version="1">Restore all allies within 18m to their maximum Hit Points.</content>
+  <content contentuid="hwish00000000000000000000000005" version="1">Wish: Resurrection</content>
+  <content contentuid="hwish00000000000000000000000006" version="1">Resurrect all dead allies within 9m with full Hit Points.</content>
+  <content contentuid="hwish00000000000000000000000007" version="1">Wish: Divine Blessing</content>
+  <content contentuid="hwish00000000000000000000000008" version="1">Grant all allies within 18m Advantage on all Attack Rolls, Ability Checks, and Saving Throws, plus Resistance to all damage types.</content>
   <content contentuid="h9lvltpoly001g0001g0001g0001g000000000001" version="1">True Polymorph</content>
   <content contentuid="h9lvltpoly002g0001g0001g0001g000000000002" version="1">Transform a creature into another creature or object. The transformation lasts until dispelled or the creature drops to 0 hit points.</content>
   <content contentuid="h9lvlmeteor01g0001g0001g0001g000000000001" version="1">Meteor Swarm</content>
@@ -562,5 +568,43 @@
   <content contentuid="htpm0001a000000000000000000000001" version="1">True Polymorph</content>
   <content contentuid="htpm0001a000000000000000000000002" version="1">Transform a creature or object into a different creature or object. If you concentrate on this spell for the full duration, the transformation becomes permanent.</content>
   <content contentuid="htpm0001a000000000000000000000003" version="1">Transformed into another form.</content>
+
+  <content contentuid="hclr20wish000000000000000000001" version="1">Greater Divine Intervention: Wish</content>
+  <content contentuid="hclr20wish000000000000000000002" version="1">Through your Greater Divine Intervention, you can invoke the power of a Wish spell. Choose from powerful divine effects: heal all allies, resurrect the fallen, or grant divine blessing.</content>
+  <content contentuid="hclr20wish000000000000000000003" version="1">Wish: Mass Heal</content>
+  <content contentuid="hclr20wish000000000000000000004" version="1">Restore all allies within 30 feet to their maximum Hit Points.</content>
+  <content contentuid="hclr20wish000000000000000000005" version="1">Wish: Resurrection</content>
+  <content contentuid="hclr20wish000000000000000000006" version="1">Resurrect a dead ally within 30 feet with full Hit Points.</content>
+  <content contentuid="hclr20wish000000000000000000007" version="1">Wish: Divine Blessing</content>
+  <content contentuid="hclr20wish000000000000000000008" version="1">Grant all allies within 30 feet Advantage on all D20 tests and Resistance to all damage types.</content>
+  <content contentuid="hclr20wish000000000000000000009" version="1">Wish Blessing</content>
+  <content contentuid="hclr20wish000000000000000000010" version="1">Blessed by a Wish spell. Advantage on all Attack Rolls, Ability Checks, and Saving Throws. Resistance to all damage types.</content>
+
+  <content contentuid="hknow17fore00000000000000000001" version="1">Divine Foreknowledge</content>
+  <content contentuid="hknow17fore00000000000000000002" version="1">As a Bonus Action, magically expand your mind to the future. For 1 hour, you have Advantage on all D20 Tests (Attack Rolls, Ability Checks, and Saving Throws). You can use this feature once per Long Rest.</content>
+  <content contentuid="hknow17fore00000000000000000003" version="1">Your mind is expanded to perceive the future. Advantage on all Attack Rolls, Ability Checks, and Saving Throws.</content>
+
+  <content contentuid="hlight17cor00000000000000000001" version="1">Corona of Light</content>
+  <content contentuid="hlight17cor00000000000000000002" version="1">As a Magic action, emit an aura of sunlight for 1 minute. Enemies in the 60-foot Bright Light have Disadvantage on saving throws against your Radiance of the Dawn and any spell that deals Fire or Radiant damage. Usable once per Short Rest.</content>
+  <content contentuid="hlight17cor00000000000000000003" version="1">Emitting a Corona of Light. Enemies within 60 feet have Disadvantage on saves against Fire and Radiant damage spells.</content>
+  <content contentuid="hlight17cor00000000000000000004" version="1">Corona of Light (Weakened)</content>
+  <content contentuid="hlight17cor00000000000000000005" version="1">In the Corona of Light. Disadvantage on saving throws against Fire and Radiant damage spells.</content>
+
+  <content contentuid="harc17mast00000000000000000000001" version="1">Arcane Mastery</content>
+  <content contentuid="harc17mast00000000000000000000002" version="1">You have mastered the highest arcane secrets. Choose one wizard spell from each of 6th, 7th, and 9th level. These spells are always prepared and do not count against your prepared spell limit.</content>
+
+  <content contentuid="hdth17reap00000000000000000000001" version="1">Improved Reaper</content>
+  <content contentuid="hdth17reap00000000000000000000002" version="1">Your mastery of death magic has reached its apex. When you reduce a creature to 0 Hit Points with a spell that deals Necrotic damage, you unleash a wave of deathly energy that deals Necrotic damage equal to your Wisdom modifier to all enemies within 15 feet of the slain creature.</content>
+
+  <content contentuid="hgrv17keep00000000000000000000001" version="1">Keeper of Souls</content>
+  <content contentuid="hgrv17keep00000000000000000000002" version="1">You can shepherd departing souls to their rest. When an enemy you can see dies within 60 feet of you, you or one ally of your choice within 60 feet regains Hit Points equal to the creature's number of Hit Dice. You can use this feature only once per round.</content>
+  <content contentuid="hgrv17keep00000000000000000000003" version="1">As a reaction when an enemy dies within 60 feet, heal yourself or an ally.</content>
+  <content contentuid="hgrv17keep00000000000000000000004" version="1">Keeper of Souls: Healing</content>
+  <content contentuid="hgrv17keep00000000000000000000005" version="1">Channel the departing soul's energy to heal a creature within 60 feet.</content>
+
+  <content contentuid="hdominmonster000000000000000000001" version="1">Dominate Monster</content>
+  <content contentuid="hdominmonster000000000000000000002" version="1">Attempt to beguile a creature you can see within range. It must succeed on a &lt;LSTag Tooltip="Wisdom"&gt;Wisdom&lt;/LSTag&gt; saving throw or become &lt;LSTag Tooltip="Charmed"&gt;Charmed&lt;/LSTag&gt; for the duration. While charmed, you have a telepathic link with it. You can use this telepathic link to issue commands to the creature (no action required), which it does its best to obey. Each time the target takes damage, it makes a new Wisdom saving throw against the spell. If it succeeds, the spell ends.</content>
+  <content contentuid="hdominmonster000000000000000000003" version="1">Dominated</content>
+  <content contentuid="hdominmonster000000000000000000004" version="1">Charmed by the caster and under their control. Each time this creature takes damage, it can attempt a &lt;LSTag Tooltip="Wisdom"&gt;Wisdom&lt;/LSTag&gt; saving throw to break free.</content>
 
 </contentList>
