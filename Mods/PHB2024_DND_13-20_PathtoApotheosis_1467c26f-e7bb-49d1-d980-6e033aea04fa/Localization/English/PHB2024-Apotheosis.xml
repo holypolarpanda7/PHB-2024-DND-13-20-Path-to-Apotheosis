@@ -31,11 +31,11 @@
   <content contentuid="hf1b2c3d40000000000000000000001d" version="1">Body and Mind</content>
   <content contentuid="hf1b2c3d50000000000000000000001e" version="1">Your Dexterity and Wisdom scores increase by 4, to a maximum of 26.</content>
   <content contentuid="ha2c3d4e50000000000000000000001f" version="1">Subtle Strikes</content>
-  <content contentuid="ha2c3d4e600000000000000000000020" version="1">You can use Sneak Attack even if no ally is within 5 feet of your target, as long as the target has no allies within 5 feet of it.</content>
+  <content contentuid="ha2c3d4e600000000000000000000020" version="1">Your strikes are subtle and precise, granting you a +2 bonus to weapon attack rolls.</content>
   <content contentuid="hb3d4e5f600000000000000000000021" version="1">Elusive</content>
-  <content contentuid="hb3d4e5f700000000000000000000022" version="1">No attack roll can have Advantage against you unless you are Incapacitated.</content>
+  <content contentuid="hb3d4e5f700000000000000000000022" version="1">You are maddeningly hard to pin down. While you aren't Incapacitated, attack rolls against you have Disadvantage.</content>
   <content contentuid="hc4e5f6a700000000000000000000023" version="1">Stroke of Luck</content>
-  <content contentuid="hc4e5f6a800000000000000000000024" version="1">Once per Short Rest, you can turn a missed attack into a hit, or treat a failed ability check as a 20.</content>
+  <content contentuid="hc4e5f6a800000000000000000000024" version="1">Fortune favours you. Your d20 rolls for Ability Checks, Skill Checks, and Saving Throws can't be lower than 10.</content>
   <content contentuid="hd5f6a7b800000000000000000000025" version="1">Cleansing Touch</content>
   <content contentuid="hd5f6a7b900000000000000000000026" version="1">You can use your action to end one spell on yourself or on one willing creature that you touch. You can use this feature a number of times equal to your Charisma modifier.</content>
   <content contentuid="he6a7b8c900000000000000000000027" version="1">Aura Expansion (30 ft)</content>
@@ -45,9 +45,9 @@
   <content contentuid="ha8c9d0e10000000000000000000002b" version="1">Relentless Hunter</content>
   <content contentuid="ha8c9d0e20000000000000000000002c" version="1">You gain a bonus to Initiative rolls and cannot be surprised while conscious.</content>
   <content contentuid="hb9d0e1f20000000000000000000002d" version="1">Feral Senses</content>
-  <content contentuid="hb9d0e1f30000000000000000000002e" version="1">You can see invisible creatures within 30 feet of you.</content>
+  <content contentuid="hb9d0e1f30000000000000000000002e" version="1">You can see Invisible creatures within 9m of you.</content>
   <content contentuid="hc0e1f2a30000000000000000000002f" version="1">Foe Slayer</content>
-  <content contentuid="hc0e1f2a400000000000000000000030" version="1">Once per turn, you can add your Wisdom modifier to the attack roll or damage roll against a favored enemy.</content>
+  <content contentuid="hc0e1f2a400000000000000000000030" version="1">You add your Wisdom modifier to your weapon attack rolls and weapon damage rolls.</content>
   <content contentuid="hd1f2a3b400000000000000000000031" version="1">Spell Mastery</content>
   <content contentuid="hd1f2a3b500000000000000000000032" version="1">Choose a 1st-level and a 2nd-level spell. You can cast these spells at will without expending spell slots.</content>
   <content contentuid="he2a3b4c500000000000000000000033" version="1">Signature Spells</content>
@@ -107,13 +107,13 @@
   <content contentuid="hb9d0e1f2a0000000000000000000069" version="1">Runic Juggernaut</content>
   <content contentuid="hb9d0e1f3a000000000000000000006a" version="1">When using Giants Might, you become Huge and deal an extra 1d10 damage with weapon attacks.</content>
   <content contentuid="hc0e1f2a3a000000000000000000006b" version="1">Versatile Trickster</content>
-  <content contentuid="hc0e1f2a4a000000000000000000006c" version="1">You can use your Mage Hand to distract creatures, granting you Advantage on attack rolls against them.</content>
+  <content contentuid="hc0e1f2a4a000000000000000000006c" version="1">Direct your spectral hand to distract a creature within 18m as a Bonus Action. Attack rolls against the target have Advantage for 2 turns.</content>
   <content contentuid="hd1f2a3b4a000000000000000000006d" version="1">Infiltration Expertise</content>
-  <content contentuid="hd1f2a3b5a000000000000000000006e" version="1">You can create a false identity, complete with documentation, over the course of seven days.</content>
+  <content contentuid="hd1f2a3b5a000000000000000000006e" version="1">A master of infiltration. You gain Expertise in Stealth and a +5 bonus to Initiative.</content>
   <content contentuid="he2a3b4c5a000000000000000000006f" version="1">Psychic Veil</content>
-  <content contentuid="he2a3b4c6a0000000000000000000070" version="1">As an action, you can become invisible for 1 hour or until you deal damage or force a creature to make a saving throw.</content>
+  <content contentuid="he2a3b4c6a0000000000000000000070" version="1">As an action, veil yourself in psychic static and become Invisible until you attack, cast a spell, or force a creature to make a Saving Throw. Recharges on a Short Rest.</content>
   <content contentuid="hf3b4c5d6a0000000000000000000071" version="1">Use Magic Device</content>
-  <content contentuid="hf3b4c5d7a0000000000000000000072" version="1">You ignore all class, race, and level requirements on the use of magic items.</content>
+  <content contentuid="hf3b4c5d7a0000000000000000000072" version="1">You can coax magic from any device. You gain Expertise in Arcana and Sleight of Hand.</content>
   <content contentuid="ha4c5d6e7a0000000000000000000073" version="1">Murderous Intent</content>
   <content contentuid="ha4c5d6e8a0000000000000000000074" version="1">Your sneak attacks become more deadly, channeling dark power from the Dead Three.</content>
   <content contentuid="hb5d6e7f8a0000000000000000000075" version="1">Unholy Infiltration</content>
@@ -221,13 +221,13 @@
   <content contentuid="hb3d4e5f6c00000000000000000000d5" version="1">Avenging Angel</content>
   <content contentuid="hb3d4e5f7c00000000000000000000d6" version="1">You sprout spectral wings and emit a frightening aura. Enemies within 30 feet must succeed on a Wisdom save or be frightened.</content>
   <content contentuid="hc4e5f6a7c00000000000000000000d7" version="1">Share Spells</content>
-  <content contentuid="hc4e5f6a8c00000000000000000000d8" version="1">When you cast a spell that targets only yourself, you can also affect your beast companion.</content>
+  <content contentuid="hc4e5f6a8c00000000000000000000d8" version="1">Your bond with your companion steadies your magic. You have Advantage on Constitution Saving Throws to maintain Concentration.</content>
   <content contentuid="hd5f6a7b8c00000000000000000000d9" version="1">Misty Wanderer</content>
-  <content contentuid="hd5f6a7b9c00000000000000000000da" version="1">You can cast Misty Step without expending a spell slot once per Long Rest. When you do, you can bring a willing ally with you.</content>
+  <content contentuid="hd5f6a7b9c00000000000000000000da" version="1">Once per Short Rest, you can step through the Feywild, teleporting to an unoccupied space you can see without expending a spell slot.</content>
   <content contentuid="he6a7b8c9c00000000000000000000db" version="1">Shadowy Dodge</content>
-  <content contentuid="he6a7b8cac00000000000000000000dc" version="1">When a creature makes an attack against you, you can use your reaction to impose disadvantage on the attack.</content>
+  <content contentuid="he6a7b8cac00000000000000000000dc" version="1">As a Bonus Action, wreathe yourself in shadow until the start of your next turn. Attack rolls against you have Disadvantage. Recharges on a Short Rest.</content>
   <content contentuid="hf7b8c9d0c00000000000000000000dd" version="1">Superior Hunters Defense</content>
-  <content contentuid="hf7b8c9d1c00000000000000000000de" version="1">Choose one: Evasion, Stand Against the Tide, or Uncanny Dodge.</content>
+  <content contentuid="hf7b8c9d1c00000000000000000000de" version="1">Defensive Tactics: You have Advantage on Dexterity Saving Throws, and all damage you take is reduced by 2.</content>
   <content contentuid="ha8c9d0e1c00000000000000000000df" version="1">Frozen Haunt</content>
   <content contentuid="ha8c9d0e2c00000000000000000000e0" version="1">Your cold abilities are enhanced, leaving foes frozen in supernatural ice.</content>
   <content contentuid="hb9d0e1f2c00000000000000000000e1" version="1">Chemical Mastery</content>
@@ -281,7 +281,7 @@
   <content contentuid="h0000000000000000000000000000d001" version="1">Disciplined Survivor</content>
   <content contentuid="h0000000000000000000000000000d002" version="1">Your training allows you to succeed on Death Saving Throws on a roll of 5 or higher.</content>
   <content contentuid="h0000000000000000000000000000d003" version="1">Slippery Mind</content>
-  <content contentuid="h0000000000000000000000000000d004" version="1">Your mental agility has sharpened. You gain proficiency in Wisdom saving throws.</content>
+  <content contentuid="h0000000000000000000000000000d004" version="1">Your mind is impossible to ensnare. You gain proficiency in Wisdom and Charisma Saving Throws.</content>
   <content contentuid="h0000000000000000000000000000d005" version="1">Improved Blessed Strikes</content>
   <content contentuid="h0000000000000000000000000000d006" version="1">Your divine strikes deal an additional 2d8 radiant damage instead of 1d8.</content>
   <content contentuid="h0000000000000000000000000000d007" version="1">Improved Elemental Fury</content>

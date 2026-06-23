@@ -1037,3 +1037,31 @@ data "StackId" "ELEMENTAL_REBUKE_HIT"
 data "StackType" "Overwrite"
 data "OnApplyFunctors" "DealDamage(2d8,Fire,Magical)"
 data "StatusPropertyFlags" "DisablePortraitIndicator;DisableOverhead;IgnoreResting"
+
+// APOTHEOSIS_DISTRACTED (Arcane Trickster - Versatile Trickster, Level 13): applied to an
+// enemy by Target_Apotheosis_VersatileTrickster (the rogue's Mage Hand distraction).
+// Grants Advantage(AttackTarget) so attack rolls against the distracted creature have Advantage.
+new entry "APOTHEOSIS_DISTRACTED"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "hc0e1f2a3a000000000000000000006b"
+data "Description" "hc0e1f2a4a000000000000000000006c"
+data "Icon" "PassiveFeature_MageHandLegerdemain"
+data "StackId" "APOTHEOSIS_DISTRACTED"
+data "StackType" "Overwrite"
+data "Boosts" "Advantage(AttackTarget)"
+data "StatusPropertyFlags" "IgnoreResting"
+
+// APOTHEOSIS_SHADOWY_DODGE (Gloom Stalker - Shadowy Dodge, Level 15): self-buff applied by
+// Shout_Apotheosis_ShadowyDodge. Lasts until the start of the rogue's next turn (1 turn);
+// Disadvantage(AttackTarget) imposes Disadvantage on all attack rolls against the bearer.
+new entry "APOTHEOSIS_SHADOWY_DODGE"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "he6a7b8c9c00000000000000000000db"
+data "Description" "he6a7b8cac00000000000000000000dc"
+data "Icon" "Spell_Illusion_Blur"
+data "StackId" "APOTHEOSIS_SHADOWY_DODGE"
+data "StackType" "Overwrite"
+data "Boosts" "Disadvantage(AttackTarget)"
+data "StatusPropertyFlags" "IgnoreResting"
