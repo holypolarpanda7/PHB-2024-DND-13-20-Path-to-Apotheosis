@@ -63,7 +63,7 @@
   <content contentuid="hd7f8a9b00000000000000000000003d" version="1">Words of Creation</content>
   <content contentuid="hd7f8a9b10000000000000000000003e" version="1">You have mastered two of the Words of Creation: the words of life and death. You always have &lt;LSTag Type="Spell" Tooltip="Target_PowerWordHeal_WordsOfCreation"&gt;Power Word Heal&lt;/LSTag&gt; and &lt;LSTag Type="Spell" Tooltip="Target_PowerWordKill_WordsOfCreation"&gt;Power Word Kill&lt;/LSTag&gt; prepared. When you cast either spell, you can target a second creature if it is within 10 feet of the first target.</content>
   <content contentuid="he8a9b0c10000000000000000000003f" version="1">Arcane Apotheosis</content>
-  <content contentuid="he8a9b0c200000000000000000000040" version="1">When you have no spell slots remaining, you can spend Sorcery Points to cast spells (points equal to the spell level).</content>
+  <content contentuid="he8a9b0c200000000000000000000040" version="1">Your command of raw magic is absolute. Once per turn, when you cast a spell of 1st level or higher, you regain 1 Sorcery Point.</content>
   <content contentuid="hf9b0c1d200000000000000000000041" version="1">Mystic Arcanum (7th)</content>
   <content contentuid="hf9b0c1d300000000000000000000042" version="1">Choose a 7th-level warlock spell. You can cast it once per Long Rest without expending a spell slot.</content>
   <content contentuid="ha0c1d2e3a0000000000000000000043" version="1">Mystic Arcanum (8th)</content>
@@ -125,19 +125,21 @@
   <content contentuid="he8a9b0c1a000000000000000000007b" version="1">Controlled Chaos</content>
   <content contentuid="he8a9b0c2a000000000000000000007c" version="1">When you roll on the Wild Magic Surge table, you can roll twice and use either result.</content>
   <content contentuid="hf9b0c1d2a000000000000000000007d" version="1">Tamed Surge</content>
-  <content contentuid="hf9b0c1d3a000000000000000000007e" version="1">You gain advantage on checks to control Wild Magic effects.</content>
+  <content contentuid="hf9b0c1d3a000000000000000000007e" version="1">Your control over chaos is masterful, granting you an additional use of Tides of Chaos.</content>
   <content contentuid="ha0c1d2e3b000000000000000000007f" version="1">Dragon Wings</content>
   <content contentuid="ha0c1d2e4b0000000000000000000080" version="1">You can sprout draconic wings, gaining a flying speed equal to your walking speed.</content>
   <content contentuid="hb1d2e3f4b0000000000000000000081" version="1">Dragon Companion</content>
-  <content contentuid="hb1d2e3f5b0000000000000000000082" version="1">You can summon a draconic spirit to aid you in battle.</content>
+  <content contentuid="hb1d2e3f5b0000000000000000000082" version="1">You can summon the spirit of a dragon to fight at your side. You gain the Summon Draconic Spirit spell, which you can cast once per Long Rest without expending a spell slot. While the spirit is present you can't be Frightened.</content>
+  <content contentuid="hb1d2e3f4b0000000000000000000089" version="1">Summon Draconic Spirit</content>
+  <content contentuid="hb1d2e3f4b000000000000000000008a" version="1">Summon an incarnation of your draconic bloodline to a nearby space. The draconic spirit fights as your ally until your next Long Rest, or until you dismiss it.</content>
   <content contentuid="hc2e3f4a5b0000000000000000000083" version="1">Clockwork Cavalcade</content>
-  <content contentuid="hc2e3f4a6b0000000000000000000084" version="1">You can summon a cavalcade of clockwork creatures to restore order around you.</content>
+  <content contentuid="hc2e3f4a6b0000000000000000000084" version="1">Once per Short Rest, you call forth a cavalcade of clockwork spirits. Each ally within 9m regains 30 hit points and is cured of poison, disease, curses, and charm or fear effects.</content>
   <content contentuid="hd3f4a5b6b0000000000000000000085" version="1">Revelation in Flesh</content>
-  <content contentuid="hd3f4a5b7b0000000000000000000086" version="1">You can transform your body, gaining see invisibility, a fly speed, swim speed, or the ability to squeeze through small spaces.</content>
+  <content contentuid="hd3f4a5b7b0000000000000000000086" version="1">Your flesh warps with aberrant power, granting you a flying speed and Superior Darkvision.</content>
   <content contentuid="he4a5b6c7b0000000000000000000087" version="1">Warping Implosion</content>
-  <content contentuid="he4a5b6c8b0000000000000000000088" version="1">You can teleport and force creatures near your departure point to make a save or be pulled toward the space you left.</content>
+  <content contentuid="he4a5b6c8b0000000000000000000088" version="1">Once per Short Rest, you warp through space to a point you can see within 18m. A gravitational implosion erupts at the space you left, dealing 3d10 Force damage to creatures nearby, or half as much on a successful Dexterity saving throw.</content>
   <content contentuid="hf5b6c7d8b0000000000000000000089" version="1">Crown of Spellfire</content>
-  <content contentuid="hf5b6c7d9b000000000000000000008a" version="1">You can create a crown of spellfire, gaining ultimate control over magical flames.</content>
+  <content contentuid="hf5b6c7d9b000000000000000000008a" version="1">Wreathed in a crown of spellfire, you are immune to Fire damage, and each of your spells deals an additional 1d4 Fire damage.</content>
   <content contentuid="ha6c7d8e9b000000000000000000008b" version="1">Battering Roots: Topple</content>
   <content contentuid="ha6c7d8eab000000000000000000008c" version="1">Your weapon attacks can knock enemies prone.</content>
   <content contentuid="hb7d8e9f0b000000000000000000008d" version="1">Battering Roots: Push</content>
@@ -211,9 +213,9 @@
   <content contentuid="hd9f0a1b2c00000000000000000000cd" version="1">Elder Champion</content>
   <content contentuid="hd9f0a1b3c00000000000000000000ce" version="1">You transform into an avatar of nature. You regain 10 HP at the start of each turn and can cast spells as a bonus action.</content>
   <content contentuid="he0a1b2c3c00000000000000000000cf" version="1">Elemental Rebuke</content>
-  <content contentuid="he0a1b2c4c00000000000000000000d0" version="1">When a creature hits you with an attack, you can deal elemental damage to it as a reaction.</content>
+  <content contentuid="he0a1b2c4c00000000000000000000d0" version="1">When a creature damages you with an attack, a burst of elemental energy strikes it for 2d8 Fire damage.</content>
   <content contentuid="hf1b2c3d4c00000000000000000000d1" version="1">Noble Scion</content>
-  <content contentuid="hf1b2c3d5c00000000000000000000d2" version="1">You transform into a noble genie, gaining powerful elemental abilities.</content>
+  <content contentuid="hf1b2c3d5c00000000000000000000d2" version="1">The power of the genies fills you. You gain Resistance to Fire, Cold, Lightning, and Thunder damage.</content>
   <content contentuid="ha2c3d4e5c00000000000000000000d3" version="1">Soul of Vengeance</content>
   <content contentuid="ha2c3d4e6c00000000000000000000d4" version="1">When a creature under your Vow of Enmity attacks, you can make a weapon attack against it as a reaction.</content>
   <content contentuid="hb3d4e5f6c00000000000000000000d5" version="1">Avenging Angel</content>

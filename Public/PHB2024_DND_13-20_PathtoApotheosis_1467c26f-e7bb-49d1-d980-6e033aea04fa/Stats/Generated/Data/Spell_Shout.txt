@@ -709,3 +709,33 @@ data "SpellFlags" "HasSomaticComponent;HasVerbalComponent;IsSpell"
 data "HitAnimationType" "MagicalNonDamage"
 data "CastSound" "Spell_Cast_Utility_Aid_L1to3"
 data "TargetSound" "Spell_Impact_Utility_Aid_L1to3"
+
+// ==============================================================================
+// SORCERER (Clockwork Soul) - Clockwork Cavalcade (Level 18)
+// PHB 2024: summon clockwork spirits that heal, end spells, and repair objects.
+// Adapted as a once-per-rest self-centred burst that heals each nearby ally and
+// cleanses harmful conditions. Granted via UnlockSpell on ClockworkSorcery_18_
+// ClockworkCavalcade. Modeled on Shout_Apotheosis_BolsterUndead (AreaRadius +
+// Ally TargetConditions + SpellProperties).
+// ==============================================================================
+
+new entry "Shout_Apotheosis_ClockworkCavalcade"
+type "SpellData"
+data "SpellType" "Shout"
+data "Level" "0"
+data "SpellSchool" "Transmutation"
+data "AreaRadius" "9"
+data "TargetConditions" "Ally() and not Dead()"
+data "SpellProperties" "RegainHitPoints(30);RemoveStatus(SG_Poisoned);RemoveStatus(SG_Disease);RemoveStatus(SG_Cursed);RemoveStatus(SG_Charmed);RemoveStatus(SG_Frightened)"
+data "Icon" "PassiveFeature_Generic_Magical"
+data "DisplayName" "hc2e3f4a5b0000000000000000000083"
+data "Description" "hc2e3f4a6b0000000000000000000084"
+data "CastTextEvent" "Cast"
+data "UseCosts" "ActionPoint:1"
+data "Cooldown" "OncePerRest"
+data "SpellAnimation" "e4788658-0d0d-4ca5-8229-536c14b80367,,;,,;0cacbec6-f85b-42bf-bf23-6a6b60775254,,;d1fe6827-69a5-4e99-ba2a-e5a89adf848b,,;219a58cc-5bdf-4f63-9c5f-7a7aa35a7cfe,,;,,;21ebeeea-1d48-4d06-8005-c5c32c6e05a6,,;,,;,,"
+data "VerbalIntent" "Healing"
+data "SpellFlags" "HasSomaticComponent;HasVerbalComponent;IsSpell"
+data "HitAnimationType" "MagicalNonDamage"
+data "CastSound" "Spell_Cast_Utility_Aid_L1to3"
+data "TargetSound" "Spell_Impact_Utility_Aid_L1to3"

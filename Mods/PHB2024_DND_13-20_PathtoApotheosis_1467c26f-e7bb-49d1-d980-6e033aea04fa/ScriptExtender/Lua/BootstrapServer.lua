@@ -309,3 +309,36 @@ Ext.Osiris.RegisterListener("StatusRemoved", 4, "after", function(object, status
         Ext.Utils.PrintError("[Apotheosis] Bewitching Magic (remove) error: " .. tostring(err))
     end
 end)
+
+-- =====================================================================
+-- Genie Sorcery feature "Elemental Rebuke" (Sorcerer subclass, level 15):
+-- when a creature damages you with an attack, a burst of elemental energy
+-- automatically strikes it.
+--
+-- Why Script Extender: the stat engine has no reactive "when hit, damage the
+-- attacker" functor for a passive (interrupts aside). We listen to the Osiris
+-- AttackedBy event (arity 7: defender, attackerOwner, attacker, damageType,
+-- damageAmount, damageCause, storyActionID) and, if the defender owns the marker
+-- passive, apply ELEMENTAL_REBUKE_HIT to the attacker. That status's
+-- OnApplyFunctors deal the retaliation damage; StackType Overwrite lets it
+-- re-trigger on every incoming hit.
+-- =====================================================================
+
+local ELEMENTAL_REBUKE_PASSIVE = "NobleGenies_15_ElementalRebuke"
+local ELEMENTAL_REBUKE_HIT = "ELEMENTAL_REBUKE_HIT"
+
+Ext.Osiris.RegisterListener("AttackedBy", 7, "after", function(defender, attackerOwner, attacker, damageType, damageAmount, damageCause, storyActionID)
+    local ok, err = pcall(function()
+        if not defender or not attacker or attacker == "" then return end
+        if attacker == defender then return end
+        if (tonumber(damageAmount) or 0) <= 0 then return end
+        if Osi.HasPassive(defender, ELEMENTAL_REBUKE_PASSIVE) ~= 1 then return end
+        if Osi.IsDead(defender) == 1 then return end
+        -- Lash back: ELEMENTAL_REBUKE_HIT deals the damage on apply to the bearer.
+        -- duration 6.0s = 1 turn; force = 1; source = the rebuking sorcerer.
+        Osi.ApplyStatus(attacker, ELEMENTAL_REBUKE_HIT, 6.0, 1, defender)
+    end)
+    if not ok then
+        Ext.Utils.PrintError("[Apotheosis] Elemental Rebuke error: " .. tostring(err))
+    end
+end)

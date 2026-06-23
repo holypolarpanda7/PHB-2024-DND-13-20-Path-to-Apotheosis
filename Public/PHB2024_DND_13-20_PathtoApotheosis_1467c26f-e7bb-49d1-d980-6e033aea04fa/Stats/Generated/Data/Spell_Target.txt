@@ -418,3 +418,56 @@ data "HitAnimationType" "None"
 data "CastSound" "Spell_Cast_Control_DominatePerson_L1to3"
 data "TargetSound" "Spell_Impact_Control_DominatePerson_L1to3"
 data "VocalComponentSound" "Vocal_Component_Dominate"
+
+// ==============================================================================
+// ABERRANT (Far Realm) SORCERY - Warping Implosion (Level 18, once per Short Rest)
+// You wrench yourself through space (TeleportSource, up to 18m) and a gravitational
+// implosion detonates at the point you left. CreateExplosion runs BEFORE the
+// teleport so the burst (Projectile_Apotheosis_WarpingImplosion: 3d10 Force,
+// Dexterity save vs spell DC for half) is centered on the departure point.
+// Granted via UnlockSpell on AberrantSorcery_18_WarpingImplosion. Teleport visuals
+// reuse Misty Step's animation / cast / sounds.
+// ==============================================================================
+
+new entry "Target_Apotheosis_WarpingImplosion"
+type "SpellData"
+data "SpellType" "Target"
+data "Level" "0"
+data "SpellSchool" "Conjuration"
+data "SpellProperties" "CreateExplosion(Projectile_Apotheosis_WarpingImplosion);GROUND:TeleportSource();"
+data "TargetRadius" "18"
+data "TargetConditions" "CanStand('') and not Character() and not Self()"
+data "Icon" "Spell_Conjuration_MistyStep"
+data "DisplayName" "he4a5b6c7b0000000000000000000087"
+data "Description" "he4a5b6c8b0000000000000000000088"
+data "CastTextEvent" "Cast"
+data "UseCosts" "ActionPoint:1"
+data "Cooldown" "OncePerRest"
+data "SpellAnimation" "dd86aa43-8189-4d9f-9a5c-454b5fe4a197,,;,,;39daf365-ec06-49a8-81f3-9032640699d7,,;5c400e93-0266-499c-a2e1-75d53358460f,,;cc5b0caf-3ed1-4711-a50d-11dc3f1fdc6a,,;,,;1715b877-4512-472e-9bd0-fd568a112e90,,;,,;,,"
+data "VerbalIntent" "Damage"
+data "SpellFlags" "HasVerbalComponent;IsSpell;HasHighGroundRangeExtension;RangeIgnoreVerticalThreshold;IsHarmful"
+data "MemoryCost" "1"
+data "LineOfSightFlags" "AddSourceHeight"
+data "CastSound" "Spell_Cast_Utility_MistyStep_L1to3"
+data "TargetSound" "Spell_Impact_Utility_MistyStep_L1to3"
+data "VocalComponentSound" "Vocal_Component_Teleport"
+data "PrepareEffect" "7121a488-7c9a-4ba1-a585-f79aaa77e97c"
+data "CastEffect" "71859b27-bdda-44c3-8c65-7f142a1a2f60"
+data "Sheathing" "Sheathed"
+
+new entry "Target_Apotheosis_DraconicSpirit"
+type "SpellData"
+data "SpellType" "Target"
+data "Level" "0"
+data "SpellSchool" "Conjuration"
+data "SpellProperties" "GROUND:Summon(7fb257e6-cc4e-474c-9d20-32a2ea966b83, UntilLongRest,,,'ApotheosisDraconicSpiritStack',UNSUMMON_ABLE)"
+data "TargetRadius" "18"
+data "TargetConditions" "CanStand('7fb257e6-cc4e-474c-9d20-32a2ea966b83')"
+data "Icon" "Action_EndGameAlly_ZhentarimUnits"
+data "DisplayName" "hb1d2e3f4b0000000000000000000089"
+data "Description" "hb1d2e3f4b000000000000000000008a"
+data "CastTextEvent" "Cast"
+data "UseCosts" "ActionPoint:1;DraconicSpiritCharge:1"
+data "VerbalIntent" "Summon"
+data "SpellFlags" "HasVerbalComponent;HasSomaticComponent;IsSpell"
+data "MemoryCost" "1"

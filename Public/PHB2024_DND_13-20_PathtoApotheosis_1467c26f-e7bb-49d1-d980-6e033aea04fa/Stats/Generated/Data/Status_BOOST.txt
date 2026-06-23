@@ -1022,3 +1022,18 @@ data "DisplayName" "ha8c9d0e1b00000000000000000000a3"
 data "Icon" "PassiveFeature_HealingLight"
 data "OnApplyFunctors" "RemoveStatus(SEARING_VENGEANCE);RegainHitPoints(1,Guaranteed);CreateExplosion(Projectile_Apotheosis_SearingVengeance)"
 data "StatusGroups" "SG_Incapacitated"
+
+// ELEMENTAL_REBUKE_HIT (Genie Sorcery - Elemental Rebuke, Level 15): the burst of
+// elemental energy that lashes back at an attacker. Applied to the ATTACKER by the
+// Script Extender (BootstrapServer.lua) whenever a creature damages a sorcerer who
+// owns NobleGenies_15_ElementalRebuke. OnApplyFunctors deal the retaliation damage
+// to the bearer (the attacker). StackType Overwrite so each incoming hit re-triggers.
+new entry "ELEMENTAL_REBUKE_HIT"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "he0a1b2c3c00000000000000000000cf"
+data "Icon" "PassiveFeature_Generic_Magical"
+data "StackId" "ELEMENTAL_REBUKE_HIT"
+data "StackType" "Overwrite"
+data "OnApplyFunctors" "DealDamage(2d8,Fire,Magical)"
+data "StatusPropertyFlags" "DisablePortraitIndicator;DisableOverhead;IgnoreResting"

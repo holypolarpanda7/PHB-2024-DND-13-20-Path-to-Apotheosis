@@ -1923,6 +1923,7 @@
                 <!-- DRACONIC BLOODLINE -->
                 <!-- Level 18: Dragon Companion -->
                 <node id="Progression">
+                    <attribute id="Boosts" type="LSString" value="ActionResource(DraconicSpiritCharge,1,0)"/>
                     <attribute id="Level" type="uint8" value="18"/>
                     <attribute id="Name" type="LSString" value="DraconicBloodline"/>
                     <attribute id="PassivesAdded" type="LSString" value="DraconicBloodline_18_DragonCompanion"/>

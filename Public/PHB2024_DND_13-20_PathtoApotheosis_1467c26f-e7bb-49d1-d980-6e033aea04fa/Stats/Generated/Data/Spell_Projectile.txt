@@ -65,3 +65,35 @@ data "SpellFlags" "IsHarmful;CanAreaDamageEvade"
 data "HitAnimationType" "MagicalDamage_External"
 data "DamageType" "Radiant"
 data "Sheathing" "DontChange"
+
+// ==============================================================================
+// ABERRANT (Far Realm) SORCERY - Warping Implosion (Level 18)
+// The gravitational implosion that erupts at the space the sorcerer teleports away
+// from (created via CreateExplosion by Target_Apotheosis_WarpingImplosion, run
+// before the teleport so it centers on the departure point). Enemies in radius take
+// 3d10 Force, halved on a Dexterity save against the caster's spell save DC.
+// ==============================================================================
+
+new entry "Projectile_Apotheosis_WarpingImplosion"
+type "SpellData"
+data "SpellType" "Projectile"
+using "Projectile_NarcolepticBurst"
+data "Level" "0"
+data "SpellSchool" "Conjuration"
+data "AreaRadius" "9"
+data "ExplodeRadius" "9"
+data "DeathType" "Explosion"
+data "SpellRoll" "not SavingThrow(Ability.Dexterity, SourceSpellDC())"
+data "SpellSuccess" "DealDamage(3d10,Force,Magical)"
+data "SpellFail" "DealDamage((3d10)/2,Force,Magical)"
+data "TargetConditions" "Enemy() and not Dead()"
+data "Icon" "Spell_Conjuration_MistyStep"
+data "DisplayName" "he4a5b6c7b0000000000000000000087"
+data "Description" "he4a5b6c8b0000000000000000000088"
+data "TooltipDamageList" "DealDamage(3d10,Force)"
+data "TooltipAttackSave" "Dexterity"
+data "VerbalIntent" "Damage"
+data "SpellFlags" "IsHarmful;CanAreaDamageEvade"
+data "HitAnimationType" "MagicalDamage_External"
+data "DamageType" "Force"
+data "Sheathing" "DontChange"
