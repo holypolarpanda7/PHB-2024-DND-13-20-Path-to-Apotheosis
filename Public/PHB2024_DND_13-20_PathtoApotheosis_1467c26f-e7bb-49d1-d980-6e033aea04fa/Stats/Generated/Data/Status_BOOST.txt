@@ -893,3 +893,132 @@ data "StatusPropertyFlags" "LoseControl"
 data "StatusGroups" "SG_Charmed;SG_Dominated"
 data "ApplyEffect" "0a13ccc8-8a1f-4035-8d15-ab53a21cca0c"
 data "StatusEffect" "566dbef7-e2b0-40ec-b731-5372c5ff0554"
+
+// ==============================================================================
+// NECROMANCER - Death's Master: Bolster Undead Temp HP (Level 14)
+// Applied by Shout_Apotheosis_BolsterUndead to allied Undead in range. Flat
+// Temporary HP (approximating "= your Wizard level"; cross-entity caster level
+// isn't cleanly readable by a summon-applied status).
+// Death's Master "Extinguish Undead": a bolstered Undead is volatile - when it
+// dies it bursts in necrotic energy (CreateExplosion fires the projectile at the
+// corpse, hitting nearby enemies). RemoveCause(Death) guards so it only triggers
+// on death, not when the buff is overwritten/removed normally.
+// ==============================================================================
+new entry "BOLSTER_UNDEAD"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "hd5f6a7b8b000000000000000000009d"
+data "Description" "hd5f6a7b9b000000000000000000009e"
+data "Icon" "PassiveFeature_UndeadThralls"
+data "StackId" "BOLSTER_UNDEAD"
+data "StackType" "Overwrite"
+data "Boosts" "TemporaryHP(15)"
+data "StatusPropertyFlags" "DisableOverhead"
+data "OnRemoveFunctors" "IF(RemoveCause(StatusRemoveCause.Death)):CreateExplosion(Projectile_Apotheosis_ExtinguishUndead)"
+
+// ==============================================================================
+// ENCHANTER - Modify Memory aura statuses (Level 14)
+// MODIFY_MEMORY_AURA: applied to the CASTER by Shout_Apotheosis_ModifyMemory.
+// Carries a 6m following aura that tags every valid enemy in range with the
+// technical MODIFY_MEMORY_MARK. Script Extender (BootstrapServer.lua) watches
+// the mark and enforces the 1/2-target FIFO cap, applying MM_HOLD or MM_SLOW.
+// Tied to concentration; on remove it breaks concentration and the aura engine
+// strips all child marks (which cleans up the SE-managed effects).
+// ==============================================================================
+new entry "MODIFY_MEMORY_AURA"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "ha2c3d4e9b00000000000000000000a3"
+data "Description" "ha2c3d4eab00000000000000000000a4"
+data "Icon" "Spell_Enchantment_HoldPerson"
+data "StackId" "MODIFY_MEMORY_AURA"
+data "StackType" "Overwrite"
+data "AuraRadius" "6"
+data "AuraStatuses" "TARGET:IF(Character() and not Dead() and Enemy() and not Tagged('UNDEAD') and not Tagged('CONSTRUCT')):ApplyStatus(MODIFY_MEMORY_MARK,100,-1)"
+data "AuraFlags" "IgnoreItems"
+data "StatusPropertyFlags" "IsInvulnerableVisible;DisableOverhead"
+data "StatusGroups" "SG_RemoveOnRespec"
+
+// MODIFY_MEMORY_MARK: invisible technical marker applied by the aura to enemies in
+// range (duration -1 = removed automatically by the aura engine when they leave).
+// Carries no gameplay boosts; Script Extender keys the FIFO logic off this status.
+new entry "MODIFY_MEMORY_MARK"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "ha2c3d4e9b00000000000000000000a3"
+data "Description" "ha2c3d4eab00000000000000000000a4"
+data "Icon" "Spell_Enchantment_HoldPerson"
+data "StackId" "MODIFY_MEMORY_MARK"
+data "StackType" "Overwrite"
+data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;ExcludeFromPortraitRendering;IgnoreResting"
+
+// MM_HOLD: Script Extender-managed Hold effect (Paralyzed) reusing HOLD_PERSON, but
+// with the per-turn save (RemoveConditions/RemoveEvents) cleared so it persists for
+// as long as the victim stays in the aura. SE removes it when the mark drops.
+new entry "MM_HOLD"
+type "StatusData"
+using "HOLD_PERSON"
+data "StackId" "MM_HOLD"
+data "StackType" "Overwrite"
+data "RemoveConditions" ""
+data "RemoveEvents" ""
+data "TickType" "None"
+
+// MM_SLOW: Script Extender-managed Slow effect reusing SLOW, with the per-turn save
+// cleared. A slowed victim can still walk out of the 6m aura, which drops the mark
+// and frees its slot for the next enemy in the FIFO queue.
+new entry "MM_SLOW"
+type "StatusData"
+using "SLOW"
+data "StackId" "MM_SLOW"
+data "StackType" "Overwrite"
+data "RemoveConditions" ""
+data "RemoveEvents" ""
+data "TickType" "None"
+
+// ==============================================================================
+// WARLOCK STATUSES
+// ==============================================================================
+
+// BEWITCHING_MAGIC (Archfey L14): short self-buff applied when casting an
+// Enchantment or Illusion spell. It is a pure marker - the Script Extender
+// (BootstrapServer.lua) adds a SpellSaveDC boost sized to the caster's Charisma
+// modifier on apply and removes it on expiry. Refreshed (2 turns) each such cast.
+new entry "BEWITCHING_MAGIC"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "hf7b8c9d0b00000000000000000000a1"
+data "Description" "hf7b8c9d1b00000000000000000000a2"
+data "Icon" "PassiveFeature_FeyPresence"
+data "StackId" "BEWITCHING_MAGIC"
+data "StackType" "Overwrite"
+data "StatusPropertyFlags" "DisableCombatlog;DisablePortraitIndicator"
+
+// SEARING_VENGEANCE (Celestial L14): always-on enabler. Its DownedStatus boost
+// redirects being reduced to 0 HP into SEARING_VENGEANCE_DOWNED instead of the
+// normal downed/dying state. Reapplied each Long Rest by the passive (once/rest).
+new entry "SEARING_VENGEANCE"
+type "StatusData"
+data "StatusType" "BOOST"
+using "SURVIVAL_INSTINCT"
+data "DisplayName" "ha8c9d0e1b00000000000000000000a3"
+data "Description" "ha8c9d0e2b00000000000000000000a4"
+data "Icon" "PassiveFeature_HealingLight"
+data "StackId" "SEARING_VENGEANCE"
+data "Boosts" "DownedStatus(SEARING_VENGEANCE_DOWNED,5)"
+data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator;ApplyToDead;IgnoreResting"
+data "StatusGroups" "SG_RemoveOnRespec"
+
+// SEARING_VENGEANCE_DOWNED: the custom downed state. On apply it consumes the
+// enabler, guarantees survival with a 1 HP floor, and detonates the radiant burst
+// (Projectile_Apotheosis_SearingVengeance) on nearby enemies. The Script Extender
+// (BootstrapServer.lua) then tops current HP up to half the hit point maximum,
+// which the RegainHitPoints functor can't express. Mirrors RELENTLESS_ENDURANCE_DOWNED.
+new entry "SEARING_VENGEANCE_DOWNED"
+type "StatusData"
+data "StatusType" "DOWNED"
+using "RELENTLESS_ENDURANCE_DOWNED"
+data "DisplayName" "ha8c9d0e1b00000000000000000000a3"
+data "Icon" "PassiveFeature_HealingLight"
+data "OnApplyFunctors" "RemoveStatus(SEARING_VENGEANCE);RegainHitPoints(1,Guaranteed);CreateExplosion(Projectile_Apotheosis_SearingVengeance)"
+data "StatusGroups" "SG_Incapacitated"

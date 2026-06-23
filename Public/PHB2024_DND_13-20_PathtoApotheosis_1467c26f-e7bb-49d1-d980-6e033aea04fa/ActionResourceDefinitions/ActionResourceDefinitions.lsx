@@ -29,6 +29,32 @@
                     <attribute id="ShowOnActionResourcePanel" type="bool" value="true"/>
                     <attribute id="UUID" type="guid" value="a1b2c3d4-e5f6-4789-abcd-111111110002"/>
                 </node>
+                <!-- ==================== SIGNATURE SPELLS RESOURCE ==================== -->
+                <!-- Wizard L20 Signature Spells: free 3rd-level casts, refills on Short Rest -->
+                <node id="ActionResourceDefinition">
+                    <attribute id="DisplayName" type="TranslatedString" handle="he2a3b4c500000000000000000000033" version="1"/>
+                    <attribute id="Description" type="TranslatedString" handle="he2a3b4c600000000000000000000034" version="1"/>
+                    <attribute id="IsHidden" type="bool" value="false"/>
+                    <attribute id="MaxLevel" type="uint32" value="0"/>
+                    <attribute id="MaxValue" type="uint32" value="2"/>
+                    <attribute id="Name" type="FixedString" value="SignatureSpellCharge"/>
+                    <attribute id="ReplenishType" type="FixedString" value="ShortRest"/>
+                    <attribute id="ShowOnActionResourcePanel" type="bool" value="true"/>
+                    <attribute id="UUID" type="guid" value="a1b2c3d4-e5f6-4789-abcd-111111110003"/>
+                </node>
+                <!-- ==================== HURL THROUGH HELL RESOURCE ==================== -->
+                <!-- Fiend L14 Hurl Through Hell: once per Short Rest on-hit banish -->
+                <node id="ActionResourceDefinition">
+                    <attribute id="DisplayName" type="TranslatedString" handle="hb9d0e1f2b00000000000000000000a5" version="1"/>
+                    <attribute id="Description" type="TranslatedString" handle="hb9d0e1f3b00000000000000000000a6" version="1"/>
+                    <attribute id="IsHidden" type="bool" value="false"/>
+                    <attribute id="MaxLevel" type="uint32" value="0"/>
+                    <attribute id="MaxValue" type="uint32" value="1"/>
+                    <attribute id="Name" type="FixedString" value="HurlThroughHellCharge"/>
+                    <attribute id="ReplenishType" type="FixedString" value="ShortRest"/>
+                    <attribute id="ShowOnActionResourcePanel" type="bool" value="true"/>
+                    <attribute id="UUID" type="guid" value="a1b2c3d4-e5f6-4789-abcd-111111110004"/>
+                </node>
             </children>
         </node>
     </region>

@@ -651,3 +651,61 @@ data "CastTextEvent" "Cast"
 data "CastSound" "Spell_Cast_Healing_HealingWord_L1to3"
 data "TargetSound" "Spell_Impact_Healing_HealingWord_L1to3"
 data "VerbalIntent" "Healing"
+
+// ==============================================================================
+// NECROMANCER - Death's Master: Bolster Undead (Level 14)
+// PHB 2024: as a Bonus Action, your created/summoned Undead within 60ft gain
+// Temporary HP. Modeled on Shout_Aid (AreaRadius + TargetConditions Ally()).
+// Restricted to allied Undead via Tagged('UNDEAD'). Granted via UnlockSpell on
+// Necromancer_14_DeathsMaster. Temp HP is a flat value (cross-entity caster
+// Wizard-level scaling isn't cleanly readable by a summon-applied status).
+// ==============================================================================
+
+new entry "Shout_Apotheosis_BolsterUndead"
+type "SpellData"
+data "SpellType" "Shout"
+data "Level" "0"
+data "SpellSchool" "Necromancy"
+data "AreaRadius" "18"
+data "TargetConditions" "Ally() and Tagged('UNDEAD') and not Dead()"
+data "SpellProperties" "ApplyStatus(BOLSTER_UNDEAD,100,-1)"
+data "Icon" "PassiveFeature_UndeadThralls"
+data "DisplayName" "hd5f6a7b8b000000000000000000009d"
+data "Description" "hd5f6a7b9b000000000000000000009e"
+data "TooltipStatusApply" "ApplyStatus(BOLSTER_UNDEAD,100,-1)"
+data "CastTextEvent" "Cast"
+data "UseCosts" "BonusActionPoint:1"
+data "SpellAnimation" "e4788658-0d0d-4ca5-8229-536c14b80367,,;,,;0cacbec6-f85b-42bf-bf23-6a6b60775254,,;d1fe6827-69a5-4e99-ba2a-e5a89adf848b,,;219a58cc-5bdf-4f63-9c5f-7a7aa35a7cfe,,;,,;21ebeeea-1d48-4d06-8005-c5c32c6e05a6,,;,,;,,"
+data "VerbalIntent" "Buff"
+data "SpellFlags" "HasSomaticComponent;IsSpell"
+data "HitAnimationType" "MagicalNonDamage"
+data "CastSound" "Spell_Cast_Necromancy_AnimateDead_L1to3"
+data "TargetSound" "Spell_Impact_Necromancy_AnimateDead_L1to3"
+
+// ==============================================================================
+// WARLOCK - Eldritch Master (Level 20)
+// PHB 2024: once per Long Rest, entreat your patron to regain all expended Pact
+// Magic spell slots. Implemented as a self-cast Bonus Action shout on a OncePerRest
+// cooldown that restores every WarlockSpellSlot level (1-6), mirroring the base
+// Shout_Rest pact-slot recovery. Granted via UnlockSpell on Warlock_EldritchMaster.
+// ==============================================================================
+
+new entry "Shout_Apotheosis_EldritchMaster"
+type "SpellData"
+data "SpellType" "Shout"
+data "Level" "0"
+data "SpellSchool" "Conjuration"
+data "TargetConditions" "Self()"
+data "SpellProperties" "RestoreResource(WarlockSpellSlot,100%,1);RestoreResource(WarlockSpellSlot,100%,2);RestoreResource(WarlockSpellSlot,100%,3);RestoreResource(WarlockSpellSlot,100%,4);RestoreResource(WarlockSpellSlot,100%,5);RestoreResource(WarlockSpellSlot,100%,6)"
+data "Icon" "PassiveFeature_PactBoon"
+data "DisplayName" "hc2e3f4a5a0000000000000000000047"
+data "Description" "hc2e3f4a6a0000000000000000000048"
+data "CastTextEvent" "Cast"
+data "UseCosts" "BonusActionPoint:1"
+data "Cooldown" "OncePerRest"
+data "SpellAnimation" "e4788658-0d0d-4ca5-8229-536c14b80367,,;,,;0cacbec6-f85b-42bf-bf23-6a6b60775254,,;d1fe6827-69a5-4e99-ba2a-e5a89adf848b,,;219a58cc-5bdf-4f63-9c5f-7a7aa35a7cfe,,;,,;21ebeeea-1d48-4d06-8005-c5c32c6e05a6,,;,,;,,"
+data "VerbalIntent" "Utility"
+data "SpellFlags" "HasSomaticComponent;HasVerbalComponent;IsSpell"
+data "HitAnimationType" "MagicalNonDamage"
+data "CastSound" "Spell_Cast_Utility_Aid_L1to3"
+data "TargetSound" "Spell_Impact_Utility_Aid_L1to3"

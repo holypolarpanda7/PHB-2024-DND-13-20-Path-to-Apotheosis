@@ -219,12 +219,21 @@ data "StatsFunctorContext" "OnCast;OnLongRest"
 data "Conditions" "SpellId('Shout_SpellMastery') or IsLongRestSpell()"
 data "StatsFunctors" "IF(not HasActionResource('LearnSpellMasteryL1', 1, 0, false) and not HasActionResource('LearnSpellMasteryL2', 1, 0, false)):ApplyStatus(SELF,SPELL_MASTERY_BLOCK,100,-1);IF(not HasActionResource('LearnSpellMasteryL1', 1, 0, false) and not HasActionResource('LearnSpellMasteryL2', 1, 0, false)):RemoveStatus(SELF,SPELL_MASTERY_SELECTION);IF(IsLongRestSpell()):RemoveStatus(SELF,SPELL_MASTERY_BLOCK);IF(IsLongRestSpell()):RemoveStatus(SELF,SM_UNLOCK_BURNINGHANDS);IF(IsLongRestSpell()):RemoveStatus(SELF,SM_UNLOCK_CHARMPERSON);IF(IsLongRestSpell()):RemoveStatus(SELF,SM_UNLOCK_CHROMATICORB);IF(IsLongRestSpell()):RemoveStatus(SELF,SM_UNLOCK_COLORSPRAY);IF(IsLongRestSpell()):RemoveStatus(SELF,SM_UNLOCK_DISGUISESELF);IF(IsLongRestSpell()):RemoveStatus(SELF,SM_UNLOCK_EXPEDITIOUSRETREAT);IF(IsLongRestSpell()):RemoveStatus(SELF,SM_UNLOCK_FALSELIFE);IF(IsLongRestSpell()):RemoveStatus(SELF,SM_UNLOCK_FEATHERFALL);IF(IsLongRestSpell()):RemoveStatus(SELF,SM_UNLOCK_FINDFAMILIAR);IF(IsLongRestSpell()):RemoveStatus(SELF,SM_UNLOCK_FOGCLOUD);IF(IsLongRestSpell()):RemoveStatus(SELF,SM_UNLOCK_GREASE);IF(IsLongRestSpell()):RemoveStatus(SELF,SM_UNLOCK_HIDEOUSLAUGHTER);IF(IsLongRestSpell()):RemoveStatus(SELF,SM_UNLOCK_JUMP);IF(IsLongRestSpell()):RemoveStatus(SELF,SM_UNLOCK_LONGSTRIDER);IF(IsLongRestSpell()):RemoveStatus(SELF,SM_UNLOCK_MAGEARMOR);IF(IsLongRestSpell()):RemoveStatus(SELF,SM_UNLOCK_MAGICMISSILE);IF(IsLongRestSpell()):RemoveStatus(SELF,SM_UNLOCK_PROTECTIONFROMEVILANDGOOD);IF(IsLongRestSpell()):RemoveStatus(SELF,SM_UNLOCK_RAYOFSICKNESS);IF(IsLongRestSpell()):RemoveStatus(SELF,SM_UNLOCK_SLEEP);IF(IsLongRestSpell()):RemoveStatus(SELF,SM_UNLOCK_SHIELD);IF(IsLongRestSpell()):RemoveStatus(SELF,SM_UNLOCK_THUNDERWAVE);IF(IsLongRestSpell()):RemoveStatus(SELF,SM_UNLOCK_WITCHBOLT);IF(IsLongRestSpell()):RemoveStatus(SELF,SM_UNLOCK_ACIDARROW);IF(IsLongRestSpell()):RemoveStatus(SELF,SM_UNLOCK_BLINDNESS);IF(IsLongRestSpell()):RemoveStatus(SELF,SM_UNLOCK_CLOUDOFDAGGERS);IF(IsLongRestSpell()):RemoveStatus(SELF,SM_UNLOCK_CROWNOFMADNESS);IF(IsLongRestSpell()):RemoveStatus(SELF,SM_UNLOCK_BLUR);IF(IsLongRestSpell()):RemoveStatus(SELF,SM_UNLOCK_DARKNESS);IF(IsLongRestSpell()):RemoveStatus(SELF,SM_UNLOCK_DARKVISION);IF(IsLongRestSpell()):RemoveStatus(SELF,SM_UNLOCK_DETECTTHOUGHTS);IF(IsLongRestSpell()):RemoveStatus(SELF,SM_UNLOCK_ENLARGEREDUCE);IF(IsLongRestSpell()):RemoveStatus(SELF,SM_UNLOCK_FLAMINGSPHERE);IF(IsLongRestSpell()):RemoveStatus(SELF,SM_UNLOCK_HOLDPERSON);IF(IsLongRestSpell()):RemoveStatus(SELF,SM_UNLOCK_INVISIBILITY);IF(IsLongRestSpell()):RemoveStatus(SELF,SM_UNLOCK_MAGICWEAPON);IF(IsLongRestSpell()):RemoveStatus(SELF,SM_UNLOCK_MIRRORIMAGE);IF(IsLongRestSpell()):RemoveStatus(SELF,SM_UNLOCK_MISTYSTEP);IF(IsLongRestSpell()):RemoveStatus(SELF,SM_UNLOCK_PHANTASMALFORCE);IF(IsLongRestSpell()):RemoveStatus(SELF,SM_UNLOCK_RAYOFENFEEBLEMENT);IF(IsLongRestSpell()):RemoveStatus(SELF,SM_UNLOCK_SCORCHINGRAY);IF(IsLongRestSpell()):RemoveStatus(SELF,SM_UNLOCK_SHATTER);IF(IsLongRestSpell()):RemoveStatus(SELF,SM_UNLOCK_WEB)"
 
+// Signature Spells (Level 20): BG3 adaptation. PHB picks two 3rd-level spells to
+// cast for free each rest; here, twice per Short Rest, casting any 3rd-level spell
+// (at 3rd level) refunds the spell slot, so the player spends the free casts on the
+// 3rd-level spells they treat as signatures. Gated by the SignatureSpellCharge
+// resource (max 2, replenished on Short Rest). Mirrors the Expert Divination slot-
+// refund pattern (OnCast + RestoreResource(SpellSlot)).
 new entry "Wizard_SignatureSpells"
 type "PassiveData"
 data "DisplayName" "he2a3b4c500000000000000000000033"
 data "Description" "he2a3b4c600000000000000000000034"
 data "Icon" "PassiveFeature_ArcaneTradition"
 data "Properties" "Highlighted"
+data "StatsFunctorContext" "OnCast"
+data "Conditions" "IsSpell() and not IsCantrip() and SpellPowerLevelEqualTo(3) and HasActionResource('SignatureSpellCharge',1,0,false)"
+data "StatsFunctors" "RestoreResource(SELF,SpellSlot,1,3);UseActionResource(SELF,SignatureSpellCharge,1)"
 
 // ==============================================================================
 // CLERIC - Base Class Passives (Levels 13-20)
@@ -327,12 +336,16 @@ data "Description" "hb1d2e3f5a0000000000000000000046"
 data "Icon" "PassiveFeature_PactBoon"
 data "Properties" "Highlighted"
 
+// Eldritch Master (Level 20): once per Long Rest, regain all expended Pact Magic
+// spell slots. Granted as a castable shout (Cooldown OncePerRest) that restores
+// every WarlockSpellSlot level, mirroring the base Shout_Rest pact-slot recovery.
 new entry "Warlock_EldritchMaster"
 type "PassiveData"
 data "DisplayName" "hc2e3f4a5a0000000000000000000047"
 data "Description" "hc2e3f4a6a0000000000000000000048"
 data "Icon" "PassiveFeature_PactBoon"
 data "Properties" "Highlighted"
+data "Boosts" "UnlockSpell(Shout_Apotheosis_EldritchMaster)"
 
 // ==============================================================================
 // ARTIFICER - Base Class Passives (Homebrew)
@@ -575,13 +588,21 @@ data "DisplayName" "hc8e9f0a1b000000000000000000008f"
 data "Description" "hc8e9f0a2b0000000000000000000090"
 data "Icon" "PassiveFeature_ArcaneWard"
 data "Properties" "Highlighted"
+data "Boosts" "IF(HasSpellFlag(SpellFlags.Spell)):Advantage(AllSavingThrows);SpellResistance(Resistant)"
 
+// Splintered Summons (repurposed for BG3): once per turn, casting a Conjuration
+// spell (which covers all summon spells) refunds its Action Point - effectively a
+// free summon each turn. OncePerTurn + OnCast + RestoreResource(ActionPoint,1,0)
+// is the confirmed base-game free-cast pattern (see Divination_Damage_Fire).
 new entry "Conjurer_14_SplinteredSummons"
 type "PassiveData"
 data "DisplayName" "hd9f0a1b2b0000000000000000000091"
 data "Description" "hd9f0a1b3b0000000000000000000092"
 data "Icon" "PassiveFeature_MinorConjuration"
-data "Properties" "Highlighted"
+data "Properties" "Highlighted;OncePerTurn"
+data "StatsFunctorContext" "OnCast"
+data "Conditions" "IsSpell() and IsSpellSchool(SpellSchool.Conjuration) and HasUseCosts('ActionPoint',true)"
+data "StatsFunctors" "RestoreResource(ActionPoint,1,0)"
 
 new entry "Diviner_14_GreaterPortent"
 type "PassiveData"
@@ -590,19 +611,29 @@ data "Description" "he0a1b2c4b0000000000000000000094"
 data "Icon" "PassiveFeature_Portent"
 data "Properties" "Highlighted"
 
+// Split Enchantment (repurposed for BG3): once per turn, casting an Enchantment
+// spell refunds its Action Point - a free enchantment each turn. Mirrors the
+// Conjurer free-cast above.
 new entry "SplitEnchantment"
 type "PassiveData"
 data "DisplayName" "hf1b2c3d4b0000000000000000000095"
 data "Description" "hf1b2c3d5b0000000000000000000096"
 data "Icon" "PassiveFeature_HypnoticGaze"
-data "Properties" "Highlighted"
+data "Properties" "Highlighted;OncePerTurn"
+data "StatsFunctorContext" "OnCast"
+data "Conditions" "IsSpell() and IsSpellSchool(SpellSchool.Enchantment) and HasUseCosts('ActionPoint',true)"
+data "StatsFunctors" "RestoreResource(ActionPoint,1,0)"
 
+// Alter Memories (repurposed for BG3): grants the Modify Memory spell, a single-
+// target 5th-level enchantment that Charms + Incapacitates a creature (breaks on
+// damage). Granted via UnlockSpell.
 new entry "Enchanter_14_AlterMemories"
 type "PassiveData"
 data "DisplayName" "ha2c3d4e5b0000000000000000000097"
 data "Description" "ha2c3d4e6b0000000000000000000098"
 data "Icon" "PassiveFeature_HypnoticGaze"
 data "Properties" "Highlighted"
+data "Boosts" "UnlockSpell(Shout_Apotheosis_ModifyMemory)"
 
 new entry "Evoker_14_Overchannel"
 type "PassiveData"
@@ -610,13 +641,23 @@ data "DisplayName" "hb3d4e5f6b0000000000000000000099"
 data "Description" "hb3d4e5f7b000000000000000000009a"
 data "Icon" "PassiveFeature_EmpoweredEvocation"
 data "Properties" "Highlighted"
+data "Boosts" "IF(IsSpell() and IsSpellSchool(SpellSchool.Evocation) and not IsCantrip()):DamageBonus(IntelligenceModifier)"
 
+// Illusory Reality (custom BG3 feature): whenever you deal Psychic damage, your
+// illusions "become real" and also rake the target for 1d4 each of Slashing,
+// Bludgeoning, Piercing, and Force. OnDamage + HasDamageDoneForType is the
+// confirmed base-game pattern (see ThunderboltStrike / FinishingStrike). The
+// rider deals only physical/force, so it never re-triggers the Psychic check
+// (no recursion).
 new entry "Illusionist_14_IllusoryReality"
 type "PassiveData"
 data "DisplayName" "hc4e5f6a7b000000000000000000009b"
 data "Description" "hc4e5f6a8b000000000000000000009c"
 data "Icon" "PassiveFeature_ImprovedMinorIllusion"
 data "Properties" "Highlighted"
+data "StatsFunctorContext" "OnDamage"
+data "Conditions" "HasDamageDoneForType(DamageType.Psychic,context.Target)"
+data "StatsFunctors" "DealDamage(1d4,Slashing,Magical);DealDamage(1d4,Bludgeoning,Magical);DealDamage(1d4,Piercing,Magical);DealDamage(1d4,Force,Magical)"
 
 new entry "Necromancer_14_DeathsMaster"
 type "PassiveData"
@@ -624,6 +665,7 @@ data "DisplayName" "hd5f6a7b8b000000000000000000009d"
 data "Description" "hd5f6a7b9b000000000000000000009e"
 data "Icon" "PassiveFeature_UndeadThralls"
 data "Properties" "Highlighted"
+data "Boosts" "UnlockSpell(Shout_Apotheosis_BolsterUndead)"
 
 new entry "Transmuter_14_MasterTransmuter"
 type "PassiveData"
@@ -631,38 +673,80 @@ data "DisplayName" "he6a7b8c9b000000000000000000009f"
 data "Description" "he6a7b8cab00000000000000000000a0"
 data "Icon" "PassiveFeature_TransmutersStone"
 data "Properties" "Highlighted"
+data "Boosts" "UnlockSpell(Target_Apotheosis_Panacea)"
+
+// Bladesinger Song of Victory (PHB 2024, L14): after casting an action-cost spell,
+// make one weapon attack as a Bonus Action. Reuses base-game War Magic extra-attack
+// machinery (EXTRA_ATTACK_WAR_MAGIC / _Q), but triggers on any spell (not just cantrips).
+new entry "SongVictory"
+type "PassiveData"
+data "DisplayName" "h5009a1c70000000000000000000000b0"
+data "Description" "h5009a1c70000000000000000000000b1"
+data "Icon" "Action_Bladesong"
+data "Properties" "Highlighted"
+data "StatsFunctorContext" "OnCast;OnStatusRemoved;OnStatusApplied"
+data "Conditions" "((context.HasContextFlag(StatsFunctorContext.OnCast) and IsSpell() and not IsWeaponAttack() and not IsRecastSpell() and HasUseCosts('ActionPoint', true) and not Tagged('EXTRA_ATTACK_BLOCKED',context.Source) and TurnBased(context.Source)) or (context.HasContextFlag(StatsFunctorContext.OnStatusRemoved) and StatusId('INITIAL_ATTACK_WAR_MAGIC_TECHNICAL') and TurnBased()) or (context.HasContextFlag(StatsFunctorContext.OnStatusApplied) and StatusId('EXTRA_ATTACK_WAR_MAGIC_Q'))) and not HasStatus('TAD_MIND_SANCTUARY',context.Source) and HasActionResource('BonusActionPoint', 1, 0, false, false, context.Source);"
+data "StatsFunctors" "IF(context.HasContextFlag(StatsFunctorContext.OnCast)):ApplyStatus(SELF,EXTRA_ATTACK_WAR_MAGIC_Q,100,1);IF(context.HasContextFlag(StatsFunctorContext.OnStatusRemoved)):ApplyStatus(EXTRA_ATTACK_WAR_MAGIC_Q,100,1);IF(context.HasContextFlag(StatsFunctorContext.OnStatusApplied) and not HasHigherPriorityExtraAttackQueued('EXTRA_ATTACK_WAR_MAGIC_Q') and not HasAnyExtraAttack()):ApplyStatus(EXTRA_ATTACK_WAR_MAGIC, 100, 1)"
 
 // ==============================================================================
 // WARLOCK SUBCLASS PASSIVES
 // ==============================================================================
 
+// Bewitching Magic (Archfey, L14): casting an Enchantment or Illusion spell
+// sharpens your bewitching power, granting +2 spell save DC for 2 turns (refreshed
+// on each such cast). Uses the proven Divination_School_Enchantment OnCast pattern
+// (a per-school conditional SpellSaveDC boost has no engine precedent, so the buff
+// is delivered via a self-status instead).
 new entry "Archfey_14_BewitchingMagic"
 type "PassiveData"
 data "DisplayName" "hf7b8c9d0b00000000000000000000a1"
 data "Description" "hf7b8c9d1b00000000000000000000a2"
 data "Icon" "PassiveFeature_FeyPresence"
 data "Properties" "Highlighted"
+data "StatsFunctorContext" "OnCast"
+data "Conditions" "IsSpell() and (IsSpellSchool(SpellSchool.Enchantment) or IsSpellSchool(SpellSchool.Illusion))"
+data "StatsFunctors" "ApplyStatus(SELF,BEWITCHING_MAGIC,100,2)"
 
+// Searing Vengeance (Celestial, L14): once per Long Rest, when you would drop to 0
+// HP you instead spring back up, regaining HP and searing nearby foes with radiant
+// light (and Blinding them). Mirrors Half-Orc Relentless Endurance: an always-on
+// enabler status whose DownedStatus boost redirects downing to a custom DOWNED
+// status that heals + triggers the radiant burst.
 new entry "Celestial_14_SearingVengeance"
 type "PassiveData"
 data "DisplayName" "ha8c9d0e1b00000000000000000000a3"
 data "Description" "ha8c9d0e2b00000000000000000000a4"
 data "Icon" "PassiveFeature_HealingLight"
-data "Properties" "Highlighted"
+data "Properties" "Highlighted;OncePerLongRest"
+data "StatsFunctorContext" "OnCreate;OnLongRest"
+data "StatsFunctors" "ApplyStatus(SELF,SEARING_VENGEANCE,100,-1)"
 
+// Hurl Through Hell (Fiend, L14): once per Short Rest, when you hit a creature with
+// a weapon attack you banish it briefly through the Nine Hells, dealing 10d10
+// Psychic. OnDamage context fires on the weapon hit; functors target the damaged
+// creature (same convention as ThunderboltStrike). Gated by the HurlThroughHellCharge
+// resource (max 1, ReplenishType ShortRest).
 new entry "Fiend_14_HurlThroughHell"
 type "PassiveData"
 data "DisplayName" "hb9d0e1f2b00000000000000000000a5"
 data "Description" "hb9d0e1f3b00000000000000000000a6"
 data "Icon" "PassiveFeature_DarkOnesBlessing"
 data "Properties" "Highlighted"
+data "StatsFunctorContext" "OnDamage"
+data "Conditions" "IsWeaponAttack() and HasActionResource('HurlThroughHellCharge',1,0,false) and not HasStatus('BANISHED',context.Target)"
+data "StatsFunctors" "UseActionResource(SELF,HurlThroughHellCharge,1);DealDamage(10d10,Psychic,Magical);ApplyStatus(BANISHED,100,1)"
 
+// Create Thrall (Great Old One, L14): once per Long Rest, touch a creature and bend
+// it to your will - on a failed Wisdom save it is Dominated, fighting for you.
+// Granted as a castable touch spell (Target_Apotheosis_CreateThrall) modeled on
+// Dominate Person but costing no spell slot.
 new entry "GreatOldOne_14_CreateThrall"
 type "PassiveData"
 data "DisplayName" "hc0e1f2a3b00000000000000000000a7"
 data "Description" "hc0e1f2a4b00000000000000000000a8"
 data "Icon" "PassiveFeature_AwakenedMind"
 data "Properties" "Highlighted"
+data "Boosts" "UnlockSpell(Target_Apotheosis_CreateThrall)"
 
 // ==============================================================================
 // CLERIC SUBCLASS PASSIVES

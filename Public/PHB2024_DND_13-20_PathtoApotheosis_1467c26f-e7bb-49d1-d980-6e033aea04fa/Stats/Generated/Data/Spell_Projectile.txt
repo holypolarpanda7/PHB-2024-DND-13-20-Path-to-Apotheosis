@@ -1,0 +1,67 @@
+// ==============================================================================
+// NECROMANCER - Death's Master: Extinguish Undead (Level 14)
+// The necrotic burst created (via CreateExplosion) when a bolstered Undead dies.
+// Not castable by the player; only triggered by the BOLSTER_UNDEAD status's
+// OnRemoveFunctors on death. Modeled on the base SteelWatcher self-destruct
+// explosion (using Projectile_NarcolepticBurst for the projectile plumbing) but
+// retuned to a tight necrotic burst: enemies in radius take 3d6 Necrotic, halved
+// on a successful Dexterity save (DC 15).
+// ==============================================================================
+
+new entry "Projectile_Apotheosis_ExtinguishUndead"
+type "SpellData"
+data "SpellType" "Projectile"
+using "Projectile_NarcolepticBurst"
+data "Level" "0"
+data "SpellSchool" "Necromancy"
+data "AreaRadius" "4"
+data "ExplodeRadius" "4"
+data "DeathType" "Necrotic"
+data "SpellRoll" "not SavingThrow(Ability.Dexterity, 15)"
+data "SpellSuccess" "DealDamage(3d6,Necrotic,Magical)"
+data "SpellFail" "DealDamage((3d6)/2,Necrotic,Magical)"
+data "TargetConditions" "Enemy() and not Dead()"
+data "Icon" "PassiveFeature_Generic_Explosion"
+data "DisplayName" "hd5f6a7b8b000000000000000000009d"
+data "Description" "hd5f6a7b9b000000000000000000009e"
+data "TooltipDamageList" "DealDamage(3d6,Necrotic)"
+data "TooltipAttackSave" "Dexterity"
+data "TooltipStatusApply" ""
+data "VerbalIntent" "Damage"
+data "SpellFlags" "IsHarmful;CanAreaDamageEvade"
+data "HitAnimationType" "MagicalDamage_External"
+data "DamageType" "Necrotic"
+data "Sheathing" "DontChange"
+
+// ==============================================================================
+// CELESTIAL - Searing Vengeance: radiant burst (Level 14)
+// The retaliatory burst of celestial light unleashed when Searing Vengeance saves
+// the warlock from 0 HP. Triggered (via CreateExplosion) by SEARING_VENGEANCE_DOWNED.
+// Enemies in radius take 4d6 Radiant (halved on a Constitution save, DC 15) and are
+// Blinded until the end of their next turn on a failed save.
+// ==============================================================================
+
+new entry "Projectile_Apotheosis_SearingVengeance"
+type "SpellData"
+data "SpellType" "Projectile"
+using "Projectile_NarcolepticBurst"
+data "Level" "0"
+data "SpellSchool" "Evocation"
+data "AreaRadius" "6"
+data "ExplodeRadius" "6"
+data "DeathType" "Radiant"
+data "SpellRoll" "not SavingThrow(Ability.Constitution, 15)"
+data "SpellSuccess" "DealDamage(4d6,Radiant,Magical);ApplyStatus(BLINDED,100,1)"
+data "SpellFail" "DealDamage((4d6)/2,Radiant,Magical)"
+data "TargetConditions" "Enemy() and not Dead()"
+data "Icon" "PassiveFeature_HealingLight"
+data "DisplayName" "ha8c9d0e1b00000000000000000000a3"
+data "Description" "ha8c9d0e2b00000000000000000000a4"
+data "TooltipDamageList" "DealDamage(4d6,Radiant)"
+data "TooltipAttackSave" "Constitution"
+data "TooltipStatusApply" "ApplyStatus(BLINDED,100,1)"
+data "VerbalIntent" "Damage"
+data "SpellFlags" "IsHarmful;CanAreaDamageEvade"
+data "HitAnimationType" "MagicalDamage_External"
+data "DamageType" "Radiant"
+data "Sheathing" "DontChange"

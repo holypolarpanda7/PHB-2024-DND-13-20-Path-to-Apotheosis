@@ -311,3 +311,110 @@ using "Target_DominateMonster"
 data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:9"
 data "RootSpellID" "Target_DominateMonster"
 data "PowerLevel" "9"
+
+// ==============================================================================
+// TRANSMUTER - Master Transmuter: Panacea (Level 14)
+// PHB 2024: touch a creature to heal half its max HP and end Poisoned/Diseased/
+// curses. Granted via UnlockSpell on Transmuter_14_MasterTransmuter. Once per
+// long rest (the Transmuter's Stone is consumed). Healing/cleanse functors are
+// verified base-game syntax (RegainHitPoints(MaxHP/2), RemoveStatus(SG_*)).
+// ==============================================================================
+
+new entry "Target_Apotheosis_Panacea"
+type "SpellData"
+data "SpellType" "Target"
+data "Level" "0"
+data "SpellSchool" "Transmutation"
+data "TargetRadius" "1.5"
+data "TargetConditions" "Character() and not Dead()"
+data "SpellProperties" "RegainHitPoints(MaxHP/2);RemoveStatus(SG_Poisoned);RemoveStatus(SG_Disease);RemoveStatus(SG_Cursed);RemoveStatus(SG_Petrified)"
+data "Icon" "PassiveFeature_TransmutersStone"
+data "DisplayName" "he6a7b8c9b000000000000000000009f"
+data "Description" "he6a7b8cab00000000000000000000a0"
+data "TooltipDamageList" "RegainHitPoints(MaxHP/2)"
+data "TooltipStatusApply" "RemoveStatus(SG_Poisoned);RemoveStatus(SG_Disease);RemoveStatus(SG_Cursed)"
+data "CastTextEvent" "Cast"
+data "UseCosts" "ActionPoint:1"
+data "Cooldown" "OncePerRest"
+data "SpellAnimation" "414bbf02-2918-4f01-83fb-1ddc7a588d88,,;,,;e37d18b8-0de7-4bbc-a644-31ec2a91e548,,;acfe8d41-20c1-4fe8-b158-f4b2be86e080,,;0c5dcc83-fa78-41da-b6a5-440b5ea30936,,;,,;bea988a0-2ec5-40d8-a67e-ffbd7454bc53,,;bcc3b0d9-f04f-4448-aab0-e0ad641167cc,,;bf924cc6-8b39-4c3b-b1c0-eda264cf6150,,"
+data "VerbalIntent" "Healing"
+data "SpellFlags" "HasVerbalComponent;HasSomaticComponent;IsSpell;IsMelee"
+data "HitAnimationType" "MagicalNonDamage"
+data "CastSound" "Spell_Cast_Healing_GreaterRestoration_L4to5"
+data "TargetSound" "Spell_Impact_Healing_GreaterRestoration_L4to5"
+data "PrepareEffect" "76ce048e-1781-4383-9aaa-bf882ac3a33a"
+data "CastEffect" "0549564f-c714-49a2-b803-29dfd56f2b79"
+data "TargetEffect" "f217184e-6690-4235-9539-1c560c98af37"
+
+// ==============================================================================
+// ENCHANTER - Alter Memories: Modify Memory (Level 14, grants 5th-level spell)
+// BG3 adaptation of the PHB Modify Memory, made chaotic. Self-cast Shout that
+// wreathes the caster in a mind-scrambling AURA (6m / 20ft) that follows them.
+// The aura applies a technical MARK (MODIFY_MEMORY_MARK) to every valid enemy in
+// range; Script Extender (BootstrapServer.lua) then enforces a target CAP with a
+// FIFO queue: only 1 marked enemy is affected at a time (2 if the caster has the
+// Enchanter_14_AlterMemories feature). Each affected enemy is locked down by an
+// even 50/50 split between a Hold effect (MM_HOLD) or a Slow effect (MM_SLOW).
+// When a victim leaves the aura / dies / loses its slot, the next enemy in the
+// queue is promoted. Concentration, up to 10 turns. Always prepared and granted
+// via UnlockSpell on Enchanter_14_AlterMemories.
+// ==============================================================================
+new entry "Shout_Apotheosis_ModifyMemory"
+type "SpellData"
+data "SpellType" "Shout"
+data "Level" "5"
+data "SpellSchool" "Enchantment"
+data "AreaRadius" "6"
+data "TargetConditions" "Self()"
+data "SpellProperties" "ApplyStatus(SELF,MODIFY_MEMORY_AURA,100,10)"
+data "Icon" "Spell_Enchantment_HoldPerson"
+data "DisplayName" "ha2c3d4e7b00000000000000000000a1"
+data "Description" "ha2c3d4e8b00000000000000000000a2"
+data "TooltipStatusApply" "ApplyStatus(MODIFY_MEMORY_AURA,100,10)"
+data "CastTextEvent" "Cast"
+data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:5"
+data "SpellAnimation" "554a18f7-952e-494a-b301-7702a85d4bc9,,;,,;3e441d3f-11f9-432d-877c-c0ba4d92c74a,,;8b7ae969-2a04-4720-9685-3bde54c18ffe,,;22dfbbf4-f417-4c84-b39e-2039315961e6,,;,,;5bfbe9f9-4fc3-4f26-b112-43d404db6a89,,;,,;,,"
+data "VerbalIntent" "Control"
+data "SpellFlags" "HasVerbalComponent;HasSomaticComponent;IsSpell;IsConcentration;IsHarmful"
+data "MemoryCost" "1"
+data "HitAnimationType" "None"
+data "CastSound" "Spell_Cast_Control_HoldPerson_L1to3"
+data "TargetSound" "Spell_Impact_Control_HoldPerson_L1to3"
+data "VocalComponentSound" "Vocal_Component_Paralyze"
+data "PrepareEffect" "bcdca947-b1ba-475f-8e3b-9ac850da90fa"
+data "CastEffect" "d2ef6b50-243f-478d-85c6-892086a1477e"
+
+// ==============================================================================
+// WARLOCK - Great Old One: Create Thrall (Level 14)
+// PHB 2024: bend a creature to your will. Touch-range spell (no spell slot) on a
+// OncePerRest cooldown; on a failed Wisdom save the target is Dominated (full
+// control), fighting for you. Modeled on Target_DominatePerson but cost-free.
+// Granted via UnlockSpell on GreatOldOne_14_CreateThrall.
+// ==============================================================================
+
+new entry "Target_Apotheosis_CreateThrall"
+type "SpellData"
+data "SpellType" "Target"
+data "Level" "0"
+data "SpellSchool" "Enchantment"
+data "TargetRadius" "3"
+data "SpellRoll" "not SavingThrow(Ability.Wisdom, SourceSpellDC(), AdvantageOnCharmed())"
+data "SpellSuccess" "ApplyStatus(DOMINATE_PERSON,100,100)"
+data "SpellFail" "ApplyStatus(SAVED_AGAINST_HOSTILE_SPELL_DOMINATED,100,0)"
+data "TargetConditions" "Character() and not Ally() and not Dead() and not Tagged('UNDEAD') and not (Party(context.Target) and Party(context.Source))"
+data "Icon" "Spell_Enchantment_DominatePerson"
+data "DisplayName" "hc0e1f2a3b00000000000000000000a7"
+data "Description" "hc0e1f2a4b00000000000000000000a8"
+data "TooltipStatusApply" "ApplyStatus(DOMINATE_PERSON,100,100)"
+data "TooltipAttackSave" "Wisdom"
+data "CastTextEvent" "Cast"
+data "UseCosts" "ActionPoint:1"
+data "Cooldown" "OncePerRest"
+data "SpellAnimation" "554a18f7-952e-494a-b301-7702a85d4bc9,,;,,;3e441d3f-11f9-432d-877c-c0ba4d92c74a,,;8b7ae969-2a04-4720-9685-3bde54c18ffe,,;22dfbbf4-f417-4c84-b39e-2039315961e6,,;,,;5bfbe9f9-4fc3-4f26-b112-43d404db6a89,,;,,;,,"
+data "VerbalIntent" "Control"
+data "SpellFlags" "HasVerbalComponent;HasSomaticComponent;IsSpell;IsHarmful"
+data "MemoryCost" "1"
+data "HitAnimationType" "None"
+data "CastSound" "Spell_Cast_Control_DominatePerson_L1to3"
+data "TargetSound" "Spell_Impact_Control_DominatePerson_L1to3"
+data "VocalComponentSound" "Vocal_Component_Dominate"

@@ -1,0 +1,5 @@
+{
+    "RequiredVersion": 20,
+    "ModTable": "PHB2024_Apotheosis",
+    "FeatureFlags": ["Lua"]
+}

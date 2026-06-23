@@ -505,7 +505,7 @@
                     <attribute id="UUID" type="guid" value="66666666-6666-6666-6666-666666666607"/>
                 </node>
                 <node id="Progression">
-                    <attribute id="Boosts" type="LSString" value="ActionResource(SpellSlot,1,7)"/>
+                    <attribute id="Boosts" type="LSString" value="ActionResource(SpellSlot,1,7);ActionResource(SignatureSpellCharge,2,0)"/>
                     <attribute id="Level" type="uint8" value="20"/>
                     <attribute id="Name" type="LSString" value="Wizard"/>
                     <attribute id="PassivesAdded" type="LSString" value="Wizard_SignatureSpells"/>
@@ -1980,6 +1980,7 @@
                 <!-- FIEND -->
                 <!-- Level 14: Hurl Through Hell -->
                 <node id="Progression">
+                    <attribute id="Boosts" type="LSString" value="ActionResource(HurlThroughHellCharge,1,0)"/>
                     <attribute id="Level" type="uint8" value="14"/>
                     <attribute id="Name" type="LSString" value="Fiend"/>
                     <attribute id="PassivesAdded" type="LSString" value="Fiend_14_HurlThroughHell"/>
