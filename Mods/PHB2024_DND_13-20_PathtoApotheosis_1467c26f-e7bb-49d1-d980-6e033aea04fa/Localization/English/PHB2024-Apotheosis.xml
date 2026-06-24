@@ -11,7 +11,7 @@
   <content contentuid="hb1d2e3f400000000000000000000009" version="1">Unlock 9th Level Spell Slots</content>
   <content contentuid="hb1d2e3f50000000000000000000000a" version="1">You can now cast 9th level spells.</content>
   <content contentuid="hc2e3f4a50000000000000000000000b" version="1">Studied Attacks</content>
-  <content contentuid="hc2e3f4a60000000000000000000000c" version="1">If you miss a creature with an attack roll, you have Advantage on your next attack roll against that creature before the end of your next turn.</content>
+  <content contentuid="hc2e3f4a60000000000000000000000c" version="1">You study your foes' defences and exploit every opening. You gain a +2 bonus to weapon attack rolls.</content>
   <content contentuid="hd3f4a5b60000000000000000000000d" version="1">Extra Attack (3)</content>
   <content contentuid="hd3f4a5b70000000000000000000000e" version="1">You can attack four times whenever you take the Attack action on your turn.</content>
   <content contentuid="he4a5b6c70000000000000000000000f" version="1">Improved Brutal Strike</content>
@@ -23,11 +23,11 @@
   <content contentuid="hb7d8e9f000000000000000000000015" version="1">Primal Champion</content>
   <content contentuid="hb7d8e9f100000000000000000000016" version="1">You embody primal power. Your Strength and Constitution scores increase by 4, to a maximum of 25.</content>
   <content contentuid="hc8e9f0a100000000000000000000017" version="1">Deflect Energy</content>
-  <content contentuid="hc8e9f0a200000000000000000000018" version="1">You can now use Deflect Missiles to deflect energy-based ranged attacks, such as fire bolts or lightning.</content>
+  <content contentuid="hc8e9f0a200000000000000000000018" version="1">Your mastery of deflecting attacks hardens you against energy. You gain Resistance to Acid, Cold, Fire, Lightning, and Thunder damage.</content>
   <content contentuid="hd9f0a1b200000000000000000000019" version="1">Perfect Focus</content>
-  <content contentuid="hd9f0a1b30000000000000000000001a" version="1">When you roll Initiative and have fewer than 4 Ki Points, you regain Ki Points until you have 4.</content>
+  <content contentuid="hd9f0a1b30000000000000000000001a" version="1">Your focus runs deep. Your Ki reserves increase by 2 Ki Points.</content>
   <content contentuid="he0a1b2c30000000000000000000001b" version="1">Superior Defense</content>
-  <content contentuid="he0a1b2c40000000000000000000001c" version="1">Spend 3 Ki Points to gain resistance to all damage except Force for 1 minute.</content>
+  <content contentuid="he0a1b2c40000000000000000000001c" version="1">Spend 3 Ki Points to gain Resistance to all damage except Force for 10 turns.</content>
   <content contentuid="hf1b2c3d40000000000000000000001d" version="1">Body and Mind</content>
   <content contentuid="hf1b2c3d50000000000000000000001e" version="1">Your Dexterity and Wisdom scores increase by 4, to a maximum of 26.</content>
   <content contentuid="ha2c3d4e50000000000000000000001f" version="1">Subtle Strikes</content>
@@ -37,11 +37,11 @@
   <content contentuid="hc4e5f6a700000000000000000000023" version="1">Stroke of Luck</content>
   <content contentuid="hc4e5f6a800000000000000000000024" version="1">Fortune favours you. Your d20 rolls for Ability Checks, Skill Checks, and Saving Throws can't be lower than 10.</content>
   <content contentuid="hd5f6a7b800000000000000000000025" version="1">Cleansing Touch</content>
-  <content contentuid="hd5f6a7b900000000000000000000026" version="1">You can use your action to end one spell on yourself or on one willing creature that you touch. You can use this feature a number of times equal to your Charisma modifier.</content>
+  <content contentuid="hd5f6a7b900000000000000000000026" version="1">As an action, cleanse yourself of harmful magic, ending the Charmed, Frightened, Poisoned, Diseased, and Cursed conditions. Recharges on a Short Rest.</content>
   <content contentuid="he6a7b8c900000000000000000000027" version="1">Aura Expansion (30 ft)</content>
   <content contentuid="he6a7b8ca00000000000000000000028" version="1">Your paladin auras now extend to 30 feet instead of 10 feet.</content>
-  <content contentuid="hf7b8c9d000000000000000000000029" version="1">Aura of Protection (10 ft)</content>
-  <content contentuid="hf7b8c9d10000000000000000000002a" version="1">You and friendly creatures within 10 feet gain a bonus to saving throws equal to your Charisma modifier.</content>
+  <content contentuid="hf7b8c9d000000000000000000000029" version="1">Aura of Protection (30 ft)</content>
+  <content contentuid="hf7b8c9d10000000000000000000002a" version="1">Your protective aura extends to 9m. You and allied creatures within it cannot be Frightened.</content>
   <content contentuid="ha8c9d0e10000000000000000000002b" version="1">Relentless Hunter</content>
   <content contentuid="ha8c9d0e20000000000000000000002c" version="1">You gain a bonus to Initiative rolls and cannot be surprised while conscious.</content>
   <content contentuid="hb9d0e1f20000000000000000000002d" version="1">Feral Senses</content>
@@ -53,15 +53,19 @@
   <content contentuid="he2a3b4c500000000000000000000033" version="1">Signature Spells</content>
   <content contentuid="he2a3b4c600000000000000000000034" version="1">Your mastery of your signature magic runs deep. Twice per Short Rest, when you cast a 3rd-level spell, its spell slot is refunded - letting you cast your favored 3rd-level spells without expending a slot.</content>
   <content contentuid="hf3b4c5d600000000000000000000035" version="1">Greater Divine Intervention</content>
-  <content contentuid="hf3b4c5d700000000000000000000036" version="1">Your Divine Intervention automatically succeeds. After using it, you cannot use it again until you finish 2d4 Long Rests.</content>
+  <content contentuid="hf3b4c5d700000000000000000000036" version="1">Call upon your deity for a miracle. As an action, once per Long Rest, you gain Advantage on all Attack rolls, Saving Throws, and Ability Checks, and 30 Temporary Hit Points, for 10 turns.</content>
   <content contentuid="ha4c5d6e700000000000000000000037" version="1">Beast Spells</content>
-  <content contentuid="ha4c5d6e800000000000000000000038" version="1">You can cast spells while in Wild Shape form, as long as the spell does not require material components.</content>
+  <content contentuid="ha4c5d6e800000000000000000000038" version="1">While you are transformed by Wild Shape, you can still channel a portion of your primal magic. You gain access to a curated set of support spells - <LSTag Tooltip="HealingWord">Healing Word</LSTag>, <LSTag Tooltip="CureWounds">Cure Wounds</LSTag>, <LSTag Tooltip="LesserRestoration">Lesser Restoration</LSTag>, <LSTag Tooltip="FaerieFire">Faerie Fire</LSTag>, and <LSTag Tooltip="Moonbeam">Moonbeam</LSTag> - along with a small pool of temporary Spell Slots to cast them, lasting until you return to your normal form.</content>
   <content contentuid="hb5d6e7f800000000000000000000039" version="1">Archdruid</content>
-  <content contentuid="hb5d6e7f90000000000000000000003a" version="1">You can use Wild Shape an unlimited number of times.</content>
+  <content contentuid="hb5d6e7f90000000000000000000003a" version="1">Your Wild Shape is fully restored at the start of every combat and whenever you take a Short Rest, making your transformations effectively limitless.</content>
   <content contentuid="hc6e7f8a90000000000000000000003b" version="1">Superior Inspiration</content>
   <content contentuid="hc6e7f8aa0000000000000000000003c" version="1">When you roll Initiative and have no Bardic Inspiration dice remaining, you regain one use.</content>
   <content contentuid="hd7f8a9b00000000000000000000003d" version="1">Words of Creation</content>
-  <content contentuid="hd7f8a9b10000000000000000000003e" version="1">You have mastered two of the Words of Creation: the words of life and death. You always have &lt;LSTag Type="Spell" Tooltip="Target_PowerWordHeal_WordsOfCreation"&gt;Power Word Heal&lt;/LSTag&gt; and &lt;LSTag Type="Spell" Tooltip="Target_PowerWordKill_WordsOfCreation"&gt;Power Word Kill&lt;/LSTag&gt; prepared. When you cast either spell, you can target a second creature if it is within 10 feet of the first target.</content>
+  <content contentuid="hd7f8a9b10000000000000000000003e" version="1">You have mastered two of the Words of Creation: the words of life and death. You always have &lt;LSTag Type="Spell" Tooltip="Target_PowerWordHeal_WordsOfCreation"&gt;Power Word Heal&lt;/LSTag&gt; and &lt;LSTag Type="Spell" Tooltip="Target_PowerWordKill_WordsOfCreation"&gt;Power Word Kill&lt;/LSTag&gt; prepared.</content>
+  <content contentuid="hbardpwk000000000000000000000001" version="1">Power Word Kill</content>
+  <content contentuid="hbardpwk000000000000000000000002" version="1">You utter a word of power that can compel one creature you can see to die instantly. If the target has 150 Hit Points or fewer, it dies. Otherwise, the word has no effect.</content>
+  <content contentuid="hbardpwh000000000000000000000001" version="1">Power Word Heal</content>
+  <content contentuid="hbardpwh000000000000000000000002" version="1">A wave of healing energy washes over the target, restoring all of its Hit Points and ending the Charmed, Frightened, Paralyzed, and Incapacitated conditions on it.</content>
   <content contentuid="he8a9b0c10000000000000000000003f" version="1">Arcane Apotheosis</content>
   <content contentuid="he8a9b0c200000000000000000000040" version="1">Your command of raw magic is absolute. Once per turn, when you cast a spell of 1st level or higher, you regain 1 Sorcery Point.</content>
   <content contentuid="hf9b0c1d200000000000000000000041" version="1">Mystic Arcanum (7th)</content>
@@ -95,17 +99,17 @@
   <content contentuid="hb3d4e5f6a000000000000000000005d" version="1">Supreme Consciousness</content>
   <content contentuid="hb3d4e5f7a000000000000000000005e" version="1">You achieve the pinnacle of psychic power. Your mind transcends mortal limitations.</content>
   <content contentuid="hc4e5f6a7a000000000000000000005f" version="1">Survivor</content>
-  <content contentuid="hc4e5f6a8a0000000000000000000060" version="1">At the start of each of your turns, you regain hit points equal to 5 + your Constitution modifier if you have no more than half your hit points remaining.</content>
+  <content contentuid="hc4e5f6a8a0000000000000000000060" version="1">At the start of each of your turns in combat, you regain 5 hit points.</content>
   <content contentuid="hd5f6a7b8a0000000000000000000061" version="1">Improved War Magic</content>
   <content contentuid="hd5f6a7b9a0000000000000000000062" version="1">When you use your action to cast a spell, you can make one weapon attack as a bonus action.</content>
   <content contentuid="he6a7b8c9a0000000000000000000063" version="1">Relentless</content>
-  <content contentuid="he6a7b8caa0000000000000000000064" version="1">When you roll Initiative and have no Superiority Dice remaining, you regain one Superiority Die.</content>
+  <content contentuid="he6a7b8caa0000000000000000000064" version="1">Your reserve of battlefield techniques runs deep. You gain one additional Superiority Die.</content>
   <content contentuid="hf7b8c9d0a0000000000000000000065" version="1">Telekinetic Master</content>
-  <content contentuid="hf7b8c9d1a0000000000000000000066" version="1">You can cast Telekinesis once per Long Rest without expending a spell slot or requiring concentration.</content>
+  <content contentuid="hf7b8c9d1a0000000000000000000066" version="1">Telekinetic Thrust: Once per Long Rest, unleash a wave of telekinetic force in a 9m radius. Enemies must succeed on a Strength saving throw or take 4d8 Force damage and be pushed away.</content>
   <content contentuid="ha8c9d0e1a0000000000000000000067" version="1">Inspiring Surge (Improved)</content>
-  <content contentuid="ha8c9d0e2a0000000000000000000068" version="1">Your Inspiring Surge now allows two allies to make a weapon attack as a reaction.</content>
+  <content contentuid="ha8c9d0e2a0000000000000000000068" version="1">Inspiring Surge: Once per Short Rest, as a Bonus Action, inspire allies within 9m. They gain Advantage on attack rolls and 10 temporary hit points for 2 turns.</content>
   <content contentuid="hb9d0e1f2a0000000000000000000069" version="1">Runic Juggernaut</content>
-  <content contentuid="hb9d0e1f3a000000000000000000006a" version="1">When using Giants Might, you become Huge and deal an extra 1d10 damage with weapon attacks.</content>
+  <content contentuid="hb9d0e1f3a000000000000000000006a" version="1">While Giant's Might is active, you grow even larger and deal an extra 1d10 damage with weapon attacks.</content>
   <content contentuid="hc0e1f2a3a000000000000000000006b" version="1">Versatile Trickster</content>
   <content contentuid="hc0e1f2a4a000000000000000000006c" version="1">Direct your spectral hand to distract a creature within 18m as a Bonus Action. Attack rolls against the target have Advantage for 2 turns.</content>
   <content contentuid="hd1f2a3b4a000000000000000000006d" version="1">Infiltration Expertise</content>
@@ -175,51 +179,51 @@
   <content contentuid="hc0e1f2a3b00000000000000000000a7" version="1">Create Thrall</content>
   <content contentuid="hc0e1f2a4b00000000000000000000a8" version="1">Once per Long Rest, you can touch a creature and bend it to your will. It must succeed on a Wisdom saving throw or be Dominated, fighting at your side as your thrall.</content>
   <content contentuid="hd1f2a3b4b00000000000000000000a9" version="1">Divine Foreknowledge</content>
-  <content contentuid="hd1f2a3b5b00000000000000000000aa" version="1">As a Bonus Action, you magically expand your mind to the future. For 1 hour, you have Advantage on D20 Tests. Once you use this feature, you can't use it again until you finish a Long Rest.</content>
+  <content contentuid="hd1f2a3b5b00000000000000000000aa" version="1">As a Bonus Action, glimpse the immediate future. For 10 turns you have Advantage on Attack rolls, Saving Throws, and Ability Checks. Once per Long Rest.</content>
   <content contentuid="he2a3b4c5b00000000000000000000ab" version="1">Supreme Healing</content>
   <content contentuid="he2a3b4c6b00000000000000000000ac" version="1">When you would normally roll one or more dice to restore Hit Points to a creature with a spell or Channel Divinity, don't roll those dice for the healing; instead use the highest number possible for each die.</content>
   <content contentuid="hf3b4c5d6b00000000000000000000ad" version="1">Corona of Light</content>
-  <content contentuid="hf3b4c5d7b00000000000000000000ae" version="1">As a Magic action, emit an aura of sunlight for 1 minute. Enemies in the Bright Light have Disadvantage on saving throws against your Radiance of the Dawn and any spell that deals Fire or Radiant damage.</content>
+  <content contentuid="hf3b4c5d7b00000000000000000000ae" version="1">As an action, emit an aura of searing sunlight in an 18m radius for 10 turns. Enemies within the aura have Disadvantage on Saving Throws. Once per Short Rest.</content>
   <content contentuid="ha4c5d6e7b00000000000000000000af" version="1">Improved Duplicity</content>
-  <content contentuid="ha4c5d6e8b00000000000000000000b0" version="1">Your Invoke Duplicity illusion has grown more powerful. Allies making attack rolls against a creature within 5 feet of the illusion have Advantage. When the illusion ends, you or a creature within 5 feet of it regains Hit Points equal to your Cleric level.</content>
+  <content contentuid="ha4c5d6e8b00000000000000000000b0" version="1">As a Bonus Action, surround yourself with illusory duplicates for 10 turns: your Attack rolls have Advantage, and attacks made against you have Disadvantage. Once per Short Rest.</content>
   <content contentuid="hb5d6e7f8b00000000000000000000b1" version="1">Avatar of Battle</content>
   <content contentuid="hb5d6e7f9b00000000000000000000b2" version="1">You gain Resistance to Bludgeoning, Piercing, and Slashing damage.</content>
   <content contentuid="hc6e7f8a9b00000000000000000000b3" version="1">Natures Sanctuary</content>
-  <content contentuid="hc6e7f8aab00000000000000000000b4" version="1">Beasts and plants must make a Wisdom save to attack you. On a failure, they must choose a different target.</content>
+  <content contentuid="hc6e7f8aab00000000000000000000b4" version="1">Nature shields you from the wild. Beasts and plants have Disadvantage on attack rolls against you.</content>
   <content contentuid="hd7f8a9b0b00000000000000000000b5" version="1">Lunar Form</content>
-  <content contentuid="hd7f8a9b1b00000000000000000000b6" version="1">Your Wild Shape forms are enhanced based on the current moon phase.</content>
+  <content contentuid="hd7f8a9b1b00000000000000000000b6" version="1">Moonlight suffuses your body. You gain Resistance to Radiant and Necrotic damage and Advantage on Constitution saving throws.</content>
   <content contentuid="he8a9b0c1b00000000000000000000b7" version="1">Oceanic Gift</content>
-  <content contentuid="he8a9b0c2b00000000000000000000b8" version="1">You can grant allies the ability to breathe underwater and a swim speed for 1 hour.</content>
+  <content contentuid="he8a9b0c2b00000000000000000000b8" version="1">Oceanic Gift: Once per Short Rest, as a Bonus Action, bless allies within 9m with the sea's protection, granting Resistance to Fire and Cold damage and 10 temporary hit points for 10 turns.</content>
   <content contentuid="hf9b0c1d2b00000000000000000000b9" version="1">Full of Stars</content>
-  <content contentuid="hf9b0c1d3b00000000000000000000ba" version="1">While in Starry Form, you become partially incorporeal, gaining resistance to bludgeoning, piercing, and slashing damage.</content>
+  <content contentuid="hf9b0c1d3b00000000000000000000ba" version="1">Starry Form: Once per Short Rest, as a Bonus Action, take on a partially incorporeal starry form for 10 turns, gaining Resistance to Bludgeoning, Piercing, and Slashing damage.</content>
   <content contentuid="ha0c1d2e3c00000000000000000000bb" version="1">Elemental Epitome</content>
-  <content contentuid="ha0c1d2e4c00000000000000000000bc" version="1">You have achieved mastery over the elements. Your elemental disciplines are more powerful and cost fewer Ki Points.</content>
+  <content contentuid="ha0c1d2e4c00000000000000000000bc" version="1">You have achieved mastery over the elements. Your Ki reserves increase by 3 Ki Points, and your spells deal additional damage equal to your Wisdom modifier.</content>
   <content contentuid="hb1d2e3f4c00000000000000000000bd" version="1">Hand of Ultimate Mercy</content>
-  <content contentuid="hb1d2e3f5c00000000000000000000be" version="1">You can spend 5 Ki Points to revive a creature that has died within the last 24 hours.</content>
+  <content contentuid="hb1d2e3f5c00000000000000000000be" version="1">Spend 5 Ki Points to touch a dead creature and restore it to life at full health.</content>
   <content contentuid="hc2e3f4a5c00000000000000000000bf" version="1">Quivering Palm</content>
-  <content contentuid="hc2e3f4a6c00000000000000000000c0" version="1">You set up vibrations in a creatures body. You can use an action to end the vibrations, forcing the target to make a Constitution save or be reduced to 0 HP.</content>
+  <content contentuid="hc2e3f4a6c00000000000000000000c0" version="1">Spend 3 Ki Points to set up lethal vibrations in a creature's body. It must succeed on a Constitution Saving Throw or take 10d12 Force damage (half on a success). Recharges on a Short Rest.</content>
   <content contentuid="hd3f4a5b6c00000000000000000000c1" version="1">Cloak of Shadows</content>
-  <content contentuid="hd3f4a5b7c00000000000000000000c2" version="1">When in dim light or darkness, you can become invisible as an action.</content>
+  <content contentuid="hd3f4a5b7c00000000000000000000c2" version="1">Spend 2 Ki Points to draw the shadows around yourself, becoming Invisible until you attack or cast a spell.</content>
   <content contentuid="he4a5b6c7c00000000000000000000c3" version="1">Smite of Protection</content>
-  <content contentuid="he4a5b6c8c00000000000000000000c4" version="1">When you use Divine Smite, allies within 30 feet gain temporary hit points.</content>
+  <content contentuid="he4a5b6c8c00000000000000000000c4" version="1">When you deal Radiant damage with a weapon attack, you gain 10 temporary hit points. Once per turn.</content>
   <content contentuid="hf5b6c7d8c00000000000000000000c5" version="1">Holy Nimbus</content>
-  <content contentuid="hf5b6c7d9c00000000000000000000c6" version="1">You emit an aura of sunlight. Enemies that start their turn in the aura take radiant damage.</content>
+  <content contentuid="hf5b6c7d9c00000000000000000000c6" version="1">Once per Short Rest, emit a burst of sunlight, dealing 2d8 Radiant damage to enemies within 9m. For 10 turns, you are immune to Radiant damage and have Advantage on Wisdom Saving Throws.</content>
   <content contentuid="ha6c7d8e9c00000000000000000000c7" version="1">Glorious Defense</content>
-  <content contentuid="ha6c7d8eac00000000000000000000c8" version="1">When a creature you can see hits an ally with an attack, you can add your Charisma modifier to the allys AC and make an attack against the attacker.</content>
+  <content contentuid="ha6c7d8eac00000000000000000000c8" version="1">Radiant glory wards you, granting a +2 bonus to Armour Class.</content>
   <content contentuid="hb7d8e9f0c00000000000000000000c9" version="1">Living Legend</content>
-  <content contentuid="hb7d8e9f1c00000000000000000000ca" version="1">You gain advantage on Charisma checks, and once per turn when you miss an attack, you can cause it to hit instead.</content>
+  <content contentuid="hb7d8e9f1c00000000000000000000ca" version="1">You are a Living Legend. You have Advantage on Charisma ability checks (Persuasion, Deception, Intimidation, Performance) and gain a +2 bonus to weapon attack rolls.</content>
   <content contentuid="hc8e9f0a1c00000000000000000000cb" version="1">Undying Sentinel</content>
-  <content contentuid="hc8e9f0a2c00000000000000000000cc" version="1">When you are reduced to 0 HP, you can choose to drop to 1 HP instead. Once used, you cannot use this again until you finish a Long Rest.</content>
+  <content contentuid="hc8e9f0a2c00000000000000000000cc" version="1">When you would be reduced to 0 hit points, you drop to 1 hit point instead. Once used, you cannot use this again until you finish a Long Rest.</content>
   <content contentuid="hd9f0a1b2c00000000000000000000cd" version="1">Elder Champion</content>
-  <content contentuid="hd9f0a1b3c00000000000000000000ce" version="1">You transform into an avatar of nature. You regain 10 HP at the start of each turn and can cast spells as a bonus action.</content>
+  <content contentuid="hd9f0a1b3c00000000000000000000ce" version="1">Once per Short Rest, transform into an avatar of nature for 10 turns: regain 30 hit points and gain Resistance to non-magical Bludgeoning, Slashing, and Piercing damage, immunity to being Frightened, and Advantage on attack rolls.</content>
   <content contentuid="he0a1b2c3c00000000000000000000cf" version="1">Elemental Rebuke</content>
   <content contentuid="he0a1b2c4c00000000000000000000d0" version="1">When a creature damages you with an attack, a burst of elemental energy strikes it for 2d8 Fire damage.</content>
   <content contentuid="hf1b2c3d4c00000000000000000000d1" version="1">Noble Scion</content>
   <content contentuid="hf1b2c3d5c00000000000000000000d2" version="1">The power of the genies fills you. You gain Resistance to Fire, Cold, Lightning, and Thunder damage.</content>
   <content contentuid="ha2c3d4e5c00000000000000000000d3" version="1">Soul of Vengeance</content>
-  <content contentuid="ha2c3d4e6c00000000000000000000d4" version="1">When a creature under your Vow of Enmity attacks, you can make a weapon attack against it as a reaction.</content>
+  <content contentuid="ha2c3d4e6c00000000000000000000d4" version="1">Your vengeance is relentless. You have Advantage on attack rolls against Frightened creatures.</content>
   <content contentuid="hb3d4e5f6c00000000000000000000d5" version="1">Avenging Angel</content>
-  <content contentuid="hb3d4e5f7c00000000000000000000d6" version="1">You sprout spectral wings and emit a frightening aura. Enemies within 30 feet must succeed on a Wisdom save or be frightened.</content>
+  <content contentuid="hb3d4e5f7c00000000000000000000d6" version="1">You sprout spectral wings, gaining the ability to Fly. Once per Short Rest, you can unleash a frightening aura, leaving enemies within 9m Frightened for 1 turn.</content>
   <content contentuid="hc4e5f6a7c00000000000000000000d7" version="1">Share Spells</content>
   <content contentuid="hc4e5f6a8c00000000000000000000d8" version="1">Your bond with your companion steadies your magic. You have Advantage on Constitution Saving Throws to maintain Concentration.</content>
   <content contentuid="hd5f6a7b8c00000000000000000000d9" version="1">Misty Wanderer</content>
@@ -279,7 +283,7 @@
   <content contentuid="ha2c3d4e5d000000000000000000010f" version="1">Life-Bending Weapons</content>
   <content contentuid="ha2c3d4e6d0000000000000000000110" version="1">You can transform your limbs into deadly psionic weapons that deal 2d10 force damage.</content>
   <content contentuid="h0000000000000000000000000000d001" version="1">Disciplined Survivor</content>
-  <content contentuid="h0000000000000000000000000000d002" version="1">Your training allows you to succeed on Death Saving Throws on a roll of 5 or higher.</content>
+  <content contentuid="h0000000000000000000000000000d002" version="1">Your mind and body are inseparable. You gain proficiency in all six Saving Throws.</content>
   <content contentuid="h0000000000000000000000000000d003" version="1">Slippery Mind</content>
   <content contentuid="h0000000000000000000000000000d004" version="1">Your mind is impossible to ensnare. You gain proficiency in Wisdom and Charisma Saving Throws.</content>
   <content contentuid="h0000000000000000000000000000d005" version="1">Improved Blessed Strikes</content>
@@ -596,14 +600,12 @@
   <content contentuid="hlight17cor00000000000000000004" version="1">Corona of Light (Weakened)</content>
   <content contentuid="hlight17cor00000000000000000005" version="1">In the Corona of Light. Disadvantage on saving throws against Fire and Radiant damage spells.</content>
 
-  <content contentuid="harc17mast00000000000000000000001" version="1">Arcane Mastery</content>
-  <content contentuid="harc17mast00000000000000000000002" version="1">You have mastered the highest arcane secrets. Choose one wizard spell from each of 6th, 7th, and 9th level. These spells are always prepared and do not count against your prepared spell limit.</content>
 
   <content contentuid="hdth17reap00000000000000000000001" version="1">Improved Reaper</content>
   <content contentuid="hdth17reap00000000000000000000002" version="1">Your mastery of death magic has reached its apex. When you reduce a creature to 0 Hit Points with a spell that deals Necrotic damage, you unleash a wave of deathly energy that deals Necrotic damage equal to your Wisdom modifier to all enemies within 15 feet of the slain creature.</content>
 
   <content contentuid="hgrv17keep00000000000000000000001" version="1">Keeper of Souls</content>
-  <content contentuid="hgrv17keep00000000000000000000002" version="1">You can shepherd departing souls to their rest. When an enemy you can see dies within 60 feet of you, you or one ally of your choice within 60 feet regains Hit Points equal to the creature's number of Hit Dice. You can use this feature only once per round.</content>
+  <content contentuid="hgrv17keep00000000000000000000002" version="1">You shepherd departing souls to their rest. When you reduce an enemy to 0 Hit Points, you regain 2d8 Hit Points. Once per turn.</content>
   <content contentuid="hgrv17keep00000000000000000000003" version="1">As a reaction when an enemy dies within 60 feet, heal yourself or an ally.</content>
   <content contentuid="hgrv17keep00000000000000000000004" version="1">Keeper of Souls: Healing</content>
   <content contentuid="hgrv17keep00000000000000000000005" version="1">Channel the departing soul's energy to heal a creature within 60 feet.</content>

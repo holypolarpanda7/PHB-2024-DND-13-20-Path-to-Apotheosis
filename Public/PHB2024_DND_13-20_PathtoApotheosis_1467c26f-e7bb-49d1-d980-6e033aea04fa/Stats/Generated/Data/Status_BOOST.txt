@@ -832,7 +832,7 @@ data "Description" "hknow17fore00000000000000000003;1"
 data "Icon" "PassiveFeature_BlessingsOfKnowledge"
 data "StackId" "DIVINE_FOREKNOWLEDGE"
 data "StackType" "Overwrite"
-data "Boosts" "Advantage(Ability);Advantage(AttackRoll);Advantage(SavingThrow);Advantage(SkillCheck)"
+data "Boosts" "Advantage(AllAbilities);Advantage(AllSavingThrows);Advantage(AttackRoll)"
 data "StatusPropertyFlags" "DisableOverhead"
 
 // Corona of Light (Light Domain L17)
@@ -858,7 +858,7 @@ data "Description" "hlight17cor00000000000000000005;1"
 data "Icon" "PassiveFeature_WardingFlare"
 data "StackId" "CORONA_OF_LIGHT_DEBUFF"
 data "StackType" "Overwrite"
-data "Boosts" "Disadvantage(SavingThrow)"
+data "Boosts" "Disadvantage(AllSavingThrows)"
 data "StatusPropertyFlags" "DisableOverhead"
 
 // Wish Blessing (Greater Divine Intervention L20)
@@ -871,7 +871,7 @@ data "Description" "hclr20wish000000000000000000010;1"
 data "Icon" "Spell_Conjuration_Wish"
 data "StackId" "WISH_BLESSING"
 data "StackType" "Overwrite"
-data "Boosts" "Advantage(Ability);Advantage(AttackRoll);Advantage(SavingThrow);Resistance(All,Resistant)"
+data "Boosts" "Advantage(AllAbilities);Advantage(AllSavingThrows);Advantage(AttackRoll);TemporaryHP(30)"
 data "StatusPropertyFlags" "DisableOverhead"
 
 // ==============================================================================
@@ -1065,3 +1065,186 @@ data "StackId" "APOTHEOSIS_SHADOWY_DODGE"
 data "StackType" "Overwrite"
 data "Boosts" "Disadvantage(AttackTarget)"
 data "StatusPropertyFlags" "IgnoreResting"
+
+// ====== PALADIN 13-20 STATUSES ======
+
+// APOTHEOSIS_PALADIN_AURA30 (Paladin L18 - Aura of Protection 30ft): self-applied aura that
+// extends the paladin's protective presence to 9m, granting nearby allies the buff status.
+new entry "APOTHEOSIS_PALADIN_AURA30"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "hf7b8c9d000000000000000000000029"
+data "Description" "hf7b8c9d10000000000000000000002a"
+data "Icon" "PassiveFeature_AuraOfProtection"
+data "StackId" "APOTHEOSIS_PALADIN_AURA30"
+data "AuraRadius" "9"
+data "AuraStatuses" "IF(Ally() and not Tagged('INANIMATE')):ApplyStatus(APOTHEOSIS_AURA30_BUFF)"
+data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator;IgnoreResting"
+data "StatusGroups" "SG_RemoveOnRespec"
+
+// APOTHEOSIS_AURA30_BUFF: the per-ally benefit granted by the 30ft aura - immunity to Frightened.
+new entry "APOTHEOSIS_AURA30_BUFF"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "hf7b8c9d000000000000000000000029"
+data "Description" "hf7b8c9d10000000000000000000002a"
+data "Icon" "PassiveFeature_AuraOfProtection"
+data "StackId" "APOTHEOSIS_AURA30_BUFF"
+data "Boosts" "StatusImmunity(SG_Frightened)"
+data "StatusPropertyFlags" "DisableCombatlog;DisablePortraitIndicator;IgnoreResting"
+data "StatusGroups" "SG_RemoveOnRespec"
+
+// APOTHEOSIS_SMITE_PROTECTION (Devotion L15 - Smite of Protection): temporary HP gained when the
+// paladin deals Radiant damage with a weapon attack (Divine Smite). Refreshed via StackType Overwrite.
+new entry "APOTHEOSIS_SMITE_PROTECTION"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "he4a5b6c7c00000000000000000000c3"
+data "Description" "he4a5b6c8c00000000000000000000c4"
+data "Icon" "PassiveFeature_HealingRadiance"
+data "StackId" "APOTHEOSIS_SMITE_PROTECTION"
+data "StackType" "Overwrite"
+data "Boosts" "TemporaryHP(10)"
+data "StatusPropertyFlags" "IgnoreResting"
+data "StatusGroups" "SG_RemoveOnRespec"
+
+// HOLY_NIMBUS (Devotion L20): the self ward applied by Shout_Apotheosis_HolyNimbus - radiant
+// immunity and advantage on Wisdom saves for the duration.
+new entry "HOLY_NIMBUS"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "hf5b6c7d8c00000000000000000000c5"
+data "Description" "hf5b6c7d9c00000000000000000000c6"
+data "Icon" "PassiveFeature_SacredWeapon"
+data "StackId" "HOLY_NIMBUS"
+data "Boosts" "Resistance(Radiant,Immune);Advantage(SavingThrow,Wisdom)"
+data "StatusPropertyFlags" "IgnoreResting"
+data "StatusGroups" "SG_RemoveOnRespec"
+
+// UNDYING_SENTINEL (Ancients L15): always-on survival enabler. Its DownedStatus boost redirects
+// being reduced to 0 HP into UNDYING_SENTINEL_DOWNED. Reapplied each Long Rest (once per rest).
+new entry "UNDYING_SENTINEL"
+type "StatusData"
+data "StatusType" "BOOST"
+using "SURVIVAL_INSTINCT"
+data "DisplayName" "hc8e9f0a1c00000000000000000000cb"
+data "Description" "hc8e9f0a2c00000000000000000000cc"
+data "Icon" "PassiveFeature_Generic_Physical"
+data "StackId" "UNDYING_SENTINEL"
+data "Boosts" "DownedStatus(UNDYING_SENTINEL_DOWNED,5)"
+data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator;ApplyToDead;IgnoreResting"
+data "StatusGroups" "SG_RemoveOnRespec"
+
+// UNDYING_SENTINEL_DOWNED: custom downed state - consumes the enabler and guarantees survival at 1 HP.
+new entry "UNDYING_SENTINEL_DOWNED"
+type "StatusData"
+data "StatusType" "DOWNED"
+using "RELENTLESS_ENDURANCE_DOWNED"
+data "DisplayName" "hc8e9f0a1c00000000000000000000cb"
+data "Icon" "PassiveFeature_Generic_Physical"
+data "OnApplyFunctors" "RemoveStatus(UNDYING_SENTINEL);RegainHitPoints(1,Guaranteed)"
+data "StatusGroups" "SG_Incapacitated"
+
+// ELDER_CHAMPION (Ancients L20): avatar-of-nature transformation - damage resistance, fear immunity,
+// and advantage on attack rolls for the duration.
+new entry "ELDER_CHAMPION"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "hd9f0a1b2c00000000000000000000cd"
+data "Description" "hd9f0a1b3c00000000000000000000ce"
+data "Icon" "PassiveFeature_HealingRadiance"
+data "StackId" "ELDER_CHAMPION"
+data "Boosts" "Resistance(Bludgeoning,Resistant);Resistance(Slashing,Resistant);Resistance(Piercing,Resistant);StatusImmunity(SG_Frightened);Advantage(AttackRoll)"
+data "StatusPropertyFlags" "IgnoreResting"
+data "StatusGroups" "SG_RemoveOnRespec"
+
+// MONK_SUPERIOR_DEFENSE (Monk L18 - Superior Defense): Ki-fueled ward granting resistance to every
+// damage type except Force for the duration.
+new entry "MONK_SUPERIOR_DEFENSE"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "he0a1b2c30000000000000000000001b"
+data "Description" "he0a1b2c40000000000000000000001c"
+data "Icon" "PassiveFeature_PatientDefense"
+data "StackId" "MONK_SUPERIOR_DEFENSE"
+data "Boosts" "Resistance(Bludgeoning,Resistant);Resistance(Slashing,Resistant);Resistance(Piercing,Resistant);Resistance(Fire,Resistant);Resistance(Cold,Resistant);Resistance(Lightning,Resistant);Resistance(Thunder,Resistant);Resistance(Acid,Resistant);Resistance(Poison,Resistant);Resistance(Necrotic,Resistant);Resistance(Radiant,Resistant);Resistance(Psychic,Resistant)"
+data "StatusPropertyFlags" "IgnoreResting"
+data "StatusGroups" "SG_RemoveOnRespec"
+
+// ====== FIGHTER 13-20 STATUSES ======
+
+// Champion Survivor (L18): permanent self-buff; regain 5 HP at the start of each turn in combat.
+new entry "CHAMPION_SURVIVOR"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "hc4e5f6a7a000000000000000000005f"
+data "Description" "hc4e5f6a8a0000000000000000000060"
+data "Icon" "PassiveFeature_SecondWind"
+data "StackId" "CHAMPION_SURVIVOR"
+data "TickType" "StartTurn"
+data "TickFunctors" "RegainHitPoints(5)"
+data "StatusPropertyFlags" "IgnoreResting;DisableOverhead"
+data "StatusGroups" "SG_RemoveOnRespec"
+
+// Inspiring Surge buff (Banneret L18): Advantage on attacks + temporary HP.
+new entry "INSPIRING_SURGE_BUFF"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "ha8c9d0e1a0000000000000000000067"
+data "Description" "ha8c9d0e2a0000000000000000000068"
+data "Icon" "PassiveFeature_RallyingCry"
+data "StackId" "INSPIRING_SURGE_BUFF"
+data "Boosts" "Advantage(AttackRoll);TemporaryHP(10)"
+data "StatusGroups" "SG_RemoveOnRespec"
+
+// ====== DRUID 13-20 STATUSES ======
+
+// Nature's Sanctuary (Circle of the Land L14): permanent self-buff; beasts and plants
+// have Disadvantage on attack rolls against the druid.
+new entry "NATURES_SANCTUARY"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "hc6e7f8a9b00000000000000000000b3"
+data "Description" "hc6e7f8aab00000000000000000000b4"
+data "Icon" "PassiveFeature_NaturalRecovery"
+data "StackId" "NATURES_SANCTUARY"
+data "Boosts" "IF(Tagged('BEAST',context.Source) or Tagged('PLANT',context.Source)):Disadvantage(AttackTarget)"
+data "StatusPropertyFlags" "IgnoreResting"
+data "StatusGroups" "SG_RemoveOnRespec"
+
+// Oceanic Gift buff (Circle of the Sea L14): resistance to Fire and Cold + temporary HP.
+new entry "OCEANIC_GIFT"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "he8a9b0c1b00000000000000000000b7"
+data "Description" "he8a9b0c2b00000000000000000000b8"
+data "Icon" "Spell_Abjuration_ProtectionFromEnergy"
+data "StackId" "OCEANIC_GIFT"
+data "Boosts" "Resistance(Fire,Resistant);Resistance(Cold,Resistant);TemporaryHP(10)"
+data "StatusGroups" "SG_RemoveOnRespec"
+
+// Starry Form (Circle of Stars L14): partially incorporeal; resistance to B/P/S.
+new entry "STARRY_FORM_APOTHEOSIS"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "hf9b0c1d2b00000000000000000000b9"
+data "Description" "hf9b0c1d3b00000000000000000000ba"
+data "Icon" "Spell_Evocation_StarryWisp"
+data "StackId" "STARRY_FORM_APOTHEOSIS"
+data "Boosts" "Resistance(Bludgeoning,Resistant);Resistance(Piercing,Resistant);Resistance(Slashing,Resistant)"
+data "StatusGroups" "SG_RemoveOnRespec"
+
+// ====== CLERIC 13-20 STATUSES ======
+
+// Improved Duplicity (Trickery Domain L17): illusory duplicates grant Advantage on your
+// attacks and impose Disadvantage on attacks made against you.
+new entry "IMPROVED_DUPLICITY"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "ha4c5d6e7b00000000000000000000af"
+data "Description" "ha4c5d6e8b00000000000000000000b0"
+data "Icon" "PassiveFeature_BlessingOfTheTrickster"
+data "StackId" "IMPROVED_DUPLICITY"
+data "StackType" "Overwrite"
+data "Boosts" "Advantage(AttackRoll);Disadvantage(AttackTarget)"
+data "StatusPropertyFlags" "DisableOverhead"

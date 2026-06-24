@@ -342,3 +342,76 @@ Ext.Osiris.RegisterListener("AttackedBy", 7, "after", function(defender, attacke
         Ext.Utils.PrintError("[Apotheosis] Elemental Rebuke error: " .. tostring(err))
     end
 end)
+
+-- =====================================================================
+-- Druid feature "Beast Spells" (PHB 2024, level 18) - LIMITED adaptation.
+--
+-- The literal feature ("cast your druid spells while in Wild Shape") can't be
+-- expressed in Stats data: a shapeshifted druid is polymorphed into a beast
+-- that owns no spellbook and no spell slots. As a pragmatic stand-in we grant a
+-- curated set of SUPPORT spells (offense is already covered by the beast's own
+-- attacks) plus a small pool of temporary spell slots to fuel them, whenever a
+-- druid that owns the marker passive Druid_BeastSpells enters Wild Shape, and
+-- strip everything again on revert.
+--
+-- WILDSHAPE_TECHNICAL is the engine's own marker status and lives on the SAME
+-- entity GUID while shapeshifted, so StatusApplied / StatusRemoved give clean
+-- transform / revert hooks. The engine restores the druid's pre-transform
+-- resources on revert, so the temporary slots never leak into normal play; we
+-- still revoke our grants explicitly for safety and to cover partial reverts.
+-- =====================================================================
+
+local BEAST_SPELLS_PASSIVE = "Druid_BeastSpells"
+local BEAST_SPELLS_MARK    = "WILDSHAPE_TECHNICAL"
+
+-- Curated support spells granted while in beast form.
+local BEAST_SPELLS_GRANTED = {
+    "Target_HealingWord",
+    "Target_CureWounds",
+    "Target_LesserRestoration",
+    "Target_FaerieFire",
+    "Target_Moonbeam",
+}
+
+-- Temporary slots to fuel the curated list: 2x level 1, 1x level 2.
+local BEAST_SPELLS_SLOTS = "ActionResource(SpellSlot,2,1);ActionResource(SpellSlot,1,2)"
+
+-- beastSpellsActive[charGuid] = true while spells/slots are granted to it.
+local beastSpellsActive = {}
+
+local function beastSpellsGrant(character)
+    if beastSpellsActive[character] then return end -- already granted; don't stack
+    if Osi.HasPassive(character, BEAST_SPELLS_PASSIVE) ~= 1 then return end
+    for _, spell in ipairs(BEAST_SPELLS_GRANTED) do
+        Osi.AddSpell(character, spell, 0, 0)
+    end
+    -- AddBoosts(object, boosts, sourceType, cause); cause/source = the marker status.
+    Osi.AddBoosts(character, BEAST_SPELLS_SLOTS, BEAST_SPELLS_MARK, character)
+    beastSpellsActive[character] = true
+end
+
+local function beastSpellsRevoke(character)
+    if not beastSpellsActive[character] then return end
+    for _, spell in ipairs(BEAST_SPELLS_GRANTED) do
+        Osi.RemoveSpell(character, spell, 0)
+    end
+    -- RemoveBoosts(object, boosts, removeAll, sourceType, cause).
+    Osi.RemoveBoosts(character, BEAST_SPELLS_SLOTS, 0, BEAST_SPELLS_MARK, character)
+    beastSpellsActive[character] = nil
+end
+
+Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function(object, status, _, _)
+    if status ~= BEAST_SPELLS_MARK then return end
+    local ok, err = pcall(beastSpellsGrant, object)
+    if not ok then
+        Ext.Utils.PrintError("[Apotheosis] Beast Spells (grant) error: " .. tostring(err))
+    end
+end)
+
+Ext.Osiris.RegisterListener("StatusRemoved", 4, "after", function(object, status, _, _)
+    if status ~= BEAST_SPELLS_MARK then return end
+    local ok, err = pcall(beastSpellsRevoke, object)
+    if not ok then
+        Ext.Utils.PrintError("[Apotheosis] Beast Spells (revoke) error: " .. tostring(err))
+    end
+end)
