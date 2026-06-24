@@ -1,6 +1,37 @@
 -- =====================================================================
 -- Path to Apotheosis - Server bootstrap (Script Extender)
 -- =====================================================================
+
+-- =====================================================================
+-- Centralised logging  (see CLAUDE.md "In-game debug feedback loop").
+-- Output goes to the SE console (CreateConsole) AND the SE log file
+-- (EnableLogging -> %LOCALAPPDATA%\...\Extender Logs\). Every line is
+-- tagged [Apotheosis] so it is greppable in the log. Flip Apotheosis.DEBUG
+-- to false to silence the verbose Debug() traces.
+-- =====================================================================
+local TAG = "[Apotheosis]"
+Apotheosis = Apotheosis or {}
+Apotheosis.DEBUG = true
+
+local Log = {}
+function Log.Info(...)  Ext.Utils.Print(TAG, ...) end
+function Log.Warn(...)  Ext.Utils.PrintWarning(TAG, ...) end
+function Log.Error(...) Ext.Utils.PrintError(TAG, ...) end
+function Log.Debug(...) if Apotheosis.DEBUG then Ext.Utils.Print(TAG, "[dbg]", ...) end end
+Apotheosis.Log = Log
+
+Log.Info("BootstrapServer.lua loading - server context")
+
+-- Heartbeat: confirm the mod actually reached a running session. If this line
+-- never prints to the console, the mod is not being loaded (check deployment).
+Ext.Events.SessionLoaded:Subscribe(function()
+    local ok, err = pcall(function()
+        Log.Info("SessionLoaded - Apotheosis server scripts active")
+    end)
+    if not ok then Log.Error("SessionLoaded heartbeat error: " .. tostring(err)) end
+end)
+
+-- =====================================================================
 -- Diviner feature "Greater Portent" (PHB 2024, Wizard subclass, level 14):
 -- you roll a THIRD Portent d20 each long rest (the base feature rolls two).
 --
