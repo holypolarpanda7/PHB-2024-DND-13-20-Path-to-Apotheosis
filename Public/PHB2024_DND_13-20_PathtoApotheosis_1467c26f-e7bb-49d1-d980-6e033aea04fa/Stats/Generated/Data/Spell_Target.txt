@@ -604,3 +604,29 @@ data "VerbalIntent" "Healing"
 data "SpellFlags" "HasVerbalComponent;IsSpell"
 data "MemoryCost" "1"
 data "VocalComponentSound" "Vocal_Component_Healing"
+
+// ==============================================================================
+// ARTIFICER - Alchemist: Chemical Mastery (Level 15)
+// PHB: gain Acid/Poison resistance and cast Greater Restoration & Heal at will.
+// Adapted as a free (no slot), OncePerLongRest restorative: restore a creature to
+// full HP and cleanse Poison/Disease/Curse/Charm/Fear. Resistances granted on the
+// passive; this spell granted via UnlockSpell on Alchemist_15_ChemicalMastery.
+// ==============================================================================
+new entry "Target_Apotheosis_ChemicalMastery"
+type "SpellData"
+data "SpellType" "Target"
+data "Level" "0"
+data "SpellSchool" "Transmutation"
+data "TargetRadius" "18"
+data "TargetConditions" "Character() and not Dead()"
+data "SpellProperties" "RegainHitPoints(MaxHP);RemoveStatus(SG_Poisoned);RemoveStatus(SG_Disease);RemoveStatus(SG_Cursed);RemoveStatus(SG_Charmed);RemoveStatus(SG_Frightened)"
+data "Icon" "Spell_Abjuration_GreaterRestoration"
+data "DisplayName" "hartchem000000000000000000000001"
+data "Description" "hartchem000000000000000000000002"
+data "TooltipDamageList" "RegainHitPoints(MaxHP)"
+data "CastTextEvent" "Cast"
+data "UseCosts" "ActionPoint:1"
+data "Cooldown" "OncePerLongRest"
+data "VerbalIntent" "Healing"
+data "SpellFlags" "HasVerbalComponent;HasSomaticComponent;IsSpell"
+data "MemoryCost" "1"
