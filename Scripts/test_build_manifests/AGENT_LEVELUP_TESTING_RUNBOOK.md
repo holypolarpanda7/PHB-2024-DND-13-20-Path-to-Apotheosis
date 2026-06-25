@@ -8,6 +8,16 @@ run level 13-20 Apotheosis validation against realistic level-up choices.
 Produce reproducible, reviewable test inputs from PartyEditor and then run
 smoke checks against those inputs.
 
+## Runtime policy (locked)
+
+- Test session starts from a fresh game/load.
+- Developer chooses one wizard subclass command at a time.
+- Validation mode is strict.
+- Failure behavior is stop-on-first-failure.
+- Inferred manifests are allowed, but manifest-related failures are hard
+  failures and stop immediately.
+- Output channel is Script Extender console logs only.
+
 ## Step 1: Refresh subclass manifests
 
 From repo root:
@@ -81,10 +91,22 @@ This packs/deploys and ensures modsettings contains the Apotheosis UUID.
 In Script Extender console (`server` context), run:
 
 ```lua
-Apotheosis.Smoke.Wizard.RunSweep(12,20)
+-- planned interface (to be implemented):
+Apotheosis.Smoke.Wizard.RunManifest("EvocationSchool")
 ```
 
-Record pass/fail details per tested subclass build.
+Expected operator flow:
+
+1. Load fresh game.
+2. Run one subclass command.
+3. Review strict PASS/FAIL console output.
+4. Fix first failure before running the next subclass.
+
+Notes on in-game visuals:
+
+- The engine can reflect level state changes on the character UI, but this path
+  does not drive the native level-up choice UI pipeline automatically.
+- Validation remains manifest-vs-runtime-state, not UI-click replay.
 
 ## Step 6: Report format the agent should return
 
@@ -96,6 +118,7 @@ The agent response must include:
 4. Whether pack/deploy readiness checks passed
 5. Smoke test outcome summary, including failing checks by name
 6. Expectation matrix summary (wizard base entries + subclass entry counts)
+7. First-failure stop point (subclass, level, check name)
 
 ## Notes
 

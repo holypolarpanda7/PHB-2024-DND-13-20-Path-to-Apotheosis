@@ -69,6 +69,16 @@ Current bulk-scan coverage:
 - Provide a source artifact for future save stamping or authored test-build
   generation.
 
+## Runtime execution policy
+
+- Use fresh game/load for each focused validation run.
+- Run one subclass command at a time.
+- Enforce strict expectation checks.
+- Stop on first failure (do not continue and compound issues).
+- Inferred manifests are allowed, but inferred-manifest failures are treated as
+  hard failures.
+- Use Script Extender console output only.
+
 ## Current seed manifest
 
 - `gale_level12_wizard.json`: Larian-authored Gale wizard build extracted from
@@ -90,3 +100,7 @@ practical use is:
 3. use that manifest as the truth source for future test-character creation
    or save stamping
 4. run Script Extender smoke checks against the resulting in-game build
+
+In practice, this means you can validate level-state outcomes in game (and see
+resulting character level state reflected by the engine UI), but you are not
+replaying native level-up UI decisions click-by-click.

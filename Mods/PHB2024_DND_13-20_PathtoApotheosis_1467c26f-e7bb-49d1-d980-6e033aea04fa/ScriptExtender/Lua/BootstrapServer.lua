@@ -855,10 +855,141 @@ function Smoke.Wizard.RunSweep(startLevel, endLevel)
     end
 end
 
+-- =====================================================================
+-- Manifest-driven validator: Apotheosis.Smoke.Wizard.RunManifest("SubclassName")
+--
+-- Policy (locked):
+--   - One subclass per command invocation; run from a fresh game/load.
+--   - STRICT: every expected passive must be present at the expected level.
+--   - STOP ON FIRST FAILURE; do not continue and compound issues.
+--   - Inferred manifests are fully allowed but flagged in console output;
+--     inferred-manifest failures are still hard stops.
+--   - Console-only output; no result files written at runtime.
+--
+-- Usage:
+--   Apotheosis.Smoke.Wizard.RunManifest("EvocationSchool")
+--   Apotheosis.Smoke.Wizard.RunManifest("BladesingingSchool")
+-- =====================================================================
+
+local WME = require("WizardManifestExpectations")
+
+--- Run the manifest-driven strict validator for a single wizard subclass.
+--- @param subclassName  string   e.g. "EvocationSchool"
+function Smoke.Wizard.RunManifest(subclassName)
+    local ok, err = pcall(function()
+        if smokeState.running then
+            error("Smoke run already in progress - wait for it to complete or restart the game")
+        end
+
+        -- ---- pre-flight: locate subclass data ----------------------------
+        local subData = WME.subclasses[subclassName]
+        if not subData then
+            local available = {}
+            for k in pairs(WME.subclasses) do
+                available[#available + 1] = k
+            end
+            table.sort(available)
+            error(
+                "Unknown subclass '" .. tostring(subclassName) ..
+                "'.  Available: " .. table.concat(available, ", ")
+            )
+        end
+
+        -- ---- announce run ------------------------------------------------
+        local kind = subData.manifest_kind or "unknown"
+        if kind == "inferred" then
+            Log.Warn("RunManifest: " .. subclassName .. " [INFERRED manifest - failures are hard stops]")
+        else
+            Log.Info("RunManifest: " .. subclassName .. " [canonical manifest]")
+        end
+
+        local host = smokeGetHost()
+        Log.Info("RunManifest host = " .. tostring(host))
+        smokeDescribeBuild(host)
+
+        smokeState.running = true
+
+        -- ---- level sequence 13 -> 20, strict stop-on-first-failure ------
+        local failed = false
+        local failInfo = nil
+
+        local function checkPassive(level, passive, kind_label)
+            if failed then return end
+            if smokeHasPassive(host, passive) then
+                Log.Info("  PASS L" .. level .. " [" .. kind_label .. "] HasPassive(" .. passive .. ")")
+            else
+                failed  = true
+                failInfo = "L" .. level .. " [" .. kind_label .. "] missing passive: " .. passive
+                Log.Error("  FAIL " .. failInfo)
+                Log.Error("  STOPPING: fix '" .. passive .. "' before continuing")
+            end
+        end
+
+        local function validateLevel(level)
+            if failed then return end
+
+            local entry = subData.levels[level]
+            if not entry then
+                Log.Warn("  RunManifest L" .. level .. ": no entry in expectation table - skipping")
+                return
+            end
+
+            -- base wizard grants
+            for _, passive in ipairs(entry.base_passives or {}) do
+                checkPassive(level, passive, "wizard-base")
+                if failed then return end
+            end
+
+            -- subclass grants
+            for _, passive in ipairs(entry.subclass_passives or {}) do
+                checkPassive(level, passive, subclassName)
+                if failed then return end
+            end
+        end
+
+        local function step(level)
+            if level > 20 or failed then
+                -- ---- final summary --------------------------------------
+                if failed then
+                    Log.Error("RunManifest " .. subclassName .. ": FAILED at " .. (failInfo or "?"))
+                else
+                    Log.Info("RunManifest " .. subclassName .. ": ALL CHECKS PASSED (L13-L20)")
+                end
+                smokeState.running = false
+                return
+            end
+
+            Log.Info("RunManifest: setting level " .. level)
+            smokeSetLevel(host, level)
+
+            Ext.Timer.WaitFor(Smoke.LEVEL_SETTLE_MS, function()
+                smokeRestore(host)
+                Ext.Timer.WaitFor(Smoke.POST_RESTORE_SETTLE_MS, function()
+                    Log.Info("RunManifest: checking level " .. level)
+                    validateLevel(level)
+                    step(level + 1)
+                end)
+            end)
+        end
+
+        step(13)
+    end)
+
+    if not ok then
+        smokeState.running = false
+        Log.Error("RunManifest error: " .. tostring(err))
+    end
+end
+
 function Smoke.Wizard.Help()
     Log.Info("Wizard smoke commands:")
     Log.Info("  Apotheosis.Smoke.Wizard.RunSweep()")
     Log.Info("  Apotheosis.Smoke.Wizard.RunSweep(12, 20)")
+    Log.Info("  Apotheosis.Smoke.Wizard.RunManifest('EvocationSchool')")
+    Log.Info("  Apotheosis.Smoke.Wizard.RunManifest('AbjurationSchool')")
+    Log.Info("  Apotheosis.Smoke.Wizard.RunManifest('DivinationSchool')")
+    Log.Info("  Apotheosis.Smoke.Wizard.RunManifest('IllusionSchool')")
+    Log.Info("  Apotheosis.Smoke.Wizard.RunManifest('BladesingingSchool')  [inferred]")
     Log.Info("  timing: " .. tostring(Smoke.LEVEL_SETTLE_MS) .. "ms after SetLevel, " .. tostring(Smoke.POST_RESTORE_SETTLE_MS) .. "ms after restore")
 end
 
@@ -870,6 +1001,7 @@ function Smoke.Help()
     Log.Info("  Apotheosis.Smoke.RunLevelSweep(12, 20)")
     Log.Info("  Apotheosis.Smoke.Wizard.Help()")
     Log.Info("  Apotheosis.Smoke.Wizard.RunSweep()")
+    Log.Info("  Apotheosis.Smoke.Wizard.RunManifest('SubclassName')")
 end
 
 Ext.Events.SessionLoaded:Subscribe(function()
