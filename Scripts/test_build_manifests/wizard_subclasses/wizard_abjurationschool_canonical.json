@@ -1,0 +1,798 @@
+{
+  "source_file": "D:\\BG3Modding\\Mod_Projects\\BaseGame\\Gustav\\Mods\\GustavDev\\Story\\PartyEditor\\Level9_Wizard_Druid_Fighter_Druid.lsx",
+  "preset_index": 4,
+  "character_name": "Swen",
+  "character_uuid": "",
+  "level_tag": "TUT_Avernus_C",
+  "total_experience": 45000,
+  "basics": {
+    "origin_guid": "a4b56492-d5ac-4a84-8e45-5437cd9da7f3",
+    "background_guid": "8807a6c6-d8cf-494b-aec2-cc01d7517a56",
+    "race_guid": "78cd3bcc-1c43-4a2a-aa80-c34322c16a04",
+    "subrace_guid": "a8828cb9-589d-489e-8373-6495eb31ffc1"
+  },
+  "level_ups": [
+    {
+      "level": 1,
+      "class_guid": "a865965f-501b-46e9-9eaa-7748e8c04d09",
+      "subclass_guid": "00000000-0000-0000-0000-000000000000",
+      "feat_guid": "00000000-0000-0000-0000-000000000000",
+      "ability_improvements": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "prepared_spells": [
+        {
+          "spell": "Target_Grease",
+          "progression_source": "a865965f-501b-46e9-9eaa-7748e8c04d09",
+          "source_type": 0
+        },
+        {
+          "spell": "Target_MageArmor",
+          "progression_source": "a865965f-501b-46e9-9eaa-7748e8c04d09",
+          "source_type": 0
+        },
+        {
+          "spell": "Target_Sleep",
+          "progression_source": "a865965f-501b-46e9-9eaa-7748e8c04d09",
+          "source_type": 0
+        },
+        {
+          "spell": "Projectile_MagicMissile",
+          "progression_source": "a865965f-501b-46e9-9eaa-7748e8c04d09",
+          "source_type": 0
+        }
+      ],
+      "selectors": {
+        "AbilityBonusSelectors": [
+          {
+            "node_id": "AbilityBonusSelector",
+            "definition_index": 0,
+            "list_uuid": "b9149c8e-52c8-46e5-9cb6-fc39301c05fe",
+            "selector_id": "AbilityBonus",
+            "level": 1,
+            "owner_uuid": "a865965f-501b-46e9-9eaa-7748e8c04d09",
+            "parent_owner_uuid": "00000000-0000-0000-0000-000000000000",
+            "is_multiclass": false,
+            "slots": [
+              4,
+              3
+            ],
+            "slot_bonus_values": [
+              2,
+              1
+            ]
+          }
+        ],
+        "SkillSelectors": [
+          {
+            "node_id": "SkillSelector",
+            "definition_index": 0,
+            "list_uuid": "9f3a9f8d-f645-40b5-b36f-fb079b7b805e",
+            "selector_id": "",
+            "level": 1,
+            "owner_uuid": "a865965f-501b-46e9-9eaa-7748e8c04d09",
+            "parent_owner_uuid": "00000000-0000-0000-0000-000000000000",
+            "is_multiclass": false,
+            "slots": [
+              14,
+              9
+            ]
+          }
+        ],
+        "SpellSelectors": [
+          {
+            "node_id": "SpellSelector",
+            "definition_index": 0,
+            "list_uuid": "3cae2e56-9871-4cef-bba6-96845ea765fa",
+            "selector_id": "",
+            "addition_slots": [
+              "Projectile_FireBolt",
+              "Target_MageHand",
+              "Projectile_RayOfFrost"
+            ],
+            "replacement_slots": []
+          },
+          {
+            "node_id": "SpellSelector",
+            "definition_index": 1,
+            "list_uuid": "11f331b0-e8b7-473b-9d1f-19e8e4178d7d",
+            "selector_id": "",
+            "addition_slots": [
+              "Target_MageArmor",
+              "Target_FogCloud",
+              "Target_Grease",
+              "Zone_Thunderwave",
+              "Target_Sleep",
+              "Projectile_MagicMissile"
+            ],
+            "replacement_slots": []
+          }
+        ]
+      },
+      "class_name": "Wizard"
+    },
+    {
+      "level": 2,
+      "class_guid": "a865965f-501b-46e9-9eaa-7748e8c04d09",
+      "subclass_guid": "e6a0eb75-7a01-4f40-8563-24ba2615e99b",
+      "feat_guid": "00000000-0000-0000-0000-000000000000",
+      "ability_improvements": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "prepared_spells": [
+        {
+          "spell": "Projectile_ChromaticOrb",
+          "progression_source": "e6a0eb75-7a01-4f40-8563-24ba2615e99b",
+          "source_type": 1
+        },
+        {
+          "spell": "Target_MageArmor",
+          "progression_source": "a865965f-501b-46e9-9eaa-7748e8c04d09",
+          "source_type": 0
+        },
+        {
+          "spell": "Zone_Thunderwave",
+          "progression_source": "a865965f-501b-46e9-9eaa-7748e8c04d09",
+          "source_type": 0
+        },
+        {
+          "spell": "Projectile_MagicMissile",
+          "progression_source": "a865965f-501b-46e9-9eaa-7748e8c04d09",
+          "source_type": 0
+        },
+        {
+          "spell": "Shout_Shield_Wizard",
+          "progression_source": "e6a0eb75-7a01-4f40-8563-24ba2615e99b",
+          "source_type": 1
+        }
+      ],
+      "selectors": {
+        "SpellSelectors": [
+          {
+            "node_id": "SpellSelector",
+            "definition_index": 0,
+            "list_uuid": "11f331b0-e8b7-473b-9d1f-19e8e4178d7d",
+            "selector_id": "",
+            "addition_slots": [
+              "Shout_Shield_Wizard",
+              "Projectile_ChromaticOrb"
+            ],
+            "replacement_slots": []
+          }
+        ]
+      },
+      "class_name": "Wizard",
+      "subclass_name": "AbjurationSchool"
+    },
+    {
+      "level": 3,
+      "class_guid": "a865965f-501b-46e9-9eaa-7748e8c04d09",
+      "subclass_guid": "00000000-0000-0000-0000-000000000000",
+      "feat_guid": "00000000-0000-0000-0000-000000000000",
+      "ability_improvements": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "prepared_spells": [
+        {
+          "spell": "Projectile_ChromaticOrb",
+          "progression_source": "e6a0eb75-7a01-4f40-8563-24ba2615e99b",
+          "source_type": 1
+        },
+        {
+          "spell": "Target_MageArmor",
+          "progression_source": "a865965f-501b-46e9-9eaa-7748e8c04d09",
+          "source_type": 0
+        },
+        {
+          "spell": "Zone_Thunderwave",
+          "progression_source": "a865965f-501b-46e9-9eaa-7748e8c04d09",
+          "source_type": 0
+        },
+        {
+          "spell": "Projectile_MagicMissile",
+          "progression_source": "a865965f-501b-46e9-9eaa-7748e8c04d09",
+          "source_type": 0
+        },
+        {
+          "spell": "Shout_Shield_Wizard",
+          "progression_source": "e6a0eb75-7a01-4f40-8563-24ba2615e99b",
+          "source_type": 1
+        },
+        {
+          "spell": "Shout_Blur",
+          "progression_source": "e6a0eb75-7a01-4f40-8563-24ba2615e99b",
+          "source_type": 1
+        }
+      ],
+      "selectors": {
+        "SpellSelectors": [
+          {
+            "node_id": "SpellSelector",
+            "definition_index": 0,
+            "list_uuid": "80c6b070-c3a6-4864-84ca-e78626784eb4",
+            "selector_id": "",
+            "addition_slots": [
+              "Shout_Blur",
+              "Target_Darkness"
+            ],
+            "replacement_slots": []
+          }
+        ]
+      },
+      "class_name": "Wizard"
+    },
+    {
+      "level": 4,
+      "class_guid": "a865965f-501b-46e9-9eaa-7748e8c04d09",
+      "subclass_guid": "00000000-0000-0000-0000-000000000000",
+      "feat_guid": "d215b9ad-9753-4d74-8ff9-24bf1dce53d6",
+      "ability_improvements": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "prepared_spells": [
+        {
+          "spell": "Projectile_ChromaticOrb",
+          "progression_source": "e6a0eb75-7a01-4f40-8563-24ba2615e99b",
+          "source_type": 1
+        },
+        {
+          "spell": "Target_MageArmor",
+          "progression_source": "a865965f-501b-46e9-9eaa-7748e8c04d09",
+          "source_type": 0
+        },
+        {
+          "spell": "Zone_Thunderwave",
+          "progression_source": "a865965f-501b-46e9-9eaa-7748e8c04d09",
+          "source_type": 0
+        },
+        {
+          "spell": "Projectile_MagicMissile",
+          "progression_source": "a865965f-501b-46e9-9eaa-7748e8c04d09",
+          "source_type": 0
+        },
+        {
+          "spell": "Shout_Shield_Wizard",
+          "progression_source": "e6a0eb75-7a01-4f40-8563-24ba2615e99b",
+          "source_type": 1
+        },
+        {
+          "spell": "Shout_Blur",
+          "progression_source": "e6a0eb75-7a01-4f40-8563-24ba2615e99b",
+          "source_type": 1
+        },
+        {
+          "spell": "Target_MistyStep",
+          "progression_source": "e6a0eb75-7a01-4f40-8563-24ba2615e99b",
+          "source_type": 1
+        }
+      ],
+      "selectors": {
+        "AbilitySelectors": [
+          {
+            "node_id": "AbilitySelector",
+            "definition_index": 0,
+            "list_uuid": "b9149c8e-52c8-46e5-9cb6-fc39301c05fe",
+            "selector_id": "FeatASI",
+            "level": 4,
+            "owner_uuid": "d215b9ad-9753-4d74-8ff9-24bf1dce53d6",
+            "parent_owner_uuid": "a865965f-501b-46e9-9eaa-7748e8c04d09",
+            "is_multiclass": false,
+            "slots": [
+              3,
+              4
+            ]
+          }
+        ],
+        "SpellSelectors": [
+          {
+            "node_id": "SpellSelector",
+            "definition_index": 0,
+            "list_uuid": "3cae2e56-9871-4cef-bba6-96845ea765fa",
+            "selector_id": "",
+            "addition_slots": [
+              "Target_ShockingGrasp"
+            ],
+            "replacement_slots": []
+          },
+          {
+            "node_id": "SpellSelector",
+            "definition_index": 1,
+            "list_uuid": "80c6b070-c3a6-4864-84ca-e78626784eb4",
+            "selector_id": "",
+            "addition_slots": [
+              "Target_MistyStep",
+              "Target_Invisibility"
+            ],
+            "replacement_slots": []
+          }
+        ]
+      },
+      "class_name": "Wizard"
+    },
+    {
+      "level": 5,
+      "class_guid": "a865965f-501b-46e9-9eaa-7748e8c04d09",
+      "subclass_guid": "00000000-0000-0000-0000-000000000000",
+      "feat_guid": "00000000-0000-0000-0000-000000000000",
+      "ability_improvements": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "prepared_spells": [
+        {
+          "spell": "Projectile_ChromaticOrb",
+          "progression_source": "e6a0eb75-7a01-4f40-8563-24ba2615e99b",
+          "source_type": 1
+        },
+        {
+          "spell": "Target_MageArmor",
+          "progression_source": "a865965f-501b-46e9-9eaa-7748e8c04d09",
+          "source_type": 0
+        },
+        {
+          "spell": "Zone_Thunderwave",
+          "progression_source": "a865965f-501b-46e9-9eaa-7748e8c04d09",
+          "source_type": 0
+        },
+        {
+          "spell": "Projectile_MagicMissile",
+          "progression_source": "a865965f-501b-46e9-9eaa-7748e8c04d09",
+          "source_type": 0
+        },
+        {
+          "spell": "Shout_Shield_Wizard",
+          "progression_source": "e6a0eb75-7a01-4f40-8563-24ba2615e99b",
+          "source_type": 1
+        },
+        {
+          "spell": "Shout_Blur",
+          "progression_source": "e6a0eb75-7a01-4f40-8563-24ba2615e99b",
+          "source_type": 1
+        },
+        {
+          "spell": "Target_MistyStep",
+          "progression_source": "e6a0eb75-7a01-4f40-8563-24ba2615e99b",
+          "source_type": 1
+        },
+        {
+          "spell": "Projectile_Fireball",
+          "progression_source": "e6a0eb75-7a01-4f40-8563-24ba2615e99b",
+          "source_type": 1
+        },
+        {
+          "spell": "Zone_LightningBolt",
+          "progression_source": "e6a0eb75-7a01-4f40-8563-24ba2615e99b",
+          "source_type": 1
+        }
+      ],
+      "selectors": {
+        "SpellSelectors": [
+          {
+            "node_id": "SpellSelector",
+            "definition_index": 0,
+            "list_uuid": "22755771-ca11-49f4-b772-13d8b8fecd93",
+            "selector_id": "",
+            "addition_slots": [
+              "Projectile_Fireball",
+              "Zone_LightningBolt"
+            ],
+            "replacement_slots": []
+          }
+        ]
+      },
+      "class_name": "Wizard"
+    },
+    {
+      "level": 6,
+      "class_guid": "a865965f-501b-46e9-9eaa-7748e8c04d09",
+      "subclass_guid": "00000000-0000-0000-0000-000000000000",
+      "feat_guid": "00000000-0000-0000-0000-000000000000",
+      "ability_improvements": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "prepared_spells": [
+        {
+          "spell": "Projectile_ChromaticOrb",
+          "progression_source": "e6a0eb75-7a01-4f40-8563-24ba2615e99b",
+          "source_type": 1
+        },
+        {
+          "spell": "Target_MageArmor",
+          "progression_source": "a865965f-501b-46e9-9eaa-7748e8c04d09",
+          "source_type": 0
+        },
+        {
+          "spell": "Zone_Thunderwave",
+          "progression_source": "a865965f-501b-46e9-9eaa-7748e8c04d09",
+          "source_type": 0
+        },
+        {
+          "spell": "Projectile_MagicMissile",
+          "progression_source": "a865965f-501b-46e9-9eaa-7748e8c04d09",
+          "source_type": 0
+        },
+        {
+          "spell": "Shout_Shield_Wizard",
+          "progression_source": "e6a0eb75-7a01-4f40-8563-24ba2615e99b",
+          "source_type": 1
+        },
+        {
+          "spell": "Shout_Blur",
+          "progression_source": "e6a0eb75-7a01-4f40-8563-24ba2615e99b",
+          "source_type": 1
+        },
+        {
+          "spell": "Target_MistyStep",
+          "progression_source": "e6a0eb75-7a01-4f40-8563-24ba2615e99b",
+          "source_type": 1
+        },
+        {
+          "spell": "Projectile_Fireball",
+          "progression_source": "e6a0eb75-7a01-4f40-8563-24ba2615e99b",
+          "source_type": 1
+        },
+        {
+          "spell": "Zone_LightningBolt",
+          "progression_source": "e6a0eb75-7a01-4f40-8563-24ba2615e99b",
+          "source_type": 1
+        },
+        {
+          "spell": "Target_Darkness",
+          "progression_source": "e6a0eb75-7a01-4f40-8563-24ba2615e99b",
+          "source_type": 1
+        }
+      ],
+      "selectors": {
+        "SpellSelectors": [
+          {
+            "node_id": "SpellSelector",
+            "definition_index": 0,
+            "list_uuid": "22755771-ca11-49f4-b772-13d8b8fecd93",
+            "selector_id": "",
+            "addition_slots": [
+              "Target_Counterspell",
+              "Target_GlyphOfWarding"
+            ],
+            "replacement_slots": []
+          }
+        ]
+      },
+      "class_name": "Wizard"
+    },
+    {
+      "level": 7,
+      "class_guid": "a865965f-501b-46e9-9eaa-7748e8c04d09",
+      "subclass_guid": "00000000-0000-0000-0000-000000000000",
+      "feat_guid": "00000000-0000-0000-0000-000000000000",
+      "ability_improvements": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "prepared_spells": [
+        {
+          "spell": "Projectile_ChromaticOrb",
+          "progression_source": "e6a0eb75-7a01-4f40-8563-24ba2615e99b",
+          "source_type": 1
+        },
+        {
+          "spell": "Target_MageArmor",
+          "progression_source": "a865965f-501b-46e9-9eaa-7748e8c04d09",
+          "source_type": 0
+        },
+        {
+          "spell": "Zone_Thunderwave",
+          "progression_source": "a865965f-501b-46e9-9eaa-7748e8c04d09",
+          "source_type": 0
+        },
+        {
+          "spell": "Projectile_MagicMissile",
+          "progression_source": "a865965f-501b-46e9-9eaa-7748e8c04d09",
+          "source_type": 0
+        },
+        {
+          "spell": "Shout_Shield_Wizard",
+          "progression_source": "e6a0eb75-7a01-4f40-8563-24ba2615e99b",
+          "source_type": 1
+        },
+        {
+          "spell": "Shout_Blur",
+          "progression_source": "e6a0eb75-7a01-4f40-8563-24ba2615e99b",
+          "source_type": 1
+        },
+        {
+          "spell": "Target_MistyStep",
+          "progression_source": "e6a0eb75-7a01-4f40-8563-24ba2615e99b",
+          "source_type": 1
+        },
+        {
+          "spell": "Projectile_Fireball",
+          "progression_source": "e6a0eb75-7a01-4f40-8563-24ba2615e99b",
+          "source_type": 1
+        },
+        {
+          "spell": "Zone_LightningBolt",
+          "progression_source": "e6a0eb75-7a01-4f40-8563-24ba2615e99b",
+          "source_type": 1
+        },
+        {
+          "spell": "Target_Darkness",
+          "progression_source": "e6a0eb75-7a01-4f40-8563-24ba2615e99b",
+          "source_type": 1
+        },
+        {
+          "spell": "Target_Counterspell",
+          "progression_source": "e6a0eb75-7a01-4f40-8563-24ba2615e99b",
+          "source_type": 1
+        }
+      ],
+      "selectors": {
+        "SpellSelectors": [
+          {
+            "node_id": "SpellSelector",
+            "definition_index": 0,
+            "list_uuid": "820b1220-0385-426d-ae15-458dc8a6f5c0",
+            "selector_id": "",
+            "addition_slots": [
+              "Target_ConjureElementals_Minor_Container",
+              "Target_Blight"
+            ],
+            "replacement_slots": []
+          }
+        ]
+      },
+      "class_name": "Wizard"
+    },
+    {
+      "level": 8,
+      "class_guid": "a865965f-501b-46e9-9eaa-7748e8c04d09",
+      "subclass_guid": "00000000-0000-0000-0000-000000000000",
+      "feat_guid": "d215b9ad-9753-4d74-8ff9-24bf1dce53d6",
+      "ability_improvements": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "prepared_spells": [
+        {
+          "spell": "Projectile_ChromaticOrb",
+          "progression_source": "e6a0eb75-7a01-4f40-8563-24ba2615e99b",
+          "source_type": 1
+        },
+        {
+          "spell": "Target_MageArmor",
+          "progression_source": "a865965f-501b-46e9-9eaa-7748e8c04d09",
+          "source_type": 0
+        },
+        {
+          "spell": "Zone_Thunderwave",
+          "progression_source": "a865965f-501b-46e9-9eaa-7748e8c04d09",
+          "source_type": 0
+        },
+        {
+          "spell": "Projectile_MagicMissile",
+          "progression_source": "a865965f-501b-46e9-9eaa-7748e8c04d09",
+          "source_type": 0
+        },
+        {
+          "spell": "Shout_Shield_Wizard",
+          "progression_source": "e6a0eb75-7a01-4f40-8563-24ba2615e99b",
+          "source_type": 1
+        },
+        {
+          "spell": "Shout_Blur",
+          "progression_source": "e6a0eb75-7a01-4f40-8563-24ba2615e99b",
+          "source_type": 1
+        },
+        {
+          "spell": "Target_MistyStep",
+          "progression_source": "e6a0eb75-7a01-4f40-8563-24ba2615e99b",
+          "source_type": 1
+        },
+        {
+          "spell": "Projectile_Fireball",
+          "progression_source": "e6a0eb75-7a01-4f40-8563-24ba2615e99b",
+          "source_type": 1
+        },
+        {
+          "spell": "Zone_LightningBolt",
+          "progression_source": "e6a0eb75-7a01-4f40-8563-24ba2615e99b",
+          "source_type": 1
+        },
+        {
+          "spell": "Target_Darkness",
+          "progression_source": "e6a0eb75-7a01-4f40-8563-24ba2615e99b",
+          "source_type": 1
+        },
+        {
+          "spell": "Target_Counterspell",
+          "progression_source": "e6a0eb75-7a01-4f40-8563-24ba2615e99b",
+          "source_type": 1
+        },
+        {
+          "spell": "Target_ConjureElementals_Minor_Container",
+          "progression_source": "e6a0eb75-7a01-4f40-8563-24ba2615e99b",
+          "source_type": 1
+        }
+      ],
+      "selectors": {
+        "AbilitySelectors": [
+          {
+            "node_id": "AbilitySelector",
+            "definition_index": 0,
+            "list_uuid": "b9149c8e-52c8-46e5-9cb6-fc39301c05fe",
+            "selector_id": "FeatASI",
+            "level": 8,
+            "owner_uuid": "d215b9ad-9753-4d74-8ff9-24bf1dce53d6",
+            "parent_owner_uuid": "a865965f-501b-46e9-9eaa-7748e8c04d09",
+            "is_multiclass": false,
+            "slots": [
+              4,
+              4
+            ]
+          }
+        ],
+        "SpellSelectors": [
+          {
+            "node_id": "SpellSelector",
+            "definition_index": 0,
+            "list_uuid": "820b1220-0385-426d-ae15-458dc8a6f5c0",
+            "selector_id": "",
+            "addition_slots": [
+              "Wall_WallOfFire",
+              "Teleportation_DimensionDoor"
+            ],
+            "replacement_slots": []
+          }
+        ]
+      },
+      "class_name": "Wizard"
+    },
+    {
+      "level": 9,
+      "class_guid": "a865965f-501b-46e9-9eaa-7748e8c04d09",
+      "subclass_guid": "00000000-0000-0000-0000-000000000000",
+      "feat_guid": "00000000-0000-0000-0000-000000000000",
+      "ability_improvements": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "prepared_spells": [
+        {
+          "spell": "Projectile_ChromaticOrb",
+          "progression_source": "e6a0eb75-7a01-4f40-8563-24ba2615e99b",
+          "source_type": 1
+        },
+        {
+          "spell": "Target_MageArmor",
+          "progression_source": "a865965f-501b-46e9-9eaa-7748e8c04d09",
+          "source_type": 0
+        },
+        {
+          "spell": "Zone_Thunderwave",
+          "progression_source": "a865965f-501b-46e9-9eaa-7748e8c04d09",
+          "source_type": 0
+        },
+        {
+          "spell": "Projectile_MagicMissile",
+          "progression_source": "a865965f-501b-46e9-9eaa-7748e8c04d09",
+          "source_type": 0
+        },
+        {
+          "spell": "Shout_Shield_Wizard",
+          "progression_source": "e6a0eb75-7a01-4f40-8563-24ba2615e99b",
+          "source_type": 1
+        },
+        {
+          "spell": "Shout_Blur",
+          "progression_source": "e6a0eb75-7a01-4f40-8563-24ba2615e99b",
+          "source_type": 1
+        },
+        {
+          "spell": "Target_MistyStep",
+          "progression_source": "e6a0eb75-7a01-4f40-8563-24ba2615e99b",
+          "source_type": 1
+        },
+        {
+          "spell": "Projectile_Fireball",
+          "progression_source": "e6a0eb75-7a01-4f40-8563-24ba2615e99b",
+          "source_type": 1
+        },
+        {
+          "spell": "Zone_LightningBolt",
+          "progression_source": "e6a0eb75-7a01-4f40-8563-24ba2615e99b",
+          "source_type": 1
+        },
+        {
+          "spell": "Target_Darkness",
+          "progression_source": "e6a0eb75-7a01-4f40-8563-24ba2615e99b",
+          "source_type": 1
+        },
+        {
+          "spell": "Target_Counterspell",
+          "progression_source": "e6a0eb75-7a01-4f40-8563-24ba2615e99b",
+          "source_type": 1
+        },
+        {
+          "spell": "Target_ConjureElementals_Minor_Container",
+          "progression_source": "e6a0eb75-7a01-4f40-8563-24ba2615e99b",
+          "source_type": 1
+        },
+        {
+          "spell": "Wall_WallOfFire",
+          "progression_source": "e6a0eb75-7a01-4f40-8563-24ba2615e99b",
+          "source_type": 1
+        },
+        {
+          "spell": "Target_FogCloud",
+          "progression_source": "a865965f-501b-46e9-9eaa-7748e8c04d09",
+          "source_type": 0
+        }
+      ],
+      "selectors": {
+        "SpellSelectors": [
+          {
+            "node_id": "SpellSelector",
+            "definition_index": 0,
+            "list_uuid": "f781a25e-d288-43b4-bf5d-3d8d98846687",
+            "selector_id": "",
+            "addition_slots": [
+              "Target_Cloudkill",
+              "Zone_ConeOfCold"
+            ],
+            "replacement_slots": []
+          }
+        ]
+      },
+      "class_name": "Wizard"
+    }
+  ]
+}

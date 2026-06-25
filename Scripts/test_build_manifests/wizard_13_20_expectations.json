@@ -1,0 +1,702 @@
+{
+  "wizard_class_guid": "a865965f-501b-46e9-9eaa-7748e8c04d09",
+  "progressions_file": "Public\\PHB2024_DND_13-20_PathtoApotheosis_1467c26f-e7bb-49d1-d980-6e033aea04fa\\Progressions\\Progressions.lsx",
+  "subclass_count": 5,
+  "subclasses": [
+    {
+      "subclass_name": "AbjurationSchool",
+      "subclass_guid": "e6a0eb75-7a01-4f40-8563-24ba2615e99b",
+      "manifest_file": "wizard_abjurationschool_canonical.json",
+      "manifest_kind": "canonical",
+      "expected_wizard_base_13_20": [
+        {
+          "level": 13,
+          "uuid": "66666666-6666-6666-6666-666666666601",
+          "passives_added": "UnlockedSpellSlotLevel7",
+          "passives_removed": "",
+          "boosts": "ActionResource(SpellSlot,1,7)",
+          "selectors": "SelectSpells(00170001-0001-0001-0001-000000000001,1,0,WizardSLevel7);SelectSpells(bc917f22-7f71-4a25-9a77-7d2f91a96a65,1,0,WizardSpellList)"
+        },
+        {
+          "level": 14,
+          "uuid": "66666666-6666-6666-6666-666666666602",
+          "passives_added": "",
+          "passives_removed": "",
+          "boosts": "",
+          "selectors": ""
+        },
+        {
+          "level": 15,
+          "uuid": "66666666-6666-6666-6666-666666666603",
+          "passives_added": "UnlockedSpellSlotLevel8",
+          "passives_removed": "",
+          "boosts": "ActionResource(SpellSlot,1,8)",
+          "selectors": "SelectSpells(bc917f22-7f71-4a25-9a77-7d2f91a96a65,1,0,WizardSpellList);SelectSpells(00180001-0001-0001-0001-000000000001,1,0,WizardSLevel8)"
+        },
+        {
+          "level": 16,
+          "uuid": "66666666-6666-6666-6666-666666666604",
+          "passives_added": "",
+          "passives_removed": "",
+          "boosts": "",
+          "selectors": ""
+        },
+        {
+          "level": 17,
+          "uuid": "66666666-6666-6666-6666-666666666605",
+          "passives_added": "UnlockedSpellSlotLevel9",
+          "passives_removed": "",
+          "boosts": "ActionResource(SpellSlot,1,9)",
+          "selectors": "SelectSpells(bc917f22-7f71-4a25-9a77-7d2f91a96a65,2,0,WizardSpellList)"
+        },
+        {
+          "level": 18,
+          "uuid": "66666666-6666-6666-6666-666666666606",
+          "passives_added": "SpellMastery",
+          "passives_removed": "",
+          "boosts": "ActionResource(SpellSlot,1,5)",
+          "selectors": ""
+        },
+        {
+          "level": 19,
+          "uuid": "66666666-6666-6666-6666-666666666607",
+          "passives_added": "",
+          "passives_removed": "",
+          "boosts": "ActionResource(SpellSlot,1,6)",
+          "selectors": "SelectPassives(da3e7815-685b-469c-9bba-0f5a7cc93fd1,1,EpicBoons)"
+        },
+        {
+          "level": 20,
+          "uuid": "66666666-6666-6666-6666-666666666608",
+          "passives_added": "Wizard_SignatureSpells",
+          "passives_removed": "",
+          "boosts": "ActionResource(SpellSlot,1,7);ActionResource(SignatureSpellCharge,2,0)",
+          "selectors": ""
+        }
+      ],
+      "expected_subclass_13_20": [
+        {
+          "level": 13,
+          "uuid": "ab131313-1313-1313-1313-131313131301",
+          "passives_added": "",
+          "passives_removed": "",
+          "boosts": "",
+          "selectors": "SelectSpells(7bd7b3ea-51da-4144-b5ba-3d85dbf79353,1,0,AbjurationSavant,,,AlwaysPrepared)"
+        },
+        {
+          "level": 14,
+          "uuid": "aa666666-6666-6666-6666-666666666601",
+          "passives_added": "Abjurer_14_SpellResistance",
+          "passives_removed": "",
+          "boosts": "",
+          "selectors": ""
+        },
+        {
+          "level": 15,
+          "uuid": "ab151515-1515-1515-1515-151515151501",
+          "passives_added": "",
+          "passives_removed": "",
+          "boosts": "",
+          "selectors": "SelectSpells(7bd7b3ea-51da-4144-b5ba-3d85dbf79353,1,0,AbjurationSavant,,,AlwaysPrepared)"
+        },
+        {
+          "level": 16,
+          "uuid": "ab161616-1616-1616-1616-161616161601",
+          "passives_added": "",
+          "passives_removed": "",
+          "boosts": "",
+          "selectors": ""
+        },
+        {
+          "level": 17,
+          "uuid": "ab171717-1717-1717-1717-171717171701",
+          "passives_added": "",
+          "passives_removed": "",
+          "boosts": "",
+          "selectors": "SelectSpells(7bd7b3ea-51da-4144-b5ba-3d85dbf79353,1,0,AbjurationSavant,,,AlwaysPrepared)"
+        },
+        {
+          "level": 18,
+          "uuid": "ab181818-1818-1818-1818-181818181801",
+          "passives_added": "",
+          "passives_removed": "",
+          "boosts": "",
+          "selectors": ""
+        },
+        {
+          "level": 19,
+          "uuid": "ab191919-1919-1919-1919-191919191901",
+          "passives_added": "",
+          "passives_removed": "",
+          "boosts": "",
+          "selectors": "SelectSpells(7bd7b3ea-51da-4144-b5ba-3d85dbf79353,1,0,AbjurationSavant,,,AlwaysPrepared)"
+        },
+        {
+          "level": 20,
+          "uuid": "ab202020-2020-2020-2020-202020202001",
+          "passives_added": "",
+          "passives_removed": "",
+          "boosts": "",
+          "selectors": ""
+        }
+      ],
+      "has_subclass_entries": true
+    },
+    {
+      "subclass_name": "BladesingingSchool",
+      "subclass_guid": "8047cf29-2c79-4f12-a4bf-d965a023be63",
+      "manifest_file": "wizard_bladesingingschool_inferred.json",
+      "manifest_kind": "inferred",
+      "expected_wizard_base_13_20": [
+        {
+          "level": 13,
+          "uuid": "66666666-6666-6666-6666-666666666601",
+          "passives_added": "UnlockedSpellSlotLevel7",
+          "passives_removed": "",
+          "boosts": "ActionResource(SpellSlot,1,7)",
+          "selectors": "SelectSpells(00170001-0001-0001-0001-000000000001,1,0,WizardSLevel7);SelectSpells(bc917f22-7f71-4a25-9a77-7d2f91a96a65,1,0,WizardSpellList)"
+        },
+        {
+          "level": 14,
+          "uuid": "66666666-6666-6666-6666-666666666602",
+          "passives_added": "",
+          "passives_removed": "",
+          "boosts": "",
+          "selectors": ""
+        },
+        {
+          "level": 15,
+          "uuid": "66666666-6666-6666-6666-666666666603",
+          "passives_added": "UnlockedSpellSlotLevel8",
+          "passives_removed": "",
+          "boosts": "ActionResource(SpellSlot,1,8)",
+          "selectors": "SelectSpells(bc917f22-7f71-4a25-9a77-7d2f91a96a65,1,0,WizardSpellList);SelectSpells(00180001-0001-0001-0001-000000000001,1,0,WizardSLevel8)"
+        },
+        {
+          "level": 16,
+          "uuid": "66666666-6666-6666-6666-666666666604",
+          "passives_added": "",
+          "passives_removed": "",
+          "boosts": "",
+          "selectors": ""
+        },
+        {
+          "level": 17,
+          "uuid": "66666666-6666-6666-6666-666666666605",
+          "passives_added": "UnlockedSpellSlotLevel9",
+          "passives_removed": "",
+          "boosts": "ActionResource(SpellSlot,1,9)",
+          "selectors": "SelectSpells(bc917f22-7f71-4a25-9a77-7d2f91a96a65,2,0,WizardSpellList)"
+        },
+        {
+          "level": 18,
+          "uuid": "66666666-6666-6666-6666-666666666606",
+          "passives_added": "SpellMastery",
+          "passives_removed": "",
+          "boosts": "ActionResource(SpellSlot,1,5)",
+          "selectors": ""
+        },
+        {
+          "level": 19,
+          "uuid": "66666666-6666-6666-6666-666666666607",
+          "passives_added": "",
+          "passives_removed": "",
+          "boosts": "ActionResource(SpellSlot,1,6)",
+          "selectors": "SelectPassives(da3e7815-685b-469c-9bba-0f5a7cc93fd1,1,EpicBoons)"
+        },
+        {
+          "level": 20,
+          "uuid": "66666666-6666-6666-6666-666666666608",
+          "passives_added": "Wizard_SignatureSpells",
+          "passives_removed": "",
+          "boosts": "ActionResource(SpellSlot,1,7);ActionResource(SignatureSpellCharge,2,0)",
+          "selectors": ""
+        }
+      ],
+      "expected_subclass_13_20": [
+        {
+          "level": 13,
+          "uuid": "bl131313-1313-1313-1313-131313131301",
+          "passives_added": "",
+          "passives_removed": "",
+          "boosts": "",
+          "selectors": ""
+        },
+        {
+          "level": 14,
+          "uuid": "23232323-2323-2323-2323-232323232302",
+          "passives_added": "SongVictory",
+          "passives_removed": "",
+          "boosts": "",
+          "selectors": ""
+        },
+        {
+          "level": 15,
+          "uuid": "bl151515-1515-1515-1515-151515151501",
+          "passives_added": "",
+          "passives_removed": "",
+          "boosts": "",
+          "selectors": ""
+        },
+        {
+          "level": 16,
+          "uuid": "bl161616-1616-1616-1616-161616161601",
+          "passives_added": "",
+          "passives_removed": "",
+          "boosts": "",
+          "selectors": ""
+        },
+        {
+          "level": 17,
+          "uuid": "bl171717-1717-1717-1717-171717171701",
+          "passives_added": "",
+          "passives_removed": "",
+          "boosts": "",
+          "selectors": ""
+        },
+        {
+          "level": 18,
+          "uuid": "bl181818-1818-1818-1818-181818181801",
+          "passives_added": "",
+          "passives_removed": "",
+          "boosts": "",
+          "selectors": ""
+        },
+        {
+          "level": 19,
+          "uuid": "bl191919-1919-1919-1919-191919191901",
+          "passives_added": "",
+          "passives_removed": "",
+          "boosts": "",
+          "selectors": ""
+        },
+        {
+          "level": 20,
+          "uuid": "bl202020-2020-2020-2020-202020202001",
+          "passives_added": "",
+          "passives_removed": "",
+          "boosts": "",
+          "selectors": ""
+        }
+      ],
+      "has_subclass_entries": true
+    },
+    {
+      "subclass_name": "DivinationSchool",
+      "subclass_guid": "7577b0e1-a517-4f82-8f72-05a227dc5e88",
+      "manifest_file": "wizard_divinationschool_canonical.json",
+      "manifest_kind": "canonical",
+      "expected_wizard_base_13_20": [
+        {
+          "level": 13,
+          "uuid": "66666666-6666-6666-6666-666666666601",
+          "passives_added": "UnlockedSpellSlotLevel7",
+          "passives_removed": "",
+          "boosts": "ActionResource(SpellSlot,1,7)",
+          "selectors": "SelectSpells(00170001-0001-0001-0001-000000000001,1,0,WizardSLevel7);SelectSpells(bc917f22-7f71-4a25-9a77-7d2f91a96a65,1,0,WizardSpellList)"
+        },
+        {
+          "level": 14,
+          "uuid": "66666666-6666-6666-6666-666666666602",
+          "passives_added": "",
+          "passives_removed": "",
+          "boosts": "",
+          "selectors": ""
+        },
+        {
+          "level": 15,
+          "uuid": "66666666-6666-6666-6666-666666666603",
+          "passives_added": "UnlockedSpellSlotLevel8",
+          "passives_removed": "",
+          "boosts": "ActionResource(SpellSlot,1,8)",
+          "selectors": "SelectSpells(bc917f22-7f71-4a25-9a77-7d2f91a96a65,1,0,WizardSpellList);SelectSpells(00180001-0001-0001-0001-000000000001,1,0,WizardSLevel8)"
+        },
+        {
+          "level": 16,
+          "uuid": "66666666-6666-6666-6666-666666666604",
+          "passives_added": "",
+          "passives_removed": "",
+          "boosts": "",
+          "selectors": ""
+        },
+        {
+          "level": 17,
+          "uuid": "66666666-6666-6666-6666-666666666605",
+          "passives_added": "UnlockedSpellSlotLevel9",
+          "passives_removed": "",
+          "boosts": "ActionResource(SpellSlot,1,9)",
+          "selectors": "SelectSpells(bc917f22-7f71-4a25-9a77-7d2f91a96a65,2,0,WizardSpellList)"
+        },
+        {
+          "level": 18,
+          "uuid": "66666666-6666-6666-6666-666666666606",
+          "passives_added": "SpellMastery",
+          "passives_removed": "",
+          "boosts": "ActionResource(SpellSlot,1,5)",
+          "selectors": ""
+        },
+        {
+          "level": 19,
+          "uuid": "66666666-6666-6666-6666-666666666607",
+          "passives_added": "",
+          "passives_removed": "",
+          "boosts": "ActionResource(SpellSlot,1,6)",
+          "selectors": "SelectPassives(da3e7815-685b-469c-9bba-0f5a7cc93fd1,1,EpicBoons)"
+        },
+        {
+          "level": 20,
+          "uuid": "66666666-6666-6666-6666-666666666608",
+          "passives_added": "Wizard_SignatureSpells",
+          "passives_removed": "",
+          "boosts": "ActionResource(SpellSlot,1,7);ActionResource(SignatureSpellCharge,2,0)",
+          "selectors": ""
+        }
+      ],
+      "expected_subclass_13_20": [
+        {
+          "level": 13,
+          "uuid": "di131313-1313-1313-1313-131313131301",
+          "passives_added": "",
+          "passives_removed": "",
+          "boosts": "",
+          "selectors": "SelectSpells(8e445849-3d0f-4cce-8f9c-b162e3e03ba2,1,0,DivinationSavant,,,AlwaysPrepared)"
+        },
+        {
+          "level": 14,
+          "uuid": "67676767-6767-6767-6767-676767676701",
+          "passives_added": "Diviner_14_GreaterPortent",
+          "passives_removed": "",
+          "boosts": "",
+          "selectors": ""
+        },
+        {
+          "level": 15,
+          "uuid": "di151515-1515-1515-1515-151515151501",
+          "passives_added": "",
+          "passives_removed": "",
+          "boosts": "",
+          "selectors": "SelectSpells(8e445849-3d0f-4cce-8f9c-b162e3e03ba2,1,0,DivinationSavant,,,AlwaysPrepared)"
+        },
+        {
+          "level": 16,
+          "uuid": "di161616-1616-1616-1616-161616161601",
+          "passives_added": "",
+          "passives_removed": "",
+          "boosts": "",
+          "selectors": ""
+        },
+        {
+          "level": 17,
+          "uuid": "di171717-1717-1717-1717-171717171701",
+          "passives_added": "",
+          "passives_removed": "",
+          "boosts": "",
+          "selectors": "SelectSpells(8e445849-3d0f-4cce-8f9c-b162e3e03ba2,1,0,DivinationSavant,,,AlwaysPrepared)"
+        },
+        {
+          "level": 18,
+          "uuid": "di181818-1818-1818-1818-181818181801",
+          "passives_added": "",
+          "passives_removed": "",
+          "boosts": "",
+          "selectors": ""
+        },
+        {
+          "level": 19,
+          "uuid": "di191919-1919-1919-1919-191919191901",
+          "passives_added": "",
+          "passives_removed": "",
+          "boosts": "",
+          "selectors": "SelectSpells(8e445849-3d0f-4cce-8f9c-b162e3e03ba2,1,0,DivinationSavant,,,AlwaysPrepared)"
+        },
+        {
+          "level": 20,
+          "uuid": "di202020-2020-2020-2020-202020202001",
+          "passives_added": "",
+          "passives_removed": "",
+          "boosts": "",
+          "selectors": ""
+        }
+      ],
+      "has_subclass_entries": true
+    },
+    {
+      "subclass_name": "EvocationSchool",
+      "subclass_guid": "c059dca1-c17d-4dce-8260-83ede5070eac",
+      "manifest_file": "wizard_evocationschool_canonical.json",
+      "manifest_kind": "canonical",
+      "expected_wizard_base_13_20": [
+        {
+          "level": 13,
+          "uuid": "66666666-6666-6666-6666-666666666601",
+          "passives_added": "UnlockedSpellSlotLevel7",
+          "passives_removed": "",
+          "boosts": "ActionResource(SpellSlot,1,7)",
+          "selectors": "SelectSpells(00170001-0001-0001-0001-000000000001,1,0,WizardSLevel7);SelectSpells(bc917f22-7f71-4a25-9a77-7d2f91a96a65,1,0,WizardSpellList)"
+        },
+        {
+          "level": 14,
+          "uuid": "66666666-6666-6666-6666-666666666602",
+          "passives_added": "",
+          "passives_removed": "",
+          "boosts": "",
+          "selectors": ""
+        },
+        {
+          "level": 15,
+          "uuid": "66666666-6666-6666-6666-666666666603",
+          "passives_added": "UnlockedSpellSlotLevel8",
+          "passives_removed": "",
+          "boosts": "ActionResource(SpellSlot,1,8)",
+          "selectors": "SelectSpells(bc917f22-7f71-4a25-9a77-7d2f91a96a65,1,0,WizardSpellList);SelectSpells(00180001-0001-0001-0001-000000000001,1,0,WizardSLevel8)"
+        },
+        {
+          "level": 16,
+          "uuid": "66666666-6666-6666-6666-666666666604",
+          "passives_added": "",
+          "passives_removed": "",
+          "boosts": "",
+          "selectors": ""
+        },
+        {
+          "level": 17,
+          "uuid": "66666666-6666-6666-6666-666666666605",
+          "passives_added": "UnlockedSpellSlotLevel9",
+          "passives_removed": "",
+          "boosts": "ActionResource(SpellSlot,1,9)",
+          "selectors": "SelectSpells(bc917f22-7f71-4a25-9a77-7d2f91a96a65,2,0,WizardSpellList)"
+        },
+        {
+          "level": 18,
+          "uuid": "66666666-6666-6666-6666-666666666606",
+          "passives_added": "SpellMastery",
+          "passives_removed": "",
+          "boosts": "ActionResource(SpellSlot,1,5)",
+          "selectors": ""
+        },
+        {
+          "level": 19,
+          "uuid": "66666666-6666-6666-6666-666666666607",
+          "passives_added": "",
+          "passives_removed": "",
+          "boosts": "ActionResource(SpellSlot,1,6)",
+          "selectors": "SelectPassives(da3e7815-685b-469c-9bba-0f5a7cc93fd1,1,EpicBoons)"
+        },
+        {
+          "level": 20,
+          "uuid": "66666666-6666-6666-6666-666666666608",
+          "passives_added": "Wizard_SignatureSpells",
+          "passives_removed": "",
+          "boosts": "ActionResource(SpellSlot,1,7);ActionResource(SignatureSpellCharge,2,0)",
+          "selectors": ""
+        }
+      ],
+      "expected_subclass_13_20": [
+        {
+          "level": 13,
+          "uuid": "ev131313-1313-1313-1313-131313131301",
+          "passives_added": "",
+          "passives_removed": "",
+          "boosts": "",
+          "selectors": "SelectSpells(0260a3ae-9ff6-4e24-a081-506f6db2ebf3,1,0,EvocationSavant,,,AlwaysPrepared)"
+        },
+        {
+          "level": 14,
+          "uuid": "68686868-6868-6868-6868-686868686801",
+          "passives_added": "Evoker_14_Overchannel",
+          "passives_removed": "",
+          "boosts": "",
+          "selectors": ""
+        },
+        {
+          "level": 15,
+          "uuid": "ev151515-1515-1515-1515-151515151501",
+          "passives_added": "",
+          "passives_removed": "",
+          "boosts": "",
+          "selectors": "SelectSpells(0260a3ae-9ff6-4e24-a081-506f6db2ebf3,1,0,EvocationSavant,,,AlwaysPrepared)"
+        },
+        {
+          "level": 16,
+          "uuid": "ev161616-1616-1616-1616-161616161601",
+          "passives_added": "",
+          "passives_removed": "",
+          "boosts": "",
+          "selectors": ""
+        },
+        {
+          "level": 17,
+          "uuid": "ev171717-1717-1717-1717-171717171701",
+          "passives_added": "",
+          "passives_removed": "",
+          "boosts": "",
+          "selectors": "SelectSpells(0260a3ae-9ff6-4e24-a081-506f6db2ebf3,1,0,EvocationSavant,,,AlwaysPrepared)"
+        },
+        {
+          "level": 18,
+          "uuid": "ev181818-1818-1818-1818-181818181801",
+          "passives_added": "",
+          "passives_removed": "",
+          "boosts": "",
+          "selectors": ""
+        },
+        {
+          "level": 19,
+          "uuid": "ev191919-1919-1919-1919-191919191901",
+          "passives_added": "",
+          "passives_removed": "",
+          "boosts": "",
+          "selectors": "SelectSpells(0260a3ae-9ff6-4e24-a081-506f6db2ebf3,1,0,EvocationSavant,,,AlwaysPrepared)"
+        },
+        {
+          "level": 20,
+          "uuid": "ev202020-2020-2020-2020-202020202001",
+          "passives_added": "",
+          "passives_removed": "",
+          "boosts": "",
+          "selectors": ""
+        }
+      ],
+      "has_subclass_entries": true
+    },
+    {
+      "subclass_name": "IllusionSchool",
+      "subclass_guid": "436c9e1a-3a39-48dd-b753-7cee1bd19c00",
+      "manifest_file": "wizard_illusionschool_canonical.json",
+      "manifest_kind": "canonical",
+      "expected_wizard_base_13_20": [
+        {
+          "level": 13,
+          "uuid": "66666666-6666-6666-6666-666666666601",
+          "passives_added": "UnlockedSpellSlotLevel7",
+          "passives_removed": "",
+          "boosts": "ActionResource(SpellSlot,1,7)",
+          "selectors": "SelectSpells(00170001-0001-0001-0001-000000000001,1,0,WizardSLevel7);SelectSpells(bc917f22-7f71-4a25-9a77-7d2f91a96a65,1,0,WizardSpellList)"
+        },
+        {
+          "level": 14,
+          "uuid": "66666666-6666-6666-6666-666666666602",
+          "passives_added": "",
+          "passives_removed": "",
+          "boosts": "",
+          "selectors": ""
+        },
+        {
+          "level": 15,
+          "uuid": "66666666-6666-6666-6666-666666666603",
+          "passives_added": "UnlockedSpellSlotLevel8",
+          "passives_removed": "",
+          "boosts": "ActionResource(SpellSlot,1,8)",
+          "selectors": "SelectSpells(bc917f22-7f71-4a25-9a77-7d2f91a96a65,1,0,WizardSpellList);SelectSpells(00180001-0001-0001-0001-000000000001,1,0,WizardSLevel8)"
+        },
+        {
+          "level": 16,
+          "uuid": "66666666-6666-6666-6666-666666666604",
+          "passives_added": "",
+          "passives_removed": "",
+          "boosts": "",
+          "selectors": ""
+        },
+        {
+          "level": 17,
+          "uuid": "66666666-6666-6666-6666-666666666605",
+          "passives_added": "UnlockedSpellSlotLevel9",
+          "passives_removed": "",
+          "boosts": "ActionResource(SpellSlot,1,9)",
+          "selectors": "SelectSpells(bc917f22-7f71-4a25-9a77-7d2f91a96a65,2,0,WizardSpellList)"
+        },
+        {
+          "level": 18,
+          "uuid": "66666666-6666-6666-6666-666666666606",
+          "passives_added": "SpellMastery",
+          "passives_removed": "",
+          "boosts": "ActionResource(SpellSlot,1,5)",
+          "selectors": ""
+        },
+        {
+          "level": 19,
+          "uuid": "66666666-6666-6666-6666-666666666607",
+          "passives_added": "",
+          "passives_removed": "",
+          "boosts": "ActionResource(SpellSlot,1,6)",
+          "selectors": "SelectPassives(da3e7815-685b-469c-9bba-0f5a7cc93fd1,1,EpicBoons)"
+        },
+        {
+          "level": 20,
+          "uuid": "66666666-6666-6666-6666-666666666608",
+          "passives_added": "Wizard_SignatureSpells",
+          "passives_removed": "",
+          "boosts": "ActionResource(SpellSlot,1,7);ActionResource(SignatureSpellCharge,2,0)",
+          "selectors": ""
+        }
+      ],
+      "expected_subclass_13_20": [
+        {
+          "level": 13,
+          "uuid": "il131313-1313-1313-1313-131313131301",
+          "passives_added": "",
+          "passives_removed": "",
+          "boosts": "",
+          "selectors": "SelectSpells(b4308398-d948-4ef1-a0d5-9da1da860917,1,0,IllusionSavant,,,AlwaysPrepared)"
+        },
+        {
+          "level": 14,
+          "uuid": "69696969-6969-6969-6969-696969696901",
+          "passives_added": "Illusionist_14_IllusoryReality",
+          "passives_removed": "",
+          "boosts": "",
+          "selectors": ""
+        },
+        {
+          "level": 15,
+          "uuid": "il151515-1515-1515-1515-151515151501",
+          "passives_added": "",
+          "passives_removed": "",
+          "boosts": "",
+          "selectors": "SelectSpells(b4308398-d948-4ef1-a0d5-9da1da860917,1,0,IllusionSavant,,,AlwaysPrepared)"
+        },
+        {
+          "level": 16,
+          "uuid": "il161616-1616-1616-1616-161616161601",
+          "passives_added": "",
+          "passives_removed": "",
+          "boosts": "",
+          "selectors": ""
+        },
+        {
+          "level": 17,
+          "uuid": "il171717-1717-1717-1717-171717171701",
+          "passives_added": "",
+          "passives_removed": "",
+          "boosts": "",
+          "selectors": "SelectSpells(b4308398-d948-4ef1-a0d5-9da1da860917,1,0,IllusionSavant,,,AlwaysPrepared)"
+        },
+        {
+          "level": 18,
+          "uuid": "il181818-1818-1818-1818-181818181801",
+          "passives_added": "",
+          "passives_removed": "",
+          "boosts": "",
+          "selectors": ""
+        },
+        {
+          "level": 19,
+          "uuid": "il191919-1919-1919-1919-191919191901",
+          "passives_added": "",
+          "passives_removed": "",
+          "boosts": "",
+          "selectors": "SelectSpells(b4308398-d948-4ef1-a0d5-9da1da860917,1,0,IllusionSavant,,,AlwaysPrepared)"
+        },
+        {
+          "level": 20,
+          "uuid": "il202020-2020-2020-2020-202020202001",
+          "passives_added": "",
+          "passives_removed": "",
+          "boosts": "",
+          "selectors": ""
+        }
+      ],
+      "has_subclass_entries": true
+    }
+  ]
+}

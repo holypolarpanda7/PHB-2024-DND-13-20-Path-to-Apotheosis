@@ -1,0 +1,92 @@
+# Test Build Manifests
+
+These JSON files capture real BG3 PartyEditor level-up decisions in a stable,
+diffable form.
+
+They are meant to solve the current testing gap:
+
+- `SetLevel` and base `PROC_LevelUp` only change level state.
+- They do not drive the player choice pipeline for subclass picks, feats,
+  spell selections, or prepared-spell state.
+- PartyEditor LSX presets *do* contain those authored choices.
+
+## Current workflow
+
+Extract a manifest from a PartyEditor file:
+
+```bash
+/d/BG3Modding/Mod_Projects/.venv/Scripts/python.exe \
+  Scripts/extract_partyeditor_levelups.py \
+  /d/BG3Modding/Mod_Projects/BaseGame/Gustav/Mods/GustavDev/Story/PartyEditor/Level12_Gale.lsx \
+  --output Scripts/test_build_manifests/gale_level12_wizard.json
+```
+
+Generate canonical wizard subclass manifests in bulk:
+
+```bash
+python Scripts/generate_wizard_subclass_manifests.py
+```
+
+If a subclass is missing from PartyEditor presets, infer it from a donor
+subclass (default donor: `EvocationSchool`):
+
+```bash
+python Scripts/generate_wizard_subclass_manifests.py --infer-missing
+```
+
+This writes:
+
+- `Scripts/test_build_manifests/wizard_subclasses/wizard_abjurationschool_canonical.json`
+- `Scripts/test_build_manifests/wizard_subclasses/wizard_divinationschool_canonical.json`
+- `Scripts/test_build_manifests/wizard_subclasses/wizard_evocationschool_canonical.json`
+- `Scripts/test_build_manifests/wizard_subclasses/wizard_illusionschool_canonical.json`
+- `Scripts/test_build_manifests/wizard_subclasses/wizard_bladesingingschool_inferred.json` (when `--infer-missing` is used)
+- `Scripts/test_build_manifests/wizard_subclasses/wizard_subclass_manifest_index.json`
+
+Generate expected wizard 13-20 grants for each subclass from Apotheosis
+`Progressions.lsx`:
+
+```bash
+python Scripts/build_wizard_13_20_expectations.py
+```
+
+This writes:
+
+- `Scripts/test_build_manifests/wizard_13_20_expectations.json`
+
+Current bulk-scan coverage:
+
+- Found canonical presets for: `AbjurationSchool`, `DivinationSchool`, `EvocationSchool`, `IllusionSchool`
+- Inference path available for missing corpus coverage: `BladesingingSchool`
+- `wizard_13_20_expectations.json` currently reports complete progression
+  coverage for all five wizard subclasses (including inferred Bladesinging
+  manifest source).
+
+## Purpose
+
+- Preserve a canonical test-build decision history.
+- Make level-up choices reviewable in git.
+- Provide a source artifact for future save stamping or authored test-build
+  generation.
+
+## Current seed manifest
+
+- `gale_level12_wizard.json`: Larian-authored Gale wizard build extracted from
+  `Level12_Gale.lsx`.
+- `wizard_subclasses/*.json`: canonical subclass manifests selected from
+  PartyEditor presets and indexed in
+  `wizard_subclasses/wizard_subclass_manifest_index.json`.
+- Inferred manifests include an `inference` block with donor source and
+  confidence metadata.
+
+## Important limitation
+
+This repo can now *extract* realistic level-up decisions, but it still does not
+have a runtime path that applies them through the live level-up UI. The current
+practical use is:
+
+1. choose or author a canonical build source
+2. extract its decision manifest
+3. use that manifest as the truth source for future test-character creation
+   or save stamping
+4. run Script Extender smoke checks against the resulting in-game build

@@ -446,3 +446,437 @@ Ext.Osiris.RegisterListener("StatusRemoved", 4, "after", function(object, status
         Ext.Utils.PrintError("[Apotheosis] Beast Spells (revoke) error: " .. tostring(err))
     end
 end)
+
+-- =====================================================================
+-- Manual smoke driver.
+--
+-- Intended loop:
+--   1. Start a fresh game / finish character creation.
+--   2. Load into the world.
+--   3. Open the Script Extender console and run: server
+--   4. Trigger a smoke command such as: Apotheosis.Smoke.RunLevelSweep()
+--
+-- This is intentionally MANUAL-triggered, not auto-run. The driver can move
+-- the host character through level checkpoints and run non-destructive checks.
+-- Encounter-specific enemy/status orchestration is the next layer to add per
+-- class/subclass plan.
+-- =====================================================================
+
+local function stringifyValue(value)
+    if type(value) ~= "table" then
+        return tostring(value)
+    end
+
+    local parts = {}
+    for key, item in pairs(value) do
+        parts[#parts + 1] = tostring(key) .. "=" .. stringifyValue(item)
+    end
+    table.sort(parts)
+    return "{" .. table.concat(parts, ", ") .. "}"
+end
+
+local function getHostCharacterHandle()
+    if Osi.GetHostCharacter then
+        local host = Osi.GetHostCharacter()
+        if host and host ~= "" then
+            return host
+        end
+    end
+
+    local players = Osi.DB_Players:Get(nil)
+    if players then
+        for _, row in pairs(players) do
+            if row and row[1] and row[1] ~= "" then
+                return row[1]
+            end
+        end
+    end
+
+    return nil
+end
+
+local Smoke = Apotheosis.Smoke or {}
+Apotheosis.Smoke = Smoke
+
+Smoke.Wizard = Smoke.Wizard or {}
+
+Smoke.DEFAULT_START_LEVEL = 12
+Smoke.DEFAULT_END_LEVEL = 20
+Smoke.LEVEL_SETTLE_MS = 1200
+Smoke.POST_RESTORE_SETTLE_MS = 600
+Smoke.MARKER_PASSIVES = {
+    "Barbarian_BrutalStrike_Improved",
+    "Diviner_14_GreaterPortent",
+    "Druid_BeastSpells",
+    "Enchanter_14_AlterMemories",
+    "NobleGenies_15_ElementalRebuke",
+    "Rogue_SlipperyMind",
+}
+
+local smokeState = {
+    running = false,
+    lastHost = nil,
+}
+
+local function smokeDetectMarkers(character)
+    local found = {}
+    for _, passive in ipairs(Smoke.MARKER_PASSIVES) do
+        if Osi.HasPassive(character, passive) == 1 then
+            found[#found + 1] = passive
+        end
+    end
+    return found
+end
+
+local function smokeGetHost()
+    local host = getHostCharacterHandle()
+    if not host then
+        error("Smoke could not resolve a host character; load fully into the world first")
+    end
+    smokeState.lastHost = host
+    return host
+end
+
+local function smokeRestore(character)
+    if Osi.PROC_CharacterFullRestore then
+        Osi.PROC_CharacterFullRestore(character)
+    end
+    if Osi.RemoveHarmfulStatuses then
+        Osi.RemoveHarmfulStatuses(character)
+    end
+    if Osi.SetHitpointsPercentage then
+        Osi.SetHitpointsPercentage(character, 100)
+    end
+end
+
+local function smokeSetLevel(character, level)
+    if not Osi.SetLevel then
+        error("Osi.SetLevel is unavailable in this runtime")
+    end
+    Osi.SetLevel(character, level)
+end
+
+local function smokeRunTimedLevelSequence(character, startAt, endAt, perLevel, onComplete)
+    local function step(level)
+        if level > endAt then
+            if onComplete then
+                onComplete()
+            end
+            return
+        end
+
+        smokeSetLevel(character, level)
+        Log.Info("Smoke queued level " .. tostring(level) .. " - waiting for progression state to settle")
+
+        Ext.Timer.WaitFor(Smoke.LEVEL_SETTLE_MS, function()
+            smokeRestore(character)
+            Ext.Timer.WaitFor(Smoke.POST_RESTORE_SETTLE_MS, function()
+                perLevel(level)
+                step(level + 1)
+            end)
+        end)
+    end
+
+    step(startAt)
+end
+
+local function smokeHasPassive(character, passive)
+    return Osi.HasPassive(character, passive) == 1
+end
+
+local function smokeHasSpell(character, spell)
+    if not Osi.HasSpell then
+        return false
+    end
+    return Osi.HasSpell(character, spell, 0) == 1
+end
+
+local function smokeDescribeBuild(character)
+    local tags = Osi.CharacterGetTags(character)
+    local markers = smokeDetectMarkers(character)
+    Log.Info("Smoke host = " .. tostring(character))
+    Log.Info("Smoke tags = " .. stringifyValue(tags))
+    if #markers > 0 then
+        Log.Info("Smoke tracked markers = " .. table.concat(markers, ", "))
+    else
+        Log.Info("Smoke tracked markers = <none>")
+    end
+end
+
+local function smokeRunPassiveChecks(character, level)
+    local markers = smokeDetectMarkers(character)
+    Log.Info("Smoke level " .. tostring(level) .. " marker scan")
+    if #markers == 0 then
+        Log.Warn("Smoke level " .. tostring(level) .. ": no tracked marker passives found on host")
+        return
+    end
+
+    for _, passive in ipairs(markers) do
+        if Osi.HasPassive(character, passive) == 1 then
+            Log.Info("Smoke PASS L" .. tostring(level) .. ": HasPassive(" .. passive .. ")")
+        else
+            Log.Error("Smoke FAIL L" .. tostring(level) .. ": missing passive " .. passive)
+        end
+    end
+end
+
+function Smoke.CaptureBuild()
+    local ok, err = pcall(function()
+        local host = smokeGetHost()
+        smokeDescribeBuild(host)
+    end)
+    if not ok then
+        Log.Error("Smoke.CaptureBuild error: " .. tostring(err))
+    end
+end
+
+function Smoke.SetLevel(level)
+    local ok, err = pcall(function()
+        local host = smokeGetHost()
+        smokeSetLevel(host, tonumber(level) or level)
+        smokeRestore(host)
+        Log.Info("Smoke moved host to level " .. tostring(level))
+        smokeDescribeBuild(host)
+    end)
+    if not ok then
+        Log.Error("Smoke.SetLevel error: " .. tostring(err))
+    end
+end
+
+function Smoke.RunLevelSweep(startLevel, endLevel)
+    local ok, err = pcall(function()
+        if smokeState.running then
+            error("Smoke run already in progress")
+        end
+
+        smokeState.running = true
+        local host = smokeGetHost()
+        local startAt = tonumber(startLevel) or Smoke.DEFAULT_START_LEVEL
+        local endAt = tonumber(endLevel) or Smoke.DEFAULT_END_LEVEL
+
+        Log.Info("Smoke level sweep starting: " .. tostring(startAt) .. " -> " .. tostring(endAt))
+        smokeDescribeBuild(host)
+
+        smokeRunTimedLevelSequence(host, startAt, endAt, function(level)
+            Log.Info("Smoke reached level " .. tostring(level))
+            smokeRunPassiveChecks(host, level)
+        end, function()
+            Log.Info("Smoke level sweep complete")
+            Log.Info("Next step: add class/subclass-specific encounter hooks to Apotheosis.Smoke plans")
+            smokeState.running = false
+        end)
+    end)
+    if not ok then
+        smokeState.running = false
+        Log.Error("Smoke.RunLevelSweep error: " .. tostring(err))
+    end
+end
+
+local WIZARD_LEVEL_EXPECTATIONS = {
+    [12] = {
+        absentPassives = { "SpellMastery", "Wizard_SignatureSpells" },
+    },
+    [13] = {
+        passives = { "UnlockedSpellSlotLevel7" },
+    },
+    [15] = {
+        passives = { "UnlockedSpellSlotLevel8" },
+    },
+    [17] = {
+        passives = { "UnlockedSpellSlotLevel9" },
+    },
+    [18] = {
+        passives = { "SpellMastery" },
+        spells = { "Shout_SpellMastery" },
+    },
+    [20] = {
+        passives = { "Wizard_SignatureSpells" },
+    },
+}
+
+local WIZARD_SUBCLASS_EXPECTATIONS = {
+    {
+        passive = "Abjurer_14_SpellResistance",
+        label = "AbjurationSchool",
+    },
+    {
+        passive = "Diviner_14_GreaterPortent",
+        label = "DivinationSchool",
+        custom = function(character)
+            grantExtraPortentDie(character)
+            Log.Info("Wizard smoke invoked Greater Portent grant helper")
+        end,
+    },
+    {
+        passive = "Evoker_14_Overchannel",
+        label = "EvocationSchool",
+    },
+    {
+        passive = "Illusionist_14_IllusoryReality",
+        label = "IllusionSchool",
+    },
+    {
+        passive = "SongVictory",
+        label = "Bladesinger",
+    },
+    {
+        passive = "Conjurer_14_SplinteredSummons",
+        label = "ConjurationSchool",
+    },
+    {
+        passive = "SplitEnchantment",
+        label = "EnchantmentSchool",
+    },
+    {
+        passive = "Enchanter_14_AlterMemories",
+        label = "EnchantmentSchool",
+        spells = { "Shout_Apotheosis_ModifyMemory" },
+    },
+    {
+        passive = "Necromancer_14_DeathsMaster",
+        label = "NecromancySchool",
+        spells = { "Shout_Apotheosis_BolsterUndead" },
+    },
+    {
+        passive = "Transmuter_14_MasterTransmuter",
+        label = "TransmutationSchool",
+        spells = { "Target_Apotheosis_Panacea" },
+    },
+}
+
+local function smokeAssertPresent(character, level, kind, value)
+    if kind == "passive" then
+        if smokeHasPassive(character, value) then
+            Log.Info("Wizard PASS L" .. tostring(level) .. ": HasPassive(" .. value .. ")")
+        else
+            Log.Error("Wizard FAIL L" .. tostring(level) .. ": missing passive " .. value)
+        end
+    elseif kind == "spell" then
+        if smokeHasSpell(character, value) then
+            Log.Info("Wizard PASS L" .. tostring(level) .. ": HasSpell(" .. value .. ")")
+        else
+            Log.Error("Wizard FAIL L" .. tostring(level) .. ": missing spell " .. value)
+        end
+    end
+end
+
+local function smokeAssertAbsent(character, level, kind, value)
+    if kind == "passive" then
+        if smokeHasPassive(character, value) then
+            Log.Error("Wizard FAIL L" .. tostring(level) .. ": unexpected passive " .. value)
+        else
+            Log.Info("Wizard PASS L" .. tostring(level) .. ": passive absent as expected (" .. value .. ")")
+        end
+    end
+end
+
+local function smokeRunWizardLevelChecks(character, level)
+    local expectation = WIZARD_LEVEL_EXPECTATIONS[level]
+    if not expectation then
+        Log.Info("Wizard smoke L" .. tostring(level) .. ": no generic level assertion registered")
+        return
+    end
+
+    if expectation.passives then
+        for _, passive in ipairs(expectation.passives) do
+            smokeAssertPresent(character, level, "passive", passive)
+        end
+    end
+
+    if expectation.spells then
+        for _, spell in ipairs(expectation.spells) do
+            smokeAssertPresent(character, level, "spell", spell)
+        end
+    end
+
+    if expectation.absentPassives then
+        for _, passive in ipairs(expectation.absentPassives) do
+            smokeAssertAbsent(character, level, "passive", passive)
+        end
+    end
+end
+
+local function smokeRunWizardSubclassChecks(character, level)
+    if level < 14 then
+        return
+    end
+
+    local matched = false
+    for _, subclass in ipairs(WIZARD_SUBCLASS_EXPECTATIONS) do
+        if smokeHasPassive(character, subclass.passive) then
+            matched = true
+            Log.Info("Wizard subclass smoke detected = " .. subclass.label)
+            smokeAssertPresent(character, level, "passive", subclass.passive)
+            if subclass.spells then
+                for _, spell in ipairs(subclass.spells) do
+                    smokeAssertPresent(character, level, "spell", spell)
+                end
+            end
+            if subclass.custom then
+                local ok, err = pcall(subclass.custom, character)
+                if not ok then
+                    Log.Error("Wizard FAIL L" .. tostring(level) .. ": subclass hook error for " .. subclass.passive .. ": " .. tostring(err))
+                end
+            end
+        end
+    end
+
+    if not matched then
+        Log.Warn("Wizard smoke L" .. tostring(level) .. ": no known level-14 wizard subclass passive detected")
+    end
+end
+
+function Smoke.Wizard.RunSweep(startLevel, endLevel)
+    local ok, err = pcall(function()
+        if smokeState.running then
+            error("Smoke run already in progress")
+        end
+
+        smokeState.running = true
+        local host = smokeGetHost()
+        local startAt = tonumber(startLevel) or Smoke.DEFAULT_START_LEVEL
+        local endAt = tonumber(endLevel) or Smoke.DEFAULT_END_LEVEL
+
+        Log.Info("Wizard smoke sweep starting: " .. tostring(startAt) .. " -> " .. tostring(endAt))
+        smokeDescribeBuild(host)
+
+        smokeRunTimedLevelSequence(host, startAt, endAt, function(level)
+            Log.Info("Wizard smoke reached level " .. tostring(level))
+            smokeRunWizardLevelChecks(host, level)
+            smokeRunWizardSubclassChecks(host, level)
+        end, function()
+            Log.Info("Wizard smoke sweep complete")
+            smokeState.running = false
+        end)
+    end)
+    if not ok then
+        smokeState.running = false
+        Log.Error("Smoke.Wizard.RunSweep error: " .. tostring(err))
+    end
+end
+
+function Smoke.Wizard.Help()
+    Log.Info("Wizard smoke commands:")
+    Log.Info("  Apotheosis.Smoke.Wizard.RunSweep()")
+    Log.Info("  Apotheosis.Smoke.Wizard.RunSweep(12, 20)")
+    Log.Info("  timing: " .. tostring(Smoke.LEVEL_SETTLE_MS) .. "ms after SetLevel, " .. tostring(Smoke.POST_RESTORE_SETTLE_MS) .. "ms after restore")
+end
+
+function Smoke.Help()
+    Log.Info("Smoke commands:")
+    Log.Info("  Apotheosis.Smoke.CaptureBuild()")
+    Log.Info("  Apotheosis.Smoke.SetLevel(12)")
+    Log.Info("  Apotheosis.Smoke.RunLevelSweep()")
+    Log.Info("  Apotheosis.Smoke.RunLevelSweep(12, 20)")
+    Log.Info("  Apotheosis.Smoke.Wizard.Help()")
+    Log.Info("  Apotheosis.Smoke.Wizard.RunSweep()")
+end
+
+Ext.Events.SessionLoaded:Subscribe(function()
+    local ok, err = pcall(function()
+        Log.Info("Smoke API ready - enter 'server' then Apotheosis.Smoke.Help() in the SE console")
+    end)
+    if not ok then
+        Log.Error("Smoke API readiness error: " .. tostring(err))
+    end
+end)

@@ -1,0 +1,501 @@
+{
+  "source_file": "D:\\BG3Modding\\Mod_Projects\\BaseGame\\Gustav\\Mods\\GustavDev\\Story\\PartyEditor\\GNT-Mar-P4-PT1-Act3End.lsx",
+  "preset_index": 3,
+  "character_name": "",
+  "character_uuid": "ad9af97d-75da-406a-ae13-7071c563f604",
+  "level_tag": "CTY_Main_A",
+  "total_experience": 124963,
+  "basics": {
+    "origin_guid": "35c3caad-5543-4593-be75-e7deba30f062",
+    "background_guid": "8807a6c6-d8cf-494b-aec2-cc01d7517a56",
+    "race_guid": "0eb594cb-8820-4be6-a58d-8be7a1a98fba",
+    "subrace_guid": "00000000-0000-0000-0000-000000000000"
+  },
+  "level_ups": [
+    {
+      "level": 1,
+      "class_guid": "a865965f-501b-46e9-9eaa-7748e8c04d09",
+      "subclass_guid": "00000000-0000-0000-0000-000000000000",
+      "feat_guid": "00000000-0000-0000-0000-000000000000",
+      "ability_improvements": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "prepared_spells": [],
+      "selectors": {
+        "AbilityBonusSelectors": [
+          {
+            "node_id": "AbilityBonusSelector",
+            "definition_index": 0,
+            "list_uuid": "b9149c8e-52c8-46e5-9cb6-fc39301c05fe",
+            "selector_id": "",
+            "level": 1,
+            "owner_uuid": "a865965f-501b-46e9-9eaa-7748e8c04d09",
+            "parent_owner_uuid": "00000000-0000-0000-0000-000000000000",
+            "is_multiclass": false,
+            "slots": [
+              4,
+              3
+            ],
+            "slot_bonus_values": [
+              2,
+              1
+            ]
+          }
+        ],
+        "SkillSelectors": [
+          {
+            "node_id": "SkillSelector",
+            "definition_index": 0,
+            "list_uuid": "9f3a9f8d-f645-40b5-b36f-fb079b7b805e",
+            "selector_id": "",
+            "level": 1,
+            "owner_uuid": "a865965f-501b-46e9-9eaa-7748e8c04d09",
+            "parent_owner_uuid": "00000000-0000-0000-0000-000000000000",
+            "is_multiclass": false,
+            "slots": [
+              14,
+              9
+            ]
+          }
+        ],
+        "SpellSelectors": [
+          {
+            "node_id": "SpellSelector",
+            "definition_index": 0,
+            "list_uuid": "3cae2e56-9871-4cef-bba6-96845ea765fa",
+            "selector_id": "",
+            "addition_slots": [
+              "Projectile_FireBolt",
+              "Target_MageHand",
+              "Projectile_RayOfFrost"
+            ],
+            "replacement_slots": []
+          },
+          {
+            "node_id": "SpellSelector",
+            "definition_index": 1,
+            "list_uuid": "11f331b0-e8b7-473b-9d1f-19e8e4178d7d",
+            "selector_id": "",
+            "addition_slots": [
+              "Projectile_WitchBolt",
+              "Target_FogCloud",
+              "Target_Grease",
+              "Target_Sleep",
+              "Zone_Thunderwave",
+              "Target_MageArmor"
+            ],
+            "replacement_slots": []
+          }
+        ]
+      },
+      "class_name": "Wizard"
+    },
+    {
+      "level": 2,
+      "class_guid": "a865965f-501b-46e9-9eaa-7748e8c04d09",
+      "subclass_guid": "7577b0e1-a517-4f82-8f72-05a227dc5e88",
+      "feat_guid": "00000000-0000-0000-0000-000000000000",
+      "ability_improvements": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "prepared_spells": [],
+      "selectors": {
+        "SpellSelectors": [
+          {
+            "node_id": "SpellSelector",
+            "definition_index": 0,
+            "list_uuid": "11f331b0-e8b7-473b-9d1f-19e8e4178d7d",
+            "selector_id": "",
+            "addition_slots": [
+              "Projectile_IceKnife",
+              "Projectile_ChromaticOrb"
+            ],
+            "replacement_slots": []
+          }
+        ]
+      },
+      "class_name": "Wizard",
+      "subclass_name": "DivinationSchool"
+    },
+    {
+      "level": 3,
+      "class_guid": "a865965f-501b-46e9-9eaa-7748e8c04d09",
+      "subclass_guid": "00000000-0000-0000-0000-000000000000",
+      "feat_guid": "00000000-0000-0000-0000-000000000000",
+      "ability_improvements": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "prepared_spells": [],
+      "selectors": {
+        "SpellSelectors": [
+          {
+            "node_id": "SpellSelector",
+            "definition_index": 0,
+            "list_uuid": "80c6b070-c3a6-4864-84ca-e78626784eb4",
+            "selector_id": "",
+            "addition_slots": [
+              "Target_Invisibility",
+              "Target_CrownOfMadness"
+            ],
+            "replacement_slots": []
+          }
+        ]
+      },
+      "class_name": "Wizard"
+    },
+    {
+      "level": 4,
+      "class_guid": "a865965f-501b-46e9-9eaa-7748e8c04d09",
+      "subclass_guid": "00000000-0000-0000-0000-000000000000",
+      "feat_guid": "ed4e367d-d136-4285-abac-077147e84cf2",
+      "ability_improvements": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "prepared_spells": [],
+      "selectors": {
+        "SpellSelectors": [
+          {
+            "node_id": "SpellSelector",
+            "definition_index": 0,
+            "list_uuid": "3cae2e56-9871-4cef-bba6-96845ea765fa",
+            "selector_id": "",
+            "addition_slots": [
+              "Target_Friends"
+            ],
+            "replacement_slots": []
+          },
+          {
+            "node_id": "SpellSelector",
+            "definition_index": 1,
+            "list_uuid": "80c6b070-c3a6-4864-84ca-e78626784eb4",
+            "selector_id": "",
+            "addition_slots": [
+              "Shout_SeeInvisibility",
+              "Target_EnlargeReduce"
+            ],
+            "replacement_slots": []
+          }
+        ]
+      },
+      "class_name": "Wizard"
+    },
+    {
+      "level": 5,
+      "class_guid": "a865965f-501b-46e9-9eaa-7748e8c04d09",
+      "subclass_guid": "00000000-0000-0000-0000-000000000000",
+      "feat_guid": "00000000-0000-0000-0000-000000000000",
+      "ability_improvements": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "prepared_spells": [],
+      "selectors": {
+        "SpellSelectors": [
+          {
+            "node_id": "SpellSelector",
+            "definition_index": 0,
+            "list_uuid": "22755771-ca11-49f4-b772-13d8b8fecd93",
+            "selector_id": "",
+            "addition_slots": [
+              "Projectile_Fireball",
+              "Target_Fly"
+            ],
+            "replacement_slots": []
+          }
+        ]
+      },
+      "class_name": "Wizard"
+    },
+    {
+      "level": 6,
+      "class_guid": "a865965f-501b-46e9-9eaa-7748e8c04d09",
+      "subclass_guid": "00000000-0000-0000-0000-000000000000",
+      "feat_guid": "00000000-0000-0000-0000-000000000000",
+      "ability_improvements": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "prepared_spells": [],
+      "selectors": {
+        "SpellSelectors": [
+          {
+            "node_id": "SpellSelector",
+            "definition_index": 0,
+            "list_uuid": "22755771-ca11-49f4-b772-13d8b8fecd93",
+            "selector_id": "",
+            "addition_slots": [
+              "Target_Counterspell",
+              "Target_Slow"
+            ],
+            "replacement_slots": []
+          }
+        ]
+      },
+      "class_name": "Wizard"
+    },
+    {
+      "level": 7,
+      "class_guid": "a865965f-501b-46e9-9eaa-7748e8c04d09",
+      "subclass_guid": "00000000-0000-0000-0000-000000000000",
+      "feat_guid": "00000000-0000-0000-0000-000000000000",
+      "ability_improvements": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "prepared_spells": [],
+      "selectors": {
+        "SpellSelectors": [
+          {
+            "node_id": "SpellSelector",
+            "definition_index": 0,
+            "list_uuid": "820b1220-0385-426d-ae15-458dc8a6f5c0",
+            "selector_id": "",
+            "addition_slots": [
+              "Teleportation_DimensionDoor",
+              "Target_PhantasmalKiller"
+            ],
+            "replacement_slots": []
+          }
+        ]
+      },
+      "class_name": "Wizard"
+    },
+    {
+      "level": 8,
+      "class_guid": "a865965f-501b-46e9-9eaa-7748e8c04d09",
+      "subclass_guid": "00000000-0000-0000-0000-000000000000",
+      "feat_guid": "cec2d95b-451c-40f8-8e17-9e547d363e8e",
+      "ability_improvements": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "prepared_spells": [],
+      "selectors": {
+        "PassiveSelectors": [
+          {
+            "node_id": "PassiveSelector",
+            "definition_index": 0,
+            "list_uuid": "f6b6e71f-79b1-4ba3-8fd8-ee38a44d3d39",
+            "selector_id": "",
+            "addition_slots": [
+              "ElementalAdept_Fire"
+            ],
+            "replacement_slots": []
+          }
+        ],
+        "SpellSelectors": [
+          {
+            "node_id": "SpellSelector",
+            "definition_index": 0,
+            "list_uuid": "820b1220-0385-426d-ae15-458dc8a6f5c0",
+            "selector_id": "",
+            "addition_slots": [
+              "Target_Confusion",
+              "Target_ConjureElementals_Minor_Container"
+            ],
+            "replacement_slots": []
+          }
+        ]
+      },
+      "class_name": "Wizard"
+    },
+    {
+      "level": 9,
+      "class_guid": "a865965f-501b-46e9-9eaa-7748e8c04d09",
+      "subclass_guid": "00000000-0000-0000-0000-000000000000",
+      "feat_guid": "00000000-0000-0000-0000-000000000000",
+      "ability_improvements": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "prepared_spells": [],
+      "selectors": {
+        "SpellSelectors": [
+          {
+            "node_id": "SpellSelector",
+            "definition_index": 0,
+            "list_uuid": "f781a25e-d288-43b4-bf5d-3d8d98846687",
+            "selector_id": "",
+            "addition_slots": [
+              "Throw_Telekinesis",
+              "Target_DominatePerson"
+            ],
+            "replacement_slots": []
+          }
+        ]
+      },
+      "class_name": "Wizard"
+    },
+    {
+      "level": 10,
+      "class_guid": "a865965f-501b-46e9-9eaa-7748e8c04d09",
+      "subclass_guid": "00000000-0000-0000-0000-000000000000",
+      "feat_guid": "00000000-0000-0000-0000-000000000000",
+      "ability_improvements": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "prepared_spells": [],
+      "selectors": {
+        "SpellSelectors": [
+          {
+            "node_id": "SpellSelector",
+            "definition_index": 0,
+            "list_uuid": "3cae2e56-9871-4cef-bba6-96845ea765fa",
+            "selector_id": "",
+            "addition_slots": [
+              "Target_ChillTouch"
+            ],
+            "replacement_slots": []
+          },
+          {
+            "node_id": "SpellSelector",
+            "definition_index": 1,
+            "list_uuid": "f781a25e-d288-43b4-bf5d-3d8d98846687",
+            "selector_id": "",
+            "addition_slots": [
+              "Target_Knock",
+              "Target_IceStorm"
+            ],
+            "replacement_slots": []
+          }
+        ]
+      },
+      "class_name": "Wizard"
+    },
+    {
+      "level": 11,
+      "class_guid": "a865965f-501b-46e9-9eaa-7748e8c04d09",
+      "subclass_guid": "00000000-0000-0000-0000-000000000000",
+      "feat_guid": "00000000-0000-0000-0000-000000000000",
+      "ability_improvements": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "prepared_spells": [],
+      "selectors": {
+        "SpellSelectors": [
+          {
+            "node_id": "SpellSelector",
+            "definition_index": 0,
+            "list_uuid": "bc917f22-7f71-4a25-9a77-7d2f91a96a65",
+            "selector_id": "",
+            "addition_slots": [
+              "Target_GlobeOfInvulnerability",
+              "Projectile_Disintegrate"
+            ],
+            "replacement_slots": []
+          }
+        ]
+      },
+      "class_name": "Wizard"
+    },
+    {
+      "level": 12,
+      "class_guid": "a865965f-501b-46e9-9eaa-7748e8c04d09",
+      "subclass_guid": "00000000-0000-0000-0000-000000000000",
+      "feat_guid": "d215b9ad-9753-4d74-8ff9-24bf1dce53d6",
+      "ability_improvements": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "prepared_spells": [],
+      "selectors": {
+        "AbilitySelectors": [
+          {
+            "node_id": "AbilitySelector",
+            "definition_index": 0,
+            "list_uuid": "b9149c8e-52c8-46e5-9cb6-fc39301c05fe",
+            "selector_id": "",
+            "level": 12,
+            "owner_uuid": "d215b9ad-9753-4d74-8ff9-24bf1dce53d6",
+            "parent_owner_uuid": "a865965f-501b-46e9-9eaa-7748e8c04d09",
+            "is_multiclass": false,
+            "slots": [
+              4,
+              2
+            ]
+          }
+        ],
+        "SpellSelectors": [
+          {
+            "node_id": "SpellSelector",
+            "definition_index": 0,
+            "list_uuid": "bc917f22-7f71-4a25-9a77-7d2f91a96a65",
+            "selector_id": "",
+            "addition_slots": [
+              "Target_Eyebite",
+              "Projectile_ChainLightning"
+            ],
+            "replacement_slots": []
+          }
+        ]
+      },
+      "class_name": "Wizard"
+    }
+  ]
+}

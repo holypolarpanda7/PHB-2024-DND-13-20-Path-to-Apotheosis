@@ -1,0 +1,59 @@
+{
+  "wizard_class_guid": "a865965f-501b-46e9-9eaa-7748e8c04d09",
+  "partyeditor_dir": "D:\\BG3Modding\\Mod_Projects\\BaseGame\\Gustav\\Mods\\GustavDev\\Story\\PartyEditor",
+  "total_candidates": 36,
+  "generated_manifests": [
+    {
+      "subclass_guid": "e6a0eb75-7a01-4f40-8563-24ba2615e99b",
+      "subclass_name": "AbjurationSchool",
+      "manifest_file": "wizard_abjurationschool_canonical.json",
+      "source_file": "D:\\BG3Modding\\Mod_Projects\\BaseGame\\Gustav\\Mods\\GustavDev\\Story\\PartyEditor\\Level9_Wizard_Druid_Fighter_Druid.lsx",
+      "preset_index": 4,
+      "character_name": "Swen",
+      "wizard_level_count": 9,
+      "total_levels": 9
+    },
+    {
+      "subclass_guid": "7577b0e1-a517-4f82-8f72-05a227dc5e88",
+      "subclass_name": "DivinationSchool",
+      "manifest_file": "wizard_divinationschool_canonical.json",
+      "source_file": "D:\\BG3Modding\\Mod_Projects\\BaseGame\\Gustav\\Mods\\GustavDev\\Story\\PartyEditor\\GNT-Mar-P4-PT1-Act3End.lsx",
+      "preset_index": 3,
+      "character_name": "",
+      "wizard_level_count": 12,
+      "total_levels": 12
+    },
+    {
+      "subclass_guid": "c059dca1-c17d-4dce-8260-83ede5070eac",
+      "subclass_name": "EvocationSchool",
+      "manifest_file": "wizard_evocationschool_canonical.json",
+      "source_file": "D:\\BG3Modding\\Mod_Projects\\BaseGame\\Gustav\\Mods\\GustavDev\\Story\\PartyEditor\\Level12_Gale.lsx",
+      "preset_index": 1,
+      "character_name": "Gale",
+      "wizard_level_count": 12,
+      "total_levels": 12
+    },
+    {
+      "subclass_guid": "436c9e1a-3a39-48dd-b753-7cee1bd19c00",
+      "subclass_name": "IllusionSchool",
+      "manifest_file": "wizard_illusionschool_canonical.json",
+      "source_file": "D:\\BG3Modding\\Mod_Projects\\BaseGame\\Gustav\\Mods\\GustavDev\\Story\\PartyEditor\\GNT-Mar-P3-PT1-Act3End.lsx",
+      "preset_index": 2,
+      "character_name": "",
+      "wizard_level_count": 12,
+      "total_levels": 12
+    }
+  ],
+  "inferred_manifests": [
+    {
+      "subclass_guid": "8047cf29-2c79-4f12-a4bf-d965a023be63",
+      "subclass_name": "BladesingingSchool",
+      "manifest_file": "wizard_bladesingingschool_inferred.json",
+      "donor_subclass_guid": "c059dca1-c17d-4dce-8260-83ede5070eac",
+      "donor_subclass_name": "EvocationSchool",
+      "donor_source_file": "D:\\BG3Modding\\Mod_Projects\\BaseGame\\Gustav\\Mods\\GustavDev\\Story\\PartyEditor\\Level12_Gale.lsx",
+      "donor_preset_index": 1
+    }
+  ],
+  "missing_subclasses": []
+}
