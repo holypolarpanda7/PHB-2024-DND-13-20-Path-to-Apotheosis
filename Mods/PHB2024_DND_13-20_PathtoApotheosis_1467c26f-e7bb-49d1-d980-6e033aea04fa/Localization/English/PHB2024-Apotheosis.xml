@@ -617,7 +617,6 @@
   <content contentuid="hdominmonster000000000000000000003" version="1">Dominated</content>
   <content contentuid="hdominmonster000000000000000000004" version="1">Charmed by the caster and under their control. Each time this creature takes damage, it can attempt a &lt;LSTag Tooltip="Wisdom"&gt;Wisdom&lt;/LSTag&gt; saving throw to break free.</content>
 
-  <!-- ===== Custom classes 13-20 (Gunslinger / Illrigger / Monster Hunter) ===== -->
   <content contentuid="hap0000000000000000000000000001" version="1">Lethal Quarry</content>
   <content contentuid="hap0000000000000000000000000002" version="1">You always find the weak point. Your critical hit threshold is reduced by 1 (you score a critical hit on a roll of 19-20).</content>
   <content contentuid="hap0000000000000000000000000003" version="1">Primal Accuracy</content>
