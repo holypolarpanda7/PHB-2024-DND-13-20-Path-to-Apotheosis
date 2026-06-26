@@ -11,6 +11,7 @@
 -- =====================================================================
 local TAG = "[Apotheosis]"
 Apotheosis = Apotheosis or {}
+_G.Apotheosis = Apotheosis  -- expose to SE console REPL (mod env is isolated from REPL _G)
 Apotheosis.DEBUG = true
 
 local Log = {}
@@ -871,7 +872,40 @@ end
 --   Apotheosis.Smoke.Wizard.RunManifest("BladesingingSchool")
 -- =====================================================================
 
-local WME = require("WizardManifestExpectations")
+local WME = nil
+
+local function smokeLoadWizardManifestExpectations()
+    if type(WME) == "table" then
+        return true
+    end
+
+    if type(_G.WizardManifestExpectations) == "table" then
+        WME = _G.WizardManifestExpectations
+        return true
+    end
+
+    if Ext and type(Ext.Require) == "function" then
+        local okRequire, requireErr = pcall(Ext.Require, "WizardManifestExpectations.lua")
+        if not okRequire then
+            return false, "Ext.Require('WizardManifestExpectations.lua') failed: " .. tostring(requireErr)
+        end
+        if type(_G.WizardManifestExpectations) == "table" then
+            WME = _G.WizardManifestExpectations
+            return true
+        end
+    end
+
+    if type(require) == "function" then
+        local okModule, moduleValue = pcall(require, "WizardManifestExpectations")
+        if okModule and type(moduleValue) == "table" then
+            WME = moduleValue
+            return true
+        end
+        return false, "require('WizardManifestExpectations') failed: " .. tostring(moduleValue)
+    end
+
+    return false, "WizardManifestExpectations.lua could not be loaded (Ext.Require/require unavailable)"
+end
 
 --- Run the manifest-driven strict validator for a single wizard subclass.
 --- @param subclassName  string   e.g. "EvocationSchool"
@@ -879,6 +913,11 @@ function Smoke.Wizard.RunManifest(subclassName)
     local ok, err = pcall(function()
         if smokeState.running then
             error("Smoke run already in progress - wait for it to complete or restart the game")
+        end
+
+        local loaded, loadErr = smokeLoadWizardManifestExpectations()
+        if not loaded then
+            error("Manifest expectations load failed: " .. tostring(loadErr))
         end
 
         -- ---- pre-flight: locate subclass data ----------------------------
