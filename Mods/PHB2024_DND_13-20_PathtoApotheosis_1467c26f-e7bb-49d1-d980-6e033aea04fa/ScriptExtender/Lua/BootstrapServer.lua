@@ -505,6 +505,8 @@ Smoke.DEFAULT_START_LEVEL = 12
 Smoke.DEFAULT_END_LEVEL = 20
 Smoke.LEVEL_SETTLE_MS = 1200
 Smoke.POST_RESTORE_SETTLE_MS = 600
+Smoke.INTERACTIVE_POLL_MS = 1000
+Smoke.INTERACTIVE_LEVEL_TIMEOUT_MS = 180000
 Smoke.MARKER_PASSIVES = {
     "Barbarian_BrutalStrike_Improved",
     "Diviner_14_GreaterPortent",
@@ -550,11 +552,89 @@ local function smokeRestore(character)
     end
 end
 
-local function smokeSetLevel(character, level)
-    if not Osi.SetLevel then
-        error("Osi.SetLevel is unavailable in this runtime")
+local function smokeGetLevel(character)
+    if not Osi.GetLevel then
+        return nil
     end
-    Osi.SetLevel(character, level)
+
+    local ok, level = pcall(Osi.GetLevel, character)
+    if not ok then
+        return nil
+    end
+
+    return tonumber(level)
+end
+
+local function smokeTryAdvanceOneLevel(character, nextLevel)
+    local beforeLevel = smokeGetLevel(character)
+
+    if Osi.SetLevel then
+        Osi.SetLevel(character, nextLevel)
+        local afterSet = smokeGetLevel(character)
+        if afterSet and afterSet >= nextLevel then
+            return true, "SetLevel", beforeLevel, afterSet
+        end
+    end
+
+    if Osi.PROC_LevelUpBy then
+        Osi.PROC_LevelUpBy(character, 1)
+        local afterBy = smokeGetLevel(character)
+        if afterBy and afterBy >= nextLevel then
+            return true, "PROC_LevelUpBy", beforeLevel, afterBy
+        end
+    end
+
+    if Osi.PROC_LevelUp then
+        Osi.PROC_LevelUp(character)
+        local afterProc = smokeGetLevel(character)
+        if afterProc and afterProc >= nextLevel then
+            return true, "PROC_LevelUp", beforeLevel, afterProc
+        end
+    end
+
+    return false, nil, beforeLevel, smokeGetLevel(character)
+end
+
+local function smokeSetLevel(character, level)
+    local targetLevel = tonumber(level) or level
+    local currentLevel = smokeGetLevel(character)
+    if currentLevel and currentLevel >= targetLevel then
+        return
+    end
+
+    if not currentLevel then
+        if Osi.SetLevel then
+            Osi.SetLevel(character, targetLevel)
+            return
+        end
+        error("No available level-set API in this runtime")
+    end
+
+    Log.Info("Smoke level set requested: " .. tostring(currentLevel) .. " -> " .. tostring(targetLevel))
+
+    for nextLevel = currentLevel + 1, targetLevel do
+        local okStep, method, beforeStep, afterStep = smokeTryAdvanceOneLevel(character, nextLevel)
+        if okStep then
+            Log.Debug(
+                "Smoke level step " .. tostring(beforeStep) .. " -> " .. tostring(afterStep) ..
+                " via " .. tostring(method)
+            )
+        else
+            Log.Warn(
+                "Smoke level step blocked at " .. tostring(beforeStep) ..
+                " while requesting " .. tostring(nextLevel) ..
+                " (after=" .. tostring(afterStep) .. ")"
+            )
+            return
+        end
+    end
+
+    local finalLevel = smokeGetLevel(character)
+    if finalLevel and finalLevel >= targetLevel then
+        return
+    end
+
+    Log.Warn("Smoke level set finished below target (target=" .. tostring(targetLevel) .. ", now=" .. tostring(finalLevel) .. ")")
 end
 
 local function smokeRunTimedLevelSequence(character, startAt, endAt, perLevel, onComplete)
@@ -593,7 +673,13 @@ local function smokeHasSpell(character, spell)
 end
 
 local function smokeDescribeBuild(character)
-    local tags = Osi.CharacterGetTags(character)
+    local tags = "<unavailable>"
+    if Osi.CharacterGetTags then
+        local ok, value = pcall(Osi.CharacterGetTags, character)
+        if ok and value ~= nil then
+            tags = value
+        end
+    end
     local markers = smokeDetectMarkers(character)
     Log.Info("Smoke host = " .. tostring(character))
     Log.Info("Smoke tags = " .. stringifyValue(tags))
@@ -874,31 +960,95 @@ end
 
 local WME = nil
 
+-- Load expectations during bootstrap while mod context is known.
+if Ext and type(Ext.Require) == "function" then
+    local okWme, wmeOrErr = pcall(Ext.Require, "WizardManifestExpectations.lua")
+    if okWme and type(wmeOrErr) == "table" then
+        WME = wmeOrErr
+        Log.Info("WizardManifestExpectations loaded at bootstrap")
+    else
+        Log.Warn("WizardManifestExpectations bootstrap load failed: " .. tostring(wmeOrErr))
+    end
+end
+
+-- Fallback execution path when SE console input is unreliable.
+-- Set Enabled = true to auto-run a wizard manifest shortly after SessionLoaded.
+local AUTO_SMOKE = {
+    Enabled = false,
+    Subclass = "EvocationSchool",
+    DelayMs = 3000,
+    MaxWaitTicks = 900, -- ~30s at 30hz
+}
+
+local autoSmokeState = {
+    armed = false,
+    started = false,
+    tickCount = 0,
+    tickHandler = nil,
+}
+
+local function autoSmokeUnsubscribeTick()
+    if autoSmokeState.tickHandler then
+        Ext.Events.Tick:Unsubscribe(autoSmokeState.tickHandler)
+        autoSmokeState.tickHandler = nil
+    end
+end
+
+local function autoSmokeStartWhenWorldReady()
+    if not AUTO_SMOKE.Enabled or autoSmokeState.started then
+        autoSmokeUnsubscribeTick()
+        return
+    end
+
+    autoSmokeState.tickCount = autoSmokeState.tickCount + 1
+
+    local host = getHostCharacterHandle()
+    if host and host ~= "" and host ~= "00000000-0000-0000-0000-000000000000" then
+        autoSmokeState.started = true
+        autoSmokeUnsubscribeTick()
+
+        Log.Warn(
+            "AUTO_SMOKE world-ready host detected (" .. tostring(host) .. ") - running " ..
+            tostring(AUTO_SMOKE.Subclass) .. " in " .. tostring(AUTO_SMOKE.DelayMs) .. "ms"
+        )
+
+        Ext.Timer.WaitFor(tonumber(AUTO_SMOKE.DelayMs) or 3000, function()
+            local okAuto, errAuto = pcall(function()
+                Smoke.Wizard.RunManifest(tostring(AUTO_SMOKE.Subclass))
+            end)
+            if not okAuto then
+                Log.Error("AUTO_SMOKE trigger error: " .. tostring(errAuto))
+            end
+        end)
+        return
+    end
+
+    local maxTicks = tonumber(AUTO_SMOKE.MaxWaitTicks) or 900
+    if autoSmokeState.tickCount >= maxTicks then
+        autoSmokeUnsubscribeTick()
+        Log.Warn("AUTO_SMOKE timed out waiting for world-ready host; no auto-run triggered")
+    end
+end
+
 local function smokeLoadWizardManifestExpectations()
+    Log.Debug("RunManifest: resolving WizardManifestExpectations module")
+
     if type(WME) == "table" then
+        Log.Debug("RunManifest: expectations already cached")
         return true
     end
 
     if type(_G.WizardManifestExpectations) == "table" then
         WME = _G.WizardManifestExpectations
+        Log.Debug("RunManifest: loaded expectations from _G cache")
         return true
-    end
-
-    if Ext and type(Ext.Require) == "function" then
-        local okRequire, requireErr = pcall(Ext.Require, "WizardManifestExpectations.lua")
-        if not okRequire then
-            return false, "Ext.Require('WizardManifestExpectations.lua') failed: " .. tostring(requireErr)
-        end
-        if type(_G.WizardManifestExpectations) == "table" then
-            WME = _G.WizardManifestExpectations
-            return true
-        end
     end
 
     if type(require) == "function" then
         local okModule, moduleValue = pcall(require, "WizardManifestExpectations")
         if okModule and type(moduleValue) == "table" then
             WME = moduleValue
+            Log.Debug("RunManifest: loaded expectations via require")
             return true
         end
         return false, "require('WizardManifestExpectations') failed: " .. tostring(moduleValue)
@@ -914,6 +1064,8 @@ function Smoke.Wizard.RunManifest(subclassName)
         if smokeState.running then
             error("Smoke run already in progress - wait for it to complete or restart the game")
         end
+
+        Log.Info("RunManifest requested for subclass = " .. tostring(subclassName))
 
         local loaded, loadErr = smokeLoadWizardManifestExpectations()
         if not loaded then
@@ -941,6 +1093,7 @@ function Smoke.Wizard.RunManifest(subclassName)
         else
             Log.Info("RunManifest: " .. subclassName .. " [canonical manifest]")
         end
+        Log.Debug("RunManifest subclass guid = " .. tostring(subData.subclass_guid))
 
         local host = smokeGetHost()
         Log.Info("RunManifest host = " .. tostring(host))
@@ -973,6 +1126,11 @@ function Smoke.Wizard.RunManifest(subclassName)
                 return
             end
 
+            Log.Debug(
+                "  RunManifest L" .. level .. ": base=" .. tostring(#(entry.base_passives or {})) ..
+                ", subclass=" .. tostring(#(entry.subclass_passives or {}))
+            )
+
             -- base wizard grants
             for _, passive in ipairs(entry.base_passives or {}) do
                 checkPassive(level, passive, "wizard-base")
@@ -1004,6 +1162,19 @@ function Smoke.Wizard.RunManifest(subclassName)
             Ext.Timer.WaitFor(Smoke.LEVEL_SETTLE_MS, function()
                 smokeRestore(host)
                 Ext.Timer.WaitFor(Smoke.POST_RESTORE_SETTLE_MS, function()
+                    local effectiveLevel = smokeGetLevel(host)
+                    if effectiveLevel and effectiveLevel < level then
+                        failed = true
+                        failInfo =
+                            "L" .. level ..
+                            " [preflight] engine level remained " .. tostring(effectiveLevel) ..
+                            " after SetLevel(" .. tostring(level) .. ")"
+                        Log.Error("  FAIL " .. failInfo)
+                        Log.Error("  STOPPING: host has unresolved level-up choices; complete level-up UI flow first, then retry")
+                        step(level + 1)
+                        return
+                    end
+
                     Log.Info("RunManifest: checking level " .. level)
                     validateLevel(level)
                     step(level + 1)
@@ -1020,6 +1191,553 @@ function Smoke.Wizard.RunManifest(subclassName)
     end
 end
 
+local function smokeTryAddExperience(character, amount)
+    if Osi.AddExperience then
+        local ok, err = pcall(Osi.AddExperience, character, amount)
+        if ok then
+            return true, "AddExperience"
+        end
+        Log.Warn("smokeTryAddExperience: AddExperience failed: " .. tostring(err))
+    end
+
+    if Osi.AddExplorationExperience then
+        local ok, err = pcall(Osi.AddExplorationExperience, character, amount)
+        if ok then
+            return true, "AddExplorationExperience"
+        end
+        Log.Warn("smokeTryAddExperience: AddExplorationExperience failed: " .. tostring(err))
+    end
+
+    return false, "No usable XP API (AddExperience/AddExplorationExperience unavailable or failing)"
+end
+
+-- XP needed to advance from N -> N+1, mirroring the mod's XPData.txt.
+local XP_TO_NEXT_LEVEL = {
+    [1] = 300,
+    [2] = 600,
+    [3] = 1800,
+    [4] = 3800,
+    [5] = 6500,
+    [6] = 8000,
+    [7] = 9000,
+    [8] = 9000,
+    [9] = 9500,
+    [10] = 10000,
+    [11] = 10500,
+    [12] = 10500,
+    [13] = 11000,
+    [14] = 11000,
+    [15] = 11500,
+    [16] = 11500,
+    [17] = 12000,
+    [18] = 12000,
+    [19] = 11500,
+}
+
+local function smokeGetXpToNextLevel(level)
+    return XP_TO_NEXT_LEVEL[tonumber(level)]
+end
+
+local function smokeGetWizardSpellbookCounts(character)
+    if not Ext or not Ext.Entity or type(Ext.Entity.Get) ~= "function" then
+        return nil, "Ext.Entity.Get unavailable"
+    end
+
+    local entity = Ext.Entity.Get(character)
+    if not entity or not entity.SpellBook or not entity.SpellBook.Spells then
+        return nil, "SpellBook component unavailable"
+    end
+
+    local known = 0
+    local prepared = 0
+    local foundPreparedFlag = false
+
+    local function isPreparedEntry(spell)
+        local v = spell.IsPrepared
+        if v == nil then v = spell.Prepared end
+        if v == nil then v = spell.IsMemorized end
+        if v == nil then v = spell.Memorized end
+        if v == nil then v = spell.IsSelected end
+        if v == nil then return nil end
+        return v == true or v == 1
+    end
+
+    for _, spell in ipairs(entity.SpellBook.Spells) do
+        known = known + 1
+        local prep = isPreparedEntry(spell)
+        if prep ~= nil then
+            foundPreparedFlag = true
+            if prep then
+                prepared = prepared + 1
+            end
+        end
+    end
+
+    if not foundPreparedFlag then
+        return nil, "Prepared flag not discoverable on SpellBook entries"
+    end
+
+    return {
+        known = known,
+        prepared = prepared,
+    }
+end
+
+local function smokeGetIntModifier(character)
+    if not Ext or not Ext.Entity or type(Ext.Entity.Get) ~= "function" then
+        return nil
+    end
+
+    local entity = Ext.Entity.Get(character)
+    if not entity or not entity.Stats or not entity.Stats.Abilities then
+        return nil
+    end
+
+    -- Abilities array is 1-indexed with [1]=None; Intelligence sits at index 5.
+    local intelligence = tonumber(entity.Stats.Abilities[5])
+    if not intelligence then
+        return nil
+    end
+
+    return math.floor((intelligence - 10) / 2)
+end
+
+--- Interactive manual-level flow:
+--- 1) Start once for a subclass.
+--- 2) Validate current committed level when in check range.
+--- 3) Grant EXACT XP for current->next level.
+--- 4) Wait for player to complete choices until next level is committed.
+--- 5) Repeat until L20 or first failure.
+function Smoke.Wizard.RunManifestInteractive(subclassName, startLevel)
+    local ok, err = pcall(function()
+        if smokeState.running then
+            error("Smoke run already in progress - wait for it to complete or restart the game")
+        end
+
+        Log.Info("RunManifestInteractive requested for subclass = " .. tostring(subclassName))
+
+        local loaded, loadErr = smokeLoadWizardManifestExpectations()
+        if not loaded then
+            error("Manifest expectations load failed: " .. tostring(loadErr))
+        end
+
+        local subData = WME.subclasses[subclassName]
+        if not subData then
+            local available = {}
+            for k in pairs(WME.subclasses) do
+                available[#available + 1] = k
+            end
+            table.sort(available)
+            error(
+                "Unknown subclass '" .. tostring(subclassName) ..
+                "'.  Available: " .. table.concat(available, ", ")
+            )
+        end
+
+        local host = smokeGetHost()
+        Log.Info("RunManifestInteractive host = " .. tostring(host))
+        smokeDescribeBuild(host)
+
+        local checkStart = tonumber(startLevel) or 13
+        if checkStart < 1 then checkStart = 1 end
+        if checkStart > 20 then checkStart = 20 end
+
+        smokeState.running = true
+
+        local failed = false
+        local failInfo = nil
+
+        local function finish()
+            if failed then
+                Log.Error("RunManifestInteractive " .. tostring(subclassName) .. ": FAILED at " .. tostring(failInfo))
+            else
+                Log.Info("RunManifestInteractive " .. tostring(subclassName) .. ": ALL CHECKS PASSED (L" .. tostring(checkStart) .. "-L20)")
+            end
+            smokeState.running = false
+        end
+
+        local function checkPassive(level, passive, kindLabel)
+            if failed then return end
+            if smokeHasPassive(host, passive) then
+                Log.Info("  PASS L" .. tostring(level) .. " [" .. kindLabel .. "] HasPassive(" .. passive .. ")")
+            else
+                failed = true
+                failInfo = "L" .. tostring(level) .. " [" .. kindLabel .. "] missing passive: " .. passive
+                Log.Error("  FAIL " .. tostring(failInfo))
+                Log.Error("  STOPPING: fix '" .. tostring(passive) .. "' before continuing")
+            end
+        end
+
+        local function validateLevel(level)
+            if failed then return end
+
+            if level < checkStart then
+                Log.Debug("  RunManifestInteractive L" .. tostring(level) .. ": below checkStart L" .. tostring(checkStart) .. " - skipping checks")
+                return
+            end
+
+            local entry = subData.levels[level]
+            if not entry then
+                Log.Warn("  RunManifestInteractive L" .. tostring(level) .. ": no entry in expectation table - skipping")
+                return
+            end
+
+            Log.Debug(
+                "  RunManifestInteractive L" .. tostring(level) .. ": base=" .. tostring(#(entry.base_passives or {})) ..
+                ", subclass=" .. tostring(#(entry.subclass_passives or {}))
+            )
+
+            for _, passive in ipairs(entry.base_passives or {}) do
+                checkPassive(level, passive, "wizard-base")
+                if failed then return end
+            end
+
+            for _, passive in ipairs(entry.subclass_passives or {}) do
+                checkPassive(level, passive, tostring(subclassName))
+                if failed then return end
+            end
+
+            if level >= 13 then
+                local counts, countErr = smokeGetWizardSpellbookCounts(host)
+                if not counts then
+                    failed = true
+                    failInfo = "L" .. tostring(level) .. " [wizard-spellbook] " .. tostring(countErr)
+                    Log.Error("  FAIL " .. tostring(failInfo))
+                    Log.Error("  STOPPING: cannot validate wizard spellbook/prepared counts")
+                    return
+                end
+
+                local expectedKnownMin = 6 + math.max(0, ((tonumber(level) or 1) - 1) * 2)
+                if counts.known < expectedKnownMin then
+                    failed = true
+                    failInfo =
+                        "L" .. tostring(level) ..
+                        " [wizard-spellbook] known spells " .. tostring(counts.known) ..
+                        " < expected minimum " .. tostring(expectedKnownMin)
+                    Log.Error("  FAIL " .. tostring(failInfo))
+                    Log.Error("  STOPPING: wizard did not gain enough known spells by level-up progression")
+                    return
+                end
+
+                local intMod = smokeGetIntModifier(host)
+                if intMod ~= nil then
+                    local expectedPreparedMin = math.max(1, (tonumber(level) or 1) + intMod)
+                    if counts.prepared < expectedPreparedMin then
+                        failed = true
+                        failInfo =
+                            "L" .. tostring(level) ..
+                            " [wizard-prepared] prepared spells " .. tostring(counts.prepared) ..
+                            " < expected minimum " .. tostring(expectedPreparedMin)
+                        Log.Error("  FAIL " .. tostring(failInfo))
+                        Log.Error("  STOPPING: wizard prepared spell count below expected level+INT threshold")
+                        return
+                    end
+
+                    Log.Info(
+                        "  PASS L" .. tostring(level) ..
+                        " [wizard-spellbook] known=" .. tostring(counts.known) ..
+                        ", prepared=" .. tostring(counts.prepared) ..
+                        ", expectedPreparedMin=" .. tostring(expectedPreparedMin)
+                    )
+                else
+                    Log.Warn("  RunManifestInteractive L" .. tostring(level) .. ": could not resolve INT modifier; prepared minimum not enforced")
+                end
+            end
+        end
+
+        local driveNextStep
+
+        local function waitForCommittedLevel(targetLevel, startedAtMs)
+            if failed then
+                finish()
+                return
+            end
+
+            local current = smokeGetLevel(host)
+            if current and current >= targetLevel then
+                Log.Info("RunManifestInteractive: level " .. tostring(targetLevel) .. " committed (current=" .. tostring(current) .. ")")
+                smokeRestore(host)
+                Ext.Timer.WaitFor(Smoke.POST_RESTORE_SETTLE_MS, function()
+                    validateLevel(targetLevel)
+                    if failed or targetLevel >= 20 then
+                        finish()
+                        return
+                    end
+                    Ext.Timer.WaitFor(300, driveNextStep)
+                end)
+                return
+            end
+
+            if startedAtMs >= Smoke.INTERACTIVE_LEVEL_TIMEOUT_MS then
+                failed = true
+                failInfo =
+                    "L" .. tostring(targetLevel) ..
+                    " [interactive-timeout] waiting for committed level-up choices (current=" .. tostring(current) .. ")"
+                Log.Error("  FAIL " .. tostring(failInfo))
+                Log.Error("  STOPPING: complete level-up choices in UI, then rerun interactive smoke")
+                finish()
+                return
+            end
+
+            Ext.Timer.WaitFor(Smoke.INTERACTIVE_POLL_MS, function()
+                waitForCommittedLevel(targetLevel, startedAtMs + Smoke.INTERACTIVE_POLL_MS)
+            end)
+        end
+
+        driveNextStep = function()
+            if failed then
+                finish()
+                return
+            end
+
+            local current = smokeGetLevel(host)
+            if not current then
+                failed = true
+                failInfo = "[interactive] unable to resolve current committed level"
+                Log.Error("  FAIL " .. tostring(failInfo))
+                finish()
+                return
+            end
+
+            if current > 20 then
+                current = 20
+            end
+
+            Log.Info("RunManifestInteractive: committed current level = " .. tostring(current))
+            validateLevel(current)
+            if failed then
+                finish()
+                return
+            end
+
+            if current >= 20 then
+                finish()
+                return
+            end
+
+            local xpDelta = smokeGetXpToNextLevel(current)
+            if not xpDelta then
+                failed = true
+                failInfo = "[interactive] missing XP delta for level " .. tostring(current)
+                Log.Error("  FAIL " .. tostring(failInfo))
+                finish()
+                return
+            end
+
+            local targetLevel = current + 1
+            local okXp, xpSourceOrErr = smokeTryAddExperience(host, xpDelta)
+            if okXp then
+                Log.Info(
+                    "RunManifestInteractive: granted XP delta " .. tostring(xpDelta) ..
+                    " for L" .. tostring(current) .. " -> L" .. tostring(targetLevel) ..
+                    " via " .. tostring(xpSourceOrErr)
+                )
+            else
+                failed = true
+                failInfo = "L" .. tostring(targetLevel) .. " [interactive-xp] " .. tostring(xpSourceOrErr)
+                Log.Error("  FAIL " .. tostring(failInfo))
+                finish()
+                return
+            end
+
+            Log.Info("RunManifestInteractive: waiting for level-up choices to commit L" .. tostring(targetLevel))
+            waitForCommittedLevel(targetLevel, 0)
+        end
+
+        Log.Info(
+            "RunManifestInteractive: begin interactive chain from current level -> L20; " ..
+            "checks start at L" .. tostring(checkStart) .. ""
+        )
+
+        driveNextStep()
+    end)
+
+    if not ok then
+        smokeState.running = false
+        Log.Error("RunManifestInteractive error: " .. tostring(err))
+    end
+end
+
+--- Validate one manifest level only (current host level by default).
+--- @param subclassName string
+--- @param levelOverride number|nil
+function Smoke.Wizard.CheckLevel(subclassName, levelOverride)
+    local ok, err = pcall(function()
+        if smokeState.running then
+            error("Smoke run already in progress - wait for it to complete or restart the game")
+        end
+
+        local loaded, loadErr = smokeLoadWizardManifestExpectations()
+        if not loaded then
+            error("Manifest expectations load failed: " .. tostring(loadErr))
+        end
+
+        local subData = WME.subclasses[subclassName]
+        if not subData then
+            local available = {}
+            for k in pairs(WME.subclasses) do
+                available[#available + 1] = k
+            end
+            table.sort(available)
+            error(
+                "Unknown subclass '" .. tostring(subclassName) ..
+                "'.  Available: " .. table.concat(available, ", ")
+            )
+        end
+
+        local host = smokeGetHost()
+        local level = tonumber(levelOverride) or smokeGetLevel(host)
+        if not level then
+            error("Unable to resolve host level for single-level manifest check")
+        end
+
+        if level < 13 or level > 20 then
+            error("Single-level manifest check requires level 13-20; current/requested = " .. tostring(level))
+        end
+
+        local entry = subData.levels[level]
+        if not entry then
+            error("No manifest entry found for subclass " .. tostring(subclassName) .. " at level " .. tostring(level))
+        end
+
+        Log.Info("RunManifestCheck: " .. tostring(subclassName) .. " at L" .. tostring(level))
+
+        local failed = false
+        local failInfo = nil
+
+        local function checkPassive(passive, kindLabel)
+            if failed then return end
+            if smokeHasPassive(host, passive) then
+                Log.Info("  PASS L" .. tostring(level) .. " [" .. kindLabel .. "] HasPassive(" .. passive .. ")")
+            else
+                failed = true
+                failInfo = "L" .. tostring(level) .. " [" .. kindLabel .. "] missing passive: " .. passive
+                Log.Error("  FAIL " .. failInfo)
+            end
+        end
+
+        for _, passive in ipairs(entry.base_passives or {}) do
+            checkPassive(passive, "wizard-base")
+        end
+
+        for _, passive in ipairs(entry.subclass_passives or {}) do
+            checkPassive(passive, tostring(subclassName))
+        end
+
+        if failed then
+            Log.Error("RunManifestCheck " .. tostring(subclassName) .. ": FAILED at " .. tostring(failInfo))
+        else
+            Log.Info("RunManifestCheck " .. tostring(subclassName) .. ": PASS at L" .. tostring(level))
+        end
+    end)
+
+    if not ok then
+        Log.Error("RunManifestCheck error: " .. tostring(err))
+    end
+end
+
+--- Probe whether RequestAutoLevel can resolve pending level-up state for the host.
+function Smoke.Wizard.TryAutoLevel()
+    local ok, err = pcall(function()
+        local host = smokeGetHost()
+        local before = smokeGetLevel(host)
+        Log.Info("TryAutoLevel host=" .. tostring(host) .. " level(before)=" .. tostring(before))
+
+        if not Osi.RequestAutoLevel then
+            Log.Error("TryAutoLevel: Osi.RequestAutoLevel is unavailable in this runtime")
+            return
+        end
+
+        Osi.RequestAutoLevel(host)
+
+        -- Let level-up side effects settle before checking committed level.
+        Ext.Timer.WaitFor(800, function()
+            local after = smokeGetLevel(host)
+            if after and before and after > before then
+                Log.Info("TryAutoLevel: SUCCESS level(after)=" .. tostring(after))
+            else
+                Log.Warn(
+                    "TryAutoLevel: no committed level change detected (before=" ..
+                    tostring(before) .. ", after=" .. tostring(after) .. ")"
+                )
+            end
+        end)
+    end)
+
+    if not ok then
+        Log.Error("TryAutoLevel error: " .. tostring(err))
+    end
+end
+
+local function smokeConsoleRunManifest(cmd, subclassName)
+    if not subclassName or tostring(subclassName) == "" then
+        Log.Error("Console command usage: !apowizmanifest <SubclassName>")
+        Log.Error("Available subclasses: AbjurationSchool, BladesingingSchool, DivinationSchool, EvocationSchool, IllusionSchool")
+        return
+    end
+
+    Log.Info("Console command !" .. tostring(cmd) .. " " .. tostring(subclassName))
+    Smoke.Wizard.RunManifest(tostring(subclassName))
+end
+
+local function smokeConsoleRunManifestInteractive(cmd, subclassName, startLevel)
+    if not subclassName or tostring(subclassName) == "" then
+        Log.Error("Console command usage: !apowizinteractive <SubclassName>")
+        Log.Error("Example: !apowizinteractive EvocationSchool")
+        return
+    end
+
+    if startLevel ~= nil and tostring(startLevel) ~= "" then
+        Log.Warn("Console command !" .. tostring(cmd) .. ": ignoring legacy StartLevel argument; command is now subclass-only")
+    end
+
+    Log.Info("Console command !" .. tostring(cmd) .. " " .. tostring(subclassName))
+    Smoke.Wizard.RunManifestInteractive(tostring(subclassName))
+end
+
+local function smokeConsoleRunManifestCheck(cmd, subclassName, level)
+    if not subclassName or tostring(subclassName) == "" then
+        Log.Error("Console command usage: !apowizcheck <SubclassName> [Level]")
+        Log.Error("Example: !apowizcheck EvocationSchool 13")
+        return
+    end
+
+    Log.Info("Console command !" .. tostring(cmd) .. " " .. tostring(subclassName) .. " " .. tostring(level or ""))
+    Smoke.Wizard.CheckLevel(tostring(subclassName), tonumber(level))
+end
+
+local function smokeConsoleTryAutoLevel(cmd)
+    Log.Info("Console command !" .. tostring(cmd))
+    Smoke.Wizard.TryAutoLevel()
+end
+
+local function smokeConsoleRunSweep(cmd, startLevel, endLevel)
+    Log.Info(
+        "Console command !" .. tostring(cmd) ..
+        " start=" .. tostring(startLevel or Smoke.DEFAULT_START_LEVEL) ..
+        " end=" .. tostring(endLevel or Smoke.DEFAULT_END_LEVEL)
+    )
+    Smoke.Wizard.RunSweep(startLevel, endLevel)
+end
+
+local function smokeConsoleHelp(cmd)
+    Log.Info("Console command !" .. tostring(cmd))
+    Smoke.Help()
+    Smoke.Wizard.Help()
+end
+
+if Ext and type(Ext.RegisterConsoleCommand) == "function" then
+    Ext.RegisterConsoleCommand("aposmokehelp", smokeConsoleHelp)
+    Ext.RegisterConsoleCommand("apowizmanifest", smokeConsoleRunManifest)
+    Ext.RegisterConsoleCommand("apowizinteractive", smokeConsoleRunManifestInteractive)
+    Ext.RegisterConsoleCommand("apowizcheck", smokeConsoleRunManifestCheck)
+    Ext.RegisterConsoleCommand("apowizautolevel", smokeConsoleTryAutoLevel)
+    Ext.RegisterConsoleCommand("apowizsweep", smokeConsoleRunSweep)
+    Log.Info("Smoke console commands registered: !aposmokehelp, !apowizmanifest, !apowizinteractive, !apowizcheck, !apowizautolevel, !apowizsweep")
+else
+    Log.Warn("Ext.RegisterConsoleCommand unavailable; REPL-only smoke entrypoints remain")
+end
+
 function Smoke.Wizard.Help()
     Log.Info("Wizard smoke commands:")
     Log.Info("  Apotheosis.Smoke.Wizard.RunSweep()")
@@ -1029,6 +1747,15 @@ function Smoke.Wizard.Help()
     Log.Info("  Apotheosis.Smoke.Wizard.RunManifest('DivinationSchool')")
     Log.Info("  Apotheosis.Smoke.Wizard.RunManifest('IllusionSchool')")
     Log.Info("  Apotheosis.Smoke.Wizard.RunManifest('BladesingingSchool')  [inferred]")
+    Log.Info("  Apotheosis.Smoke.Wizard.RunManifestInteractive('EvocationSchool')")
+    Log.Info("  Apotheosis.Smoke.Wizard.CheckLevel('EvocationSchool')        -- current host level")
+    Log.Info("  Apotheosis.Smoke.Wizard.CheckLevel('EvocationSchool', 13)    -- explicit level")
+    Log.Info("  Apotheosis.Smoke.Wizard.TryAutoLevel()")
+    Log.Info("  !apowizmanifest EvocationSchool")
+    Log.Info("  !apowizinteractive EvocationSchool")
+    Log.Info("  !apowizcheck EvocationSchool 13")
+    Log.Info("  !apowizautolevel")
+    Log.Info("  !apowizsweep 12 20")
     Log.Info("  timing: " .. tostring(Smoke.LEVEL_SETTLE_MS) .. "ms after SetLevel, " .. tostring(Smoke.POST_RESTORE_SETTLE_MS) .. "ms after restore")
 end
 
@@ -1041,11 +1768,30 @@ function Smoke.Help()
     Log.Info("  Apotheosis.Smoke.Wizard.Help()")
     Log.Info("  Apotheosis.Smoke.Wizard.RunSweep()")
     Log.Info("  Apotheosis.Smoke.Wizard.RunManifest('SubclassName')")
+    Log.Info("  Apotheosis.Smoke.Wizard.RunManifestInteractive('SubclassName')")
+    Log.Info("  Apotheosis.Smoke.Wizard.CheckLevel('SubclassName', [Level])")
+    Log.Info("  Apotheosis.Smoke.Wizard.TryAutoLevel()")
+    Log.Info("  !aposmokehelp")
+    Log.Info("  !apowizmanifest EvocationSchool")
+    Log.Info("  !apowizinteractive EvocationSchool")
+    Log.Info("  !apowizcheck EvocationSchool 13")
+    Log.Info("  !apowizautolevel")
+    Log.Info("  !apowizsweep 12 20")
 end
 
 Ext.Events.SessionLoaded:Subscribe(function()
     local ok, err = pcall(function()
         Log.Info("Smoke API ready - enter 'server' then Apotheosis.Smoke.Help() in the SE console")
+        Log.Info("Smoke console shortcuts ready: !aposmokehelp, !apowizmanifest EvocationSchool, !apowizinteractive EvocationSchool, !apowizcheck EvocationSchool 13, !apowizautolevel, !apowizsweep 12 20")
+
+        if AUTO_SMOKE.Enabled then
+            Log.Warn("AUTO_SMOKE enabled: waiting for world-ready host before triggering")
+            autoSmokeState.armed = true
+            autoSmokeState.started = false
+            autoSmokeState.tickCount = 0
+            autoSmokeUnsubscribeTick()
+            autoSmokeState.tickHandler = Ext.Events.Tick:Subscribe(autoSmokeStartWhenWorldReady)
+        end
     end)
     if not ok then
         Log.Error("Smoke API readiness error: " .. tostring(err))

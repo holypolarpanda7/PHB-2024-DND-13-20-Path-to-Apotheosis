@@ -114,7 +114,8 @@ function Send-ConsoleKeys {
     )
 
     Set-Clipboard -Value $Text
-    $Shell.SendKeys('^v')
+    # SE console often accepts Shift+Insert more reliably than Ctrl+V.
+    $Shell.SendKeys('+{INSERT}')
     [System.Threading.Thread]::Sleep(40)
     $Shell.SendKeys('~')
 }
@@ -132,6 +133,10 @@ $shell = New-Object -ComObject WScript.Shell
 $resolvedWindow = Focus-TargetWindow -Shell $shell -ExactTitle $WindowTitle -TitlePattern $WindowTitlePattern
 
 [System.Threading.Thread]::Sleep($InitialDelayMs)
+
+# Prime the SE console into input mode (equivalent to pressing Enter once).
+$shell.SendKeys('~')
+[System.Threading.Thread]::Sleep(80)
 
 try {
     foreach ($command in $Commands) {
