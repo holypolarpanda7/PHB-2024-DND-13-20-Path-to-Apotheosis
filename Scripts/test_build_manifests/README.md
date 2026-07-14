@@ -1,5 +1,13 @@
 # Test Build Manifests
 
+> **Note (2026-07-14):** subclass validation is no longer wizard-only. All 16
+> classes / 80 subclasses now have generated expectations
+> (`python Scripts/build_all_class_expectations.py` →
+> `ClassExpectations.lua`), runnable in-game via `!aposub <Name> [level]` /
+> `!aposubsweep <Name>`, or end-to-end via `./Scripts/test_subclass.sh <Name>`.
+> The wizard manifest flow below remains the reference for choice-pipeline
+> (PartyEditor) capture.
+
 These JSON files capture real BG3 PartyEditor level-up decisions in a stable,
 diffable form.
 

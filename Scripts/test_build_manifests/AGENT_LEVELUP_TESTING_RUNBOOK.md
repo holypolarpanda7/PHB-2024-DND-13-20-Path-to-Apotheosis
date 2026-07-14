@@ -1,5 +1,12 @@
 # Agent Runbook: Realistic Wizard Level-Up Testing
 
+> **Note (2026-07-14):** for any non-wizard class/subclass, use the generic
+> path instead: regenerate `ClassExpectations.lua` with
+> `python Scripts/build_all_class_expectations.py`, then run
+> `./Scripts/test_subclass.sh <Name>` (wraps `!aposubsweep <Name>` + log watch
+> + kill-on-fail). This runbook remains the wizard manifest/choice-pipeline
+> reference.
+
 Use this runbook when an agent needs to refresh canonical wizard manifests and
 run level 13-20 Apotheosis validation against realistic level-up choices.
 
