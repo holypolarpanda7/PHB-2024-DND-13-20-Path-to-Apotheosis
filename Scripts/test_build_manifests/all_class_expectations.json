@@ -1,0 +1,2662 @@
+{
+  "classes": {
+    "Artificer": {
+      "levels": {
+        "13": {
+          "boosts": "ActionResource(SpellSlot,1,4)",
+          "passives": [],
+          "selectors": "SelectSpells(d0e1f2a3-b4c5-6d7e-8f9a-0b1c2d3e4f5a,1,0,ArtificerSpellList)"
+        },
+        "14": {
+          "boosts": "",
+          "passives": [
+            "Artificer_MagicItemSavant"
+          ],
+          "selectors": "SelectPassives(e1f2a3b4-c5d6-7e8f-9a0b-1c2d3e4f5a6b,1,ArtificerInfusions)"
+        },
+        "15": {
+          "boosts": "ActionResource(SpellSlot,1,4)",
+          "passives": [],
+          "selectors": ""
+        },
+        "16": {
+          "boosts": "",
+          "passives": [],
+          "selectors": ""
+        },
+        "17": {
+          "boosts": "ActionResource(SpellSlot,1,5)",
+          "passives": [],
+          "selectors": "SelectSpells(d0e1f2a3-b4c5-6d7e-8f9a-0b1c2d3e4f5a,1,0,ArtificerSpellList)"
+        },
+        "18": {
+          "boosts": "ActionResource(SpellSlot,1,5)",
+          "passives": [
+            "Artificer_MagicItemMaster"
+          ],
+          "selectors": "SelectPassives(e1f2a3b4-c5d6-7e8f-9a0b-1c2d3e4f5a6b,1,ArtificerInfusions)"
+        },
+        "19": {
+          "boosts": "ActionResource(SpellSlot,1,5)",
+          "passives": [],
+          "selectors": "SelectPassives(da3e7815-685b-469c-9bba-0f5a7cc93fd1,1,EpicBoons)"
+        },
+        "20": {
+          "boosts": "",
+          "passives": [
+            "Artificer_SoulOfArtifice"
+          ],
+          "selectors": ""
+        }
+      },
+      "parent": null,
+      "table_uuid": "1e84493e-aeff-4d0e-b3ae-6c2187245d23"
+    },
+    "Barbarian": {
+      "levels": {
+        "12": {
+          "boosts": "ActionResource(Rage,1,0)",
+          "passives": [],
+          "selectors": ""
+        },
+        "13": {
+          "boosts": "ActionResource(RageCharge,1,0)",
+          "passives": [
+            "Barbarian_BrutalStrike_Improved"
+          ],
+          "selectors": ""
+        },
+        "14": {
+          "boosts": "",
+          "passives": [],
+          "selectors": ""
+        },
+        "15": {
+          "boosts": "",
+          "passives": [
+            "Barbarian_PersistentRage"
+          ],
+          "selectors": ""
+        },
+        "16": {
+          "boosts": "ActionResource(RageCharge,1,0)",
+          "passives": [],
+          "selectors": ""
+        },
+        "17": {
+          "boosts": "",
+          "passives": [
+            "Barbarian_BrutalStrike_17"
+          ],
+          "selectors": ""
+        },
+        "18": {
+          "boosts": "ActionResource(RageCharge,1,0)",
+          "passives": [
+            "Barbarian_IndomitableMight"
+          ],
+          "selectors": ""
+        },
+        "19": {
+          "boosts": "",
+          "passives": [],
+          "selectors": "SelectPassives(da3e7815-685b-469c-9bba-0f5a7cc93fd1,1,EpicBoons)"
+        },
+        "20": {
+          "boosts": "",
+          "passives": [
+            "Barbarian_PrimalChampion"
+          ],
+          "selectors": ""
+        }
+      },
+      "parent": null,
+      "table_uuid": "60bbcc97-5381-4898-bc15-908c072895de"
+    },
+    "Bard": {
+      "levels": {
+        "13": {
+          "boosts": "ActionResource(SpellSlot,1,7)",
+          "passives": [
+            "UnlockedSpellSlotLevel7"
+          ],
+          "selectors": "SelectSpells(858d4322-9e9f-4aa4-aada-9c68835dc6fe,1,1,BardMagicalSecrets);SelectSpells(00170001-0001-0001-0001-000000000005,1,1,BardSpells)"
+        },
+        "14": {
+          "boosts": "",
+          "passives": [],
+          "selectors": ""
+        },
+        "15": {
+          "boosts": "ActionResource(SpellSlot,1,8)",
+          "passives": [
+            "UnlockedSpellSlotLevel8"
+          ],
+          "selectors": "SelectSpells(858d4322-9e9f-4aa4-aada-9c68835dc6fe,1,1,BardMagicalSecrets);SelectSpells(00180001-0001-0001-0001-000000000005,1,1,BardSpells)"
+        },
+        "16": {
+          "boosts": "",
+          "passives": [],
+          "selectors": ""
+        },
+        "17": {
+          "boosts": "ActionResource(SpellSlot,1,9)",
+          "passives": [
+            "UnlockedSpellSlotLevel9"
+          ],
+          "selectors": "SelectSpells(858d4322-9e9f-4aa4-aada-9c68835dc6fe,1,1,BardMagicalSecrets);SelectSpells(00190001-0001-0001-0001-000000000005,1,1,BardSpells)"
+        },
+        "18": {
+          "boosts": "ActionResource(SpellSlot,1,5);ActionResource(BardicInspiration,1,0)",
+          "passives": [
+            "Bard_SuperiorInspiration"
+          ],
+          "selectors": "SelectSpells(858d4322-9e9f-4aa4-aada-9c68835dc6fe,1,1,BardMagicalSecrets);SelectSpells(00190001-0001-0001-0001-000000000005,1,1,BardSpells)"
+        },
+        "19": {
+          "boosts": "ActionResource(SpellSlot,1,6)",
+          "passives": [],
+          "selectors": "SelectPassives(da3e7815-685b-469c-9bba-0f5a7cc93fd1,1,EpicBoons);SelectSpells(858d4322-9e9f-4aa4-aada-9c68835dc6fe,1,1,BardMagicalSecrets);SelectSpells(00190001-0001-0001-0001-000000000005,1,1,BardSpells)"
+        },
+        "20": {
+          "boosts": "ActionResource(SpellSlot,1,7)",
+          "passives": [
+            "Bard_WordsOfCreation"
+          ],
+          "selectors": "SelectSpells(858d4322-9e9f-4aa4-aada-9c68835dc6fe,1,1,BardMagicalSecrets);SelectSpells(00190001-0001-0001-0001-000000000005,1,1,BardSpells)"
+        }
+      },
+      "parent": null,
+      "table_uuid": "229c98da-2cd1-4a5e-8051-9d90ec7931e7"
+    },
+    "Cleric": {
+      "levels": {
+        "12": {
+          "boosts": "",
+          "passives": [],
+          "selectors": ""
+        },
+        "13": {
+          "boosts": "ActionResource(SpellSlot,1,7)",
+          "passives": [
+            "UnlockedSpellSlotLevel7"
+          ],
+          "selectors": "AddSpells(00170001-0001-0001-0001-000000000003)"
+        },
+        "14": {
+          "boosts": "",
+          "passives": [
+            "ImprovedBlessedStrikes"
+          ],
+          "selectors": ""
+        },
+        "15": {
+          "boosts": "ActionResource(SpellSlot,1,8)",
+          "passives": [
+            "UnlockedSpellSlotLevel8"
+          ],
+          "selectors": "AddSpells(00180001-0001-0001-0001-000000000003)"
+        },
+        "16": {
+          "boosts": "",
+          "passives": [],
+          "selectors": ""
+        },
+        "17": {
+          "boosts": "ActionResource(SpellSlot,1,9)",
+          "passives": [
+            "UnlockedSpellSlotLevel9"
+          ],
+          "selectors": "AddSpells(00190001-0001-0001-0001-000000000003)"
+        },
+        "18": {
+          "boosts": "ActionResource(SpellSlot,1,5);ActionResource(ChannelDivinity,1,0)",
+          "passives": [],
+          "selectors": ""
+        },
+        "19": {
+          "boosts": "ActionResource(SpellSlot,1,6)",
+          "passives": [],
+          "selectors": "SelectPassives(da3e7815-685b-469c-9bba-0f5a7cc93fd1,1,EpicBoons)"
+        },
+        "20": {
+          "boosts": "ActionResource(SpellSlot,1,7)",
+          "passives": [
+            "Cleric_GreaterDivineIntervention"
+          ],
+          "selectors": ""
+        }
+      },
+      "parent": null,
+      "table_uuid": "64474b62-b4f5-46b3-b94a-c676c6da3116"
+    },
+    "Druid": {
+      "levels": {
+        "13": {
+          "boosts": "ActionResource(SpellSlot,1,7)",
+          "passives": [
+            "UnlockedSpellSlotLevel7"
+          ],
+          "selectors": "AddSpells(00170001-0001-0001-0001-000000000004)"
+        },
+        "14": {
+          "boosts": "",
+          "passives": [],
+          "selectors": ""
+        },
+        "15": {
+          "boosts": "ActionResource(SpellSlot,1,8)",
+          "passives": [
+            "Druid_ImprovedElementalFury",
+            "UnlockedSpellSlotLevel8"
+          ],
+          "selectors": "AddSpells(00180001-0001-0001-0001-000000000004)"
+        },
+        "16": {
+          "boosts": "",
+          "passives": [],
+          "selectors": ""
+        },
+        "17": {
+          "boosts": "ActionResource(SpellSlot,1,9)",
+          "passives": [
+            "UnlockedSpellSlotLevel9"
+          ],
+          "selectors": "AddSpells(00190001-0001-0001-0001-000000000004)"
+        },
+        "18": {
+          "boosts": "ActionResource(SpellSlot,1,5)",
+          "passives": [
+            "Druid_BeastSpells"
+          ],
+          "selectors": ""
+        },
+        "19": {
+          "boosts": "ActionResource(SpellSlot,1,6)",
+          "passives": [],
+          "selectors": "SelectPassives(da3e7815-685b-469c-9bba-0f5a7cc93fd1,1,EpicBoons)"
+        },
+        "20": {
+          "boosts": "ActionResource(SpellSlot,1,7);ActionResource(WildShape,100,0)",
+          "passives": [
+            "Druid_Archdruid"
+          ],
+          "selectors": ""
+        }
+      },
+      "parent": null,
+      "table_uuid": "6e7b7bad-e122-4679-8b3c-8f8987a9d466"
+    },
+    "Fighter": {
+      "levels": {
+        "13": {
+          "boosts": "ActionResource(Indomitable_Charge,1,0)",
+          "passives": [
+            "Fighter_StudiedAttacks"
+          ],
+          "selectors": ""
+        },
+        "14": {
+          "boosts": "",
+          "passives": [],
+          "selectors": ""
+        },
+        "15": {
+          "boosts": "",
+          "passives": [],
+          "selectors": ""
+        },
+        "16": {
+          "boosts": "",
+          "passives": [],
+          "selectors": ""
+        },
+        "17": {
+          "boosts": "ActionResource(ActionSurge,1,0);ActionResource(Indomitable_Charge,1,0)",
+          "passives": [],
+          "selectors": ""
+        },
+        "18": {
+          "boosts": "",
+          "passives": [],
+          "selectors": ""
+        },
+        "19": {
+          "boosts": "",
+          "passives": [],
+          "selectors": "SelectPassives(da3e7815-685b-469c-9bba-0f5a7cc93fd1,1,EpicBoons)"
+        },
+        "20": {
+          "boosts": "",
+          "passives": [
+            "ExtraAttack_3"
+          ],
+          "selectors": ""
+        }
+      },
+      "parent": null,
+      "table_uuid": "ba4e707e-4bbd-4630-963b-ce2f2947f971"
+    },
+    "Gunslinger": {
+      "levels": {
+        "13": {
+          "boosts": "",
+          "passives": [],
+          "selectors": "SelectPassives(f2a3b4c5-d6e7-8f9a-0b1c-2d3e4f5a6b7c,1,TrickShots)"
+        },
+        "14": {
+          "boosts": "",
+          "passives": [],
+          "selectors": ""
+        },
+        "15": {
+          "boosts": "",
+          "passives": [
+            "Gunslinger_LightningReload"
+          ],
+          "selectors": ""
+        },
+        "16": {
+          "boosts": "",
+          "passives": [],
+          "selectors": ""
+        },
+        "17": {
+          "boosts": "ActionResource(Risk,1,0)",
+          "passives": [],
+          "selectors": "SelectPassives(f2a3b4c5-d6e7-8f9a-0b1c-2d3e4f5a6b7c,1,TrickShots)"
+        },
+        "18": {
+          "boosts": "",
+          "passives": [
+            "Gunslinger_ViciousIntent"
+          ],
+          "selectors": ""
+        },
+        "19": {
+          "boosts": "",
+          "passives": [],
+          "selectors": "SelectPassives(da3e7815-685b-469c-9bba-0f5a7cc93fd1,1,EpicBoons)"
+        },
+        "20": {
+          "boosts": "ActionResource(Risk,1,0)",
+          "passives": [
+            "Gunslinger_HemorrhagingCritical"
+          ],
+          "selectors": ""
+        }
+      },
+      "parent": null,
+      "table_uuid": "8faeda62-04df-403f-a4ca-26c090cb9b8d"
+    },
+    "Illrigger": {
+      "levels": {
+        "13": {
+          "boosts": "ActionResource(SpellSlot,1,4)",
+          "passives": [],
+          "selectors": "SelectSpells(a3b4c5d6-e7f8-9a0b-1c2d-3e4f5a6b7c8d,1,0,IllriggerSpellList)"
+        },
+        "14": {
+          "boosts": "",
+          "passives": [],
+          "selectors": ""
+        },
+        "15": {
+          "boosts": "ActionResource(Seal,1,0)",
+          "passives": [
+            "Illrigger_InfernalConduit"
+          ],
+          "selectors": ""
+        },
+        "16": {
+          "boosts": "",
+          "passives": [],
+          "selectors": ""
+        },
+        "17": {
+          "boosts": "ActionResource(SpellSlot,1,5)",
+          "passives": [],
+          "selectors": "SelectSpells(a3b4c5d6-e7f8-9a0b-1c2d-3e4f5a6b7c8d,1,0,IllriggerSpellList)"
+        },
+        "18": {
+          "boosts": "ActionResource(Seal,1,0)",
+          "passives": [],
+          "selectors": ""
+        },
+        "19": {
+          "boosts": "ActionResource(SpellSlot,1,5)",
+          "passives": [],
+          "selectors": "SelectPassives(da3e7815-685b-469c-9bba-0f5a7cc93fd1,1,EpicBoons)"
+        },
+        "20": {
+          "boosts": "",
+          "passives": [
+            "Illrigger_PrinceOfHell"
+          ],
+          "selectors": ""
+        }
+      },
+      "parent": null,
+      "table_uuid": "bd529197-9010-417b-90dc-e6cbf2568cce"
+    },
+    "Monk": {
+      "levels": {
+        "13": {
+          "boosts": "ActionResource(KiPoint,1,0)",
+          "passives": [
+            "Monk_DeflectEnergy"
+          ],
+          "selectors": ""
+        },
+        "14": {
+          "boosts": "ActionResource(KiPoint,1,0)",
+          "passives": [
+            "Monk_DisciplinedSurvivor"
+          ],
+          "selectors": ""
+        },
+        "15": {
+          "boosts": "ActionResource(KiPoint,1,0)",
+          "passives": [
+            "Monk_PerfectFocus"
+          ],
+          "selectors": ""
+        },
+        "16": {
+          "boosts": "ActionResource(KiPoint,1,0)",
+          "passives": [],
+          "selectors": ""
+        },
+        "17": {
+          "boosts": "ActionResource(KiPoint,1,0)",
+          "passives": [],
+          "selectors": ""
+        },
+        "18": {
+          "boosts": "ActionResource(KiPoint,1,0)",
+          "passives": [
+            "Monk_SuperiorDefense"
+          ],
+          "selectors": ""
+        },
+        "19": {
+          "boosts": "ActionResource(KiPoint,1,0)",
+          "passives": [],
+          "selectors": "SelectPassives(da3e7815-685b-469c-9bba-0f5a7cc93fd1,1,EpicBoons)"
+        },
+        "20": {
+          "boosts": "ActionResource(KiPoint,1,0);Ability(Dexterity,2,22);Ability(Wisdom,2,22)",
+          "passives": [
+            "Monk_BodyAndMind"
+          ],
+          "selectors": ""
+        }
+      },
+      "parent": null,
+      "table_uuid": "fe1319a2-86be-469c-aab5-e3b0bd714e0e"
+    },
+    "MonsterHunter": {
+      "levels": {
+        "13": {
+          "boosts": "",
+          "passives": [
+            "MonsterHunter_13_LethalQuarry"
+          ],
+          "selectors": ""
+        },
+        "14": {
+          "boosts": "",
+          "passives": [],
+          "selectors": ""
+        },
+        "15": {
+          "boosts": "",
+          "passives": [
+            "MonsterHunter_15_PrimalAccuracy"
+          ],
+          "selectors": ""
+        },
+        "16": {
+          "boosts": "",
+          "passives": [],
+          "selectors": ""
+        },
+        "17": {
+          "boosts": "",
+          "passives": [
+            "MonsterHunter_17_HardenedResolve"
+          ],
+          "selectors": ""
+        },
+        "18": {
+          "boosts": "",
+          "passives": [
+            "MonsterHunter_18_ApexPredator"
+          ],
+          "selectors": ""
+        },
+        "19": {
+          "boosts": "",
+          "passives": [],
+          "selectors": "SelectPassives(da3e7815-685b-469c-9bba-0f5a7cc93fd1,1,EpicBoons)"
+        },
+        "20": {
+          "boosts": "",
+          "passives": [
+            "MonsterHunter_20_MasterHunter"
+          ],
+          "selectors": ""
+        }
+      },
+      "parent": null,
+      "table_uuid": "0c093c1c-6b57-4a80-aab5-bb0b552260b8"
+    },
+    "Paladin": {
+      "levels": {
+        "13": {
+          "boosts": "ActionResource(SpellSlot,1,4)",
+          "passives": [],
+          "selectors": "SelectSpells(4a614e36-b7af-4e84-9d44-7c6ab4ad884f,1,0,PaladinSpellList)"
+        },
+        "14": {
+          "boosts": "",
+          "passives": [
+            "Paladin_CleansingTouch"
+          ],
+          "selectors": ""
+        },
+        "15": {
+          "boosts": "ActionResource(SpellSlot,1,4)",
+          "passives": [],
+          "selectors": ""
+        },
+        "16": {
+          "boosts": "",
+          "passives": [],
+          "selectors": ""
+        },
+        "17": {
+          "boosts": "ActionResource(SpellSlot,1,4);ActionResource(SpellSlot,1,5)",
+          "passives": [],
+          "selectors": ""
+        },
+        "18": {
+          "boosts": "ActionResource(SpellSlot,1,5)",
+          "passives": [
+            "Paladin_Aura30ft"
+          ],
+          "selectors": ""
+        },
+        "19": {
+          "boosts": "",
+          "passives": [],
+          "selectors": "SelectPassives(da3e7815-685b-469c-9bba-0f5a7cc93fd1,1,EpicBoons)"
+        },
+        "20": {
+          "boosts": "",
+          "passives": [],
+          "selectors": ""
+        }
+      },
+      "parent": null,
+      "table_uuid": "ba2afe85-acba-4ea1-a238-2b4543f47821"
+    },
+    "Ranger": {
+      "levels": {
+        "13": {
+          "boosts": "ActionResource(SpellSlot,1,4)",
+          "passives": [
+            "Ranger_RelentlessHunter"
+          ],
+          "selectors": "SelectSpells(8a34b59f-b7ac-4283-a4cb-2c5e4e1f2e91,1,0,RangerSpellList)"
+        },
+        "14": {
+          "boosts": "",
+          "passives": [],
+          "selectors": "SelectPassives(eb28ac6c-0a84-4d94-bce6-a2c2caa9ae56,1,FavoredEnemy)"
+        },
+        "15": {
+          "boosts": "ActionResource(SpellSlot,1,4)",
+          "passives": [],
+          "selectors": ""
+        },
+        "16": {
+          "boosts": "",
+          "passives": [],
+          "selectors": ""
+        },
+        "17": {
+          "boosts": "ActionResource(SpellSlot,1,4);ActionResource(SpellSlot,1,5)",
+          "passives": [],
+          "selectors": ""
+        },
+        "18": {
+          "boosts": "ActionResource(SpellSlot,1,5)",
+          "passives": [
+            "Ranger_FeralSenses"
+          ],
+          "selectors": ""
+        },
+        "19": {
+          "boosts": "",
+          "passives": [],
+          "selectors": "SelectPassives(da3e7815-685b-469c-9bba-0f5a7cc93fd1,1,EpicBoons)"
+        },
+        "20": {
+          "boosts": "",
+          "passives": [
+            "Ranger_FoeSlayer"
+          ],
+          "selectors": ""
+        }
+      },
+      "parent": null,
+      "table_uuid": "8f068974-ed32-43fc-a9d9-028be1c01a9c"
+    },
+    "Rogue": {
+      "levels": {
+        "13": {
+          "boosts": "",
+          "passives": [
+            "Rogue_SubtleStrikes"
+          ],
+          "selectors": ""
+        },
+        "14": {
+          "boosts": "",
+          "passives": [],
+          "selectors": ""
+        },
+        "15": {
+          "boosts": "",
+          "passives": [
+            "Rogue_SlipperyMind"
+          ],
+          "selectors": ""
+        },
+        "16": {
+          "boosts": "",
+          "passives": [],
+          "selectors": ""
+        },
+        "17": {
+          "boosts": "",
+          "passives": [],
+          "selectors": ""
+        },
+        "18": {
+          "boosts": "",
+          "passives": [
+            "Rogue_Elusive"
+          ],
+          "selectors": ""
+        },
+        "19": {
+          "boosts": "",
+          "passives": [],
+          "selectors": "SelectPassives(da3e7815-685b-469c-9bba-0f5a7cc93fd1,1,EpicBoons)"
+        },
+        "20": {
+          "boosts": "",
+          "passives": [
+            "Rogue_StrokeOfLuck"
+          ],
+          "selectors": ""
+        }
+      },
+      "parent": null,
+      "table_uuid": "9a44e828-92db-4d6c-acbc-a4f8ef340415"
+    },
+    "Sorcerer": {
+      "levels": {
+        "13": {
+          "boosts": "ActionResource(SpellSlot,1,7);ActionResource(SorceryPoint,1,0)",
+          "passives": [
+            "UnlockedSpellSlotLevel7"
+          ],
+          "selectors": "SelectSpells(00170001-0001-0001-0001-000000000002,1,0,SorcererSpell)"
+        },
+        "14": {
+          "boosts": "ActionResource(SorceryPoint,1,0)",
+          "passives": [],
+          "selectors": "SelectSpells(00170001-0001-0001-0001-000000000002,1,0,SorcererSpell)"
+        },
+        "15": {
+          "boosts": "ActionResource(SpellSlot,1,8);ActionResource(SorceryPoint,1,0)",
+          "passives": [
+            "UnlockedSpellSlotLevel8"
+          ],
+          "selectors": "SelectSpells(00180001-0001-0001-0001-000000000002,1,0,SorcererSpell)"
+        },
+        "16": {
+          "boosts": "ActionResource(SorceryPoint,1,0)",
+          "passives": [],
+          "selectors": ""
+        },
+        "17": {
+          "boosts": "ActionResource(SpellSlot,1,9);ActionResource(SorceryPoint,1,0)",
+          "passives": [
+            "UnlockedSpellSlotLevel9"
+          ],
+          "selectors": "SelectSpells(00190001-0001-0001-0001-000000000002,1,0,SorcererSpell);SelectPassives(c3506532-36eb-4d18-823e-497a537a9619,1,Metamagic)"
+        },
+        "18": {
+          "boosts": "ActionResource(SpellSlot,1,5);ActionResource(SorceryPoint,1,0)",
+          "passives": [],
+          "selectors": ""
+        },
+        "19": {
+          "boosts": "ActionResource(SpellSlot,1,6);ActionResource(SorceryPoint,1,0)",
+          "passives": [],
+          "selectors": "SelectPassives(da3e7815-685b-469c-9bba-0f5a7cc93fd1,1,EpicBoons)"
+        },
+        "20": {
+          "boosts": "ActionResource(SpellSlot,1,7);ActionResource(SorceryPoint,1,0)",
+          "passives": [
+            "Sorcerer_ArcaneApotheosis"
+          ],
+          "selectors": ""
+        }
+      },
+      "parent": null,
+      "table_uuid": "e2416b02-953a-4ce8-aa8f-eb98d549d86d"
+    },
+    "Warlock": {
+      "levels": {
+        "13": {
+          "boosts": "",
+          "passives": [
+            "Warlock_MysticArcanum_7"
+          ],
+          "selectors": "SelectSpells(00170001-0001-0001-0001-000000000007,1,0,MysticArcanum7)"
+        },
+        "14": {
+          "boosts": "",
+          "passives": [],
+          "selectors": ""
+        },
+        "15": {
+          "boosts": "",
+          "passives": [
+            "Warlock_MysticArcanum_8"
+          ],
+          "selectors": "SelectSpells(00180001-0001-0001-0001-000000000007,1,0,MysticArcanum8);SelectPassives(ab56f79f-95ec-48e5-bd83-e80ba9afc844,1,WarlockInvocations)"
+        },
+        "16": {
+          "boosts": "",
+          "passives": [],
+          "selectors": ""
+        },
+        "17": {
+          "boosts": "",
+          "passives": [
+            "Warlock_MysticArcanum_9"
+          ],
+          "selectors": "SelectSpells(00190001-0001-0001-0001-000000000007,1,0,MysticArcanum9)"
+        },
+        "18": {
+          "boosts": "",
+          "passives": [],
+          "selectors": "SelectPassives(ab56f79f-95ec-48e5-bd83-e80ba9afc844,1,WarlockInvocations)"
+        },
+        "19": {
+          "boosts": "",
+          "passives": [],
+          "selectors": "SelectPassives(da3e7815-685b-469c-9bba-0f5a7cc93fd1,1,EpicBoons)"
+        },
+        "20": {
+          "boosts": "",
+          "passives": [
+            "Warlock_EldritchMaster"
+          ],
+          "selectors": ""
+        }
+      },
+      "parent": null,
+      "table_uuid": "a7a958f1-d858-4021-9fa7-cf87e7d71377"
+    },
+    "Wizard": {
+      "levels": {
+        "12": {
+          "boosts": "",
+          "passives": [],
+          "selectors": "SelectSpells(bc917f22-7f71-4a25-9a77-7d2f91a96a65,2,0)"
+        },
+        "13": {
+          "boosts": "ActionResource(SpellSlot,1,7)",
+          "passives": [
+            "UnlockedSpellSlotLevel7"
+          ],
+          "selectors": "SelectSpells(00170001-0001-0001-0001-000000000001,1,0,WizardSLevel7);SelectSpells(bc917f22-7f71-4a25-9a77-7d2f91a96a65,1,0,WizardSpellList)"
+        },
+        "14": {
+          "boosts": "",
+          "passives": [],
+          "selectors": ""
+        },
+        "15": {
+          "boosts": "ActionResource(SpellSlot,1,8)",
+          "passives": [
+            "UnlockedSpellSlotLevel8"
+          ],
+          "selectors": "SelectSpells(bc917f22-7f71-4a25-9a77-7d2f91a96a65,1,0,WizardSpellList);SelectSpells(00180001-0001-0001-0001-000000000001,1,0,WizardSLevel8)"
+        },
+        "16": {
+          "boosts": "",
+          "passives": [],
+          "selectors": ""
+        },
+        "17": {
+          "boosts": "ActionResource(SpellSlot,1,9)",
+          "passives": [
+            "UnlockedSpellSlotLevel9"
+          ],
+          "selectors": "SelectSpells(bc917f22-7f71-4a25-9a77-7d2f91a96a65,2,0,WizardSpellList)"
+        },
+        "18": {
+          "boosts": "ActionResource(SpellSlot,1,5)",
+          "passives": [
+            "SpellMastery"
+          ],
+          "selectors": ""
+        },
+        "19": {
+          "boosts": "ActionResource(SpellSlot,1,6)",
+          "passives": [],
+          "selectors": "SelectPassives(da3e7815-685b-469c-9bba-0f5a7cc93fd1,1,EpicBoons)"
+        },
+        "20": {
+          "boosts": "ActionResource(SpellSlot,1,7);ActionResource(SignatureSpellCharge,2,0)",
+          "passives": [
+            "Wizard_SignatureSpells"
+          ],
+          "selectors": ""
+        }
+      },
+      "parent": null,
+      "table_uuid": "d18eda7e-4b7d-490d-9952-cd33a3c60479"
+    }
+  },
+  "source": "Public/PHB2024_DND_13-20_PathtoApotheosis_1467c26f-e7bb-49d1-d980-6e033aea04fa/Progressions/Progressions.lsx",
+  "subclasses": {
+    "AberrantSorcery": {
+      "levels": {
+        "14": {
+          "boosts": "",
+          "passives": [
+            "AberrantSorcery_14_RevelationInFlesh"
+          ],
+          "selectors": ""
+        },
+        "18": {
+          "boosts": "",
+          "passives": [
+            "AberrantSorcery_18_WarpingImplosion"
+          ],
+          "selectors": ""
+        }
+      },
+      "parent": "Sorcerer",
+      "table_uuid": "dbbbe831-9082-4554-abe0-4e4480f1125e"
+    },
+    "AbjurationSchool": {
+      "levels": {
+        "13": {
+          "boosts": "",
+          "passives": [],
+          "selectors": "SelectSpells(7bd7b3ea-51da-4144-b5ba-3d85dbf79353,1,0,AbjurationSavant,,,AlwaysPrepared)"
+        },
+        "14": {
+          "boosts": "",
+          "passives": [
+            "Abjurer_14_SpellResistance"
+          ],
+          "selectors": ""
+        },
+        "15": {
+          "boosts": "",
+          "passives": [],
+          "selectors": "SelectSpells(7bd7b3ea-51da-4144-b5ba-3d85dbf79353,1,0,AbjurationSavant,,,AlwaysPrepared)"
+        },
+        "16": {
+          "boosts": "",
+          "passives": [],
+          "selectors": ""
+        },
+        "17": {
+          "boosts": "",
+          "passives": [],
+          "selectors": "SelectSpells(7bd7b3ea-51da-4144-b5ba-3d85dbf79353,1,0,AbjurationSavant,,,AlwaysPrepared)"
+        },
+        "18": {
+          "boosts": "",
+          "passives": [],
+          "selectors": ""
+        },
+        "19": {
+          "boosts": "",
+          "passives": [],
+          "selectors": "SelectSpells(7bd7b3ea-51da-4144-b5ba-3d85dbf79353,1,0,AbjurationSavant,,,AlwaysPrepared)"
+        },
+        "20": {
+          "boosts": "",
+          "passives": [],
+          "selectors": ""
+        }
+      },
+      "parent": "Wizard",
+      "table_uuid": "9f0fd3ac-7520-45fa-9f7d-08b1ca6eacf3"
+    },
+    "Alchemist": {
+      "levels": {
+        "15": {
+          "boosts": "",
+          "passives": [
+            "Alchemist_15_ChemicalMastery"
+          ],
+          "selectors": ""
+        }
+      },
+      "parent": "Artificer",
+      "table_uuid": "c36e28a1-2fd5-475b-9689-09b83c9fd63d"
+    },
+    "Ancients": {
+      "levels": {
+        "15": {
+          "boosts": "",
+          "passives": [
+            "Ancients_15_UndyingSentinel"
+          ],
+          "selectors": ""
+        },
+        "20": {
+          "boosts": "",
+          "passives": [
+            "Ancients_20_ElderChampion"
+          ],
+          "selectors": ""
+        }
+      },
+      "parent": "Paladin",
+      "table_uuid": "b82864a7-b093-4553-a802-e176831029c1"
+    },
+    "ArcaneTrickster": {
+      "levels": {
+        "11": {
+          "boosts": "",
+          "passives": [],
+          "selectors": ""
+        },
+        "13": {
+          "boosts": "",
+          "passives": [
+            "ArcaneTrickster_VersatileTrickster"
+          ],
+          "selectors": ""
+        },
+        "17": {
+          "boosts": "",
+          "passives": [
+            "ArcaneTrickster_11_SpellThief"
+          ],
+          "selectors": ""
+        }
+      },
+      "parent": "Rogue",
+      "table_uuid": "7205dbe2-5eef-4cd6-ad7f-45b3dc254f78"
+    },
+    "Archfey": {
+      "levels": {
+        "14": {
+          "boosts": "",
+          "passives": [
+            "Archfey_14_BewitchingMagic"
+          ],
+          "selectors": ""
+        }
+      },
+      "parent": "Warlock",
+      "table_uuid": "7e1e0190-bd32-4ca6-9623-8adebeba74d4"
+    },
+    "ArchitectOfRuin": {
+      "levels": {
+        "13": {
+          "boosts": "ActionResource(SpellSlot,1,3)",
+          "passives": [],
+          "selectors": "SelectSpells(80c6b070-c3a6-4864-84ca-e78626784eb4,1,1,EldritchKnightAbjEvo)"
+        },
+        "15": {
+          "boosts": "",
+          "passives": [
+            "ArchitectsOfRuin_15_VileTransmogrification"
+          ],
+          "selectors": "SelectSpells(80c6b070-c3a6-4864-84ca-e78626784eb4,1,1,EldritchKnightAbjEvo)"
+        },
+        "17": {
+          "boosts": "",
+          "passives": [],
+          "selectors": "SelectSpells(80c6b070-c3a6-4864-84ca-e78626784eb4,1,1,EldritchKnightAbjEvo)"
+        },
+        "18": {
+          "boosts": "",
+          "passives": [
+            "ArchitectsOfRuin_18_HellMage"
+          ],
+          "selectors": "SelectSpells(80c6b070-c3a6-4864-84ca-e78626784eb4,1,1,EldritchKnightAbjEvo)"
+        },
+        "19": {
+          "boosts": "ActionResource(SpellSlot,1,3)",
+          "passives": [],
+          "selectors": "SelectSpells(80c6b070-c3a6-4864-84ca-e78626784eb4,1,1,EldritchKnightAbjEvo)"
+        },
+        "20": {
+          "boosts": "",
+          "passives": [],
+          "selectors": "SelectSpells(80c6b070-c3a6-4864-84ca-e78626784eb4,1,1,EldritchKnightAbjEvo)"
+        }
+      },
+      "parent": "Illrigger",
+      "table_uuid": "80e66947-21f9-49d5-b295-e3c97511f1b0"
+    },
+    "Armorer": {
+      "levels": {
+        "15": {
+          "boosts": "",
+          "passives": [
+            "Armorer_15_PerfectedArmor"
+          ],
+          "selectors": ""
+        }
+      },
+      "parent": "Artificer",
+      "table_uuid": "45578db1-e4a0-4f9e-8aff-2916385d3b05"
+    },
+    "Artillerist": {
+      "levels": {
+        "15": {
+          "boosts": "",
+          "passives": [
+            "Artillerist_15_FortifiedPosition"
+          ],
+          "selectors": ""
+        }
+      },
+      "parent": "Artificer",
+      "table_uuid": "56a06eeb-4bc2-4910-88a9-cd4b25480a3c"
+    },
+    "Assassin": {
+      "levels": {
+        "11": {
+          "boosts": "",
+          "passives": [],
+          "selectors": ""
+        },
+        "13": {
+          "boosts": "",
+          "passives": [
+            "Assassin_InfiltrationExpertise"
+          ],
+          "selectors": ""
+        },
+        "17": {
+          "boosts": "",
+          "passives": [
+            "Assassin_11_DeathStrike"
+          ],
+          "selectors": ""
+        }
+      },
+      "parent": "Rogue",
+      "table_uuid": "43c75b78-757b-4875-9932-427bc95278a0"
+    },
+    "BattleMaster": {
+      "levels": {
+        "15": {
+          "boosts": "",
+          "passives": [
+            "BattleMaster_Relentless"
+          ],
+          "selectors": ""
+        },
+        "18": {
+          "boosts": "ActionResource(SuperiorityDie,1,0)",
+          "passives": [],
+          "selectors": "SelectPassives(a1b2c3d4-e5f6-7890-abcd-ef1234567890,1,CombatManeuvers)"
+        }
+      },
+      "parent": "Fighter",
+      "table_uuid": "69eb2e41-0317-46d7-a6b6-3593de1a5220"
+    },
+    "BattleSmith": {
+      "levels": {
+        "15": {
+          "boosts": "",
+          "passives": [
+            "BattleSmith_15_ImprovedDefender"
+          ],
+          "selectors": ""
+        }
+      },
+      "parent": "Artificer",
+      "table_uuid": "88bb5c8e-b795-486a-82f0-b2531f396604"
+    },
+    "BeastMaster": {
+      "levels": {
+        "15": {
+          "boosts": "",
+          "passives": [
+            "BeastMaster_15_ShareSpells"
+          ],
+          "selectors": ""
+        }
+      },
+      "parent": "Ranger",
+      "table_uuid": "1ba04e99-e329-471d-a656-bbd5a363d7c8"
+    },
+    "BerserkerPath": {
+      "levels": {
+        "10": {
+          "boosts": "",
+          "passives": [
+            "Berserker_10_Retaliation"
+          ],
+          "selectors": ""
+        },
+        "14": {
+          "boosts": "",
+          "passives": [
+            "Berserker_14_IntimidatingPresence"
+          ],
+          "selectors": ""
+        }
+      },
+      "parent": "Barbarian",
+      "table_uuid": "b2a03b63-809f-4df9-a179-bf5b899082ef"
+    },
+    "BladesingingSchool": {
+      "levels": {
+        "12": {
+          "boosts": "",
+          "passives": [],
+          "selectors": ""
+        },
+        "13": {
+          "boosts": "",
+          "passives": [],
+          "selectors": ""
+        },
+        "14": {
+          "boosts": "",
+          "passives": [
+            "SongVictory"
+          ],
+          "selectors": ""
+        },
+        "15": {
+          "boosts": "",
+          "passives": [],
+          "selectors": ""
+        },
+        "16": {
+          "boosts": "",
+          "passives": [],
+          "selectors": ""
+        },
+        "17": {
+          "boosts": "",
+          "passives": [],
+          "selectors": ""
+        },
+        "18": {
+          "boosts": "",
+          "passives": [],
+          "selectors": ""
+        },
+        "19": {
+          "boosts": "",
+          "passives": [],
+          "selectors": ""
+        },
+        "20": {
+          "boosts": "",
+          "passives": [],
+          "selectors": ""
+        }
+      },
+      "parent": "Wizard",
+      "table_uuid": "eb51387c-6990-4f9b-965a-3acae7ba49d1"
+    },
+    "CarverGuild": {
+      "levels": {
+        "15": {
+          "boosts": "",
+          "passives": [
+            "CarverGuild_15_Bulwark"
+          ],
+          "selectors": ""
+        },
+        "18": {
+          "boosts": "",
+          "passives": [
+            "CarverGuild_18_Executioner"
+          ],
+          "selectors": ""
+        }
+      },
+      "parent": "MonsterHunter",
+      "table_uuid": "0f496902-a151-45db-80f7-a8b361aaa66c"
+    },
+    "Celestial": {
+      "levels": {
+        "14": {
+          "boosts": "",
+          "passives": [
+            "Celestial_14_SearingVengeance"
+          ],
+          "selectors": ""
+        }
+      },
+      "parent": "Warlock",
+      "table_uuid": "26e6c591-746b-4ba2-b46b-218f3a24fb84"
+    },
+    "Champion": {
+      "levels": {
+        "12": {
+          "boosts": "",
+          "passives": [],
+          "selectors": ""
+        },
+        "15": {
+          "boosts": "",
+          "passives": [
+            "SuperiorCritical"
+          ],
+          "selectors": ""
+        },
+        "18": {
+          "boosts": "",
+          "passives": [
+            "Champion_Survivor"
+          ],
+          "selectors": ""
+        }
+      },
+      "parent": "Fighter",
+      "table_uuid": "9b2ff703-7924-4a66-b119-ae4d716a4522"
+    },
+    "CircleOfStars": {
+      "levels": {
+        "14": {
+          "boosts": "",
+          "passives": [
+            "CircleOfStars_14_FullOfStars"
+          ],
+          "selectors": ""
+        }
+      },
+      "parent": "Druid",
+      "table_uuid": "bc4a7a99-bd26-4307-a0b9-8c183f34c55d"
+    },
+    "CircleOfTheLand": {
+      "levels": {
+        "14": {
+          "boosts": "",
+          "passives": [
+            "CircleOfTheLand_14_NaturesSanctuary"
+          ],
+          "selectors": ""
+        }
+      },
+      "parent": "Druid",
+      "table_uuid": "ba1f14d6-d40b-47ce-b071-91b491d87b27"
+    },
+    "CircleOfTheMoon": {
+      "levels": {
+        "14": {
+          "boosts": "",
+          "passives": [
+            "CircleOfTheMoon_14_LunarForm"
+          ],
+          "selectors": ""
+        }
+      },
+      "parent": "Druid",
+      "table_uuid": "ede8583c-434b-4fb2-87a8-af8e0e239d62"
+    },
+    "CircleOfTheSea": {
+      "levels": {
+        "14": {
+          "boosts": "",
+          "passives": [
+            "CircleOfTheSea_14_OceanicGift"
+          ],
+          "selectors": ""
+        }
+      },
+      "parent": "Druid",
+      "table_uuid": "f95cd60e-234f-4724-a5c2-bc2ac8e543f5"
+    },
+    "ClockworkSorcery": {
+      "levels": {
+        "11": {
+          "boosts": "",
+          "passives": [],
+          "selectors": ""
+        },
+        "14": {
+          "boosts": "",
+          "passives": [
+            "TranceOfOrder"
+          ],
+          "selectors": ""
+        },
+        "18": {
+          "boosts": "",
+          "passives": [
+            "ClockworkSorcery_18_ClockworkCavalcade"
+          ],
+          "selectors": ""
+        }
+      },
+      "parent": "Sorcerer",
+      "table_uuid": "cc859d9c-8ade-4d23-b710-c50b188b6b44"
+    },
+    "ConjurationSchool": {
+      "levels": {
+        "13": {
+          "boosts": "",
+          "passives": [],
+          "selectors": "SelectSpells(a29ca5bb-3d26-4447-8ff5-12e9ed51a980,1,0,ConjurationSavant,,,AlwaysPrepared)"
+        },
+        "14": {
+          "boosts": "",
+          "passives": [
+            "Conjurer_14_SplinteredSummons"
+          ],
+          "selectors": ""
+        },
+        "15": {
+          "boosts": "",
+          "passives": [],
+          "selectors": "SelectSpells(a29ca5bb-3d26-4447-8ff5-12e9ed51a980,1,0,ConjurationSavant,,,AlwaysPrepared)"
+        },
+        "16": {
+          "boosts": "",
+          "passives": [],
+          "selectors": ""
+        },
+        "17": {
+          "boosts": "",
+          "passives": [],
+          "selectors": "SelectSpells(a29ca5bb-3d26-4447-8ff5-12e9ed51a980,1,0,ConjurationSavant,,,AlwaysPrepared)"
+        },
+        "18": {
+          "boosts": "",
+          "passives": [],
+          "selectors": ""
+        },
+        "19": {
+          "boosts": "",
+          "passives": [],
+          "selectors": "SelectSpells(a29ca5bb-3d26-4447-8ff5-12e9ed51a980,1,0,ConjurationSavant,,,AlwaysPrepared)"
+        },
+        "20": {
+          "boosts": "",
+          "passives": [],
+          "selectors": ""
+        }
+      },
+      "parent": "Wizard",
+      "table_uuid": "91892607-d017-4a06-b904-0788fc84bf6a"
+    },
+    "DanceCollege": {
+      "levels": {
+        "12": {
+          "boosts": "",
+          "passives": [],
+          "selectors": ""
+        },
+        "14": {
+          "boosts": "",
+          "passives": [
+            "Evasion"
+          ],
+          "selectors": ""
+        }
+      },
+      "parent": "Bard",
+      "table_uuid": "300669be-c07a-42cc-85a7-f1f956e79059"
+    },
+    "DeathDomain": {
+      "levels": {
+        "17": {
+          "boosts": "",
+          "passives": [
+            "DeathDomain_17_ImprovedReaper"
+          ],
+          "selectors": ""
+        }
+      },
+      "parent": "Cleric",
+      "table_uuid": "b3505f8a-be78-401c-adea-bb466c14aa54"
+    },
+    "Devotion": {
+      "levels": {
+        "15": {
+          "boosts": "",
+          "passives": [
+            "Devotion_15_SmiteOfProtection"
+          ],
+          "selectors": ""
+        },
+        "20": {
+          "boosts": "",
+          "passives": [
+            "Devotion_20_HolyNimbus"
+          ],
+          "selectors": ""
+        }
+      },
+      "parent": "Paladin",
+      "table_uuid": "941ca27d-02f7-4f59-bd33-63fa3366134d"
+    },
+    "DevourerGuild": {
+      "levels": {
+        "15": {
+          "boosts": "",
+          "passives": [
+            "DevourerGuild_15_RavenousMight"
+          ],
+          "selectors": ""
+        },
+        "18": {
+          "boosts": "",
+          "passives": [
+            "DevourerGuild_18_ApexMetabolism"
+          ],
+          "selectors": ""
+        }
+      },
+      "parent": "MonsterHunter",
+      "table_uuid": "784b2099-da2e-463b-9542-2457f3c836a5"
+    },
+    "DivinationSchool": {
+      "levels": {
+        "13": {
+          "boosts": "",
+          "passives": [],
+          "selectors": "SelectSpells(8e445849-3d0f-4cce-8f9c-b162e3e03ba2,1,0,DivinationSavant,,,AlwaysPrepared)"
+        },
+        "14": {
+          "boosts": "",
+          "passives": [
+            "Diviner_14_GreaterPortent"
+          ],
+          "selectors": ""
+        },
+        "15": {
+          "boosts": "",
+          "passives": [],
+          "selectors": "SelectSpells(8e445849-3d0f-4cce-8f9c-b162e3e03ba2,1,0,DivinationSavant,,,AlwaysPrepared)"
+        },
+        "16": {
+          "boosts": "",
+          "passives": [],
+          "selectors": ""
+        },
+        "17": {
+          "boosts": "",
+          "passives": [],
+          "selectors": "SelectSpells(8e445849-3d0f-4cce-8f9c-b162e3e03ba2,1,0,DivinationSavant,,,AlwaysPrepared)"
+        },
+        "18": {
+          "boosts": "",
+          "passives": [],
+          "selectors": ""
+        },
+        "19": {
+          "boosts": "",
+          "passives": [],
+          "selectors": "SelectSpells(8e445849-3d0f-4cce-8f9c-b162e3e03ba2,1,0,DivinationSavant,,,AlwaysPrepared)"
+        },
+        "20": {
+          "boosts": "",
+          "passives": [],
+          "selectors": ""
+        }
+      },
+      "parent": "Wizard",
+      "table_uuid": "62f7418b-aeca-46e8-8dc8-dd4d4aa632c6"
+    },
+    "DraconicBloodline": {
+      "levels": {
+        "14": {
+          "boosts": "",
+          "passives": [
+            "DraconicBloodline_14_DragonWings"
+          ],
+          "selectors": ""
+        },
+        "18": {
+          "boosts": "ActionResource(DraconicSpiritCharge,1,0)",
+          "passives": [
+            "DraconicBloodline_18_DragonCompanion"
+          ],
+          "selectors": ""
+        }
+      },
+      "parent": "Sorcerer",
+      "table_uuid": "35aa255d-3eb7-4e93-8092-7545ced25b09"
+    },
+    "EldritchKnight": {
+      "levels": {
+        "12": {
+          "boosts": "",
+          "passives": [],
+          "selectors": ""
+        },
+        "15": {
+          "boosts": "",
+          "passives": [
+            "ArcaneCharge"
+          ],
+          "selectors": ""
+        },
+        "18": {
+          "boosts": "",
+          "passives": [
+            "EldritchKnight_ImprovedWarMagic"
+          ],
+          "selectors": ""
+        }
+      },
+      "parent": "Fighter",
+      "table_uuid": "2db3f02e-dfa9-4235-b9bd-28a89bf41435"
+    },
+    "EnchantmentSchool": {
+      "levels": {
+        "6": {
+          "boosts": "",
+          "passives": [
+            "SplitEnchantment"
+          ],
+          "selectors": ""
+        },
+        "10": {
+          "boosts": "",
+          "passives": [],
+          "selectors": ""
+        },
+        "13": {
+          "boosts": "",
+          "passives": [],
+          "selectors": "SelectSpells(c930bb09-0c28-4683-ac8e-49ee3262338b,1,0,EnchantmentSavant,,,AlwaysPrepared)"
+        },
+        "14": {
+          "boosts": "",
+          "passives": [
+            "Enchanter_14_AlterMemories"
+          ],
+          "selectors": ""
+        },
+        "15": {
+          "boosts": "",
+          "passives": [],
+          "selectors": "SelectSpells(c930bb09-0c28-4683-ac8e-49ee3262338b,1,0,EnchantmentSavant,,,AlwaysPrepared)"
+        },
+        "16": {
+          "boosts": "",
+          "passives": [],
+          "selectors": ""
+        },
+        "17": {
+          "boosts": "",
+          "passives": [],
+          "selectors": "SelectSpells(c930bb09-0c28-4683-ac8e-49ee3262338b,1,0,EnchantmentSavant,,,AlwaysPrepared)"
+        },
+        "18": {
+          "boosts": "",
+          "passives": [],
+          "selectors": ""
+        },
+        "19": {
+          "boosts": "",
+          "passives": [],
+          "selectors": "SelectSpells(c930bb09-0c28-4683-ac8e-49ee3262338b,1,0,EnchantmentSavant,,,AlwaysPrepared)"
+        },
+        "20": {
+          "boosts": "",
+          "passives": [],
+          "selectors": ""
+        }
+      },
+      "parent": "Wizard",
+      "table_uuid": "1c1d48af-42b7-4fac-a3ce-ca3525f1ccbe"
+    },
+    "EvocationSchool": {
+      "levels": {
+        "13": {
+          "boosts": "",
+          "passives": [],
+          "selectors": "SelectSpells(0260a3ae-9ff6-4e24-a081-506f6db2ebf3,1,0,EvocationSavant,,,AlwaysPrepared)"
+        },
+        "14": {
+          "boosts": "",
+          "passives": [
+            "Evoker_14_Overchannel"
+          ],
+          "selectors": ""
+        },
+        "15": {
+          "boosts": "",
+          "passives": [],
+          "selectors": "SelectSpells(0260a3ae-9ff6-4e24-a081-506f6db2ebf3,1,0,EvocationSavant,,,AlwaysPrepared)"
+        },
+        "16": {
+          "boosts": "",
+          "passives": [],
+          "selectors": ""
+        },
+        "17": {
+          "boosts": "",
+          "passives": [],
+          "selectors": "SelectSpells(0260a3ae-9ff6-4e24-a081-506f6db2ebf3,1,0,EvocationSavant,,,AlwaysPrepared)"
+        },
+        "18": {
+          "boosts": "",
+          "passives": [],
+          "selectors": ""
+        },
+        "19": {
+          "boosts": "",
+          "passives": [],
+          "selectors": "SelectSpells(0260a3ae-9ff6-4e24-a081-506f6db2ebf3,1,0,EvocationSavant,,,AlwaysPrepared)"
+        },
+        "20": {
+          "boosts": "",
+          "passives": [],
+          "selectors": ""
+        }
+      },
+      "parent": "Wizard",
+      "table_uuid": "953e6528-acd2-48b5-95e7-9d54ad555d39"
+    },
+    "FeyWanderer": {
+      "levels": {
+        "15": {
+          "boosts": "",
+          "passives": [
+            "FeyWanderer_15_MistyWanderer"
+          ],
+          "selectors": ""
+        }
+      },
+      "parent": "Ranger",
+      "table_uuid": "4c844e73-f3c4-4490-9c65-d6d9f8007e8d"
+    },
+    "Fiend": {
+      "levels": {
+        "14": {
+          "boosts": "ActionResource(HurlThroughHellCharge,1,0)",
+          "passives": [
+            "Fiend_14_HurlThroughHell"
+          ],
+          "selectors": ""
+        }
+      },
+      "parent": "Warlock",
+      "table_uuid": "2700b42c-3b2f-4fc7-b881-4acc4f0a3a1f"
+    },
+    "FourElements": {
+      "levels": {
+        "17": {
+          "boosts": "",
+          "passives": [
+            "FourElements_17_ElementalEpitome"
+          ],
+          "selectors": ""
+        }
+      },
+      "parent": "Monk",
+      "table_uuid": "6c9fac23-d01a-4e0d-bfb1-28bed5581ee2"
+    },
+    "GlamourCollege": {
+      "levels": {
+        "12": {
+          "boosts": "",
+          "passives": [],
+          "selectors": ""
+        },
+        "14": {
+          "boosts": "",
+          "passives": [],
+          "selectors": "AddSpells(8ad26d20-d989-4195-9af0-818a86dfed07,,,,AlwaysPrepared)"
+        }
+      },
+      "parent": "Bard",
+      "table_uuid": "376220ae-e871-4ca5-8521-ec46fa2cd117"
+    },
+    "GloomStalker": {
+      "levels": {
+        "15": {
+          "boosts": "",
+          "passives": [
+            "GloomStalker_15_ShadowyDodge"
+          ],
+          "selectors": ""
+        }
+      },
+      "parent": "Ranger",
+      "table_uuid": "caa60bb8-8ca3-4871-b034-e10a6bc8ca29"
+    },
+    "Glory": {
+      "levels": {
+        "15": {
+          "boosts": "",
+          "passives": [
+            "Glory_15_GloriousDefense"
+          ],
+          "selectors": ""
+        },
+        "20": {
+          "boosts": "",
+          "passives": [
+            "Glory_20_LivingLegend"
+          ],
+          "selectors": ""
+        }
+      },
+      "parent": "Paladin",
+      "table_uuid": "0b77ab31-6a51-4531-b924-95193d4b51c7"
+    },
+    "GraveDomain": {
+      "levels": {
+        "17": {
+          "boosts": "",
+          "passives": [
+            "GraveDomain_17_KeeperOfSouls"
+          ],
+          "selectors": ""
+        }
+      },
+      "parent": "Cleric",
+      "table_uuid": "cb54a940-71a1-49bc-a317-c046517fc298"
+    },
+    "GreatOldOne": {
+      "levels": {
+        "14": {
+          "boosts": "",
+          "passives": [
+            "GreatOldOne_14_CreateThrall"
+          ],
+          "selectors": ""
+        }
+      },
+      "parent": "Warlock",
+      "table_uuid": "216e779e-3452-466c-933d-fb5723b90802"
+    },
+    "Hellspeaker": {
+      "levels": {
+        "15": {
+          "boosts": "",
+          "passives": [
+            "Hellspeaker_15_QuidProQuo"
+          ],
+          "selectors": ""
+        },
+        "18": {
+          "boosts": "",
+          "passives": [
+            "Hellspeaker_18_Incontrovertible"
+          ],
+          "selectors": ""
+        }
+      },
+      "parent": "Illrigger",
+      "table_uuid": "c577a73f-ffb9-4391-9165-758c6601f051"
+    },
+    "HighRoller": {
+      "levels": {
+        "14": {
+          "boosts": "",
+          "passives": [
+            "HighRoller_14_DoubleOrNothing"
+          ],
+          "selectors": ""
+        },
+        "15": {
+          "boosts": "",
+          "passives": [
+            "HighRoller_15_StackedDeck"
+          ],
+          "selectors": ""
+        },
+        "18": {
+          "boosts": "",
+          "passives": [
+            "HighRoller_18_Jackpot"
+          ],
+          "selectors": ""
+        }
+      },
+      "parent": "Gunslinger",
+      "table_uuid": "e8fd7f3c-a1e3-41b9-80ac-d0cc8a6238f4"
+    },
+    "Hunter": {
+      "levels": {
+        "15": {
+          "boosts": "",
+          "passives": [
+            "Hunter_15_SuperiorHuntersDefense"
+          ],
+          "selectors": ""
+        }
+      },
+      "parent": "Ranger",
+      "table_uuid": "b19bc1ec-d7ee-4023-9f58-5056fd99be24"
+    },
+    "IllusionSchool": {
+      "levels": {
+        "13": {
+          "boosts": "",
+          "passives": [],
+          "selectors": "SelectSpells(b4308398-d948-4ef1-a0d5-9da1da860917,1,0,IllusionSavant,,,AlwaysPrepared)"
+        },
+        "14": {
+          "boosts": "",
+          "passives": [
+            "Illusionist_14_IllusoryReality"
+          ],
+          "selectors": ""
+        },
+        "15": {
+          "boosts": "",
+          "passives": [],
+          "selectors": "SelectSpells(b4308398-d948-4ef1-a0d5-9da1da860917,1,0,IllusionSavant,,,AlwaysPrepared)"
+        },
+        "16": {
+          "boosts": "",
+          "passives": [],
+          "selectors": ""
+        },
+        "17": {
+          "boosts": "",
+          "passives": [],
+          "selectors": "SelectSpells(b4308398-d948-4ef1-a0d5-9da1da860917,1,0,IllusionSavant,,,AlwaysPrepared)"
+        },
+        "18": {
+          "boosts": "",
+          "passives": [],
+          "selectors": ""
+        },
+        "19": {
+          "boosts": "",
+          "passives": [],
+          "selectors": "SelectSpells(b4308398-d948-4ef1-a0d5-9da1da860917,1,0,IllusionSavant,,,AlwaysPrepared)"
+        },
+        "20": {
+          "boosts": "",
+          "passives": [],
+          "selectors": ""
+        }
+      },
+      "parent": "Wizard",
+      "table_uuid": "a78bdb33-84e2-4943-a593-3d68f178ba32"
+    },
+    "KnowledgeDomain": {
+      "levels": {
+        "17": {
+          "boosts": "",
+          "passives": [
+            "KnowledgeDomain_17_DivineForeknowledge"
+          ],
+          "selectors": ""
+        }
+      },
+      "parent": "Cleric",
+      "table_uuid": "4709e126-1b45-4baf-93a2-be66ed4487d2"
+    },
+    "LifeDomain": {
+      "levels": {
+        "17": {
+          "boosts": "",
+          "passives": [
+            "LifeDomain_17_SupremeHealing"
+          ],
+          "selectors": ""
+        }
+      },
+      "parent": "Cleric",
+      "table_uuid": "9b56beb6-2a68-42a4-b81b-7a890a1b6b99"
+    },
+    "LightDomain": {
+      "levels": {
+        "17": {
+          "boosts": "",
+          "passives": [
+            "LightDomain_17_CoronaOfLight"
+          ],
+          "selectors": ""
+        }
+      },
+      "parent": "Cleric",
+      "table_uuid": "6ec6caad-2dfa-4661-8edd-5c4eca0e044c"
+    },
+    "LoreCollege": {
+      "levels": {
+        "12": {
+          "boosts": "",
+          "passives": [],
+          "selectors": ""
+        },
+        "14": {
+          "boosts": "",
+          "passives": [
+            "PeerlessSkill"
+          ],
+          "selectors": ""
+        }
+      },
+      "parent": "Bard",
+      "table_uuid": "36e6ea13-317e-4e6e-ac63-fe6d50e9f014"
+    },
+    "Mercy": {
+      "levels": {
+        "17": {
+          "boosts": "",
+          "passives": [
+            "Mercy_17_HandOfUltimateMercy"
+          ],
+          "selectors": ""
+        }
+      },
+      "parent": "Monk",
+      "table_uuid": "21468e4d-7799-4330-b210-a6ac8228fa01"
+    },
+    "MoonCollege": {
+      "levels": {
+        "12": {
+          "boosts": "",
+          "passives": [],
+          "selectors": ""
+        },
+        "14": {
+          "boosts": "",
+          "passives": [
+            "MoonCollege_12_EventidesSplendor"
+          ],
+          "selectors": ""
+        }
+      },
+      "parent": "Bard",
+      "table_uuid": "6f0b7e21-2421-4aeb-b572-49d794693a90"
+    },
+    "NecromancySchool": {
+      "levels": {
+        "13": {
+          "boosts": "",
+          "passives": [],
+          "selectors": "SelectSpells(7cb1296f-113c-4fc6-a1c8-e18288aa6360,1,0,NecromancySavant,,,AlwaysPrepared)"
+        },
+        "14": {
+          "boosts": "",
+          "passives": [
+            "Necromancer_14_DeathsMaster"
+          ],
+          "selectors": ""
+        },
+        "15": {
+          "boosts": "",
+          "passives": [],
+          "selectors": "SelectSpells(7cb1296f-113c-4fc6-a1c8-e18288aa6360,1,0,NecromancySavant,,,AlwaysPrepared)"
+        },
+        "16": {
+          "boosts": "",
+          "passives": [],
+          "selectors": ""
+        },
+        "17": {
+          "boosts": "",
+          "passives": [],
+          "selectors": "SelectSpells(7cb1296f-113c-4fc6-a1c8-e18288aa6360,1,0,NecromancySavant,,,AlwaysPrepared)"
+        },
+        "18": {
+          "boosts": "",
+          "passives": [],
+          "selectors": ""
+        },
+        "19": {
+          "boosts": "",
+          "passives": [],
+          "selectors": "SelectSpells(7cb1296f-113c-4fc6-a1c8-e18288aa6360,1,0,NecromancySavant,,,AlwaysPrepared)"
+        },
+        "20": {
+          "boosts": "",
+          "passives": [],
+          "selectors": ""
+        }
+      },
+      "parent": "Wizard",
+      "table_uuid": "47c4579c-ea2c-474d-9667-62edec24e8eb"
+    },
+    "NobleGenies": {
+      "levels": {
+        "15": {
+          "boosts": "",
+          "passives": [
+            "NobleGenies_15_ElementalRebuke"
+          ],
+          "selectors": ""
+        },
+        "20": {
+          "boosts": "",
+          "passives": [
+            "NobleGenies_20_NobleScion"
+          ],
+          "selectors": ""
+        }
+      },
+      "parent": "Paladin",
+      "table_uuid": "86ae831e-aa1b-4f18-b3d2-6c60fc32ff3c"
+    },
+    "OccultistGuild": {
+      "levels": {
+        "13": {
+          "boosts": "ActionResource(SpellSlot,1,3)",
+          "passives": [],
+          "selectors": "SelectSpells(80c6b070-c3a6-4864-84ca-e78626784eb4,1,1,EldritchKnightAbjEvo)"
+        },
+        "15": {
+          "boosts": "",
+          "passives": [
+            "OccultistGuild_15_SpellbreakerFocus"
+          ],
+          "selectors": "SelectSpells(80c6b070-c3a6-4864-84ca-e78626784eb4,1,1,EldritchKnightAbjEvo)"
+        },
+        "17": {
+          "boosts": "",
+          "passives": [],
+          "selectors": "SelectSpells(80c6b070-c3a6-4864-84ca-e78626784eb4,1,1,EldritchKnightAbjEvo)"
+        },
+        "18": {
+          "boosts": "",
+          "passives": [
+            "OccultistGuild_18_ArcaneNemesis"
+          ],
+          "selectors": ""
+        },
+        "19": {
+          "boosts": "ActionResource(SpellSlot,1,3)",
+          "passives": [],
+          "selectors": "SelectSpells(80c6b070-c3a6-4864-84ca-e78626784eb4,1,1,EldritchKnightAbjEvo)"
+        },
+        "20": {
+          "boosts": "",
+          "passives": [],
+          "selectors": "SelectSpells(80c6b070-c3a6-4864-84ca-e78626784eb4,1,1,EldritchKnightAbjEvo)"
+        }
+      },
+      "parent": "MonsterHunter",
+      "table_uuid": "a46829d3-05ba-406a-ba82-e8685cf4640d"
+    },
+    "OpenHand": {
+      "levels": {
+        "17": {
+          "boosts": "",
+          "passives": [
+            "OpenHand_17_QuiveringPalm"
+          ],
+          "selectors": ""
+        }
+      },
+      "parent": "Monk",
+      "table_uuid": "5a9bf488-fda7-4e49-a3fa-e0aad24fbf43"
+    },
+    "Painkiller": {
+      "levels": {
+        "15": {
+          "boosts": "",
+          "passives": [
+            "Painkiller_15_Deathstrike"
+          ],
+          "selectors": ""
+        },
+        "18": {
+          "boosts": "",
+          "passives": [
+            "Painkiller_18_DispatersSupremacy"
+          ],
+          "selectors": ""
+        }
+      },
+      "parent": "Illrigger",
+      "table_uuid": "5f7ba6ef-490a-4f0b-bcfe-50cb86f9886e"
+    },
+    "PsiWarrior": {
+      "levels": {
+        "12": {
+          "boosts": "",
+          "passives": [],
+          "selectors": ""
+        },
+        "15": {
+          "boosts": "",
+          "passives": [
+            "PsiWarrior_12_BulwarkOfForce"
+          ],
+          "selectors": ""
+        },
+        "18": {
+          "boosts": "",
+          "passives": [
+            "PsiWarrior_TelekineticMaster"
+          ],
+          "selectors": ""
+        }
+      },
+      "parent": "Fighter",
+      "table_uuid": "df42bb97-2d97-44f0-8cb2-379e83208408"
+    },
+    "PurpleDragonKnight": {
+      "levels": {
+        "12": {
+          "boosts": "",
+          "passives": [],
+          "selectors": ""
+        },
+        "15": {
+          "boosts": "",
+          "passives": [
+            "Banneret_12_SharedResilience"
+          ],
+          "selectors": ""
+        },
+        "18": {
+          "boosts": "",
+          "passives": [
+            "Banneret_InspiringSurge_Improved"
+          ],
+          "selectors": ""
+        }
+      },
+      "parent": "Fighter",
+      "table_uuid": "9791d0bf-56f4-4c33-a16f-c3616d46ae01"
+    },
+    "RuneKnight": {
+      "levels": {
+        "12": {
+          "boosts": "",
+          "passives": [],
+          "selectors": ""
+        },
+        "15": {
+          "boosts": "",
+          "passives": [
+            "RuneKnight_12_MasterOfRunes"
+          ],
+          "selectors": ""
+        },
+        "18": {
+          "boosts": "",
+          "passives": [
+            "RuneKnight_RunicJuggernaut"
+          ],
+          "selectors": ""
+        }
+      },
+      "parent": "Fighter",
+      "table_uuid": "b8a2b9b8-8c2e-47bd-aae9-35e191ec1162"
+    },
+    "SanguineKnight": {
+      "levels": {
+        "15": {
+          "boosts": "",
+          "passives": [
+            "SanguineKnight_15_HaemalExchange"
+          ],
+          "selectors": ""
+        },
+        "18": {
+          "boosts": "",
+          "passives": [
+            "SanguineKnight_18_BloodForBlood"
+          ],
+          "selectors": ""
+        }
+      },
+      "parent": "Illrigger",
+      "table_uuid": "283cff6c-8c2a-4f08-afe4-419dee51bc9b"
+    },
+    "ScionThree": {
+      "levels": {
+        "11": {
+          "boosts": "",
+          "passives": [],
+          "selectors": ""
+        },
+        "13": {
+          "boosts": "",
+          "passives": [
+            "DeadThree_UnholyInfiltration"
+          ],
+          "selectors": ""
+        },
+        "17": {
+          "boosts": "",
+          "passives": [
+            "DeadThree_11_MurderousIntent"
+          ],
+          "selectors": ""
+        }
+      },
+      "parent": "Rogue",
+      "table_uuid": "60cd0d4d-532d-4a1c-bc6e-1bc2ca458db8"
+    },
+    "Shadow": {
+      "levels": {
+        "17": {
+          "boosts": "",
+          "passives": [
+            "Shadow_17_CloakOfShadows"
+          ],
+          "selectors": ""
+        }
+      },
+      "parent": "Monk",
+      "table_uuid": "6e1a1046-1202-410b-9d80-91c819a8bcca"
+    },
+    "Shadowmaster": {
+      "levels": {
+        "15": {
+          "boosts": "",
+          "passives": [
+            "Shadowmaster_Illrigger_15_DoomedToTheShadows"
+          ],
+          "selectors": ""
+        },
+        "18": {
+          "boosts": "",
+          "passives": [
+            "Shadowmaster_Illrigger_18_DarkMalediction"
+          ],
+          "selectors": ""
+        }
+      },
+      "parent": "Illrigger",
+      "table_uuid": "4e800d7d-f45c-4258-a475-85452c8c615d"
+    },
+    "Soulknife": {
+      "levels": {
+        "11": {
+          "boosts": "",
+          "passives": [],
+          "selectors": ""
+        },
+        "13": {
+          "boosts": "",
+          "passives": [
+            "SoulKnife_PsychicVeil"
+          ],
+          "selectors": ""
+        },
+        "17": {
+          "boosts": "",
+          "passives": [
+            "SoulKnife_11_RendMind"
+          ],
+          "selectors": ""
+        }
+      },
+      "parent": "Rogue",
+      "table_uuid": "abc7b271-82a1-4139-9653-4c90a7984a38"
+    },
+    "SpellfireSorcery": {
+      "levels": {
+        "11": {
+          "boosts": "",
+          "passives": [],
+          "selectors": ""
+        },
+        "14": {
+          "boosts": "",
+          "passives": [
+            "Spellfire_11_HonedSpellfire"
+          ],
+          "selectors": ""
+        },
+        "18": {
+          "boosts": "",
+          "passives": [
+            "SpellfireSorcery_18_CrownOfSpellfire"
+          ],
+          "selectors": ""
+        }
+      },
+      "parent": "Sorcerer",
+      "table_uuid": "9e855a88-3ace-4332-a875-2489fa757ef7"
+    },
+    "Spellslinger": {
+      "levels": {
+        "13": {
+          "boosts": "ActionResource(SpellSlot,1,2)",
+          "passives": [],
+          "selectors": "SelectSpells(80c6b070-c3a6-4864-84ca-e78626784eb4,1,1,EldritchKnightAbjEvo)"
+        },
+        "14": {
+          "boosts": "",
+          "passives": [
+            "Spellslinger_14_MagicBullet"
+          ],
+          "selectors": ""
+        },
+        "15": {
+          "boosts": "",
+          "passives": [
+            "SpellSlinger_15_ArcaneBarrage"
+          ],
+          "selectors": "SelectSpells(80c6b070-c3a6-4864-84ca-e78626784eb4,1,1,EldritchKnightAbjEvo)"
+        },
+        "16": {
+          "boosts": "ActionResource(SpellSlot,1,3)",
+          "passives": [],
+          "selectors": ""
+        },
+        "17": {
+          "boosts": "",
+          "passives": [],
+          "selectors": "SelectSpells(80c6b070-c3a6-4864-84ca-e78626784eb4,1,1,EldritchKnightAbjEvo)"
+        },
+        "18": {
+          "boosts": "",
+          "passives": [
+            "SpellSlinger_18_SpellStorm"
+          ],
+          "selectors": ""
+        },
+        "19": {
+          "boosts": "ActionResource(SpellSlot,1,3)",
+          "passives": [],
+          "selectors": "SelectSpells(80c6b070-c3a6-4864-84ca-e78626784eb4,1,1,EldritchKnightAbjEvo)"
+        },
+        "20": {
+          "boosts": "",
+          "passives": [],
+          "selectors": "SelectSpells(80c6b070-c3a6-4864-84ca-e78626784eb4,1,1,EldritchKnightAbjEvo)"
+        }
+      },
+      "parent": "Gunslinger",
+      "table_uuid": "87c98e6f-682b-4296-b763-837ba2555205"
+    },
+    "SwordsCollege": {
+      "levels": {
+        "12": {
+          "boosts": "",
+          "passives": [],
+          "selectors": ""
+        },
+        "14": {
+          "boosts": "",
+          "passives": [
+            "SwordsCollege_12_MastersFlourish"
+          ],
+          "selectors": ""
+        }
+      },
+      "parent": "Bard",
+      "table_uuid": "68f61c89-be48-41aa-acb6-2f3bd15303c7"
+    },
+    "Thief": {
+      "levels": {
+        "11": {
+          "boosts": "",
+          "passives": [],
+          "selectors": ""
+        },
+        "13": {
+          "boosts": "",
+          "passives": [
+            "Thief_UseMagicDevice"
+          ],
+          "selectors": ""
+        },
+        "17": {
+          "boosts": "",
+          "passives": [
+            "Thief_11_ThiefReflexes"
+          ],
+          "selectors": ""
+        }
+      },
+      "parent": "Rogue",
+      "table_uuid": "f6acc595-46b4-4d96-b7d5-6f33366fc2de"
+    },
+    "TotemWarriorPath": {
+      "levels": {
+        "14": {
+          "boosts": "",
+          "passives": [],
+          "selectors": "SelectPassives(22222222-2222-2222-2222-222222220001,1,PowerOfTheWilds)"
+        }
+      },
+      "parent": "Barbarian",
+      "table_uuid": "48f1760f-86e7-401c-ad52-633fffbae49e"
+    },
+    "TransmutationSchool": {
+      "levels": {
+        "13": {
+          "boosts": "",
+          "passives": [],
+          "selectors": "SelectSpells(538dd943-cd46-4140-a75e-d51b747c1367,1,0,TransmutationSavant,,,AlwaysPrepared)"
+        },
+        "14": {
+          "boosts": "",
+          "passives": [
+            "Transmuter_14_MasterTransmuter"
+          ],
+          "selectors": ""
+        },
+        "15": {
+          "boosts": "",
+          "passives": [],
+          "selectors": "SelectSpells(538dd943-cd46-4140-a75e-d51b747c1367,1,0,TransmutationSavant,,,AlwaysPrepared)"
+        },
+        "16": {
+          "boosts": "",
+          "passives": [],
+          "selectors": ""
+        },
+        "17": {
+          "boosts": "",
+          "passives": [],
+          "selectors": "SelectSpells(538dd943-cd46-4140-a75e-d51b747c1367,1,0,TransmutationSavant,,,AlwaysPrepared)"
+        },
+        "18": {
+          "boosts": "",
+          "passives": [],
+          "selectors": ""
+        },
+        "19": {
+          "boosts": "",
+          "passives": [],
+          "selectors": "SelectSpells(538dd943-cd46-4140-a75e-d51b747c1367,1,0,TransmutationSavant,,,AlwaysPrepared)"
+        },
+        "20": {
+          "boosts": "",
+          "passives": [],
+          "selectors": ""
+        }
+      },
+      "parent": "Wizard",
+      "table_uuid": "0bf3a1fe-f4e0-4bd3-aa97-ceec14afa407"
+    },
+    "TrickeryDomain": {
+      "levels": {
+        "17": {
+          "boosts": "",
+          "passives": [
+            "TrickeryDomain_17_ImprovedDuplicity"
+          ],
+          "selectors": ""
+        }
+      },
+      "parent": "Cleric",
+      "table_uuid": "044e4e07-6980-479f-80e5-3c4a84e691d1"
+    },
+    "ValorCollege": {
+      "levels": {
+        "12": {
+          "boosts": "",
+          "passives": [],
+          "selectors": ""
+        },
+        "14": {
+          "boosts": "",
+          "passives": [
+            "BattleMagic"
+          ],
+          "selectors": ""
+        }
+      },
+      "parent": "Bard",
+      "table_uuid": "d58a305f-3ccf-440c-b069-2abd9235ac03"
+    },
+    "Vengeance": {
+      "levels": {
+        "15": {
+          "boosts": "",
+          "passives": [
+            "Vengeance_15_SoulOfVengeance"
+          ],
+          "selectors": ""
+        },
+        "20": {
+          "boosts": "",
+          "passives": [
+            "Vengeance_20_AvengingAngel"
+          ],
+          "selectors": ""
+        }
+      },
+      "parent": "Paladin",
+      "table_uuid": "f769aa02-1f74-4fb6-b94c-8850143daa20"
+    },
+    "WarDomain": {
+      "levels": {
+        "17": {
+          "boosts": "",
+          "passives": [
+            "WarDomain_17_AvatarOfBattle"
+          ],
+          "selectors": ""
+        }
+      },
+      "parent": "Cleric",
+      "table_uuid": "8f6048bc-47b8-49fa-956a-8a364807f6ec"
+    },
+    "WhiteHat": {
+      "levels": {
+        "14": {
+          "boosts": "",
+          "passives": [
+            "WhiteHat_14_GoldStarHero"
+          ],
+          "selectors": ""
+        },
+        "15": {
+          "boosts": "",
+          "passives": [
+            "WhiteHat_15_Peacekeeper"
+          ],
+          "selectors": ""
+        },
+        "18": {
+          "boosts": "",
+          "passives": [
+            "WhiteHat_18_LawgiversReach"
+          ],
+          "selectors": ""
+        }
+      },
+      "parent": "Gunslinger",
+      "table_uuid": "e2f9bb71-e529-4de1-beb0-7eb1568aec36"
+    },
+    "WildMagic": {
+      "levels": {
+        "11": {
+          "boosts": "",
+          "passives": [],
+          "selectors": ""
+        },
+        "14": {
+          "boosts": "",
+          "passives": [
+            "ControlledChaos"
+          ],
+          "selectors": ""
+        },
+        "18": {
+          "boosts": "",
+          "passives": [
+            "WildMagic_18_TamedSurge"
+          ],
+          "selectors": ""
+        }
+      },
+      "parent": "Sorcerer",
+      "table_uuid": "dbf5281b-5a6e-486d-92db-ff67a0a3842b"
+    },
+    "WildMagicPath": {
+      "levels": {
+        "14": {
+          "boosts": "",
+          "passives": [
+            "WildMagic_14_ControlledSurge"
+          ],
+          "selectors": ""
+        }
+      },
+      "parent": "Sorcerer",
+      "table_uuid": "dbf5281b-5a6e-486d-92db-ff67a0a3842b"
+    },
+    "WinterWalker": {
+      "levels": {
+        "15": {
+          "boosts": "",
+          "passives": [
+            "WinterWalker_15_FrozenHaunt"
+          ],
+          "selectors": ""
+        }
+      },
+      "parent": "Ranger",
+      "table_uuid": "d16b57a3-866e-42eb-9553-dc27f7bf8625"
+    },
+    "WorldTreePath": {
+      "levels": {
+        "14": {
+          "boosts": "",
+          "passives": [
+            "WorldTree_14_TravelAlongTheTree"
+          ],
+          "selectors": ""
+        }
+      },
+      "parent": "Barbarian",
+      "table_uuid": "d3377ec8-8734-46e6-93b7-30d65f774362"
+    },
+    "ZealotPath": {
+      "levels": {
+        "14": {
+          "boosts": "",
+          "passives": [
+            "Zealot_14_RageOfTheGods"
+          ],
+          "selectors": ""
+        }
+      },
+      "parent": "Barbarian",
+      "table_uuid": "c5fb3d32-6c46-4c9e-a2c9-8849f52e16e4"
+    }
+  },
+  "unmapped_subclass_parents": []
+}
