@@ -50,7 +50,11 @@ if [[ $DO_PACK -eq 1 ]]; then
   exit 0
 fi
 
-ROOT='/c/Users/holyp/AppData/Local/Larian Studios/Baldur'"'"'s Gate 3/Script Extender Logs'
+# Works from both Git Bash (/c/...) and WSL (/mnt/c/...)
+CDRIVE="/c"
+[[ ! -d "$CDRIVE/Users" && -d /mnt/c/Users ]] && CDRIVE="/mnt/c"
+ROOT="$CDRIVE/Users/holyp/AppData/Local/Larian Studios/Baldur's Gate 3/Extender Logs"
+[[ -d "$ROOT" ]] || ROOT="$CDRIVE/Users/holyp/AppData/Local/Larian Studios/Baldur's Gate 3/Script Extender Logs"
 LATEST_LOG=$(ls -t "$ROOT"/Extender\ Runtime* | head -1)
 echo "[test] latest log: $LATEST_LOG"
 
