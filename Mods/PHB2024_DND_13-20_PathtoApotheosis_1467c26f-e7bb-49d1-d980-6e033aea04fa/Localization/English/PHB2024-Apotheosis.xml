@@ -689,4 +689,120 @@
   <content contentuid="h8888888888888888888888888888001" version="1">Unlock 8th Level Spell Slots</content>
   <content contentuid="h9999999999999999999999999999001" version="1">Unlock 9th Level Spell Slots</content>
 
+  <content contentuid="hsp0000000000000000000000007001" version="1">Delayed Blast Fireball</content>
+  <content contentuid="hsp0000000000000000000000007002" version="1">A bead of fire streaks out and detonates with catastrophic force, dealing 12d6 Fire damage to everything caught in the blast.</content>
+  <content contentuid="hsp0000000000000000000000007003" version="1">Divine Word</content>
+  <content contentuid="hsp0000000000000000000000007004" version="1">You speak a word of the First Language. Wounded enemies around you that fail a Charisma save are struck down, stunned, or blinded according to how badly hurt they already are.</content>
+  <content contentuid="hsp0000000000000000000000007005" version="1">Finger of Death</content>
+  <content contentuid="hsp0000000000000000000000007006" version="1">Negative energy ravages a creature for 7d8+30 Necrotic damage (Constitution save for half). A humanoid slain by this spell rises at the start of the next turn as a zombie under your command.</content>
+  <content contentuid="hsp0000000000000000000000007007" version="1">Fire Storm</content>
+  <content contentuid="hsp0000000000000000000000007008" version="1">A storm of roaring flame fills a wide area, dealing 7d10 Fire damage (Dexterity save for half).</content>
+  <content contentuid="hsp0000000000000000000000007009" version="1">Prismatic Spray</content>
+  <content contentuid="hsp0000000000000000000000007010" version="1">Eight rays of clashing colour flash from your hand in a cone, battering everything caught in them with 2d6 each of Fire, Cold, Lightning, Acid and Poison damage (Dexterity save for half).</content>
+  <content contentuid="hsp0000000000000000000000007011" version="1">Forcecage</content>
+  <content contentuid="hsp0000000000000000000000007012" version="1">A cage of invisible force imprisons an enemy for 3 turns: it cannot act, and nothing can harm it. No saving throw, no concentration.</content>
+  <content contentuid="hsp0000000000000000000000007013" version="1">Mordenkainen's Sword</content>
+  <content contentuid="hsp0000000000000000000000007014" version="1">You conjure a blade of pure force that fights at your command, striking with the strength of a 7th-level summoning.</content>
+  <content contentuid="hsp0000000000000000000000007015" version="1">Conjure Celestial</content>
+  <content contentuid="hsp0000000000000000000000007016" version="1">A celestial spirit surrounds you: enemies within 9m suffer 3d8 Radiant damage each turn (Wisdom save), while nearby allies are continually Blessed.</content>
+  <content contentuid="hsp0000000000000000000000007017" version="1">Etherealness</content>
+  <content contentuid="hsp0000000000000000000000007018" version="1">You step partly into the Ethereal Plane for 10 turns: unseen by material eyes and drifting free, with greatly extended movement.</content>
+  <content contentuid="hsp0000000000000000000000007019" version="1">Mirage Arcane</content>
+  <content contentuid="hsp0000000000000000000000007020" version="1">You rewrite the terrain in enemy minds across a huge area. Those who fail an Intelligence save wander lost: Slowed for 3 turns and Blinded for 2.</content>
+  <content contentuid="hsp0000000000000000000000007021" version="1">Mordenkainen's Magnificent Mansion</content>
+  <content contentuid="hsp0000000000000000000000007022" version="1">The mansion's door opens a crack: allies around you snatch a moment of its comfort, healing 4d8 and gaining Sanctuary for 2 turns.</content>
+  <content contentuid="hsp0000000000000000000000007023" version="1">Plane Shift</content>
+  <content contentuid="hsp0000000000000000000000007024" version="1">You hurl an enemy through the planes. On a failed Charisma save it is banished for 3 turns - no concentration required.</content>
+  <content contentuid="hsp0000000000000000000000007025" version="1">Power Word Fortify</content>
+  <content contentuid="hsp0000000000000000000000007026" version="1">A word of pure vitality wraps a creature in 60 temporary hit points.</content>
+  <content contentuid="hsp0000000000000000000000007027" version="1">Reverse Gravity</content>
+  <content contentuid="hsp0000000000000000000000007028" version="1">Gravity inverts across the area: creatures that fail a Dexterity save are slammed skyward and back down for 6d6 Bludgeoning damage and knocked Prone.</content>
+  <content contentuid="hsp0000000000000000000000007029" version="1">Sequester</content>
+  <content contentuid="hsp0000000000000000000000007030" version="1">You hide an ally outside the world's reach: for 3 turns nothing can touch them, and they cannot act.</content>
+  <content contentuid="hsp0000000000000000000000007031" version="1">Simulacrum</content>
+  <content contentuid="hsp0000000000000000000000007032" version="1">A snow-built double acts through you for 5 turns, granting an additional action and bonus action each round.</content>
+  <content contentuid="hsp0000000000000000000000007033" version="1">Symbol</content>
+  <content contentuid="hsp0000000000000000000000007034" version="1">A glyph of stunning power erupts: creatures in the area that fail an Intelligence save take 7d10 Psychic damage and are Stunned for a turn.</content>
+  <content contentuid="hsp0000000000000000000000007035" version="1">Teleport</content>
+  <content contentuid="hsp0000000000000000000000007036" version="1">You vanish and reappear anywhere you can see, up to 30m away.</content>
+  <content contentuid="hsp0000000000000000000000008001" version="1">Animal Shapes</content>
+  <content contentuid="hsp0000000000000000000000008002" version="1">Allies around you take on bestial vigour for 10 turns: 30 temporary hit points and surging speed.</content>
+  <content contentuid="hsp0000000000000000000000008003" version="1">Antimagic Field</content>
+  <content contentuid="hsp0000000000000000000000008004" version="1">A 3m sphere of dead magic follows you for 10 turns: enemies inside are continually Silenced, strangling their casting.</content>
+  <content contentuid="hsp0000000000000000000000008005" version="1">Antipathy/Sympathy</content>
+  <content contentuid="hsp0000000000000000000000008006" version="1">You become anathema to one creature: on a failed Wisdom save it is Frightened of you for 5 turns.</content>
+  <content contentuid="hsp0000000000000000000000008007" version="1">Befuddlement</content>
+  <content contentuid="hsp0000000000000000000000008008" version="1">You blast the mind of a creature, shattering its intellect and personality (PHB 2024 successor to Feeblemind).</content>
+  <content contentuid="hsp0000000000000000000000008009" version="1">Clone</content>
+  <content contentuid="hsp0000000000000000000000008010" version="1">A hidden clone stands ready. The next time the target falls, the clone takes their place: they rise again at full strength.</content>
+  <content contentuid="hsp0000000000000000000000008011" version="1">Control Weather</content>
+  <content contentuid="hsp0000000000000000000000008012" version="1">You bend the sky itself: for 5 turns a storm rages 18m around you, shocking enemies for 2d10 Lightning damage each turn (Constitution save).</content>
+  <content contentuid="hsp0000000000000000000000008013" version="1">Demiplane</content>
+  <content contentuid="hsp0000000000000000000000008014" version="1">You shove an ally through a shadowy door into your demiplane: for 2 turns nothing can reach them, and they cannot act.</content>
+  <content contentuid="hsp0000000000000000000000008015" version="1">Dominate Monster</content>
+  <content contentuid="hsp0000000000000000000000008016" version="1">You seize the will of any creature - beast, fiend, dragon or worse. On a failed Wisdom save it fights for you.</content>
+  <content contentuid="hsp0000000000000000000000008017" version="1">Earthquake</content>
+  <content contentuid="hsp0000000000000000000000008018" version="1">The ground heaves across a huge area: creatures that fail a Dexterity save take 5d12 Bludgeoning damage and are knocked Prone amid the churned earth.</content>
+  <content contentuid="hsp0000000000000000000000008019" version="1">Holy Aura</content>
+  <content contentuid="hsp0000000000000000000000008020" version="1">Divine radiance mantles you for 5 turns: allies within 9m are continually Blessed.</content>
+  <content contentuid="hsp0000000000000000000000008021" version="1">Incendiary Cloud</content>
+  <content contentuid="hsp0000000000000000000000008022" version="1">A roiling cloud of embers ignites: creatures inside take 10d8 Fire damage (Dexterity save for half) and the ground burns on.</content>
+  <content contentuid="hsp0000000000000000000000008023" version="1">Maze</content>
+  <content contentuid="hsp0000000000000000000000008024" version="1">You cast an enemy into an extradimensional labyrinth. On a failed Intelligence save it is gone for 2 turns, wandering the maze.</content>
+  <content contentuid="hsp0000000000000000000000008025" version="1">Mind Blank</content>
+  <content contentuid="hsp0000000000000000000000008026" version="1">Until your next long rest, one creature's mind is a locked vault: immune to Psychic damage and to being Charmed.</content>
+  <content contentuid="hsp0000000000000000000000008027" version="1">Sunburst</content>
+  <content contentuid="hsp0000000000000000000000008028" version="1">Brilliant sunlight flashes in a 9m sphere: 12d6 Radiant damage, and creatures that fail a Constitution save are Blinded for 2 turns.</content>
+  <content contentuid="hsp0000000000000000000000008029" version="1">Telepathy</content>
+  <content contentuid="hsp0000000000000000000000008030" version="1">You forge a telepathic bond with an ally until your next long rest, steeling their mind: advantage on Wisdom, Intelligence and Charisma saving throws.</content>
+  <content contentuid="hsp0000000000000000000000008031" version="1">Tsunami</content>
+  <content contentuid="hsp0000000000000000000000008032" version="1">A wall of water crashes through everything before you: 6d10 Bludgeoning damage (Dexterity save for half), leaving the ground awash.</content>
+  <content contentuid="hsp0000000000000000000000009001" version="1">Astral Projection</content>
+  <content contentuid="hsp0000000000000000000000009002" version="1">Your silver-corded astral self takes the field for 10 turns: flying free, with your material body's wounds dulled to resistance against physical harm.</content>
+  <content contentuid="hsp0000000000000000000000009003" version="1">Imprisonment</content>
+  <content contentuid="hsp0000000000000000000000009004" version="1">You bind a creature outside time and space. On a failed Wisdom save it is Petrified - permanently, until someone breaks the binding.</content>
+  <content contentuid="hsp0000000000000000000000009005" version="1">Shapechange</content>
+  <content contentuid="hsp0000000000000000000000009006" version="1">You assume a colossal primal form for 10 turns: 60 temporary hit points, hardened hide, and tremendous stride.</content>
+  <content contentuid="hsp0000000000000000000000009007" version="1">Storm of Vengeance</content>
+  <content contentuid="hsp0000000000000000000000009008" version="1">A churning stormcloud blankets the battlefield for 5 turns: every enemy within 18m is lashed for 4d6 Lightning damage each turn (Constitution save).</content>
+  <content contentuid="hsp0000000000000000000000009009" version="1">True Resurrection</content>
+  <content contentuid="hsp0000000000000000000000009010" version="1">You restore a dead companion to life whole and unmarred: full hit points and a lingering blessing.</content>
+  <content contentuid="hsp0000000000000000000000009011" version="1">Weird</content>
+  <content contentuid="hsp0000000000000000000000009012" version="1">You drag every enemy in the area into their own worst nightmare: 12d10 Psychic damage (Wisdom save for half), and those who fail are Frightened for 2 turns.</content>
+  <content contentuid="hst0000000000000000000000000001" version="1">Death's Finger</content>
+  <content contentuid="hst0000000000000000000000000002" version="1">Marked by Finger of Death. If this creature dies now, it rises as a zombie serving its killer.</content>
+  <content contentuid="hst0000000000000000000000000003" version="1">Ethereal Drift</content>
+  <content contentuid="hst0000000000000000000000000004" version="1">Partly in the Ethereal Plane: movement is greatly extended.</content>
+  <content contentuid="hst0000000000000000000000000005" version="1">Fortified</content>
+  <content contentuid="hst0000000000000000000000000006" version="1">Wrapped in 60 temporary hit points by a word of power.</content>
+  <content contentuid="hst0000000000000000000000000007" version="1">Simulacrum</content>
+  <content contentuid="hst0000000000000000000000000008" version="1">A snow-built double acts through you: an additional action and bonus action each round.</content>
+  <content contentuid="hst0000000000000000000000000009" version="1">Bestial Vigour</content>
+  <content contentuid="hst0000000000000000000000000010" version="1">Primal shape flows through you: 30 temporary hit points and surging speed.</content>
+  <content contentuid="hst0000000000000000000000000011" version="1">Clone Standing By</content>
+  <content contentuid="hst0000000000000000000000000012" version="1">A hidden clone waits. The next time you fall, you rise again at full strength.</content>
+  <content contentuid="hst0000000000000000000000000013" version="1">Mind Blank</content>
+  <content contentuid="hst0000000000000000000000000014" version="1">This mind is a locked vault: immune to Psychic damage and to being Charmed.</content>
+  <content contentuid="hst0000000000000000000000000015" version="1">Telepathic Bond</content>
+  <content contentuid="hst0000000000000000000000000016" version="1">A steadying voice in your mind: advantage on Wisdom, Intelligence and Charisma saving throws.</content>
+  <content contentuid="hst0000000000000000000000000017" version="1">Astral Form</content>
+  <content contentuid="hst0000000000000000000000000018" version="1">Your material wounds are far away: resistant to Slashing, Piercing and Bludgeoning damage.</content>
+  <content contentuid="hst0000000000000000000000000019" version="1">Colossal Form</content>
+  <content contentuid="hst0000000000000000000000000020" version="1">A towering primal shape: 60 temporary hit points, +2 Armour Class and tremendous stride.</content>
+  <content contentuid="hst0000000000000000000000000021" version="1">Celestial Spirit</content>
+  <content contentuid="hst0000000000000000000000000022" version="1">A celestial spirit attends you: enemies within 9m suffer radiant wrath; allies are continually Blessed.</content>
+  <content contentuid="hst0000000000000000000000000023" version="1">Celestial Wrath</content>
+  <content contentuid="hst0000000000000000000000000024" version="1">Scoured by celestial radiance.</content>
+  <content contentuid="hst0000000000000000000000000025" version="1">Stormcall</content>
+  <content contentuid="hst0000000000000000000000000026" version="1">A storm-cell rages 18m around you, shocking enemies each turn.</content>
+  <content contentuid="hst0000000000000000000000000027" version="1">Storm-Shocked</content>
+  <content contentuid="hst0000000000000000000000000028" version="1">Lashed by summoned lightning.</content>
+  <content contentuid="hst0000000000000000000000000029" version="1">Storm of Vengeance</content>
+  <content contentuid="hst0000000000000000000000000030" version="1">A vengeful stormcloud blankets 18m around you.</content>
+  <content contentuid="hst0000000000000000000000000031" version="1">Vengeance-Struck</content>
+  <content contentuid="hst0000000000000000000000000032" version="1">Lashed by the storm of vengeance.</content>
+  <content contentuid="hst0000000000000000000000000033" version="1">Antimagic Field</content>
+  <content contentuid="hst0000000000000000000000000034" version="1">A sphere of dead magic: enemies inside are continually Silenced.</content>
+  <content contentuid="hst0000000000000000000000000035" version="1">Holy Aura</content>
+  <content contentuid="hst0000000000000000000000000036" version="1">Divine radiance mantles you: allies within 9m are continually Blessed.</content>
 </contentList>
