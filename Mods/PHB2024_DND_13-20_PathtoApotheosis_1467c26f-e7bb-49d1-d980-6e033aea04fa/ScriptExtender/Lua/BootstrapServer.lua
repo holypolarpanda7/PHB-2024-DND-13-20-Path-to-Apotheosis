@@ -2048,6 +2048,36 @@ local function smokeConsoleFeatureList(cmd)
     ft.List()
 end
 
+local function smokeConsoleSpawn(cmd, templateKey, factionKey)
+    local ft = _G.ApotheosisFeatureTests
+    if not ft then
+        Log.Error("FeatureTests module not loaded")
+        return
+    end
+    if not templateKey or tostring(templateKey) == "" then
+        local names = {}
+        for k in pairs(ft.Config.Templates) do names[#names + 1] = k end
+        table.sort(names)
+        Log.Error("Console command usage: !apospawn <template> [faction]")
+        Log.Error("Templates: " .. table.concat(names, ", ") .. "  Factions: hostile, friendly, neutral")
+        return
+    end
+    local okSpawn, errSpawn = pcall(function()
+        local host = ft.GetHost()
+        ft.SpawnCreature(host, tostring(templateKey), tostring(factionKey or "hostile"), 3, 3, function(guid, why)
+            if guid then
+                Log.Info("Spawned " .. tostring(templateKey) .. " (" .. tostring(factionKey or "hostile") .. "): " .. tostring(guid))
+                Log.Info("Clean up with: Osi.RequestDelete(\"" .. tostring(guid) .. "\")")
+            else
+                Log.Error("Spawn failed: " .. tostring(why))
+            end
+        end)
+    end)
+    if not okSpawn then
+        Log.Error("Spawn error: " .. tostring(errSpawn))
+    end
+end
+
 local function smokeConsoleRunManifest(cmd, subclassName)
     if not subclassName or tostring(subclassName) == "" then
         Log.Error("Console command usage: !apowizmanifest <SubclassName>")
@@ -2118,7 +2148,8 @@ if Ext and type(Ext.RegisterConsoleCommand) == "function" then
     Ext.RegisterConsoleCommand("apowatch", smokeConsoleWatch)
     Ext.RegisterConsoleCommand("apofeature", smokeConsoleFeature)
     Ext.RegisterConsoleCommand("apofeatures", smokeConsoleFeatureList)
-    Log.Info("Smoke console commands registered: !aposmokehelp, !apowizmanifest, !apowizinteractive, !apowizcheck, !apowizautolevel, !apowizsweep, !aposub, !aposubsweep, !apolist, !apowatch, !apofeature, !apofeatures")
+    Ext.RegisterConsoleCommand("apospawn", smokeConsoleSpawn)
+    Log.Info("Smoke console commands registered: !aposmokehelp, !apowizmanifest, !apowizinteractive, !apowizcheck, !apowizautolevel, !apowizsweep, !aposub, !aposubsweep, !apolist, !apowatch, !apofeature, !apofeatures, !apospawn")
 else
     Log.Warn("Ext.RegisterConsoleCommand unavailable; REPL-only smoke entrypoints remain")
 end
@@ -2168,8 +2199,9 @@ function Smoke.Help()
     Log.Info("  !aposubsweep <Name> [start] [end] -- sweep 13-20, e.g. !aposubsweep EvocationSchool")
     Log.Info("Watch mode + functional tests:")
     Log.Info("  !apowatch on|off                  -- auto-validate every level-up (incl. moved sub-13 features)")
-    Log.Info("  !apofeatures                      -- list functional feature tests")
+    Log.Info("  !apofeatures                      -- list functional feature tests + their target doctrine")
     Log.Info("  !apofeature <Passive> [TargetGuid] -- act-and-verify test, e.g. !apofeature WinterWalker_15_FrozenHaunt")
+    Log.Info("  !apospawn <template> [faction]    -- stage a manual-test target, e.g. !apospawn wolf hostile")
 end
 
 Ext.Events.SessionLoaded:Subscribe(function()

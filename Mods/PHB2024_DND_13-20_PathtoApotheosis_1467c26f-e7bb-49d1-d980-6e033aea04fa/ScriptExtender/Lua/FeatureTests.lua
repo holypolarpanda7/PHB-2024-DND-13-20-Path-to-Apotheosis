@@ -2,14 +2,31 @@
 -- Apotheosis functional feature tests.
 --
 -- Goes beyond "was the passive granted": performs character actions
--- (force-casts spells, provokes attacks), optionally spawns a target,
--- and verifies observable effects (statuses, scripted reactions).
+-- (force-casts spells, provokes attacks), spawns targets with the
+-- faction each scenario actually requires, and verifies observable
+-- effects (statuses, scripted reactions).
+--
+-- TARGET DOCTRINE - each test declares the target its mechanic needs:
+--   * FrozenHaunt gates on `Enemy(context.Target)` in its stats functor,
+--     so its target MUST be hostile - a friendly target can never chill.
+--   * AlterMemories marks enemies inside a 6m aura and locks them with
+--     MM_HOLD (paralyze-type) / MM_SLOW, so it needs TWO hostile LIVING
+--     creatures (undead can resist paralysis-type statuses).
+--   * ElementalRebuke's AttackedBy listener is faction-agnostic, but the
+--     real scenario is an enemy striking the sorcerer, so the default
+--     attacker is hostile; pass an ally GUID to test without combat.
+--   * Self-buff / self-scripted features need no target at all.
+--
+-- All template + faction GUIDs below were extracted from base-game data
+-- (summon spell stats and Shared/Factions/Factions.lsx), not guessed.
 --
 -- Loaded by BootstrapServer.lua; exposed as _G.ApotheosisFeatureTests.
 --
 -- Console entry points (registered in BootstrapServer.lua):
 --   !apofeatures                     -- list registered tests
 --   !apofeature <PassiveName> [tgt]  -- run one test (optional target GUID)
+--   !apospawn <template> [faction]   -- spawn a manual-test target, e.g.
+--                                       !apospawn wolf hostile
 --
 -- Outcome log markers (stable, parsed by Scripts/test_subclass.sh):
 --   FeatureTest <passive>: PASS
@@ -19,13 +36,25 @@
 
 local FT = {
     Config = {
-        -- Root template force-spawned as a hostile-capable test target when no
-        -- party ally is available. Override at runtime:
-        --   ApotheosisFeatureTests.Config.DummyTemplate = "<uuid>"
-        DummyTemplate = nil,
+        -- Root templates proven spawnable (sourced from summon spells).
+        Templates = {
+            wolf     = "9beee5c9-279e-49d8-a4a8-18f9ee0b1519", -- living beast, melee
+            boar     = "be71d66c-5328-490f-b962-4fdb7ca2647f", -- living beast, melee
+            bear     = "ca66e982-91f6-4b60-8ebc-d4c4f2568f0c", -- living beast, tanky
+            skeleton = "6c06cda2-6e13-4663-a6f6-c4bb7564c10f", -- undead (paralysis-resistant targets)
+            zombie   = "c2a2c269-ede8-4887-99f1-e0c044cc0c75", -- undead melee
+        },
+        -- Base factions from Shared/Factions/Factions.lsx.
+        Factions = {
+            hostile  = "64321d50-d516-b1b2-cfac-2eb773de1ff6", -- Evil NPC
+            friendly = "80182081-6bb1-95f1-c40f-4c3cea368269", -- Good NPC
+            neutral  = "a66b2d45-1b6c-082d-8a01-c6d975ead314", -- Neutral
+        },
         StatusPollMs = 400,
         StatusTimeoutMs = 8000,
+        AuraTimeoutMs = 15000,      -- aura ticks need longer than direct hits
         CastSettleMs = 1500,
+        SpawnSettleMs = 700,
     },
     tests = {},
 }
@@ -59,12 +88,11 @@ end
 function FT.GetAlly(host)
     local players = Osi.DB_Players and Osi.DB_Players:Get(nil) or nil
     if not players then return nil end
+    local hostTail = tostring(host):sub(-36)
     for _, row in pairs(players) do
         local member = row[1]
-        if member and member ~= host and Osi.IsDead(member) ~= 1 then
-            -- Osiris GUIDs can be prefixed with a name; compare tails
-            local tail = tostring(member):sub(-36)
-            if tail ~= tostring(host):sub(-36) then
+        if member and Osi.IsDead(member) ~= 1 then
+            if tostring(member):sub(-36) ~= hostTail then
                 return member
             end
         end
@@ -72,21 +100,33 @@ function FT.GetAlly(host)
     return nil
 end
 
---- Spawn the configured dummy template near `host`. Returns guid or nil.
-function FT.SpawnDummy(host)
-    local template = FT.Config.DummyTemplate
-    if not template or template == "" then
-        return nil, "no DummyTemplate configured (set ApotheosisFeatureTests.Config.DummyTemplate)"
+--- Spawn `templateKey` near host with `factionKey`. cb(guid or nil, err).
+function FT.SpawnCreature(host, templateKey, factionKey, dx, dz, cb)
+    local L = log()
+    local template = FT.Config.Templates[templateKey]
+    if not template then
+        cb(nil, "unknown template key '" .. tostring(templateKey) .. "'")
+        return
     end
     local x, y, z = Osi.GetPosition(host)
     if not x then
-        return nil, "could not resolve host position"
+        cb(nil, "could not resolve host position")
+        return
     end
-    local guid = Osi.CreateAt(template, x + 2, y, z + 2, 0, 0, "")
+    local guid = Osi.CreateAt(template, x + (dx or 3), y, z + (dz or 3), 0, 0, "")
     if not guid or guid == "" then
-        return nil, "CreateAt returned nothing for template " .. tostring(template)
+        cb(nil, "CreateAt returned nothing for " .. templateKey .. " (" .. template .. ")")
+        return
     end
-    return guid, nil
+    local faction = FT.Config.Factions[factionKey or "neutral"]
+    if faction and Osi.SetFaction then
+        pcall(Osi.SetFaction, guid, faction)
+    end
+    L.Debug("Spawned " .. templateKey .. " as " .. tostring(factionKey) .. ": " .. tostring(guid))
+    -- let the entity finish materializing before it is acted upon
+    Ext.Timer.WaitFor(FT.Config.SpawnSettleMs, function()
+        cb(guid, nil)
+    end)
 end
 
 function FT.RemoveSpawned(guid)
@@ -112,7 +152,7 @@ function FT.ExpectStatus(target, status, timeoutMs, cb)
     poll()
 end
 
---- Poll until `target` has ANY of the listed statuses.
+--- Poll until `target` has ANY of the listed statuses. cb(found, which).
 function FT.ExpectAnyStatus(target, statuses, timeoutMs, cb)
     local deadline = Ext.Utils.MonotonicTime() + (timeoutMs or FT.Config.StatusTimeoutMs)
     local function poll()
@@ -145,13 +185,24 @@ end
 --- Register a functional test for a passive.
 --- spec = {
 ---   mode   = "auto" | "manual",
----   target = "none" | "ally",     -- "ally" resolves party ally, else dummy
----   note   = string,              -- manual instructions / description
----   run    = function(ctx, finish) ... end,
----            -- ctx = { host, target }; finish(ok, reason)
+---   target = "none"                      -- self-contained
+---          | "ally"                      -- party ally (spawned friendly wolf as fallback)
+---          | { role = "enemy",  template = "wolf", count = 1 }
+---          | { role = "enemy",  template = "wolf", count = 2 },
+---   note   = string,                     -- scenario description / manual steps
+---   run    = function(ctx, finish) end,  -- ctx = { host, target, targets }
 --- }
 function FT.Register(passive, spec)
     FT.tests[passive] = spec
+end
+
+local function describeTarget(t)
+    if t == nil or t == "none" then return "self" end
+    if t == "ally" then return "friendly ally" end
+    if type(t) == "table" then
+        return (t.count or 1) .. "x hostile " .. (t.template or "wolf")
+    end
+    return tostring(t)
 end
 
 function FT.List()
@@ -162,12 +213,78 @@ function FT.List()
     L.Info("Registered feature tests (" .. tostring(#names) .. "):")
     for _, n in ipairs(names) do
         local t = FT.tests[n]
-        L.Info("  " .. n .. " [" .. t.mode .. (t.target and t.target ~= "none" and (", needs " .. t.target) or "") .. "]")
+        L.Info("  " .. n .. " [" .. t.mode .. ", target: " .. describeTarget(t.target) .. "]")
+        if t.note then
+            L.Info("      " .. t.note)
+        end
     end
 end
 
+--- Resolve spec.target into ctx.targets, spawning as needed. cb(ok, err).
+local function resolveTargets(spec, ctx, explicitTarget, cb)
+    local t = spec.target
+    if t == nil or t == "none" then
+        cb(true)
+        return
+    end
+
+    if explicitTarget then
+        ctx.target = explicitTarget
+        ctx.targets = { explicitTarget }
+        cb(true)
+        return
+    end
+
+    if t == "ally" then
+        local ally = FT.GetAlly(ctx.host)
+        if ally then
+            ctx.target = ally
+            ctx.targets = { ally }
+            cb(true)
+            return
+        end
+        FT.SpawnCreature(ctx.host, "wolf", "friendly", 2, 2, function(guid, why)
+            if not guid then
+                cb(false, "no party ally and spawn failed: " .. tostring(why))
+                return
+            end
+            ctx.spawned[#ctx.spawned + 1] = guid
+            ctx.target = guid
+            ctx.targets = { guid }
+            cb(true)
+        end)
+        return
+    end
+
+    if type(t) == "table" and t.role == "enemy" then
+        local count = t.count or 1
+        local template = t.template or "wolf"
+        ctx.targets = {}
+        local function spawnNext(i)
+            if i > count then
+                ctx.target = ctx.targets[1]
+                cb(true)
+                return
+            end
+            FT.SpawnCreature(ctx.host, template, "hostile", 2 + i, 2, function(guid, why)
+                if not guid then
+                    cb(false, "enemy spawn " .. i .. "/" .. count .. " failed: " .. tostring(why))
+                    return
+                end
+                ctx.spawned[#ctx.spawned + 1] = guid
+                ctx.targets[#ctx.targets + 1] = guid
+                spawnNext(i + 1)
+            end)
+        end
+        spawnNext(1)
+        return
+    end
+
+    cb(false, "unsupported target spec")
+end
+
 --- Run the test registered for `passive`. explicitTarget (optional GUID)
---- overrides ally/dummy resolution. onDone(ok|nil) is optional.
+--- overrides target resolution. onDone(ok|nil) is optional.
 function FT.Run(passive, explicitTarget, onDone)
     local L = log()
     local finishothers = onDone or function() end
@@ -194,26 +311,11 @@ function FT.Run(passive, explicitTarget, onDone)
             return
         end
 
-        local ctx = { host = host, target = nil, spawned = nil }
-
-        if test.target == "ally" then
-            ctx.target = explicitTarget or FT.GetAlly(host)
-            if not ctx.target then
-                local dummy, why = FT.SpawnDummy(host)
-                if dummy then
-                    ctx.target = dummy
-                    ctx.spawned = dummy
-                else
-                    L.Error("FeatureTest " .. passive .. ": FAILED no target (no ally in party; " .. tostring(why) .. ")")
-                    finishothers(false)
-                    return
-                end
-            end
-        end
+        local ctx = { host = host, target = nil, targets = {}, spawned = {} }
 
         local function finish(passOk, reason)
-            if ctx.spawned then
-                FT.RemoveSpawned(ctx.spawned)
+            for _, guid in ipairs(ctx.spawned) do
+                FT.RemoveSpawned(guid)
             end
             if passOk then
                 L.Info("FeatureTest " .. passive .. ": PASS")
@@ -223,7 +325,14 @@ function FT.Run(passive, explicitTarget, onDone)
             finishothers(passOk)
         end
 
-        test.run(ctx, finish)
+        resolveTargets(test, ctx, explicitTarget, function(resolved, why)
+            if not resolved then
+                L.Error("FeatureTest " .. passive .. ": FAILED target setup: " .. tostring(why))
+                finishothers(false)
+                return
+            end
+            test.run(ctx, finish)
+        end)
     end)
 
     if not ok then
@@ -260,36 +369,31 @@ end
 -- Built-in tests
 -- ---------------------------------------------------------------------
 
--- Winter Walker L15: cold damage chills the target.
+-- Winter Walker L15.
+-- Functor: Conditions "IsDamageTypeCold(context.Target) and Enemy(context.Target)"
+-- => the target MUST be hostile; a friendly can never be chilled by this.
+-- Living beast chosen so the status side is unambiguous.
 FT.Register("WinterWalker_15_FrozenHaunt", {
     mode = "auto",
-    target = "ally",
-    note = "Ray of Frost at target must apply CHILLED (2 turns)",
+    target = { role = "enemy", template = "wolf", count = 1 },
+    note = "Ray of Frost at a HOSTILE living target must apply CHILLED (Enemy() gate in the functor)",
     run = function(ctx, finish)
         FT.UseSpellOn(ctx.host, "Projectile_RayOfFrost", ctx.target, function()
             FT.ExpectStatus(ctx.target, "CHILLED", nil, function(found)
-                finish(found, found and nil or "target never gained CHILLED after cold damage")
+                finish(found, found and nil or "hostile target never gained CHILLED after cold damage")
             end)
         end)
     end,
 })
 
--- Scion of the Three L13: static boosts; grant-level verification.
-FT.Register("DeadThree_UnholyInfiltration", {
-    mode = "auto",
-    target = "none",
-    note = "static boosts (Stealth/Deception advantage, 18m darkvision)",
-    run = function(ctx, finish)
-        -- Boosts are stats-engine static; passive presence is the observable.
-        finish(true)
-    end,
-})
-
--- Noble Genies L15: attacker gets lashed with ELEMENTAL_REBUKE_HIT.
+-- Noble Genies L15.
+-- The AttackedBy listener is faction-agnostic, but the real scenario is an
+-- enemy striking the sorcerer, so the default attacker is a hostile wolf.
+-- To test without starting combat: !apofeature NobleGenies_15_ElementalRebuke <allyGuid>
 FT.Register("NobleGenies_15_ElementalRebuke", {
     mode = "auto",
-    target = "ally",
-    note = "target attacks host with Fire Bolt; attacker must gain ELEMENTAL_REBUKE_HIT",
+    target = { role = "enemy", template = "wolf", count = 1 },
+    note = "hostile attacker Fire Bolts the host; the attacker must gain ELEMENTAL_REBUKE_HIT lash-back",
     run = function(ctx, finish)
         FT.UseSpellOn(ctx.target, "Projectile_FireBolt", ctx.host, function()
             FT.ExpectStatus(ctx.target, "ELEMENTAL_REBUKE_HIT", nil, function(found)
@@ -299,11 +403,37 @@ FT.Register("NobleGenies_15_ElementalRebuke", {
     end,
 })
 
--- Diviner L14: extra Portent die on long rest (exposed grant function).
+-- Enchanter L14 (Alter Memories).
+-- The Modify Memory aura tags ENEMIES within 6m; actives get MM_HOLD
+-- (paralyze-type) or MM_SLOW. With the L14 passive the FIFO cap is 2, so
+-- two LIVING hostile targets must BOTH end up locked down (undead would
+-- resist the paralyze branch and corrupt the result).
+FT.Register("Enchanter_14_AlterMemories", {
+    mode = "auto",
+    target = { role = "enemy", template = "wolf", count = 2 },
+    note = "cast Modify Memory aura with 2 hostile living targets in range; both must gain MM_HOLD or MM_SLOW (cap=2)",
+    run = function(ctx, finish)
+        FT.UseSpellOn(ctx.host, "Shout_Apotheosis_ModifyMemory", ctx.host, function()
+            local first, second = ctx.targets[1], ctx.targets[2]
+            FT.ExpectAnyStatus(first, { "MM_HOLD", "MM_SLOW" }, FT.Config.AuraTimeoutMs, function(ok1)
+                if not ok1 then
+                    finish(false, "first victim never gained MM_HOLD/MM_SLOW")
+                    return
+                end
+                FT.ExpectAnyStatus(second, { "MM_HOLD", "MM_SLOW" }, FT.Config.AuraTimeoutMs, function(ok2)
+                    finish(ok2, ok2 and nil
+                        or "second victim never locked down - L14 cap=2 not honored (cap=1 behavior?)")
+                end)
+            end)
+        end)
+    end,
+})
+
+-- Diviner L14: self-scripted; no target needed.
 FT.Register("Diviner_14_GreaterPortent", {
     mode = "auto",
     target = "none",
-    note = "GrantExtraPortentDie must apply a PORTENT_<n> status",
+    note = "GrantExtraPortentDie must apply a PORTENT_<n> status to the diviner",
     run = function(ctx, finish)
         local grant = Apotheosis and Apotheosis.Features and Apotheosis.Features.GrantExtraPortentDie
         if not grant then
@@ -313,17 +443,17 @@ FT.Register("Diviner_14_GreaterPortent", {
         grant(ctx.host)
         local portents = {}
         for v = 1, 20 do portents[#portents + 1] = "PORTENT_" .. v end
-        FT.ExpectAnyStatus(ctx.host, portents, 5000, function(found, which)
+        FT.ExpectAnyStatus(ctx.host, portents, 5000, function(found)
             finish(found, found and nil or "no PORTENT_<n> status appeared after grant")
         end)
     end,
 })
 
--- Archfey L14: Bewitching Magic status hook applies scripted boosts.
+-- Archfey L14: self status hook; no target needed.
 FT.Register("Archfey_14_BewitchingMagic", {
     mode = "auto",
     target = "none",
-    note = "applying BEWITCHING_MAGIC must stick (scripted boost hook)",
+    note = "applying BEWITCHING_MAGIC to self must stick (scripted charisma-scaled boost hook)",
     run = function(ctx, finish)
         Osi.ApplyStatus(ctx.host, "BEWITCHING_MAGIC", 12.0, 1, ctx.host)
         FT.ExpectStatus(ctx.host, "BEWITCHING_MAGIC", 4000, function(found)
@@ -332,26 +462,32 @@ FT.Register("Archfey_14_BewitchingMagic", {
     end,
 })
 
--- Manual-only entries: real reaction/UI flows that can't be safely automated.
+-- Scion of the Three L13: static self boosts; no target needed.
+FT.Register("DeadThree_UnholyInfiltration", {
+    mode = "auto",
+    target = "none",
+    note = "static boosts (Stealth/Deception advantage, 18m darkvision); presence is the observable",
+    run = function(ctx, finish)
+        finish(true)
+    end,
+})
+
+-- Manual-only entries: reaction prompts / UI flows that can't be safely
+-- automated. Each names the target to stage with !apospawn.
 FT.Register("Berserker_10_Retaliation", {
     mode = "manual",
     target = "none",
-    note = "in combat, let a melee enemy hit the barbarian; expect the Retaliation reaction prompt (dnd55e interrupt)",
+    note = "stage: !apospawn wolf hostile - let it MELEE-hit the barbarian in combat; expect the Retaliation reaction prompt (dnd55e interrupt)",
 })
 FT.Register("Druid_BeastSpells", {
     mode = "manual",
     target = "none",
-    note = "enter Wild Shape at L18+; expect curated support spells + temp slots; revert must remove them",
-})
-FT.Register("Enchanter_14_AlterMemories", {
-    mode = "manual",
-    target = "none",
-    note = "cast Modify Memory aura; with the L14 passive the FIFO lockdown cap is 2 instead of 1",
+    note = "self only: enter Wild Shape at L18+; expect curated support spells + temp slots; revert must remove them",
 })
 FT.Register("Celestial_14_SearingVengeance", {
     mode = "manual",
     target = "none",
-    note = "get downed in combat; expect scripted half-HP revive path (SEARING_VENGEANCE_DOWNED)",
+    note = "stage: !apospawn bear hostile - let it down the warlock; expect the scripted half-HP revive (SEARING_VENGEANCE_DOWNED)",
 })
 
 _G.ApotheosisFeatureTests = FT
