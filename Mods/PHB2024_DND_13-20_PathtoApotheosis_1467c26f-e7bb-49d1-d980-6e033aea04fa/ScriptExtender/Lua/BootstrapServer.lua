@@ -1045,6 +1045,13 @@ if Ext and type(Ext.Require) == "function" then
     else
         Log.Warn("FeatureTests bootstrap load failed: " .. tostring(ftOrErr))
     end
+
+    local okSt, stOrErr = pcall(Ext.Require, "SpellTests.lua")
+    if okSt and type(stOrErr) == "table" then
+        Log.Info("SpellTests loaded at bootstrap")
+    else
+        Log.Warn("SpellTests bootstrap load failed: " .. tostring(stOrErr))
+    end
 end
 
 -- Fallback execution path when SE console input is unreliable.
@@ -2100,6 +2107,45 @@ local function smokeConsoleFeatureList(cmd)
     ft.List()
 end
 
+local function smokeConsoleSpellList(cmd)
+    local st = _G.ApotheosisSpellTests
+    if not st then
+        Log.Error("SpellTests module not loaded")
+        return
+    end
+    st.List()
+end
+
+local function smokeConsoleSpells(cmd, subclass)
+    local st = _G.ApotheosisSpellTests
+    if not st then
+        Log.Error("SpellTests module not loaded")
+        return
+    end
+    if not subclass or tostring(subclass) == "" then
+        Log.Error("Console command usage: !apospells <Subclass>")
+        Log.Error("Run !apospelllist for every subclass with assigned spell tests")
+        return
+    end
+    Log.Info("Console command !" .. tostring(cmd) .. " " .. tostring(subclass))
+    st.RunForSubclass(tostring(subclass))
+end
+
+local function smokeConsoleSpell(cmd, spellId)
+    local st = _G.ApotheosisSpellTests
+    if not st then
+        Log.Error("SpellTests module not loaded")
+        return
+    end
+    if not spellId or tostring(spellId) == "" then
+        Log.Error("Console command usage: !apospell <SpellStatId>")
+        Log.Error("Run !apospelllist for every spell id")
+        return
+    end
+    Log.Info("Console command !" .. tostring(cmd) .. " " .. tostring(spellId))
+    st.RunOne(tostring(spellId))
+end
+
 local function smokeConsoleSpawn(cmd, templateKey, factionKey)
     local ft = _G.ApotheosisFeatureTests
     if not ft then
@@ -2201,7 +2247,10 @@ if Ext and type(Ext.RegisterConsoleCommand) == "function" then
     Ext.RegisterConsoleCommand("apofeature", smokeConsoleFeature)
     Ext.RegisterConsoleCommand("apofeatures", smokeConsoleFeatureList)
     Ext.RegisterConsoleCommand("apospawn", smokeConsoleSpawn)
-    Log.Info("Smoke console commands registered: !aposmokehelp, !apowizmanifest, !apowizinteractive, !apowizcheck, !apowizautolevel, !apowizsweep, !aposub, !aposubsweep, !apolist, !apowatch, !apofeature, !apofeatures, !apospawn")
+    Ext.RegisterConsoleCommand("apospelllist", smokeConsoleSpellList)
+    Ext.RegisterConsoleCommand("apospells", smokeConsoleSpells)
+    Ext.RegisterConsoleCommand("apospell", smokeConsoleSpell)
+    Log.Info("Smoke console commands registered: !aposmokehelp, !apowizmanifest, !apowizinteractive, !apowizcheck, !apowizautolevel, !apowizsweep, !aposub, !aposubsweep, !apolist, !apowatch, !apofeature, !apofeatures, !apospawn, !apospelllist, !apospells, !apospell")
 else
     Log.Warn("Ext.RegisterConsoleCommand unavailable; REPL-only smoke entrypoints remain")
 end
