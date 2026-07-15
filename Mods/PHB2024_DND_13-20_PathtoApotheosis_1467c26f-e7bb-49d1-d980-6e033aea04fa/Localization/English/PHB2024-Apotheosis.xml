@@ -121,7 +121,7 @@
   <content contentuid="ha4c5d6e7a0000000000000000000073" version="1">Murderous Intent</content>
   <content contentuid="ha4c5d6e8a0000000000000000000074" version="1">Your sneak attacks become more deadly, channeling dark power from the Dead Three.</content>
   <content contentuid="hb5d6e7f8a0000000000000000000075" version="1">Unholy Infiltration</content>
-  <content contentuid="hb5d6e7f9a0000000000000000000076" version="1">Your connection to the Dead Three grants you supernatural infiltration abilities.</content>
+  <content contentuid="hb5d6e7f9a0000000000000000000076" version="1">Your connection to the Dead Three grants you supernatural infiltration abilities. You have Advantage on Stealth and Deception checks, and your Darkvision extends to 18m.</content>
   <content contentuid="hc6e7f8a9a0000000000000000000077" version="1">Leading Evasion</content>
   <content contentuid="hc6e7f8aaa0000000000000000000078" version="1">When you are subjected to an effect that allows a Dexterity save for half damage, allies within 5 feet also benefit from your Evasion.</content>
   <content contentuid="hd7f8a9b0a0000000000000000000079" version="1">Unbreakable Majesty</content>
@@ -233,7 +233,7 @@
   <content contentuid="hf7b8c9d0c00000000000000000000dd" version="1">Superior Hunters Defense</content>
   <content contentuid="hf7b8c9d1c00000000000000000000de" version="1">Defensive Tactics: You have Advantage on Dexterity Saving Throws, and all damage you take is reduced by 2.</content>
   <content contentuid="ha8c9d0e1c00000000000000000000df" version="1">Frozen Haunt</content>
-  <content contentuid="ha8c9d0e2c00000000000000000000e0" version="1">Your cold abilities are enhanced, leaving foes frozen in supernatural ice.</content>
+  <content contentuid="ha8c9d0e2c00000000000000000000e0" version="1">Your cold abilities are enhanced, leaving foes frozen in supernatural ice. You are Resistant to Cold damage, and enemies you deal Cold damage to are Chilled for 2 turns.</content>
   <content contentuid="hb9d0e1f2c00000000000000000000e1" version="1">Chemical Mastery</content>
   <content contentuid="hb9d0e1f3c00000000000000000000e2" version="1">You gain Resistance to Acid and Poison damage. Once per Long Rest, you can use Chemical Mastery to restore a creature to its full Hit Points and cleanse it of poison, disease, curses, charm, and fear, without expending a spell slot.</content>
   <content contentuid="hartchem000000000000000000000001" version="1">Chemical Mastery</content>

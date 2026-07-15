@@ -14,6 +14,18 @@ import compat_audit as ca
 PROG = os.path.join(ca.APO, "Progressions", "Progressions.lsx")
 PASSIVE = os.path.join(ca.APO, "Stats", "Generated", "Data", "Passive.txt")
 
+# Passives referenced by progressions may be implemented upstream; without
+# these sources dnd55e/base-game passives are misreported as STUB.
+UPSTREAM_PASSIVES = [
+    # load order matters: base game first so dnd55e self-`using` overrides
+    # (e.g. ControlledChaos) inherit the vanilla functional definition
+    os.path.join(ca.WS, "BaseGame", "Shared", "Public", "Shared",
+                 "Stats", "Generated", "Data", "Passive.txt"),
+    os.path.join(ca.WS, "BaseGame", "Shared", "Public", "SharedDev",
+                 "Stats", "Generated", "Data", "Passive.txt"),
+    os.path.join(ca.DND, "Stats", "Generated", "Data", "Passive.txt"),
+]
+
 FUNCTIONAL_KEYS = ("Boosts", "StatsFunctorContext", "StatsFunctors", "ToggleOnFunctors",
                    "ToggleOffFunctors", "BoostContext", "BoostConditions")
 
@@ -58,6 +70,34 @@ def parse_passives():
     return {n: is_real(n) for n in entries}, entries
 
 
+def parse_upstream_passives():
+    """name -> True if an upstream (dnd55e/base-game) definition has functional keys."""
+    real = {}
+    for path in UPSTREAM_PASSIVES:
+        if not os.path.exists(path):
+            print(f"WARNING: upstream passive source missing: {path}")
+            continue
+        text = ca.read(path)
+        cur = None
+        for line in text.splitlines():
+            m = re.match(r'\s*new entry "([^"]+)"', line)
+            if m:
+                cur = m.group(1)
+                real.setdefault(cur, False)
+                continue
+            if cur:
+                md = re.match(r'\s*data "([^"]+)"', line)
+                if md and md.group(1) in FUNCTIONAL_KEYS:
+                    real[cur] = True
+                mu = re.match(r'\s*using "([^"]+)"', line)
+                if mu and mu.group(1) != cur and real.get(mu.group(1)):
+                    real[cur] = True
+                # self-`using` inherits the earlier source's definition,
+                # which real[cur] already reflects - nothing to do
+        # entries seen in an earlier source keep their True flags
+    return real
+
+
 def parse_progressions():
     text = ca.read(PROG)
     nodes = []
@@ -87,6 +127,8 @@ def main():
         else:
             sub[n["Name"]].append(n)
 
+    upstream_real = parse_upstream_passives()
+
     def passive_status(plist):
         if not plist:
             return []
@@ -95,7 +137,16 @@ def main():
             p = p.strip()
             if not p:
                 continue
-            out.append((p, "REAL" if passive_real.get(p, False) else "STUB"))
+            if passive_real.get(p, False):
+                out.append((p, "REAL"))
+            elif p not in passive_real and upstream_real.get(p, False):
+                out.append((p, "REAL-UPSTREAM"))
+            elif p not in passive_real and p in upstream_real:
+                out.append((p, "STUB-UPSTREAM"))
+            elif p not in passive_real:
+                out.append((p, "UNDEFINED"))
+            else:
+                out.append((p, "STUB"))
         return out
 
     print("########## BASE CLASSES (levels 13-20) ##########")
@@ -107,7 +158,7 @@ def main():
         reals = []
         for l in present:
             for p, st in passive_status(levels[l]["Passives"]):
-                (reals if st == "REAL" else stubs).append(f"L{l}:{p}")
+                (reals if st.startswith("REAL") else stubs).append(f"L{l}:{p}")
         print(f"\n{cls}: levels {present}" + (f"  MISSING {missing}" if missing else "  [complete 13-20]"))
         if reals:
             print(f"   REAL passives: {reals}")

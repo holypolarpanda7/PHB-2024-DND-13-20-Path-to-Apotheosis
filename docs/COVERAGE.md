@@ -23,12 +23,17 @@ Last full audit: 2026-07-14 (`Scripts/completeness_audit.py` + `Scripts/compat_a
 
 ## Real gaps — features that do nothing yet
 
-| Passive | Subclass / level | Notes |
-| --- | --- | --- |
-| `Berserker_10_Retaliation` | Berserker Path L10 | no boosts, no Lua, no spell reference |
-| `DeadThree_UnholyInfiltration` | Scion of the Three L13 | same |
-| `ControlledChaos` | Wild Magic (Sorcerer) L14 | same |
-| `WinterWalker_15_FrozenHaunt` | Winter Walker L15 | same |
+None as of 2026-07-14. The four previously flagged:
+
+| Passive | Resolution |
+| --- | --- |
+| `Berserker_10_Retaliation` | false positive — implemented in dnd55e (`UnlockInterrupt(Interrupt_Berserker_10_Retaliation)`) |
+| `ControlledChaos` | false positive — implemented in base game (`UnlockInterrupt(Interrupt_ControlledChaos)`) |
+| `DeadThree_UnholyInfiltration` | implemented 2026-07-14: Advantage on Stealth/Deception + 18m darkvision |
+| `WinterWalker_15_FrozenHaunt` | implemented 2026-07-14: Cold resistance + CHILLED (2 turns) on dealing cold damage |
+
+`completeness_audit.py` now reads base-game and dnd55e Passive.txt too, labeling
+upstream-implemented passives `REAL-UPSTREAM` instead of `STUB`.
 
 ## Missing subclass extensions (exist in dnd55e, no 13–20 rows here)
 

@@ -576,6 +576,7 @@ data "DisplayName" "hb5d6e7f8a0000000000000000000075"
 data "Description" "hb5d6e7f9a0000000000000000000076"
 data "Icon" "PassiveFeature_Generic_Magical"
 data "Properties" "Highlighted"
+data "Boosts" "Advantage(Skill,Stealth);Advantage(Skill,Deception);DarkvisionRangeMin(18)"
 
 // ==============================================================================
 // SORCERER SUBCLASS PASSIVES
@@ -1081,6 +1082,10 @@ data "DisplayName" "ha8c9d0e1c00000000000000000000df"
 data "Description" "ha8c9d0e2c00000000000000000000e0"
 data "Icon" "PassiveFeature_Generic_Magical"
 data "Properties" "Highlighted"
+data "Boosts" "Resistance(Cold, Resistant)"
+data "StatsFunctorContext" "OnDamage"
+data "Conditions" "IsDamageTypeCold(context.Target) and Enemy(context.Target)"
+data "StatsFunctors" "ApplyStatus(TARGET,CHILLED,100,2)"
 
 // ==============================================================================
 // ARTIFICER SUBCLASS PASSIVES (Homebrew)

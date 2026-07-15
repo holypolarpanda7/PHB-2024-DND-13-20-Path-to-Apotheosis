@@ -51,6 +51,19 @@ the Larian Toolkit is only for packaging/release checks.
 watches the Script Extender log for the PASS/FAIL outcome, prints the per-level
 detail, and (by default) kills BG3 on failure so the patch loop can continue.
 
+### Watch mode — validate while you play
+
+```bash
+./Scripts/watch_levelups.sh      # arm watch mode + stream results live
+./Scripts/watch_levelups.sh off  # disarm
+```
+
+With watch mode on, every level-up of a party member is auto-resolved to its
+class/subclass and validated the moment it happens — including sub-13 levels
+where Apotheosis moved features back to their PHB 2024 positions. Functional
+feature tests (force-cast actions, provoked attacks, status verification) run
+automatically for passives granted at that level.
+
 ### SE console commands (server context)
 
 | Command | What it does |
@@ -58,6 +71,9 @@ detail, and (by default) kills BG3 on failure so the patch loop can continue.
 | `!apolist` | List every known class/subclass name |
 | `!aposub <Name> [level]` | Check expected grants at one level (any class/subclass) |
 | `!aposubsweep <Name> [start] [end]` | Level 13→20 sweep with per-level checks |
+| `!apowatch on\|off` | Auto-validate every level-up while playing |
+| `!apofeatures` | List registered functional feature tests |
+| `!apofeature <Passive> [TargetGuid]` | Run one act-and-verify feature test |
 | `!aposmokehelp` | Full command help |
 | `!apowizmanifest <School>` | Wizard manifest-driven strict validation |
 | `!apowizsweep [start] [end]` | Wizard level sweep |

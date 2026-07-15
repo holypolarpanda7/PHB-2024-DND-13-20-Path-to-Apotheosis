@@ -74,6 +74,10 @@ local function grantExtraPortentDie(character)
     end
 end
 
+-- Exposed so FeatureTests.lua can exercise the grant path directly.
+Apotheosis.Features = Apotheosis.Features or {}
+Apotheosis.Features.GrantExtraPortentDie = grantExtraPortentDie
+
 Ext.Osiris.RegisterListener("LongRestFinished", 0, "after", function()
     Ext.Timer.WaitFor(APPLY_DELAY_MS, function()
         local players = Osi.DB_Players:Get(nil)
@@ -981,6 +985,13 @@ if Ext and type(Ext.Require) == "function" then
         Log.Info("ClassExpectations loaded at bootstrap")
     else
         Log.Warn("ClassExpectations bootstrap load failed: " .. tostring(ceOrErr))
+    end
+
+    local okFt, ftOrErr = pcall(Ext.Require, "FeatureTests.lua")
+    if okFt and type(ftOrErr) == "table" then
+        Log.Info("FeatureTests loaded at bootstrap")
+    else
+        Log.Warn("FeatureTests bootstrap load failed: " .. tostring(ftOrErr))
     end
 end
 
@@ -1897,6 +1908,146 @@ local function smokeConsoleList(cmd)
     Log.Info("Subclasses (" .. tostring(#subs) .. "): " .. table.concat(subs, ", "))
 end
 
+-- =====================================================================
+-- Level-up WATCH MODE.
+--
+-- While enabled, every LeveledUp event on a party member is resolved to
+-- its class/subclass (via the UUID maps in ClassExpectations.lua). If
+-- the new level has expected grants - including sub-13 levels where
+-- Apotheosis moved features back to their PHB 2024 positions - the
+-- expectation checks run automatically, followed by any registered
+-- functional feature tests for the passives granted at that level.
+--
+-- Flow: enable once (!apowatch on), then level up in-game with real
+-- UI choices; PASS/FAIL streams to the SE console/log per level.
+-- =====================================================================
+
+local watchState = { enabled = false }
+
+--- Resolve a live character's class/subclass to expectation-table names.
+local function watchResolveClass(character)
+    local okResolve, result = pcall(function()
+        if not Ext.Entity or type(Ext.Entity.Get) ~= "function" then return nil end
+        local entity = Ext.Entity.Get(character)
+        if not entity or not entity.Classes or not entity.Classes.Classes then return nil end
+        local best = nil
+        for _, c in ipairs(entity.Classes.Classes) do
+            local cls = CE and CE.classes and CE.class_uuids[tostring(c.ClassUUID)] or nil
+            local sub = CE and CE.subclasses and CE.subclass_uuids[tostring(c.SubClassUUID)] or nil
+            if cls or sub then
+                best = { class = cls, subclass = sub }
+                if sub then break end
+            end
+        end
+        return best
+    end)
+    if okResolve then return result end
+    Log.Debug("Watch: class resolution error: " .. tostring(result))
+    return nil
+end
+
+local function watchOnLeveledUp(character)
+    if not watchState.enabled then return end
+    -- a running sweep already validates each level; don't double-fire
+    if smokeState.running then return end
+    local ok, err = pcall(function()
+        local loaded, loadErr = smokeLoadClassExpectations()
+        if not loaded then
+            Log.Warn("Watch: ClassExpectations unavailable: " .. tostring(loadErr))
+            return
+        end
+
+        local level = smokeGetLevel(character)
+        if not level then return end
+
+        local info = watchResolveClass(character)
+        local name = info and (info.subclass or info.class)
+        if not name then
+            Log.Debug("Watch: no expectation mapping for " .. tostring(character))
+            return
+        end
+
+        local resolved = smokeResolveExpectations(name)
+        if not resolved then return end
+
+        local entries = resolved.checks[level]
+        if not entries or #entries == 0 then
+            Log.Info("Watch: " .. name .. " reached L" .. tostring(level) .. " (no expected grants - skipping)")
+            return
+        end
+
+        Log.Info("Watch: " .. name .. " reached L" .. tostring(level) .. " - validating in " ..
+            tostring(Smoke.POST_RESTORE_SETTLE_MS) .. "ms")
+
+        Ext.Timer.WaitFor(Smoke.POST_RESTORE_SETTLE_MS, function()
+            local okCheck, errCheck = pcall(function()
+                local passOk, failInfo = smokeCheckLevelAgainst(resolved, character, level)
+                if passOk then
+                    Log.Info("Watch " .. name .. " L" .. tostring(level) .. ": ALL CHECKS PASSED")
+                else
+                    Log.Error("Watch " .. name .. " L" .. tostring(level) .. ": FAILED at " .. tostring(failInfo))
+                end
+
+                local ft = _G.ApotheosisFeatureTests
+                if ft then
+                    local granted = {}
+                    for _, check in ipairs(entries) do
+                        granted[#granted + 1] = check.passive
+                    end
+                    ft.RunForPassives(character, granted)
+                end
+            end)
+            if not okCheck then
+                Log.Error("Watch validation error: " .. tostring(errCheck))
+            end
+        end)
+    end)
+    if not ok then
+        Log.Error("Watch LeveledUp handler error: " .. tostring(err))
+    end
+end
+
+if Ext.Osiris and type(Ext.Osiris.RegisterListener) == "function" then
+    Ext.Osiris.RegisterListener("LeveledUp", 1, "after", watchOnLeveledUp)
+end
+
+local function smokeConsoleWatch(cmd, arg)
+    local mode = tostring(arg or ""):lower()
+    if mode == "on" then
+        watchState.enabled = true
+        Log.Info("Watch mode ENABLED - level up in-game; checks run automatically at levels with expected grants")
+    elseif mode == "off" then
+        watchState.enabled = false
+        Log.Info("Watch mode disabled")
+    else
+        Log.Info("Watch mode is " .. (watchState.enabled and "ON" or "OFF") .. ". Usage: !apowatch on|off")
+    end
+end
+
+local function smokeConsoleFeature(cmd, passive, target)
+    if not passive or tostring(passive) == "" then
+        Log.Error("Console command usage: !apofeature <PassiveName> [TargetGuid]")
+        Log.Error("Run !apofeatures for the registered test list")
+        return
+    end
+    local ft = _G.ApotheosisFeatureTests
+    if not ft then
+        Log.Error("FeatureTests module not loaded")
+        return
+    end
+    Log.Info("Console command !" .. tostring(cmd) .. " " .. tostring(passive))
+    ft.Run(tostring(passive), target and tostring(target) or nil)
+end
+
+local function smokeConsoleFeatureList(cmd)
+    local ft = _G.ApotheosisFeatureTests
+    if not ft then
+        Log.Error("FeatureTests module not loaded")
+        return
+    end
+    ft.List()
+end
+
 local function smokeConsoleRunManifest(cmd, subclassName)
     if not subclassName or tostring(subclassName) == "" then
         Log.Error("Console command usage: !apowizmanifest <SubclassName>")
@@ -1964,7 +2115,10 @@ if Ext and type(Ext.RegisterConsoleCommand) == "function" then
     Ext.RegisterConsoleCommand("aposub", smokeConsoleSubCheck)
     Ext.RegisterConsoleCommand("aposubsweep", smokeConsoleSubSweep)
     Ext.RegisterConsoleCommand("apolist", smokeConsoleList)
-    Log.Info("Smoke console commands registered: !aposmokehelp, !apowizmanifest, !apowizinteractive, !apowizcheck, !apowizautolevel, !apowizsweep, !aposub, !aposubsweep, !apolist")
+    Ext.RegisterConsoleCommand("apowatch", smokeConsoleWatch)
+    Ext.RegisterConsoleCommand("apofeature", smokeConsoleFeature)
+    Ext.RegisterConsoleCommand("apofeatures", smokeConsoleFeatureList)
+    Log.Info("Smoke console commands registered: !aposmokehelp, !apowizmanifest, !apowizinteractive, !apowizcheck, !apowizautolevel, !apowizsweep, !aposub, !aposubsweep, !apolist, !apowatch, !apofeature, !apofeatures")
 else
     Log.Warn("Ext.RegisterConsoleCommand unavailable; REPL-only smoke entrypoints remain")
 end
@@ -2012,6 +2166,10 @@ function Smoke.Help()
     Log.Info("  !apolist                          -- list every known class/subclass")
     Log.Info("  !aposub <Name> [Level]            -- single-level check, e.g. !aposub ZealotPath 14")
     Log.Info("  !aposubsweep <Name> [start] [end] -- sweep 13-20, e.g. !aposubsweep EvocationSchool")
+    Log.Info("Watch mode + functional tests:")
+    Log.Info("  !apowatch on|off                  -- auto-validate every level-up (incl. moved sub-13 features)")
+    Log.Info("  !apofeatures                      -- list functional feature tests")
+    Log.Info("  !apofeature <Passive> [TargetGuid] -- act-and-verify test, e.g. !apofeature WinterWalker_15_FrozenHaunt")
 end
 
 Ext.Events.SessionLoaded:Subscribe(function()
