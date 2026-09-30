@@ -1,0 +1,53 @@
+# Epic Boons (issue #1) effect tests. The boon passive is granted for the case and removed at cleanup, so
+# these run on any character; the level-19 pick itself is checked by bg3_level_check at level 19.
+# Run: bg3_test_run("apotheosis", "<id>") for each.
+
+[suite]
+name = "Epic Boons"
+mode = "script"
+
+[[case]]
+id = "boon-fortitude-maxhp"
+title = "Boon of Fortitude raises your Hit Point maximum by 40"
+grant_passive = "EpicBoon_Fortitude"
+expect = [{ target = "host", max_hp_change = 40 }]
+
+[[case]]
+id = "boon-recovery-vitality"
+title = "Recover Vitality (3 dice) heals 3d10"
+spell = "Shout_EpicBoon_RecoverVitality_3"
+target = "host"
+setup = [{ target = "host", passive = "EpicBoon_Recovery" }, { target = "host", hp = 1 }]
+expect = [{ cast = true }, { target = "host", hp_change = [3, 30] }]
+notes = "The pool is 10d10 per Long Rest; a character with fewer than 29 max HP caps the heal."
+
+[[case]]
+id = "boon-energy-resistance-fire"
+title = "Energy Resistance: choosing Fire applies the Fire resistance status"
+spell = "Shout_EpicBoon_EnergyResistance_Fire"
+target = "host"
+setup = [{ target = "host", passive = "EpicBoon_EnergyResistance" }]
+expect = [{ cast = true }, { target = "host", status_applied = ["EPIC_ENERGY_RES_FIRE"] }]
+
+[[case]]
+id = "boon-skill-expertise"
+title = "Boon of Skill: the Expertise pick applies Arcana expertise"
+spell = "Shout_EpicBoon_Expertise_Arcana"
+target = "host"
+setup = [{ target = "host", passive = "EpicBoon_Skill" }]
+expect = [{ cast = true }, { target = "host", status_applied = ["EPIC_EXPERTISE_ARCANA"] }]
+
+[[case]]
+id = "boon-speed-escape-artist"
+title = "Boon of Speed: Escape Artist disengages"
+spell = "Shout_EpicBoon_EscapeArtist"
+target = "host"
+setup = [{ target = "host", passive = "EpicBoon_Speed" }]
+expect = [{ cast = true }, { target = "host", status_applied = ["DISENGAGE"] }]
+
+[[case]]
+id = "boon-truesight"
+title = "Boon of Truesight grants Truesight"
+grant_passive = "EpicBoon_Truesight"
+expect = [{ target = "host", status_applied = ["TRUESIGHT"] }]
+notes = "OnCreate doesn't fire for a passive gained mid-session; EpicBoons.lua applies it on level-up."
