@@ -40,8 +40,8 @@
   <content contentuid="hd5f6a7b900000000000000000000026" version="1">As an action, cleanse yourself of harmful magic, ending the Charmed, Frightened, Poisoned, Diseased, and Cursed conditions. Recharges on a Short Rest.</content>
   <content contentuid="he6a7b8c900000000000000000000027" version="1">Aura Expansion (30 ft)</content>
   <content contentuid="he6a7b8ca00000000000000000000028" version="1">Your paladin auras now extend to 30 feet instead of 10 feet.</content>
-  <content contentuid="hf7b8c9d000000000000000000000029" version="1">Aura of Protection (30 ft)</content>
-  <content contentuid="hf7b8c9d10000000000000000000002a" version="1">Your protective aura extends to 9m. You and allied creatures within it cannot be Frightened.</content>
+  <content contentuid="hf7b8c9d000000000000000000000029" version="2">Aura Expansion</content>
+  <content contentuid="hf7b8c9d10000000000000000000002a" version="2">Your Aura of Protection is now a 30-foot (9m) Emanation. Your Aura of Courage expands to match.</content>
   <content contentuid="ha8c9d0e10000000000000000000002b" version="1">Relentless Hunter</content>
   <content contentuid="ha8c9d0e20000000000000000000002c" version="1">You gain a bonus to Initiative rolls and cannot be surprised while conscious.</content>
   <content contentuid="hb9d0e1f20000000000000000000002d" version="1">Feral Senses</content>

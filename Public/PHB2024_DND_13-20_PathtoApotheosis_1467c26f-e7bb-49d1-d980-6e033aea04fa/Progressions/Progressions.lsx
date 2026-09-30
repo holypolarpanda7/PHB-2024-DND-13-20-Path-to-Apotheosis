@@ -1694,15 +1694,6 @@
                 <!-- PHB 2024: Berserker gets Retaliation at 10, Intimidating Presence at 14 -->
                 
                 <!-- BERSERKER PATH -->
-                <!-- Berserker Path Level 10: Retaliation - Override All-in-One UUID -->
-                <node id="Progression">
-                    <attribute id="Level" type="uint8" value="10"/>
-                    <attribute id="Name" type="LSString" value="BerserkerPath"/>
-                    <attribute id="PassivesAdded" type="LSString" value="Berserker_10_Retaliation"/>
-                    <attribute id="ProgressionType" type="uint8" value="1"/>
-                    <attribute id="TableUUID" type="guid" value="b2a03b63-809f-4df9-a179-bf5b899082ef"/>
-                    <attribute id="UUID" type="guid" value="ad9a37aa-bc2d-4024-9b5f-5aaf330cb25c"/>
-                </node>
                 <!-- Berserker Path Level 14: Intimidating Presence (PHB 2024) - NEW -->
                 <node id="Progression">
                     <attribute id="Level" type="uint8" value="14"/>

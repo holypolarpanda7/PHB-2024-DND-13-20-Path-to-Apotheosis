@@ -1254,13 +1254,6 @@
     },
     "BerserkerPath": {
       "levels": {
-        "10": {
-          "boosts": "",
-          "passives": [
-            "Berserker_10_Retaliation"
-          ],
-          "selectors": ""
-        },
         "14": {
           "boosts": "",
           "passives": [

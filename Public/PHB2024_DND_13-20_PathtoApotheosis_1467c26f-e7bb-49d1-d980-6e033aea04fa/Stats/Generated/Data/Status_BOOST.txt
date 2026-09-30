@@ -1068,31 +1068,20 @@ data "StatusPropertyFlags" "IgnoreResting"
 
 // ====== PALADIN 13-20 STATUSES ======
 
-// APOTHEOSIS_PALADIN_AURA30 (Paladin L18 - Aura of Protection 30ft): self-applied aura that
-// extends the paladin's protective presence to 9m, granting nearby allies the buff status.
-new entry "APOTHEOSIS_PALADIN_AURA30"
+// Aura Expansion (Paladin L18, PHB 2024): Aura of Protection - and Aura of Courage - become a 30-foot
+// Emanation. These inherit dnd55e/vanilla AURA_OF_PROTECTION / AURA_OF_COURAGE (save bonus, oath auras,
+// Frightened immunity, StackId) and only widen the radius, so upstream changes carry through.
+new entry "APOTHEOSIS_AURA_OF_PROTECTION_30"
 type "StatusData"
 data "StatusType" "BOOST"
-data "DisplayName" "hf7b8c9d000000000000000000000029"
-data "Description" "hf7b8c9d10000000000000000000002a"
-data "Icon" "PassiveFeature_AuraOfProtection"
-data "StackId" "APOTHEOSIS_PALADIN_AURA30"
+using "AURA_OF_PROTECTION"
 data "AuraRadius" "9"
-data "AuraStatuses" "IF(Ally() and not Tagged('INANIMATE')):ApplyStatus(APOTHEOSIS_AURA30_BUFF)"
-data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator;IgnoreResting"
-data "StatusGroups" "SG_RemoveOnRespec"
 
-// APOTHEOSIS_AURA30_BUFF: the per-ally benefit granted by the 30ft aura - immunity to Frightened.
-new entry "APOTHEOSIS_AURA30_BUFF"
+new entry "APOTHEOSIS_AURA_OF_COURAGE_30"
 type "StatusData"
 data "StatusType" "BOOST"
-data "DisplayName" "hf7b8c9d000000000000000000000029"
-data "Description" "hf7b8c9d10000000000000000000002a"
-data "Icon" "PassiveFeature_AuraOfProtection"
-data "StackId" "APOTHEOSIS_AURA30_BUFF"
-data "Boosts" "StatusImmunity(SG_Frightened)"
-data "StatusPropertyFlags" "DisableCombatlog;DisablePortraitIndicator;IgnoreResting"
-data "StatusGroups" "SG_RemoveOnRespec"
+using "AURA_OF_COURAGE"
+data "AuraRadius" "9"
 
 // APOTHEOSIS_SMITE_PROTECTION (Devotion L15 - Smite of Protection): temporary HP gained when the
 // paladin deals Radiant damage with a weapon attack (Divine Smite). Refreshed via StackType Overwrite.

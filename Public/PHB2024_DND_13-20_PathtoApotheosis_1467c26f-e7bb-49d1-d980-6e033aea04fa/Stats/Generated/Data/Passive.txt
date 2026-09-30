@@ -184,8 +184,8 @@ data "DisplayName" "hf7b8c9d000000000000000000000029"
 data "Description" "hf7b8c9d10000000000000000000002a"
 data "Icon" "PassiveFeature_AuraOfProtection"
 data "Properties" "Highlighted"
-data "StatsFunctorContext" "OnCreate;OnLongRest"
-data "StatsFunctors" "ApplyStatus(SELF,APOTHEOSIS_PALADIN_AURA30,-1)"
+data "StatsFunctorContext" "OnCreate;OnStatusApplied"
+data "StatsFunctors" "IF(HasStatus('AURA_OF_PROTECTION',context.Source)):ApplyStatus(SELF,APOTHEOSIS_AURA_OF_PROTECTION_30,100,-1);IF(HasStatus('AURA_OF_COURAGE',context.Source)):ApplyStatus(SELF,APOTHEOSIS_AURA_OF_COURAGE_30,100,-1)"
 
 // ==============================================================================
 // RANGER - Base Class Passives (Levels 13-20)

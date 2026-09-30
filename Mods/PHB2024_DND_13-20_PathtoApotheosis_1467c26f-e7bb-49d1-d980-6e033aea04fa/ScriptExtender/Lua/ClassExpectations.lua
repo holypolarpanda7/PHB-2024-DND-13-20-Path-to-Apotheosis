@@ -880,9 +880,6 @@ M.subclasses["BeastMaster"] = {
 M.subclasses["BerserkerPath"] = {
     parent = "Barbarian",
     levels = {
-        [10] = {
-            passives  = { "Berserker_10_Retaliation" },
-        },
         [14] = {
             passives  = { "Berserker_14_IntimidatingPresence" },
         },
