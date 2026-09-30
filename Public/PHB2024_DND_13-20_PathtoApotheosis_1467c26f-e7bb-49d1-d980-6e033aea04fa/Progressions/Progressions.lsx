@@ -956,7 +956,6 @@
                     <attribute id="Level" type="uint8" value="13"/>
                     <attribute id="Name" type="LSString" value="Gunslinger"/>
                     <attribute id="ProgressionType" type="uint8" value="0"/>
-                    <attribute id="Selectors" type="LSString" value="SelectPassives(f2a3b4c5-d6e7-8f9a-0b1c-2d3e4f5a6b7c,1,TrickShots)"/>
                     <attribute id="TableUUID" type="guid" value="8faeda62-04df-403f-a4ca-26c090cb9b8d"/>
                     <attribute id="UUID" type="guid" value="dddddddd-dddd-dddd-dddd-ddddddddd901"/>
                 </node>
@@ -987,7 +986,6 @@
                     <attribute id="Level" type="uint8" value="17"/>
                     <attribute id="Name" type="LSString" value="Gunslinger"/>
                     <attribute id="ProgressionType" type="uint8" value="0"/>
-                    <attribute id="Selectors" type="LSString" value="SelectPassives(f2a3b4c5-d6e7-8f9a-0b1c-2d3e4f5a6b7c,1,TrickShots)"/>
                     <attribute id="TableUUID" type="guid" value="8faeda62-04df-403f-a4ca-26c090cb9b8d"/>
                     <attribute id="UUID" type="guid" value="dddddddd-dddd-dddd-dddd-ddddddddd905"/>
                 </node>
@@ -1022,7 +1020,6 @@
                     <attribute id="Level" type="uint8" value="13"/>
                     <attribute id="Name" type="LSString" value="Illrigger"/>
                     <attribute id="ProgressionType" type="uint8" value="0"/>
-                    <attribute id="Selectors" type="LSString" value="SelectSpells(a3b4c5d6-e7f8-9a0b-1c2d-3e4f5a6b7c8d,1,0,IllriggerSpellList)"/>
                     <attribute id="TableUUID" type="guid" value="bd529197-9010-417b-90dc-e6cbf2568cce"/>
                     <attribute id="UUID" type="guid" value="eeeeeeee-eeee-eeee-eeee-eeeeeeeee901"/>
                 </node>
@@ -1054,7 +1051,6 @@
                     <attribute id="Level" type="uint8" value="17"/>
                     <attribute id="Name" type="LSString" value="Illrigger"/>
                     <attribute id="ProgressionType" type="uint8" value="0"/>
-                    <attribute id="Selectors" type="LSString" value="SelectSpells(a3b4c5d6-e7f8-9a0b-1c2d-3e4f5a6b7c8d,1,0,IllriggerSpellList)"/>
                     <attribute id="TableUUID" type="guid" value="bd529197-9010-417b-90dc-e6cbf2568cce"/>
                     <attribute id="UUID" type="guid" value="eeeeeeee-eeee-eeee-eeee-eeeeeeeee905"/>
                 </node>
