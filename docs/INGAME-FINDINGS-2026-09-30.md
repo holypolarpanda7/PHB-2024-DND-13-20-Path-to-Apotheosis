@@ -12,7 +12,6 @@ Setup: dnd55e 4.12.13.19 deployed, Script Extender v32.
 | --- | --- | --- |
 | `Shout_DivineForeknowledge`, `Shout_Apotheosis_TelekineticThrust`, `Target_Apotheosis_ChemicalMastery` | `Cooldown "OncePerLongRest"` isn't a valid BG3 cooldown | **No cooldown at all** |
 | `Shout_Wish_GreaterDivineIntervention` | same invalid cooldown | Falls back to the inherited `OncePerCombat` |
-| `Target_Apo_Befuddlement`, `Target_Apo_TrueResurrection` | Nearly every field is empty in-game | **Both spells load as empty shells**; investigate the entry definitions |
 | `WildMagic_SurgeOfUndeath_Passive` | `StatsFunctorContext "OnDeath"` is invalid | **Never triggers** |
 | `BRUTAL_STRIKE_STAGGERED` | `RemoveEvents "OnSavingThrowRolled"` is invalid | Never removed by a saving throw |
 | `Projectile_Apotheosis_WarpingImplosion` | `DeathType "Explosion"` is invalid | No death effect |
@@ -37,3 +36,18 @@ and no `Public/` content at all. The pak deployed on 2026-07-14 therefore never 
 progressions or SE Lua to the game (the log had no `[Apotheosis]` heartbeat). The script now stages
 `Mods/` + `Public/`, verifies the pak layout before deploying, refuses to deploy while BG3 is running,
 backs up the previous pak and reads the correct `Script Extender Logs` folder.
+
+## Re-check from the deployed pak (2026-09-30 16:05 CDT)
+First run with Apotheosis actually enabled (modsettings.lsx had dropped it; `pack_deploy_test.sh` now re-adds it).
+Heartbeat OK; `!apofeature Barbarian_PersistentRage` **PASS** (Rage refilled 1/2 -> full). Full check: 652 entries,
+0 missing, mismatches 46 -> **26** after the fix below.
+- **Not bugs:** Befuddlement/True Resurrection only looked empty under hot-load; from the pak just
+  `HasMaterialComponent` is dropped. `Target_AnimateDead_7-9` mismatches come from the dnd55e layer.
+- **Fixed - Power Word Kill/Heal duplicates:** both spells were defined twice in `Spell_HighLevel.txt`, and both
+  Words of Creation variants also in `Spell_Target.txt`; `Target_PowerWordHeal_WordsOfCreation` (Bard 20) loaded
+  as an empty shell. Now one definition each, PHB 2024 text: Kill = die at <=100 HP else 12d12 Psychic;
+  Heal = full HP, ends Charmed/Frightened/Paralyzed/Poisoned/Stunned, Prone stands (auto). Words of Creation =
+  `AmountOfTargets 2` (engine can't enforce "within 10 ft"). Cast-tested in-game: 15 HP wolf died; 315 HP wolf
+  took 71; Tav 2/8 -> 8/8 with Frightened/Poisoned/Prone removed. Not yet checked: slot cost and 2-target
+  selection via a real hotbar cast (scripted `UseSpell` skips costs).
+- Still open: every other row in the Bugs table above.

@@ -102,8 +102,28 @@ main() {
     echo "[5/5] Sanity checks"
     if [[ -f "$BG3_MODSETTINGS" ]] && grep -qi "$MOD_UUID" "$BG3_MODSETTINGS"; then
         echo "      modsettings.lsx contains Apotheosis UUID ($MOD_UUID)."
+    elif [[ -f "$BG3_MODSETTINGS" ]]; then
+        # Vortex / the game rewrite modsettings.lsx and drop our manually-deployed pak; re-enable it last
+        # (after its dnd55e dependency) by inserting before the first </children>, which closes the Mods node.
+        cp -f "$BG3_MODSETTINGS" "$OUT_DIR/modsettings_$(date '+%Y%m%d_%H%M%S').lsx.bak"
+        awk -v folder="$MOD_FOLDER" -v uuid="$MOD_UUID" '
+            !done && /<\/children>/ {
+                i = "                            "
+                print "                        <node id=\"ModuleShortDesc\">"
+                print i "<attribute id=\"Folder\" type=\"LSString\" value=\"" folder "\"/>"
+                print i "<attribute id=\"MD5\" type=\"LSString\" value=\"\"/>"
+                print i "<attribute id=\"Name\" type=\"LSString\" value=\"PHB2024_DND_13-20_PathtoApotheosis\"/>"
+                print i "<attribute id=\"PublishHandle\" type=\"uint64\" value=\"0\"/>"
+                print i "<attribute id=\"UUID\" type=\"guid\" value=\"" uuid "\"/>"
+                print i "<attribute id=\"Version64\" type=\"int64\" value=\"36028797018963968\"/>"
+                print "                        </node>"
+                done = 1
+            }
+            { print }' "$BG3_MODSETTINGS" > "$OUT_DIR/modsettings.new"
+        cp -f "$OUT_DIR/modsettings.new" "$BG3_MODSETTINGS"
+        echo "      [FIX] Apotheosis UUID was missing from modsettings.lsx - enabled it (backup in $OUT_DIR)."
     else
-        echo "      [WARN] Apotheosis UUID not in modsettings.lsx - enable the mod before launch."
+        echo "      [WARN] $BG3_MODSETTINGS not found - enable the mod before launch."
     fi
     if [[ -d "$SE_LOG_DIR" ]]; then
         local latest_log

@@ -555,57 +555,6 @@ data "VerbalIntent" "Damage"
 data "SpellFlags" "HasSomaticComponent;IsSpell;IsHarmful;IsMelee"
 
 // ==============================================================================
-// BARD - Words of Creation (Level 20): Power Word Kill & Power Word Heal
-// PHB 2024 capstone. Power Word spells do not exist in BG3, so both are created
-// here as 9th-level, no-save / no-roll spells granted (always prepared) via
-// UnlockSpell on Bard_WordsOfCreation.
-//  - Power Word Kill: a single word of death. If the target has 150 HP or fewer
-//    (Words of Creation raises the base 100 threshold to 150), it is slain
-//    outright (irreducible Force damage that no creature survives). On tougher
-//    targets the word fails. HasHPLessThan(151,context.Target) is the verified
-//    2-arg condition form (see GraveDomain_17_KeeperOfSouls).
-//  - Power Word Heal: a single word of life. The target regains all Hit Points
-//    and is freed of Charmed, Frightened, Paralyzed and Incapacitated effects
-//    (RegainHitPoints(MaxHP) + RemoveStatus(SG_*) verified base-game syntax).
-// ==============================================================================
-new entry "Target_PowerWordKill_WordsOfCreation"
-type "SpellData"
-data "SpellType" "Target"
-data "Level" "9"
-data "SpellSchool" "Enchantment"
-data "TargetRadius" "18"
-data "TargetConditions" "Character() and not Dead() and not Self()"
-data "SpellProperties" "IF(HasHPLessThan(151,context.Target)):DealDamage(999,Force,Magical)"
-data "Icon" "Spell_Necromancy_FingerOfDeath"
-data "DisplayName" "hbardpwk000000000000000000000001"
-data "Description" "hbardpwk000000000000000000000002"
-data "CastTextEvent" "Cast"
-data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:9"
-data "VerbalIntent" "Damage"
-data "SpellFlags" "HasVerbalComponent;IsSpell;IsHarmful"
-data "MemoryCost" "1"
-data "VocalComponentSound" "Vocal_Component_FingerOfDeath"
-
-new entry "Target_PowerWordHeal_WordsOfCreation"
-type "SpellData"
-data "SpellType" "Target"
-data "Level" "9"
-data "SpellSchool" "Evocation"
-data "TargetRadius" "18"
-data "TargetConditions" "Character() and not Dead()"
-data "SpellProperties" "RegainHitPoints(MaxHP);RemoveStatus(SG_Charmed);RemoveStatus(SG_Frightened);RemoveStatus(SG_Paralyzed);RemoveStatus(SG_Incapacitated)"
-data "Icon" "Spell_Evocation_HealingWord"
-data "DisplayName" "hbardpwh000000000000000000000001"
-data "Description" "hbardpwh000000000000000000000002"
-data "TooltipDamageList" "RegainHitPoints(MaxHP)"
-data "CastTextEvent" "Cast"
-data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:9"
-data "VerbalIntent" "Healing"
-data "SpellFlags" "HasVerbalComponent;IsSpell"
-data "MemoryCost" "1"
-data "VocalComponentSound" "Vocal_Component_Healing"
-
-// ==============================================================================
 // ARTIFICER - Alchemist: Chemical Mastery (Level 15)
 // PHB: gain Acid/Poison resistance and cast Greater Restoration & Heal at will.
 // Adapted as a free (no slot), OncePerLongRest restorative: restore a creature to
