@@ -4,6 +4,9 @@ Extends the [DnD 5.5e (PHB 2024) mod](https://github.com/Yoonmoonsik/dnd55e) pas
 Baldur's Gate 3's level-12 cap: full class progressions, subclass features, spell
 slots (7th–9th level), and epic boons for levels 13–20.
 
+**Vision:** raise BG3 from level 1–12 play to the full level 1–20 D&D experience, following the
+PHB 2024 rules and building on dnd55e. Every change is checked against [VISION.md](VISION.md).
+
 **Requires:** the DnD 2024 (dnd55e) mod and
 [Script Extender](https://github.com/Norbyte/bg3se) (for a handful of scripted
 features and the test tooling).
@@ -89,9 +92,13 @@ python Scripts/generate_wizard_expectations_lua.py # wizard JSON -> Lua
 
 ## Audit scripts
 
+These scripts read the upstream reference clone `../dnd55e` (override with `DND55E_ROOT`); `git pull` it first.
+
 ```bash
 python Scripts/completeness_audit.py  # per-class/subclass 13-20 node + passive coverage
 python Scripts/compat_audit.py        # TableUUID cross-check against dnd55e
+python Scripts/compat_audit_refs.py   # passives / action resources / selectors resolve
+python Scripts/compat_audit_stats.py  # using-parents, references, dnd55e overrides, spells both mods implement
 ```
 
 More detail on the manifest system and runtime policy:
