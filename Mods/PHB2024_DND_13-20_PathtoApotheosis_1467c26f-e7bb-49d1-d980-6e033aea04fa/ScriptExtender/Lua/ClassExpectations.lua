@@ -1153,12 +1153,6 @@ M.subclasses["EldritchKnight"] = {
 M.subclasses["EnchantmentSchool"] = {
     parent = "Wizard",
     levels = {
-        [6] = {
-            passives  = { "SplitEnchantment" },
-        },
-        [10] = {
-            passives  = {},
-        },
         [13] = {
             passives  = {},
             selectors = "SelectSpells(c930bb09-0c28-4683-ac8e-49ee3262338b,1,0,EnchantmentSavant,,,AlwaysPrepared)",
@@ -1630,9 +1624,6 @@ M.subclasses["Soulknife"] = {
     levels = {
         [11] = {
             passives  = {},
-        },
-        [13] = {
-            passives  = { "SoulKnife_PsychicVeil" },
         },
         [17] = {
             passives  = { "SoulKnife_11_RendMind" },

@@ -114,8 +114,6 @@
   <content contentuid="hc0e1f2a4a000000000000000000006c" version="1">Direct your spectral hand to distract a creature within 18m as a Bonus Action. Attack rolls against the target have Advantage for 2 turns.</content>
   <content contentuid="hd1f2a3b4a000000000000000000006d" version="1">Infiltration Expertise</content>
   <content contentuid="hd1f2a3b5a000000000000000000006e" version="1">A master of infiltration. You gain Expertise in Stealth and a +5 bonus to Initiative.</content>
-  <content contentuid="he2a3b4c5a000000000000000000006f" version="1">Psychic Veil</content>
-  <content contentuid="he2a3b4c6a0000000000000000000070" version="1">As an action, veil yourself in psychic static and become Invisible until you attack, cast a spell, or force a creature to make a Saving Throw. Recharges on a Short Rest.</content>
   <content contentuid="hf3b4c5d6a0000000000000000000071" version="1">Use Magic Device</content>
   <content contentuid="hf3b4c5d7a0000000000000000000072" version="1">You can coax magic from any device. You gain Expertise in Arcana and Sleight of Hand.</content>
   <content contentuid="ha4c5d6e7a0000000000000000000073" version="1">Murderous Intent</content>
@@ -154,8 +152,6 @@
   <content contentuid="hd9f0a1b3b0000000000000000000092" version="1">Once per turn, casting a Conjuration spell that costs an action refunds that action, letting you summon for free.</content>
   <content contentuid="he0a1b2c3b0000000000000000000093" version="1">Greater Portent</content>
   <content contentuid="he0a1b2c4b0000000000000000000094" version="1">You roll three Portent dice instead of two.</content>
-  <content contentuid="hf1b2c3d4b0000000000000000000095" version="1">Split Enchantment</content>
-  <content contentuid="hf1b2c3d5b0000000000000000000096" version="1">Once per turn, casting an Enchantment spell that costs an action refunds that action, letting you cast it for free.</content>
   <content contentuid="ha2c3d4e5b0000000000000000000097" version="1">Alter Memories</content>
   <content contentuid="ha2c3d4e6b0000000000000000000098" version="1">You always have Modify Memory prepared, and your scrambling aura grips two enemies at once instead of one.</content>
   <content contentuid="hb3d4e5f6b0000000000000000000099" version="1">Overchannel</content>

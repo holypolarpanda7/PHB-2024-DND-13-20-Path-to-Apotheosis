@@ -1674,18 +1674,6 @@
     },
     "EnchantmentSchool": {
       "levels": {
-        "6": {
-          "boosts": "",
-          "passives": [
-            "SplitEnchantment"
-          ],
-          "selectors": ""
-        },
-        "10": {
-          "boosts": "",
-          "passives": [],
-          "selectors": ""
-        },
         "13": {
           "boosts": "",
           "passives": [],
@@ -2389,13 +2377,6 @@
         "11": {
           "boosts": "",
           "passives": [],
-          "selectors": ""
-        },
-        "13": {
-          "boosts": "",
-          "passives": [
-            "SoulKnife_PsychicVeil"
-          ],
           "selectors": ""
         },
         "17": {

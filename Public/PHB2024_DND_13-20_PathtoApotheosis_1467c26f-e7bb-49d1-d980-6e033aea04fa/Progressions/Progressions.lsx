@@ -1252,14 +1252,6 @@
                     <attribute id="UUID" type="guid" value="03030303-0303-0303-0303-030303030301"/>
                 </node>
                 <!-- Soulknife Level 13: Psychic Veil -->
-                <node id="Progression">
-                    <attribute id="Level" type="uint8" value="13"/>
-                    <attribute id="Name" type="LSString" value="Soulknife"/>
-                    <attribute id="PassivesAdded" type="LSString" value="SoulKnife_PsychicVeil"/>
-                    <attribute id="ProgressionType" type="uint8" value="1"/>
-                    <attribute id="TableUUID" type="guid" value="abc7b271-82a1-4139-9653-4c90a7984a38"/>
-                    <attribute id="UUID" type="guid" value="03030303-0303-0303-0303-030303030302"/>
-                </node>
                 <!-- Soulknife Level 17: Rend Mind (correct level) -->
                 <node id="Progression">
                     <attribute id="Level" type="uint8" value="17"/>
@@ -1787,23 +1779,7 @@
                 
                 <!-- ENCHANTMENT SCHOOL -->
                 <!-- Remove Split Enchantment at level 10 (UA moved it to level 6) -->
-                <node id="Progression">
-                    <attribute id="Level" type="uint8" value="10"/>
-                    <attribute id="Name" type="LSString" value="EnchantmentSchool"/>
-                    <attribute id="PassivesRemoved" type="LSString" value="SplitEnchantment"/>
-                    <attribute id="ProgressionType" type="uint8" value="1"/>
-                    <attribute id="TableUUID" type="guid" value="1c1d48af-42b7-4fac-a3ce-ca3525f1ccbe"/>
-                    <attribute id="UUID" type="guid" value="25252525-2525-2525-2525-252525252501"/>
-                </node>
                 <!-- Enchantment School Level 6: Split Enchantment (correct UA level) -->
-                <node id="Progression">
-                    <attribute id="Level" type="uint8" value="6"/>
-                    <attribute id="Name" type="LSString" value="EnchantmentSchool"/>
-                    <attribute id="PassivesAdded" type="LSString" value="SplitEnchantment"/>
-                    <attribute id="ProgressionType" type="uint8" value="1"/>
-                    <attribute id="TableUUID" type="guid" value="1c1d48af-42b7-4fac-a3ce-ca3525f1ccbe"/>
-                    <attribute id="UUID" type="guid" value="25252525-2525-2525-2525-252525252502"/>
-                </node>
                 <!-- Enchantment School Level 14: Alter Memories (new feature) -->
                 <node id="Progression">
                     <attribute id="Level" type="uint8" value="14"/>

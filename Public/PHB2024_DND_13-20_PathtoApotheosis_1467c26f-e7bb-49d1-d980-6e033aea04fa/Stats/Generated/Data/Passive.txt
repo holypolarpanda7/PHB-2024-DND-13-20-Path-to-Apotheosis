@@ -554,14 +554,6 @@ data "Icon" "PassiveFeature_Assassinate"
 data "Properties" "Highlighted"
 data "Boosts" "ExpertiseBonus(Stealth);Initiative(5)"
 
-new entry "SoulKnife_PsychicVeil"
-type "PassiveData"
-data "DisplayName" "he2a3b4c5a000000000000000000006f"
-data "Description" "he2a3b4c6a0000000000000000000070"
-data "Icon" "PassiveFeature_Generic_Magical"
-data "Properties" "Highlighted"
-data "Boosts" "UnlockSpell(Shout_Apotheosis_PsychicVeil)"
-
 new entry "Thief_UseMagicDevice"
 type "PassiveData"
 data "DisplayName" "hf3b4c5d6a0000000000000000000071"
@@ -670,19 +662,6 @@ data "DisplayName" "he0a1b2c3b0000000000000000000093"
 data "Description" "he0a1b2c4b0000000000000000000094"
 data "Icon" "PassiveFeature_Portent"
 data "Properties" "Highlighted"
-
-// Split Enchantment (repurposed for BG3): once per turn, casting an Enchantment
-// spell refunds its Action Point - a free enchantment each turn. Mirrors the
-// Conjurer free-cast above.
-new entry "SplitEnchantment"
-type "PassiveData"
-data "DisplayName" "hf1b2c3d4b0000000000000000000095"
-data "Description" "hf1b2c3d5b0000000000000000000096"
-data "Icon" "PassiveFeature_HypnoticGaze"
-data "Properties" "Highlighted;OncePerTurn"
-data "StatsFunctorContext" "OnCast"
-data "Conditions" "IsSpell() and IsSpellSchool(SpellSchool.Enchantment) and HasUseCosts('ActionPoint',true)"
-data "StatsFunctors" "RestoreResource(ActionPoint,1,0)"
 
 // Alter Memories (repurposed for BG3): grants the Modify Memory spell, a single-
 // target 5th-level enchantment that Charms + Incapacitates a creature (breaks on
