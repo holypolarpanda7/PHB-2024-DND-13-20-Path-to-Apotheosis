@@ -799,4 +799,206 @@
   <content contentuid="hst0000000000000000000000000036" version="1">Divine radiance mantles you: allies within 9m are continually Blessed.</content>
   <content contentuid="hprg00000000000000000000000000001" version="1">Persistent Rage</content>
   <content contentuid="hprg00000000000000000000000000002" version="1">When you roll Initiative, you can regain all expended uses of Rage. After you regain uses of Rage in this way, you can't do so again until you finish a Long Rest. In addition, your Rage is so fierce that it now lasts for 10 minutes without you needing to do anything to extend it from round to round.</content>
+  <content contentuid="h07109fede297590d8ad816e36146c75d" version="1">Boon of Combat Prowess</content>
+  <content contentuid="h8cb09ad5271a51889d40f440eaebae6d" version="1">Peerless Aim: when you miss with an attack roll, you can hit instead. Once you use this, you can't again until the start of your next turn.</content>
+  <content contentuid="hbece0f220b06584b81e540d08a1461ca" version="1">Peerless Aim</content>
+  <content contentuid="h80c72e222b245d0d9f5bb013ad215c89" version="1">Your attack misses: hit instead.</content>
+  <content contentuid="hc7688a3a950a57128f01ed8b017fc9ac" version="1">Boon of Dimensional Travel</content>
+  <content contentuid="he65654313d9055769170c0f31b119006" version="1">Blink Steps: immediately after you take the Attack action or the Magic action, you can teleport up to 30 feet to an unoccupied space you can see.</content>
+  <content contentuid="hf48e2a45dcb75f7a887589d3c25a51f8" version="1">Blink Steps</content>
+  <content contentuid="hd397ee049d2150d1b478051964877cf3" version="1">You can teleport up to 30 feet (free).</content>
+  <content contentuid="hac26fc64fbd45fad94613f49e09ea77a" version="1">Blink Step</content>
+  <content contentuid="h4b0bc9b856ab5c13bf3ffb48191fb4d9" version="1">Teleport up to 30 feet to an unoccupied space you can see.</content>
+  <content contentuid="hf90d90a120705b7e94a12651dfcb822e" version="1">Boon of Energy Resistance</content>
+  <content contentuid="he19bfb5a87e352358562eea6f13fd79f" version="1">Energy Resistances: choose two of Acid, Cold, Fire, Lightning, Necrotic, Poison, Psychic, Radiant and Thunder (the choices reset on a Long Rest). Energy Redirection: when you take damage of a chosen type, your Reaction sends 2d12 + Constitution modifier of that type at the attacker (Dexterity save, DC 8 + Constitution modifier + Proficiency Bonus).</content>
+  <content contentuid="h74c00fd041d7527cb0435cb98b939b1c" version="1">Energy Resistance</content>
+  <content contentuid="h9de90a96326058ad9b982d3a5ec095e3" version="1">Choose a damage type to resist (two per Long Rest).</content>
+  <content contentuid="h2581910f65565af3a0b7e6c29f6f02c4" version="1">Energy Resistance: Acid</content>
+  <content contentuid="h514fbbc5170f5eb5a02073744936fbc4" version="1">You resist Acid damage until your next Long Rest.</content>
+  <content contentuid="h8e7aaf03501a58de8995d89d112a2400" version="1">Energy Resistance: Acid</content>
+  <content contentuid="h655f14159f0b52fea5b8cd41c6d791cb" version="1">Resistant to Acid damage; your Reaction can redirect it (Boon of Energy Resistance).</content>
+  <content contentuid="h73d244fe9adb55118e603d746f4a1aa7" version="1">Energy Redirection (Acid)</content>
+  <content contentuid="hf40eec9dbb645692ad01d04fc3229fdb" version="1">Redirect Acid damage: 2d12 + Constitution modifier, Dexterity save.</content>
+  <content contentuid="h0adbfe58ecad57ffb424663e56bc70e7" version="1">Energy Resistance: Cold</content>
+  <content contentuid="h11d11a7ede6c5e6c921eb6acb67191f4" version="1">You resist Cold damage until your next Long Rest.</content>
+  <content contentuid="h90f2d36f420d5d8ea4a2dcc7a89566c1" version="1">Energy Resistance: Cold</content>
+  <content contentuid="h9e707d1ec8f45653b7a1954cd5046cfd" version="1">Resistant to Cold damage; your Reaction can redirect it (Boon of Energy Resistance).</content>
+  <content contentuid="h1718285bbfda5f4fa7d4aa4b3fa9f0d9" version="1">Energy Redirection (Cold)</content>
+  <content contentuid="hfacea40aeb2c5b1d8a39dc901ceb766c" version="1">Redirect Cold damage: 2d12 + Constitution modifier, Dexterity save.</content>
+  <content contentuid="h548cf120ebe256c2ba78664bbc81d351" version="1">Energy Resistance: Fire</content>
+  <content contentuid="h555f030b5738560b832591d40d3db757" version="1">You resist Fire damage until your next Long Rest.</content>
+  <content contentuid="h65c4187baabe5e1cb266014f67db5b2a" version="1">Energy Resistance: Fire</content>
+  <content contentuid="hec7d7d6d636f5848a87ddf6373781fe2" version="1">Resistant to Fire damage; your Reaction can redirect it (Boon of Energy Resistance).</content>
+  <content contentuid="h44f1816009af599cb6a6475982e8b8ad" version="1">Energy Redirection (Fire)</content>
+  <content contentuid="h033284defd715806a0928c6248952881" version="1">Redirect Fire damage: 2d12 + Constitution modifier, Dexterity save.</content>
+  <content contentuid="hf908d3d3cf725afca7cd1eab7a4208f5" version="1">Energy Resistance: Lightning</content>
+  <content contentuid="h72f30f3f6f49585087a96f36ffc4c5f6" version="1">You resist Lightning damage until your next Long Rest.</content>
+  <content contentuid="hcef3a841a0db57ffa99cdbb3b4a7bf84" version="1">Energy Resistance: Lightning</content>
+  <content contentuid="h9bdb2bbf08965f6a8830891a7be30116" version="1">Resistant to Lightning damage; your Reaction can redirect it (Boon of Energy Resistance).</content>
+  <content contentuid="h9ada842c26a85d269a3e4d9c5134a1b9" version="1">Energy Redirection (Lightning)</content>
+  <content contentuid="hcc3c7be67c575d1f943853980f080a76" version="1">Redirect Lightning damage: 2d12 + Constitution modifier, Dexterity save.</content>
+  <content contentuid="h4bb8ceda57aa5d54a68545c0b066b6a6" version="1">Energy Resistance: Necrotic</content>
+  <content contentuid="h8a73e8a83345596c83ae3cb397f9cb64" version="1">You resist Necrotic damage until your next Long Rest.</content>
+  <content contentuid="h6532fa9accda5b1094a7a6fa32405bba" version="1">Energy Resistance: Necrotic</content>
+  <content contentuid="h1ba15d8f2a225966be62b4959782802a" version="1">Resistant to Necrotic damage; your Reaction can redirect it (Boon of Energy Resistance).</content>
+  <content contentuid="hdc070cf16a545cb2bb45d62c115f50bf" version="1">Energy Redirection (Necrotic)</content>
+  <content contentuid="ha4dfa3d09d845e68ac9239c98cd392c3" version="1">Redirect Necrotic damage: 2d12 + Constitution modifier, Dexterity save.</content>
+  <content contentuid="haf359d6177785fea992a9e7c53d8fcbc" version="1">Energy Resistance: Poison</content>
+  <content contentuid="he3f9c92426f85888a62627d1e2d9fa68" version="1">You resist Poison damage until your next Long Rest.</content>
+  <content contentuid="hb8a73f66c3df5268a590c9cb5b929a3c" version="1">Energy Resistance: Poison</content>
+  <content contentuid="h7252b3f363c35643ae96155b3b8fa46e" version="1">Resistant to Poison damage; your Reaction can redirect it (Boon of Energy Resistance).</content>
+  <content contentuid="h8dc61e61eb8e50668d0602ba2ac47485" version="1">Energy Redirection (Poison)</content>
+  <content contentuid="hd37ece90dbf7502ca717f939c51b2074" version="1">Redirect Poison damage: 2d12 + Constitution modifier, Dexterity save.</content>
+  <content contentuid="h74e73333966954dbab6fb2fb854a9fac" version="1">Energy Resistance: Psychic</content>
+  <content contentuid="hc2788a67cd975fcf8edeae17765280ec" version="1">You resist Psychic damage until your next Long Rest.</content>
+  <content contentuid="hac7591f62f355b4c9ec47e2cd26e43bb" version="1">Energy Resistance: Psychic</content>
+  <content contentuid="h367ada1a3268574582304e54b012a68a" version="1">Resistant to Psychic damage; your Reaction can redirect it (Boon of Energy Resistance).</content>
+  <content contentuid="h38e394c3cf2c50ad85e3da7b75f9b6dd" version="1">Energy Redirection (Psychic)</content>
+  <content contentuid="h75102373fc4355dfb2f33f530953e11b" version="1">Redirect Psychic damage: 2d12 + Constitution modifier, Dexterity save.</content>
+  <content contentuid="h7008d4b45a675a4ea449edd90806f7d5" version="1">Energy Resistance: Radiant</content>
+  <content contentuid="h155f7888dcf35faebcf324f694f80f1c" version="1">You resist Radiant damage until your next Long Rest.</content>
+  <content contentuid="h460e34b243e359ca8d788515a2ec4874" version="1">Energy Resistance: Radiant</content>
+  <content contentuid="h0abdcbeef4e659788c4e9b87a1d1d20b" version="1">Resistant to Radiant damage; your Reaction can redirect it (Boon of Energy Resistance).</content>
+  <content contentuid="h109943eefe465eb9a1ee9723b6660bd8" version="1">Energy Redirection (Radiant)</content>
+  <content contentuid="he049033e930e57cfa77e8635632d0f94" version="1">Redirect Radiant damage: 2d12 + Constitution modifier, Dexterity save.</content>
+  <content contentuid="h4c58d5a20c3b53319ea0338a4364340f" version="1">Energy Resistance: Thunder</content>
+  <content contentuid="h611c888f96565a16b5c945572edd633f" version="1">You resist Thunder damage until your next Long Rest.</content>
+  <content contentuid="hb1ba01305249565d91f0d48c87097ba9" version="1">Energy Resistance: Thunder</content>
+  <content contentuid="h4f8562d02b9f5318b32fb089e96b7db6" version="1">Resistant to Thunder damage; your Reaction can redirect it (Boon of Energy Resistance).</content>
+  <content contentuid="h80bfedba43d35712ba21610405a2df12" version="1">Energy Redirection (Thunder)</content>
+  <content contentuid="h19a70840c5de52398b98517c59d162ee" version="1">Redirect Thunder damage: 2d12 + Constitution modifier, Dexterity save.</content>
+  <content contentuid="h25985ba8d6b858f3a7bfc7d1ce90089c" version="1">Boon of Fate</content>
+  <content contentuid="heb9fc111f1d251b1bb77745f0f0fdc5d" version="1">Improve Fate: when you or a creature within 60 feet succeeds on or fails a d20 roll, you can roll 2d4 and add it to or subtract it from the roll. Usable again when you roll Initiative or finish a Short or Long Rest.</content>
+  <content contentuid="h8028814681765139a1ffad0c8a373973" version="1">Improve Fate: bless an attack</content>
+  <content contentuid="hcf73fd995ceb561faca2df20d33a7c0a" version="1">Add 2d4 to the roll.</content>
+  <content contentuid="h002758a118a1565698e57712e6851602" version="1">Improve Fate: bless a save</content>
+  <content contentuid="h7ec1c3ac02b55db5a19a9c1c6504828d" version="1">Add 2d4 to the roll.</content>
+  <content contentuid="h263fcec0d0b95581a75cb6d1b779f61d" version="1">Improve Fate: curse an attack</content>
+  <content contentuid="h3684a2736182575fbca62c72eaacaf4e" version="1">Subtract 2d4 to the roll.</content>
+  <content contentuid="h23120b9d532f523c96e6856e6eb0edeb" version="1">Improve Fate: curse a save</content>
+  <content contentuid="hae4d3cc02dc35ce2826ced9611086b8c" version="1">Subtract 2d4 to the roll.</content>
+  <content contentuid="hb25aa5d21be153f7b55b18ff62dcccf1" version="1">Boon of Fortitude</content>
+  <content contentuid="h77b12f6da4c252e0a713a81207845b21" version="1">Fortified Health: your Hit Point maximum increases by 40. Whenever you regain Hit Points, you regain extra Hit Points equal to your Constitution modifier (once per turn).</content>
+  <content contentuid="h7544ebda717456869c418247f23f4648" version="1">Fortified Health</content>
+  <content contentuid="hea5f7d5643d9570e879045bd46528c01" version="1">Fortified Health used</content>
+  <content contentuid="heccd065848715f6d822f57c06c5c4a71" version="1">Boon of Irresistible Offense</content>
+  <content contentuid="h45abb7c5f9865699a09cd2ba32fbeef5" version="1">Overcome Defenses: your Bludgeoning, Piercing and Slashing damage ignores Resistance. Overwhelming Strike: when you roll a 20 on an attack roll, deal extra damage equal to the ability score this boon increased.</content>
+  <content contentuid="h6239948502ef5137a301bb708b16bcfa" version="1">Boon of Irresistible Offense (+1 Strength)</content>
+  <content contentuid="h1c69a67246f95889b036207b0517d8e5" version="1">Boon of Irresistible Offense (+1 Dexterity)</content>
+  <content contentuid="h4cab99e8ce2b52ae8220a1c4ec268849" version="1">Overwhelming Strike</content>
+  <content contentuid="h5c6c2c4b598d56a2be72ea926d1d1e05" version="1">Boon of Recovery</content>
+  <content contentuid="hc1d09e93b62d56c698108716687c652a" version="1">Last Stand: when you would drop to 0 Hit Points, you drop to 1 instead and regain half your Hit Point maximum (once per Long Rest). Recover Vitality: a pool of ten d10s; as a Bonus Action, spend dice and regain that many Hit Points.</content>
+  <content contentuid="hded8cf44adb3598ca9b78858e5a2f672" version="1">Last Stand</content>
+  <content contentuid="h66ceddab634e561fadea20af68ba9bd0" version="1">The next time you would drop to 0 Hit Points, you drop to 1 and regain half your Hit Point maximum.</content>
+  <content contentuid="h61517972da2b577a99ad0b5e3589cbc9" version="1">Recover Vitality</content>
+  <content contentuid="h5050298ab5585dc0bf35035ef9125077" version="1">Spend d10s from your Recover Vitality pool to regain Hit Points.</content>
+  <content contentuid="he46a70c3985f5319b9bb1935d0c4ce39" version="1">Recover Vitality (1d10)</content>
+  <content contentuid="h1a39514d231e5693ac47864dc50753a5" version="1">Spend 1 dice: regain 1d10 Hit Points.</content>
+  <content contentuid="h71116e2508a05ddfa24c22b8047b330e" version="1">Recover Vitality (2d10)</content>
+  <content contentuid="h8e327a6c1bc75fb6ac7d9941f4d5f399" version="1">Spend 2 dice: regain 2d10 Hit Points.</content>
+  <content contentuid="h6a05f737f44c503ba89eaa2fd8c29ae0" version="1">Recover Vitality (3d10)</content>
+  <content contentuid="h2131be7bc62e5f10b9941f659eb2a452" version="1">Spend 3 dice: regain 3d10 Hit Points.</content>
+  <content contentuid="h3722e440bfc25df6baecccc712977dc5" version="1">Recover Vitality (5d10)</content>
+  <content contentuid="ha823c865606c5d968b388f621a8b36cb" version="1">Spend 5 dice: regain 5d10 Hit Points.</content>
+  <content contentuid="he1dac218c1f85691800b3b36a8b9a129" version="1">Recover Vitality (10d10)</content>
+  <content contentuid="h5ef3b613ec2b5146912ece0cf444570b" version="1">Spend 10 dice: regain 10d10 Hit Points.</content>
+  <content contentuid="heb844ad6d02b5058a1ad26e5abaf8a9d" version="1">Boon of Skill</content>
+  <content contentuid="h30f5684755945a5d87d4779f49a6d2cf" version="1">All-Around Adept: you gain proficiency in all skills. Expertise: choose one skill in which you lack Expertise and gain Expertise in it.</content>
+  <content contentuid="hf9e6339fb7c6560b8b4ca1fa6c85645d" version="1">Boon of Skill: Expertise</content>
+  <content contentuid="hb89d1d11d2935f11804cf89af0f2b383" version="1">Choose one skill to gain Expertise in (once).</content>
+  <content contentuid="h71d94bff13445c0ba55f91810f0f8732" version="1">Expertise: Acrobatics</content>
+  <content contentuid="h72f0b128192757fca73b72d25652275a" version="1">Gain Expertise in Acrobatics.</content>
+  <content contentuid="h3a602afffdc954a88e1ee10fa7daf74a" version="1">Expertise: Acrobatics</content>
+  <content contentuid="h884cd2498af45a79bd587cbd492e3775" version="1">Expertise: Animal Handling</content>
+  <content contentuid="ha15f26c616c55f7cb6a21dabccc532f2" version="1">Gain Expertise in Animal Handling.</content>
+  <content contentuid="hb34ec1ebde5652758d3f4386e41994c2" version="1">Expertise: Animal Handling</content>
+  <content contentuid="h0845cbd2d2bc5ddb9890956f0bf8421b" version="1">Expertise: Arcana</content>
+  <content contentuid="h75ad96124e285976a9de1688b2dbafdf" version="1">Gain Expertise in Arcana.</content>
+  <content contentuid="hb664fb86179a5af1926bb9e392678fec" version="1">Expertise: Arcana</content>
+  <content contentuid="h4e27a53778e6545e8027e217da1750f5" version="1">Expertise: Athletics</content>
+  <content contentuid="h66b565ff4ca45439bbb550531f5d2731" version="1">Gain Expertise in Athletics.</content>
+  <content contentuid="h5047c80f15f75d8fafa7090c1fb35104" version="1">Expertise: Athletics</content>
+  <content contentuid="h15966426c21d5930a1ceb8f6acf5ca5a" version="1">Expertise: Deception</content>
+  <content contentuid="h87c51b74153c5ed38e0c5134b23897a5" version="1">Gain Expertise in Deception.</content>
+  <content contentuid="h6dd12e853d325a4a8caf35d3a300802b" version="1">Expertise: Deception</content>
+  <content contentuid="h507ca4ee7360503b82ccce377a63ad9c" version="1">Expertise: History</content>
+  <content contentuid="h90124d2bea035c23b4e1efbf2bed3658" version="1">Gain Expertise in History.</content>
+  <content contentuid="h0fe44dcc5b5956eb969f79e84855dfbf" version="1">Expertise: History</content>
+  <content contentuid="h6c0129251a785a10a3c91c0e0b521d40" version="1">Expertise: Insight</content>
+  <content contentuid="h07e422d858865cb3acbd23d0ad4ad7c1" version="1">Gain Expertise in Insight.</content>
+  <content contentuid="hf0bc114ecf7559f9bd9812b983d97579" version="1">Expertise: Insight</content>
+  <content contentuid="h74842957765c5c9f85b0669c0b2d9a48" version="1">Expertise: Intimidation</content>
+  <content contentuid="h512707b5da3c56f78916d6c718c28737" version="1">Gain Expertise in Intimidation.</content>
+  <content contentuid="he73b6dfd77835d3899c342cca1c24ae0" version="1">Expertise: Intimidation</content>
+  <content contentuid="hef18844a39e45c3b9017b37b10ca3bd7" version="1">Expertise: Investigation</content>
+  <content contentuid="h354789875fec5203af91cc834830766e" version="1">Gain Expertise in Investigation.</content>
+  <content contentuid="h36cbd657721852b6acc4698171c072cc" version="1">Expertise: Investigation</content>
+  <content contentuid="h9755cca1ebc252fea2491d77f6776631" version="1">Expertise: Medicine</content>
+  <content contentuid="h810e7af4655559178363fc314d48db60" version="1">Gain Expertise in Medicine.</content>
+  <content contentuid="h2d76d5f25b8253c9a5b2d693d84705d8" version="1">Expertise: Medicine</content>
+  <content contentuid="h20e5cbd0b36057fd9ddd82ebc023eacf" version="1">Expertise: Nature</content>
+  <content contentuid="h5ec654fb506a5811a1778e156be8b651" version="1">Gain Expertise in Nature.</content>
+  <content contentuid="h99ad8099e1135cce9b05abf5189c286b" version="1">Expertise: Nature</content>
+  <content contentuid="h041b9aba57e55d26832ff4c39de444bf" version="1">Expertise: Perception</content>
+  <content contentuid="hb35e28f595d05e91b2578c48e899a648" version="1">Gain Expertise in Perception.</content>
+  <content contentuid="h628291752c6d5117a78108e1592aeb06" version="1">Expertise: Perception</content>
+  <content contentuid="h0d6633f76d995248b998967232ed38d0" version="1">Expertise: Performance</content>
+  <content contentuid="hb0953eaf639a5da9bb4aaa98f1965abb" version="1">Gain Expertise in Performance.</content>
+  <content contentuid="haa38e48e20245c24b03c6e3b5d483795" version="1">Expertise: Performance</content>
+  <content contentuid="h3c8537450d1a5312a781e82f6f7961da" version="1">Expertise: Persuasion</content>
+  <content contentuid="h7fc53695aec556b19d4306d848c21552" version="1">Gain Expertise in Persuasion.</content>
+  <content contentuid="h242e730b30f65636bd51189fec83a162" version="1">Expertise: Persuasion</content>
+  <content contentuid="h8ef4aaf3f480540baf86838231feeeca" version="1">Expertise: Religion</content>
+  <content contentuid="hbf897d1ed6995aa2872bff6619f4b124" version="1">Gain Expertise in Religion.</content>
+  <content contentuid="hc4f8ef9d5d72594992503b3111b80155" version="1">Expertise: Religion</content>
+  <content contentuid="hec6ea1e6bfed5c72b25c4d7c8cdd0ced" version="1">Expertise: Sleight of Hand</content>
+  <content contentuid="h8ed718549b9351f0beecac264e4e1118" version="1">Gain Expertise in Sleight of Hand.</content>
+  <content contentuid="h1db6682b53c651fb9f12bad506e65150" version="1">Expertise: Sleight of Hand</content>
+  <content contentuid="h71f60658f5ab5ed1a39f3b8ac426f7db" version="1">Expertise: Stealth</content>
+  <content contentuid="h08e940b8dbd15448860b1784bf5fe510" version="1">Gain Expertise in Stealth.</content>
+  <content contentuid="h93a8930cc48154e28fe726a56305d4a9" version="1">Expertise: Stealth</content>
+  <content contentuid="h2bd32cc968c552f28bd5fda770cbe6c3" version="1">Expertise: Survival</content>
+  <content contentuid="h8b18fa129ae15ce8a8dbb0e9301f811b" version="1">Gain Expertise in Survival.</content>
+  <content contentuid="hddfa3d262959543e8da236015fe07049" version="1">Expertise: Survival</content>
+  <content contentuid="ha90efd1834575e3ebdf0d3ed0c4aac18" version="1">Boon of Speed</content>
+  <content contentuid="hbb53af0745155b918ceab1ccc1898ba3" version="1">Escape Artist: as a Bonus Action, you can take the Disengage action, which also ends the Grappled condition on you. Quickness: your Speed increases by 30 feet.</content>
+  <content contentuid="h1d6e57726d89599db0fe031e316a417b" version="1">Escape Artist</content>
+  <content contentuid="h31319b4f2eb75bec8d3a6c586befdb5c" version="1">Disengage as a Bonus Action and end the Grappled condition on yourself.</content>
+  <content contentuid="hc2ac160f1bf1538488b2d136d91f9f44" version="1">Boon of Spell Recall</content>
+  <content contentuid="he77e908d23fb57599e16d933aedaa509" version="1">Free Casting: whenever you cast a spell with a level 1-4 spell slot, roll 1d4. If the number matches the slot's level, the slot isn't expended. (Requires the Spellcasting feature.)</content>
+  <content contentuid="hcff86012f84359969ae16b323ff91510" version="1">Boon of Spell Recall (+1 Intelligence)</content>
+  <content contentuid="hfad26210f8ff5a78a8da2de2260f4b33" version="1">Boon of Spell Recall (+1 Wisdom)</content>
+  <content contentuid="h61fbf4966bd359f8bcdc902744fc5ae0" version="1">Boon of Spell Recall (+1 Charisma)</content>
+  <content contentuid="h120e4d06ad855a1bacfbb3176a751c91" version="1">Boon of the Night Spirit</content>
+  <content contentuid="h75587408860a5e049cae2332a783c22b" version="1">Merge with Shadows: while in Dim Light or Darkness, you can become Invisible as a Bonus Action until you take an action, Bonus Action or Reaction. Shadowy Form: while in Dim Light or Darkness, you resist all damage except Psychic and Radiant.</content>
+  <content contentuid="hba32c907a0755c459aa59c0d114f7dbc" version="1">Merge with Shadows</content>
+  <content contentuid="hb3aa628aeb4651668cbd61bf561e6d10" version="1">In Dim Light or Darkness: become Invisible until you act.</content>
+  <content contentuid="hea19b146840c5704b4ccb25d0065c28b" version="1">Merged with Shadows</content>
+  <content contentuid="h53d19b73fc0e5277ae2640ef9d6f344d" version="1">Invisible until you take an action, Bonus Action or Reaction.</content>
+  <content contentuid="h712ffa9145f55898ac19f3cc509edfeb" version="1">Boon of Truesight</content>
+  <content contentuid="hcad4f457a2375abea65d0f233146f8ea" version="1">Truesight: you have Truesight with a range of 60 feet.</content>
+  <content contentuid="he6e9de9eebcb5dd08741fa61b7f4ff84" version="1">Epic Boon: +1 Strength</content>
+  <content contentuid="ha39ad8d5c9ee53daa6a06db17a4a78c6" version="1">Increase your Strength score by 1 (to a maximum of 30).</content>
+  <content contentuid="h7acac08143b1543485a027c1f009bfc4" version="1">Epic Boon: +1 Dexterity</content>
+  <content contentuid="h095cb8c133cf5697a077bb4312a5fa61" version="1">Increase your Dexterity score by 1 (to a maximum of 30).</content>
+  <content contentuid="habeba9c64ec05de38f0fd10c0f17714f" version="1">Epic Boon: +1 Constitution</content>
+  <content contentuid="hf169d28a7fd151b08f9d59e3ff3fd03c" version="1">Increase your Constitution score by 1 (to a maximum of 30).</content>
+  <content contentuid="h6c781b6f583e57caacec8599a924a624" version="1">Epic Boon: +1 Intelligence</content>
+  <content contentuid="h29cc1b28d95b5d3da700f56bfd95d969" version="1">Increase your Intelligence score by 1 (to a maximum of 30).</content>
+  <content contentuid="h9d8ae00f16bf50a0bfdf89818463fc26" version="1">Epic Boon: +1 Wisdom</content>
+  <content contentuid="h30f3ca7e30a05e7c8818e7cc3f8b919a" version="1">Increase your Wisdom score by 1 (to a maximum of 30).</content>
+  <content contentuid="h96b4b2c9b53f5ec09fafb0923d34547f" version="1">Epic Boon: +1 Charisma</content>
+  <content contentuid="h794f44d20a8957ae94b0ad85c59a6303" version="1">Increase your Charisma score by 1 (to a maximum of 30).</content>
+  <content contentuid="h12ffc2ee968f5e7387ee7f2a4dbde5bd" version="1">Epic Boon: increase included in my boon</content>
+  <content contentuid="h6772d82353f55f319710c544d85a19c2" version="1">Pick this if your boon already names its ability, e.g. Boon of Irresistible Offense (+1 Strength).</content>
+  <content contentuid="h15482309f08554edbea07d58e408474a" version="1">Peerless Aim</content>
+  <content contentuid="h6245b9ed52ac59059e86986d6f116102" version="1">Turn a missed attack into a hit. Returns at the start of your turn.</content>
+  <content contentuid="h48b7a83ba16e58eb9c23889d89d25232" version="1">Improve Fate</content>
+  <content contentuid="h7601ee3fcd035564bbf27f916d378ca0" version="1">Add or subtract 2d4 from a nearby d20 roll. Returns when you roll Initiative or finish a rest.</content>
+  <content contentuid="h579b05dfc9f25d17a24fae0497f8fb23" version="1">Energy Resistance Choices</content>
+  <content contentuid="h1e58882a05715bbdad3ea9f001344c45" version="1">Choose your two Boon of Energy Resistance damage types. Resets on a Long Rest.</content>
+  <content contentuid="he96f1b1acf3d516f843db43794e4f157" version="1">Recover Vitality Dice</content>
+  <content contentuid="hea67f5a5c78c5253a22695d868137a32" version="1">Your pool of ten d10s for Recover Vitality. Returns on a Long Rest.</content>
+  <content contentuid="h55eaa29ec16d5a66b3d1d3274e0fc5ab" version="1">Boon of Skill Expertise</content>
+  <content contentuid="h5420cab05ba05802a240883286702b8f" version="1">Choose the skill you gain Expertise in.</content>
 </contentList>

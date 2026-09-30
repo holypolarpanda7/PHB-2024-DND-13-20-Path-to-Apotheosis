@@ -13,6 +13,18 @@
                     <attribute id="UUID" type="guid" value="22222222-2222-2222-2222-222222220001"/>
                 </node>
                 
+                <!-- EPIC BOONS BEGIN (Scripts/gen_epic_boons.py) -->
+                <node id="PassiveList">
+                    <attribute id="Name" type="FixedString" value="EpicBoons"/>
+                    <attribute id="Passives" type="LSString" value="EpicBoon_CombatProwess,EpicBoon_DimensionalTravel,EpicBoon_EnergyResistance,EpicBoon_Fate,EpicBoon_Fortitude,EpicBoon_IrresistibleOffense_Str,EpicBoon_IrresistibleOffense_Dex,EpicBoon_Recovery,EpicBoon_Skill,EpicBoon_Speed,EpicBoon_SpellRecall_Int,EpicBoon_SpellRecall_Wis,EpicBoon_SpellRecall_Cha,EpicBoon_NightSpirit,EpicBoon_Truesight"/>
+                    <attribute id="UUID" type="guid" value="23b18ae7-dc54-5b4f-8939-a9af322e3cef"/>
+                </node>
+                <node id="PassiveList">
+                    <attribute id="Name" type="FixedString" value="EpicBoonAbility"/>
+                    <attribute id="Passives" type="LSString" value="EpicBoonAbility_Str,EpicBoonAbility_Dex,EpicBoonAbility_Con,EpicBoonAbility_Int,EpicBoonAbility_Wis,EpicBoonAbility_Cha,EpicBoonAbility_InBoon"/>
+                    <attribute id="UUID" type="guid" value="4ef62eb1-4735-5e99-8568-dc013af9df15"/>
+                </node>
+                <!-- EPIC BOONS END -->
             </children>
         </node>
     </region>

@@ -118,7 +118,7 @@
         "19": {
           "boosts": "",
           "passives": [],
-          "selectors": ""
+          "selectors": "SelectPassives(23b18ae7-dc54-5b4f-8939-a9af322e3cef,1,EpicBoon);SelectPassives(4ef62eb1-4735-5e99-8568-dc013af9df15,1,EpicBoonAbility)"
         },
         "20": {
           "boosts": "",
@@ -174,7 +174,7 @@
         "19": {
           "boosts": "ActionResource(SpellSlot,1,6)",
           "passives": [],
-          "selectors": "SelectSpells(858d4322-9e9f-4aa4-aada-9c68835dc6fe,1,1,BardMagicalSecrets);SelectSpells(00190001-0001-0001-0001-000000000005,1,1,BardSpells)"
+          "selectors": "SelectSpells(858d4322-9e9f-4aa4-aada-9c68835dc6fe,1,1,BardMagicalSecrets);SelectSpells(00190001-0001-0001-0001-000000000005,1,1,BardSpells);SelectPassives(23b18ae7-dc54-5b4f-8939-a9af322e3cef,1,EpicBoon);SelectPassives(4ef62eb1-4735-5e99-8568-dc013af9df15,1,EpicBoonAbility)"
         },
         "20": {
           "boosts": "ActionResource(SpellSlot,1,7)",
@@ -235,7 +235,7 @@
         "19": {
           "boosts": "ActionResource(SpellSlot,1,6)",
           "passives": [],
-          "selectors": ""
+          "selectors": "SelectPassives(23b18ae7-dc54-5b4f-8939-a9af322e3cef,1,EpicBoon);SelectPassives(4ef62eb1-4735-5e99-8568-dc013af9df15,1,EpicBoonAbility)"
         },
         "20": {
           "boosts": "ActionResource(SpellSlot,1,7)",
@@ -292,7 +292,7 @@
         "19": {
           "boosts": "ActionResource(SpellSlot,1,6)",
           "passives": [],
-          "selectors": ""
+          "selectors": "SelectPassives(23b18ae7-dc54-5b4f-8939-a9af322e3cef,1,EpicBoon);SelectPassives(4ef62eb1-4735-5e99-8568-dc013af9df15,1,EpicBoonAbility)"
         },
         "20": {
           "boosts": "ActionResource(SpellSlot,1,7);ActionResource(WildShape,100,0)",
@@ -342,7 +342,7 @@
         "19": {
           "boosts": "",
           "passives": [],
-          "selectors": ""
+          "selectors": "SelectPassives(23b18ae7-dc54-5b4f-8939-a9af322e3cef,1,EpicBoon);SelectPassives(4ef62eb1-4735-5e99-8568-dc013af9df15,1,EpicBoonAbility)"
         },
         "20": {
           "boosts": "",
@@ -360,7 +360,7 @@
         "13": {
           "boosts": "",
           "passives": [],
-          "selectors": "SelectPassives(f2a3b4c5-d6e7-8f9a-0b1c-2d3e4f5a6b7c,1,TrickShots)"
+          "selectors": ""
         },
         "14": {
           "boosts": "",
@@ -382,7 +382,7 @@
         "17": {
           "boosts": "ActionResource(Risk,1,0)",
           "passives": [],
-          "selectors": "SelectPassives(f2a3b4c5-d6e7-8f9a-0b1c-2d3e4f5a6b7c,1,TrickShots)"
+          "selectors": ""
         },
         "18": {
           "boosts": "",
@@ -412,7 +412,7 @@
         "13": {
           "boosts": "ActionResource(SpellSlot,1,4)",
           "passives": [],
-          "selectors": "SelectSpells(a3b4c5d6-e7f8-9a0b-1c2d-3e4f5a6b7c8d,1,0,IllriggerSpellList)"
+          "selectors": ""
         },
         "14": {
           "boosts": "",
@@ -434,7 +434,7 @@
         "17": {
           "boosts": "ActionResource(SpellSlot,1,5)",
           "passives": [],
-          "selectors": "SelectSpells(a3b4c5d6-e7f8-9a0b-1c2d-3e4f5a6b7c8d,1,0,IllriggerSpellList)"
+          "selectors": ""
         },
         "18": {
           "boosts": "ActionResource(Seal,1,0)",
@@ -500,7 +500,7 @@
         "19": {
           "boosts": "ActionResource(KiPoint,1,0)",
           "passives": [],
-          "selectors": ""
+          "selectors": "SelectPassives(23b18ae7-dc54-5b4f-8939-a9af322e3cef,1,EpicBoon);SelectPassives(4ef62eb1-4735-5e99-8568-dc013af9df15,1,EpicBoonAbility)"
         },
         "20": {
           "boosts": "ActionResource(KiPoint,1,0);Ability(Dexterity,2,22);Ability(Wisdom,2,22)",
@@ -608,7 +608,7 @@
         "19": {
           "boosts": "ActionResource(SpellSlot,1,5)",
           "passives": [],
-          "selectors": ""
+          "selectors": "SelectPassives(23b18ae7-dc54-5b4f-8939-a9af322e3cef,1,EpicBoon);SelectPassives(4ef62eb1-4735-5e99-8568-dc013af9df15,1,EpicBoonAbility)"
         },
         "20": {
           "boosts": "",
@@ -658,7 +658,7 @@
         "19": {
           "boosts": "ActionResource(SpellSlot,1,5)",
           "passives": [],
-          "selectors": ""
+          "selectors": "SelectPassives(23b18ae7-dc54-5b4f-8939-a9af322e3cef,1,EpicBoon);SelectPassives(4ef62eb1-4735-5e99-8568-dc013af9df15,1,EpicBoonAbility)"
         },
         "20": {
           "boosts": "",
@@ -712,7 +712,7 @@
         "19": {
           "boosts": "",
           "passives": [],
-          "selectors": ""
+          "selectors": "SelectPassives(23b18ae7-dc54-5b4f-8939-a9af322e3cef,1,EpicBoon);SelectPassives(4ef62eb1-4735-5e99-8568-dc013af9df15,1,EpicBoonAbility)"
         },
         "20": {
           "boosts": "",
@@ -766,7 +766,7 @@
         "19": {
           "boosts": "ActionResource(SpellSlot,1,6);ActionResource(SorceryPoint,1,0)",
           "passives": [],
-          "selectors": ""
+          "selectors": "SelectPassives(23b18ae7-dc54-5b4f-8939-a9af322e3cef,1,EpicBoon);SelectPassives(4ef62eb1-4735-5e99-8568-dc013af9df15,1,EpicBoonAbility)"
         },
         "20": {
           "boosts": "ActionResource(SpellSlot,1,7);ActionResource(SorceryPoint,1,0)",
@@ -820,7 +820,7 @@
         "19": {
           "boosts": "",
           "passives": [],
-          "selectors": ""
+          "selectors": "SelectPassives(23b18ae7-dc54-5b4f-8939-a9af322e3cef,1,EpicBoon);SelectPassives(4ef62eb1-4735-5e99-8568-dc013af9df15,1,EpicBoonAbility)"
         },
         "20": {
           "boosts": "",
@@ -876,7 +876,7 @@
         "19": {
           "boosts": "ActionResource(SpellSlot,1,6)",
           "passives": [],
-          "selectors": "SelectSpells(ae03c25e-d0ac-55a5-899a-ae75a3b20c5a,2,0,WizardSpellList)"
+          "selectors": "SelectSpells(ae03c25e-d0ac-55a5-899a-ae75a3b20c5a,2,0,WizardSpellList);SelectPassives(23b18ae7-dc54-5b4f-8939-a9af322e3cef,1,EpicBoon);SelectPassives(4ef62eb1-4735-5e99-8568-dc013af9df15,1,EpicBoonAbility)"
         },
         "20": {
           "boosts": "ActionResource(SpellSlot,1,7);ActionResource(SignatureSpellCharge,2,0)",

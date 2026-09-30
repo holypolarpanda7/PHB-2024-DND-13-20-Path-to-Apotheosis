@@ -164,6 +164,7 @@ M.classes["Barbarian"] = {
         },
         [19] = {
             passives  = {},
+            selectors = "SelectPassives(23b18ae7-dc54-5b4f-8939-a9af322e3cef,1,EpicBoon);SelectPassives(4ef62eb1-4735-5e99-8568-dc013af9df15,1,EpicBoonAbility)",
         },
         [20] = {
             passives  = { "Barbarian_PrimalChampion" },
@@ -202,7 +203,7 @@ M.classes["Bard"] = {
         [19] = {
             passives  = {},
             boosts    = "ActionResource(SpellSlot,1,6)",
-            selectors = "SelectSpells(858d4322-9e9f-4aa4-aada-9c68835dc6fe,1,1,BardMagicalSecrets);SelectSpells(00190001-0001-0001-0001-000000000005,1,1,BardSpells)",
+            selectors = "SelectSpells(858d4322-9e9f-4aa4-aada-9c68835dc6fe,1,1,BardMagicalSecrets);SelectSpells(00190001-0001-0001-0001-000000000005,1,1,BardSpells);SelectPassives(23b18ae7-dc54-5b4f-8939-a9af322e3cef,1,EpicBoon);SelectPassives(4ef62eb1-4735-5e99-8568-dc013af9df15,1,EpicBoonAbility)",
         },
         [20] = {
             passives  = { "Bard_WordsOfCreation" },
@@ -245,6 +246,7 @@ M.classes["Cleric"] = {
         [19] = {
             passives  = {},
             boosts    = "ActionResource(SpellSlot,1,6)",
+            selectors = "SelectPassives(23b18ae7-dc54-5b4f-8939-a9af322e3cef,1,EpicBoon);SelectPassives(4ef62eb1-4735-5e99-8568-dc013af9df15,1,EpicBoonAbility)",
         },
         [20] = {
             passives  = { "Cleric_GreaterDivineIntervention" },
@@ -283,6 +285,7 @@ M.classes["Druid"] = {
         [19] = {
             passives  = {},
             boosts    = "ActionResource(SpellSlot,1,6)",
+            selectors = "SelectPassives(23b18ae7-dc54-5b4f-8939-a9af322e3cef,1,EpicBoon);SelectPassives(4ef62eb1-4735-5e99-8568-dc013af9df15,1,EpicBoonAbility)",
         },
         [20] = {
             passives  = { "Druid_Archdruid" },
@@ -315,6 +318,7 @@ M.classes["Fighter"] = {
         },
         [19] = {
             passives  = {},
+            selectors = "SelectPassives(23b18ae7-dc54-5b4f-8939-a9af322e3cef,1,EpicBoon);SelectPassives(4ef62eb1-4735-5e99-8568-dc013af9df15,1,EpicBoonAbility)",
         },
         [20] = {
             passives  = { "ExtraAttack_3" },
@@ -326,7 +330,6 @@ M.classes["Gunslinger"] = {
     levels = {
         [13] = {
             passives  = {},
-            selectors = "SelectPassives(f2a3b4c5-d6e7-8f9a-0b1c-2d3e4f5a6b7c,1,TrickShots)",
         },
         [14] = {
             passives  = {},
@@ -340,7 +343,6 @@ M.classes["Gunslinger"] = {
         [17] = {
             passives  = {},
             boosts    = "ActionResource(Risk,1,0)",
-            selectors = "SelectPassives(f2a3b4c5-d6e7-8f9a-0b1c-2d3e4f5a6b7c,1,TrickShots)",
         },
         [18] = {
             passives  = { "Gunslinger_ViciousIntent" },
@@ -360,7 +362,6 @@ M.classes["Illrigger"] = {
         [13] = {
             passives  = {},
             boosts    = "ActionResource(SpellSlot,1,4)",
-            selectors = "SelectSpells(a3b4c5d6-e7f8-9a0b-1c2d-3e4f5a6b7c8d,1,0,IllriggerSpellList)",
         },
         [14] = {
             passives  = {},
@@ -375,7 +376,6 @@ M.classes["Illrigger"] = {
         [17] = {
             passives  = {},
             boosts    = "ActionResource(SpellSlot,1,5)",
-            selectors = "SelectSpells(a3b4c5d6-e7f8-9a0b-1c2d-3e4f5a6b7c8d,1,0,IllriggerSpellList)",
         },
         [18] = {
             passives  = {},
@@ -420,6 +420,7 @@ M.classes["Monk"] = {
         [19] = {
             passives  = {},
             boosts    = "ActionResource(KiPoint,1,0)",
+            selectors = "SelectPassives(23b18ae7-dc54-5b4f-8939-a9af322e3cef,1,EpicBoon);SelectPassives(4ef62eb1-4735-5e99-8568-dc013af9df15,1,EpicBoonAbility)",
         },
         [20] = {
             passives  = { "Monk_BodyAndMind" },
@@ -485,6 +486,7 @@ M.classes["Paladin"] = {
         [19] = {
             passives  = {},
             boosts    = "ActionResource(SpellSlot,1,5)",
+            selectors = "SelectPassives(23b18ae7-dc54-5b4f-8939-a9af322e3cef,1,EpicBoon);SelectPassives(4ef62eb1-4735-5e99-8568-dc013af9df15,1,EpicBoonAbility)",
         },
         [20] = {
             passives  = {},
@@ -520,6 +522,7 @@ M.classes["Ranger"] = {
         [19] = {
             passives  = {},
             boosts    = "ActionResource(SpellSlot,1,5)",
+            selectors = "SelectPassives(23b18ae7-dc54-5b4f-8939-a9af322e3cef,1,EpicBoon);SelectPassives(4ef62eb1-4735-5e99-8568-dc013af9df15,1,EpicBoonAbility)",
         },
         [20] = {
             passives  = { "Ranger_FoeSlayer" },
@@ -549,6 +552,7 @@ M.classes["Rogue"] = {
         },
         [19] = {
             passives  = {},
+            selectors = "SelectPassives(23b18ae7-dc54-5b4f-8939-a9af322e3cef,1,EpicBoon);SelectPassives(4ef62eb1-4735-5e99-8568-dc013af9df15,1,EpicBoonAbility)",
         },
         [20] = {
             passives  = { "Rogue_StrokeOfLuck" },
@@ -589,6 +593,7 @@ M.classes["Sorcerer"] = {
         [19] = {
             passives  = {},
             boosts    = "ActionResource(SpellSlot,1,6);ActionResource(SorceryPoint,1,0)",
+            selectors = "SelectPassives(23b18ae7-dc54-5b4f-8939-a9af322e3cef,1,EpicBoon);SelectPassives(4ef62eb1-4735-5e99-8568-dc013af9df15,1,EpicBoonAbility)",
         },
         [20] = {
             passives  = { "Sorcerer_ArcaneApotheosis" },
@@ -623,6 +628,7 @@ M.classes["Warlock"] = {
         },
         [19] = {
             passives  = {},
+            selectors = "SelectPassives(23b18ae7-dc54-5b4f-8939-a9af322e3cef,1,EpicBoon);SelectPassives(4ef62eb1-4735-5e99-8568-dc013af9df15,1,EpicBoonAbility)",
         },
         [20] = {
             passives  = { "Warlock_EldritchMaster" },
@@ -663,7 +669,7 @@ M.classes["Wizard"] = {
         [19] = {
             passives  = {},
             boosts    = "ActionResource(SpellSlot,1,6)",
-            selectors = "SelectSpells(ae03c25e-d0ac-55a5-899a-ae75a3b20c5a,2,0,WizardSpellList)",
+            selectors = "SelectSpells(ae03c25e-d0ac-55a5-899a-ae75a3b20c5a,2,0,WizardSpellList);SelectPassives(23b18ae7-dc54-5b4f-8939-a9af322e3cef,1,EpicBoon);SelectPassives(4ef62eb1-4735-5e99-8568-dc013af9df15,1,EpicBoonAbility)",
         },
         [20] = {
             passives  = { "Wizard_SignatureSpells" },

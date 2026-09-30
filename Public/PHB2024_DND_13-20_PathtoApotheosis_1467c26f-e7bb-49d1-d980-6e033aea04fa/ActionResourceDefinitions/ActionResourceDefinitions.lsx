@@ -68,6 +68,63 @@
                     <attribute id="ShowOnActionResourcePanel" type="bool" value="true"/>
                     <attribute id="UUID" type="guid" value="a1b2c3d4-e5f6-4789-abcd-111111110005"/>
                 </node>
+                <!-- EPIC BOONS BEGIN (Scripts/gen_epic_boons.py) -->
+                <node id="ActionResourceDefinition">
+                    <attribute id="DisplayName" type="TranslatedString" handle="h15482309f08554edbea07d58e408474a" version="1"/>
+                    <attribute id="Description" type="TranslatedString" handle="h6245b9ed52ac59059e86986d6f116102" version="1"/>
+                    <attribute id="IsHidden" type="bool" value="false"/>
+                    <attribute id="MaxLevel" type="uint32" value="0"/>
+                    <attribute id="MaxValue" type="uint32" value="1"/>
+                    <attribute id="Name" type="FixedString" value="EpicBoonPeerlessAim"/>
+                    <attribute id="ReplenishType" type="FixedString" value="Turn"/>
+                    <attribute id="ShowOnActionResourcePanel" type="bool" value="true"/>
+                    <attribute id="UUID" type="guid" value="0e347075-6023-537b-b3f9-000621ec30b3"/>
+                </node>
+                <node id="ActionResourceDefinition">
+                    <attribute id="DisplayName" type="TranslatedString" handle="h48b7a83ba16e58eb9c23889d89d25232" version="1"/>
+                    <attribute id="Description" type="TranslatedString" handle="h7601ee3fcd035564bbf27f916d378ca0" version="1"/>
+                    <attribute id="IsHidden" type="bool" value="false"/>
+                    <attribute id="MaxLevel" type="uint32" value="0"/>
+                    <attribute id="MaxValue" type="uint32" value="1"/>
+                    <attribute id="Name" type="FixedString" value="EpicBoonFate"/>
+                    <attribute id="ReplenishType" type="FixedString" value="ShortRest"/>
+                    <attribute id="ShowOnActionResourcePanel" type="bool" value="true"/>
+                    <attribute id="UUID" type="guid" value="6fc4e5f6-29da-54af-89ca-4a9d6c4f447f"/>
+                </node>
+                <node id="ActionResourceDefinition">
+                    <attribute id="DisplayName" type="TranslatedString" handle="h579b05dfc9f25d17a24fae0497f8fb23" version="1"/>
+                    <attribute id="Description" type="TranslatedString" handle="h1e58882a05715bbdad3ea9f001344c45" version="1"/>
+                    <attribute id="IsHidden" type="bool" value="false"/>
+                    <attribute id="MaxLevel" type="uint32" value="0"/>
+                    <attribute id="MaxValue" type="uint32" value="2"/>
+                    <attribute id="Name" type="FixedString" value="EpicBoonEnergyChoice"/>
+                    <attribute id="ReplenishType" type="FixedString" value="Rest"/>
+                    <attribute id="ShowOnActionResourcePanel" type="bool" value="true"/>
+                    <attribute id="UUID" type="guid" value="3d378cf3-637b-53c0-adc0-d24dd48547d3"/>
+                </node>
+                <node id="ActionResourceDefinition">
+                    <attribute id="DisplayName" type="TranslatedString" handle="he96f1b1acf3d516f843db43794e4f157" version="1"/>
+                    <attribute id="Description" type="TranslatedString" handle="hea67f5a5c78c5253a22695d868137a32" version="1"/>
+                    <attribute id="IsHidden" type="bool" value="false"/>
+                    <attribute id="MaxLevel" type="uint32" value="0"/>
+                    <attribute id="MaxValue" type="uint32" value="10"/>
+                    <attribute id="Name" type="FixedString" value="EpicBoonRecoveryDie"/>
+                    <attribute id="ReplenishType" type="FixedString" value="Rest"/>
+                    <attribute id="ShowOnActionResourcePanel" type="bool" value="true"/>
+                    <attribute id="UUID" type="guid" value="99443056-6326-5dc6-bd32-376bc684ce83"/>
+                </node>
+                <node id="ActionResourceDefinition">
+                    <attribute id="DisplayName" type="TranslatedString" handle="h55eaa29ec16d5a66b3d1d3274e0fc5ab" version="1"/>
+                    <attribute id="Description" type="TranslatedString" handle="h5420cab05ba05802a240883286702b8f" version="1"/>
+                    <attribute id="IsHidden" type="bool" value="false"/>
+                    <attribute id="MaxLevel" type="uint32" value="0"/>
+                    <attribute id="MaxValue" type="uint32" value="1"/>
+                    <attribute id="Name" type="FixedString" value="EpicBoonExpertiseChoice"/>
+                    <attribute id="ReplenishType" type="FixedString" value="Never"/>
+                    <attribute id="ShowOnActionResourcePanel" type="bool" value="true"/>
+                    <attribute id="UUID" type="guid" value="ae43ccf5-8d1b-5311-8769-0cfd90b2b269"/>
+                </node>
+                <!-- EPIC BOONS END -->
             </children>
         </node>
     </region>
