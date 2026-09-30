@@ -1622,8 +1622,14 @@ M.subclasses["Shadowmaster"] = {
 M.subclasses["Soulknife"] = {
     parent = "Rogue",
     levels = {
+        [9] = {
+            passives  = {},
+        },
         [11] = {
             passives  = {},
+        },
+        [13] = {
+            passives  = { "Soulknife_9_PsychicVeil" },
         },
         [17] = {
             passives  = { "SoulKnife_11_RendMind" },

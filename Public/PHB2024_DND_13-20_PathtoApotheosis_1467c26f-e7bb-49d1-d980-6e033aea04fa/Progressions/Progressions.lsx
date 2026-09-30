@@ -1244,6 +1244,14 @@
                 <!-- SOULKNIFE -->
                 <!-- Remove Rend Mind at level 11 (was granted early) -->
                 <node id="Progression">
+                    <attribute id="Level" type="uint8" value="9"/>
+                    <attribute id="Name" type="LSString" value="Soulknife"/>
+                    <attribute id="PassivesRemoved" type="LSString" value="Soulknife_9_PsychicVeil"/>
+                    <attribute id="ProgressionType" type="uint8" value="1"/>
+                    <attribute id="TableUUID" type="guid" value="abc7b271-82a1-4139-9653-4c90a7984a38"/>
+                    <attribute id="UUID" type="guid" value="03030303-0303-0303-0303-030303030304"/>
+                </node>
+                <node id="Progression">
                     <attribute id="Level" type="uint8" value="11"/>
                     <attribute id="Name" type="LSString" value="Soulknife"/>
                     <attribute id="PassivesRemoved" type="LSString" value="SoulKnife_11_RendMind"/>
@@ -1253,6 +1261,14 @@
                 </node>
                 <!-- Soulknife Level 13: Psychic Veil -->
                 <!-- Soulknife Level 17: Rend Mind (correct level) -->
+                <node id="Progression">
+                    <attribute id="Level" type="uint8" value="13"/>
+                    <attribute id="Name" type="LSString" value="Soulknife"/>
+                    <attribute id="PassivesAdded" type="LSString" value="Soulknife_9_PsychicVeil"/>
+                    <attribute id="ProgressionType" type="uint8" value="1"/>
+                    <attribute id="TableUUID" type="guid" value="abc7b271-82a1-4139-9653-4c90a7984a38"/>
+                    <attribute id="UUID" type="guid" value="03030303-0303-0303-0303-030303030305"/>
+                </node>
                 <node id="Progression">
                     <attribute id="Level" type="uint8" value="17"/>
                     <attribute id="Name" type="LSString" value="Soulknife"/>
