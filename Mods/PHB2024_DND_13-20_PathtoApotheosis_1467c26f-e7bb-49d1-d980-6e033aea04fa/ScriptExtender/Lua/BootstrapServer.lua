@@ -144,6 +144,78 @@ Ext.Osiris.RegisterListener("LongRestFinished", 0, "after", function()
 end)
 
 -- =====================================================================
+-- Barbarian feature "Persistent Rage" (PHB 2024, level 15):
+--   When you roll Initiative you regain all expended uses of Rage; once
+--   per Long Rest. (The "Rage lasts 10 minutes" half is pure stats: the
+--   passive keeps RAGE_STOP_REMOVE on the barbarian.)
+-- Stats can't express "only if a use was spent", so it's scripted:
+-- EnteredCombat -> if the passive is present, Rage < max and the
+-- APO_PERSISTENT_RAGE_USED marker is absent, apply the refill status and
+-- set the marker. LongRestFinished clears the marker.
+-- =====================================================================
+local PERSISTENT_RAGE_PASSIVE = "Barbarian_PersistentRage"
+local PERSISTENT_RAGE_USED = "APO_PERSISTENT_RAGE_USED"
+local PERSISTENT_RAGE_RESTORE = "APO_PERSISTENT_RAGE_RESTORE"
+local rageResourceUUID = nil
+
+local function getRageResourceUUID()
+    if rageResourceUUID then return rageResourceUUID end
+    for _, uuid in pairs(Ext.StaticData.GetAll("ActionResource")) do
+        local res = Ext.StaticData.Get(uuid, "ActionResource")
+        if res and res.Name == "Rage" then
+            rageResourceUUID = uuid
+            break
+        end
+    end
+    return rageResourceUUID
+end
+
+--- Current and max Rage uses, or nil if the character has no Rage resource.
+local function getRageUses(character)
+    local uuid = getRageResourceUUID()
+    local entity = Ext.Entity.Get(character)
+    if not uuid or not entity or not entity.ActionResources then return nil end
+    local entries = entity.ActionResources.Resources[uuid]
+    if not entries or not entries[1] then return nil end
+    return entries[1].Amount, entries[1].MaxAmount
+end
+
+--- Returns true if Rage was refilled, otherwise false plus the reason.
+local function tryPersistentRage(character)
+    if Osi.HasPassive(character, PERSISTENT_RAGE_PASSIVE) ~= 1 then return false, "no passive" end
+    if Osi.HasActiveStatus(character, PERSISTENT_RAGE_USED) == 1 then return false, "already used this long rest" end
+    local amount, max = getRageUses(character)
+    if not amount then return false, "no Rage resource" end
+    if amount >= max then return false, "no expended uses" end
+    Osi.ApplyStatus(character, PERSISTENT_RAGE_RESTORE, 0, 1)
+    Osi.ApplyStatus(character, PERSISTENT_RAGE_USED, -1, 1)
+    Log.Info("Persistent Rage: " .. tostring(character) .. " regained Rage (" .. tostring(amount) .. "/" .. tostring(max) .. " -> full)")
+    return true
+end
+Apotheosis.Features = Apotheosis.Features or {}
+Apotheosis.Features.TryPersistentRage = tryPersistentRage
+Apotheosis.Features.GetRageUses = getRageUses
+Apotheosis.Features.GetRageResourceUUID = getRageResourceUUID
+
+Ext.Osiris.RegisterListener("EnteredCombat", 2, "after", function(object, _)
+    local ok, err = pcall(tryPersistentRage, object)
+    if not ok then Log.Error("Persistent Rage error: " .. tostring(err)) end
+end)
+
+Ext.Osiris.RegisterListener("LongRestFinished", 0, "after", function()
+    local ok, err = pcall(function()
+        local players = Osi.DB_Players:Get(nil)
+        if not players then return end
+        for _, row in pairs(players) do
+            if Osi.HasActiveStatus(row[1], PERSISTENT_RAGE_USED) == 1 then
+                Osi.RemoveStatus(row[1], PERSISTENT_RAGE_USED)
+            end
+        end
+    end)
+    if not ok then Log.Error("Persistent Rage long-rest reset error: " .. tostring(err)) end
+end)
+
+-- =====================================================================
 -- Enchanter feature "Alter Memories" - Modify Memory aura (PHB 2024,
 -- Wizard subclass, level 14).
 --

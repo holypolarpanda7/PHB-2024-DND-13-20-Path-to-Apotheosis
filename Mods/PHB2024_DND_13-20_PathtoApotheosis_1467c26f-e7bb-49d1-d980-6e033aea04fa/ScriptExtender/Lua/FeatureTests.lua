@@ -472,6 +472,46 @@ FT.Register("DeadThree_UnholyInfiltration", {
     end,
 })
 
+-- Barbarian L15: self only. Checks both halves of Persistent Rage: the
+-- permanent RAGE_STOP_REMOVE marker, and the scripted Initiative refill
+-- (spend one Rage use, call the feature, expect full Rage + the marker).
+FT.Register("Barbarian_PersistentRage", {
+    mode = "auto",
+    target = "none",
+    note = "RAGE_STOP_REMOVE must be present; after spending 1 Rage, TryPersistentRage must refill to max and set APO_PERSISTENT_RAGE_USED",
+    run = function(ctx, finish)
+        local F = Apotheosis and Apotheosis.Features
+        if not (F and F.TryPersistentRage and F.GetRageUses) then
+            finish(false, "Apotheosis.Features.TryPersistentRage not exposed")
+            return
+        end
+        FT.ExpectStatus(ctx.host, "RAGE_STOP_REMOVE", 3000, function(found)
+            if not found then
+                finish(false, "RAGE_STOP_REMOVE missing - Rage would still end unless extended")
+                return
+            end
+            Osi.RemoveStatus(ctx.host, "APO_PERSISTENT_RAGE_USED")
+            local amount, max = F.GetRageUses(ctx.host)
+            if not amount or max < 1 then
+                finish(false, "host has no Rage resource")
+                return
+            end
+            local entity = Ext.Entity.Get(ctx.host)
+            entity.ActionResources.Resources[F.GetRageResourceUUID()][1].Amount = max - 1
+            entity:Replicate("ActionResources")
+            local refilled, why = F.TryPersistentRage(ctx.host)
+            if not refilled then
+                finish(false, "TryPersistentRage did not refill: " .. tostring(why))
+                return
+            end
+            FT.ExpectStatus(ctx.host, "APO_PERSISTENT_RAGE_USED", 3000, function(marked)
+                local now = F.GetRageUses(ctx.host)
+                finish(marked and now == max, string.format("used-marker=%s rage=%s/%s", tostring(marked), tostring(now), tostring(max)))
+            end)
+        end)
+    end,
+})
+
 -- Manual-only entries: reaction prompts / UI flows that can't be safely
 -- automated. Each names the target to stage with !apospawn.
 FT.Register("Berserker_10_Retaliation", {

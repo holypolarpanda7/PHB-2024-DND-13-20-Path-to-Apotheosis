@@ -26,6 +26,7 @@ neutral `a66b2d45-…`.
 
 | Passive | Scenario | Target | Why this target |
 | --- | --- | --- | --- |
+| `Barbarian_PersistentRage` | host has RAGE_STOP_REMOVE; spend 1 Rage → `TryPersistentRage` refills to max and sets APO_PERSISTENT_RAGE_USED | none (self) | both halves of the feature are on the barbarian; refill is scripted (EnteredCombat) |
 | `WinterWalker_15_FrozenHaunt` | host casts Ray of Frost → target gains CHILLED | 1× hostile wolf | functor condition `Enemy(context.Target)` — friendlies can never chill |
 | `NobleGenies_15_ElementalRebuke` | attacker Fire Bolts host → attacker gains ELEMENTAL_REBUKE_HIT | 1× hostile wolf | real scenario is an enemy striking the sorcerer; listener itself is faction-agnostic, so passing an ally GUID tests without combat |
 | `Enchanter_14_AlterMemories` | host casts Modify Memory aura with two enemies in 6m → BOTH gain MM_HOLD/MM_SLOW | 2× hostile **living** wolves | aura marks *enemies* only; MM_HOLD is paralyze-type, undead could resist and corrupt the cap=2 assertion |

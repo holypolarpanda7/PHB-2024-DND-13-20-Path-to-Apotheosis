@@ -129,6 +129,21 @@ data "RemoveEvents" "OnStatusRemoved"
 data "StatusPropertyFlags" "DisableOverhead"
 
 
+// Persistent Rage (Barbarian L15): instant refill of all Rage uses, and the once-per-long-rest
+// marker. Both are applied by BootstrapServer.lua on rolling Initiative.
+new entry "APO_PERSISTENT_RAGE_RESTORE"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "hprg00000000000000000000000000001;1"
+data "OnApplyFunctors" "RestoreResource(Rage,10,0)"
+data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator"
+
+new entry "APO_PERSISTENT_RAGE_USED"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "hprg00000000000000000000000000001;1"
+data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator"
+
 // ==============================================================================
 // WILD MAGIC BARBARIAN - Controlled Surge Status Effects (Level 14)
 // ==============================================================================
