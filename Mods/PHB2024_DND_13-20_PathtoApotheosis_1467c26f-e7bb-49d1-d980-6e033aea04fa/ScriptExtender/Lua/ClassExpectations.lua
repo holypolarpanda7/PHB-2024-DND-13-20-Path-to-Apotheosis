@@ -105,11 +105,10 @@ M.classes["Artificer"] = {
         [13] = {
             passives  = {},
             boosts    = "ActionResource(SpellSlot,1,4)",
-            selectors = "SelectSpells(d0e1f2a3-b4c5-6d7e-8f9a-0b1c2d3e4f5a,1,0,ArtificerSpellList)",
+            selectors = "AddSpells(ee537fcf-8372-502b-ba07-a0887575e49f)",
         },
         [14] = {
             passives  = { "Artificer_MagicItemSavant" },
-            selectors = "SelectPassives(e1f2a3b4-c5d6-7e8f-9a0b-1c2d3e4f5a6b,1,ArtificerInfusions)",
         },
         [15] = {
             passives  = {},
@@ -120,13 +119,11 @@ M.classes["Artificer"] = {
         },
         [17] = {
             passives  = {},
-            boosts    = "ActionResource(SpellSlot,1,5)",
-            selectors = "SelectSpells(d0e1f2a3-b4c5-6d7e-8f9a-0b1c2d3e4f5a,1,0,ArtificerSpellList)",
+            boosts    = "ActionResource(SpellSlot,1,4);ActionResource(SpellSlot,1,5)",
+            selectors = "AddSpells(dfb36751-25c2-59d2-a021-69cdac534724)",
         },
         [18] = {
             passives  = { "Artificer_MagicItemMaster" },
-            boosts    = "ActionResource(SpellSlot,1,5)",
-            selectors = "SelectPassives(e1f2a3b4-c5d6-7e8f-9a0b-1c2d3e4f5a6b,1,ArtificerInfusions)",
         },
         [19] = {
             passives  = {},
@@ -465,7 +462,7 @@ M.classes["Paladin"] = {
         [13] = {
             passives  = {},
             boosts    = "ActionResource(SpellSlot,1,4)",
-            selectors = "SelectSpells(4a614e36-b7af-4e84-9d44-7c6ab4ad884f,1,0,PaladinSpellList)",
+            selectors = "AddSpells(b88aff43-b75a-5947-b283-3c6ca5bf2591)",
         },
         [14] = {
             passives  = { "Paladin_CleansingTouch" },
@@ -480,13 +477,14 @@ M.classes["Paladin"] = {
         [17] = {
             passives  = {},
             boosts    = "ActionResource(SpellSlot,1,4);ActionResource(SpellSlot,1,5)",
+            selectors = "AddSpells(bce36493-022a-5a20-8b8d-fd97f89be9a7)",
         },
         [18] = {
             passives  = { "Paladin_Aura30ft" },
-            boosts    = "ActionResource(SpellSlot,1,5)",
         },
         [19] = {
             passives  = {},
+            boosts    = "ActionResource(SpellSlot,1,5)",
         },
         [20] = {
             passives  = {},
@@ -499,11 +497,10 @@ M.classes["Ranger"] = {
         [13] = {
             passives  = { "Ranger_RelentlessHunter" },
             boosts    = "ActionResource(SpellSlot,1,4)",
-            selectors = "SelectSpells(8a34b59f-b7ac-4283-a4cb-2c5e4e1f2e91,1,0,RangerSpellList)",
+            selectors = "AddSpells(6e77d7ac-4b79-5691-bde3-357017ad4cdc)",
         },
         [14] = {
             passives  = {},
-            selectors = "SelectPassives(eb28ac6c-0a84-4d94-bce6-a2c2caa9ae56,1,FavoredEnemy)",
         },
         [15] = {
             passives  = {},
@@ -515,13 +512,14 @@ M.classes["Ranger"] = {
         [17] = {
             passives  = {},
             boosts    = "ActionResource(SpellSlot,1,4);ActionResource(SpellSlot,1,5)",
+            selectors = "AddSpells(6b625ece-306d-576a-9fa2-896d884e4e05)",
         },
         [18] = {
             passives  = { "Ranger_FeralSenses" },
-            boosts    = "ActionResource(SpellSlot,1,5)",
         },
         [19] = {
             passives  = {},
+            boosts    = "ActionResource(SpellSlot,1,5)",
         },
         [20] = {
             passives  = { "Ranger_FoeSlayer" },
@@ -637,35 +635,40 @@ M.classes["Wizard"] = {
         [13] = {
             passives  = { "UnlockedSpellSlotLevel7" },
             boosts    = "ActionResource(SpellSlot,1,7)",
-            selectors = "SelectSpells(00170001-0001-0001-0001-000000000001,1,0,WizardSLevel7);SelectSpells(bc917f22-7f71-4a25-9a77-7d2f91a96a65,1,0,WizardSpellList)",
+            selectors = "SelectSpells(aa384b4e-36b4-5b2d-93b3-c1063ba2ffb2,2,0,WizardSpellList)",
         },
         [14] = {
             passives  = {},
+            selectors = "SelectSpells(aa384b4e-36b4-5b2d-93b3-c1063ba2ffb2,2,0,WizardSpellList)",
         },
         [15] = {
             passives  = { "UnlockedSpellSlotLevel8" },
             boosts    = "ActionResource(SpellSlot,1,8)",
-            selectors = "SelectSpells(bc917f22-7f71-4a25-9a77-7d2f91a96a65,1,0,WizardSpellList);SelectSpells(00180001-0001-0001-0001-000000000001,1,0,WizardSLevel8)",
+            selectors = "SelectSpells(f0f0369f-fef5-5399-92c1-0a02c56c93bd,2,0,WizardSpellList)",
         },
         [16] = {
             passives  = {},
+            selectors = "SelectSpells(f0f0369f-fef5-5399-92c1-0a02c56c93bd,2,0,WizardSpellList)",
         },
         [17] = {
             passives  = { "UnlockedSpellSlotLevel9" },
             boosts    = "ActionResource(SpellSlot,1,9)",
-            selectors = "SelectSpells(00190001-0001-0001-0001-000000000001,1,0,WizardSLevel9);SelectSpells(bc917f22-7f71-4a25-9a77-7d2f91a96a65,1,0,WizardSpellList)",
+            selectors = "SelectSpells(ae03c25e-d0ac-55a5-899a-ae75a3b20c5a,2,0,WizardSpellList)",
         },
         [18] = {
             passives  = { "SpellMastery" },
             boosts    = "ActionResource(SpellSlot,1,5)",
+            selectors = "SelectSpells(ae03c25e-d0ac-55a5-899a-ae75a3b20c5a,2,0,WizardSpellList)",
         },
         [19] = {
             passives  = {},
             boosts    = "ActionResource(SpellSlot,1,6)",
+            selectors = "SelectSpells(ae03c25e-d0ac-55a5-899a-ae75a3b20c5a,2,0,WizardSpellList)",
         },
         [20] = {
             passives  = { "Wizard_SignatureSpells" },
             boosts    = "ActionResource(SpellSlot,1,7);ActionResource(SignatureSpellCharge,2,0)",
+            selectors = "SelectSpells(ae03c25e-d0ac-55a5-899a-ae75a3b20c5a,2,0,WizardSpellList)",
         },
     },
 }
@@ -830,11 +833,10 @@ M.subclasses["BattleMaster"] = {
     levels = {
         [15] = {
             passives  = { "BattleMaster_Relentless" },
+            selectors = "SelectPassives(e51a2ef5-3663-43f9-8e74-5e28520323f1,2,Maneuvers)",
         },
         [18] = {
-            passives  = {},
-            boosts    = "ActionResource(SuperiorityDie,1,0)",
-            selectors = "SelectPassives(a1b2c3d4-e5f6-7890-abcd-ef1234567890,1,CombatManeuvers)",
+            passives  = { "BattleMaster_UltimateCombatSuperiority" },
         },
     },
 }
@@ -1225,7 +1227,6 @@ M.subclasses["GlamourCollege"] = {
         },
         [14] = {
             passives  = {},
-            selectors = "AddSpells(8ad26d20-d989-4195-9af0-818a86dfed07,,,,AlwaysPrepared)",
         },
     },
 }

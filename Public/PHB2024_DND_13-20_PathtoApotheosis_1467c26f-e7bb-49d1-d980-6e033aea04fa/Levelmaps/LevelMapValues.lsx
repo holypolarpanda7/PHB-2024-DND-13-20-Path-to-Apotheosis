@@ -21,6 +21,34 @@
                     <attribute id="Name" type="FixedString" value="StandardProficiencyBonusScale"/>
                     <attribute id="UUID" type="guid" value="265d62c4-9b82-4ed6-9a86-da675b4ef8fe"/>
                 </node>
+                <!-- ==================== SUPERIORITY DIE (Battle Master) ====================
+                     Base game: d8 at Fighter 1-9, d10 from 10. PHB 2024 Battle Master 18 (Ultimate
+                     Combat Superiority): d12. Same UUID as the base series so this overrides it. -->
+                <node id="LevelMapSeries">
+                    <attribute id="Level1" type="LSString" value="1d8"/>
+                    <attribute id="Level2" type="LSString" value="1d8"/>
+                    <attribute id="Level3" type="LSString" value="1d8"/>
+                    <attribute id="Level4" type="LSString" value="1d8"/>
+                    <attribute id="Level5" type="LSString" value="1d8"/>
+                    <attribute id="Level6" type="LSString" value="1d8"/>
+                    <attribute id="Level7" type="LSString" value="1d8"/>
+                    <attribute id="Level8" type="LSString" value="1d8"/>
+                    <attribute id="Level9" type="LSString" value="1d8"/>
+                    <attribute id="Level10" type="LSString" value="1d10"/>
+                    <attribute id="Level11" type="LSString" value="1d10"/>
+                    <attribute id="Level12" type="LSString" value="1d10"/>
+                    <attribute id="Level13" type="LSString" value="1d10"/>
+                    <attribute id="Level14" type="LSString" value="1d10"/>
+                    <attribute id="Level15" type="LSString" value="1d10"/>
+                    <attribute id="Level16" type="LSString" value="1d10"/>
+                    <attribute id="Level17" type="LSString" value="1d10"/>
+                    <attribute id="Level18" type="LSString" value="1d12"/>
+                    <attribute id="Level19" type="LSString" value="1d12"/>
+                    <attribute id="Level20" type="LSString" value="1d12"/>
+                    <attribute id="Name" type="FixedString" value="SuperiorityDie"/>
+                    <attribute id="PreferredClassUUID" type="guid" value="721dfac3-92d4-41f5-b773-b7072a86232f"/>
+                    <attribute id="UUID" type="guid" value="f81e8e9e-ffe0-4173-83d6-7cd8cf718477"/>
+                </node>
             </children>
         </node>
     </region>

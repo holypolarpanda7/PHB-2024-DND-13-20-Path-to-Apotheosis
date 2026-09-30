@@ -520,6 +520,16 @@ data "Icon" "PassiveFeature_SuperiorityDice"
 data "Properties" "Highlighted"
 data "Boosts" "ActionResource(SuperiorityDie,1,0)"
 
+// PHB 2024 Battle Master 18: superiority dice become d12 (SuperiorityDie level map, Levelmaps/LevelMapValues.lsx).
+// Display marker, like dnd55e's ImprovedCombatSuperiority at 10.
+new entry "BattleMaster_UltimateCombatSuperiority"
+type "PassiveData"
+using "ImprovedCombatSuperiority"
+data "DisplayName" "haf2e2268d70259de87187707a9a788b1"
+data "Description" "h377156c269a45026ad5be4e7de72c5f4"
+data "DescriptionParams" "1d12"
+data "Properties" "Highlighted"
+
 new entry "PsiWarrior_TelekineticMaster"
 type "PassiveData"
 data "DisplayName" "hf7b8c9d0a0000000000000000000065"

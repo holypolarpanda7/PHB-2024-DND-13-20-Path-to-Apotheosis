@@ -23,14 +23,14 @@
         "13": {
           "boosts": "ActionResource(SpellSlot,1,4)",
           "passives": [],
-          "selectors": "SelectSpells(d0e1f2a3-b4c5-6d7e-8f9a-0b1c2d3e4f5a,1,0,ArtificerSpellList)"
+          "selectors": "AddSpells(ee537fcf-8372-502b-ba07-a0887575e49f)"
         },
         "14": {
           "boosts": "",
           "passives": [
             "Artificer_MagicItemSavant"
           ],
-          "selectors": "SelectPassives(e1f2a3b4-c5d6-7e8f-9a0b-1c2d3e4f5a6b,1,ArtificerInfusions)"
+          "selectors": ""
         },
         "15": {
           "boosts": "ActionResource(SpellSlot,1,4)",
@@ -43,16 +43,16 @@
           "selectors": ""
         },
         "17": {
-          "boosts": "ActionResource(SpellSlot,1,5)",
+          "boosts": "ActionResource(SpellSlot,1,4);ActionResource(SpellSlot,1,5)",
           "passives": [],
-          "selectors": "SelectSpells(d0e1f2a3-b4c5-6d7e-8f9a-0b1c2d3e4f5a,1,0,ArtificerSpellList)"
+          "selectors": "AddSpells(dfb36751-25c2-59d2-a021-69cdac534724)"
         },
         "18": {
-          "boosts": "ActionResource(SpellSlot,1,5)",
+          "boosts": "",
           "passives": [
             "Artificer_MagicItemMaster"
           ],
-          "selectors": "SelectPassives(e1f2a3b4-c5d6-7e8f-9a0b-1c2d3e4f5a6b,1,ArtificerInfusions)"
+          "selectors": ""
         },
         "19": {
           "boosts": "ActionResource(SpellSlot,1,5)",
@@ -574,7 +574,7 @@
         "13": {
           "boosts": "ActionResource(SpellSlot,1,4)",
           "passives": [],
-          "selectors": "SelectSpells(4a614e36-b7af-4e84-9d44-7c6ab4ad884f,1,0,PaladinSpellList)"
+          "selectors": "AddSpells(b88aff43-b75a-5947-b283-3c6ca5bf2591)"
         },
         "14": {
           "boosts": "",
@@ -596,17 +596,17 @@
         "17": {
           "boosts": "ActionResource(SpellSlot,1,4);ActionResource(SpellSlot,1,5)",
           "passives": [],
-          "selectors": ""
+          "selectors": "AddSpells(bce36493-022a-5a20-8b8d-fd97f89be9a7)"
         },
         "18": {
-          "boosts": "ActionResource(SpellSlot,1,5)",
+          "boosts": "",
           "passives": [
             "Paladin_Aura30ft"
           ],
           "selectors": ""
         },
         "19": {
-          "boosts": "",
+          "boosts": "ActionResource(SpellSlot,1,5)",
           "passives": [],
           "selectors": ""
         },
@@ -626,12 +626,12 @@
           "passives": [
             "Ranger_RelentlessHunter"
           ],
-          "selectors": "SelectSpells(8a34b59f-b7ac-4283-a4cb-2c5e4e1f2e91,1,0,RangerSpellList)"
+          "selectors": "AddSpells(6e77d7ac-4b79-5691-bde3-357017ad4cdc)"
         },
         "14": {
           "boosts": "",
           "passives": [],
-          "selectors": "SelectPassives(eb28ac6c-0a84-4d94-bce6-a2c2caa9ae56,1,FavoredEnemy)"
+          "selectors": ""
         },
         "15": {
           "boosts": "ActionResource(SpellSlot,1,4)",
@@ -646,17 +646,17 @@
         "17": {
           "boosts": "ActionResource(SpellSlot,1,4);ActionResource(SpellSlot,1,5)",
           "passives": [],
-          "selectors": ""
+          "selectors": "AddSpells(6b625ece-306d-576a-9fa2-896d884e4e05)"
         },
         "18": {
-          "boosts": "ActionResource(SpellSlot,1,5)",
+          "boosts": "",
           "passives": [
             "Ranger_FeralSenses"
           ],
           "selectors": ""
         },
         "19": {
-          "boosts": "",
+          "boosts": "ActionResource(SpellSlot,1,5)",
           "passives": [],
           "selectors": ""
         },
@@ -840,50 +840,50 @@
           "passives": [
             "UnlockedSpellSlotLevel7"
           ],
-          "selectors": "SelectSpells(00170001-0001-0001-0001-000000000001,1,0,WizardSLevel7);SelectSpells(bc917f22-7f71-4a25-9a77-7d2f91a96a65,1,0,WizardSpellList)"
+          "selectors": "SelectSpells(aa384b4e-36b4-5b2d-93b3-c1063ba2ffb2,2,0,WizardSpellList)"
         },
         "14": {
           "boosts": "",
           "passives": [],
-          "selectors": ""
+          "selectors": "SelectSpells(aa384b4e-36b4-5b2d-93b3-c1063ba2ffb2,2,0,WizardSpellList)"
         },
         "15": {
           "boosts": "ActionResource(SpellSlot,1,8)",
           "passives": [
             "UnlockedSpellSlotLevel8"
           ],
-          "selectors": "SelectSpells(bc917f22-7f71-4a25-9a77-7d2f91a96a65,1,0,WizardSpellList);SelectSpells(00180001-0001-0001-0001-000000000001,1,0,WizardSLevel8)"
+          "selectors": "SelectSpells(f0f0369f-fef5-5399-92c1-0a02c56c93bd,2,0,WizardSpellList)"
         },
         "16": {
           "boosts": "",
           "passives": [],
-          "selectors": ""
+          "selectors": "SelectSpells(f0f0369f-fef5-5399-92c1-0a02c56c93bd,2,0,WizardSpellList)"
         },
         "17": {
           "boosts": "ActionResource(SpellSlot,1,9)",
           "passives": [
             "UnlockedSpellSlotLevel9"
           ],
-          "selectors": "SelectSpells(00190001-0001-0001-0001-000000000001,1,0,WizardSLevel9);SelectSpells(bc917f22-7f71-4a25-9a77-7d2f91a96a65,1,0,WizardSpellList)"
+          "selectors": "SelectSpells(ae03c25e-d0ac-55a5-899a-ae75a3b20c5a,2,0,WizardSpellList)"
         },
         "18": {
           "boosts": "ActionResource(SpellSlot,1,5)",
           "passives": [
             "SpellMastery"
           ],
-          "selectors": ""
+          "selectors": "SelectSpells(ae03c25e-d0ac-55a5-899a-ae75a3b20c5a,2,0,WizardSpellList)"
         },
         "19": {
           "boosts": "ActionResource(SpellSlot,1,6)",
           "passives": [],
-          "selectors": ""
+          "selectors": "SelectSpells(ae03c25e-d0ac-55a5-899a-ae75a3b20c5a,2,0,WizardSpellList)"
         },
         "20": {
           "boosts": "ActionResource(SpellSlot,1,7);ActionResource(SignatureSpellCharge,2,0)",
           "passives": [
             "Wizard_SignatureSpells"
           ],
-          "selectors": ""
+          "selectors": "SelectSpells(ae03c25e-d0ac-55a5-899a-ae75a3b20c5a,2,0,WizardSpellList)"
         }
       },
       "parent": null,
@@ -1210,12 +1210,14 @@
           "passives": [
             "BattleMaster_Relentless"
           ],
-          "selectors": ""
+          "selectors": "SelectPassives(e51a2ef5-3663-43f9-8e74-5e28520323f1,2,Maneuvers)"
         },
         "18": {
-          "boosts": "ActionResource(SuperiorityDie,1,0)",
-          "passives": [],
-          "selectors": "SelectPassives(a1b2c3d4-e5f6-7890-abcd-ef1234567890,1,CombatManeuvers)"
+          "boosts": "",
+          "passives": [
+            "BattleMaster_UltimateCombatSuperiority"
+          ],
+          "selectors": ""
         }
       },
       "parent": "Fighter",
@@ -1805,7 +1807,7 @@
         "14": {
           "boosts": "",
           "passives": [],
-          "selectors": "AddSpells(8ad26d20-d989-4195-9af0-818a86dfed07,,,,AlwaysPrepared)"
+          "selectors": ""
         }
       },
       "parent": "Bard",

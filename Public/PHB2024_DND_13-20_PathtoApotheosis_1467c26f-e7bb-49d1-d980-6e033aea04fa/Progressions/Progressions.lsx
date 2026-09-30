@@ -291,7 +291,7 @@
                     <attribute id="Level" type="uint8" value="13"/>
                     <attribute id="Name" type="LSString" value="Paladin"/>
                     <attribute id="ProgressionType" type="uint8" value="0"/>
-                    <attribute id="Selectors" type="LSString" value="SelectSpells(4a614e36-b7af-4e84-9d44-7c6ab4ad884f,1,0,PaladinSpellList)"/>
+                    <attribute id="Selectors" type="LSString" value="AddSpells(b88aff43-b75a-5947-b283-3c6ca5bf2591)"/>
                     <attribute id="TableUUID" type="guid" value="ba2afe85-acba-4ea1-a238-2b4543f47821"/>
                     <attribute id="UUID" type="guid" value="44444444-4444-4444-4444-444444444401"/>
                 </node>
@@ -324,11 +324,11 @@
                     <attribute id="Level" type="uint8" value="17"/>
                     <attribute id="Name" type="LSString" value="Paladin"/>
                     <attribute id="ProgressionType" type="uint8" value="0"/>
+                    <attribute id="Selectors" type="LSString" value="AddSpells(bce36493-022a-5a20-8b8d-fd97f89be9a7)"/>
                     <attribute id="TableUUID" type="guid" value="ba2afe85-acba-4ea1-a238-2b4543f47821"/>
                     <attribute id="UUID" type="guid" value="44444444-4444-4444-4444-444444444405"/>
                 </node>
                 <node id="Progression">
-                    <attribute id="Boosts" type="LSString" value="ActionResource(SpellSlot,1,5)"/>
                     <attribute id="Level" type="uint8" value="18"/>
                     <attribute id="Name" type="LSString" value="Paladin"/>
                     <attribute id="PassivesAdded" type="LSString" value="Paladin_Aura30ft"/>
@@ -342,6 +342,7 @@
                     <attribute id="Level" type="uint8" value="19"/>
                     <attribute id="Name" type="LSString" value="Paladin"/>
                     <attribute id="ProgressionType" type="uint8" value="0"/>
+                    <attribute id="Boosts" type="LSString" value="ActionResource(SpellSlot,1,5)"/>
                     <attribute id="TableUUID" type="guid" value="ba2afe85-acba-4ea1-a238-2b4543f47821"/>
                     <attribute id="UUID" type="guid" value="44444444-4444-4444-4444-444444444407"/>
                 </node>
@@ -360,7 +361,7 @@
                     <attribute id="Name" type="LSString" value="Ranger"/>
                     <attribute id="PassivesAdded" type="LSString" value="Ranger_RelentlessHunter"/>
                     <attribute id="ProgressionType" type="uint8" value="0"/>
-                    <attribute id="Selectors" type="LSString" value="SelectSpells(8a34b59f-b7ac-4283-a4cb-2c5e4e1f2e91,1,0,RangerSpellList)"/>
+                    <attribute id="Selectors" type="LSString" value="AddSpells(6e77d7ac-4b79-5691-bde3-357017ad4cdc)"/>
                     <attribute id="TableUUID" type="guid" value="8f068974-ed32-43fc-a9d9-028be1c01a9c"/>
                     <attribute id="UUID" type="guid" value="55555555-5555-5555-5555-555555555501"/>
                 </node>
@@ -368,7 +369,6 @@
                     <attribute id="Level" type="uint8" value="14"/>
                     <attribute id="Name" type="LSString" value="Ranger"/>
                     <attribute id="ProgressionType" type="uint8" value="0"/>
-                    <attribute id="Selectors" type="LSString" value="SelectPassives(eb28ac6c-0a84-4d94-bce6-a2c2caa9ae56,1,FavoredEnemy)"/>
                     <attribute id="TableUUID" type="guid" value="8f068974-ed32-43fc-a9d9-028be1c01a9c"/>
                     <attribute id="UUID" type="guid" value="55555555-5555-5555-5555-555555555502"/>
                 </node>
@@ -393,11 +393,11 @@
                     <attribute id="Level" type="uint8" value="17"/>
                     <attribute id="Name" type="LSString" value="Ranger"/>
                     <attribute id="ProgressionType" type="uint8" value="0"/>
+                    <attribute id="Selectors" type="LSString" value="AddSpells(6b625ece-306d-576a-9fa2-896d884e4e05)"/>
                     <attribute id="TableUUID" type="guid" value="8f068974-ed32-43fc-a9d9-028be1c01a9c"/>
                     <attribute id="UUID" type="guid" value="55555555-5555-5555-5555-555555555505"/>
                 </node>
                 <node id="Progression">
-                    <attribute id="Boosts" type="LSString" value="ActionResource(SpellSlot,1,5)"/>
                     <attribute id="Level" type="uint8" value="18"/>
                     <attribute id="Name" type="LSString" value="Ranger"/>
                     <attribute id="PassivesAdded" type="LSString" value="Ranger_FeralSenses"/>
@@ -410,6 +410,7 @@
                     <attribute id="Level" type="uint8" value="19"/>
                     <attribute id="Name" type="LSString" value="Ranger"/>
                     <attribute id="ProgressionType" type="uint8" value="0"/>
+                    <attribute id="Boosts" type="LSString" value="ActionResource(SpellSlot,1,5)"/>
                     <attribute id="TableUUID" type="guid" value="8f068974-ed32-43fc-a9d9-028be1c01a9c"/>
                     <attribute id="UUID" type="guid" value="55555555-5555-5555-5555-555555555507"/>
                 </node>
@@ -429,7 +430,7 @@
                     <attribute id="Name" type="LSString" value="Wizard"/>
                     <attribute id="PassivesAdded" type="LSString" value="UnlockedSpellSlotLevel7"/>
                     <attribute id="ProgressionType" type="uint8" value="0"/>
-                    <attribute id="Selectors" type="LSString" value="SelectSpells(00170001-0001-0001-0001-000000000001,1,0,WizardSLevel7);SelectSpells(bc917f22-7f71-4a25-9a77-7d2f91a96a65,1,0,WizardSpellList)"/>
+                    <attribute id="Selectors" type="LSString" value="SelectSpells(aa384b4e-36b4-5b2d-93b3-c1063ba2ffb2,2,0,WizardSpellList)"/>
                     <attribute id="TableUUID" type="guid" value="d18eda7e-4b7d-490d-9952-cd33a3c60479"/>
                     <attribute id="UUID" type="guid" value="66666666-6666-6666-6666-666666666601"/>
                 </node>
@@ -437,6 +438,7 @@
                     <attribute id="Level" type="uint8" value="14"/>
                     <attribute id="Name" type="LSString" value="Wizard"/>
                     <attribute id="ProgressionType" type="uint8" value="0"/>
+                    <attribute id="Selectors" type="LSString" value="SelectSpells(aa384b4e-36b4-5b2d-93b3-c1063ba2ffb2,2,0,WizardSpellList)"/>
                     <attribute id="TableUUID" type="guid" value="d18eda7e-4b7d-490d-9952-cd33a3c60479"/>
                     <attribute id="UUID" type="guid" value="66666666-6666-6666-6666-666666666602"/>
                 </node>
@@ -446,7 +448,7 @@
                     <attribute id="Name" type="LSString" value="Wizard"/>
                     <attribute id="PassivesAdded" type="LSString" value="UnlockedSpellSlotLevel8"/>
                     <attribute id="ProgressionType" type="uint8" value="0"/>
-                    <attribute id="Selectors" type="LSString" value="SelectSpells(bc917f22-7f71-4a25-9a77-7d2f91a96a65,1,0,WizardSpellList);SelectSpells(00180001-0001-0001-0001-000000000001,1,0,WizardSLevel8)"/>
+                    <attribute id="Selectors" type="LSString" value="SelectSpells(f0f0369f-fef5-5399-92c1-0a02c56c93bd,2,0,WizardSpellList)"/>
                     <attribute id="TableUUID" type="guid" value="d18eda7e-4b7d-490d-9952-cd33a3c60479"/>
                     <attribute id="UUID" type="guid" value="66666666-6666-6666-6666-666666666603"/>
                 </node>
@@ -455,6 +457,7 @@
                     <attribute id="Level" type="uint8" value="16"/>
                     <attribute id="Name" type="LSString" value="Wizard"/>
                     <attribute id="ProgressionType" type="uint8" value="0"/>
+                    <attribute id="Selectors" type="LSString" value="SelectSpells(f0f0369f-fef5-5399-92c1-0a02c56c93bd,2,0,WizardSpellList)"/>
                     <attribute id="TableUUID" type="guid" value="d18eda7e-4b7d-490d-9952-cd33a3c60479"/>
                     <attribute id="UUID" type="guid" value="66666666-6666-6666-6666-666666666604"/>
                 </node>
@@ -464,7 +467,7 @@
                     <attribute id="Name" type="LSString" value="Wizard"/>
                     <attribute id="PassivesAdded" type="LSString" value="UnlockedSpellSlotLevel9"/>
                     <attribute id="ProgressionType" type="uint8" value="0"/>
-                    <attribute id="Selectors" type="LSString" value="SelectSpells(00190001-0001-0001-0001-000000000001,1,0,WizardSLevel9);SelectSpells(bc917f22-7f71-4a25-9a77-7d2f91a96a65,1,0,WizardSpellList)"/>
+                    <attribute id="Selectors" type="LSString" value="SelectSpells(ae03c25e-d0ac-55a5-899a-ae75a3b20c5a,2,0,WizardSpellList)"/>
                     <attribute id="TableUUID" type="guid" value="d18eda7e-4b7d-490d-9952-cd33a3c60479"/>
                     <attribute id="UUID" type="guid" value="66666666-6666-6666-6666-666666666605"/>
                 </node>
@@ -474,6 +477,7 @@
                     <attribute id="Name" type="LSString" value="Wizard"/>
                     <attribute id="PassivesAdded" type="LSString" value="SpellMastery"/>
                     <attribute id="ProgressionType" type="uint8" value="0"/>
+                    <attribute id="Selectors" type="LSString" value="SelectSpells(ae03c25e-d0ac-55a5-899a-ae75a3b20c5a,2,0,WizardSpellList)"/>
                     <attribute id="TableUUID" type="guid" value="d18eda7e-4b7d-490d-9952-cd33a3c60479"/>
                     <attribute id="UUID" type="guid" value="66666666-6666-6666-6666-666666666606"/>
                 </node>
@@ -483,6 +487,7 @@
                     <attribute id="Level" type="uint8" value="19"/>
                     <attribute id="Name" type="LSString" value="Wizard"/>
                     <attribute id="ProgressionType" type="uint8" value="0"/>
+                    <attribute id="Selectors" type="LSString" value="SelectSpells(ae03c25e-d0ac-55a5-899a-ae75a3b20c5a,2,0,WizardSpellList)"/>
                     <attribute id="TableUUID" type="guid" value="d18eda7e-4b7d-490d-9952-cd33a3c60479"/>
                     <attribute id="UUID" type="guid" value="66666666-6666-6666-6666-666666666607"/>
                 </node>
@@ -492,6 +497,7 @@
                     <attribute id="Name" type="LSString" value="Wizard"/>
                     <attribute id="PassivesAdded" type="LSString" value="Wizard_SignatureSpells"/>
                     <attribute id="ProgressionType" type="uint8" value="0"/>
+                    <attribute id="Selectors" type="LSString" value="SelectSpells(ae03c25e-d0ac-55a5-899a-ae75a3b20c5a,2,0,WizardSpellList)"/>
                     <attribute id="TableUUID" type="guid" value="d18eda7e-4b7d-490d-9952-cd33a3c60479"/>
                     <attribute id="UUID" type="guid" value="66666666-6666-6666-6666-666666666608"/>
                 </node>
@@ -882,7 +888,7 @@
                     <attribute id="Level" type="uint8" value="13"/>
                     <attribute id="Name" type="LSString" value="Artificer"/>
                     <attribute id="ProgressionType" type="uint8" value="0"/>
-                    <attribute id="Selectors" type="LSString" value="SelectSpells(d0e1f2a3-b4c5-6d7e-8f9a-0b1c2d3e4f5a,1,0,ArtificerSpellList)"/>
+                    <attribute id="Selectors" type="LSString" value="AddSpells(ee537fcf-8372-502b-ba07-a0887575e49f)"/>
                     <attribute id="TableUUID" type="guid" value="1e84493e-aeff-4d0e-b3ae-6c2187245d23"/>
                     <attribute id="UUID" type="guid" value="cccccccc-cccc-cccc-cccc-ccccccccc901"/>
                 </node>
@@ -891,7 +897,6 @@
                     <attribute id="Name" type="LSString" value="Artificer"/>
                     <attribute id="PassivesAdded" type="LSString" value="Artificer_MagicItemSavant"/>
                     <attribute id="ProgressionType" type="uint8" value="0"/>
-                    <attribute id="Selectors" type="LSString" value="SelectPassives(e1f2a3b4-c5d6-7e8f-9a0b-1c2d3e4f5a6b,1,ArtificerInfusions)"/>
                     <attribute id="TableUUID" type="guid" value="1e84493e-aeff-4d0e-b3ae-6c2187245d23"/>
                     <attribute id="UUID" type="guid" value="cccccccc-cccc-cccc-cccc-ccccccccc902"/>
                 </node>
@@ -912,21 +917,19 @@
                     <attribute id="UUID" type="guid" value="cccccccc-cccc-cccc-cccc-ccccccccc904"/>
                 </node>
                 <node id="Progression">
-                    <attribute id="Boosts" type="LSString" value="ActionResource(SpellSlot,1,5)"/>
+                    <attribute id="Boosts" type="LSString" value="ActionResource(SpellSlot,1,4);ActionResource(SpellSlot,1,5)"/>
                     <attribute id="Level" type="uint8" value="17"/>
                     <attribute id="Name" type="LSString" value="Artificer"/>
                     <attribute id="ProgressionType" type="uint8" value="0"/>
-                    <attribute id="Selectors" type="LSString" value="SelectSpells(d0e1f2a3-b4c5-6d7e-8f9a-0b1c2d3e4f5a,1,0,ArtificerSpellList)"/>
+                    <attribute id="Selectors" type="LSString" value="AddSpells(dfb36751-25c2-59d2-a021-69cdac534724)"/>
                     <attribute id="TableUUID" type="guid" value="1e84493e-aeff-4d0e-b3ae-6c2187245d23"/>
                     <attribute id="UUID" type="guid" value="cccccccc-cccc-cccc-cccc-ccccccccc905"/>
                 </node>
                 <node id="Progression">
-                    <attribute id="Boosts" type="LSString" value="ActionResource(SpellSlot,1,5)"/>
                     <attribute id="Level" type="uint8" value="18"/>
                     <attribute id="Name" type="LSString" value="Artificer"/>
                     <attribute id="PassivesAdded" type="LSString" value="Artificer_MagicItemMaster"/>
                     <attribute id="ProgressionType" type="uint8" value="0"/>
-                    <attribute id="Selectors" type="LSString" value="SelectPassives(e1f2a3b4-c5d6-7e8f-9a0b-1c2d3e4f5a6b,1,ArtificerInfusions)"/>
                     <attribute id="TableUUID" type="guid" value="1e84493e-aeff-4d0e-b3ae-6c2187245d23"/>
                     <attribute id="UUID" type="guid" value="cccccccc-cccc-cccc-cccc-ccccccccc906"/>
                 </node>
@@ -1459,17 +1462,17 @@
                     <attribute id="Level" type="uint8" value="15"/>
                     <attribute id="Name" type="LSString" value="BattleMaster"/>
                     <attribute id="PassivesAdded" type="LSString" value="BattleMaster_Relentless"/>
+                    <attribute id="Selectors" type="LSString" value="SelectPassives(e51a2ef5-3663-43f9-8e74-5e28520323f1,2,Maneuvers)"/>
                     <attribute id="ProgressionType" type="uint8" value="1"/>
                     <attribute id="TableUUID" type="guid" value="69eb2e41-0317-46d7-a6b6-3593de1a5220"/>
                     <attribute id="UUID" type="guid" value="aa111111-1111-1111-1111-111111111101"/>
                 </node>
-                <!-- Battle Master Level 18: Additional Superiority Dice -->
+                <!-- Battle Master Level 18: Ultimate Combat Superiority (d12 superiority dice via the SuperiorityDie level map) -->
                 <node id="Progression">
-                    <attribute id="Boosts" type="LSString" value="ActionResource(SuperiorityDie,1,0)"/>
                     <attribute id="Level" type="uint8" value="18"/>
                     <attribute id="Name" type="LSString" value="BattleMaster"/>
                     <attribute id="ProgressionType" type="uint8" value="1"/>
-                    <attribute id="Selectors" type="LSString" value="SelectPassives(a1b2c3d4-e5f6-7890-abcd-ef1234567890,1,CombatManeuvers)"/>
+                    <attribute id="PassivesAdded" type="LSString" value="BattleMaster_UltimateCombatSuperiority"/>
                     <attribute id="TableUUID" type="guid" value="69eb2e41-0317-46d7-a6b6-3593de1a5220"/>
                     <attribute id="UUID" type="guid" value="aa111111-1111-1111-1111-111111111102"/>
                 </node>
@@ -1514,7 +1517,6 @@
                     <attribute id="Level" type="uint8" value="14"/>
                     <attribute id="Name" type="LSString" value="GlamourCollege"/>
                     <attribute id="ProgressionType" type="uint8" value="1"/>
-                    <attribute id="Selectors" type="LSString" value="AddSpells(8ad26d20-d989-4195-9af0-818a86dfed07,,,,AlwaysPrepared)"/>
                     <attribute id="TableUUID" type="guid" value="376220ae-e871-4ca5-8521-ec46fa2cd117"/>
                     <attribute id="UUID" type="guid" value="17171717-1717-1717-1717-171717171702"/>
                 </node>
