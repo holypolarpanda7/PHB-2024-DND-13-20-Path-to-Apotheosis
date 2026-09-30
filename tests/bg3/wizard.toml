@@ -7,6 +7,78 @@
 name = "Wizard"
 class = "Wizard"
 
+# ---- test characters. Levels 1-2 once (wiz-base), then one run per subclass from that save.
+# bg3_test_plan("apotheosis", "<build id>") prints every level's exact choices.
+
+[[build]]
+id = "wiz-base"
+title = "Wizard base, levels 1-2 (shared by every subclass run)"
+levels = [1, 2]
+save_as = "Tavizard L2 base"
+
+[[build]]
+id = "wiz-abjurer"
+title = "Wizard - Abjurer, levels 3-20"
+subclass = "AbjurationSchool"
+from = "wiz-base"
+levels = [3, 20]
+
+[[build]]
+id = "wiz-bladesinger"
+title = "Wizard - Bladesinger, levels 3-20"
+subclass = "BladesingingSchool"
+from = "wiz-base"
+levels = [3, 20]
+
+[[build]]
+id = "wiz-conjurer"
+title = "Wizard - Conjurer, levels 3-20"
+subclass = "ConjurationSchool"
+from = "wiz-base"
+levels = [3, 20]
+
+[[build]]
+id = "wiz-diviner"
+title = "Wizard - Diviner, levels 3-20"
+subclass = "DivinationSchool"
+from = "wiz-base"
+levels = [3, 20]
+
+[[build]]
+id = "wiz-enchanter"
+title = "Wizard - Enchanter, levels 3-20"
+subclass = "EnchantmentSchool"
+from = "wiz-base"
+levels = [3, 20]
+
+[[build]]
+id = "wiz-evoker"
+title = "Wizard - Evoker, levels 3-20"
+subclass = "EvocationSchool"
+from = "wiz-base"
+levels = [3, 20]
+
+[[build]]
+id = "wiz-illusionist"
+title = "Wizard - Illusionist, levels 3-20"
+subclass = "IllusionSchool"
+from = "wiz-base"
+levels = [3, 20]
+
+[[build]]
+id = "wiz-necromancer"
+title = "Wizard - Necromancer, levels 3-20"
+subclass = "NecromancySchool"
+from = "wiz-base"
+levels = [3, 20]
+
+[[build]]
+id = "wiz-transmuter"
+title = "Wizard - Transmuter, levels 3-20"
+subclass = "TransmutationSchool"
+from = "wiz-base"
+levels = [3, 20]
+
 [[case]]
 id = "wiz-01-magic-missile"
 level = 1
