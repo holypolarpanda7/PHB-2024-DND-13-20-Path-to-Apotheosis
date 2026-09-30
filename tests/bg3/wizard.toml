@@ -1,0 +1,36 @@
+# Wizard in-game test cases for bg3-data-mcp (bg3_test_list / bg3_test_script / bg3_test_stage / bg3_test_verify).
+# Format: docs/TESTING.md in bg3-data-mcp. mode = "player" (you cast from the hotbar; the only way to verify
+# slots/resources) or "script" (effects only). Levels 1-12 check the dnd55e baseline Apotheosis builds on.
+
+[suite]
+name = "Wizard"
+class = "Wizard"
+
+[[case]]
+id = "wiz-01-magic-missile"
+level = 1
+title = "Magic Missile: 3 darts hit a hostile wolf and spend a 1st-level slot"
+spell = "Projectile_MagicMissile"
+target = "A"
+instructions = "Click the wolf three times so all three darts go to it."
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 40, distance = 8 }]
+expect = [
+  { acted_first = true },
+  { cast = true },
+  { target = "A", hp_change = [-15, -6], damage_type = "Force" },
+  { resource = "SpellSlot", level = 1, change = -1 },
+]
+notes = "3 darts x (1d4+1) Force = 6-15 damage; the wolf has 40 HP so it survives."
+
+[[case]]
+id = "wiz-01-mage-armor"
+level = 1
+title = "Mage Armour on yourself (out of combat) applies MAGE_ARMOR and spends a 1st-level slot"
+spell = "Target_MageArmor"
+target = "host"
+expect = [
+  { cast = true },
+  { status_applied = ["MAGE_ARMOR"] },
+  { resource = "SpellSlot", level = 1, change = -1 },
+]
+prep = "take off body armour - Mage Armour can't target someone wearing armour."
