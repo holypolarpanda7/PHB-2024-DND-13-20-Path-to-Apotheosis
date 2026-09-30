@@ -1,6 +1,7 @@
-# Wizard in-game test cases for bg3-data-mcp (bg3_test_list / bg3_test_script / bg3_test_stage / bg3_test_verify).
-# Format: docs/TESTING.md in bg3-data-mcp. mode = "player" (you cast from the hotbar; the only way to verify
-# slots/resources) or "script" (effects only). Levels 1-12 check the dnd55e baseline Apotheosis builds on.
+# Wizard in-game test cases for bg3-data-mcp (spec: bg3-data-mcp/docs/TESTING.md).
+# Default mode "auto": the tool sets up a real encounter, casts by script and checks effects; costs are
+# checked against the loaded UseCosts. "player" cases are hotbar spot checks of the engine charging costs.
+# Run a level with bg3_test_run_level("apotheosis", "Wizard", <level>).
 
 [suite]
 name = "Wizard"
@@ -34,3 +35,19 @@ expect = [
   { resource = "SpellSlot", level = 1, change = -1 },
 ]
 prep = "take off body armour - Mage Armour can't target someone wearing armour."
+
+[[case]]
+id = "wiz-01-slot-spotcheck"
+level = 1
+mode = "player"
+title = "Spot check: a hotbar Magic Missile really spends a 1st-level slot"
+spell = "Projectile_MagicMissile"
+target = "A"
+instructions = "Click the wolf three times so all three darts go to it."
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 40, distance = 8 }]
+expect = [
+  { acted_first = true },
+  { cast = true },
+  { resource = "SpellSlot", level = 1, change = -1 },
+]
+notes = "Only needed once per resource type: auto cases check costs against the data."
