@@ -57,7 +57,8 @@ data "Properties" "Highlighted"
 
 // Level 15: Persistent Rage (PHB 2024). Rage lasts its full 10 minutes without being extended:
 // dnd55e's RAGE* statuses end on your turn unless RAGE_STOP_REMOVE is present, so keep it on
-// permanently. Regaining all Rage uses on Initiative (once per long rest) is scripted in
+// permanently (also on OnStatusApplied: OnCreate doesn't fire for a passive gained mid-session, e.g. at
+// the level-15 level-up; verified in-game 2026-09-30). Regaining all Rage uses on Initiative (once per long rest) is scripted in
 // BootstrapServer.lua (needs the "only if a use was spent" check).
 new entry "Barbarian_PersistentRage"
 type "PassiveData"
@@ -65,7 +66,7 @@ data "DisplayName" "hprg00000000000000000000000000001;1"
 data "Description" "hprg00000000000000000000000000002;1"
 data "Icon" "Action_Barbarian_Rage"
 data "Properties" "Highlighted"
-data "StatsFunctorContext" "OnCreate;OnLongRest;OnCombatStarted"
+data "StatsFunctorContext" "OnCreate;OnLongRest;OnCombatStarted;OnStatusApplied"
 data "StatsFunctors" "IF(not HasStatus('RAGE_STOP_REMOVE',context.Source)):ApplyStatus(SELF,RAGE_STOP_REMOVE,100,-1)"
 
 // Level 17: Improved Brutal Strike - 2d10 damage and two effects at once

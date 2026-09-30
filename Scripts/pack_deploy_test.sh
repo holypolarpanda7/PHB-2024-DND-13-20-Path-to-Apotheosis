@@ -1,114 +1,120 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# One-command local test loop:
-# 1) Package mod folder into .pak using divine
-# 2) Deploy .pak to BG3 user Mods folder
-# 3) Print quick sanity info (modsettings + latest SE log)
+# One-command local test loop (works from WSL and Git Bash):
+# 1) Stage Mods/<mod> + Public/<mod> and package them into a .pak with LSLib's Divine
+# 2) Verify the pak layout (meta.lsx, stats, SE scripts at the right paths) BEFORE deploying
+# 3) Deploy to the BG3 user Mods folder (refuses while the game is running; backs up the old pak)
+# 4) Print quick sanity info (modsettings + this run's Script Extender log)
+#
+# History: until 2026-09-30 this packed only Mods/<mod> as the package ROOT, so paks had no Mods/<mod>/
+# prefix and no Public/ content at all - the game never loaded Apotheosis stats from them.
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 
 MOD_FOLDER="PHB2024_DND_13-20_PathtoApotheosis_1467c26f-e7bb-49d1-d980-6e033aea04fa"
 MOD_UUID="1467c26f-e7bb-49d1-d980-6e033aea04fa"
-MOD_SOURCE="$REPO_ROOT/Mods/$MOD_FOLDER"
 
-BG3_USERDATA="/c/Users/holyp/AppData/Local/Larian Studios/Baldur's Gate 3"
+if [[ -d /mnt/c ]]; then C=/mnt/c; D=/mnt/d; to_win() { wslpath -w "$1"; }
+else C=/c; D=/d; to_win() { cygpath -w "$1"; }; fi
+
+BG3_USERDATA="$C/Users/holyp/AppData/Local/Larian Studios/Baldur's Gate 3"
 BG3_MODS_DIR="$BG3_USERDATA/Mods"
 BG3_MODSETTINGS="$BG3_USERDATA/PlayerProfiles/Public/modsettings.lsx"
-SE_LOG_DIR="$BG3_USERDATA/Extender Logs"
+SE_LOG_DIR="$BG3_USERDATA/Script Extender Logs"
 
-# Keep generated package artifacts OUTSIDE the source repo.
-# Use a simple AppData temp path to avoid URI parsing edge-cases in divine.
-OUT_DIR="/c/Users/holyp/AppData/Local/Temp/ApotheosisBuild"
+# Keep generated artifacts OUTSIDE the source repo.
+OUT_DIR="$C/Users/holyp/AppData/Local/Temp/ApotheosisBuild"
+STAGE="$OUT_DIR/stage"
 OUT_PAK="$OUT_DIR/${MOD_FOLDER}.pak"
 DEPLOY_PAK="$BG3_MODS_DIR/${MOD_FOLDER}.pak"
 
 find_divine() {
-    if command -v divine.exe >/dev/null 2>&1; then
-        command -v divine.exe
-        return 0
-    fi
-    if command -v divine >/dev/null 2>&1; then
-        command -v divine
-        return 0
-    fi
-
     local candidates=(
-        "/c/Program Files/Black Tree Gaming Ltd/Vortex/resources/app.asar.unpacked/bundledPlugins/game-baldursgate3/tools/divine.exe"
-        "/c/Program Files (x86)/Black Tree Gaming Ltd/Vortex/resources/app.asar.unpacked/bundledPlugins/game-baldursgate3/tools/divine.exe"
+        "${DIVINE:-}"
+        "$D/BG3Modding/Tools/LSLib/Packed/Tools/Divine.exe"
     )
-
     local p
     for p in "${candidates[@]}"; do
-        if [[ -f "$p" ]]; then
-            echo "$p"
-            return 0
-        fi
+        [[ -n "$p" && -f "$p" ]] && { echo "$p"; return 0; }
     done
-
+    command -v divine.exe >/dev/null 2>&1 && { command -v divine.exe; return 0; }
+    # Vortex's bundled copy is too old to read current LSF files; last resort only
+    p="$C/Program Files/Black Tree Gaming Ltd/Vortex/resources/app.asar.unpacked/bundledPlugins/game-baldursgate3/tools/divine.exe"
+    [[ -f "$p" ]] && { echo "$p"; return 0; }
     return 1
 }
 
-main() {
-    if [[ ! -d "$MOD_SOURCE" ]]; then
-        echo "[ERR] Mod source folder missing: $MOD_SOURCE"
-        exit 1
-    fi
+game_running() {
+    # capture first: with `set -o pipefail`, `tasklist | grep -q` reports failure when grep exits early (SIGPIPE)
+    local procs
+    procs="$(tasklist.exe 2>/dev/null | tr -d '\r' || true)"
+    grep -qiE '^bg3(_dx11)?\.exe' <<<"$procs"
+}
 
-    mkdir -p "$OUT_DIR" "$BG3_MODS_DIR"
+main() {
+    local src
+    for src in "$REPO_ROOT/Mods/$MOD_FOLDER" "$REPO_ROOT/Public/$MOD_FOLDER"; do
+        [[ -d "$src" ]] || { echo "[ERR] Mod source folder missing: $src"; exit 1; }
+    done
 
     local divine
-    if ! divine="$(find_divine)"; then
-        echo "[ERR] Could not find divine.exe (Vortex LSlib packer)."
-        echo "      Install/enable BG3 extension in Vortex or add divine to PATH."
-        exit 1
+    divine="$(find_divine)" || { echo "[ERR] Divine.exe not found (set DIVINE=... or install LSLib to $D/BG3Modding/Tools/LSLib)"; exit 1; }
+
+    echo "[1/5] Staging Mods/ + Public/ ($(date '+%Y-%m-%d %H:%M %Z'))"
+    rm -rf "$STAGE"; mkdir -p "$STAGE/Mods" "$STAGE/Public" "$BG3_MODS_DIR"
+    cp -r "$REPO_ROOT/Mods/$MOD_FOLDER" "$STAGE/Mods/"
+    cp -r "$REPO_ROOT/Public/$MOD_FOLDER" "$STAGE/Public/"
+
+    echo "[2/5] Packaging with $divine"
+    rm -f "$OUT_PAK"
+    "$divine" -g bg3 -a create-package -s "$(to_win "$STAGE")" -d "$(to_win "$OUT_PAK")" | tail -n 1
+    [[ -f "$OUT_PAK" ]] || { echo "[ERR] Packaging reported success but no pak was produced: $OUT_PAK"; exit 1; }
+
+    echo "[3/5] Verifying pak layout"
+    local listing
+    listing="$("$divine" -g bg3 -a list-package -s "$(to_win "$OUT_PAK")" | tr -d '\r' | cut -f1)"
+    local required=(
+        "Mods/$MOD_FOLDER/meta.lsx"
+        "Mods/$MOD_FOLDER/ScriptExtender/Lua/BootstrapServer.lua"
+        "Public/$MOD_FOLDER/Stats/Generated/Data/Passive.txt"
+        "Public/$MOD_FOLDER/Progressions/Progressions.lsx"
+    )
+    local r missing=0
+    for r in "${required[@]}"; do
+        grep -qxF "$r" <<<"$listing" || { echo "      [ERR] missing in pak: $r"; missing=1; }
+    done
+    [[ $missing -eq 0 ]] || { echo "[ERR] Refusing to deploy a malformed pak."; exit 1; }
+    echo "      $(wc -l <<<"$listing") files; required paths present."
+
+    echo "[4/5] Deploying"
+    if game_running; then
+        echo "      [ERR] BG3 is running and has the pak open. Close the game and re-run (built pak kept at $OUT_PAK)."
+        exit 2
     fi
-
-    echo "[1/4] Packaging with divine"
-    echo "      $divine"
-    "$divine" -g bg3 -a create-package -s "$MOD_SOURCE" -d "$OUT_PAK"
-
-    if [[ ! -f "$OUT_PAK" ]]; then
-        echo "[ERR] Packaging reported success but no pak was produced: $OUT_PAK"
-        exit 1
+    if [[ -f "$DEPLOY_PAK" ]]; then
+        cp -f "$DEPLOY_PAK" "$OUT_DIR/previous_$(date -r "$DEPLOY_PAK" '+%Y%m%d_%H%M').pak"
     fi
-
-    echo "[2/4] Deploying pak to BG3 Mods"
     cp -f "$OUT_PAK" "$DEPLOY_PAK"
+    ls -l "$DEPLOY_PAK"
 
-    echo "[3/4] Sanity checks"
-    ls -lh "$DEPLOY_PAK"
-    if [[ -f "$BG3_MODSETTINGS" ]]; then
-        if grep -qi "$MOD_UUID" "$BG3_MODSETTINGS"; then
-            echo "      modsettings.lsx contains Apotheosis UUID ($MOD_UUID)."
-        else
-            echo "      [WARN] modsettings.lsx does NOT contain Apotheosis UUID ($MOD_UUID)."
-            echo "             Enable the mod in your current profile/load order before launch."
-        fi
+    echo "[5/5] Sanity checks"
+    if [[ -f "$BG3_MODSETTINGS" ]] && grep -qi "$MOD_UUID" "$BG3_MODSETTINGS"; then
+        echo "      modsettings.lsx contains Apotheosis UUID ($MOD_UUID)."
     else
-        echo "      [WARN] modsettings.lsx not found: $BG3_MODSETTINGS"
+        echo "      [WARN] Apotheosis UUID not in modsettings.lsx - enable the mod before launch."
     fi
-
-    echo "[4/4] Latest Script Extender log"
     if [[ -d "$SE_LOG_DIR" ]]; then
         local latest_log
-        latest_log="$(find "$SE_LOG_DIR" -maxdepth 1 -type f -name '*.log' -printf '%T@ %p\n' 2>/dev/null | sort -nr | head -1 | cut -d' ' -f2-)"
-        if [[ -n "${latest_log:-}" && -f "$latest_log" ]]; then
-            echo "      $latest_log"
-            echo "      --- tail (Apotheosis-tagged) ---"
-            grep -F "[Apotheosis]" "$latest_log" | tail -n 30 || echo "      (no [Apotheosis] lines yet)"
-        else
-            echo "      (no Extender log files yet; launch game once with SE logging enabled)"
+        latest_log="$(ls -t "$SE_LOG_DIR"/Extender\ Runtime*.log 2>/dev/null | head -1 || true)"
+        if [[ -n "$latest_log" ]]; then
+            echo "      latest SE log: $(basename "$latest_log") (names are UTC; written $(date -r "$latest_log" '+%Y-%m-%d %H:%M %Z'))"
+            grep -F "[Apotheosis]" "$latest_log" | tail -n 5 || echo "      (no [Apotheosis] lines in that log)"
         fi
-    else
-        echo "      (Extender log folder not present yet: $SE_LOG_DIR)"
     fi
-
     echo ""
-    echo "Done. Next: launch BG3 normally and watch the SE console for:"
-    echo "  [Apotheosis] BootstrapServer.lua loading - server context"
-    echo "  [Apotheosis] SessionLoaded - Apotheosis server scripts active"
+    echo "Done. Launch BG3 and look for: [Apotheosis] BootstrapServer.lua loading / SessionLoaded - Apotheosis server scripts active"
 }
 
 main "$@"
