@@ -153,3 +153,29 @@ STACKED choices (7): several nodes for one table+level each grant choices/feats 
 ## Next
 Fix per VISION.md (principles 2-3: features at their 2024 level, 1-12 unchanged), re-run
 `bg3_lint_progressions("apotheosis")` until clean, then continue the Wizard test runs (tests/bg3/wizard.toml).
+
+## Fixed 2026-09-30 ~17:10 CDT (verified in game after redeploy)
+- 56 invalid node UUIDs -> deterministic valid ones (uuid5 of the old string). In game every Wizard school
+  now has 8 nodes at 13-20 (Enchanter had 1).
+- Wizard L12: Apotheosis node deleted. dnd55e never grants Spell Mastery (Apotheosis adds it at 18), so the
+  node only duplicated dnd55e's 2 spell picks and feat (principle 3). In game: 1 node at L12.
+- Gunslinger / Illrigger / Monster Hunter: duplicate `AllowImprovement` at 16 and 19 removed (dnd55e's
+  nodes already grant those feats).
+- Savant (PHB 2024: one school spell of each new slot level): 21 new per-school lists for 7th/8th/9th
+  level (`Lists/SpellLists.lsx`, built from Wizard SLevel 7-9 by SpellSchool), selectors at 13/15/17 point
+  to them; L19 Savant removed (no new slot level); levels where the school has no spell of that level drop
+  the selector (Divination/Enchantment 7th, Illusion 8th).
+- Wizard L17 learned 2 spells from the 6th-level list; now 1 from the 9th-level list + 1 from the class list.
+- `EpicBoons` selectors (a list that never existed) removed from every class at 19; the level-19 feat
+  (`AllowImprovement`) stays. Lint now: 0 invalid UUIDs, 0 stacked choices.
+
+## Still open
+- **Epic Boons (PHB 2024 level 19 feat) aren't implemented anywhere** (no boon feats/passives in dnd55e or
+  Apotheosis). Principle 5 feature work: Boon of Combat Prowess, Dimensional Travel, Energy Resistance,
+  Fate, Fortitude, Irresistible Offense, Recovery, Skill, Speed, Spell Recall, the Night Spirit, Truesight.
+- **Wizards learn no spells at 14, 16, 18, 19, 20** (2024: two Wizard spells every level). 13/15/17 learn 2.
+- 13 dangling selectors need a rules decision each (placeholder UUIDs):
+  Artificer L13/L17 spells + L14/L18 infusions; Battle Master L18 maneuvers (2024: +2 at 15, dnd55e list
+  `e51a2ef5`); Glamour College L14 AddSpells; Gunslinger L13/L17 trick shots; Illrigger L13/L17 spells;
+  Paladin L13 and Ranger L13 spells (dnd55e gives these classes spells without selectors); Ranger L14
+  Favored Enemy (2024 L14 is Nature's Veil).

@@ -1,6 +1,6 @@
 # Test plan: Wizard base, levels 1-2 (shared by every subclass run)
 
-Build `wiz-base`: Wizard, levels 1-2. Generated 2026-09-30 17:02 CDT (layers: base, dnd55e, apotheosis).
+Build `wiz-base`: Wizard, levels 1-2. Generated 2026-09-30 17:11 CDT (layers: base, dnd55e, apotheosis).
 
 **Each level:** say **"level up"** -> make exactly the choices below -> say **"leveled"**. I run the level check and this level's automated tests. Save after each level (never while a test is staged).
 

@@ -195,6 +195,135 @@
                     <attribute id="UUID" type="guid" value="00190001-aaaa-0001-0001-000000000001"/>
                 </node>
                 
+
+                <!-- ==================== WIZARD SAVANT LISTS (PHB 2024: one school spell per new slot level, 13/15/17) ==================== -->
+                <node id="SpellList">
+                    <attribute id="Comment" type="LSString" value="Abjuration Savant L7: Wizard Abjuration spells of that level (Savant)"/>
+                    <attribute id="Name" type="FixedString" value="AbjurationSavantL7"/>
+                    <attribute id="Spells" type="LSString" value="Target_Apo_Symbol"/>
+                    <attribute id="UUID" type="guid" value="f822dc38-632c-5941-be44-41b1faba1b79"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="Comment" type="LSString" value="Abjuration Savant L8: Wizard Abjuration spells of that level (Savant)"/>
+                    <attribute id="Name" type="FixedString" value="AbjurationSavantL8"/>
+                    <attribute id="Spells" type="LSString" value="Shout_Apo_AntimagicField;Target_Apo_MindBlank"/>
+                    <attribute id="UUID" type="guid" value="c75214de-c712-54e8-9a6f-1396417c7c29"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="Comment" type="LSString" value="Abjuration Savant L9: Wizard Abjuration spells of that level (Savant)"/>
+                    <attribute id="Name" type="FixedString" value="AbjurationSavantL9"/>
+                    <attribute id="Spells" type="LSString" value="Target_PrismaticWall;Target_Apo_Imprisonment"/>
+                    <attribute id="UUID" type="guid" value="6646e188-0f92-51d0-9a15-84398e066b0f"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="Comment" type="LSString" value="Conjuration Savant L7: Wizard Conjuration spells of that level (Savant)"/>
+                    <attribute id="Name" type="FixedString" value="ConjurationSavantL7"/>
+                    <attribute id="Spells" type="LSString" value="Shout_Apo_MagnificentMansion;Target_Apo_PlaneShift;Target_Apo_Teleport"/>
+                    <attribute id="UUID" type="guid" value="994b2dda-8268-5707-923c-426fab5888aa"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="Comment" type="LSString" value="Conjuration Savant L8: Wizard Conjuration spells of that level (Savant)"/>
+                    <attribute id="Name" type="FixedString" value="ConjurationSavantL8"/>
+                    <attribute id="Spells" type="LSString" value="Target_Apo_Demiplane;Target_Apo_IncendiaryCloud;Target_Apo_Maze"/>
+                    <attribute id="UUID" type="guid" value="966b2e22-b9a6-552c-aecf-341a006b5b3c"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="Comment" type="LSString" value="Conjuration Savant L9: Wizard Conjuration spells of that level (Savant)"/>
+                    <attribute id="Name" type="FixedString" value="ConjurationSavantL9"/>
+                    <attribute id="Spells" type="LSString" value="Shout_Wish;Target_Gate"/>
+                    <attribute id="UUID" type="guid" value="3f0b958f-6e36-599a-8f27-1741c627f4c8"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="Comment" type="LSString" value="Divination Savant L8: Wizard Divination spells of that level (Savant)"/>
+                    <attribute id="Name" type="FixedString" value="DivinationSavantL8"/>
+                    <attribute id="Spells" type="LSString" value="Target_Apo_Telepathy"/>
+                    <attribute id="UUID" type="guid" value="b4b9171b-9285-51a9-aec1-837b32900208"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="Comment" type="LSString" value="Divination Savant L9: Wizard Divination spells of that level (Savant)"/>
+                    <attribute id="Name" type="FixedString" value="DivinationSavantL9"/>
+                    <attribute id="Spells" type="LSString" value="Target_Foresight"/>
+                    <attribute id="UUID" type="guid" value="93babf2a-9660-53f2-ba40-de3b6b67510f"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="Comment" type="LSString" value="Enchantment Savant L8: Wizard Enchantment spells of that level (Savant)"/>
+                    <attribute id="Name" type="FixedString" value="EnchantmentSavantL8"/>
+                    <attribute id="Spells" type="LSString" value="Target_DominateMonster;Target_Apo_Antipathy;Target_Apo_Befuddlement;Target_Apo_DominateMonster"/>
+                    <attribute id="UUID" type="guid" value="532952f7-a1a2-5daa-97d2-661d5dba3315"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="Comment" type="LSString" value="Enchantment Savant L9: Wizard Enchantment spells of that level (Savant)"/>
+                    <attribute id="Name" type="FixedString" value="EnchantmentSavantL9"/>
+                    <attribute id="Spells" type="LSString" value="Target_PowerWordKill"/>
+                    <attribute id="UUID" type="guid" value="86ecd0f1-fd52-5e6a-97cf-a8e28cb12951"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="Comment" type="LSString" value="Evocation Savant L7: Wizard Evocation spells of that level (Savant)"/>
+                    <attribute id="Name" type="FixedString" value="EvocationSavantL7"/>
+                    <attribute id="Spells" type="LSString" value="Zone_PrismaticSpray;Projectile_Apo_DelayedBlastFireball;Zone_Apo_PrismaticSpray;Target_Apo_Forcecage;Target_Apo_MordenkainensSword"/>
+                    <attribute id="UUID" type="guid" value="2fe27baa-b6e7-5864-8a9f-a17cd4ce6a02"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="Comment" type="LSString" value="Evocation Savant L8: Wizard Evocation spells of that level (Savant)"/>
+                    <attribute id="Name" type="FixedString" value="EvocationSavantL8"/>
+                    <attribute id="Spells" type="LSString" value="Target_Apo_Sunburst"/>
+                    <attribute id="UUID" type="guid" value="20a2907b-0f95-52ab-987c-1067a2144a49"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="Comment" type="LSString" value="Evocation Savant L9: Wizard Evocation spells of that level (Savant)"/>
+                    <attribute id="Name" type="FixedString" value="EvocationSavantL9"/>
+                    <attribute id="Spells" type="LSString" value="Projectile_MeteorSwarm"/>
+                    <attribute id="UUID" type="guid" value="b1d357e4-9878-50f0-97a2-66a7cd811c74"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="Comment" type="LSString" value="Illusion Savant L7: Wizard Illusion spells of that level (Savant)"/>
+                    <attribute id="Name" type="FixedString" value="IllusionSavantL7"/>
+                    <attribute id="Spells" type="LSString" value="Target_Apo_MirageArcane;Target_Apo_Simulacrum"/>
+                    <attribute id="UUID" type="guid" value="3061c40e-615f-575b-90ce-14b07cbe1189"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="Comment" type="LSString" value="Illusion Savant L9: Wizard Illusion spells of that level (Savant)"/>
+                    <attribute id="Name" type="FixedString" value="IllusionSavantL9"/>
+                    <attribute id="Spells" type="LSString" value="Target_Apo_Weird"/>
+                    <attribute id="UUID" type="guid" value="1c60118d-69f5-515f-9d14-122345edb8e7"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="Comment" type="LSString" value="Necromancy Savant L7: Wizard Necromancy spells of that level (Savant)"/>
+                    <attribute id="Name" type="FixedString" value="NecromancySavantL7"/>
+                    <attribute id="Spells" type="LSString" value="Target_Apo_FingerOfDeath"/>
+                    <attribute id="UUID" type="guid" value="fa7d808b-aef3-59a4-a554-c95d31f10051"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="Comment" type="LSString" value="Necromancy Savant L8: Wizard Necromancy spells of that level (Savant)"/>
+                    <attribute id="Name" type="FixedString" value="NecromancySavantL8"/>
+                    <attribute id="Spells" type="LSString" value="Target_Apo_Clone"/>
+                    <attribute id="UUID" type="guid" value="1c4e9987-2425-53e4-b6c1-b53bfbb69f1e"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="Comment" type="LSString" value="Necromancy Savant L9: Wizard Necromancy spells of that level (Savant)"/>
+                    <attribute id="Name" type="FixedString" value="NecromancySavantL9"/>
+                    <attribute id="Spells" type="LSString" value="Target_Apo_AstralProjection"/>
+                    <attribute id="UUID" type="guid" value="47cc3250-fd86-5eba-820a-ebb9f276243c"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="Comment" type="LSString" value="Transmutation Savant L7: Wizard Transmutation spells of that level (Savant)"/>
+                    <attribute id="Name" type="FixedString" value="TransmutationSavantL7"/>
+                    <attribute id="Spells" type="LSString" value="Target_Apo_Etherealness;Target_Apo_ReverseGravity;Target_Apo_Sequester"/>
+                    <attribute id="UUID" type="guid" value="0f2cd25a-c4b4-59b8-b8e3-9ed34300b565"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="Comment" type="LSString" value="Transmutation Savant L8: Wizard Transmutation spells of that level (Savant)"/>
+                    <attribute id="Name" type="FixedString" value="TransmutationSavantL8"/>
+                    <attribute id="Spells" type="LSString" value="Shout_Apo_ControlWeather"/>
+                    <attribute id="UUID" type="guid" value="a3e8db1f-69b8-548e-877f-e5a9ed456bbd"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="Comment" type="LSString" value="Transmutation Savant L9: Wizard Transmutation spells of that level (Savant)"/>
+                    <attribute id="Name" type="FixedString" value="TransmutationSavantL9"/>
+                    <attribute id="Spells" type="LSString" value="Shout_TimeStop;Target_TruePolymorph;Target_Apo_Shapechange"/>
+                    <attribute id="UUID" type="guid" value="3d42c7ba-151d-5529-ab52-f5e8d9b6c5bf"/>
+                </node>
+                
             </children>
         </node>
     </region>

@@ -131,7 +131,6 @@ M.classes["Artificer"] = {
         [19] = {
             passives  = {},
             boosts    = "ActionResource(SpellSlot,1,5)",
-            selectors = "SelectPassives(da3e7815-685b-469c-9bba-0f5a7cc93fd1,1,EpicBoons)",
         },
         [20] = {
             passives  = { "Artificer_SoulOfArtifice" },
@@ -168,7 +167,6 @@ M.classes["Barbarian"] = {
         },
         [19] = {
             passives  = {},
-            selectors = "SelectPassives(da3e7815-685b-469c-9bba-0f5a7cc93fd1,1,EpicBoons)",
         },
         [20] = {
             passives  = { "Barbarian_PrimalChampion" },
@@ -207,7 +205,7 @@ M.classes["Bard"] = {
         [19] = {
             passives  = {},
             boosts    = "ActionResource(SpellSlot,1,6)",
-            selectors = "SelectPassives(da3e7815-685b-469c-9bba-0f5a7cc93fd1,1,EpicBoons);SelectSpells(858d4322-9e9f-4aa4-aada-9c68835dc6fe,1,1,BardMagicalSecrets);SelectSpells(00190001-0001-0001-0001-000000000005,1,1,BardSpells)",
+            selectors = "SelectSpells(858d4322-9e9f-4aa4-aada-9c68835dc6fe,1,1,BardMagicalSecrets);SelectSpells(00190001-0001-0001-0001-000000000005,1,1,BardSpells)",
         },
         [20] = {
             passives  = { "Bard_WordsOfCreation" },
@@ -250,7 +248,6 @@ M.classes["Cleric"] = {
         [19] = {
             passives  = {},
             boosts    = "ActionResource(SpellSlot,1,6)",
-            selectors = "SelectPassives(da3e7815-685b-469c-9bba-0f5a7cc93fd1,1,EpicBoons)",
         },
         [20] = {
             passives  = { "Cleric_GreaterDivineIntervention" },
@@ -289,7 +286,6 @@ M.classes["Druid"] = {
         [19] = {
             passives  = {},
             boosts    = "ActionResource(SpellSlot,1,6)",
-            selectors = "SelectPassives(da3e7815-685b-469c-9bba-0f5a7cc93fd1,1,EpicBoons)",
         },
         [20] = {
             passives  = { "Druid_Archdruid" },
@@ -322,7 +318,6 @@ M.classes["Fighter"] = {
         },
         [19] = {
             passives  = {},
-            selectors = "SelectPassives(da3e7815-685b-469c-9bba-0f5a7cc93fd1,1,EpicBoons)",
         },
         [20] = {
             passives  = { "ExtraAttack_3" },
@@ -355,7 +350,6 @@ M.classes["Gunslinger"] = {
         },
         [19] = {
             passives  = {},
-            selectors = "SelectPassives(da3e7815-685b-469c-9bba-0f5a7cc93fd1,1,EpicBoons)",
         },
         [20] = {
             passives  = { "Gunslinger_HemorrhagingCritical" },
@@ -393,7 +387,6 @@ M.classes["Illrigger"] = {
         [19] = {
             passives  = {},
             boosts    = "ActionResource(SpellSlot,1,5)",
-            selectors = "SelectPassives(da3e7815-685b-469c-9bba-0f5a7cc93fd1,1,EpicBoons)",
         },
         [20] = {
             passives  = { "Illrigger_PrinceOfHell" },
@@ -430,7 +423,6 @@ M.classes["Monk"] = {
         [19] = {
             passives  = {},
             boosts    = "ActionResource(KiPoint,1,0)",
-            selectors = "SelectPassives(da3e7815-685b-469c-9bba-0f5a7cc93fd1,1,EpicBoons)",
         },
         [20] = {
             passives  = { "Monk_BodyAndMind" },
@@ -461,7 +453,6 @@ M.classes["MonsterHunter"] = {
         },
         [19] = {
             passives  = {},
-            selectors = "SelectPassives(da3e7815-685b-469c-9bba-0f5a7cc93fd1,1,EpicBoons)",
         },
         [20] = {
             passives  = { "MonsterHunter_20_MasterHunter" },
@@ -496,7 +487,6 @@ M.classes["Paladin"] = {
         },
         [19] = {
             passives  = {},
-            selectors = "SelectPassives(da3e7815-685b-469c-9bba-0f5a7cc93fd1,1,EpicBoons)",
         },
         [20] = {
             passives  = {},
@@ -532,7 +522,6 @@ M.classes["Ranger"] = {
         },
         [19] = {
             passives  = {},
-            selectors = "SelectPassives(da3e7815-685b-469c-9bba-0f5a7cc93fd1,1,EpicBoons)",
         },
         [20] = {
             passives  = { "Ranger_FoeSlayer" },
@@ -562,7 +551,6 @@ M.classes["Rogue"] = {
         },
         [19] = {
             passives  = {},
-            selectors = "SelectPassives(da3e7815-685b-469c-9bba-0f5a7cc93fd1,1,EpicBoons)",
         },
         [20] = {
             passives  = { "Rogue_StrokeOfLuck" },
@@ -603,7 +591,6 @@ M.classes["Sorcerer"] = {
         [19] = {
             passives  = {},
             boosts    = "ActionResource(SpellSlot,1,6);ActionResource(SorceryPoint,1,0)",
-            selectors = "SelectPassives(da3e7815-685b-469c-9bba-0f5a7cc93fd1,1,EpicBoons)",
         },
         [20] = {
             passives  = { "Sorcerer_ArcaneApotheosis" },
@@ -638,7 +625,6 @@ M.classes["Warlock"] = {
         },
         [19] = {
             passives  = {},
-            selectors = "SelectPassives(da3e7815-685b-469c-9bba-0f5a7cc93fd1,1,EpicBoons)",
         },
         [20] = {
             passives  = { "Warlock_EldritchMaster" },
@@ -648,10 +634,6 @@ M.classes["Warlock"] = {
 
 M.classes["Wizard"] = {
     levels = {
-        [12] = {
-            passives  = {},
-            selectors = "SelectSpells(bc917f22-7f71-4a25-9a77-7d2f91a96a65,2,0)",
-        },
         [13] = {
             passives  = { "UnlockedSpellSlotLevel7" },
             boosts    = "ActionResource(SpellSlot,1,7)",
@@ -671,7 +653,7 @@ M.classes["Wizard"] = {
         [17] = {
             passives  = { "UnlockedSpellSlotLevel9" },
             boosts    = "ActionResource(SpellSlot,1,9)",
-            selectors = "SelectSpells(bc917f22-7f71-4a25-9a77-7d2f91a96a65,2,0,WizardSpellList)",
+            selectors = "SelectSpells(00190001-0001-0001-0001-000000000001,1,0,WizardSLevel9);SelectSpells(bc917f22-7f71-4a25-9a77-7d2f91a96a65,1,0,WizardSpellList)",
         },
         [18] = {
             passives  = { "SpellMastery" },
@@ -680,7 +662,6 @@ M.classes["Wizard"] = {
         [19] = {
             passives  = {},
             boosts    = "ActionResource(SpellSlot,1,6)",
-            selectors = "SelectPassives(da3e7815-685b-469c-9bba-0f5a7cc93fd1,1,EpicBoons)",
         },
         [20] = {
             passives  = { "Wizard_SignatureSpells" },
@@ -706,28 +687,27 @@ M.subclasses["AbjurationSchool"] = {
     levels = {
         [13] = {
             passives  = {},
-            selectors = "SelectSpells(7bd7b3ea-51da-4144-b5ba-3d85dbf79353,1,0,AbjurationSavant,,,AlwaysPrepared)",
+            selectors = "SelectSpells(f822dc38-632c-5941-be44-41b1faba1b79,1,0,Wizard_3_Savant)",
         },
         [14] = {
             passives  = { "Abjurer_14_SpellResistance" },
         },
         [15] = {
             passives  = {},
-            selectors = "SelectSpells(7bd7b3ea-51da-4144-b5ba-3d85dbf79353,1,0,AbjurationSavant,,,AlwaysPrepared)",
+            selectors = "SelectSpells(c75214de-c712-54e8-9a6f-1396417c7c29,1,0,Wizard_3_Savant)",
         },
         [16] = {
             passives  = {},
         },
         [17] = {
             passives  = {},
-            selectors = "SelectSpells(7bd7b3ea-51da-4144-b5ba-3d85dbf79353,1,0,AbjurationSavant,,,AlwaysPrepared)",
+            selectors = "SelectSpells(6646e188-0f92-51d0-9a15-84398e066b0f,1,0,Wizard_3_Savant)",
         },
         [18] = {
             passives  = {},
         },
         [19] = {
             passives  = {},
-            selectors = "SelectSpells(7bd7b3ea-51da-4144-b5ba-3d85dbf79353,1,0,AbjurationSavant,,,AlwaysPrepared)",
         },
         [20] = {
             passives  = {},
@@ -1011,28 +991,27 @@ M.subclasses["ConjurationSchool"] = {
     levels = {
         [13] = {
             passives  = {},
-            selectors = "SelectSpells(a29ca5bb-3d26-4447-8ff5-12e9ed51a980,1,0,ConjurationSavant,,,AlwaysPrepared)",
+            selectors = "SelectSpells(994b2dda-8268-5707-923c-426fab5888aa,1,0,Wizard_3_Savant)",
         },
         [14] = {
             passives  = { "Conjurer_14_SplinteredSummons" },
         },
         [15] = {
             passives  = {},
-            selectors = "SelectSpells(a29ca5bb-3d26-4447-8ff5-12e9ed51a980,1,0,ConjurationSavant,,,AlwaysPrepared)",
+            selectors = "SelectSpells(966b2e22-b9a6-552c-aecf-341a006b5b3c,1,0,Wizard_3_Savant)",
         },
         [16] = {
             passives  = {},
         },
         [17] = {
             passives  = {},
-            selectors = "SelectSpells(a29ca5bb-3d26-4447-8ff5-12e9ed51a980,1,0,ConjurationSavant,,,AlwaysPrepared)",
+            selectors = "SelectSpells(3f0b958f-6e36-599a-8f27-1741c627f4c8,1,0,Wizard_3_Savant)",
         },
         [18] = {
             passives  = {},
         },
         [19] = {
             passives  = {},
-            selectors = "SelectSpells(a29ca5bb-3d26-4447-8ff5-12e9ed51a980,1,0,ConjurationSavant,,,AlwaysPrepared)",
         },
         [20] = {
             passives  = {},
@@ -1090,28 +1069,26 @@ M.subclasses["DivinationSchool"] = {
     levels = {
         [13] = {
             passives  = {},
-            selectors = "SelectSpells(8e445849-3d0f-4cce-8f9c-b162e3e03ba2,1,0,DivinationSavant,,,AlwaysPrepared)",
         },
         [14] = {
             passives  = { "Diviner_14_GreaterPortent" },
         },
         [15] = {
             passives  = {},
-            selectors = "SelectSpells(8e445849-3d0f-4cce-8f9c-b162e3e03ba2,1,0,DivinationSavant,,,AlwaysPrepared)",
+            selectors = "SelectSpells(b4b9171b-9285-51a9-aec1-837b32900208,1,0,Wizard_3_Savant)",
         },
         [16] = {
             passives  = {},
         },
         [17] = {
             passives  = {},
-            selectors = "SelectSpells(8e445849-3d0f-4cce-8f9c-b162e3e03ba2,1,0,DivinationSavant,,,AlwaysPrepared)",
+            selectors = "SelectSpells(93babf2a-9660-53f2-ba40-de3b6b67510f,1,0,Wizard_3_Savant)",
         },
         [18] = {
             passives  = {},
         },
         [19] = {
             passives  = {},
-            selectors = "SelectSpells(8e445849-3d0f-4cce-8f9c-b162e3e03ba2,1,0,DivinationSavant,,,AlwaysPrepared)",
         },
         [20] = {
             passives  = {},
@@ -1152,28 +1129,26 @@ M.subclasses["EnchantmentSchool"] = {
     levels = {
         [13] = {
             passives  = {},
-            selectors = "SelectSpells(c930bb09-0c28-4683-ac8e-49ee3262338b,1,0,EnchantmentSavant,,,AlwaysPrepared)",
         },
         [14] = {
             passives  = { "Enchanter_14_AlterMemories" },
         },
         [15] = {
             passives  = {},
-            selectors = "SelectSpells(c930bb09-0c28-4683-ac8e-49ee3262338b,1,0,EnchantmentSavant,,,AlwaysPrepared)",
+            selectors = "SelectSpells(532952f7-a1a2-5daa-97d2-661d5dba3315,1,0,Wizard_3_Savant)",
         },
         [16] = {
             passives  = {},
         },
         [17] = {
             passives  = {},
-            selectors = "SelectSpells(c930bb09-0c28-4683-ac8e-49ee3262338b,1,0,EnchantmentSavant,,,AlwaysPrepared)",
+            selectors = "SelectSpells(86ecd0f1-fd52-5e6a-97cf-a8e28cb12951,1,0,Wizard_3_Savant)",
         },
         [18] = {
             passives  = {},
         },
         [19] = {
             passives  = {},
-            selectors = "SelectSpells(c930bb09-0c28-4683-ac8e-49ee3262338b,1,0,EnchantmentSavant,,,AlwaysPrepared)",
         },
         [20] = {
             passives  = {},
@@ -1186,28 +1161,27 @@ M.subclasses["EvocationSchool"] = {
     levels = {
         [13] = {
             passives  = {},
-            selectors = "SelectSpells(0260a3ae-9ff6-4e24-a081-506f6db2ebf3,1,0,EvocationSavant,,,AlwaysPrepared)",
+            selectors = "SelectSpells(2fe27baa-b6e7-5864-8a9f-a17cd4ce6a02,1,0,Wizard_3_Savant)",
         },
         [14] = {
             passives  = { "Evoker_14_Overchannel" },
         },
         [15] = {
             passives  = {},
-            selectors = "SelectSpells(0260a3ae-9ff6-4e24-a081-506f6db2ebf3,1,0,EvocationSavant,,,AlwaysPrepared)",
+            selectors = "SelectSpells(20a2907b-0f95-52ab-987c-1067a2144a49,1,0,Wizard_3_Savant)",
         },
         [16] = {
             passives  = {},
         },
         [17] = {
             passives  = {},
-            selectors = "SelectSpells(0260a3ae-9ff6-4e24-a081-506f6db2ebf3,1,0,EvocationSavant,,,AlwaysPrepared)",
+            selectors = "SelectSpells(b1d357e4-9878-50f0-97a2-66a7cd811c74,1,0,Wizard_3_Savant)",
         },
         [18] = {
             passives  = {},
         },
         [19] = {
             passives  = {},
-            selectors = "SelectSpells(0260a3ae-9ff6-4e24-a081-506f6db2ebf3,1,0,EvocationSavant,,,AlwaysPrepared)",
         },
         [20] = {
             passives  = {},
@@ -1336,28 +1310,26 @@ M.subclasses["IllusionSchool"] = {
     levels = {
         [13] = {
             passives  = {},
-            selectors = "SelectSpells(b4308398-d948-4ef1-a0d5-9da1da860917,1,0,IllusionSavant,,,AlwaysPrepared)",
+            selectors = "SelectSpells(3061c40e-615f-575b-90ce-14b07cbe1189,1,0,Wizard_3_Savant)",
         },
         [14] = {
             passives  = { "Illusionist_14_IllusoryReality" },
         },
         [15] = {
             passives  = {},
-            selectors = "SelectSpells(b4308398-d948-4ef1-a0d5-9da1da860917,1,0,IllusionSavant,,,AlwaysPrepared)",
         },
         [16] = {
             passives  = {},
         },
         [17] = {
             passives  = {},
-            selectors = "SelectSpells(b4308398-d948-4ef1-a0d5-9da1da860917,1,0,IllusionSavant,,,AlwaysPrepared)",
+            selectors = "SelectSpells(1c60118d-69f5-515f-9d14-122345edb8e7,1,0,Wizard_3_Savant)",
         },
         [18] = {
             passives  = {},
         },
         [19] = {
             passives  = {},
-            selectors = "SelectSpells(b4308398-d948-4ef1-a0d5-9da1da860917,1,0,IllusionSavant,,,AlwaysPrepared)",
         },
         [20] = {
             passives  = {},
@@ -1430,28 +1402,27 @@ M.subclasses["NecromancySchool"] = {
     levels = {
         [13] = {
             passives  = {},
-            selectors = "SelectSpells(7cb1296f-113c-4fc6-a1c8-e18288aa6360,1,0,NecromancySavant,,,AlwaysPrepared)",
+            selectors = "SelectSpells(fa7d808b-aef3-59a4-a554-c95d31f10051,1,0,Wizard_3_Savant)",
         },
         [14] = {
             passives  = { "Necromancer_14_DeathsMaster" },
         },
         [15] = {
             passives  = {},
-            selectors = "SelectSpells(7cb1296f-113c-4fc6-a1c8-e18288aa6360,1,0,NecromancySavant,,,AlwaysPrepared)",
+            selectors = "SelectSpells(1c4e9987-2425-53e4-b6c1-b53bfbb69f1e,1,0,Wizard_3_Savant)",
         },
         [16] = {
             passives  = {},
         },
         [17] = {
             passives  = {},
-            selectors = "SelectSpells(7cb1296f-113c-4fc6-a1c8-e18288aa6360,1,0,NecromancySavant,,,AlwaysPrepared)",
+            selectors = "SelectSpells(47cc3250-fd86-5eba-820a-ebb9f276243c,1,0,Wizard_3_Savant)",
         },
         [18] = {
             passives  = {},
         },
         [19] = {
             passives  = {},
-            selectors = "SelectSpells(7cb1296f-113c-4fc6-a1c8-e18288aa6360,1,0,NecromancySavant,,,AlwaysPrepared)",
         },
         [20] = {
             passives  = {},
@@ -1729,28 +1700,27 @@ M.subclasses["TransmutationSchool"] = {
     levels = {
         [13] = {
             passives  = {},
-            selectors = "SelectSpells(538dd943-cd46-4140-a75e-d51b747c1367,1,0,TransmutationSavant,,,AlwaysPrepared)",
+            selectors = "SelectSpells(0f2cd25a-c4b4-59b8-b8e3-9ed34300b565,1,0,Wizard_3_Savant)",
         },
         [14] = {
             passives  = { "Transmuter_14_MasterTransmuter" },
         },
         [15] = {
             passives  = {},
-            selectors = "SelectSpells(538dd943-cd46-4140-a75e-d51b747c1367,1,0,TransmutationSavant,,,AlwaysPrepared)",
+            selectors = "SelectSpells(a3e8db1f-69b8-548e-877f-e5a9ed456bbd,1,0,Wizard_3_Savant)",
         },
         [16] = {
             passives  = {},
         },
         [17] = {
             passives  = {},
-            selectors = "SelectSpells(538dd943-cd46-4140-a75e-d51b747c1367,1,0,TransmutationSavant,,,AlwaysPrepared)",
+            selectors = "SelectSpells(3d42c7ba-151d-5529-ab52-f5e8d9b6c5bf,1,0,Wizard_3_Savant)",
         },
         [18] = {
             passives  = {},
         },
         [19] = {
             passives  = {},
-            selectors = "SelectSpells(538dd943-cd46-4140-a75e-d51b747c1367,1,0,TransmutationSavant,,,AlwaysPrepared)",
         },
         [20] = {
             passives  = {},

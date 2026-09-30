@@ -216,7 +216,7 @@
       "expected_subclass_13_20": [
         {
           "level": 13,
-          "uuid": "bl131313-1313-1313-1313-131313131301",
+          "uuid": "b1be2a4b-f7f9-528d-9210-dcd96a47a298",
           "passives_added": "",
           "passives_removed": "",
           "boosts": "",
@@ -232,7 +232,7 @@
         },
         {
           "level": 15,
-          "uuid": "bl151515-1515-1515-1515-151515151501",
+          "uuid": "d2b67d24-42ef-5e76-9f25-191de312aaff",
           "passives_added": "",
           "passives_removed": "",
           "boosts": "",
@@ -240,7 +240,7 @@
         },
         {
           "level": 16,
-          "uuid": "bl161616-1616-1616-1616-161616161601",
+          "uuid": "f1e95b6c-9aea-5b6e-98f9-9298bad113a2",
           "passives_added": "",
           "passives_removed": "",
           "boosts": "",
@@ -248,7 +248,7 @@
         },
         {
           "level": 17,
-          "uuid": "bl171717-1717-1717-1717-171717171701",
+          "uuid": "9d1b5161-1e59-572e-81d4-27685c65001e",
           "passives_added": "",
           "passives_removed": "",
           "boosts": "",
@@ -256,7 +256,7 @@
         },
         {
           "level": 18,
-          "uuid": "bl181818-1818-1818-1818-181818181801",
+          "uuid": "7f35d2ba-ce7d-5875-bac8-453d14752e66",
           "passives_added": "",
           "passives_removed": "",
           "boosts": "",
@@ -264,7 +264,7 @@
         },
         {
           "level": 19,
-          "uuid": "bl191919-1919-1919-1919-191919191901",
+          "uuid": "f1d42135-aae8-5fa1-a8ae-d8cca8f9ec52",
           "passives_added": "",
           "passives_removed": "",
           "boosts": "",
@@ -272,7 +272,7 @@
         },
         {
           "level": 20,
-          "uuid": "bl202020-2020-2020-2020-202020202001",
+          "uuid": "b9bad72e-6257-5e15-93c4-b7e971be5131",
           "passives_added": "",
           "passives_removed": "",
           "boosts": "",
@@ -355,7 +355,7 @@
       "expected_subclass_13_20": [
         {
           "level": 13,
-          "uuid": "di131313-1313-1313-1313-131313131301",
+          "uuid": "9d1b3443-22a2-5c23-a28c-77ed5ddbcbc9",
           "passives_added": "",
           "passives_removed": "",
           "boosts": "",
@@ -371,7 +371,7 @@
         },
         {
           "level": 15,
-          "uuid": "di151515-1515-1515-1515-151515151501",
+          "uuid": "eff2ffa4-b5d5-51c4-853a-acfc15b1c9d6",
           "passives_added": "",
           "passives_removed": "",
           "boosts": "",
@@ -379,7 +379,7 @@
         },
         {
           "level": 16,
-          "uuid": "di161616-1616-1616-1616-161616161601",
+          "uuid": "ba635b54-1ef2-54cf-ad47-728cd6923cd2",
           "passives_added": "",
           "passives_removed": "",
           "boosts": "",
@@ -387,7 +387,7 @@
         },
         {
           "level": 17,
-          "uuid": "di171717-1717-1717-1717-171717171701",
+          "uuid": "6323ff00-a0af-58d5-b1c3-43dcf3595d0a",
           "passives_added": "",
           "passives_removed": "",
           "boosts": "",
@@ -395,7 +395,7 @@
         },
         {
           "level": 18,
-          "uuid": "di181818-1818-1818-1818-181818181801",
+          "uuid": "30e8bf39-e6be-56e3-ad86-44a632b1d64f",
           "passives_added": "",
           "passives_removed": "",
           "boosts": "",
@@ -403,7 +403,7 @@
         },
         {
           "level": 19,
-          "uuid": "di191919-1919-1919-1919-191919191901",
+          "uuid": "da4ff692-695d-5121-bd99-3fa0406aae42",
           "passives_added": "",
           "passives_removed": "",
           "boosts": "",
@@ -411,7 +411,7 @@
         },
         {
           "level": 20,
-          "uuid": "di202020-2020-2020-2020-202020202001",
+          "uuid": "b720128f-eb2c-574d-a9a4-77c14b6ec37e",
           "passives_added": "",
           "passives_removed": "",
           "boosts": "",
@@ -494,7 +494,7 @@
       "expected_subclass_13_20": [
         {
           "level": 13,
-          "uuid": "ev131313-1313-1313-1313-131313131301",
+          "uuid": "719088b5-28ba-5fcf-aac3-a5e4dda98c44",
           "passives_added": "",
           "passives_removed": "",
           "boosts": "",
@@ -510,7 +510,7 @@
         },
         {
           "level": 15,
-          "uuid": "ev151515-1515-1515-1515-151515151501",
+          "uuid": "c6ca28a0-1f05-5131-a202-ac3e18e48443",
           "passives_added": "",
           "passives_removed": "",
           "boosts": "",
@@ -518,7 +518,7 @@
         },
         {
           "level": 16,
-          "uuid": "ev161616-1616-1616-1616-161616161601",
+          "uuid": "385c81a4-7529-5b65-921d-e4252d99746e",
           "passives_added": "",
           "passives_removed": "",
           "boosts": "",
@@ -526,7 +526,7 @@
         },
         {
           "level": 17,
-          "uuid": "ev171717-1717-1717-1717-171717171701",
+          "uuid": "af606472-f791-5406-b179-5d67cadb61b6",
           "passives_added": "",
           "passives_removed": "",
           "boosts": "",
@@ -534,7 +534,7 @@
         },
         {
           "level": 18,
-          "uuid": "ev181818-1818-1818-1818-181818181801",
+          "uuid": "a22d09db-6d1c-5056-908d-a38ff133ac4d",
           "passives_added": "",
           "passives_removed": "",
           "boosts": "",
@@ -542,7 +542,7 @@
         },
         {
           "level": 19,
-          "uuid": "ev191919-1919-1919-1919-191919191901",
+          "uuid": "16a66a5a-3edf-514f-9c6a-3be19f9b62f5",
           "passives_added": "",
           "passives_removed": "",
           "boosts": "",
@@ -550,7 +550,7 @@
         },
         {
           "level": 20,
-          "uuid": "ev202020-2020-2020-2020-202020202001",
+          "uuid": "ef9f9125-72b2-5669-b3fd-b06e4891c38f",
           "passives_added": "",
           "passives_removed": "",
           "boosts": "",
@@ -633,7 +633,7 @@
       "expected_subclass_13_20": [
         {
           "level": 13,
-          "uuid": "il131313-1313-1313-1313-131313131301",
+          "uuid": "85fc7d97-4bad-5e8e-865a-ccc614fae2c5",
           "passives_added": "",
           "passives_removed": "",
           "boosts": "",
@@ -649,7 +649,7 @@
         },
         {
           "level": 15,
-          "uuid": "il151515-1515-1515-1515-151515151501",
+          "uuid": "42111df2-d5a8-5e99-adc4-bee39e5c77f2",
           "passives_added": "",
           "passives_removed": "",
           "boosts": "",
@@ -657,7 +657,7 @@
         },
         {
           "level": 16,
-          "uuid": "il161616-1616-1616-1616-161616161601",
+          "uuid": "fdbf956b-b1de-51ed-8138-17a4e1be3fa5",
           "passives_added": "",
           "passives_removed": "",
           "boosts": "",
@@ -665,7 +665,7 @@
         },
         {
           "level": 17,
-          "uuid": "il171717-1717-1717-1717-171717171701",
+          "uuid": "ebc92575-a75f-5a9c-ad75-38a7d86b589a",
           "passives_added": "",
           "passives_removed": "",
           "boosts": "",
@@ -673,7 +673,7 @@
         },
         {
           "level": 18,
-          "uuid": "il181818-1818-1818-1818-181818181801",
+          "uuid": "a74bf109-ceac-51de-8601-7d3b2581a989",
           "passives_added": "",
           "passives_removed": "",
           "boosts": "",
@@ -681,7 +681,7 @@
         },
         {
           "level": 19,
-          "uuid": "il191919-1919-1919-1919-191919191901",
+          "uuid": "f05c4cc5-21b6-5aa8-b63f-455e88f0acf9",
           "passives_added": "",
           "passives_removed": "",
           "boosts": "",
@@ -689,7 +689,7 @@
         },
         {
           "level": 20,
-          "uuid": "il202020-2020-2020-2020-202020202001",
+          "uuid": "d300c7a9-002e-51fc-8783-bbcd53d096b0",
           "passives_added": "",
           "passives_removed": "",
           "boosts": "",
