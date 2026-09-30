@@ -17,9 +17,18 @@ full level 1–20 D&D experience.** It adds every class and subclass feature for
    use its implementation unless ours is more accurate. Don't override dnd55e entries just to change
    them. The level 1–12 game must play the same as dnd55e alone, apart from moving compressed features
    back to their 2024 levels (principle 2).
-4. **Accuracy over homebrew.** Implement the feature as written. If BG3 can't do something (for
-   example, moving through creatures), use the closest faithful approximation and document the gap.
-   Never replace a rule with a different mechanic because it's easier.
+4. **Accuracy over homebrew.** Implement the feature as written. Never replace a rule with a different
+   mechanic because it's easier.
+   - **Stats first.** Use stats, statuses, passives and progressions when they can express the rule
+     faithfully. They're the most compatible and stable across saves.
+   - **Script Extender when stats can't.** Apotheosis already requires Script Extender and dnd55e
+     doesn't use it, so things out of reach for dnd55e are possible for us. Examples: turn and action
+     manipulation (Time Stop), changing an existing aura's radius (Aura Expansion), movement or
+     targeting rules, and bookkeeping like "once per long rest unless you spend a resource". Scripted
+     features must log through `Apotheosis.Log`, get a `FeatureTests.lua` entry, and never change
+     dnd55e's level 1–12 behavior.
+   - **Document what's left.** Only when neither can do it, use the closest faithful approximation and
+     document the gap.
 5. **Complete the curve.** Fill gaps at levels 13–20 for every class and subclass dnd55e ships:
    features, 7th- to 9th-level spells, upcasts of existing spells to 9th level, spell slots, XP and the
    level cap.
@@ -37,5 +46,5 @@ Before any change, confirm:
 - [ ] Does dnd55e already have it? If so, whose version is more accurate, and at what level (principle 3)?
 - [ ] Does it leave dnd55e's levels 1–12 unchanged, apart from moving compressed features back
       (principle 3)?
-- [ ] If it can't be faithful, is the approximation the closest possible, and is the gap documented
-      (principle 4)?
+- [ ] If stats can't express it faithfully, can a Script Extender script? Only if neither can: is the
+      approximation the closest possible, and is the gap documented (principle 4)?
