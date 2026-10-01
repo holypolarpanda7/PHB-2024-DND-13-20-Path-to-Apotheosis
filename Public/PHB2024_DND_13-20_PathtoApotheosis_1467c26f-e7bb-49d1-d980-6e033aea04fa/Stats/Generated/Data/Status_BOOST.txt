@@ -587,17 +587,166 @@ data "Boosts" "Advantage(AllAbilities);Advantage(AllSavingThrows);Advantage(Atta
 data "StatusPropertyFlags" "DisableOverhead"
 
 // ==============================================================================
-// TRUE POLYMORPH - Level 9 Transmutation Status (Placeholder)
+// TRUE POLYMORPH - Level 9 Transmutation (PHB 2024, issue #20). One timed status per form (1 hour, concentration)
+// and a _PERMANENT copy that TruePolymorph.lua swaps in when you concentrate for the full hour.
 // ==============================================================================
-new entry "TRUE_POLYMORPH"
+new entry "TRUE_POLYMORPH_SHEEP"
 type "StatusData"
 data "StatusType" "POLYMORPHED"
-using "YOURFALLENCOMRADE"
-data "DisplayName" "htpm0001a000000000000000000000001;1"
+using "POLYMORPH_SHEEP"
+data "DisplayName" "h9lvltpoly001g0001g0001g0001g000000000001;1"
 data "Description" "htpm0001a000000000000000000000003;1"
 data "Icon" "Spell_Transmutation_Polymorph"
-data "StackId" "TRUE_POLYMORPH"
+data "StackId" "POLYMORPH"
+// Apotheosis/Shapeshift/Rulebook.lsx: the form's statblock, but you keep your own hit points (PHB 2024)
+data "Rules" "95fbb220-88d3-417a-a6cb-782153f5584f"
+
+new entry "TRUE_POLYMORPH_SHEEP_PERMANENT"
+type "StatusData"
+data "StatusType" "POLYMORPHED"
+using "TRUE_POLYMORPH_SHEEP"
+data "Description" "h9lvltpoly009g0001g0001g0001g000000000009;1"
+
+new entry "TRUE_POLYMORPH_DIREWOLF"
+type "StatusData"
+data "StatusType" "POLYMORPHED"
+using "HAV_DevilishOX_POLYMORPH_DIREWOLF"
+data "DisplayName" "h9lvltpoly001g0001g0001g0001g000000000001;1"
+data "Description" "htpm0001a000000000000000000000003;1"
+data "Icon" "Spell_Transmutation_Polymorph"
+data "StackId" "POLYMORPH"
+// Apotheosis/Shapeshift/Rulebook.lsx: the form's statblock, but you keep your own hit points (PHB 2024)
+data "Rules" "95fbb220-88d3-417a-a6cb-782153f5584f"
+
+new entry "TRUE_POLYMORPH_DIREWOLF_PERMANENT"
+type "StatusData"
+data "StatusType" "POLYMORPHED"
+using "TRUE_POLYMORPH_DIREWOLF"
+data "Description" "h9lvltpoly009g0001g0001g0001g000000000009;1"
+
+new entry "TRUE_POLYMORPH_SHADOWMASTIFF"
+type "StatusData"
+data "StatusType" "POLYMORPHED"
+using "HAV_DevilishOX_POLYMORPH_SHADOWMASTIFF"
+data "DisplayName" "h9lvltpoly001g0001g0001g0001g000000000001;1"
+data "Description" "htpm0001a000000000000000000000003;1"
+data "Icon" "Spell_Transmutation_Polymorph"
+data "StackId" "POLYMORPH"
+// Apotheosis/Shapeshift/Rulebook.lsx: the form's statblock, but you keep your own hit points (PHB 2024)
+data "Rules" "95fbb220-88d3-417a-a6cb-782153f5584f"
+
+new entry "TRUE_POLYMORPH_SHADOWMASTIFF_PERMANENT"
+type "StatusData"
+data "StatusType" "POLYMORPHED"
+using "TRUE_POLYMORPH_SHADOWMASTIFF"
+data "Description" "h9lvltpoly009g0001g0001g0001g000000000009;1"
+
+new entry "TRUE_POLYMORPH_PHASESPIDER"
+type "StatusData"
+data "StatusType" "POLYMORPHED"
+using "HAV_DevilishOX_POLYMORPH_PHASESPIDER"
+data "DisplayName" "h9lvltpoly001g0001g0001g0001g000000000001;1"
+data "Description" "htpm0001a000000000000000000000003;1"
+data "Icon" "Spell_Transmutation_Polymorph"
+data "StackId" "POLYMORPH"
+// Apotheosis/Shapeshift/Rulebook.lsx: the form's statblock, but you keep your own hit points (PHB 2024)
+data "Rules" "95fbb220-88d3-417a-a6cb-782153f5584f"
+
+new entry "TRUE_POLYMORPH_PHASESPIDER_PERMANENT"
+type "StatusData"
+data "StatusType" "POLYMORPHED"
+using "TRUE_POLYMORPH_PHASESPIDER"
+data "Description" "h9lvltpoly009g0001g0001g0001g000000000009;1"
+
+new entry "TRUE_POLYMORPH_MINOTAUR"
+type "StatusData"
+data "StatusType" "POLYMORPHED"
+using "HAV_DevilishOX_POLYMORPH_MINOTAUR"
+data "DisplayName" "h9lvltpoly001g0001g0001g0001g000000000001;1"
+data "Description" "htpm0001a000000000000000000000003;1"
+data "Icon" "Spell_Transmutation_Polymorph"
+data "StackId" "POLYMORPH"
+// Apotheosis/Shapeshift/Rulebook.lsx: the form's statblock, but you keep your own hit points (PHB 2024)
+data "Rules" "95fbb220-88d3-417a-a6cb-782153f5584f"
+
+new entry "TRUE_POLYMORPH_MINOTAUR_PERMANENT"
+type "StatusData"
+data "StatusType" "POLYMORPHED"
+using "TRUE_POLYMORPH_MINOTAUR"
+data "Description" "h9lvltpoly009g0001g0001g0001g000000000009;1"
+
+new entry "TRUE_POLYMORPH_CHEESE"
+type "StatusData"
+data "StatusType" "POLYMORPHED"
+using "POLYMORPH_CHEESE"
+data "DisplayName" "h9lvltpoly001g0001g0001g0001g000000000001;1"
+data "Description" "htpm0001a000000000000000000000003;1"
+data "Icon" "Spell_Transmutation_Polymorph"
+data "StackId" "POLYMORPH"
+
+new entry "TRUE_POLYMORPH_CHEESE_PERMANENT"
+type "StatusData"
+data "StatusType" "POLYMORPHED"
+using "TRUE_POLYMORPH_CHEESE"
+data "Description" "h9lvltpoly009g0001g0001g0001g000000000009;1"
+
+// 2024: the target gains temporary HP equal to the new form's hit points (the form templates' Vitality, read in
+// game 2026-10-01). TruePolymorph.lua applies them (so they aren't tied to concentration and survive the swap to
+// _PERMANENT) and ends the transformation when they run out (dnd55e Wild Shape pattern).
+new entry "TRUE_POLYMORPH_TEMPHP_SHEEP"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "h9lvltpoly001g0001g0001g0001g000000000001;1"
+data "Description" "h9lvltpoly010g0001g0001g0001g000000000010;1"
+data "Icon" "statIcons_MAG_TemporaryHP"
+data "StackId" "TRUE_POLYMORPH_TEMPHP"
 data "StackType" "Overwrite"
+data "Boosts" "TemporaryHP(3)"
+data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog"
+
+new entry "TRUE_POLYMORPH_TEMPHP_DIREWOLF"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "h9lvltpoly001g0001g0001g0001g000000000001;1"
+data "Description" "h9lvltpoly010g0001g0001g0001g000000000010;1"
+data "Icon" "statIcons_MAG_TemporaryHP"
+data "StackId" "TRUE_POLYMORPH_TEMPHP"
+data "StackType" "Overwrite"
+data "Boosts" "TemporaryHP(37)"
+data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog"
+
+new entry "TRUE_POLYMORPH_TEMPHP_SHADOWMASTIFF"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "h9lvltpoly001g0001g0001g0001g000000000001;1"
+data "Description" "h9lvltpoly010g0001g0001g0001g000000000010;1"
+data "Icon" "statIcons_MAG_TemporaryHP"
+data "StackId" "TRUE_POLYMORPH_TEMPHP"
+data "StackType" "Overwrite"
+data "Boosts" "TemporaryHP(33)"
+data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog"
+
+new entry "TRUE_POLYMORPH_TEMPHP_PHASESPIDER"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "h9lvltpoly001g0001g0001g0001g000000000001;1"
+data "Description" "h9lvltpoly010g0001g0001g0001g000000000010;1"
+data "Icon" "statIcons_MAG_TemporaryHP"
+data "StackId" "TRUE_POLYMORPH_TEMPHP"
+data "StackType" "Overwrite"
+data "Boosts" "TemporaryHP(24)"
+data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog"
+
+new entry "TRUE_POLYMORPH_TEMPHP_MINOTAUR"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "h9lvltpoly001g0001g0001g0001g000000000001;1"
+data "Description" "h9lvltpoly010g0001g0001g0001g000000000010;1"
+data "Icon" "statIcons_MAG_TemporaryHP"
+data "StackId" "TRUE_POLYMORPH_TEMPHP"
+data "StackType" "Overwrite"
+data "Boosts" "TemporaryHP(84)"
+data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog"
 
 // ==================================================================================
 // LEVEL 7-9 UPCAST SUPPORT STATUS EFFECTS

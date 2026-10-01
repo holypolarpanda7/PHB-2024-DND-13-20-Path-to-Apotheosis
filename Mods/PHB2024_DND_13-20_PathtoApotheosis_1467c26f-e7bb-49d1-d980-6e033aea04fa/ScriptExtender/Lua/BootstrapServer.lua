@@ -1146,6 +1146,13 @@ if Ext and type(Ext.Require) == "function" then
         Log.Warn("TimeStop bootstrap load failed: " .. tostring(tsOrErr))
     end
 
+    local okTp, tpOrErr = pcall(Ext.Require, "TruePolymorph.lua")
+    if okTp and type(tpOrErr) == "table" then
+        Log.Info("TruePolymorph loaded at bootstrap")
+    else
+        Log.Warn("TruePolymorph bootstrap load failed: " .. tostring(tpOrErr))
+    end
+
     local okIm, imOrErr = pcall(Ext.Require, "IndomitableMight.lua")
     if okIm and type(imOrErr) == "table" then
         Log.Info("IndomitableMight loaded at bootstrap")

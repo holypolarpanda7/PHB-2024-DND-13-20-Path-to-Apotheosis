@@ -152,3 +152,38 @@ expect = [
   { target = "A", status_absent = ["TIME_STOPPED"] },
   { target = "host", status_absent = ["TIME_STOP"] },
 ]
+
+[[case]]
+id = "fix20-true-polymorph-sheep"
+mode = "script"
+title = "True Polymorph: an enemy wolf becomes a sheep for the hour (#20)"
+spell = "Target_TruePolymorph_Sheep"
+target = "A"
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 6 }]
+expect = [
+  { cast = true },
+  { target = "A", status_present = ["TRUE_POLYMORPH_SHEEP", "TRUE_POLYMORPH_TEMPHP_SHEEP"] },
+]
+
+[[case]]
+id = "fix20-true-polymorph-object"
+mode = "script"
+title = "True Polymorph: creature into object - an enemy wolf becomes a wheel of cheese (#20)"
+spell = "Target_TruePolymorph_Cheese"
+target = "A"
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 6 }]
+expect = [
+  { cast = true },
+  { target = "A", status_present = ["TRUE_POLYMORPH_CHEESE"] },
+]
+
+[[case]]
+id = "fix20-true-polymorph-self"
+mode = "script"
+title = "True Polymorph: you (level 2) can become a Dire Wolf (CR 1) with 37 temporary HP, no save for a willing target (#20)"
+spell = "Target_TruePolymorph_DireWolf"
+target = "host"
+expect = [
+  { cast = true },
+  { target = "host", status_present = ["TRUE_POLYMORPH_DIREWOLF", "TRUE_POLYMORPH_TEMPHP_DIREWOLF"] },
+]

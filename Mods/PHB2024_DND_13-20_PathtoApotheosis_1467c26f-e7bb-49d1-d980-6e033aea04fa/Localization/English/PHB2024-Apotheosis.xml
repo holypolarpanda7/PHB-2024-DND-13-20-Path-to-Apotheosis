@@ -421,7 +421,15 @@
   <content contentuid="hwish00000000000000000000000007" version="1">Wish: Divine Blessing</content>
   <content contentuid="hwish00000000000000000000000008" version="1">Grant all allies within 18m Advantage on all Attack Rolls, Ability Checks, and Saving Throws, plus Resistance to all damage types.</content>
   <content contentuid="h9lvltpoly001g0001g0001g0001g000000000001" version="1">True Polymorph</content>
-  <content contentuid="h9lvltpoly002g0001g0001g0001g000000000002" version="1">Transform a creature into another creature or object. The transformation lasts until dispelled or the creature drops to 0 hit points.</content>
+  <content contentuid="h9lvltpoly002g0001g0001g0001g000000000002" version="1">Transform a creature into another creature, or into an object. An unwilling creature makes a Wisdom saving throw. A new creature form can have a Challenge Rating up to the target's level; the target takes on its statistics, keeps its own hit points and gains temporary hit points equal to the form's, and returns to its true form when they run out. If you concentrate for the full hour, the transformation lasts until dispelled.</content>
+  <content contentuid="h9lvltpoly003g0001g0001g0001g000000000003" version="1">True Polymorph: Sheep</content>
+  <content contentuid="h9lvltpoly004g0001g0001g0001g000000000004" version="1">True Polymorph: Dire Wolf</content>
+  <content contentuid="h9lvltpoly005g0001g0001g0001g000000000005" version="1">True Polymorph: Shadow Mastiff</content>
+  <content contentuid="h9lvltpoly006g0001g0001g0001g000000000006" version="1">True Polymorph: Phase Spider</content>
+  <content contentuid="h9lvltpoly007g0001g0001g0001g000000000007" version="1">True Polymorph: Minotaur</content>
+  <content contentuid="h9lvltpoly008g0001g0001g0001g000000000008" version="1">True Polymorph: Wheel of Cheese (object)</content>
+  <content contentuid="h9lvltpoly009g0001g0001g0001g000000000009" version="1">Transformed by True Polymorph. You concentrated for the full duration: this lasts until it is dispelled.</content>
+  <content contentuid="h9lvltpoly010g0001g0001g0001g000000000010" version="1">Temporary hit points from your True Polymorph form. When they run out, you return to your true form.</content>
   <content contentuid="h9lvlmeteor01g0001g0001g0001g000000000001" version="1">Meteor Swarm</content>
   <content contentuid="h9lvlmeteor02g0001g0001g0001g000000000002" version="1">Blazing orbs of fire plummet to the ground at four different points you can see, creating massive explosions. Each creature in a 40-foot-radius sphere centered on each point must make a Dexterity saving throw, taking 20d6 fire damage and 20d6 bludgeoning damage on a failed save, or half as much on a successful one.</content>
   <content contentuid="h9lvlgate0001g0001g0001g0001g000000000001" version="1">Gate</content>
