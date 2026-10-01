@@ -75,3 +75,35 @@ expect = [
   { roll = "dex", pass = [0, 29] },
   { roll = "acro", pass = [0, 29] },
 ]
+
+[[case]]
+id = "fix18-spell-mastery-select"
+title = "Spell Mastery: picking a level 1 and a level 2 spell unlocks both and closes the selection (#18)"
+setup = [{ target = "host", passive = "SpellMastery" }]
+casts = [{ spell = "Shout_SpellMastery" }, { spell = "Shout_SM_MagicMissile", wait = 3 }, { spell = "Shout_SM_Web", wait = 3 }]
+expect = [
+  { target = "host", status_present = ["SM_UNLOCK_MAGICMISSILE", "SM_UNLOCK_WEB", "SPELL_MASTERY_BLOCK", "SPELL_MASTERY_CHOSEN"], status_absent = ["SPELL_MASTERY_SELECTION"] },
+]
+
+[[case]]
+id = "fix18-spell-mastery-swap"
+title = "Spell Mastery: after a Long Rest one pick replaces the same-level spell and closes again (#18)"
+setup = [{ target = "host", passive = "SpellMastery" }, { target = "host", status = "SM_UNLOCK_MAGICMISSILE", turns = -1 }, { target = "host", status = "SM_UNLOCK_WEB", turns = -1 }, { target = "host", status = "SPELL_MASTERY_CHOSEN", turns = -1 }]
+casts = [{ spell = "Shout_SpellMastery" }, { spell = "Shout_SM_Sleep", wait = 3 }]
+expect = [
+  { target = "host", status_present = ["SM_UNLOCK_SLEEP", "SM_UNLOCK_WEB", "SPELL_MASTERY_BLOCK"], status_absent = ["SM_UNLOCK_MAGICMISSILE", "SPELL_MASTERY_SELECTION"] },
+]
+
+[[case]]
+id = "fix18-spell-mastery-free-cast"
+mode = "auto"
+title = "Spell Mastery: the mastered Magic Missile hits a wolf and costs no spell slot (#18)"
+spell = "Projectile_MagicMissile_SM"
+target = "A"
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 6 }]
+setup = [{ target = "host", status = "SM_UNLOCK_MAGICMISSILE", turns = -1 }]
+expect = [
+  { cast = true },
+  { target = "A", hp_change = [-15, -3] },
+  { resource = "SpellSlot", level = 1, change = 0 },
+]

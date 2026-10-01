@@ -444,7 +444,7 @@
   <content contentuid="hsm0004a0000000000000000000000001" version="1">Spell Mastery</content>
   <content contentuid="hsm0004a0000000000000000000000002" version="1">You have achieved such mastery over certain spells that you can cast them at will. Choose a level 1 and a level 2 spell in your spellbook that have a casting time of an action. You always have those spells prepared, and you can cast them at their lowest level without expending a spell slot. Whenever you finish a Long Rest, you can study your spellbook and replace one of those spells with an eligible spell of the same level.</content>
   <content contentuid="hsm0005a0000000000000000000000001" version="1">Spell Mastery</content>
-  <content contentuid="hsm0005a0000000000000000000000002" version="1">Open your spellbook to select your mastered spells. Choose one level 1 and one level 2 spell to cast at will without expending spell slots. Your choices reset on Long Rest.</content>
+  <content contentuid="hsm0005a0000000000000000000000002" version="1">Open your spellbook to select your mastered spells. Choose one level 1 and one level 2 spell to cast at will without expending spell slots. After a Long Rest you can open it again to replace one of them.</content>
   <content contentuid="hsm1001a0000000000000000000000001" version="1">Master: Burning Hands</content>
   <content contentuid="hsm1001a0000000000000000000000002" version="1">Select Burning Hands as your mastered level 1 spell. You can cast it at will without expending a spell slot.</content>
   <content contentuid="hsm1002a0000000000000000000000001" version="1">Master: Charm Person</content>

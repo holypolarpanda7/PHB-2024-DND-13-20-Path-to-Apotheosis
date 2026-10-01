@@ -221,8 +221,18 @@ data "Description" "hsm0003a0000000000000000000000002;1"
 data "Icon" "PassiveFeature_MagicInitiateWizard"
 data "StackId" "SPELL_MASTERY_SELECTION"
 data "StackType" "Overwrite"
-data "Boosts" "ActionResource(LearnSpellMasteryL1,1,0);ActionResource(LearnSpellMasteryL2,1,0);UnlockSpell(Shout_SM_BurningHands);UnlockSpell(Shout_SM_CharmPerson);UnlockSpell(Shout_SM_ChromaticOrb);UnlockSpell(Shout_SM_ColorSpray);UnlockSpell(Shout_SM_DisguiseSelf);UnlockSpell(Shout_SM_ExpeditiousRetreat);UnlockSpell(Shout_SM_FalseLife);UnlockSpell(Shout_SM_FeatherFall);UnlockSpell(Shout_SM_FindFamiliar);UnlockSpell(Shout_SM_FogCloud);UnlockSpell(Shout_SM_Grease);UnlockSpell(Shout_SM_HideousLaughter);UnlockSpell(Shout_SM_Jump);UnlockSpell(Shout_SM_Longstrider);UnlockSpell(Shout_SM_MageArmor);UnlockSpell(Shout_SM_MagicMissile);UnlockSpell(Shout_SM_ProtectionFromEvilAndGood);UnlockSpell(Shout_SM_RayOfSickness);UnlockSpell(Shout_SM_Sleep);UnlockSpell(Shout_SM_Shield);UnlockSpell(Shout_SM_Thunderwave);UnlockSpell(Shout_SM_WitchBolt);UnlockSpell(Shout_SM_AcidArrow);UnlockSpell(Shout_SM_Blindness);UnlockSpell(Shout_SM_CloudOfDaggers);UnlockSpell(Shout_SM_CrownOfMadness);UnlockSpell(Shout_SM_Blur);UnlockSpell(Shout_SM_Darkness);UnlockSpell(Shout_SM_Darkvision);UnlockSpell(Shout_SM_DetectThoughts);UnlockSpell(Shout_SM_EnlargeReduce);UnlockSpell(Shout_SM_FlamingSphere);UnlockSpell(Shout_SM_HoldPerson);UnlockSpell(Shout_SM_Invisibility);UnlockSpell(Shout_SM_MagicWeapon);UnlockSpell(Shout_SM_MirrorImage);UnlockSpell(Shout_SM_MistyStep);UnlockSpell(Shout_SM_PhantasmalForce);UnlockSpell(Shout_SM_RayOfEnfeeblement);UnlockSpell(Shout_SM_ScorchingRay);UnlockSpell(Shout_SM_Shatter);UnlockSpell(Shout_SM_Web)"
+data "Boosts" "ActionResource(LearnSpellMasteryL1,1,0);ActionResource(LearnSpellMasteryL2,1,0);UnlockSpell(Shout_SM_BurningHands);UnlockSpell(Shout_SM_CharmPerson);UnlockSpell(Shout_SM_ChromaticOrb);UnlockSpell(Shout_SM_ColorSpray);UnlockSpell(Shout_SM_DisguiseSelf);UnlockSpell(Shout_SM_FalseLife);UnlockSpell(Shout_SM_FogCloud);UnlockSpell(Shout_SM_Grease);UnlockSpell(Shout_SM_HideousLaughter);UnlockSpell(Shout_SM_Longstrider);UnlockSpell(Shout_SM_MageArmor);UnlockSpell(Shout_SM_MagicMissile);UnlockSpell(Shout_SM_ProtectionFromEvilAndGood);UnlockSpell(Shout_SM_RayOfSickness);UnlockSpell(Shout_SM_Sleep);UnlockSpell(Shout_SM_Thunderwave);UnlockSpell(Shout_SM_WitchBolt);UnlockSpell(Shout_SM_AcidArrow);UnlockSpell(Shout_SM_Blindness);UnlockSpell(Shout_SM_CloudOfDaggers);UnlockSpell(Shout_SM_CrownOfMadness);UnlockSpell(Shout_SM_Blur);UnlockSpell(Shout_SM_Darkness);UnlockSpell(Shout_SM_Darkvision);UnlockSpell(Shout_SM_DetectThoughts);UnlockSpell(Shout_SM_EnlargeReduce);UnlockSpell(Shout_SM_FlamingSphere);UnlockSpell(Shout_SM_HoldPerson);UnlockSpell(Shout_SM_Invisibility);UnlockSpell(Shout_SM_MirrorImage);UnlockSpell(Shout_SM_PhantasmalForce);UnlockSpell(Shout_SM_RayOfEnfeeblement);UnlockSpell(Shout_SM_ScorchingRay);UnlockSpell(Shout_SM_Shatter);UnlockSpell(Shout_SM_Web)"
 data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator"
+data "StatusGroups" "SG_RemoveOnRespec"
+
+// PHB 2024 (#18): only spells with a casting time of an action - Shield/Feather Fall (reaction), Expeditious Retreat,
+// Jump, Misty Step, Magic Weapon (bonus action) and Find Familiar (1 hour) are not offered.
+// Marker: the first selection is done, so later selections (after a Long Rest) replace one spell. SpellMastery.lua.
+new entry "SPELL_MASTERY_CHOSEN"
+type "StatusData"
+data "StatusType" "BOOST"
+data "StackId" "SPELL_MASTERY_CHOSEN"
+data "StatusPropertyFlags" "IgnoreResting;DisableOverhead;DisableCombatlog;DisablePortraitIndicator;ApplyToDead"
 data "StatusGroups" "SG_RemoveOnRespec"
 
 // Block status - applied after selections are made
