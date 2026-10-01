@@ -430,6 +430,10 @@
   <content contentuid="h9lvlfore0002g0001g0001g0001g000000000002" version="1">You touch a willing creature and bestow a limited ability to see into the immediate future. For the duration, the target can't be surprised and has advantage on attack rolls, ability checks, and saving throws. Other creatures have disadvantage on attack rolls against it.</content>
   <content contentuid="h9lvltstop001g0001g0001g0001g000000000001" version="1">Time Stop</content>
   <content contentuid="h9lvltstop002g0001g0001g0001g000000000002" version="1">You briefly stop the flow of time for everyone but yourself. You take 1d4+1 turns in a row, during which you can use actions and move as normal. This spell ends if you affect any creature other than yourself or an object being worn or carried by someone other than you.</content>
+  <content contentuid="h9lvltstop003g0001g0001g0001g000000000003" version="1">Time Stop</content>
+  <content contentuid="h9lvltstop004g0001g0001g0001g000000000004" version="1">You are acting outside of time. Other creatures take no turns until your extra turns run out. The spell ends early if anything you do affects another creature, or an object worn or carried by someone else.</content>
+  <content contentuid="h9lvltstop005g0001g0001g0001g000000000005" version="1">Frozen in Time</content>
+  <content contentuid="h9lvltstop006g0001g0001g0001g000000000006" version="1">No time passes for this creature. It takes no turns and can't move, act or react until Time Stop ends.</content>
   <content contentuid="h9lvlmheal001g0001g0001g0001g000000000001" version="1">Mass Heal</content>
   <content contentuid="h9lvlmheal002g0001g0001g0001g000000000002" version="1">A flood of healing energy flows from you into injured creatures around you. You restore up to 700 hit points, divided as you choose among any number of creatures that you can see within range. Creatures healed are also cured of diseases and any effect making them blinded or deafened.</content>
   <content contentuid="h9lvlpwall001g0001g0001g0001g000000000001" version="1">Prismatic Wall</content>

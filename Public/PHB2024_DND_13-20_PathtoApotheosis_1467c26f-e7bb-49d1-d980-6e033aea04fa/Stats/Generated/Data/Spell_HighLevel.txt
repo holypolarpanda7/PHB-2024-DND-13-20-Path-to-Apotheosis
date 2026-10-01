@@ -502,7 +502,7 @@ data "Description" "h9lvltstop002g0001g0001g0001g000000000002;1"
 data "CastTextEvent" "Cast"
 data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:9"
 data "SpellAnimation" "9fd22d7d-5d7a-470b-a939-810046915bed,,;,,;4222840e-85c4-41d4-89f3-cf525ab7a2ce,,;d58199b1-9bc5-4715-99d4-43a5b5c1ec16,,;2d19a206-bf18-4f4d-ba95-f83c5fc38fd7,,;,,;57db495b-2467-467b-a599-d7df2fa4d659,,;,,;,,"
-data "SpellProperties" "ApplyStatus(TIME_STOP,100,3)"
+data "SpellProperties" "ApplyStatus(SELF,TIME_STOP,100,10)"
 data "VerbalIntent" "Control"
 data "SpellFlags" "HasVerbalComponent;IsSpell"
 

@@ -107,3 +107,48 @@ expect = [
   { target = "A", hp_change = [-15, -3] },
   { resource = "SpellSlot", level = 1, change = 0 },
 ]
+
+[[case]]
+id = "fix19-time-stop-freeze"
+mode = "script"
+title = "Time Stop: the caster gets TIME_STOP and every other creature in the combat is frozen (#19)"
+spell = "Shout_TimeStop"
+target = "host"
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 8 }, { as = "B", template = "boar", faction = "hostile", hp = 300, distance = 10 }]
+expect = [
+  { cast = true },
+  { target = "host", status_present = ["TIME_STOP"] },
+  { target = "A", status_present = ["TIME_STOPPED"] },
+  { target = "B", status_present = ["TIME_STOPPED"] },
+]
+
+[[case]]
+id = "fix19-time-stop-break"
+mode = "script"
+title = "Time Stop: hitting a frozen creature ends the spell for everyone (#19)"
+spell = "Projectile_MagicMissile"
+target = "A"
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 8 }, { as = "B", template = "boar", faction = "hostile", hp = 300, distance = 10 }]
+casts = [{ spell = "Shout_TimeStop", target = "host", wait = 2 }]
+expect = [
+  { target = "A", hp_change = [-15, -3] },
+  { target = "host", status_absent = ["TIME_STOP"] },
+  { target = "A", status_absent = ["TIME_STOPPED"] },
+  { target = "B", status_absent = ["TIME_STOPPED"] },
+]
+
+[[case]]
+id = "fix19-time-stop-turns"
+mode = "script"
+title = "Time Stop: you take 1d4+1 turns in a row, then the frozen creatures act again (#19)"
+spell = "Shout_TimeStop"
+target = "host"
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 8 }, { as = "B", template = "boar", faction = "hostile", hp = 300, distance = 10 }]
+setup = [{ target = "host", max_hp = 300 }]
+end_turns = 7
+expect = [
+  { consecutive_turns = "host", count = [2, 5] },
+  { took_turn = "A" },
+  { target = "A", status_absent = ["TIME_STOPPED"] },
+  { target = "host", status_absent = ["TIME_STOP"] },
+]

@@ -1,0 +1,24 @@
+// Time Stop (Wizard/Sorcerer 9th level, PHB 2024, issue #19). The turn bookkeeping (1d4+1 turns, ending the spell
+// when you affect another creature) lives in ScriptExtender/Lua/TimeStop.lua.
+
+// On the caster. The 10-round duration is only a backstop: the script ends it after your 1d4+1 turns.
+new entry "TIME_STOP"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "h9lvltstop003g0001g0001g0001g000000000003;1"
+data "Description" "h9lvltstop004g0001g0001g0001g000000000004;1"
+data "Icon" "Spell_Transmutation_Haste"
+data "StackId" "TIME_STOP"
+data "StatusPropertyFlags" "OverheadOnTurn"
+
+// On every other creature: no time passes for them, so their turns are skipped. Not a condition (no
+// Incapacitated group) and it doesn't break concentration; the script removes it when the spell ends.
+new entry "TIME_STOPPED"
+type "StatusData"
+data "StatusType" "INCAPACITATED"
+data "DisplayName" "h9lvltstop005g0001g0001g0001g000000000005;1"
+data "Description" "h9lvltstop006g0001g0001g0001g000000000006;1"
+data "Icon" "Spell_Transmutation_Haste"
+data "StackId" "TIME_STOPPED"
+data "Boosts" "ActionResourceBlock(Movement);ActionResourceBlock(ActionPoint);ActionResourceBlock(BonusActionPoint);ActionResourceBlock(ReactionActionPoint);DetectDisturbancesBlock(true)"
+data "StatusPropertyFlags" "DisableCombatlog"

@@ -1139,6 +1139,13 @@ if Ext and type(Ext.Require) == "function" then
         Log.Warn("SpellMastery bootstrap load failed: " .. tostring(smOrErr))
     end
 
+    local okTs, tsOrErr = pcall(Ext.Require, "TimeStop.lua")
+    if okTs and type(tsOrErr) == "table" then
+        Log.Info("TimeStop loaded at bootstrap")
+    else
+        Log.Warn("TimeStop bootstrap load failed: " .. tostring(tsOrErr))
+    end
+
     local okIm, imOrErr = pcall(Ext.Require, "IndomitableMight.lua")
     if okIm and type(imOrErr) == "table" then
         Log.Info("IndomitableMight loaded at bootstrap")
