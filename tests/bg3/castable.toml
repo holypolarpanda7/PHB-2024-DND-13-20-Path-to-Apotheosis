@@ -1,0 +1,160 @@
+# Castability checks (#14): every one of these was missing a SpellAnimation, so a normal cast never resolved.
+# Each case only expects the cast to happen (CastedSpell event) - effects are tested elsewhere.
+# Run: bg3_test_run("apotheosis", "<id>").
+
+[suite]
+name = "Castable feature spells"
+mode = "script"
+
+[[case]]
+id = "cast-Shout_CoronaOfLight"
+title = "Shout_CoronaOfLight resolves when cast"
+spell = "Shout_CoronaOfLight"
+target = "host"
+expect = [{ cast = true }]
+
+[[case]]
+id = "cast-Shout_DivineForeknowledge"
+title = "Shout_DivineForeknowledge resolves when cast"
+spell = "Shout_DivineForeknowledge"
+target = "host"
+expect = [{ cast = true }]
+
+[[case]]
+id = "cast-Shout_Wish_GreaterDivineIntervention"
+title = "Shout_Wish_GreaterDivineIntervention resolves when cast"
+spell = "Shout_Wish_GreaterDivineIntervention"
+target = "host"
+expect = [{ cast = true }]
+
+[[case]]
+id = "cast-Shout_Apotheosis_AvengingAngel"
+title = "Shout_Apotheosis_AvengingAngel resolves when cast"
+spell = "Shout_Apotheosis_AvengingAngel"
+target = "host"
+expect = [{ cast = true }]
+
+[[case]]
+id = "cast-Shout_Apotheosis_CleansingTouch"
+title = "Shout_Apotheosis_CleansingTouch resolves when cast"
+spell = "Shout_Apotheosis_CleansingTouch"
+target = "host"
+expect = [{ cast = true }]
+
+[[case]]
+id = "cast-Shout_Apotheosis_CloakOfShadows"
+title = "Shout_Apotheosis_CloakOfShadows resolves when cast"
+spell = "Shout_Apotheosis_CloakOfShadows"
+target = "host"
+expect = [{ cast = true }]
+
+[[case]]
+id = "cast-Shout_Apotheosis_ElderChampion"
+title = "Shout_Apotheosis_ElderChampion resolves when cast"
+spell = "Shout_Apotheosis_ElderChampion"
+target = "host"
+expect = [{ cast = true }]
+
+[[case]]
+id = "cast-Shout_Apotheosis_HolyNimbus"
+title = "Shout_Apotheosis_HolyNimbus resolves when cast"
+spell = "Shout_Apotheosis_HolyNimbus"
+target = "host"
+expect = [{ cast = true }]
+
+[[case]]
+id = "cast-Shout_Apotheosis_ImprovedDuplicity"
+title = "Shout_Apotheosis_ImprovedDuplicity resolves when cast"
+spell = "Shout_Apotheosis_ImprovedDuplicity"
+target = "host"
+expect = [{ cast = true }]
+
+[[case]]
+id = "cast-Shout_Apotheosis_InspiringSurge"
+title = "Shout_Apotheosis_InspiringSurge resolves when cast"
+spell = "Shout_Apotheosis_InspiringSurge"
+target = "host"
+expect = [{ cast = true }]
+
+[[case]]
+id = "cast-Shout_Apotheosis_OceanicGift"
+title = "Shout_Apotheosis_OceanicGift resolves when cast"
+spell = "Shout_Apotheosis_OceanicGift"
+target = "host"
+expect = [{ cast = true }]
+
+[[case]]
+id = "cast-Shout_Apotheosis_ShadowyDodge"
+title = "Shout_Apotheosis_ShadowyDodge resolves when cast"
+spell = "Shout_Apotheosis_ShadowyDodge"
+target = "host"
+expect = [{ cast = true }]
+
+[[case]]
+id = "cast-Shout_Apotheosis_StarryForm"
+title = "Shout_Apotheosis_StarryForm resolves when cast"
+spell = "Shout_Apotheosis_StarryForm"
+target = "host"
+expect = [{ cast = true }]
+
+[[case]]
+id = "cast-Shout_Apotheosis_SuperiorDefense"
+title = "Shout_Apotheosis_SuperiorDefense resolves when cast"
+spell = "Shout_Apotheosis_SuperiorDefense"
+target = "host"
+expect = [{ cast = true }]
+
+[[case]]
+id = "cast-Shout_Apotheosis_TelekineticThrust"
+title = "Shout_Apotheosis_TelekineticThrust resolves when cast"
+spell = "Shout_Apotheosis_TelekineticThrust"
+target = "host"
+expect = [{ cast = true }]
+
+[[case]]
+id = "cast-Shout_SpellMastery"
+title = "Shout_SpellMastery resolves when cast"
+spell = "Shout_SpellMastery"
+target = "host"
+expect = [{ cast = true }]
+
+[[case]]
+id = "cast-Target_Apotheosis_ChemicalMastery"
+title = "Chemical Mastery resolves when cast"
+spell = "Target_Apotheosis_ChemicalMastery"
+target = "host"
+expect = [{ cast = true }]
+
+[[case]]
+id = "cast-Target_Apotheosis_VersatileTrickster"
+title = "Versatile Trickster resolves when cast"
+spell = "Target_Apotheosis_VersatileTrickster"
+target = "A"
+spawn = [{ as = "A", template = "wolf", faction = "neutral", distance = 5 }]
+expect = [{ cast = true }]
+
+[[case]]
+id = "cast-Target_Apotheosis_QuiveringPalm"
+title = "Quivering Palm resolves when cast"
+spell = "Target_Apotheosis_QuiveringPalm"
+target = "A"
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 200, distance = 1.5 }]
+setup = [{ target = "A", boost = "ActionResourceBlock(ReactionActionPoint)" }]
+expect = [{ cast = true }]
+notes = "the wolf's reaction is blocked: its opportunity attack otherwise interrupts the cast (a test artifact)"
+
+[[case]]
+id = "cast-Target_Apotheosis_HandOfUltimateMercy"
+title = "Hand of Ultimate Mercy resolves on a corpse"
+spell = "Target_Apotheosis_HandOfUltimateMercy"
+target = "A"
+spawn = [{ as = "A", template = "wolf", faction = "neutral", distance = 2 }]
+setup = [{ target = "A", dead = true }]
+expect = [{ cast = true }]
+
+[[case]]
+id = "cast-Target_Apotheosis_DraconicSpirit"
+title = "Draconic Spirit resolves when cast at the ground"
+spell = "Target_Apotheosis_DraconicSpirit"
+target = "ground"
+expect = [{ cast = true }]

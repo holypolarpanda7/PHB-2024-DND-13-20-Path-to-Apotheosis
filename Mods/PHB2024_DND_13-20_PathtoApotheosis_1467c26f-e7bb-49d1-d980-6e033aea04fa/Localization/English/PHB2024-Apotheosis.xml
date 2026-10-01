@@ -584,15 +584,7 @@
   <content contentuid="hclr20wish000000000000000000009" version="1">Wish Blessing</content>
   <content contentuid="hclr20wish000000000000000000010" version="1">Blessed by a Wish spell. Advantage on all Attack Rolls, Ability Checks, and Saving Throws. Resistance to all damage types.</content>
 
-  <content contentuid="hknow17fore00000000000000000001" version="1">Divine Foreknowledge</content>
-  <content contentuid="hknow17fore00000000000000000002" version="1">As a Bonus Action, magically expand your mind to the future. For 1 hour, you have Advantage on all D20 Tests (Attack Rolls, Ability Checks, and Saving Throws). You can use this feature once per Long Rest.</content>
-  <content contentuid="hknow17fore00000000000000000003" version="1">Your mind is expanded to perceive the future. Advantage on all Attack Rolls, Ability Checks, and Saving Throws.</content>
 
-  <content contentuid="hlight17cor00000000000000000001" version="1">Corona of Light</content>
-  <content contentuid="hlight17cor00000000000000000002" version="1">As a Magic action, emit an aura of sunlight for 1 minute. Enemies in the 60-foot Bright Light have Disadvantage on saving throws against your Radiance of the Dawn and any spell that deals Fire or Radiant damage. Usable once per Short Rest.</content>
-  <content contentuid="hlight17cor00000000000000000003" version="1">Emitting a Corona of Light. Enemies within 60 feet have Disadvantage on saves against Fire and Radiant damage spells.</content>
-  <content contentuid="hlight17cor00000000000000000004" version="1">Corona of Light (Weakened)</content>
-  <content contentuid="hlight17cor00000000000000000005" version="1">In the Corona of Light. Disadvantage on saving throws against Fire and Radiant damage spells.</content>
 
 
   <content contentuid="hdth17reap00000000000000000000001" version="1">Improved Reaper</content>

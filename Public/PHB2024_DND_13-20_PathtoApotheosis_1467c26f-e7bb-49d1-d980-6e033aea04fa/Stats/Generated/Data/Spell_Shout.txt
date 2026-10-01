@@ -759,6 +759,15 @@ data "SpellFlags" "HasSomaticComponent;IsSpell"
 // ====== PALADIN 13-20 SHOUTS ======
 
 // Cleansing Touch (Paladin L14): self-cleanse of harmful conditions, once per short rest.
+// visual kit from Shout_Blur (a spell with no SpellAnimation never resolves - #14)
+data "SpellAnimation" "03496c4a-49e0-4132-b585-3e5ecd1ad8e5,,;,,;4156d364-d2c0-4a01-908c-3552f78f434d,,;6f0a29b6-0ae8-4ebf-a1e4-8069c4a6ad16,,;a9682ef9-5d9e-4ac0-8144-2c7fe6eb868c,,;,,;32fb4d91-7fde-4b05-9144-ea87b9a4284a,,;,,;,,"
+data "PrepareEffect" "33302a46-4a12-41dd-8845-6b7314d50022"
+data "CastEffect" "1a4b0423-005b-4577-b376-815a08809675"
+data "PrepareSound" "Spell_Prepare_Buff_Gen_L1to3"
+data "PrepareLoopSound" "Spell_Prepare_Buff_Gen_L1to3_01_Loop"
+data "CastSound" "Spell_Cast_Buff_Blur_L1to3"
+data "TargetSound" "Spell_Impact_Buff_Blur_L1to3"
+data "HitAnimationType" "MagicalNonDamage"
 new entry "Shout_Apotheosis_CleansingTouch"
 type "SpellData"
 data "SpellType" "Shout"
@@ -776,6 +785,12 @@ data "VerbalIntent" "Utility"
 data "SpellFlags" "HasSomaticComponent;IsSpell"
 
 // Holy Nimbus (Devotion L20): burst of sunlight damaging enemies, plus a self radiant ward.
+// visual kit from Shout_AuraOfVitality (a spell with no SpellAnimation never resolves - #14)
+data "SpellAnimation" "03496c4a-49e0-4132-b585-3e5ecd1ad8e5,,;,,;5e7e63e1-0e69-46e7-ade7-fe3dadcc9184,,;e9ad50df-e7f1-43a0-b782-4c08f92b0f5a,,;a9682ef9-5d9e-4ac0-8144-2c7fe6eb868c,,;,,;32fb4d91-7fde-4b05-9144-ea87b9a4284a,,;,,;,,"
+data "PrepareEffect" "747ac7e5-c52e-4e5a-be78-1f9de85b55ea"
+data "CastEffect" "8265c6d6-662a-40fe-888b-024af0e2b1b9"
+data "CastSound" "Spell_Cast_Healing_ActivateAuraOfVitality_L1to3"
+data "TargetSound" "Spell_Impact_Paladin_AuraOfVitality_L1to3"
 new entry "Shout_Apotheosis_HolyNimbus"
 type "SpellData"
 data "SpellType" "Shout"
@@ -794,6 +809,13 @@ data "VerbalIntent" "Damage"
 data "SpellFlags" "HasSomaticComponent;IsSpell;IsHarmful"
 
 // Elder Champion (Ancients L20): transform into an avatar of nature - heal and harden.
+// visual kit from Shout_CrusadersMantle (a spell with no SpellAnimation never resolves - #14)
+data "SpellAnimation" "03496c4a-49e0-4132-b585-3e5ecd1ad8e5,,;,,;5e7e63e1-0e69-46e7-ade7-fe3dadcc9184,,;e9ad50df-e7f1-43a0-b782-4c08f92b0f5a,,;a9682ef9-5d9e-4ac0-8144-2c7fe6eb868c,,;,,;32fb4d91-7fde-4b05-9144-ea87b9a4284a,,;,,;,,"
+data "PrepareEffect" "747ac7e5-c52e-4e5a-be78-1f9de85b55ea"
+data "CastEffect" "ab2f9793-28a8-4cd1-a519-dc00947d8f58"
+data "CastSound" "Spell_Cast_Buff_CrusadersMantle_L1to3"
+data "TargetSound" "Spell_Impact_Buff_CrusadersMantle_L1to3"
+data "HitAnimationType" "MagicalNonDamage"
 new entry "Shout_Apotheosis_ElderChampion"
 type "SpellData"
 data "SpellType" "Shout"
@@ -811,6 +833,13 @@ data "VerbalIntent" "Buff"
 data "SpellFlags" "HasSomaticComponent;IsSpell"
 
 // Avenging Angel (Vengeance L20): frightening aura burst (flight granted by the unlocked Fly spell).
+// visual kit from Shout_SacredWeapon (a spell with no SpellAnimation never resolves - #14)
+data "SpellAnimation" "71369b20-18f1-4d33-89ad-a99b10f0444c,,;,,;35b644cf-5c13-4407-9dc1-23bf4309216e,,;823e3ddf-c670-41ef-b7b4-9f4a4e38300b,,;3b9da8d4-3eff-43bd-9eaa-1c13fba0045e,,;,,;d5be826c-163f-4cc3-b195-2101e32e3da2,,;,,;,,"
+data "PrepareEffect" "747ac7e5-c52e-4e5a-be78-1f9de85b55ea"
+data "CastEffect" "b6e820ae-027d-43ff-9a11-8b278ffb9e56"
+data "CastSound" "Spell_Cast_Paladin_SacredWeapon_L1to3"
+data "TargetSound" "Spell_Impact_Paladin_SacredWeapon_L1to3"
+data "SpellAnimationIntentType" "Aggressive"
 new entry "Shout_Apotheosis_AvengingAngel"
 type "SpellData"
 data "SpellType" "Shout"
@@ -831,6 +860,12 @@ data "SpellFlags" "HasSomaticComponent;IsSpell;IsHarmful"
 // ====== MONK 13-20 SHOUTS ======
 
 // Superior Defense (Monk L18): spend 3 Ki to gain resistance to all damage except Force for 10 turns.
+// visual kit from Shout_DivineFavor (a spell with no SpellAnimation never resolves - #14)
+data "SpellAnimation" "71369b20-18f1-4d33-89ad-a99b10f0444c,,;,,;35b644cf-5c13-4407-9dc1-23bf4309216e,,;823e3ddf-c670-41ef-b7b4-9f4a4e38300b,,;3b9da8d4-3eff-43bd-9eaa-1c13fba0045e,,;,,;d5be826c-163f-4cc3-b195-2101e32e3da2,,;,,;,,"
+data "PrepareEffect" "747ac7e5-c52e-4e5a-be78-1f9de85b55ea"
+data "CastEffect" "1516f4b2-5a53-4adf-bf85-d6e46826cffe"
+data "CastSound" "Spell_Cast_Buff_DivineFavor_L1to3"
+data "TargetSound" "Spell_Impact_Buff_DivineFavor_L1to3"
 new entry "Shout_Apotheosis_SuperiorDefense"
 type "SpellData"
 data "SpellType" "Shout"
@@ -847,6 +882,15 @@ data "VerbalIntent" "Buff"
 data "SpellFlags" "HasSomaticComponent;IsSpell"
 
 // Cloak of Shadows (Shadow Monk L17): spend 2 Ki to become Invisible.
+// visual kit from Shout_PatientDefense (a spell with no SpellAnimation never resolves - #14)
+data "SpellAnimation" "b3b2d16b-61c7-4082-8394-0c04fb9ffdec,,;81c58c55-625d-46c3-bbb7-179b23ef725e,,;3c35a4e1-4441-4603-9c71-82179057d452,,;18c8ab7a-cfef-45b9-851d-e2bc52c9ebc3,,;e601e8fd-4017-4d26-a63a-e1d7362c99b3,,;,,;0b07883a-08b8-43b6-ac18-84dc9e84ff50,,;,,;,,"
+data "PrepareEffect" "c520a0bf-adc6-44f6-abcd-94bc0925b881"
+data "CastEffect" "0ed6eeea-fb80-45e5-a190-d72579f7e3d6"
+data "PrepareSound" "Vocal_Component_Monk_Utility"
+data "PrepareLoopSound" "Generic_GeneralAction_Loop"
+data "CastSound" "Spell_Cast_Monk_PatientDefense_L1to3"
+data "TargetSound" "Action_Impact_Dash"
+data "SpellAnimationIntentType" "Aggressive"
 new entry "Shout_Apotheosis_CloakOfShadows"
 type "SpellData"
 data "SpellType" "Shout"
@@ -868,6 +912,12 @@ data "TargetSound" "Spell_Impact_Utility_Invisibility_L1to3"
 
 // Telekinetic Thrust (Psi Warrior L18): once per Long Rest, unleash telekinetic force
 // in a 9m radius. Enemies make a Strength save or take 4d8 Force damage and are pushed.
+// visual kit from Shout_CloakOfShadow (a spell with no SpellAnimation never resolves - #14)
+data "SpellAnimation" "f489d217-b699-4e8e-bf22-6ef539c5d65b,,;,,;7a343ea7-1330-428a-b0b1-9f6dc7f2a91c,,;0f872585-3c6e-4493-a0b5-5acc882b7aaf,,;f9414915-2da7-4f40-bcbd-90e956461246,,;,,;f2a62277-c87a-4ec7-b4f2-c3c37e6e30ae,,;,,;,,"
+data "PrepareEffect" "323c90e0-e77b-4f43-9159-4026e5cbf94a"
+data "CastEffect" "655d9d60-070c-4f7d-ba2f-926c8c9d0778"
+data "PrepareSound" "Action_Prepare_OneWithShadows"
+data "PrepareLoopSound" "Spell_Prepare_Damage_Necrotic_Gen_L1to3_Loop"
 new entry "Shout_Apotheosis_TelekineticThrust"
 type "SpellData"
 data "SpellType" "Shout"
@@ -887,6 +937,15 @@ data "SpellFlags" "HasSomaticComponent;IsSpell;IsHarmful"
 
 // Inspiring Surge (Banneret L18): once per Short Rest, as a Bonus Action, inspire nearby
 // allies, granting them Advantage on attack rolls and 10 temporary HP for 2 turns.
+// visual kit from Shout_MAG_WeaponAction_TelekineticBolt (a spell with no SpellAnimation never resolves - #14)
+data "SpellAnimation" "73afb4e5-8cfe-4479-95cf-16889597fee3,,;,,;35b644cf-5c13-4407-9dc1-23bf4309216e,,;823e3ddf-c670-41ef-b7b4-9f4a4e38300b,,;6ec808e1-e128-44ef-9361-a713bf86de8f,,;,,;f920a0a6-f257-4ce4-8d17-2dcaa7bb7bbb,,;,,;,,"
+data "PrepareEffect" "25a145db-f2c4-4993-b317-844f66652ead"
+data "CastEffect" "469430a3-2d5f-4cc0-839c-68fcea35754a"
+data "PrepareSound" "Action_Prepare_Weapon_TelekineticBolt"
+data "PrepareLoopSound" "Action_Loop_Weapon_TelekineticBolt"
+data "CastSound" "Action_Cast_Weapon_TelekineticBolt"
+data "TargetSound" "Action_Impact_Weapon_TelekineticBolt"
+data "SpellAnimationIntentType" "Aggressive"
 new entry "Shout_Apotheosis_InspiringSurge"
 type "SpellData"
 data "SpellType" "Shout"
@@ -907,6 +966,13 @@ data "SpellFlags" "HasVerbalComponent;IsSpell"
 // ====== DRUID 13-20 SHOUTS ======
 
 // Oceanic Gift (Circle of the Sea L14): bless allies within 9m with the sea's protection.
+// visual kit from Shout_ActionSurge (a spell with no SpellAnimation never resolves - #14)
+data "SpellAnimation" "5e57443f-284e-47b2-915e-5b6417db269c,,;925779e7-8bf6-4d56-8c4d-42c3bc01c60c,,;50398f4e-dd82-4d6a-ad43-aedd578543d9,,;1c343e00-7e6c-4f53-b588-074a3cdb9c7d,,;5bcdefbb-2194-46c2-ac77-0b2d8472a5f7,,;,,;5fdb66be-7506-411a-a7ea-c4783288aac8,,;,,;,,"
+data "PrepareEffect" "49dd385f-fd25-4372-8628-30b775af7c79"
+data "CastEffect" "2550e2bb-c9f9-4440-9cd4-146a03f2e9bc"
+data "CastSound" "Action_Cast_Surge"
+data "TargetSound" "Action_Impact_Surge"
+data "SpellAnimationIntentType" "Aggressive"
 new entry "Shout_Apotheosis_OceanicGift"
 type "SpellData"
 data "SpellType" "Shout"
@@ -925,6 +991,14 @@ data "VerbalIntent" "Buff"
 data "SpellFlags" "HasVerbalComponent;IsSpell"
 
 // Starry Form (Circle of Stars L14): take on a partially incorporeal starry form.
+// visual kit from Shout_WrathOfTheSea (a spell with no SpellAnimation never resolves - #14)
+data "SpellAnimation" "22ceaac1-3968-469d-b4d5-15a0914af799,,;,,;79fd8d9f-7792-4b25-a89d-0ae60a4ce985,,;721abca5-2d52-4317-82a3-2a2e970a7a16,,;bd7e60ea-fc63-4bad-8219-760b05893bda,,;,,;fbe4f9d7-7dd5-4a76-b75d-c6da3c80c21f,,;,,;,,"
+data "PrepareEffect" "22330577-b4cb-49ea-ade9-7ff183aa9209"
+data "CastEffect" "3f474e1e-2d23-40ad-9a07-f65309fa756e"
+data "PrepareSound" "Spell_Prepare_Buff_WildShape_L1to3"
+data "PrepareLoopSound" "Spell_Loop_Buff_WildShape_L1to3"
+data "CastSound" "Action_Cast_Druid_ElementalWildShapeWaterMyrmidon"
+data "TargetSound" "Action_Impact_Druid_ElementalWildShapeWaterMyrmidon"
 new entry "Shout_Apotheosis_StarryForm"
 type "SpellData"
 data "SpellType" "Shout"
@@ -946,23 +1020,12 @@ data "SpellFlags" "HasSomaticComponent;IsSpell"
 // ==============================================================================
 
 // Greater Divine Intervention (Cleric L20): call on your deity for a miracle.
-new entry "Shout_Wish_GreaterDivineIntervention"
-type "SpellData"
-data "SpellType" "Shout"
-data "Level" "0"
-data "SpellSchool" "Conjuration"
-data "SpellProperties" "ApplyStatus(SELF,WISH_BLESSING,100,10)"
-data "TargetConditions" "Self()"
-data "Icon" "Spell_Conjuration_Wish"
-data "DisplayName" "hf3b4c5d600000000000000000000035"
-data "Description" "hf3b4c5d700000000000000000000036"
-data "CastTextEvent" "Cast"
-data "UseCosts" "ActionPoint:1"
-data "Cooldown" "OncePerLongRest"
-data "VerbalIntent" "Buff"
-data "SpellFlags" "HasVerbalComponent;HasSomaticComponent;IsSpell"
-
-// Divine Foreknowledge (Knowledge Domain L17): glimpse the immediate future.
+// visual kit from Shout_DivineFavor (a spell with no SpellAnimation never resolves - #14)
+data "SpellAnimation" "71369b20-18f1-4d33-89ad-a99b10f0444c,,;,,;35b644cf-5c13-4407-9dc1-23bf4309216e,,;823e3ddf-c670-41ef-b7b4-9f4a4e38300b,,;3b9da8d4-3eff-43bd-9eaa-1c13fba0045e,,;,,;d5be826c-163f-4cc3-b195-2101e32e3da2,,;,,;,,"
+data "PrepareEffect" "747ac7e5-c52e-4e5a-be78-1f9de85b55ea"
+data "CastEffect" "1516f4b2-5a53-4adf-bf85-d6e46826cffe"
+data "CastSound" "Spell_Cast_Buff_DivineFavor_L1to3"
+data "TargetSound" "Spell_Impact_Buff_DivineFavor_L1to3"
 new entry "Shout_DivineForeknowledge"
 type "SpellData"
 data "SpellType" "Shout"
@@ -980,6 +1043,12 @@ data "VerbalIntent" "Buff"
 data "SpellFlags" "HasVerbalComponent;IsSpell"
 
 // Corona of Light (Light Domain L17): emit an aura of searing sunlight.
+// visual kit from Shout_ArcaneRecovery (a spell with no SpellAnimation never resolves - #14)
+data "SpellAnimation" "03114753-8d91-4c52-8207-728a67cdd59b,,;,,;51c06d74-c048-452a-a248-41a751728e3e,,;e9731a5c-e4ba-4872-8950-36d625061ec3,,;8fcb1f19-a84b-486d-81fa-098aaf7cc9be,,;,,;c5bd6ce6-281c-4314-9f74-9f7bb2f4cf03,,;,,;,,"
+data "PrepareEffect" "af787096-8656-4495-a6ce-cbd376578069"
+data "CastEffect" "b7fb4cd6-971f-44c0-9447-378092d36b63"
+data "CastSound" "Action_Cast_ArcaneRecovery"
+data "TargetSound" "Action_Impact_ArcaneRecovery"
 new entry "Shout_CoronaOfLight"
 type "SpellData"
 data "SpellType" "Shout"
@@ -997,6 +1066,14 @@ data "VerbalIntent" "Buff"
 data "SpellFlags" "HasVerbalComponent;HasSomaticComponent;IsSpell"
 
 // Improved Duplicity (Trickery Domain L17): weave illusory duplicates around yourself.
+// visual kit from Shout_SpiritGuardians (a spell with no SpellAnimation never resolves - #14)
+data "SpellAnimation" "03496c4a-49e0-4132-b585-3e5ecd1ad8e5,,;,,;5e7e63e1-0e69-46e7-ade7-fe3dadcc9184,5e7e63e1-0e69-46e7-ade7-fe3dadcc9184,5e7e63e1-0e69-46e7-ade7-fe3dadcc9184;e9ad50df-e7f1-43a0-b782-4c08f92b0f5a,,;a9682ef9-5d9e-4ac0-8144-2c7fe6eb868c,,;,,;32fb4d91-7fde-4b05-9144-ea87b9a4284a,,;,,;,,"
+data "PrepareEffect" "2534712b-d31e-45a4-b8e3-6385caa9ddc1"
+data "CastEffect" "56ea5092-8ecd-4b86-8686-c1c35d016928"
+data "PrepareSound" "Spell_Prepare_Damage_Radiant_Gen_L1to3"
+data "PrepareLoopSound" "Spell_Prepare_Damage_Radiant_Gen_L1to3_Loop"
+data "CastSound" "Spell_Cast_Damage_Radiant_SpiritGuardian_L1to3"
+data "TargetSound" "Spell_Impact_Damage_Radiant_SpiritGuardian_L1to3"
 new entry "Shout_Apotheosis_ImprovedDuplicity"
 type "SpellData"
 data "SpellType" "Shout"
@@ -1012,3 +1089,11 @@ data "UseCosts" "BonusActionPoint:1"
 data "Cooldown" "OncePerRest"
 data "VerbalIntent" "Buff"
 data "SpellFlags" "HasSomaticComponent;IsSpell"
+// visual kit from Shout_MirrorImage (a spell with no SpellAnimation never resolves - #14)
+data "SpellAnimation" "03496c4a-49e0-4132-b585-3e5ecd1ad8e5,,;,,;4156d364-d2c0-4a01-908c-3552f78f434d,,;6f0a29b6-0ae8-4ebf-a1e4-8069c4a6ad16,,;a9682ef9-5d9e-4ac0-8144-2c7fe6eb868c,,;,,;32fb4d91-7fde-4b05-9144-ea87b9a4284a,,;,,;,,"
+data "PrepareEffect" "33302a46-4a12-41dd-8845-6b7314d50022"
+data "CastEffect" "1a4b0423-005b-4577-b376-815a08809675"
+data "PrepareSound" "Spell_Prepare_Buff_Gen_L1to3_01"
+data "PrepareLoopSound" "Spell_Prepare_Buff_Gen_L1to3_01_Loop"
+data "CastSound" "Spell_Cast_Buff_MirrorImage_L1to3"
+data "HitAnimationType" "MagicalNonDamage"
