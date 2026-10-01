@@ -17,9 +17,9 @@ data "StackId" "BRUTAL_STRIKE_STAGGERED"
 data "StackType" "Overwrite"
 data "Boosts" "Disadvantage(SavingThrow)"
 data "StatusPropertyFlags" "DisableOverhead"
-data "RemoveEvents" "OnSavingThrowRolled"
 
 // Technical status to block opportunity attacks (applied alongside STAGGERED)
+data "Passives" "BrutalStrike_Staggered_EndOnSave"
 new entry "BRUTAL_STRIKE_STAGGERED_NO_OA"
 type "StatusData"
 data "StatusType" "BOOST"
@@ -27,7 +27,7 @@ data "DisplayName" "haa11111111111111111111111111b001;1"
 data "Description" "haa11111111111111111111111111b003;1"
 data "Icon" "Spell_Enchantment_HideousLaughter"
 data "StackId" "BRUTAL_STRIKE_STAGGERED_NO_OA"
-data "Boosts" "CannotMakeOpportunityAttack()"
+data "Boosts" "ActionResourceBlock(ReactionActionPoint)"
 data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog"
 
 // Sundering Blow: Next attack against target gets +5 bonus
@@ -57,7 +57,7 @@ data "Description" "hbb11111111111111111111111111c010;1"
 data "Icon" "PassiveFeature_Aspect_Eagle"
 data "StackId" "WILDHEART_FALCON_FLIGHT"
 data "StackType" "Overwrite"
-data "Boosts" "FlySpeed(9)"
+data "Boosts" "UnlockSpell(Projectile_Fly_Spell)"
 data "RemoveConditions" "not HasStatus('SG_Rage')"
 data "RemoveEvents" "OnStatusRemoved"
 data "StatusPropertyFlags" "DisableOverhead"
@@ -123,7 +123,7 @@ data "Description" "hbb11111111111111111111111111c028;1"
 data "Icon" "Action_Paladin_DivineSense"
 data "StackId" "ZEALOT_RAGE_OF_THE_GODS"
 data "StackType" "Overwrite"
-data "Boosts" "FlySpeed(9);Resistance(Necrotic,Resistant);Resistance(Psychic,Resistant);Resistance(Radiant,Resistant)"
+data "Boosts" "UnlockSpell(Projectile_Fly_Spell);Resistance(Necrotic,Resistant);Resistance(Psychic,Resistant);Resistance(Radiant,Resistant)"
 data "RemoveConditions" "not HasStatus('SG_Rage')"
 data "RemoveEvents" "OnStatusRemoved"
 data "StatusPropertyFlags" "DisableOverhead"
@@ -977,7 +977,6 @@ data "StackId" "MM_HOLD"
 data "StackType" "Overwrite"
 data "RemoveConditions" ""
 data "RemoveEvents" ""
-data "TickType" "None"
 
 // MM_SLOW: Script Extender-managed Slow effect reusing SLOW, with the per-turn save
 // cleared. A slowed victim can still walk out of the 6m aura, which drops the mark
@@ -989,7 +988,6 @@ data "StackId" "MM_SLOW"
 data "StackType" "Overwrite"
 data "RemoveConditions" ""
 data "RemoveEvents" ""
-data "TickType" "None"
 
 // ==============================================================================
 // WARLOCK STATUSES
@@ -1252,3 +1250,14 @@ data "StackId" "IMPROVED_DUPLICITY"
 data "StackType" "Overwrite"
 data "Boosts" "Advantage(AttackRoll);Disadvantage(AttackTarget)"
 data "StatusPropertyFlags" "DisableOverhead"
+
+// Forceful Blow (Brutal Strike, PHB 2024): after the 15 ft push you can move up to half your Speed straight
+// toward the target without provoking Opportunity Attacks. Approximation: +4.5 m movement this turn.
+new entry "FORCEFUL_BLOW"
+type "StatusData"
+data "StatusType" "BOOST"
+data "DisplayName" "h7b1e2a3c4d5e6f708192a3b4c5d6e7f8"
+data "Icon" "Action_Barbarian_RecklessAttack"
+data "StackId" "FORCEFUL_BLOW"
+data "Boosts" "ActionResource(Movement,4.5,0)"
+data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog"

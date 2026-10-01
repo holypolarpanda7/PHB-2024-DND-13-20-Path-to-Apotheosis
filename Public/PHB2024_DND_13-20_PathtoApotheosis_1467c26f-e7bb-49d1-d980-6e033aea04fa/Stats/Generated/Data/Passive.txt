@@ -86,7 +86,7 @@ data "DisplayName" "ha6c7d8e900000000000000000000013"
 data "Description" "ha6c7d8ea00000000000000000000014"
 data "Icon" "PassiveFeature_RelentlessRage"
 data "Properties" "Highlighted"
-data "Boosts" "IF(HasSavingThrowWithAbility(Ability.Strength)):MinimumRollResult(SavingThrow,24);IF(IsSkill(Skill.Athletics)):MinimumRollResult(SkillCheck,24)"
+data "Boosts" "IF(HasSavingThrowWithAbility(Ability.Strength)):MinimumRollResult(SavingThrow,24);IF(Skill(Skill.Athletics)):MinimumRollResult(SkillCheck,24)"
 
 new entry "Barbarian_PrimalChampion"
 type "PassiveData"
@@ -1294,7 +1294,7 @@ data "Description" "hf4g5h6i7g8a9b0c1gd2e3f4ga5b6c7d8e9f0;1"
 data "Icon" "PassiveFeature_Aspect_Eagle"
 data "Properties" "Highlighted;OncePerTurn"
 data "StatsFunctorContext" "OnCast"
-data "Conditions" "SpellId('Shout_Rage') and not HasArmor('Light') and not HasArmor('Medium') and not HasArmor('Heavy')"
+data "Conditions" "SpellId('Shout_Rage') and not WearingArmor()"
 data "StatsFunctors" "ApplyStatus(SELF,WILDHEART_FALCON_FLIGHT,100,-1)"
 
 
@@ -1379,8 +1379,6 @@ data "Boosts" "ObjectSize(Medium)"
 new entry "WildMagic_SurgeOfUndeath_Passive"
 type "PassiveData"
 data "Properties" "IsHidden"
-data "StatsFunctorContext" "OnDeath"
-data "StatsFunctors" "Spawn(c2a2c269-ede8-4887-99f1-e0c044cc0c75)"
 
 
 // ==============================================================================
@@ -1673,4 +1671,12 @@ type "PassiveData"
 using "UnlockedSpellSlotLevel1"
 data "DisplayName" "h9999999999999999999999999999001;1"
 
-
+// Staggering Blow (Brutal Strike, PHB 2024): Disadvantage on the NEXT saving throw. There's no "after a
+// saving throw" remove event, so the status carries this passive, which removes it once a save is rolled
+// against its holder (saves forced by attacks/spells; documented approximation).
+new entry "BrutalStrike_Staggered_EndOnSave"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "StatsFunctorContext" "OnAttacked"
+data "Conditions" "IsSavingThrow()"
+data "StatsFunctors" "RemoveStatus(SELF,BRUTAL_STRIKE_STAGGERED)"

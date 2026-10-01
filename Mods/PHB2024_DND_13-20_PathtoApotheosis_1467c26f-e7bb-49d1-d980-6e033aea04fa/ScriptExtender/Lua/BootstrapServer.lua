@@ -1118,6 +1118,13 @@ if Ext and type(Ext.Require) == "function" then
         Log.Warn("FeatureTests bootstrap load failed: " .. tostring(ftOrErr))
     end
 
+    local okFr, frOrErr = pcall(Ext.Require, "FeatureRiders.lua")
+    if okFr and type(frOrErr) == "table" then
+        Log.Info("FeatureRiders loaded at bootstrap")
+    else
+        Log.Warn("FeatureRiders bootstrap load failed: " .. tostring(frOrErr))
+    end
+
     local okEb, ebOrErr = pcall(Ext.Require, "EpicBoons.lua")
     if okEb and type(ebOrErr) == "table" then
         Log.Info("EpicBoons loaded at bootstrap")
