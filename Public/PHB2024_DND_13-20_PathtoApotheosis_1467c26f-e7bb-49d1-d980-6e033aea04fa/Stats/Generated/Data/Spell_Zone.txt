@@ -276,23 +276,3 @@ data "TooltipDamageList" "DealDamage(16d6,Cold)"
 data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:9"
 data "RootSpellID" "Zone_PrismaticSpray"
 data "PowerLevel" "9"
-
-// ==============================================================================
-// OTHER ZONE SPELLS
-// ==============================================================================
-
-// Wild Magic Lightning Bolt - Auto-targets closest enemy
-new entry "Zone_LightningBolt_WildMagic"
-type "SpellData"
-data "SpellType" "Zone"
-using "Zone_LightningBolt"
-data "SpellRoll" "not SavingThrow(Ability.Dexterity, 8 + ProficiencyBonus())"
-data "SpellSuccess" "DealDamage(8d6,Lightning,Magical)"
-data "SpellFail" "DealDamage((8d6)/2, Lightning,Magical)"
-data "Icon" "Spell_Evocation_LightningBolt"
-data "DisplayName" "hcc11111111111111111111111111d025;1"
-data "Description" "hcc11111111111111111111111111d026;1"
-data "UseCosts" ""
-data "SpellFlags" "IsSpell;IsHarmful;CanAreaDamageEvade;ImmediateCast"
-data "SpellAnimation" ",,;,,;,,;,,;,,;,,;,,;,,;,,"
-

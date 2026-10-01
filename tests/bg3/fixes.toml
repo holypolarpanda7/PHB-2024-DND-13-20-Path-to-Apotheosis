@@ -1,0 +1,77 @@
+# Regression checks for fixed features (#17, #21, #22 - 2026-09-30).
+# Run: bg3_test_run("apotheosis", "<id>"); player-mode cases: bg3_test_stage + attack from the hotbar + bg3_test_verify.
+
+[suite]
+name = "Feature fixes"
+mode = "script"
+
+[[case]]
+id = "fix21-lightning-strike"
+title = "Controlled Wild Magic Lightning Strike damages a nearby hostile wolf (#21)"
+spell = "Shout_WildMagicControlled_LightningStrike"
+target = "host"
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 3 }]
+expect = [
+  { cast = true },
+  { target = "A", hp_change = [-48, -4], damage_type = "Lightning" },
+]
+
+[[case]]
+id = "fix17-extra-attack-3"
+title = "Fighter 20 Extra Attack (3): four attacks step EXTRA_ATTACK_3 -> _2 -> EXTRA_ATTACK (#17)"
+spell = "Target_MainHandAttack"
+target = "A"
+repeat = 4
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 1.5 }]
+setup = [{ target = "host", passive = "ExtraAttack" }, { target = "host", passive = "ExtraAttack_2" },
+         { target = "host", passive = "ExtraAttack_3" },
+         { target = "A", boost = "ActionResourceBlock(ReactionActionPoint)" }]   # no opportunity attack interrupting the script
+notes = "Verified 2026-09-30: EXTRA_ATTACK_3_Q -> EXTRA_ATTACK_3 -> EXTRA_ATTACK_2 -> EXTRA_ATTACK_Q -> EXTRA_ATTACK -> none over 4 attacks."
+expect = [
+  { cast = true },
+  { target = "host", status_applied = ["EXTRA_ATTACK_3", "EXTRA_ATTACK_2", "EXTRA_ATTACK"] },
+  { target = "A", hp_change = [-80, -4] },
+]
+
+[[case]]
+id = "fix17-extra-attack-3-player"
+mode = "player"
+title = "Fighter 20 Extra Attack (3): one action gives four weapon attacks (#17)"
+spell = "Target_MainHandAttack"
+target = "A"
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 1.5 }]
+setup = [{ target = "host", passive = "ExtraAttack" }, { target = "host", passive = "ExtraAttack_2" },
+         { target = "host", passive = "ExtraAttack_3" }]
+instructions = "Attack the wolf with Main Hand Attack four times. The 2nd-4th attacks should cost no action (the icon glows); a 5th should need an action."
+expect = [
+  { target = "host", status_applied = ["EXTRA_ATTACK_3", "EXTRA_ATTACK_2", "EXTRA_ATTACK"] },
+  { resource = "ActionPoint", level = 0, change = -1 },
+]
+
+[[case]]
+id = "wm-force-explosion"
+title = "Controlled Wild Magic Force Explosion damages a nearby hostile wolf (#21: ImmediateCast skipped the area)"
+spell = "Shout_WildMagicControlled_ForceExplosion"
+target = "host"
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 2 }]
+expect = [
+  { cast = true },
+  { target = "A", hp_change = [-18, -3] },
+]
+
+[[case]]
+id = "fix22-indomitable-might-checks"
+title = "Indomitable Might: Strength checks and Athletics total at least the Strength score; other checks unaffected (#22)"
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 8 }]   # combat start refreshes the floors
+setup = [{ target = "host", passive = "Barbarian_IndomitableMight" }]
+rolls = [{ as = "str", type = "RawAbility", id = "Strength", dc = 8, n = 30 },
+         { as = "ath", type = "SkillCheck", id = "Athletics", dc = 8, n = 30 },
+         { as = "dex", type = "RawAbility", id = "Dexterity", dc = 8, n = 30 },
+         { as = "acro", type = "SkillCheck", id = "Acrobatics", dc = 8, n = 30 }]
+notes = "Written for a Strength 8 host (floor 9, every total >= 8 vs DC 8). Strength SAVES: only spell/effect saves can be floored (HasSavingThrowWithAbility); a passive save carries no ability for a condition to read - known gap."
+expect = [
+  { roll = "str", pass = [30, 30] },
+  { roll = "ath", pass = [30, 30] },
+  { roll = "dex", pass = [0, 29] },
+  { roll = "acro", pass = [0, 29] },
+]

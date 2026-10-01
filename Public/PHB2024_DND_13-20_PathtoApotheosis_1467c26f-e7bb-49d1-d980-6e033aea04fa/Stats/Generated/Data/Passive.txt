@@ -41,7 +41,11 @@ data "DisplayName" "hd3f4a5b60000000000000000000000d"
 data "Description" "hd3f4a5b70000000000000000000000e"
 data "Icon" "PassiveFeature_ExtraAttack"
 data "Properties" "Highlighted"
-data "Boosts" "ExtraAttack(3)"
+data "StatsFunctorContext" "OnCast;OnStatusRemoved;OnStatusApplied"
+// Fighter 20: a third extra attack (4 per Attack action). Mirrors base ExtraAttack_2: queue EXTRA_ATTACK_3_Q (beats EXTRA_ATTACK_2_Q),
+// which becomes dnd55e's EXTRA_ATTACK_3 (priority 60); that steps down to EXTRA_ATTACK_2 -> EXTRA_ATTACK.
+data "Conditions" "(context.HasContextFlag(StatsFunctorContext.OnCast) and ExtraAttackSpellCheck() and HasUseCosts('ActionPoint', true) and not Tagged('EXTRA_ATTACK_BLOCKED',context.Source) and not HasStatus('SLAYER_PLAYER',context.Source) and not HasStatus('SLAYER_PLAYER_10',context.Source) and TurnBased(context.Source)) or (context.HasContextFlag(StatsFunctorContext.OnStatusRemoved) and StatusId('INITIAL_ATTACK_TECHNICAL') and TurnBased()) or (context.HasContextFlag(StatsFunctorContext.OnStatusApplied) and StatusId('EXTRA_ATTACK_3_Q'))"
+data "StatsFunctors" "IF(context.HasContextFlag(StatsFunctorContext.OnCast)):ApplyStatus(SELF,EXTRA_ATTACK_3_Q,100,1);IF(context.HasContextFlag(StatsFunctorContext.OnStatusRemoved)):ApplyStatus(EXTRA_ATTACK_3_Q,100,1);IF(context.HasContextFlag(StatsFunctorContext.OnStatusApplied) and not HasHigherPriorityExtraAttackQueued('EXTRA_ATTACK_3_Q') and not HasAnyExtraAttack()):ApplyStatus(EXTRA_ATTACK_3, 100, 1)"
 
 // ==============================================================================
 // BARBARIAN - Base Class Passives (Levels 13-20)
@@ -86,7 +90,7 @@ data "DisplayName" "ha6c7d8e900000000000000000000013"
 data "Description" "ha6c7d8ea00000000000000000000014"
 data "Icon" "PassiveFeature_RelentlessRage"
 data "Properties" "Highlighted"
-data "Boosts" "IF(HasSavingThrowWithAbility(Ability.Strength)):MinimumRollResult(SavingThrow,24);IF(Skill(Skill.Athletics)):MinimumRollResult(SkillCheck,24)"
+// #22: no boosts here - ScriptExtender/Lua/IndomitableMight.lua applies APO_IM_* floor statuses (Status_IndomitableMight.txt)
 
 new entry "Barbarian_PrimalChampion"
 type "PassiveData"

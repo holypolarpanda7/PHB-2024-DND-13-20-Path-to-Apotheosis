@@ -1132,6 +1132,13 @@ if Ext and type(Ext.Require) == "function" then
         Log.Warn("EpicBoons bootstrap load failed: " .. tostring(ebOrErr))
     end
 
+    local okIm, imOrErr = pcall(Ext.Require, "IndomitableMight.lua")
+    if okIm and type(imOrErr) == "table" then
+        Log.Info("IndomitableMight loaded at bootstrap")
+    else
+        Log.Warn("IndomitableMight bootstrap load failed: " .. tostring(imOrErr))
+    end
+
     local okSt, stOrErr = pcall(Ext.Require, "SpellTests.lua")
     if okSt and type(stOrErr) == "table" then
         Log.Info("SpellTests loaded at bootstrap")

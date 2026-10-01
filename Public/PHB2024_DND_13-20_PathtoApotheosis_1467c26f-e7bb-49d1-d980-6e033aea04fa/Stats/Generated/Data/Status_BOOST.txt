@@ -1261,3 +1261,12 @@ data "Icon" "Action_Barbarian_RecklessAttack"
 data "StackId" "FORCEFUL_BLOW"
 data "Boosts" "ActionResource(Movement,4.5,0)"
 data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog"
+
+// Fighter 20 (#17): queue for dnd55e's EXTRA_ATTACK_3. Priority 35 beats EXTRA_ATTACK_2_Q (30), so ExtraAttack_2 steps aside.
+new entry "EXTRA_ATTACK_3_Q"
+type "StatusData"
+data "StatusType" "BOOST"
+using "EXTRA_ATTACK_2_Q"
+data "StackPriority" "35"
+data "RemoveConditions" "not RemoveCause(StatusRemoveCause.TimeOut) and not HasHigherPriorityExtraAttackQueued('EXTRA_ATTACK_3_Q') and not HasAnyExtraAttack()"
+data "OnRemoveFunctors" "IF(RemoveCause(StatusRemoveCause.Condition)):ApplyStatus(EXTRA_ATTACK_3, 100, 1)"
