@@ -187,3 +187,49 @@ expect = [
   { cast = true },
   { target = "host", status_present = ["TRUE_POLYMORPH_DIREWOLF", "TRUE_POLYMORPH_TEMPHP_DIREWOLF"] },
 ]
+
+[[case]]
+id = "fix22-im-spell-save"
+title = "Indomitable Might: a spell's Strength save (wolf Bash, rolled for real) is floored - never knocked prone (#22)"
+spell = "Target_Bash"
+mode = "script"
+caster = "A"
+target = "host"
+real_rolls = true
+repeat = 8
+repeat_wait = 3
+clear_between = ["PRONE"]
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 2 }]
+setup = [{ target = "host", max_hp = 300 }, { target = "host", status = "APO_IM_SAVE_20", turns = 100 }]
+notes = "APO_IM_SAVE_20 is the d20-floor status IndomitableMight.lua applies; 20 should make any Strength save pass. KNOWN FAIL (2026-10-01): MinimumRollResult(SavingThrow,N) floors only ~60% of real spell saves, even unconditionally - see #22."
+expect = [{ target = "host", status_applied_count = { status = "PRONE", count = [0, 0] } }]
+
+[[case]]
+id = "fix22-im-spell-save-control"
+title = "Control: without the floor the same Bash saves are real rolls and sometimes fail (#22)"
+spell = "Target_Bash"
+mode = "script"
+caster = "A"
+target = "host"
+real_rolls = true
+repeat = 8
+repeat_wait = 3
+clear_between = ["PRONE"]
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 2 }]
+setup = [{ target = "host", max_hp = 300 }]
+expect = [{ target = "host", status_applied_count = { status = "PRONE", count = [1, 8] } }]
+
+[[case]]
+id = "fix22-im-spell-save-dex-control"
+title = "Control: the Strength floor doesn't touch a Dexterity save (badger Burrow, Dex DC 13) (#22)"
+spell = "Target_Burrow_GiantBadger"
+mode = "script"
+caster = "A"
+target = "host"
+real_rolls = true
+repeat = 8
+repeat_wait = 3
+clear_between = ["PRONE"]
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 2 }]
+setup = [{ target = "host", max_hp = 300 }, { target = "host", status = "APO_IM_SAVE_20", turns = 100 }]
+expect = [{ target = "host", status_applied_count = { status = "PRONE", count = [1, 8] } }]
