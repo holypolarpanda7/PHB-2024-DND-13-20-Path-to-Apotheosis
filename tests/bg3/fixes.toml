@@ -233,3 +233,60 @@ clear_between = ["PRONE"]
 spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 2 }]
 setup = [{ target = "host", max_hp = 300 }, { target = "host", status = "APO_IM_SAVE_20", turns = 100 }]
 expect = [{ target = "host", status_applied_count = { status = "PRONE", count = [1, 8] } }]
+
+[[case]]
+id = "fix22-im-ai-spell-save"
+title = "Indomitable Might vs an enemy shadow's Strength Drain (AI cast: a spell's own Strength save, interrupts live) - Strength 18 never fails vs DC 14 (#22)"
+mode = "ai"
+ai_samples = 4
+spell = "Target_StrengthDrain_Shadow"
+caster = "A"
+target = "B"
+ai_rounds = 12
+clear_between = ["STRENGTH_DRAIN"]
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 8 }, { as = "B", template = "wolf", faction = "friendly", hp = 300, distance = 6 }]
+setup = [{ target = "host", max_hp = 300 }, { target = "B", boost = "Ability(Strength,4)" }, { target = "B", passive = "Barbarian_IndomitableMight" }]
+notes = "KNOWN FAIL (2026-10-02): neither the d20 floor nor the interrupt holds on NPC saves; even base Legendary Resistance didn't fire in this setup. The SE log line '[Apotheosis] Indomitable Might: ... Strength save total X -> Y' means the interrupt fired."
+expect = [
+  { cast_only = "A" },
+  { cast_count = { by = "A", count = [1, 99] } },
+  { target = "B", saves = { ability = "Strength", spell_only = true, n = [1, 99], failed = [0, 0], min_total = 18 } },
+]
+
+[[case]]
+id = "fix22-im-ai-spell-save-control"
+title = "Control: the same Strength Drain fight without Indomitable Might - Strength 18 fails some saves vs DC 14 (#22)"
+mode = "ai"
+ai_samples = 4
+spell = "Target_StrengthDrain_Shadow"
+caster = "A"
+target = "B"
+ai_rounds = 12
+clear_between = ["STRENGTH_DRAIN"]
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 8 }, { as = "B", template = "wolf", faction = "friendly", hp = 300, distance = 6 }]
+setup = [{ target = "host", max_hp = 300 }, { target = "B", boost = "Ability(Strength,4)" }]
+expect = [
+  { cast_only = "A" },
+  { cast_count = { by = "A", count = [1, 99] } },
+  { target = "B", saves = { ability = "Strength", spell_only = true, n = [1, 99], failed = [1, 99] } },
+]
+
+[[case]]
+id = "fix22-im-ai-spell-save-host"
+title = "Indomitable Might on the player vs an enemy shadow's Strength Drain (AI cast) - Strength 16 never fails vs DC 14 (#22)"
+mode = "ai"
+ai_samples = 4
+spell = "Target_StrengthDrain_Shadow"
+caster = "A"
+target = "host"
+sanctuary = false
+ai_rounds = 20
+clear_between = ["STRENGTH_DRAIN"]
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 8 }]
+setup = [{ target = "host", max_hp = 300 }, { target = "host", boost = "Ability(Strength,8)" }, { target = "host", passive = "Barbarian_IndomitableMight" }]
+notes = "Host Strength 16: save +3, so raw rolls of 10 or less fail DC 14; Indomitable Might should make every total at least 16. KNOWN FAIL (2026-10-02): natural 7 -> 10 seen."
+expect = [
+  { cast_only = "A" },
+  { cast_count = { by = "A", count = [1, 99] } },
+  { target = "host", saves = { ability = "Strength", spell_only = true, n = [1, 99], failed = [0, 0], min_total = 16 } },
+]

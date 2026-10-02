@@ -34,6 +34,23 @@ features and the test tooling).
 
 ## Testing workflow
 
+**Primary (since 2026-10): the bg3-data MCP test loop.** Test cases are TOML files in `tests/bg3/`
+(e.g. `fixes.toml` for issue fixes). Each case stages a real encounter in the running game, casts, and checks
+recorded events; `bg3_game_restart(deploy_layer="apotheosis")` packs, deploys and relaunches. Three ways to
+cast (details and the full case format: bg3-data-mcp `docs/TESTING.md`):
+
+| Method | Use it for |
+| --- | --- |
+| scripted cast (`auto`/`script`) | effects: damage, statuses, healing, summons - deterministic, ~7-15 s per case |
+| `real_rolls = true` | anything that depends on the target's saving throw being rolled |
+| `mode = "ai"` | an enemy's own spell against the party: real rolls, reactions and interrupts |
+
+Before writing an AI case, check the spell with `bg3_test_spell_check` / `bg3_save_spells`.
+Known open item: Indomitable Might's save floor (#22) - the `fix22-im-ai-*` cases are expected to fail.
+
+### Legacy: SE console smoke scripts
+
+
 Day-to-day testing uses a normal (Steam) game launch with the deployed `.pak`;
 the Larian Toolkit is only for packaging/release checks.
 
