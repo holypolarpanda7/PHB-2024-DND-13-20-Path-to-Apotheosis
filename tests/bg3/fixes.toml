@@ -284,9 +284,10 @@ ai_rounds = 20
 clear_between = ["STRENGTH_DRAIN"]
 spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 8 }]
 setup = [{ target = "host", max_hp = 300 }, { target = "host", boost = "Ability(Strength,8)" }, { target = "host", passive = "Barbarian_IndomitableMight" }]
-notes = "Host Strength 16: save +3, so raw rolls of 10 or less fail DC 14; Indomitable Might should make every total at least 16. KNOWN FAIL (2026-10-02): natural 7 -> 10 seen."
+notes = "Host Strength 16: save +3, raw rolls of 10 or less fail DC 14. KNOWN FAIL (2026-10-02): the interrupt is CONSIDERED on the failed save but never USED for the player - with auto reactions on, the window focused, and even with only HasInterruptedSavingThrow() as its condition. Base Legendary Resistance behaves the same. Needs a by-hand check (does a reaction prompt appear?)."
 expect = [
   { cast_only = "A" },
   { cast_count = { by = "A", count = [1, 99] } },
-  { target = "host", saves = { ability = "Strength", spell_only = true, n = [1, 99], failed = [0, 0], min_total = 16 } },
+  { target = "host", saves = { ability = "Strength", spell_only = true, n = [1, 99], effect_status = "STRENGTH_DRAIN", rescued = true } },
+  { interrupt_used = { name = "Interrupt_IndomitableMight", count = [0, 99] } },
 ]
