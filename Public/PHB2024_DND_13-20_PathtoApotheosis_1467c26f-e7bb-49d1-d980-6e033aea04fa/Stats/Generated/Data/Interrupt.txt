@@ -21,19 +21,3 @@ data "Conditions" "IsAbleToReact(context.Observer) and Enemy(context.Target, con
 data "Properties" "UseSpell(OBSERVER_OBSERVER,Shout_KeeperOfSouls_Heal,true,true,true)"
 data "InterruptDefaultValue" "Ask"
 data "Cost" "ReactionActionPoint:1"
-
-// Indomitable Might (Barbarian 18, PHB 2024, #22): if the total of a Strength saving throw is less than your
-// Strength score, use the score instead. Fires on your own failed Strength saves against spells (the engine raises
-// OnPostRoll interrupts for spell rolls only); IndomitableMight.lua sets the d20 so the total equals the score.
-// SetRoll(20) is a placeholder the script overwrites on every use.
-new entry "Interrupt_IndomitableMight"
-type "InterruptData"
-data "DisplayName" "ha6c7d8e900000000000000000000013"
-data "Description" "ha6c7d8ea00000000000000000000014"
-data "Icon" "PassiveFeature_RelentlessRage"
-data "InterruptContext" "OnPostRoll"
-data "InterruptContextScope" "Self"
-data "Container" "YesNoDecision"
-data "Conditions" "Self(context.Target,context.Observer) and HasInterruptedSavingThrow() and HasSavingThrowWithAbility(Ability.Strength) and not AnyEntityIsItem() and IsFlatValueInterruptInteresting(30)"
-data "Properties" "SetRoll(20)"
-data "InterruptDefaultValue" "Enabled"

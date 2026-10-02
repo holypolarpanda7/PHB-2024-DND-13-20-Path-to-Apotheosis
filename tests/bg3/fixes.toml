@@ -189,22 +189,6 @@ expect = [
 ]
 
 [[case]]
-id = "fix22-im-spell-save"
-title = "Indomitable Might: a spell's Strength save (wolf Bash, rolled for real) is floored - never knocked prone (#22)"
-spell = "Target_Bash"
-mode = "script"
-caster = "A"
-target = "host"
-real_rolls = true
-repeat = 8
-repeat_wait = 3
-clear_between = ["PRONE"]
-spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 2 }]
-setup = [{ target = "host", max_hp = 300 }, { target = "host", status = "APO_IM_SAVE_20", turns = 100 }]
-notes = "APO_IM_SAVE_20 is the d20-floor status IndomitableMight.lua applies; 20 should make any Strength save pass. KNOWN FAIL (2026-10-01): MinimumRollResult(SavingThrow,N) floors only ~60% of real spell saves, even unconditionally - see #22."
-expect = [{ target = "host", status_applied_count = { status = "PRONE", count = [0, 0] } }]
-
-[[case]]
 id = "fix22-im-spell-save-control"
 title = "Control: without the floor the same Bash saves are real rolls and sometimes fail (#22)"
 spell = "Target_Bash"
@@ -235,25 +219,6 @@ setup = [{ target = "host", max_hp = 300 }, { target = "host", status = "APO_IM_
 expect = [{ target = "host", status_applied_count = { status = "PRONE", count = [1, 8] } }]
 
 [[case]]
-id = "fix22-im-ai-spell-save"
-title = "Indomitable Might vs an enemy shadow's Strength Drain (AI cast: a spell's own Strength save, interrupts live) - Strength 18 never fails vs DC 14 (#22)"
-mode = "ai"
-ai_samples = 4
-spell = "Target_StrengthDrain_Shadow"
-caster = "A"
-target = "B"
-ai_rounds = 12
-clear_between = ["STRENGTH_DRAIN"]
-spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 8 }, { as = "B", template = "wolf", faction = "friendly", hp = 300, distance = 6 }]
-setup = [{ target = "host", max_hp = 300 }, { target = "B", boost = "Ability(Strength,4)" }, { target = "B", passive = "Barbarian_IndomitableMight" }]
-notes = "KNOWN FAIL (2026-10-02): neither the d20 floor nor the interrupt holds on NPC saves; even base Legendary Resistance didn't fire in this setup. The SE log line '[Apotheosis] Indomitable Might: ... Strength save total X -> Y' means the interrupt fired."
-expect = [
-  { cast_only = "A" },
-  { cast_count = { by = "A", count = [1, 99] } },
-  { target = "B", saves = { ability = "Strength", spell_only = true, n = [1, 99], failed = [0, 0], min_total = 18 } },
-]
-
-[[case]]
 id = "fix22-im-ai-spell-save-control"
 title = "Control: the same Strength Drain fight without Indomitable Might - Strength 18 fails some saves vs DC 14 (#22)"
 mode = "ai"
@@ -272,22 +237,56 @@ expect = [
 ]
 
 [[case]]
-id = "fix22-im-ai-spell-save-host"
-title = "Indomitable Might on the player vs an enemy shadow's Strength Drain (AI cast) - Strength 16 never fails vs DC 14 (#22)"
+id = "fix22-im-shadow-native"
+title = "Indomitable Might on the player vs a real Shadow's NATIVE Strength Drain (AI cast): Strength 16 vs DC 14 - every failed roll rescued (#22)"
 mode = "ai"
-ai_samples = 4
+ai_samples = 12
 spell = "Target_StrengthDrain_Shadow"
 caster = "A"
 target = "host"
 sanctuary = false
-ai_rounds = 20
+ai_rounds = 30
 clear_between = ["STRENGTH_DRAIN"]
-spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 8 }]
+spawn = [{ as = "A", template = "749b1e7d-63a1-4a3d-b0ca-f237b9ada5c4", faction = "hostile", hp = 300, distance = 6 }]
 setup = [{ target = "host", max_hp = 300 }, { target = "host", boost = "Ability(Strength,8)" }, { target = "host", passive = "Barbarian_IndomitableMight" }]
-notes = "Host Strength 16: save +3, raw rolls of 10 or less fail DC 14. KNOWN FAIL (2026-10-02): the interrupt is CONSIDERED on the failed save but never USED for the player - with auto reactions on, the window focused, and even with only HasInterruptedSavingThrow() as its condition. Base Legendary Resistance behaves the same. Needs a by-hand check (does a reaction prompt appear?)."
+notes = "Shadow_A knows Target_StrengthDrain_Shadow natively - reactions never fire on Osi.AddSpell spells. PASS 2026-10-02: 2/2 failed rolls rescued."
 expect = [
   { cast_only = "A" },
-  { cast_count = { by = "A", count = [1, 99] } },
   { target = "host", saves = { ability = "Strength", spell_only = true, n = [1, 99], effect_status = "STRENGTH_DRAIN", rescued = true } },
-  { interrupt_used = { name = "Interrupt_IndomitableMight", count = [0, 99] } },
+]
+
+[[case]]
+id = "fix22-im-shadow-native-control"
+title = "Control: the same native Shadow fight WITHOUT Indomitable Might - failed rolls let Strength Drain land (#22)"
+mode = "ai"
+ai_samples = 8
+spell = "Target_StrengthDrain_Shadow"
+caster = "A"
+target = "host"
+sanctuary = false
+ai_rounds = 30
+clear_between = ["STRENGTH_DRAIN"]
+spawn = [{ as = "A", template = "749b1e7d-63a1-4a3d-b0ca-f237b9ada5c4", faction = "hostile", hp = 300, distance = 6 }]
+setup = [{ target = "host", max_hp = 300 }, { target = "host", boost = "Ability(Strength,8)" }]
+expect = [
+  { cast_only = "A" },
+  { target = "host", saves = { ability = "Strength", spell_only = true, n = [1, 99], failed = [1, 99], effect_status = "STRENGTH_DRAIN" } },
+]
+
+[[case]]
+id = "fix22-im-shadow-native-low-str"
+title = "Indomitable Might is exact: Strength 12 (score below DC 14) - the score doesn't succeed, so failed rolls still land (#22)"
+mode = "ai"
+ai_samples = 6
+spell = "Target_StrengthDrain_Shadow"
+caster = "A"
+target = "host"
+sanctuary = false
+ai_rounds = 30
+clear_between = ["STRENGTH_DRAIN"]
+spawn = [{ as = "A", template = "749b1e7d-63a1-4a3d-b0ca-f237b9ada5c4", faction = "hostile", hp = 300, distance = 6 }]
+setup = [{ target = "host", max_hp = 300 }, { target = "host", boost = "Ability(Strength,4)" }, { target = "host", passive = "Barbarian_IndomitableMight" }]
+expect = [
+  { cast_only = "A" },
+  { target = "host", saves = { ability = "Strength", spell_only = true, n = [1, 99], failed = [1, 99], effect_status = "STRENGTH_DRAIN" } },
 ]

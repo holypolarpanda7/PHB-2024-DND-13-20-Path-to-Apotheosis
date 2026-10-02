@@ -90,9 +90,8 @@ data "DisplayName" "ha6c7d8e900000000000000000000013"
 data "Description" "ha6c7d8ea00000000000000000000014"
 data "Icon" "PassiveFeature_RelentlessRage"
 data "Properties" "Highlighted"
-// #22: IndomitableMight.lua applies APO_IM_* d20-floor statuses (Status_IndomitableMight.txt); the interrupt is a
-// second layer for spell Strength saves (exact total = score; untested in game, see the Lua and issue #22)
-data "Boosts" "UnlockInterrupt(Interrupt_IndomitableMight)"
+// #22: IndomitableMight.lua applies APO_IM_* statuses: d20 floors for Strength checks, and for Strength saves the
+// matching Interrupt_IndomitableMight_<n> (Interrupt_IndomitableMight.txt; Scripts/gen_indomitable_might.py)
 
 new entry "Barbarian_PrimalChampion"
 type "PassiveData"
