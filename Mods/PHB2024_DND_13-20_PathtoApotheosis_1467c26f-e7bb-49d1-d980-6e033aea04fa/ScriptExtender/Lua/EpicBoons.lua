@@ -74,6 +74,35 @@ end
 -- ---------------------------------------------------------------- Energy Redirection + Overwhelming Strike
 local lastDamageType = {}
 
+-- Osi.UseSpell queues casts with IgnoreSpellRolls, so the target's saving throw would never be rolled (found
+-- 2026-10-01). Strip that option from our own request when it reaches the server's cast queue.
+local pendingRolled = {}
+local rolledSub
+local function castWithRolls(caster, spell, target)
+    table.insert(pendingRolled, { spell = spell, ticks = 0 })
+    if not rolledSub then
+        rolledSub = Ext.Events.Tick:Subscribe(function()
+            if #pendingRolled == 0 then return end
+            for _, r in ipairs(Ext.System.ServerCastRequest.OsirisCastRequests) do
+                for i, p in ipairs(pendingRolled) do
+                    if r.Spell.OriginatorPrototype == p.spell then
+                        local keep = {}
+                        for _, o in ipairs(r.CastOptions) do if o ~= "IgnoreSpellRolls" then keep[#keep + 1] = o end end
+                        r.CastOptions = keep
+                        table.remove(pendingRolled, i)
+                        break
+                    end
+                end
+            end
+            for i = #pendingRolled, 1, -1 do
+                pendingRolled[i].ticks = pendingRolled[i].ticks + 1
+                if pendingRolled[i].ticks > 60 then table.remove(pendingRolled, i) end
+            end
+        end)
+    end
+    Osi.UseSpell(caster, spell, target)
+end
+
 function EB.OnAttacked(defender, attacker, damageType, amount)
     if attacker and defender then lastDamageType[attacker .. "|" .. defender] = damageType end
     if not (amount and amount > 0 and attacker and attacker ~= defender and has(defender, "EpicBoon_EnergyResistance")) then return end
@@ -84,7 +113,7 @@ function EB.OnAttacked(defender, attacker, damageType, amount)
     if not r or r.Amount < 1 then return end
     r.Amount = r.Amount - 1
     e:Replicate("ActionResources")
-    Osi.UseSpell(defender, "Target_EpicBoon_EnergyRedirection_" .. tostring(damageType), attacker)
+    castWithRolls(defender, "Target_EpicBoon_EnergyRedirection_" .. tostring(damageType), attacker)  -- Dex save rolled
     Log.Info(string.format("Energy Redirection: %s redirects %s damage at %s", tostring(defender), tostring(damageType), tostring(attacker)))
 end
 

@@ -51,3 +51,162 @@ title = "Boon of Truesight grants Truesight"
 grant_passive = "EpicBoon_Truesight"
 expect = [{ target = "host", status_applied = ["TRUESIGHT"] }]
 notes = "OnCreate doesn't fire for a passive gained mid-session; EpicBoons.lua applies it on level-up."
+
+# --- 2026-10-02 audit: every boon's actual effect ---------------------------------------------------------
+
+[[case]]
+id = "boon-fortitude-heal-bonus"
+title = "Boon of Fortitude: regaining Hit Points adds your Constitution modifier (once per turn)"
+spell = "Target_CureWounds"
+target = "host"
+setup = [{ target = "host", passive = "EpicBoon_Fortitude" }, { target = "host", hp = 1 }]
+expect = [{ cast = true }, { target = "host", status_applied = ["EPIC_FORTITUDE_USED"] }, { target = "host", hp_change = [2, 40] }]
+
+[[case]]
+id = "boon-recovery-last-stand"
+title = "Boon of Recovery: Last Stand - a hit that would drop you to 0 leaves you up with half your Hit Points"
+spell = "Target_Bite_Wolf"
+caster = "A"
+target = "host"
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 2 }]
+safety = false
+setup = [{ target = "host", remove_status = "ARCANE_WARD*" }, { target = "host", boost = "ActionResourceBlock(ReactionActionPoint)" }, { target = "host", passive = "EpicBoon_Recovery" }, { target = "host", status = "EPIC_LAST_STAND", turns = -1 }, { target = "host", hp = 1 }]
+notes = "EPIC_LAST_STAND is applied by the passive's OnCreate/OnLongRest (EpicBoons.lua on level-up); a passive added mid-session needs it set up."
+expect = [{ target = "host", status_applied = ["EPIC_LAST_STAND_DOWNED"] }, { target = "host", dead = false }, { target = "host", hp_change = [1, 999] }]
+
+[[case]]
+id = "boon-energy-resistance-redirection"
+title = "Energy Resistance: Fire damage is halved and Energy Redirection fires back at the attacker (Dex save rolled)"
+spell = "Projectile_FireBolt"
+caster = "A"
+target = "host"
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 4 }]
+setup = [{ target = "host", max_hp = 100 }, { target = "host", passive = "EpicBoon_EnergyResistance" }]
+casts = [{ spell = "Shout_EpicBoon_EnergyResistance_Fire", target = "host" }]
+expect = [
+  { target = "host", hp_change = [-5, 0] },
+  { cast = "Target_EpicBoon_EnergyRedirection_Fire" },
+]
+
+[[case]]
+id = "boon-dimensional-travel-blink"
+title = "Boon of Dimensional Travel: an action spell grants a Blink Step"
+spell = "Projectile_MagicMissile"
+target = "A"
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 6 }]
+setup = [{ target = "host", passive = "EpicBoon_DimensionalTravel" }]
+expect = [{ cast = true }, { target = "host", status_applied = ["EPIC_BLINK_STEPS"] }]
+
+[[case]]
+id = "boon-speed-movement"
+title = "Boon of Speed: +30 feet (9 m) of movement"
+grant_passive = "EpicBoon_Speed"
+expect = [{ resource = "Movement", level = 0, max_change = 9 }]
+
+[[case]]
+id = "boon-irresistible-offense-resistance"
+title = "Irresistible Offense: Overcome Defenses - a bludgeoning hit ignores the target's resistance"
+spell = "Target_MainHandAttack"
+target = "A"
+real_rolls = true
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 1.2 }]
+setup = [{ target = "host", boost = "Ability(Strength,20)" }, { target = "host", boost = "RollBonus(Attack,30)" }, { target = "host", passive = "EpicBoon_IrresistibleOffense_Str" }, { target = "A", boost = "Resistance(Bludgeoning,Resistant)" }, { target = "A", boost = "ActionResourceBlock(ReactionActionPoint)" }]
+expect = [{ target = "A", hp_change = [-17, -10] }]
+notes = "Quarterstaff 1d6/1d8 + Strength 29 (+9) = 10-17; resisted it would be 5-8 (see -control)."
+
+[[case]]
+id = "boon-irresistible-offense-resistance-control"
+title = "Control: without the boon the same hit is halved by the resistance"
+spell = "Target_MainHandAttack"
+target = "A"
+real_rolls = true
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 1.2 }]
+setup = [{ target = "host", boost = "Ability(Strength,20)" }, { target = "host", boost = "RollBonus(Attack,30)" }, { target = "A", boost = "Resistance(Bludgeoning,Resistant)" }, { target = "A", boost = "ActionResourceBlock(ReactionActionPoint)" }]
+expect = [{ target = "A", hp_change = [-8, -4] }]
+
+[[case]]
+id = "boon-irresistible-offense-overwhelming"
+title = "Irresistible Offense: Overwhelming Strike - a critical hit adds damage equal to your Strength score"
+spell = "Target_MainHandAttack"
+target = "A"
+real_rolls = true
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 1.2 }]
+setup = [{ target = "host", boost = "Ability(Strength,20)" }, { target = "host", boost = "CriticalHit(AttackRoll,Success,Always)" }, { target = "host", boost = "RollBonus(Attack,30)" }, { target = "host", passive = "EpicBoon_IrresistibleOffense_Str" }, { target = "A", boost = "ActionResourceBlock(ReactionActionPoint)" }]
+expect = [{ target = "A", status_applied = ["EPIC_OVERWHELMING_MARK"] }, { target = "A", hp_change = [-70, -38] }]
+notes = "Critical 2d6/2d8 + 9 (11-25) plus Overwhelming Strike = Strength score 29."
+
+[[case]]
+id = "boon-fate-enemy-attack"
+title = "Boon of Fate: Improve Fate reacts to a real enemy attack (AI wolf, native Bite) and spends its charge"
+mode = "ai"
+spell = "Target_Bite_Wolf"
+caster = "A"
+target = "host"
+sanctuary = false
+ai_rounds = 6
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 2 }]
+setup = [{ target = "host", max_hp = 300 }, { target = "host", passive = "EpicBoon_Fate" }]
+expect = [{ cast_only = "A" }, { resource = "EpicBoonFate", level = 0, amount_change = -1 }]
+
+[[case]]
+id = "boon-skill-proficiency"
+title = "Boon of Skill: proficiency in every skill (+2 at level 3 on skills you lacked)"
+grant_passive = "EpicBoon_Skill"
+expect = [{ target = "host", skill = "Athletics", change = 2 }, { target = "host", skill = "Intimidation", change = 2 }, { target = "host", skill = "SleightOfHand", change = 2 }]
+notes = "Assumes Tavizard (wizard) isn't proficient in these three; a skill already proficient changes by 0."
+
+[[case]]
+id = "boon-spell-recall"
+title = "Boon of Spell Recall: a level 1 slot comes back when the d4 rolls a 1 (12 casts with no level 1 slots left)"
+spell = "Projectile_MagicMissile"
+target = "A"
+repeat = 12
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 6 }]
+setup = [{ target = "host", passive = "EpicBoon_SpellRecall_Int" }, { target = "host", resource = "SpellSlot", level = 1, amount = 0 }]
+expect = [{ resource = "SpellSlot", level = 1, amount_change = [1, 12] }]
+notes = "Scripted casts don't spend the slot, so slots start at 0 and every refund shows; P(no refund in 12) = 3%."
+
+[[case]]
+id = "boon-night-spirit-shadowy-form"
+title = "Boon of the Night Spirit: Shadowy Form - in darkness, Fire damage is halved"
+spell = "Projectile_FireBolt"
+caster = "A"
+target = "host"
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 4 }]
+setup = [{ target = "host", max_hp = 100 }, { target = "host", passive = "EpicBoon_NightSpirit" }]
+casts = [{ spell = "Target_Darkness", target = "ground", distance = 0 }]
+expect = [{ target = "host", hp_change = [-5, 0] }]
+
+[[case]]
+id = "boon-night-spirit-merge"
+title = "Boon of the Night Spirit: Merge with Shadows makes you Invisible in darkness"
+spell = "Shout_EpicBoon_MergeWithShadows"
+target = "host"
+setup = [{ target = "host", passive = "EpicBoon_NightSpirit" }]
+casts = [{ spell = "Target_Darkness", target = "ground", distance = 0 }]
+expect = [{ cast = true }, { target = "host", status_applied = ["EPIC_MERGE_WITH_SHADOWS"] }]
+
+[[case]]
+id = "boon-combat-prowess-peerless-aim"
+title = "Boon of Combat Prowess: Peerless Aim turns a miss into a hit (allied wolf vs an AC 30 enemy)"
+mode = "ai"
+spell = "Target_Bite_Wolf"
+caster = "B"
+target = "A"
+ai_rounds = 6
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 8 }, { as = "B", template = "wolf", faction = "friendly", hp = 300, distance = 6 }]
+setup = [{ target = "host", max_hp = 300 }, { target = "A", boost = "AC(30)" }, { target = "B", passive = "EpicBoon_CombatProwess" }]
+expect = [{ cast_only = "B" }, { target = "A", damage_count = { by = "B", count = [2, 99] } }]
+notes = "Peerless Aim: one miss per turn becomes a hit, so most rounds land; without it only a natural 20 can hit AC 30 (see -control)."
+
+[[case]]
+id = "boon-combat-prowess-peerless-aim-control"
+title = "Control: the same allied wolf without the boon never hits AC 30"
+mode = "ai"
+spell = "Target_Bite_Wolf"
+caster = "B"
+target = "A"
+ai_rounds = 4
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 8 }, { as = "B", template = "wolf", faction = "friendly", hp = 300, distance = 6 }]
+setup = [{ target = "host", max_hp = 300 }, { target = "A", boost = "AC(30)" }]
+expect = [{ cast_only = "B" }, { target = "A", damage_count = { by = "B", count = [0, 1] } }]

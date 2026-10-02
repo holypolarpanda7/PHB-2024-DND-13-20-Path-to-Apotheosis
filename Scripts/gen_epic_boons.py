@@ -157,7 +157,10 @@ for key, cond, sign, label in [
     I.append(entry(f"Interrupt_EpicBoon_Fate_{key}", "InterruptData", {
         "DisplayName": h(f"Fate{key}:n", label), "Description": h(f"Fate{key}:d", ("Add" if not sign else "Subtract") + " 2d4 to the roll."),
         "Icon": "PassiveFeature_Generic_Magical", "InterruptContext": "OnPostRoll", "InterruptContextScope": "Nearby", "Container": "YesNoDecision",
-        "Conditions": f"not Dead(context.Observer) and {cond} and not AnyEntityIsItem() and IsFlatValueInterruptInteresting(8)",
+        # attack rolls belong to the attacker: say so, as base Cutting Words does (IsFlatValueInterruptInteresting(8,
+        # context.Source)); without it the enemy-attack reaction never fired on a real wolf's bites (2026-10-02)
+        "Conditions": f"not Dead(context.Observer) and {cond} and not AnyEntityIsItem() and "
+                      f"IsFlatValueInterruptInteresting(8{', context.Source' if 'Attack' in key else ''})",
         "Properties": f"AdjustRoll(OBSERVER_OBSERVER,{sign}2d4)", "Cost": "EpicBoonFate:1", "InterruptDefaultValue": "Ask;Enabled"}))
 
 boon("EpicBoon_Fortitude", "Boon of Fortitude",

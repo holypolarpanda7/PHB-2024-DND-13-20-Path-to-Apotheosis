@@ -803,6 +803,7 @@
   <content contentuid="hst0000000000000000000000000036" version="1">Divine radiance mantles you: allies within 9m are continually Blessed.</content>
   <content contentuid="hprg00000000000000000000000000001" version="1">Persistent Rage</content>
   <content contentuid="hprg00000000000000000000000000002" version="1">When you roll Initiative, you can regain all expended uses of Rage. After you regain uses of Rage in this way, you can't do so again until you finish a Long Rest. In addition, your Rage is so fierce that it now lasts for 10 minutes without you needing to do anything to extend it from round to round.</content>
+  <content contentuid="h7b1e2a3c4d5e6f708192a3b4c5d6e7f8" version="1">Forceful Blow</content>
   <content contentuid="h07109fede297590d8ad816e36146c75d" version="1">Boon of Combat Prowess</content>
   <content contentuid="h8cb09ad5271a51889d40f440eaebae6d" version="1">Peerless Aim: when you miss with an attack roll, you can hit instead. Once you use this, you can't again until the start of your next turn.</content>
   <content contentuid="hbece0f220b06584b81e540d08a1461ca" version="1">Peerless Aim</content>
@@ -1005,5 +1006,4 @@
   <content contentuid="hea67f5a5c78c5253a22695d868137a32" version="1">Your pool of ten d10s for Recover Vitality. Returns on a Long Rest.</content>
   <content contentuid="h55eaa29ec16d5a66b3d1d3274e0fc5ab" version="1">Boon of Skill Expertise</content>
   <content contentuid="h5420cab05ba05802a240883286702b8f" version="1">Choose the skill you gain Expertise in.</content>
-  <content contentuid="h7b1e2a3c4d5e6f708192a3b4c5d6e7f8" version="1">Forceful Blow</content>
 </contentList>
