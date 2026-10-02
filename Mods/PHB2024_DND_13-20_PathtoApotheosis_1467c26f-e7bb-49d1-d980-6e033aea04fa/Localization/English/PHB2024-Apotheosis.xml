@@ -804,6 +804,25 @@
   <content contentuid="hprg00000000000000000000000000001" version="1">Persistent Rage</content>
   <content contentuid="hprg00000000000000000000000000002" version="1">When you roll Initiative, you can regain all expended uses of Rage. After you regain uses of Rage in this way, you can't do so again until you finish a Long Rest. In addition, your Rage is so fierce that it now lasts for 10 minutes without you needing to do anything to extend it from round to round.</content>
   <content contentuid="h7b1e2a3c4d5e6f708192a3b4c5d6e7f8" version="1">Forceful Blow</content>
+  <content contentuid="h75125f8157a75f9ba61b5737df11fad1" version="1">Storm's Strength</content>
+  <content contentuid="hcb6715f1acd95a7e83007c4bd81d118b" version="1">Creatures within 120 feet have Disadvantage on saving throws against your spells that deal Lightning or Thunder damage.</content>
+  <content contentuid="h32000abb8f1f50219ec8723230b9fb54" version="1">Storm's Strength</content>
+  <content contentuid="hfefa4a99698850d595c7956edf48379b" version="1">Signature Arcanum (Abjuration)</content>
+  <content contentuid="hb16ad380f3925f7fb41ceae4eac1e64b" version="1">Choose a level 1-7 Abjuration spell.</content>
+  <content contentuid="h67ac33bf60b0592681563bc7962f212d" version="1">Signature Arcanum (Conjuration)</content>
+  <content contentuid="h4d756a1590f555219c0863a76c620c1a" version="1">Choose a level 1-7 Conjuration spell.</content>
+  <content contentuid="h3ca8ce22057950b09841cf2aa6fc382d" version="1">Signature Arcanum (Divination)</content>
+  <content contentuid="hc96170ff48c75c538d196e247ad1e86d" version="1">Choose a level 1-7 Divination spell.</content>
+  <content contentuid="h9a7ec25e0f4253dfb43e71a6af9f074f" version="1">Signature Arcanum (Enchantment)</content>
+  <content contentuid="hd76b0e4d1e04516d830b16aa4bf7d8d6" version="1">Choose a level 1-7 Enchantment spell.</content>
+  <content contentuid="h78786fde1b525ac2bec3764886c72e25" version="1">Signature Arcanum (Evocation)</content>
+  <content contentuid="hf464e424dc2b5305b251f7e24c56f246" version="1">Choose a level 1-7 Evocation spell.</content>
+  <content contentuid="h88d8bfc35398535c839d933405656ad8" version="1">Signature Arcanum (Illusion)</content>
+  <content contentuid="h96f8b04cc40853daadbee584b6d0e49c" version="1">Choose a level 1-7 Illusion spell.</content>
+  <content contentuid="h1e83072295ab54e68a40d166b591ca3e" version="1">Signature Arcanum (Necromancy)</content>
+  <content contentuid="hbc382a0250be5978b737374ba2be5c30" version="1">Choose a level 1-7 Necromancy spell.</content>
+  <content contentuid="h92496daea2e55f258ec57cad87d9f9b6" version="1">Signature Arcanum (Transmutation)</content>
+  <content contentuid="h1344e716890057f0a3ee6d47a9014bfc" version="1">Choose a level 1-7 Transmutation spell.</content>
   <content contentuid="h07109fede297590d8ad816e36146c75d" version="1">Boon of Combat Prowess</content>
   <content contentuid="h8cb09ad5271a51889d40f440eaebae6d" version="1">Peerless Aim: when you miss with an attack roll, you can hit instead. Once you use this, you can't again until the start of your next turn.</content>
   <content contentuid="hbece0f220b06584b81e540d08a1461ca" version="1">Peerless Aim</content>
@@ -982,6 +1001,1219 @@
   <content contentuid="h53d19b73fc0e5277ae2640ef9d6f344d" version="1">Invisible until you take an action, Bonus Action or Reaction.</content>
   <content contentuid="h712ffa9145f55898ac19f3cc509edfeb" version="1">Boon of Truesight</content>
   <content contentuid="hcad4f457a2375abea65d0f233146f8ea" version="1">Truesight: you have Truesight with a range of 60 feet.</content>
+  <content contentuid="he2c9a9936b965d24aab12937b35375d3" version="1">Boon of Bloodshed</content>
+  <content contentuid="hc200f65b5d315ceb960fa4ad9baa7bf0" version="1">Killer's Fortune: when an enemy you can see is reduced to 0 Hit Points, you have Advantage on your next attack roll before the end of your next turn. Power from Pain: once per turn, when you hit with an attack roll while Bloodied, deal extra damage equal to your Proficiency Bonus of the attack's type.</content>
+  <content contentuid="hcbcafe4f2e2252ba9db2214138dad57d" version="1">Killer's Fortune</content>
+  <content contentuid="h19afb46c30a2549ba8089cc4e931b35e" version="1">Advantage on your next attack roll.</content>
+  <content contentuid="h4c79d6fe834a59d6b3c1040ee156fef6" version="1">Power from Pain used</content>
+  <content contentuid="h95b65a5591fc535d899f40c78ab73bd6" version="1">Boon of Bountiful Health</content>
+  <content contentuid="hcb906bb27de653a59835349029f88fb8" version="1">Augmented Health: whenever you gain Temporary Hit Points, you gain 5 more. Superior Recuperation: when you spend Hit Point Dice to regain Hit Points, each die heals its maximum.</content>
+  <content contentuid="h50b1d684deb555d4ad50cb0951b5c262" version="1">Superior Recuperation</content>
+  <content contentuid="h7fdaf306fd5f5b56a7fdab8b751961d1" version="1">Boon of Communication</content>
+  <content contentuid="h464c4f0cdf1a55079bc0e9f33bad5ab1" version="1">Cunning Speaker, Gifted Interpreter and Mental Communication (telepathy 120 feet). BG3 has no hostile-influence penalty, language barrier or telepathy, so this boon gives only its ability increase.</content>
+  <content contentuid="h641668f897e45cb2a26e1bedacdec5bf" version="1">Boon of Communication (+1 Intelligence)</content>
+  <content contentuid="h59e5346c9b235c19a8a0504727d1bc43" version="1">Boon of Communication (+1 Wisdom)</content>
+  <content contentuid="h87399f22a1855966bd63e8203d344139" version="1">Boon of Communication (+1 Charisma)</content>
+  <content contentuid="h6c071bf255bf5d9e9ba1ce7658ac7eeb" version="1">Boon of Desperate Resilience</content>
+  <content contentuid="hec4369a1cbab56eaba6d5024586b9564" version="1">Defense of Body and Mind: while you are Bloodied, you have Resistance to every damage type except Force.</content>
+  <content contentuid="h6b449f20d9325e98a5fa4da00980d490" version="1">Boon of Desperate Resilience (+1 Strength)</content>
+  <content contentuid="hff1bace1fc5b53cd9b9e19d738853d2c" version="1">Boon of Desperate Resilience (+1 Constitution)</content>
+  <content contentuid="h3ff68333f44d58f9b71745cd7c0e1f5b" version="1">Boon of Exquisite Radiance</content>
+  <content contentuid="h24d63283cf5f5a878f069a0a3b26309b" version="1">Powerful Radiance: once per Long Rest, when you roll Radiant damage, each die rolls its maximum. Eternal Rest (creatures you kill can't become Undead) has no BG3 equivalent.</content>
+  <content contentuid="h2a7de42ddd8d594ea0ee430b1e25a714" version="1">Powerful Radiance</content>
+  <content contentuid="hbbd7d3c65d455998bf63e85cd11ab97f" version="1">Your next Radiant damage roll uses the highest number on each die.</content>
+  <content contentuid="h166c8fd0565c540881b56ccb27f61683" version="1">Boon of Fluid Forms</content>
+  <content contentuid="h5c3b8e429c6e56e1b38d31d0e11d9abb" version="1">Shapechanger: once per Long Rest, as a Magic action, shape-shift into a Beast or Monstrosity for 1 hour, gaining Temporary Hit Points equal to the form's Hit Points plus 20 (Hardy Transformation). It ends when they run out or you take a Magic action to revert.</content>
+  <content contentuid="h8dfd594dc71459d491be3b9057118984" version="1">Boon of Fluid Forms (+1 Intelligence)</content>
+  <content contentuid="h59f1e311d4095c0891615713a679237a" version="1">Boon of Fluid Forms (+1 Wisdom)</content>
+  <content contentuid="hf191105223055304a3808b2abc8ddb66" version="1">Boon of Fluid Forms (+1 Charisma)</content>
+  <content contentuid="h0b4357d8083352858999516d70486d61" version="1">Shapechanger</content>
+  <content contentuid="h875499c5abb65ef5ad82f45b400c8985" version="1">Shape-shift into another creature for 1 hour.</content>
+  <content contentuid="h772a4f8e56fd5c45bfff9849ac33cc91" version="1">Shapechanger: Sheep</content>
+  <content contentuid="h6611078707875e19ab585accd2ba8d53" version="1">Become a Sheep (3 + 20 temporary Hit Points).</content>
+  <content contentuid="h85cd95d9180254298fdbdcca80dd6e08" version="1">Hardy Transformation</content>
+  <content contentuid="h5b426ddbc0585332817916e1a40098dd" version="1">Shapechanger: DireWolf</content>
+  <content contentuid="hc94510da8559519eb9f1951efd1edc8c" version="1">Become a DireWolf (37 + 20 temporary Hit Points).</content>
+  <content contentuid="hace95fa9a1ef546abd571254d65df905" version="1">Hardy Transformation</content>
+  <content contentuid="hd49c25c718c45ba0bd3faf7d74f3388d" version="1">Shapechanger: ShadowMastiff</content>
+  <content contentuid="h7048e67b33b95b178454a9e91cdb1beb" version="1">Become a ShadowMastiff (33 + 20 temporary Hit Points).</content>
+  <content contentuid="h1d0669fc524d5b2eb637d85aa7993934" version="1">Hardy Transformation</content>
+  <content contentuid="h9961b237d73d501b9d8ce724734a3505" version="1">Shapechanger: PhaseSpider</content>
+  <content contentuid="h76fba0bfb1b25efaa816f6c9f749fe4f" version="1">Become a PhaseSpider (24 + 20 temporary Hit Points).</content>
+  <content contentuid="h795d46b01b875586998f24bdcca68074" version="1">Hardy Transformation</content>
+  <content contentuid="h49e69dc666095343b69e630ffe65bad8" version="1">Shapechanger: Minotaur</content>
+  <content contentuid="hd48862773bb2547bb00938594ee1df93" version="1">Become a Minotaur (84 + 20 temporary Hit Points).</content>
+  <content contentuid="h0a433f0d15405b96b979477eaae83573" version="1">Hardy Transformation</content>
+  <content contentuid="h1a5dfc58b552556c8e4f679e61c25776" version="1">Return to True Form</content>
+  <content contentuid="h31cc0910f197590fa9ed72a7512bb73b" version="1">End your Shapechanger form.</content>
+  <content contentuid="h750790e04c225b7689aa4acdfe04aaaa" version="1">Boon of Fortune's Favor</content>
+  <content contentuid="h0774d1ba05995549bb9d1f0c73cb5c92" version="1">Saving Throw Reroll: when you fail a saving throw, you can reroll it and must use the new roll. Once you use this, you can't again until the start of your next turn.</content>
+  <content contentuid="h317cb444db7958099d34d3f2cd92eb66" version="1">Fortune's Favor</content>
+  <content contentuid="h5bbd7c32812f541592dc261e524e24c3" version="1">You failed a saving throw: reroll it.</content>
+  <content contentuid="h95b44b4cc28058d283ab1eb5c88587df" version="1">Boon of Poison Mastery</content>
+  <content contentuid="h366c0195b2f95eef92b5cbe59a4224c7" version="1">Antitoxic: Immunity to Poison damage and the Poisoned condition. Perfect Poisoner: once per turn, when you roll Poison damage, each die rolls its maximum.</content>
+  <content contentuid="ha74d12be765b508997f855aefff6fbf4" version="1">Perfect Poisoner</content>
+  <content contentuid="h9288babb92d351b28b212b81a1d616c9" version="1">Boon of Revelry</content>
+  <content contentuid="h13e7f7f2f3545d56acba70dd2a574039" version="1">Inspire Dance: you always have Otto's Irresistible Dance prepared and can cast it once per Long Rest without a slot or components; damage doesn't break your Concentration on it. Sing Out: a creature charmed by your dance can't cast spells with Verbal components.</content>
+  <content contentuid="hec350bec75e4552b8a7beebecaae937c" version="1">Boon of Revelry (+1 Intelligence)</content>
+  <content contentuid="hf0392285b5985c60b0828172f2ecc8c7" version="1">Boon of Revelry (+1 Wisdom)</content>
+  <content contentuid="h0befc458cc5d5fb2b7f52e476ce56908" version="1">Boon of Revelry (+1 Charisma)</content>
+  <content contentuid="hf4769db886dc5c31b13004543691c716" version="1">Inspire Dance</content>
+  <content contentuid="hae5a0b71162a5d80b7d1e1856aad13b7" version="1">Otto's Irresistible Dance, without a spell slot or components.</content>
+  <content contentuid="h413c3630988a56aa95627f3357a70c1b" version="1">Inspire Dance</content>
+  <content contentuid="h4bf99c16883556e489c99fcbfb17df47" version="1">Sing Out</content>
+  <content contentuid="h212608d322e452f3919ffae74a5f92b6" version="1">Sings delightful nonsense: can't cast spells with Verbal components.</content>
+  <content contentuid="h3a698a4d97195954a726960b4b098d67" version="1">Boon of Terror</content>
+  <content contentuid="h9084914204735eebb14c71a0e85b7cb5" version="1">Fearless: Immunity to the Frightened condition. Flee, Fools!: when a Frightened creature you can see starts its turn within 60 feet, you can use your Reaction to make it pass a Wisdom save (DC 8 + Charisma modifier + Proficiency Bonus) or flee; once per Short or Long Rest. Intimidating: proficiency and Expertise in Intimidation.</content>
+  <content contentuid="h5f54d09dfad15fab8e8a8a8984b49923" version="1">Boon of Terror (+1 Charisma)</content>
+  <content contentuid="h1d7aeae5f846521083e754fd8bf01728" version="1">Flee, Fools!</content>
+  <content contentuid="he5c4d5cc3fd0561d95da2694c6ca5b84" version="1">The creature flees on a failed Wisdom save.</content>
+  <content contentuid="hb551e7f77099542e9df622db6592480a" version="1">Boon of the Bright Sun</content>
+  <content contentuid="hded4e84fe3045eb089fa1d0351bed6e5" version="1">Daylight Presence: as a Bonus Action, you radiate a 30-foot emanation of sunlight until you dismiss it, die or are Incapacitated; it dispels overlapping magical Darkness. Fortifying Light: at the start of each of your turns, you and allies you can see in it gain 10 Temporary Hit Points.</content>
+  <content contentuid="h52b2279bc29d5681a7f4dbdc16900da8" version="1">Boon of the Bright Sun (+1 Constitution)</content>
+  <content contentuid="hce07136771e85ab99198da06d4e871d9" version="1">Boon of the Bright Sun (+1 Wisdom)</content>
+  <content contentuid="h41692c992708549f85052ed10d62bcfb" version="1">Boon of the Bright Sun (+1 Charisma)</content>
+  <content contentuid="h670a9426f2a25205ba4efbaf7dbf48c3" version="1">Daylight Presence</content>
+  <content contentuid="h45ae24f864f656daafa4363631f83e67" version="1">Radiate sunlight in a 30-foot emanation.</content>
+  <content contentuid="hf226420a171a5ec4bcac93a8ecafb502" version="1">Dismiss Daylight Presence</content>
+  <content contentuid="hac7389fd90485bbf98539c01be536d58" version="1">End your Daylight Presence.</content>
+  <content contentuid="h25d8e69435cc5ec99c59be17b472061c" version="1">Daylight Presence</content>
+  <content contentuid="hdaac5b0d6e6154b1ba502962936286b5" version="1">You radiate sunlight in a 30-foot emanation.</content>
+  <content contentuid="h8fc512cbe54f59f3ad3fa262c08789a4" version="1">Fortifying Light</content>
+  <content contentuid="h5357c3b9ec55511db41035dab0857c47" version="1">Boon of the Furious Storm</content>
+  <content contentuid="h1f5e7ef72e4c53c0a30b7194983d8813" version="1">Eye of the Storm: Resistance to Lightning and Thunder damage, Immunity while you are Bloodied. Storm's Strength: creatures have Disadvantage on saving throws against your spells that deal Lightning or Thunder damage. (Requires the Spellcasting or Pact Magic feature.)</content>
+  <content contentuid="h84df42d8046e5047af9a226171989ea3" version="1">Boon of the Furious Storm (+1 Intelligence)</content>
+  <content contentuid="hed30af3836295cf98a6173e057085ec1" version="1">Boon of the Furious Storm (+1 Wisdom)</content>
+  <content contentuid="h32228bc5687252afaa8c9bb27dc16977" version="1">Boon of the Furious Storm (+1 Charisma)</content>
+  <content contentuid="hf7f95492f8cc5e16a9cd095772b8abc0" version="1">Boon of the Soul Drinker</content>
+  <content contentuid="had35284dd7c65c0688da3a335bd8ba75" version="1">Grave Resistance: Resistance to Cold and Necrotic damage. Siphon Life: when an enemy within 120 feet is reduced to 0 Hit Points, you can use your Reaction to regain 50 Hit Points; once per Short or Long Rest.</content>
+  <content contentuid="ha260b5f9ead85c5ab5b9524197a6994e" version="1">Siphon Life</content>
+  <content contentuid="hed7d46f2e5165b678b1e18e339e7a330" version="1">Boon of Erupting Spellpower</content>
+  <content contentuid="ha25c9380fa6f5fc68d9f6ed22a73a914" version="1">Spell Overload: as a free action, ready an overload; the next damaging spell you cast with a spell slot treats any 1 or 2 on a damage die as a 3, and creatures it damages are knocked Prone. Returns when you roll Initiative or finish a Short or Long Rest. (Requires the Spellcasting or Pact Magic feature.)</content>
+  <content contentuid="h2748c956fd26520382dcc64bb7f07b5c" version="1">Boon of Erupting Spellpower (+1 Intelligence)</content>
+  <content contentuid="hf9a15e81ce905841996bffb08c02302c" version="1">Boon of Erupting Spellpower (+1 Wisdom)</content>
+  <content contentuid="heda272eaa94e56078db20eb0330e86cb" version="1">Boon of Erupting Spellpower (+1 Charisma)</content>
+  <content contentuid="h1b8fc8a6e9f652d7b4b9bf7c6be1b5bd" version="1">Spell Overload</content>
+  <content contentuid="h75b3d496b6a4593c90ac07f4aed08897" version="1">Your next damaging spell cast with a spell slot treats 1s and 2s on damage dice as 3s and knocks the creatures it damages Prone.</content>
+  <content contentuid="ha3b262b432ca5ec3babe3e1a52463b39" version="1">Cancel Spell Overload</content>
+  <content contentuid="h0bbbbfb7a61c511fbbed2b9de43bbc31" version="1">Stop readying Spell Overload.</content>
+  <content contentuid="ha7813c3fb5435a4282ff3654778fa238" version="1">Spell Overload ready</content>
+  <content contentuid="h35df3519d11c56a58b18e9e71b19ea0e" version="1">Spell Overload</content>
+  <content contentuid="ha45e2df0f683508cab15bd52876828da" version="1">Boon of the Iron Mind</content>
+  <content contentuid="h822d436534fd55bfab9863d78586f4fd" version="1">Unshakable Focus: taking damage never breaks your Concentration. (BG3 conditions that end Concentration on their own, such as being stunned, still do.)</content>
+  <content contentuid="h86f4ba2818c957508e9ae832b390449d" version="1">Boon of Magic School Mastery</content>
+  <content contentuid="h017844e171d356d38d1482e9af4e62cf" version="1">Mastered School: choose a school of magic. Rote Casting: a level 1 spell of that school is always prepared and you can cast it without a spell slot or components. Signature Arcanum: a level 7 or lower spell of that school is always prepared; cast it once per Long Rest without a spell slot. (Requires the Spellcasting or Pact Magic feature; spells with variant menus aren't offered.)</content>
+  <content contentuid="he4d56d9cd4c8513da7266f2cf81f2dda" version="1">Boon of Magic School Mastery (+1 Intelligence)</content>
+  <content contentuid="h5f88aaa6cc45511eb787cfb5ff981c1b" version="1">Boon of Magic School Mastery (+1 Wisdom)</content>
+  <content contentuid="he06e4e8cd94e5fa0a0854f6a767533f6" version="1">Boon of Magic School Mastery (+1 Charisma)</content>
+  <content contentuid="h643d7792595154c8aa2a0e4555d6a6af" version="1">Mastered School</content>
+  <content contentuid="h6e4b9ec35bb15b9b969e96b320e347d9" version="1">Choose your school of magic.</content>
+  <content contentuid="hf8297b4fd4f55bbc8ad06255a4b73dac" version="1">Mastered School: Abjuration</content>
+  <content contentuid="h24a205a37cb450bbac63cba7cd4e24b7" version="1">Master the Abjuration school.</content>
+  <content contentuid="h6e65f2ac5d115fd2918ad1b72782a47c" version="1">Mastered School: Abjuration</content>
+  <content contentuid="h5934925ad310504e9203c12632d11841" version="1">Rote Casting (Abjuration)</content>
+  <content contentuid="h48a609c660645a7ba74c2a42d790647a" version="1">Choose a level 1 Abjuration spell to cast at will.</content>
+  <content contentuid="hafe43f33c0c5591cb54476cc1181229b" version="1">Signature Arcanum (Abjuration, level 1-3)</content>
+  <content contentuid="h10dc694ddcdd5de5a398ecd5c9c7463f" version="1">Choose a level 1-3 Abjuration spell.</content>
+  <content contentuid="h95f2054ed14c596cbcfe2fcadd10ca55" version="1">Signature Arcanum (Abjuration, level 4-7)</content>
+  <content contentuid="h9ede48e7ab6a59fe88518113e2415354" version="1">Choose a level 4-7 Abjuration spell.</content>
+  <content contentuid="h9590b389af7f58e0aaec55315e8c24cd" version="1">Rote Casting: Wardaway (level 1)</content>
+  <content contentuid="h5924ad6a56a15e84a60ffe2d24ef4d93" version="1">Choose Wardaway as your Rote Casting spell.</content>
+  <content contentuid="h77c43dbb9125576abee1dc815cd7e1c3" version="1">Rote Casting: Wardaway</content>
+  <content contentuid="he484270f81395a2ab5d107f055d40586" version="1">Wardaway (Rote)</content>
+  <content contentuid="h1b895909418251c987467f357eaf90aa" version="1">Rote Casting: Absorb Elements (level 1)</content>
+  <content contentuid="he36bb0415e035265bf30e43109175825" version="1">Choose Absorb Elements as your Rote Casting spell.</content>
+  <content contentuid="h689331fc35c357d38ff69c50a84429da" version="1">Rote Casting: Absorb Elements</content>
+  <content contentuid="h9991ffc5ac3a58d8a9459204b2a539da" version="1">Absorb Elements (Rote)</content>
+  <content contentuid="h0d0d2f07bd0e59baabc2255c94fef4fb" version="1">Rote Casting: Shield (level 1)</content>
+  <content contentuid="hedc939914c1b5d99b57f928d62af8811" version="1">Choose Shield as your Rote Casting spell.</content>
+  <content contentuid="h4cd2a8e809b45479bb901a8b813724b8" version="1">Rote Casting: Shield</content>
+  <content contentuid="h5387f60bf49a59e2823e930ba629b36e" version="1">Shield (Rote)</content>
+  <content contentuid="hdaa9a25777c15604b0ab6dad9166c555" version="1">Rote Casting: Cure Wounds (level 1)</content>
+  <content contentuid="hccf50c2dd70c5d67be4f56ff2b5c74fe" version="1">Choose Cure Wounds as your Rote Casting spell.</content>
+  <content contentuid="he0e4ca6739995e95a4ab269e1edfd552" version="1">Rote Casting: Cure Wounds</content>
+  <content contentuid="hb24652d188b15168aec89ff4e2baded1" version="1">Cure Wounds (Rote)</content>
+  <content contentuid="h8d4944b592605c14bdab6652a66e063d" version="1">Rote Casting: Healing Word (level 1)</content>
+  <content contentuid="h9b604e7a758c5b96b09e073985530589" version="1">Choose Healing Word as your Rote Casting spell.</content>
+  <content contentuid="hd939d21c23e051909cdeb63eadc9363d" version="1">Rote Casting: Healing Word</content>
+  <content contentuid="h6a2465316879580a91d3011a23c80e60" version="1">Healing Word (Rote)</content>
+  <content contentuid="haab9099458f951e4b84d3bec96091642" version="1">Rote Casting: Mage Armour (level 1)</content>
+  <content contentuid="ha9a3217523e55580aa0f98b54fd93bf5" version="1">Choose Mage Armour as your Rote Casting spell.</content>
+  <content contentuid="h83dc08ab9daf50ae82745e3597efea97" version="1">Rote Casting: Mage Armour</content>
+  <content contentuid="he2e87fd7a11658189037eeb804615cb4" version="1">Mage Armour (Rote)</content>
+  <content contentuid="ha032c20cc65e5cd7aaf700383479198c" version="1">Rote Casting: Protection from Evil and Good (level 1)</content>
+  <content contentuid="hd807ee48e84052da89dde0a53d13eefc" version="1">Choose Protection from Evil and Good as your Rote Casting spell.</content>
+  <content contentuid="h4405fd30805d5ae799bd31a010004c76" version="1">Rote Casting: Protection from Evil and Good</content>
+  <content contentuid="hf2100c0469295e70b6aeec4111451a97" version="1">Protection from Evil and Good (Rote)</content>
+  <content contentuid="h5d5ee9e2179953759c8ced4c18802811" version="1">Rote Casting: Sanctuary (level 1)</content>
+  <content contentuid="h804a4aa659c0552ab44818f0525efb19" version="1">Choose Sanctuary as your Rote Casting spell.</content>
+  <content contentuid="he619dd16d4155e40966383f612040848" version="1">Rote Casting: Sanctuary</content>
+  <content contentuid="h6db03e54e6e55b089e4648664ee11275" version="1">Sanctuary (Rote)</content>
+  <content contentuid="hba689cf7ad1f5e1fb386a177e744cd14" version="1">Rote Casting: Shield of Faith (level 1)</content>
+  <content contentuid="hde64d34ac5c85934ba441423f678d18a" version="1">Choose Shield of Faith as your Rote Casting spell.</content>
+  <content contentuid="h6f67d9acf2665455b81cb8fb8c1fd204" version="1">Rote Casting: Shield of Faith</content>
+  <content contentuid="h8a96ceecb21758ec87cd9d48109a8446" version="1">Shield of Faith (Rote)</content>
+  <content contentuid="h7865a811995e5befab130537ef42cec0" version="1">Rote Casting: Thorn Armor (level 1)</content>
+  <content contentuid="h681936592b68589695ef85623f3c4c7f" version="1">Choose Thorn Armor as your Rote Casting spell.</content>
+  <content contentuid="h96752ff71aa05ccd80246060f11b5985" version="1">Rote Casting: Thorn Armor</content>
+  <content contentuid="hdd0855267319560b90e71e541c888d59" version="1">Thorn Armor (Rote)</content>
+  <content contentuid="h40829ee67a6a5dc2993d1f503f9f075c" version="1">Signature Arcanum: Wardaway (level 1)</content>
+  <content contentuid="h4991a8c645a35fffb0c58cfa2a5e9574" version="1">Choose Wardaway as your Signature Arcanum spell.</content>
+  <content contentuid="hdc22c92adacf5b8e96e8370e2b3d19ff" version="1">Signature Arcanum: Wardaway</content>
+  <content contentuid="h1d2fdfd1554f55c1b7094b01064ec94f" version="1">Wardaway (Signature)</content>
+  <content contentuid="h57f61d30f35e584e8d0e2f558a854181" version="1">Signature Arcanum: Absorb Elements (level 1)</content>
+  <content contentuid="h82dc6ad7e4255a1bbbffc61d1488a74a" version="1">Choose Absorb Elements as your Signature Arcanum spell.</content>
+  <content contentuid="h08a61792a513556d9cfce73371f05362" version="1">Signature Arcanum: Absorb Elements</content>
+  <content contentuid="h54ab0f7e8486548a9ed6413f21f4c81b" version="1">Absorb Elements (Signature)</content>
+  <content contentuid="hee2bbfba7d4c58618e7e553dcb168069" version="1">Signature Arcanum: Aura of Vitality (level 3)</content>
+  <content contentuid="h9e1ab96be5e959379c589fbe88cc4658" version="1">Choose Aura of Vitality as your Signature Arcanum spell.</content>
+  <content contentuid="h56da41e4996e51828bf774bef06aac36" version="1">Signature Arcanum: Aura of Vitality</content>
+  <content contentuid="h43253bfea2565c70a80af2dcaa09a584" version="1">Aura of Vitality (Signature)</content>
+  <content contentuid="h32fed9d3af09528e902edb29f27043e3" version="1">Signature Arcanum: Beacon of Hope (level 3)</content>
+  <content contentuid="h3d5a4751de175639b48fa48017ee558a" version="1">Choose Beacon of Hope as your Signature Arcanum spell.</content>
+  <content contentuid="h161fe694203f534bba10117a46f88733" version="1">Signature Arcanum: Beacon of Hope</content>
+  <content contentuid="h44c5d9f6dc595163b11a676bd0de100f" version="1">Beacon of Hope (Signature)</content>
+  <content contentuid="h89dcbb462ed257c58b8be88815a5f7ab" version="1">Signature Arcanum: Circle of Power (level 5)</content>
+  <content contentuid="h35efe4f2c5a15ee7aa3b8663974aa59c" version="1">Choose Circle of Power as your Signature Arcanum spell.</content>
+  <content contentuid="h468ec8d13ee95d6687416a3051b17c04" version="1">Signature Arcanum: Circle of Power</content>
+  <content contentuid="h729b590d52025ae08ceb337120b89668" version="1">Circle of Power (Signature)</content>
+  <content contentuid="h58429b4a3f4258d39078356e2711e58c" version="1">Signature Arcanum: Dispel Evil And Good (level 5)</content>
+  <content contentuid="h001417ac01e355c3b1145bfef0085129" version="1">Choose Dispel Evil And Good as your Signature Arcanum spell.</content>
+  <content contentuid="hbbe338faa0e75c95828877336f7b5a34" version="1">Signature Arcanum: Dispel Evil And Good</content>
+  <content contentuid="h29eb935e26b55c60b08c5f3c0f6bce16" version="1">Dispel Evil And Good (Signature)</content>
+  <content contentuid="h2fbb1e9df1f3515ab9f73c1376eb8de1" version="1">Signature Arcanum: Mass Healing Word (level 3)</content>
+  <content contentuid="h3d3fd7092359503db4b27b5e5537cf6c" version="1">Choose Mass Healing Word as your Signature Arcanum spell.</content>
+  <content contentuid="hc420ddd38cd95f039ed0a2b4ca8b1ef5" version="1">Signature Arcanum: Mass Healing Word</content>
+  <content contentuid="h873d49ae70e85d2db6ef44f0276b18d5" version="1">Mass Healing Word (Signature)</content>
+  <content contentuid="h4b4b180db1075488b2bbe5f5ed18cf53" version="1">Signature Arcanum: Pass Without Trace (level 2)</content>
+  <content contentuid="hddfdb3a5f30f5d5fa9be1be4108bab19" version="1">Choose Pass Without Trace as your Signature Arcanum spell.</content>
+  <content contentuid="h03b3ae8c6e72541fbbcc14f0a4846706" version="1">Signature Arcanum: Pass Without Trace</content>
+  <content contentuid="h21471441f8565893872abaf157a690dc" version="1">Pass Without Trace (Signature)</content>
+  <content contentuid="h15ec08b813bd5ba6bde5355d912b43ee" version="1">Signature Arcanum: Prayer of Healing (level 2)</content>
+  <content contentuid="h1d81f97863155bf59af94fd5f3c5a0a3" version="1">Choose Prayer of Healing as your Signature Arcanum spell.</content>
+  <content contentuid="h1c854afdd9615e97b3192664eb5f7049" version="1">Signature Arcanum: Prayer of Healing</content>
+  <content contentuid="h06ee73e5096350d29a67ec1b9af5c3cc" version="1">Prayer of Healing (Signature)</content>
+  <content contentuid="hb903b79a00675632b18740f8011162f5" version="1">Signature Arcanum: Shield (level 1)</content>
+  <content contentuid="h021e93a63a245c4abf8b8340108689fd" version="1">Choose Shield as your Signature Arcanum spell.</content>
+  <content contentuid="h6c3b1f0cfbcc5d6fa4d9bf1b942ffd15" version="1">Signature Arcanum: Shield</content>
+  <content contentuid="h7058fe64ad6a5339baf0e9187d47139c" version="1">Shield (Signature)</content>
+  <content contentuid="h91b939860f6d5b5e864efd4fe1247ec8" version="1">Signature Arcanum: Aid (level 2)</content>
+  <content contentuid="hf353a667571d5d54a520710d5bb27215" version="1">Choose Aid as your Signature Arcanum spell.</content>
+  <content contentuid="hb452b66e23045273858ac5150e46a177" version="1">Signature Arcanum: Aid</content>
+  <content contentuid="hf9a8657aba10540b906f30b62b3875c9" version="1">Aid (Signature)</content>
+  <content contentuid="hdd87651680f35883a112d02563553767" version="1">Signature Arcanum: Symbol (level 7)</content>
+  <content contentuid="h432a92f2a2b0524393df70ed72277844" version="1">Choose Symbol as your Signature Arcanum spell.</content>
+  <content contentuid="h4084f31b9b2b54169d416c3d8f44fa2d" version="1">Signature Arcanum: Symbol</content>
+  <content contentuid="hf40484bc72ad5235a672e3d4768b0828" version="1">Symbol (Signature)</content>
+  <content contentuid="hda66ccca6f16517d9392cfab63a5259c" version="1">Signature Arcanum: Banishment (level 4)</content>
+  <content contentuid="h5b2ae235e633544c8e9c7a9b08dc1159" version="1">Choose Banishment as your Signature Arcanum spell.</content>
+  <content contentuid="h1c2dc692de785aa5a3763f10c586e5b0" version="1">Signature Arcanum: Banishment</content>
+  <content contentuid="h64bd4b834b9c59a993fafa6ddb7b7455" version="1">Banishment (Signature)</content>
+  <content contentuid="h2fa4bb6e61ae5b318c2e051b68359452" version="1">Signature Arcanum: Counterspell (level 3)</content>
+  <content contentuid="hc8c0d240f912563b867af6522929bae3" version="1">Choose Counterspell as your Signature Arcanum spell.</content>
+  <content contentuid="h0355d9ed84a65123852e80c232c06dad" version="1">Signature Arcanum: Counterspell</content>
+  <content contentuid="h8fdad7a2e998566a97ebb6c603d9a11d" version="1">Counterspell (Signature)</content>
+  <content contentuid="h379e5b819b9d52df99eb861761cb4b1d" version="1">Signature Arcanum: Cure Wounds (level 1)</content>
+  <content contentuid="heb80f661662f54c693610e5fd63cb712" version="1">Choose Cure Wounds as your Signature Arcanum spell.</content>
+  <content contentuid="h5a04b777d1dc505885a1eddd611c56c7" version="1">Signature Arcanum: Cure Wounds</content>
+  <content contentuid="h8b6573e355a756d5b96e78bd6866acbc" version="1">Cure Wounds (Signature)</content>
+  <content contentuid="h0c032ae272605eb483f5bd2e9b86e1fb" version="1">Signature Arcanum: Mass Cure Wounds (level 5)</content>
+  <content contentuid="h4dcbfeda24625f4f81c60cf4186848aa" version="1">Choose Mass Cure Wounds as your Signature Arcanum spell.</content>
+  <content contentuid="h603f800bdfb2591cb231bc0244fdebd1" version="1">Signature Arcanum: Mass Cure Wounds</content>
+  <content contentuid="h84c52a6d408d5506ac0c5ba834bf2aea" version="1">Mass Cure Wounds (Signature)</content>
+  <content contentuid="hebff98b3e03d527b90b5279f1237ff11" version="1">Signature Arcanum: Death Ward (level 4)</content>
+  <content contentuid="h9e4cefc09fb053fdae8e67b4ff7de7ab" version="1">Choose Death Ward as your Signature Arcanum spell.</content>
+  <content contentuid="h5467c04046df5114bb03f121457a69dd" version="1">Signature Arcanum: Death Ward</content>
+  <content contentuid="ha12e4b8db52356bc8eac099c40da1d64" version="1">Death Ward (Signature)</content>
+  <content contentuid="h87e1cc6393ce5f3f889b635f5722ff8a" version="1">Signature Arcanum: Freedom of Movement (level 4)</content>
+  <content contentuid="hc66ec55c189f54008987312a5e53d3e8" version="1">Choose Freedom of Movement as your Signature Arcanum spell.</content>
+  <content contentuid="h946fd36f1c5053fa9f2a944c96442bc7" version="1">Signature Arcanum: Freedom of Movement</content>
+  <content contentuid="h6d68940fe6b75753998ac450fc6b05a3" version="1">Freedom of Movement (Signature)</content>
+  <content contentuid="hefa8ee341d73549b815ba2b14792ea51" version="1">Signature Arcanum: Globe of Invulnerability (level 6)</content>
+  <content contentuid="h7f13f046bf1a5174b4b57a0482f83020" version="1">Choose Globe of Invulnerability as your Signature Arcanum spell.</content>
+  <content contentuid="h5c1e5dfd8d625b9b82b2f13c240b9d3e" version="1">Signature Arcanum: Globe of Invulnerability</content>
+  <content contentuid="ha66f774137825647a819e82798ec2569" version="1">Globe of Invulnerability (Signature)</content>
+  <content contentuid="hb26a95002f2a50f0aec519cf0c0878cb" version="1">Signature Arcanum: Greater Restoration (level 5)</content>
+  <content contentuid="h3ba8a8f3dd575685a3213c955fa8e73b" version="1">Choose Greater Restoration as your Signature Arcanum spell.</content>
+  <content contentuid="h72bd44701df35de3bdf765e366691d87" version="1">Signature Arcanum: Greater Restoration</content>
+  <content contentuid="h9a551d10cf03596b93c79a346b1933bf" version="1">Greater Restoration (Signature)</content>
+  <content contentuid="h8f20f7144f24561f9f5fa9990eb5018c" version="1">Signature Arcanum: Healing Word (level 1)</content>
+  <content contentuid="h26a7b465e3a957508c713239e3cbc331" version="1">Choose Healing Word as your Signature Arcanum spell.</content>
+  <content contentuid="h65955934340857a9a8fb997b165e9ae7" version="1">Signature Arcanum: Healing Word</content>
+  <content contentuid="he569a153de915f2d9c8d7f7c9a55f0e3" version="1">Healing Word (Signature)</content>
+  <content contentuid="he201d72e3e2f5612923fb3c276cc5342" version="1">Signature Arcanum: Lesser Restoration (level 2)</content>
+  <content contentuid="he55e58863aac566483e0447fefd27058" version="1">Choose Lesser Restoration as your Signature Arcanum spell.</content>
+  <content contentuid="h6a04fb0413bf59e4a9fe379fcda06d30" version="1">Signature Arcanum: Lesser Restoration</content>
+  <content contentuid="ha99c77b761505882b2b607dfec38a142" version="1">Lesser Restoration (Signature)</content>
+  <content contentuid="h64135c98731359c0b8907b4a79990049" version="1">Signature Arcanum: Mage Armour (level 1)</content>
+  <content contentuid="h1bce3dac05ec595b9ba7ff973a8b558b" version="1">Choose Mage Armour as your Signature Arcanum spell.</content>
+  <content contentuid="h06dc6f51a518593e83bb836e80f03f3d" version="1">Signature Arcanum: Mage Armour</content>
+  <content contentuid="h2e37afaecbf851f199527f78a497d97c" version="1">Mage Armour (Signature)</content>
+  <content contentuid="he4b386969c2e5573a2391c21efb72ffa" version="1">Signature Arcanum: Planar Binding (level 5)</content>
+  <content contentuid="h39e2437833005ca4ba74587ac371d2a4" version="1">Choose Planar Binding as your Signature Arcanum spell.</content>
+  <content contentuid="h8a6f1ff693125fcf82cf13fe1898b180" version="1">Signature Arcanum: Planar Binding</content>
+  <content contentuid="h6a945a0d7c045c4bb2f39f2e11062150" version="1">Planar Binding (Signature)</content>
+  <content contentuid="hc1e93be8e41955b78ac91436a98c9e02" version="1">Signature Arcanum: Protection from Evil and Good (level 1)</content>
+  <content contentuid="hf20f700a411255f19b4e4c0b9a260c02" version="1">Choose Protection from Evil and Good as your Signature Arcanum spell.</content>
+  <content contentuid="h0dcdaa625f7457098544355eb5132819" version="1">Signature Arcanum: Protection from Evil and Good</content>
+  <content contentuid="hcdf00016b0755b6899438a6dba2bd610" version="1">Protection from Evil and Good (Signature)</content>
+  <content contentuid="h16f53616d07e508e9cb8c817652aa4a6" version="1">Signature Arcanum: Protection from Poison (level 2)</content>
+  <content contentuid="hf30c9e30e3a858e59afece39032ff019" version="1">Choose Protection from Poison as your Signature Arcanum spell.</content>
+  <content contentuid="he339583afed55c8a810ab130cf40c414" version="1">Signature Arcanum: Protection from Poison</content>
+  <content contentuid="h3a7a72c84c4c54fcbb84e3617c14ea6e" version="1">Protection from Poison (Signature)</content>
+  <content contentuid="h3fb28f95d2e25c35a311f6c1894215f5" version="1">Signature Arcanum: Remove Curse (level 3)</content>
+  <content contentuid="h9708bc03d69d594282e9ae7370ec26c1" version="1">Choose Remove Curse as your Signature Arcanum spell.</content>
+  <content contentuid="h253bc203f372561dae682a95df838cfa" version="1">Signature Arcanum: Remove Curse</content>
+  <content contentuid="h408476eec57f5fb5978f212e400f62b6" version="1">Remove Curse (Signature)</content>
+  <content contentuid="h7ea0cb7efda55f62b0f5fc95dd581e75" version="1">Signature Arcanum: Sanctuary (level 1)</content>
+  <content contentuid="h0aeaa894c4d35657a714ecb479ed184d" version="1">Choose Sanctuary as your Signature Arcanum spell.</content>
+  <content contentuid="h00ea19d4183f500daf6b6c4686d5766c" version="1">Signature Arcanum: Sanctuary</content>
+  <content contentuid="hba7b6ebdb80f51df93a5ebb63a43e80b" version="1">Sanctuary (Signature)</content>
+  <content contentuid="ha5cac36ddd465d12869b1d8b6505c2d7" version="1">Signature Arcanum: Shield of Faith (level 1)</content>
+  <content contentuid="hfbc053f7713f5adf99466b9714541d87" version="1">Choose Shield of Faith as your Signature Arcanum spell.</content>
+  <content contentuid="h4eeafae72010505892fca463f4ae66ef" version="1">Signature Arcanum: Shield of Faith</content>
+  <content contentuid="h170f2c7a77ef556cac1905fa4d4bc852" version="1">Shield of Faith (Signature)</content>
+  <content contentuid="he83b0ecae2ee52319ff8092d438f3d81" version="1">Signature Arcanum: Thorn Armor (level 1)</content>
+  <content contentuid="he0abde93afcb50e392b19286cf42bb71" version="1">Choose Thorn Armor as your Signature Arcanum spell.</content>
+  <content contentuid="hf579090286655536b09e15b33f97b001" version="1">Signature Arcanum: Thorn Armor</content>
+  <content contentuid="h7726e8ef570a5837bd1ca456b23fb1f0" version="1">Thorn Armor (Signature)</content>
+  <content contentuid="h62b3585f282755caa1a871cfdc424f5c" version="1">Signature Arcanum: Warding Bond (level 2)</content>
+  <content contentuid="ha1cd2f812299568494b71ca7754a7cba" version="1">Choose Warding Bond as your Signature Arcanum spell.</content>
+  <content contentuid="hc2860ce2fc8c50a6bb9f26a32687fc29" version="1">Signature Arcanum: Warding Bond</content>
+  <content contentuid="hc52bddcd6faa5c9d9e22032af330a5b0" version="1">Warding Bond (Signature)</content>
+  <content contentuid="h90db8f51f65c53e59c82e1dd07cb0079" version="1">Mastered School: Conjuration</content>
+  <content contentuid="h68549e1d652f508e9428c40fb099e577" version="1">Master the Conjuration school.</content>
+  <content contentuid="h872eedd61db05b6f8ce0dd002bfeafe7" version="1">Mastered School: Conjuration</content>
+  <content contentuid="hb30697c7eddc5ef8ad5477522c9f70e7" version="1">Rote Casting (Conjuration)</content>
+  <content contentuid="hc02477046073566bb59ddaf32bccd989" version="1">Choose a level 1 Conjuration spell to cast at will.</content>
+  <content contentuid="h2cf1a39e675950fcae003224f4ddd5e5" version="1">Signature Arcanum (Conjuration, level 1-3)</content>
+  <content contentuid="haef69c0f569e5664b0530304658edb25" version="1">Choose a level 1-3 Conjuration spell.</content>
+  <content contentuid="h04c01d0543ca56e09472458099f9855f" version="1">Signature Arcanum (Conjuration, level 4-7)</content>
+  <content contentuid="hadfd927ea13855588ff9401c76654906" version="1">Choose a level 4-7 Conjuration spell.</content>
+  <content contentuid="hdced70be88b95784beecc65c106ed7b9" version="1">Rote Casting: Hail of Thorns (level 1)</content>
+  <content contentuid="h3907fd655426567493c79a40ce1a347c" version="1">Choose Hail of Thorns as your Rote Casting spell.</content>
+  <content contentuid="he155556acf3751229256eb2c2c20ec74" version="1">Rote Casting: Hail of Thorns</content>
+  <content contentuid="h6fa701bab8de5e30a31bad94271522ca" version="1">Hail of Thorns (Rote)</content>
+  <content contentuid="hdda247a872ef5af1bcfe7433c126e74a" version="1">Rote Casting: Ice Knife (level 1)</content>
+  <content contentuid="h7c047ad28a7f539b97253fce4af6be4d" version="1">Choose Ice Knife as your Rote Casting spell.</content>
+  <content contentuid="h261a27eadcd4564b8bb5ae93cf3ddbe4" version="1">Rote Casting: Ice Knife</content>
+  <content contentuid="hff1f280b82b757debe7ab42adbf9cfe2" version="1">Ice Knife (Rote)</content>
+  <content contentuid="h6d0e844d64a050688fc446d986b3ec89" version="1">Rote Casting: Tide of Darkness (level 1)</content>
+  <content contentuid="h7f8fb063d2f75a358640bd7ef616f6e3" version="1">Choose Tide of Darkness as your Rote Casting spell.</content>
+  <content contentuid="ha977d64e61ad5007b875a126270b9aa2" version="1">Rote Casting: Tide of Darkness</content>
+  <content contentuid="hf0f19c8482a6509490a8972606c4d77a" version="1">Tide of Darkness (Rote)</content>
+  <content contentuid="hd4b1bbe34e885a2085cab17e900075f2" version="1">Rote Casting: Entangle (level 1)</content>
+  <content contentuid="h3fc0581c44725b6aae4467449dbe8447" version="1">Choose Entangle as your Rote Casting spell.</content>
+  <content contentuid="h93a065810d205cdc86d88d1f467c66a0" version="1">Rote Casting: Entangle</content>
+  <content contentuid="hc2c8a5984c765dc6af013a63a7cb63d2" version="1">Entangle (Rote)</content>
+  <content contentuid="hf51e1f98f90b53ef9ecd4c0feb947e1d" version="1">Rote Casting: Fog Cloud (level 1)</content>
+  <content contentuid="h382b7c3f97f65f2b88a1777d65bb4f28" version="1">Choose Fog Cloud as your Rote Casting spell.</content>
+  <content contentuid="h4ac67514ba025bf7a59a3be935c43462" version="1">Rote Casting: Fog Cloud</content>
+  <content contentuid="hde12a3424a8b53d09c264ce53264daf0" version="1">Fog Cloud (Rote)</content>
+  <content contentuid="he1c15bbb18735b3f94492bf0c0886763" version="1">Rote Casting: Spectral Slash (level 1)</content>
+  <content contentuid="h318330cd194156d186830427dad06f78" version="1">Choose Spectral Slash as your Rote Casting spell.</content>
+  <content contentuid="h7d9180a03e1c520c995c71f541ce5919" version="1">Rote Casting: Spectral Slash</content>
+  <content contentuid="h8e7fc464fac958e4857006fc3a2522d6" version="1">Spectral Slash (Rote)</content>
+  <content contentuid="hfcb5a6d394e95a898993599cce337a43" version="1">Signature Arcanum: Hail of Thorns (level 1)</content>
+  <content contentuid="h8017010cb6ac5da0ab746b369fb6201e" version="1">Choose Hail of Thorns as your Signature Arcanum spell.</content>
+  <content contentuid="hcc9f39b7fada596fb38379dd0635c15d" version="1">Signature Arcanum: Hail of Thorns</content>
+  <content contentuid="hf8822c17580a57429ff94aadde5c6dbc" version="1">Hail of Thorns (Signature)</content>
+  <content contentuid="h08d5632d701257358c49a306eba08521" version="1">Signature Arcanum: Ice Knife (level 1)</content>
+  <content contentuid="h0e9c7581e4d0537e81ac875e1c62c5f6" version="1">Choose Ice Knife as your Signature Arcanum spell.</content>
+  <content contentuid="h864ae176f4b95829a6883274fa0b8607" version="1">Signature Arcanum: Ice Knife</content>
+  <content contentuid="hdd6adc630f06555587fb9a256c4328c6" version="1">Ice Knife (Signature)</content>
+  <content contentuid="h2826ef344a355e188dea2eb28d63dcc1" version="1">Signature Arcanum: Mordenkainen's Magnificent Mansion (level 7)</content>
+  <content contentuid="h9fc9d71df5b35436bab4fa99e8f4f727" version="1">Choose Mordenkainen's Magnificent Mansion as your Signature Arcanum spell.</content>
+  <content contentuid="h002123ca1a8a55628b18b6c79837437e" version="1">Signature Arcanum: Mordenkainen's Magnificent Mansion</content>
+  <content contentuid="h66b3466eb1d15b6a92a6a25dfd02b13a" version="1">Mordenkainen's Magnificent Mansion (Signature)</content>
+  <content contentuid="h7f8ba7da283f53d4b66c0c0c7f5bd313" version="1">Signature Arcanum: Heroes' Feast (level 6)</content>
+  <content contentuid="h56868ad460965a1583b487da59919b30" version="1">Choose Heroes' Feast as your Signature Arcanum spell.</content>
+  <content contentuid="ha2e0a1a139765da885743f213535dbc7" version="1">Signature Arcanum: Heroes' Feast</content>
+  <content contentuid="h26b4e97a503e54f9bdb0376c54573b75" version="1">Heroes' Feast (Signature)</content>
+  <content contentuid="hfbacc319b363515e9ae1287f0a851e9c" version="1">Signature Arcanum: Tide of Darkness (level 1)</content>
+  <content contentuid="hb021d255d958596a9783fbc416cf92ac" version="1">Choose Tide of Darkness as your Signature Arcanum spell.</content>
+  <content contentuid="h7173af9bd9715b73b33b845b7b6739ad" version="1">Signature Arcanum: Tide of Darkness</content>
+  <content contentuid="h0cae932a4bcf5b749bdf26c7db584a16" version="1">Tide of Darkness (Signature)</content>
+  <content contentuid="h5fe08044b04250068dd8359b740ce22e" version="1">Signature Arcanum: Plane Shift (level 7)</content>
+  <content contentuid="h6acf2cef3d105d73abc72bb485247630" version="1">Choose Plane Shift as your Signature Arcanum spell.</content>
+  <content contentuid="h6a7421ca93fa5f968ef71dbd151283b5" version="1">Signature Arcanum: Plane Shift</content>
+  <content contentuid="h7e6ac37a1485581c81023633403ade11" version="1">Plane Shift (Signature)</content>
+  <content contentuid="h068c97bbbfc155aa8fbb395c4e1e1dbb" version="1">Signature Arcanum: Teleport (level 7)</content>
+  <content contentuid="h22e590a504ae588a827ef86ca063b43f" version="1">Choose Teleport as your Signature Arcanum spell.</content>
+  <content contentuid="h6155373139d657c0958e01dede3e2d00" version="1">Signature Arcanum: Teleport</content>
+  <content contentuid="he1e58c1315ce51939c43578e6e215dd7" version="1">Teleport (Signature)</content>
+  <content contentuid="h726258ab498651f9961b58aaa01ca3e9" version="1">Signature Arcanum: Call Lightning (level 3)</content>
+  <content contentuid="h5c4ec212df64558d88962cdfb22bdfd3" version="1">Choose Call Lightning as your Signature Arcanum spell.</content>
+  <content contentuid="heff20deef25b5dc7a26b7f66cac6b123" version="1">Signature Arcanum: Call Lightning</content>
+  <content contentuid="ha91b2a92c1f15442911c50259af5efa7" version="1">Call Lightning (Signature)</content>
+  <content contentuid="h6116c6634fa15521aec2fce7f3ccedb7" version="1">Signature Arcanum: Cloud of Daggers (level 2)</content>
+  <content contentuid="h25178091ace7509681ba7af50cd41360" version="1">Choose Cloud of Daggers as your Signature Arcanum spell.</content>
+  <content contentuid="hb25b3f7c56ce55f9974353f8be082717" version="1">Signature Arcanum: Cloud of Daggers</content>
+  <content contentuid="h88d867598d615380bec248123c695119" version="1">Cloud of Daggers (Signature)</content>
+  <content contentuid="h600efe6f48fc5742aa5446747d465d49" version="1">Signature Arcanum: Cloudkill (level 5)</content>
+  <content contentuid="hd94fd84612d4555da4d68566f93f9594" version="1">Choose Cloudkill as your Signature Arcanum spell.</content>
+  <content contentuid="hb2a82d5a280f52fabc4b66315b203fcd" version="1">Signature Arcanum: Cloudkill</content>
+  <content contentuid="h50f55ae626495082897f7116631bebd4" version="1">Cloudkill (Signature)</content>
+  <content contentuid="h75cb2a485c405d19a46740c4a4c8f032" version="1">Signature Arcanum: Conjure Minor Elemental (level 4)</content>
+  <content contentuid="h7856d251276456d98a2f5ecf6cfb5f28" version="1">Choose Conjure Minor Elemental as your Signature Arcanum spell.</content>
+  <content contentuid="hea71679d2d6c5cbab5f3a86bc1b7f9f2" version="1">Signature Arcanum: Conjure Minor Elemental</content>
+  <content contentuid="h22eb37309a4e5fb59124d9ca38f01707" version="1">Conjure Minor Elemental (Signature)</content>
+  <content contentuid="he7d81dc9bf205fffa1df0f809024e796" version="1">Signature Arcanum: Conjure Woodland Being (level 4)</content>
+  <content contentuid="h4726f70dd974527da0687660c869bbd7" version="1">Choose Conjure Woodland Being as your Signature Arcanum spell.</content>
+  <content contentuid="h1d16bd8c325a5c7b9c1896cd4393c9f6" version="1">Signature Arcanum: Conjure Woodland Being</content>
+  <content contentuid="h3483d12a21465cdfa00764adca7a4c61" version="1">Conjure Woodland Being (Signature)</content>
+  <content contentuid="h149355a713bd597e9bc3d1dc34c7a6fa" version="1">Signature Arcanum: Entangle (level 1)</content>
+  <content contentuid="h5b70aeb1239855dea84deda836b424c2" version="1">Choose Entangle as your Signature Arcanum spell.</content>
+  <content contentuid="h01b0faa9af4850c8829282163c8f1f3e" version="1">Signature Arcanum: Entangle</content>
+  <content contentuid="hbb41d472073d5c7f8ca8636c305abc14" version="1">Entangle (Signature)</content>
+  <content contentuid="hbc81ba9c7cdb516bb4354a3101e9d32b" version="1">Signature Arcanum: Flaming Sphere (level 2)</content>
+  <content contentuid="h8fce2bf227e9572bbcad0728f46dae2d" version="1">Choose Flaming Sphere as your Signature Arcanum spell.</content>
+  <content contentuid="h85e00bf15a505c4bb4e6fd3d47b11929" version="1">Signature Arcanum: Flaming Sphere</content>
+  <content contentuid="h201335c65ffb5507bc5544ea8591e184" version="1">Flaming Sphere (Signature)</content>
+  <content contentuid="h7e861a34f9735a7c88d08ef3c42d3c07" version="1">Signature Arcanum: Fog Cloud (level 1)</content>
+  <content contentuid="h1ec7ce96157f5ddd886a5e17ea393772" version="1">Choose Fog Cloud as your Signature Arcanum spell.</content>
+  <content contentuid="h3a39b9aa4c075abf83d29156a5807440" version="1">Signature Arcanum: Fog Cloud</content>
+  <content contentuid="hf67ee5b738905eacb893ef61c4ad6cc3" version="1">Fog Cloud (Signature)</content>
+  <content contentuid="hd447bdc3c9685843a58fe6a98372a40f" version="1">Signature Arcanum: Grasping Vine (level 4)</content>
+  <content contentuid="hcf78594f2ecf5aaca5cd4c7d8cc972ce" version="1">Choose Grasping Vine as your Signature Arcanum spell.</content>
+  <content contentuid="hd8ecd0bbf5785776a22e78fdeba75a5c" version="1">Signature Arcanum: Grasping Vine</content>
+  <content contentuid="h35a1e963b0a65312bb636dd935fd42b4" version="1">Grasping Vine (Signature)</content>
+  <content contentuid="h686d230835025c5cb59297f1c6e663fb" version="1">Signature Arcanum: Guardian of Faith (level 4)</content>
+  <content contentuid="h301b869b68a459e29036323106308325" version="1">Choose Guardian of Faith as your Signature Arcanum spell.</content>
+  <content contentuid="ha955ba5e27745d76bb0d9aeb7caebb17" version="1">Signature Arcanum: Guardian of Faith</content>
+  <content contentuid="hd0831621b2df55aca888b426314ec341" version="1">Guardian of Faith (Signature)</content>
+  <content contentuid="h230790e7b98458ee97eeb470b6b129d7" version="1">Signature Arcanum: Insect Plague (level 5)</content>
+  <content contentuid="h7a9a4b36c5745eff93d57565bc164a9b" version="1">Choose Insect Plague as your Signature Arcanum spell.</content>
+  <content contentuid="he61beed460b3512a8a05e97c9a7024c0" version="1">Signature Arcanum: Insect Plague</content>
+  <content contentuid="h25206b14d3eb57908112a1d1ddf90875" version="1">Insect Plague (Signature)</content>
+  <content contentuid="hfdb730284d83524c81c36054e78d3e5e" version="1">Signature Arcanum: Misty Step (level 2)</content>
+  <content contentuid="hfe4047537f4f52168d5301f0d59c1b3b" version="1">Choose Misty Step as your Signature Arcanum spell.</content>
+  <content contentuid="h5e64e3ca494a5e659344f96820e53ff0" version="1">Signature Arcanum: Misty Step</content>
+  <content contentuid="h4423e2dee39e5edcbac801886e4293be" version="1">Misty Step (Signature)</content>
+  <content contentuid="h941d52d1ea1a58a3adb4101d344c15bc" version="1">Signature Arcanum: Sleet Storm (level 3)</content>
+  <content contentuid="h963e3d085d485644829bdc6bebbd1b35" version="1">Choose Sleet Storm as your Signature Arcanum spell.</content>
+  <content contentuid="h838b2299d9755c4293c1baa66ef57e2c" version="1">Signature Arcanum: Sleet Storm</content>
+  <content contentuid="ha80aa1fac57b57d48505326159222a3b" version="1">Sleet Storm (Signature)</content>
+  <content contentuid="h23ccb0f8b62c5a0db2d7603bbea7627f" version="1">Signature Arcanum: Spectral Slash (level 1)</content>
+  <content contentuid="hc544a27720d45b02abe1e94dd3299572" version="1">Choose Spectral Slash as your Signature Arcanum spell.</content>
+  <content contentuid="h58bd2e693a975469866705d35d5c568c" version="1">Signature Arcanum: Spectral Slash</content>
+  <content contentuid="h4588f636d9845a5980d891b345c9ecd5" version="1">Spectral Slash (Signature)</content>
+  <content contentuid="hbe524d5fb63453008f618fac6667b71b" version="1">Signature Arcanum: Stinking Cloud (level 3)</content>
+  <content contentuid="h7b42d8a55c4953eab2b7cad9c8073208" version="1">Choose Stinking Cloud as your Signature Arcanum spell.</content>
+  <content contentuid="h670c2f53e1bf5be08f12c1275fb118ed" version="1">Signature Arcanum: Stinking Cloud</content>
+  <content contentuid="h7a5cbe9f47ea587fa961aefe4acf5a44" version="1">Stinking Cloud (Signature)</content>
+  <content contentuid="h4bfa35e19bb95deaa533faee2f52dcf9" version="1">Signature Arcanum: Conjure Celestial (level 5)</content>
+  <content contentuid="h2c2da2aec5875e46a621e50c05ffca5d" version="1">Choose Conjure Celestial as your Signature Arcanum spell.</content>
+  <content contentuid="hba4ebab0fe0f5a789078651add3315ae" version="1">Signature Arcanum: Conjure Celestial</content>
+  <content contentuid="h8f671e72d4145aeaabdb69afda9b6e85" version="1">Conjure Celestial (Signature)</content>
+  <content contentuid="h415e7e851c035ea7929e7fc2536b28b3" version="1">Signature Arcanum: Summon Fey: Red Cap (level 3)</content>
+  <content contentuid="hb982c47f66cc56f9828be68dc12624b7" version="1">Choose Summon Fey: Red Cap as your Signature Arcanum spell.</content>
+  <content contentuid="h0d05c164777c529b9ca337d9a2bbf470" version="1">Signature Arcanum: Summon Fey: Red Cap</content>
+  <content contentuid="h4173a5415420524ea48b404d0d2279d7" version="1">Summon Fey: Red Cap (Signature)</content>
+  <content contentuid="h51c8135a1af556209adf7c08a2e3384a" version="1">Signature Arcanum: Web (level 2)</content>
+  <content contentuid="h58246fc215fd555486221173b40d0204" version="1">Choose Web as your Signature Arcanum spell.</content>
+  <content contentuid="h50c328e9437655d193dd2df93a3a4e34" version="1">Signature Arcanum: Web</content>
+  <content contentuid="hf6d900f4117d591e83047b0e49b59527" version="1">Web (Signature)</content>
+  <content contentuid="h8f620328f06f55ee99c3d5341e398334" version="1">Signature Arcanum: Arcane Gate (level 6)</content>
+  <content contentuid="h3056238b76c65343806bc29a9a5a15ec" version="1">Choose Arcane Gate as your Signature Arcanum spell.</content>
+  <content contentuid="h527d56b4ca6f50c19afe8c7dbd03f9e2" version="1">Signature Arcanum: Arcane Gate</content>
+  <content contentuid="hd76b4cfe48615799977997ceeaa1a2eb" version="1">Arcane Gate (Signature)</content>
+  <content contentuid="ha736f40743a55e42808c75c8922754a2" version="1">Signature Arcanum: Dimension Door (level 4)</content>
+  <content contentuid="h5040ba9c76055131baeabe4f90570df5" version="1">Choose Dimension Door as your Signature Arcanum spell.</content>
+  <content contentuid="h0b72bbec7db95e2d9b06e941386f7903" version="1">Signature Arcanum: Dimension Door</content>
+  <content contentuid="hcf3fdc33a2f352afa2d572951c8877e0" version="1">Dimension Door (Signature)</content>
+  <content contentuid="h524b002ab593530d80b80ffaf04f3656" version="1">Signature Arcanum: Wall of Thorns (level 6)</content>
+  <content contentuid="heb2072e9fa4c5ad987320ae5ee0c375c" version="1">Choose Wall of Thorns as your Signature Arcanum spell.</content>
+  <content contentuid="hfc238508e2ed5867bd2c8ac815b520a6" version="1">Signature Arcanum: Wall of Thorns</content>
+  <content contentuid="hae21f96629265ce8b0c84bdaaf26c0ed" version="1">Wall of Thorns (Signature)</content>
+  <content contentuid="hfc161e148be65cd0b2b898593ba2fd05" version="1">Signature Arcanum: Conjure Barrage (level 3)</content>
+  <content contentuid="haddb3dc764ea5ce3b8793afd74cf4690" version="1">Choose Conjure Barrage as your Signature Arcanum spell.</content>
+  <content contentuid="h6822c2ea05255099a0cc59cd877e3273" version="1">Signature Arcanum: Conjure Barrage</content>
+  <content contentuid="ha225318bad495e7b813447aed00212c0" version="1">Conjure Barrage (Signature)</content>
+  <content contentuid="h4559ea3b7ad75858bd1179afee8b58d6" version="1">Signature Arcanum: Murder of Crows  (level 4)</content>
+  <content contentuid="h8eb9526ec05b5db7b77df592db5968e3" version="1">Choose Murder of Crows  as your Signature Arcanum spell.</content>
+  <content contentuid="he2a55caada1e5050b6d39d09f4e25f33" version="1">Signature Arcanum: Murder of Crows </content>
+  <content contentuid="h95d757b7911c5069a37c760105861842" version="1">Murder of Crows  (Signature)</content>
+  <content contentuid="h5c54a5e13aff573b908301233cbc6d2c" version="1">Signature Arcanum: Tidal Wave (level 3)</content>
+  <content contentuid="ha8f43533f673504db54aae1363481448" version="1">Choose Tidal Wave as your Signature Arcanum spell.</content>
+  <content contentuid="h3025157d4c585647819fe68cf8162949" version="1">Signature Arcanum: Tidal Wave</content>
+  <content contentuid="h6627135f23ae5a5c84c43b5be228ef7d" version="1">Tidal Wave (Signature)</content>
+  <content contentuid="h91cd295fbd275fa38e979bba181988a7" version="1">Mastered School: Divination</content>
+  <content contentuid="h17c1cda91d5e531e95e3b58f9d8a85c4" version="1">Master the Divination school.</content>
+  <content contentuid="h043b8993b5ca5f28b0a65c5454fb294e" version="1">Mastered School: Divination</content>
+  <content contentuid="h440e5b9878f75830a3fb1463dd24859f" version="1">Rote Casting (Divination)</content>
+  <content contentuid="h4be44fd086175c038929077938776db1" version="1">Choose a level 1 Divination spell to cast at will.</content>
+  <content contentuid="h68ca7630a58452c78809b07a5d975488" version="1">Signature Arcanum (Divination, level 1-3)</content>
+  <content contentuid="h08c4f6e662c55833bae0f94a45be6129" version="1">Choose a level 1-3 Divination spell.</content>
+  <content contentuid="h4e77663de99c5d59ac802e38d5dbb9d4" version="1">Rote Casting: Speak with Animals (level 1)</content>
+  <content contentuid="h361534a8d0b5513088ab32efaead9b27" version="1">Choose Speak with Animals as your Rote Casting spell.</content>
+  <content contentuid="hb95553e56b7b5370bdad36993e400b73" version="1">Rote Casting: Speak with Animals</content>
+  <content contentuid="hf7400b5198f759ceb495fdd7b08b468b" version="1">Speak with Animals (Rote)</content>
+  <content contentuid="h4b3760a08f475662955a7a7de658dca4" version="1">Rote Casting: Hunter's Mark (level 1)</content>
+  <content contentuid="h167bb7d871b95932a46821c7bb3ede21" version="1">Choose Hunter's Mark as your Rote Casting spell.</content>
+  <content contentuid="hef877a2e50fd5c2bb3e189e45edd4bad" version="1">Rote Casting: Hunter's Mark</content>
+  <content contentuid="ha5b5b530ac6b53d4ba625020e416a9e5" version="1">Hunter's Mark (Rote)</content>
+  <content contentuid="h71948c81419254058c91174a3c1099db" version="1">Signature Arcanum: Detect Thoughts (level 2)</content>
+  <content contentuid="h31bc180ada635538919198e29a7344dc" version="1">Choose Detect Thoughts as your Signature Arcanum spell.</content>
+  <content contentuid="h9c97f83a9d1c5ba5bf9412a0f99662d7" version="1">Signature Arcanum: Detect Thoughts</content>
+  <content contentuid="hdf0a82c3926a5a51bbdf26924433ba33" version="1">Detect Thoughts (Signature)</content>
+  <content contentuid="h4ec5488c286557d0a80f04eea4a713ff" version="1">Signature Arcanum: See Invisibility (level 2)</content>
+  <content contentuid="ha8ffa61f6c2053628f8b3321cfb5a11a" version="1">Choose See Invisibility as your Signature Arcanum spell.</content>
+  <content contentuid="h8184db30c3c257b5a0f661d080fc06ce" version="1">Signature Arcanum: See Invisibility</content>
+  <content contentuid="h1b23655c2c535d9396739b4eb5b402ec" version="1">See Invisibility (Signature)</content>
+  <content contentuid="hdb23dcfe9b31550c9954e77a6545ca40" version="1">Signature Arcanum: Speak with Animals (level 1)</content>
+  <content contentuid="h683c64c0210b54289aea0a5ed852f29a" version="1">Choose Speak with Animals as your Signature Arcanum spell.</content>
+  <content contentuid="h455e6869743554329e87508abd9cf004" version="1">Signature Arcanum: Speak with Animals</content>
+  <content contentuid="h9487f09a53805d1092d860f1a0673a1e" version="1">Speak with Animals (Signature)</content>
+  <content contentuid="h4ef6d34ed1f25984870f178d08c5ddc4" version="1">Signature Arcanum: Hunter's Mark (level 1)</content>
+  <content contentuid="hbaa46e323dcb5ed38f8e5963e0139aff" version="1">Choose Hunter's Mark as your Signature Arcanum spell.</content>
+  <content contentuid="hbe7d6d75382e5a2daf7075f6321bffeb" version="1">Signature Arcanum: Hunter's Mark</content>
+  <content contentuid="h4c437825ba555af79e5f5b3cdeb388e2" version="1">Hunter's Mark (Signature)</content>
+  <content contentuid="h6193331f6d0f5b97b2337b28f54bcb0b" version="1">Signature Arcanum: Mind Spike (level 2)</content>
+  <content contentuid="h97af56963c785f93936f8a4e5cab41e8" version="1">Choose Mind Spike as your Signature Arcanum spell.</content>
+  <content contentuid="h73fb0cf42cd85f53ad752ab4f33a4d9c" version="1">Signature Arcanum: Mind Spike</content>
+  <content contentuid="h93a7fa67916c518ebd6c64dcc45935ef" version="1">Mind Spike (Signature)</content>
+  <content contentuid="h43907de238e75ebbb2b32314395479f1" version="1">Mastered School: Enchantment</content>
+  <content contentuid="hd9eeee05cdb35c26a9a95c064102d097" version="1">Master the Enchantment school.</content>
+  <content contentuid="h7510278781775ef884e29019f78cb598" version="1">Mastered School: Enchantment</content>
+  <content contentuid="h414f4688d4975886a619440da621f09a" version="1">Rote Casting (Enchantment)</content>
+  <content contentuid="h174521ce441b5a6c8597d93015d8937a" version="1">Choose a level 1 Enchantment spell to cast at will.</content>
+  <content contentuid="h60fd0671175959c4bc8c7d55e3ed2450" version="1">Signature Arcanum (Enchantment, level 1-3)</content>
+  <content contentuid="h6b37dbc3dc075ba3b10d2bb508503aa9" version="1">Choose a level 1-3 Enchantment spell.</content>
+  <content contentuid="h2b487232bd8f5884af99a0f00c6ecf1e" version="1">Signature Arcanum (Enchantment, level 4-7)</content>
+  <content contentuid="hf3926e966aa053618b81d19b2328cfa9" version="1">Choose a level 4-7 Enchantment spell.</content>
+  <content contentuid="ha55ecf2c0b8b51d0a1207373baf39df6" version="1">Rote Casting: Animal Friendship (level 1)</content>
+  <content contentuid="h9fbb00b095af58feb789941c236314f5" version="1">Choose Animal Friendship as your Rote Casting spell.</content>
+  <content contentuid="hcc8f31c77a5653d2b86ea01ca4ed1867" version="1">Rote Casting: Animal Friendship</content>
+  <content contentuid="h9940e0d4eb02577bb990438e1cc273c3" version="1">Animal Friendship (Rote)</content>
+  <content contentuid="h2cc0ff2b896d567a81b9b2d637c41cd3" version="1">Rote Casting: Bane (level 1)</content>
+  <content contentuid="h31c80f7e35295e9db15d37b7a3166984" version="1">Choose Bane as your Rote Casting spell.</content>
+  <content contentuid="h7a41d0cba50158c38160edbaf71d6e58" version="1">Rote Casting: Bane</content>
+  <content contentuid="h5a3a08b8abd75e859a0af1a76f1dfdd7" version="1">Bane (Rote)</content>
+  <content contentuid="h4413f49a14a95c6988c20e0c194951bb" version="1">Rote Casting: Bless (level 1)</content>
+  <content contentuid="h6c7f5d64f14e51a395ea963f4f9d25e5" version="1">Choose Bless as your Rote Casting spell.</content>
+  <content contentuid="hb21a441ca68e5210b0f659314b9097ef" version="1">Rote Casting: Bless</content>
+  <content contentuid="h19e376085cd65afb925f9585f9673cb4" version="1">Bless (Rote)</content>
+  <content contentuid="h40570f676c0953138e80206710527841" version="1">Rote Casting: Charm Person (level 1)</content>
+  <content contentuid="h1cccbb10043a5aca97205df8a5c1f1cf" version="1">Choose Charm Person as your Rote Casting spell.</content>
+  <content contentuid="h6496f9b8a2eb56e1ba320ee3a52bbd2a" version="1">Rote Casting: Charm Person</content>
+  <content contentuid="hc1d6baaca74d584ba0f5149dc17cec5e" version="1">Charm Person (Rote)</content>
+  <content contentuid="habcd2a37fd5d5174aacc348f915b15dc" version="1">Rote Casting: Compelled Duel (level 1)</content>
+  <content contentuid="hd9b5bdd10bee54889620cfee8b26ae2b" version="1">Choose Compelled Duel as your Rote Casting spell.</content>
+  <content contentuid="h72a7990dac5f52f9b28e245b9b20b3f5" version="1">Rote Casting: Compelled Duel</content>
+  <content contentuid="hf80aa173d197542a957797fcbc7cb92d" version="1">Compelled Duel (Rote)</content>
+  <content contentuid="h88c024ae4c915b04abedef6affe657cf" version="1">Rote Casting: Dissonant Whispers (level 1)</content>
+  <content contentuid="hade2047c2cb758bdb236557819d643af" version="1">Choose Dissonant Whispers as your Rote Casting spell.</content>
+  <content contentuid="hb87d5e8b61085d9b835353ce07a13096" version="1">Rote Casting: Dissonant Whispers</content>
+  <content contentuid="h5b99bbc308ca58d59ebb6ae09e1e6e6f" version="1">Dissonant Whispers (Rote)</content>
+  <content contentuid="hf09bd1eecd4a52369d83d1ef02fc4241" version="1">Rote Casting: Heroism (level 1)</content>
+  <content contentuid="h506bca64a5a154998b3a879be45ac623" version="1">Choose Heroism as your Rote Casting spell.</content>
+  <content contentuid="he67d864aa72b5824a4613f3dad959c04" version="1">Rote Casting: Heroism</content>
+  <content contentuid="h71b4a3cfb95f50adb32a2098e919c573" version="1">Heroism (Rote)</content>
+  <content contentuid="hf2d0949249ef56728a2f88852e9ba231" version="1">Rote Casting: Tasha's Hideous Laughter (level 1)</content>
+  <content contentuid="hf6cd93071ecd502f8b2644680015117d" version="1">Choose Tasha's Hideous Laughter as your Rote Casting spell.</content>
+  <content contentuid="h3fc478ca059352d59a4c9e0c96923651" version="1">Rote Casting: Tasha's Hideous Laughter</content>
+  <content contentuid="h3265fb995a505e719400f3c9cd64350b" version="1">Tasha's Hideous Laughter (Rote)</content>
+  <content contentuid="h15b8c9f1ff0c570a992d6a406e198b81" version="1">Rote Casting: Sleep (level 1)</content>
+  <content contentuid="h92b9bcfb53015d5eba00a3f29217de50" version="1">Choose Sleep as your Rote Casting spell.</content>
+  <content contentuid="h1a893257ce0653e88dd84254cd81be8d" version="1">Rote Casting: Sleep</content>
+  <content contentuid="h816967ceee01546e8d8a4b7aca63aeab" version="1">Sleep (Rote)</content>
+  <content contentuid="h0f46fb67203a591f8a250df2f8a0c012" version="1">Signature Arcanum: Animal Friendship (level 1)</content>
+  <content contentuid="h0502d793375c5240896b36ad74d7374f" version="1">Choose Animal Friendship as your Signature Arcanum spell.</content>
+  <content contentuid="hfaed7e7c49035672a1fee0a1fc9a62e7" version="1">Signature Arcanum: Animal Friendship</content>
+  <content contentuid="h96703aa8e6265f0b9d384ffeede5dcc3" version="1">Animal Friendship (Signature)</content>
+  <content contentuid="h58d0c9683d8a54c0a4ef6288dc03226c" version="1">Signature Arcanum: Power Word Fortify (level 7)</content>
+  <content contentuid="hc0f0246e257f5a0292dc1949d0a4fa25" version="1">Choose Power Word Fortify as your Signature Arcanum spell.</content>
+  <content contentuid="h9ce96060b5df5623843cf5b75a5da37e" version="1">Signature Arcanum: Power Word Fortify</content>
+  <content contentuid="h0b16540f282e557d9fd63397a2601e2c" version="1">Power Word Fortify (Signature)</content>
+  <content contentuid="haaa213ba10d55641a95a1546e9317a95" version="1">Signature Arcanum: Bane (level 1)</content>
+  <content contentuid="hf2794bc092c05f2bb512b9d92881954b" version="1">Choose Bane as your Signature Arcanum spell.</content>
+  <content contentuid="h363deadd1aaa53db9a3a4fb9b06209dc" version="1">Signature Arcanum: Bane</content>
+  <content contentuid="ha2c0befea42554cc81499992520e6521" version="1">Bane (Signature)</content>
+  <content contentuid="h3ceeff5542b05be1bd3563a4d0b44164" version="1">Signature Arcanum: Bless (level 1)</content>
+  <content contentuid="h2484c63d38f55a47875b068973be7b4f" version="1">Choose Bless as your Signature Arcanum spell.</content>
+  <content contentuid="h70da9fb26e7650b889e66ee998f37c3e" version="1">Signature Arcanum: Bless</content>
+  <content contentuid="h3ddbaaaba4b45613925d197e664e3ba9" version="1">Bless (Signature)</content>
+  <content contentuid="hcf6c23ec81e15f72923fa009306e87e2" version="1">Signature Arcanum: Calm Emotions (level 2)</content>
+  <content contentuid="h912a550201125128bb2ba1103ca0585e" version="1">Choose Calm Emotions as your Signature Arcanum spell.</content>
+  <content contentuid="h7c6627629fc556b6af39ac29742c6bdb" version="1">Signature Arcanum: Calm Emotions</content>
+  <content contentuid="hd7c53e991ebc5f2e9a5f54e71121ef21" version="1">Calm Emotions (Signature)</content>
+  <content contentuid="h5bd5a50c34a9508ba67d5b43a586d6e6" version="1">Signature Arcanum: Charm Monster (level 4)</content>
+  <content contentuid="h7441746ada3f5f4aad521805858f1469" version="1">Choose Charm Monster as your Signature Arcanum spell.</content>
+  <content contentuid="hc3539cdb817d530491a1877cd031218b" version="1">Signature Arcanum: Charm Monster</content>
+  <content contentuid="h0fb222aec6275d91a1a2f592a67bd04c" version="1">Charm Monster (Signature)</content>
+  <content contentuid="h3c392549d64a53c691d7a4761988d163" version="1">Signature Arcanum: Charm Person (level 1)</content>
+  <content contentuid="h6650b3fa18ee5dea9a2a3054d4ffb8a7" version="1">Choose Charm Person as your Signature Arcanum spell.</content>
+  <content contentuid="hb9f7e2dc1b7f5113ac51bf74cafa3f34" version="1">Signature Arcanum: Charm Person</content>
+  <content contentuid="h0b8fa9cd47115e2ba095da2af88f00d0" version="1">Charm Person (Signature)</content>
+  <content contentuid="h217a887c50e457ed942488f4a777ebf3" version="1">Signature Arcanum: Compelled Duel (level 1)</content>
+  <content contentuid="hdd0135bbdc4f5e7d832f450d0c0358be" version="1">Choose Compelled Duel as your Signature Arcanum spell.</content>
+  <content contentuid="h51e5a7c9a1205f4d8b1224103291bb3c" version="1">Signature Arcanum: Compelled Duel</content>
+  <content contentuid="hb8b67bbc9ac55477843507db790fec88" version="1">Compelled Duel (Signature)</content>
+  <content contentuid="hdcacbcbf5911563ca58f33735a7157d7" version="1">Signature Arcanum: Confusion (level 4)</content>
+  <content contentuid="h1c9956a6e8e15a829a3f22af41f8b54a" version="1">Choose Confusion as your Signature Arcanum spell.</content>
+  <content contentuid="hc5a059601e8f5979a622f8eb5f897153" version="1">Signature Arcanum: Confusion</content>
+  <content contentuid="h4a3131b8f4265256841c244d13a195c1" version="1">Confusion (Signature)</content>
+  <content contentuid="h90e5987bfe9c577a9c69831230d7a708" version="1">Signature Arcanum: Crown of Madness (level 2)</content>
+  <content contentuid="h7892b6edad8b57ae951550655a318c6c" version="1">Choose Crown of Madness as your Signature Arcanum spell.</content>
+  <content contentuid="h4b87aaf38cb554be8abeecfd78389e8f" version="1">Signature Arcanum: Crown of Madness</content>
+  <content contentuid="ha2b192c129035965a6a067f344a831cb" version="1">Crown of Madness (Signature)</content>
+  <content contentuid="h8f09699651195252918dcce044851b3c" version="1">Signature Arcanum: Dissonant Whispers (level 1)</content>
+  <content contentuid="hc8f1bf56e6385c25a00aac5b443ee0fb" version="1">Choose Dissonant Whispers as your Signature Arcanum spell.</content>
+  <content contentuid="hba219b1679375b5c85a043d91eb1814a" version="1">Signature Arcanum: Dissonant Whispers</content>
+  <content contentuid="hea8e3f0d0d7b54f1a6dfcafb344b6106" version="1">Dissonant Whispers (Signature)</content>
+  <content contentuid="hef50404a7ace591aa3624d325673b748" version="1">Signature Arcanum: Dominate Beast (level 4)</content>
+  <content contentuid="hc6fcbe9125f35305bdcb9f5c47139b1f" version="1">Choose Dominate Beast as your Signature Arcanum spell.</content>
+  <content contentuid="hc761ce71200651198f3c05991bed35c9" version="1">Signature Arcanum: Dominate Beast</content>
+  <content contentuid="h15f312c24c085824b30bfdb5a8478fb3" version="1">Dominate Beast (Signature)</content>
+  <content contentuid="h04aac1eddeba5e0d9da0c8ecfabffc8b" version="1">Signature Arcanum: Dominate Person (level 5)</content>
+  <content contentuid="h5a0306954e015915846b90b630b88a23" version="1">Choose Dominate Person as your Signature Arcanum spell.</content>
+  <content contentuid="h0ce75e5c11c9548fb0613ee1543942d0" version="1">Signature Arcanum: Dominate Person</content>
+  <content contentuid="hc7a98ac258fe58279b5ea0cb00c490f4" version="1">Dominate Person (Signature)</content>
+  <content contentuid="hd9c6ac290e055b97a75a5d87fd3768f4" version="1">Signature Arcanum: Enthrall (level 2)</content>
+  <content contentuid="hedea553fdf495165ac6e9dc41cd74555" version="1">Choose Enthrall as your Signature Arcanum spell.</content>
+  <content contentuid="he2e55af8255152569b7d3e9db4b62ca5" version="1">Signature Arcanum: Enthrall</content>
+  <content contentuid="hea2684d997f854c2802f7255487ca65f" version="1">Enthrall (Signature)</content>
+  <content contentuid="h89e93de465ad503eabef006c0feda516" version="1">Signature Arcanum: Heroism (level 1)</content>
+  <content contentuid="h0211cdeeb271584dbc8b3df25f33a8e8" version="1">Choose Heroism as your Signature Arcanum spell.</content>
+  <content contentuid="hebe81d1d8c0e58a0baa0e76773d7dad7" version="1">Signature Arcanum: Heroism</content>
+  <content contentuid="h475067d02641547282b4fbb4e59d1423" version="1">Heroism (Signature)</content>
+  <content contentuid="h5549552c99b65c9db9fbd65e8662cc71" version="1">Signature Arcanum: Tasha's Hideous Laughter (level 1)</content>
+  <content contentuid="h81867db21d355dc7a551ce73430737ff" version="1">Choose Tasha's Hideous Laughter as your Signature Arcanum spell.</content>
+  <content contentuid="hf6da56f532a95d51be7ba728c5229b69" version="1">Signature Arcanum: Tasha's Hideous Laughter</content>
+  <content contentuid="h9d40a67248f55927bbc740805cbfa320" version="1">Tasha's Hideous Laughter (Signature)</content>
+  <content contentuid="hdac5678307f455cd8edbf951aec5182f" version="1">Signature Arcanum: Hold Monster (level 5)</content>
+  <content contentuid="h524f8e62a6145900a5d7c533bb3fc8b4" version="1">Choose Hold Monster as your Signature Arcanum spell.</content>
+  <content contentuid="hfdddc9c475c15376b059a2523c0c4c0e" version="1">Signature Arcanum: Hold Monster</content>
+  <content contentuid="h124f44c626be54249404a038cd794704" version="1">Hold Monster (Signature)</content>
+  <content contentuid="h28e2673b0e97557cafb6ca9d704a4d0f" version="1">Signature Arcanum: Hold Person (level 2)</content>
+  <content contentuid="h7894d2a05e395758bd619e71b7e4cf02" version="1">Choose Hold Person as your Signature Arcanum spell.</content>
+  <content contentuid="hc6c6d29634135dce84d7b253967cd208" version="1">Signature Arcanum: Hold Person</content>
+  <content contentuid="h1d22f9dd44da5f1481dd8bd90c6c5924" version="1">Hold Person (Signature)</content>
+  <content contentuid="hf9c4c952fdf85396b728bb5047514825" version="1">Signature Arcanum: Otto's Irresistible Dance (level 6)</content>
+  <content contentuid="h2d53a5d49fc2509c8007ca432a114109" version="1">Choose Otto's Irresistible Dance as your Signature Arcanum spell.</content>
+  <content contentuid="hafb76bd95ff85c059ef4ec326da60490" version="1">Signature Arcanum: Otto's Irresistible Dance</content>
+  <content contentuid="hfbd71686fca1557a9db95c1ee0e95f73" version="1">Otto's Irresistible Dance (Signature)</content>
+  <content contentuid="h548c680ff84f50beae9892fb05303939" version="1">Signature Arcanum: Tasha's Mind Whip (level 2)</content>
+  <content contentuid="h311254249c3a5ac89f80c78eca543221" version="1">Choose Tasha's Mind Whip as your Signature Arcanum spell.</content>
+  <content contentuid="ha288b476e7945bb7aed96231aa92e026" version="1">Signature Arcanum: Tasha's Mind Whip</content>
+  <content contentuid="h8f1abbe246da57bcb0be8f78be947ad0" version="1">Tasha's Mind Whip (Signature)</content>
+  <content contentuid="h8d80e5cc6c0157f38d8175cd1f70c3af" version="1">Signature Arcanum: Sleep (level 1)</content>
+  <content contentuid="hb81baff911dd57bbaf1fa4bb7c05faba" version="1">Choose Sleep as your Signature Arcanum spell.</content>
+  <content contentuid="h85c0498764bf55668812e1477759ca61" version="1">Signature Arcanum: Sleep</content>
+  <content contentuid="hb1b08c40000c5d4697f841f7ba55e6aa" version="1">Sleep (Signature)</content>
+  <content contentuid="ha611b8f8249b5e08afb1e456066025e1" version="1">Signature Arcanum: Synaptic Static (level 5)</content>
+  <content contentuid="hc7e581c495bc54ac8bd7a242088c2f51" version="1">Choose Synaptic Static as your Signature Arcanum spell.</content>
+  <content contentuid="hd8ac25393866528e97e72f3ca39e1275" version="1">Signature Arcanum: Synaptic Static</content>
+  <content contentuid="h8440b3f40e3453e8b2fe147f5f5d2ee9" version="1">Synaptic Static (Signature)</content>
+  <content contentuid="h9926e9e9da995f84a2c80b7b568a918f" version="1">Mastered School: Evocation</content>
+  <content contentuid="h9821e7cd127751d0a7b129adba2aa16a" version="1">Master the Evocation school.</content>
+  <content contentuid="hfb0791a2238358658d1b8adfa011dad8" version="1">Mastered School: Evocation</content>
+  <content contentuid="h6a5e08faf26a5228900cd37f30b35817" version="1">Rote Casting (Evocation)</content>
+  <content contentuid="h0ba129e2b20a59a29445abaa552ee868" version="1">Choose a level 1 Evocation spell to cast at will.</content>
+  <content contentuid="h3d547d8c0b4c5507869da53315b18a0c" version="1">Signature Arcanum (Evocation, level 1-3)</content>
+  <content contentuid="ha1b95468f91b5d1fa8326378ee7b9afc" version="1">Choose a level 1-3 Evocation spell.</content>
+  <content contentuid="hc3d579e2aaa9531084de7c023a101078" version="1">Signature Arcanum (Evocation, level 4-7)</content>
+  <content contentuid="hb4d73a9cc88f5a73816af94e949f4233" version="1">Choose a level 4-7 Evocation spell.</content>
+  <content contentuid="h48422bf63053518088822dfefea6aad2" version="1">Rote Casting: Guiding Bolt (level 1)</content>
+  <content contentuid="h22fefd02b6535e7fb3386298efa30490" version="1">Choose Guiding Bolt as your Rote Casting spell.</content>
+  <content contentuid="hd34e819c8f8155c090e7b5a56476ec21" version="1">Rote Casting: Guiding Bolt</content>
+  <content contentuid="hdebcf34d595e5d16835bc019de4d1889" version="1">Guiding Bolt (Rote)</content>
+  <content contentuid="h1a3abc3df8f25d69a5455d1a5e331cc5" version="1">Rote Casting: Magic Missile (level 1)</content>
+  <content contentuid="h4f72ae6dbe40527894260607c7d9fcc7" version="1">Choose Magic Missile as your Rote Casting spell.</content>
+  <content contentuid="hf25222b7fceb5b57a6dda9cf15221704" version="1">Rote Casting: Magic Missile</content>
+  <content contentuid="h7cb36074cd7a5c489f565a37a2225124" version="1">Magic Missile (Rote)</content>
+  <content contentuid="h67fbbbecfa425f65a349a17a5c22e0ae" version="1">Rote Casting: Spellfire Flare (level 1)</content>
+  <content contentuid="h7bb516dddbf1528e8039357817ca69e7" version="1">Choose Spellfire Flare as your Rote Casting spell.</content>
+  <content contentuid="h571d522063ba5d7b93199fea52787ab0" version="1">Rote Casting: Spellfire Flare</content>
+  <content contentuid="h9a46004cad935f7f8377c63614967ec8" version="1">Spellfire Flare (Rote)</content>
+  <content contentuid="h80dc3c9152885f258999d772e3eb311c" version="1">Rote Casting: Witch Bolt (level 1)</content>
+  <content contentuid="h627542215eec5d52b4e300302591fa87" version="1">Choose Witch Bolt as your Rote Casting spell.</content>
+  <content contentuid="h3787010ffe4f53d79984f6c6c3f261f7" version="1">Rote Casting: Witch Bolt</content>
+  <content contentuid="h89390c6c4c0255b387583a987f2f37fa" version="1">Witch Bolt (Rote)</content>
+  <content contentuid="hcee9c1d647b35d6888a1b2e54be6bc95" version="1">Rote Casting: Faerie Fire (level 1)</content>
+  <content contentuid="h417cff92e62f5237aa1527ac9b982b82" version="1">Choose Faerie Fire as your Rote Casting spell.</content>
+  <content contentuid="hf0267077e3d05070a0d88bc3bed8d57b" version="1">Rote Casting: Faerie Fire</content>
+  <content contentuid="h6f7ab45a30965de79c95ade1e6da3741" version="1">Faerie Fire (Rote)</content>
+  <content contentuid="h4032cc28920e5e31a187d64fd4eb8630" version="1">Rote Casting: Hell’s Lash (level 1)</content>
+  <content contentuid="hcc8146b915f6529ab1faef246970a128" version="1">Choose Hell’s Lash as your Rote Casting spell.</content>
+  <content contentuid="habccbb810b1754bc985211af24d63e47" version="1">Rote Casting: Hell’s Lash</content>
+  <content contentuid="h279e6338962e5b4cb9e72b813679ea29" version="1">Hell’s Lash (Rote)</content>
+  <content contentuid="hb5a338c2314a51ffb08b7be86661c05f" version="1">Rote Casting: Searing Smite (level 1)</content>
+  <content contentuid="hcff8661ea5fa56b88f632e27c4d346b7" version="1">Choose Searing Smite as your Rote Casting spell.</content>
+  <content contentuid="hf6f343930fbb5df999e66a2c4e3196c7" version="1">Rote Casting: Searing Smite</content>
+  <content contentuid="he39c501fb34a501d8b9020a07b6b558f" version="1">Searing Smite (Rote)</content>
+  <content contentuid="h50d364776ea953a8b68c6b04eea4a239" version="1">Rote Casting: Thunderous Smite (level 1)</content>
+  <content contentuid="hd1e8013f4d895d07bf478e970ce7b18a" version="1">Choose Thunderous Smite as your Rote Casting spell.</content>
+  <content contentuid="hacb9b0f38df35c4190886e22f8c31b9b" version="1">Rote Casting: Thunderous Smite</content>
+  <content contentuid="h52d363db426850cfab8858bd52ee872c" version="1">Thunderous Smite (Rote)</content>
+  <content contentuid="h78b36be3cfee5e2e88ff9b4ea3ad8b3b" version="1">Rote Casting: Umbral Tendril (level 1)</content>
+  <content contentuid="ha1dd96dbb4ec50109a8495accc0831fe" version="1">Choose Umbral Tendril as your Rote Casting spell.</content>
+  <content contentuid="h05a1ebb21a93508793ab418b2bfe61cc" version="1">Rote Casting: Umbral Tendril</content>
+  <content contentuid="h3d2ff00c745c54acb396ae64646590f4" version="1">Umbral Tendril (Rote)</content>
+  <content contentuid="hd73b299aa124572baabe5c152912b104" version="1">Rote Casting: Burning Hands (level 1)</content>
+  <content contentuid="h343f27995ba4573f8fa08688f2905cc4" version="1">Choose Burning Hands as your Rote Casting spell.</content>
+  <content contentuid="he502ae58ad935e0397bd68a930aacb81" version="1">Rote Casting: Burning Hands</content>
+  <content contentuid="h7d26a77d662b5063b653c58770e4acf1" version="1">Burning Hands (Rote)</content>
+  <content contentuid="hea2008cf15bc5abf95a1a1f36163038b" version="1">Rote Casting: Thunderwave (level 1)</content>
+  <content contentuid="h867776b3efe55430bb470416e959842a" version="1">Choose Thunderwave as your Rote Casting spell.</content>
+  <content contentuid="h8fd30385ee575dc49763a46c3d3ad616" version="1">Rote Casting: Thunderwave</content>
+  <content contentuid="hc2be66288992534092f0364c049e8f69" version="1">Thunderwave (Rote)</content>
+  <content contentuid="h8ab2ceb7d4335c108f6bc67054c10e73" version="1">Signature Arcanum: Delayed Blast Fireball (level 7)</content>
+  <content contentuid="h7f7c72b50eef5fe3974e2522e43eccd6" version="1">Choose Delayed Blast Fireball as your Signature Arcanum spell.</content>
+  <content contentuid="hcd517a2a85b05784a074c2012f53d806" version="1">Signature Arcanum: Delayed Blast Fireball</content>
+  <content contentuid="h2f9f893c253858b1a5eb9d2d11f2aaa2" version="1">Delayed Blast Fireball (Signature)</content>
+  <content contentuid="h5de6cf7f1b985ac29c1893b30cfeb64e" version="1">Signature Arcanum: Chain Lightning (level 6)</content>
+  <content contentuid="h6144b0ec34b85d1f950f6a790280e1b2" version="1">Choose Chain Lightning as your Signature Arcanum spell.</content>
+  <content contentuid="h5c7f6de7931e5625a12ac68e35d600c7" version="1">Signature Arcanum: Chain Lightning</content>
+  <content contentuid="hde28fa666ecb5a0cb7e2db3d4a18ecc0" version="1">Chain Lightning (Signature)</content>
+  <content contentuid="h78315a2ce5395da09485e4b303dfe1e6" version="1">Signature Arcanum: Darkbolt (level 2)</content>
+  <content contentuid="h1a6900df22c95afb9cdd86ed5001c78f" version="1">Choose Darkbolt as your Signature Arcanum spell.</content>
+  <content contentuid="hbcae413413595c3eb31eb7d1730ba37e" version="1">Signature Arcanum: Darkbolt</content>
+  <content contentuid="he307369c77f5516ba2d18a64ecf9109f" version="1">Darkbolt (Signature)</content>
+  <content contentuid="heeb76d41d9f753b59d475c3b6a4d13ef" version="1">Signature Arcanum: Dazing Blast (level 2)</content>
+  <content contentuid="hb8eab83e9e3d56c880429717d77a3d58" version="1">Choose Dazing Blast as your Signature Arcanum spell.</content>
+  <content contentuid="hec37280c914f5d36a8360a7dcd950b77" version="1">Signature Arcanum: Dazing Blast</content>
+  <content contentuid="h4ba4d5684787538cacbf37dbc0ae57ce" version="1">Dazing Blast (Signature)</content>
+  <content contentuid="h325c80e08e3d5db5b37b47dd37a7b50e" version="1">Signature Arcanum: Fireball (level 3)</content>
+  <content contentuid="h937683e275f458e99c517aba07bf20e2" version="1">Choose Fireball as your Signature Arcanum spell.</content>
+  <content contentuid="hb2196c20aeec5715aaa4936641ba3f00" version="1">Signature Arcanum: Fireball</content>
+  <content contentuid="hb07ebc15843755c68ab9d488c4a0992e" version="1">Fireball (Signature)</content>
+  <content contentuid="h58f604d50d4d57f0ae5e2feeec753fb1" version="1">Signature Arcanum: Guiding Bolt (level 1)</content>
+  <content contentuid="hae6611ad80cf514b9c59887c6b161b83" version="1">Choose Guiding Bolt as your Signature Arcanum spell.</content>
+  <content contentuid="ha9897c17ba4756d199c5ce9c87e9a45e" version="1">Signature Arcanum: Guiding Bolt</content>
+  <content contentuid="h2753cbe738bf51ac9e0bfe0a3c59d50c" version="1">Guiding Bolt (Signature)</content>
+  <content contentuid="heec112592424565895ca8b624fc98e7c" version="1">Signature Arcanum: Magic Missile (level 1)</content>
+  <content contentuid="ha462433603585343b9eae68d83fcb9cc" version="1">Choose Magic Missile as your Signature Arcanum spell.</content>
+  <content contentuid="hf72d38ee7c695d8e8e3fa30cb2c952fa" version="1">Signature Arcanum: Magic Missile</content>
+  <content contentuid="h723dc7b196a756358eade476742a65e9" version="1">Magic Missile (Signature)</content>
+  <content contentuid="h683b251133d7525a8b535adb8c4f75e1" version="1">Signature Arcanum: Scorching Ray (level 2)</content>
+  <content contentuid="hed24f729741a54d283417c6b8f4903fe" version="1">Choose Scorching Ray as your Signature Arcanum spell.</content>
+  <content contentuid="hfe3e72b1608f5d478413c53bd6876484" version="1">Signature Arcanum: Scorching Ray</content>
+  <content contentuid="he6407dab19255081b3d48705f019eed3" version="1">Scorching Ray (Signature)</content>
+  <content contentuid="hb77f7c5de14856fa95fd0b210abceb12" version="1">Signature Arcanum: Searing Orb (level 2)</content>
+  <content contentuid="h4d4b71bcdc71525dab1c813adac6480b" version="1">Choose Searing Orb as your Signature Arcanum spell.</content>
+  <content contentuid="hdbd492081c8c5fbaa0c2adfa5aa6f528" version="1">Signature Arcanum: Searing Orb</content>
+  <content contentuid="hef60e97bb5745a21b9e9d51dab7a9abf" version="1">Searing Orb (Signature)</content>
+  <content contentuid="h9aa1c1632bf75efb8b23da9720841742" version="1">Signature Arcanum: Snilloc's Snowball Swarm (level 2)</content>
+  <content contentuid="hda4560809f69588ea8967a8606233016" version="1">Choose Snilloc's Snowball Swarm as your Signature Arcanum spell.</content>
+  <content contentuid="h92e507ecd0725996a7ecf73206febe14" version="1">Signature Arcanum: Snilloc's Snowball Swarm</content>
+  <content contentuid="hec7a7a79d1aa5ea491c915910b94450b" version="1">Snilloc's Snowball Swarm (Signature)</content>
+  <content contentuid="hb24c941dad11574d8b943e77f7fc3024" version="1">Signature Arcanum: Spellfire Flare (level 1)</content>
+  <content contentuid="h69f4bbab425d5de5bad5198f338a60d0" version="1">Choose Spellfire Flare as your Signature Arcanum spell.</content>
+  <content contentuid="hc4f2a4f726015d21b82209e3d08282f7" version="1">Signature Arcanum: Spellfire Flare</content>
+  <content contentuid="had0634d46d1d54979d8f3d6ca3ccc3b4" version="1">Spellfire Flare (Signature)</content>
+  <content contentuid="hafc5c0617f845ef88ee34b9698dad65d" version="1">Signature Arcanum: Vitriolic Sphere (level 4)</content>
+  <content contentuid="h9a6a2d2ea3165309861a073d241a25c4" version="1">Choose Vitriolic Sphere as your Signature Arcanum spell.</content>
+  <content contentuid="hdae5e9626b2d58dd8f2d52e3268bee8d" version="1">Signature Arcanum: Vitriolic Sphere</content>
+  <content contentuid="h15e64d15f60e56d88f14724572dc6a32" version="1">Vitriolic Sphere (Signature)</content>
+  <content contentuid="h476898ed556051b589c0ca62755397a1" version="1">Signature Arcanum: Witch Bolt (level 1)</content>
+  <content contentuid="h2d016e666ce350a3a87aed602facc9c4" version="1">Choose Witch Bolt as your Signature Arcanum spell.</content>
+  <content contentuid="hd98b4d3660a953b78325657959bb23e6" version="1">Signature Arcanum: Witch Bolt</content>
+  <content contentuid="h074601a4ccd25d8cacc85c23584bbe7d" version="1">Witch Bolt (Signature)</content>
+  <content contentuid="h0dfb456626455325a5b8324dd61a942b" version="1">Signature Arcanum: Cacophonic Shield (level 3)</content>
+  <content contentuid="h2d8f118bd63452408d2213dac6998f75" version="1">Choose Cacophonic Shield as your Signature Arcanum spell.</content>
+  <content contentuid="h6412bb6121355d299bd358df7664d31b" version="1">Signature Arcanum: Cacophonic Shield</content>
+  <content contentuid="h57fdd16dbc605c85819734f1368a3135" version="1">Cacophonic Shield (Signature)</content>
+  <content contentuid="h47739cbb09b85585a600f1e884a05644" version="1">Signature Arcanum: Crusader's Mantle (level 3)</content>
+  <content contentuid="h8998b3c8d291568ea477cdeb6ef6ee10" version="1">Choose Crusader's Mantle as your Signature Arcanum spell.</content>
+  <content contentuid="hbc4b93a64c50530ba6f66e3ae4b8ae94" version="1">Signature Arcanum: Crusader's Mantle</content>
+  <content contentuid="h43de1d774aab59d8b670e0f9459b1e63" version="1">Crusader's Mantle (Signature)</content>
+  <content contentuid="h5984feb638905f14979c58cfc1cd1350" version="1">Signature Arcanum: Flame Blade (level 2)</content>
+  <content contentuid="hb0eb18dcc8525e4eaba915bc689c4b35" version="1">Choose Flame Blade as your Signature Arcanum spell.</content>
+  <content contentuid="haaea40902afe55dba124e6e4b019a900" version="1">Signature Arcanum: Flame Blade</content>
+  <content contentuid="hf529b060a79e598982b8ebd53d613933" version="1">Flame Blade (Signature)</content>
+  <content contentuid="hc54c779959ee50c884e828b175cb8ac0" version="1">Signature Arcanum: Fount of Moonlight (level 4)</content>
+  <content contentuid="h1997ecb3a38c5efda6311b9e3f6817ab" version="1">Choose Fount of Moonlight as your Signature Arcanum spell.</content>
+  <content contentuid="hf3d6fbdf21955632897a161354a44f3c" version="1">Signature Arcanum: Fount of Moonlight</content>
+  <content contentuid="hdf66649f85525a2e9af2a1e725d976d9" version="1">Fount of Moonlight (Signature)</content>
+  <content contentuid="h95b185b323bb5ac79d145e8221b0c797" version="1">Signature Arcanum: Fire Storm (level 7)</content>
+  <content contentuid="he84655e4982e57a2b56f38824d22868f" version="1">Choose Fire Storm as your Signature Arcanum spell.</content>
+  <content contentuid="he6d884251a3d59148c5279a6b69adc8a" version="1">Signature Arcanum: Fire Storm</content>
+  <content contentuid="hd0d52c05452e56b9b312a4472b0d9bfd" version="1">Fire Storm (Signature)</content>
+  <content contentuid="h58ab4cc37a305413a98689246c70de90" version="1">Signature Arcanum: Forcecage (level 7)</content>
+  <content contentuid="h2eba1a84ef3e5b48980fcda32ff09376" version="1">Choose Forcecage as your Signature Arcanum spell.</content>
+  <content contentuid="hd3e1524864bb5a148f1a95aa28c8b31b" version="1">Signature Arcanum: Forcecage</content>
+  <content contentuid="h2c1bbbe5b30f57d5a82455abe3213533" version="1">Forcecage (Signature)</content>
+  <content contentuid="h1b21cfe23b0256218c176e10d1c151ba" version="1">Signature Arcanum: Darkness (level 2)</content>
+  <content contentuid="hc2d22330ea88510bb26d69c2f62515f4" version="1">Choose Darkness as your Signature Arcanum spell.</content>
+  <content contentuid="h7d89f3985d6154e3a3f11b13dcaf1597" version="1">Signature Arcanum: Darkness</content>
+  <content contentuid="h9b397f53a24a5a9b92f0af22e01eaaee" version="1">Darkness (Signature)</content>
+  <content contentuid="hb779a9691d655b9dab66b87924cbdb49" version="1">Signature Arcanum: Dawn (level 5)</content>
+  <content contentuid="h87ce10a20a7755d5be8ef9ee31926f32" version="1">Choose Dawn as your Signature Arcanum spell.</content>
+  <content contentuid="h29574c45c0a150e0a8c8c59c854c9965" version="1">Signature Arcanum: Dawn</content>
+  <content contentuid="h334adcb53c9b531a99270be1f28eb349" version="1">Dawn (Signature)</content>
+  <content contentuid="h25910036c94355d58262408018cc1a5b" version="1">Signature Arcanum: Faerie Fire (level 1)</content>
+  <content contentuid="hd97a67a186ef56d3bac702eeae9e0058" version="1">Choose Faerie Fire as your Signature Arcanum spell.</content>
+  <content contentuid="h828811c424375cc2907e57c25aed65d1" version="1">Signature Arcanum: Faerie Fire</content>
+  <content contentuid="h11a6763ecfe85f98ad87cd1ee9e052ca" version="1">Faerie Fire (Signature)</content>
+  <content contentuid="h1bad413c64fe58799005ecab38dd1b4b" version="1">Signature Arcanum: Flame Strike (level 5)</content>
+  <content contentuid="hbaf93519301550eebb357a997697b145" version="1">Choose Flame Strike as your Signature Arcanum spell.</content>
+  <content contentuid="h62bef7fed901580183668faca7411935" version="1">Signature Arcanum: Flame Strike</content>
+  <content contentuid="h87ca2aac6b7d5a6aa5920624b1ad1f4b" version="1">Flame Strike (Signature)</content>
+  <content contentuid="h110e0682d61d5130b19e00b75aba8cb0" version="1">Signature Arcanum: Heal (level 6)</content>
+  <content contentuid="he7822d7deb1f522186cbd8d99da2ea94" version="1">Choose Heal as your Signature Arcanum spell.</content>
+  <content contentuid="hc90a517e61735f9389adeade25f52ed8" version="1">Signature Arcanum: Heal</content>
+  <content contentuid="h6633f0cad01e550395d4f4673f4be1d2" version="1">Heal (Signature)</content>
+  <content contentuid="h46b90b877e2851ed94189c2d116475d7" version="1">Signature Arcanum: Hell’s Lash (level 1)</content>
+  <content contentuid="h69f5da93699359668e390eaf7c4260c9" version="1">Choose Hell’s Lash as your Signature Arcanum spell.</content>
+  <content contentuid="he8a2bf3e10cd50c199477cb914cc7f6d" version="1">Signature Arcanum: Hell’s Lash</content>
+  <content contentuid="h0ffdfafe9acc562f8ce57c37f99f2011" version="1">Hell’s Lash (Signature)</content>
+  <content contentuid="h97b869dcf8c35e0b98d2447d2b3691e9" version="1">Signature Arcanum: Holy Weapon (level 5)</content>
+  <content contentuid="h09b96b7336665831b713c6f3d4338297" version="1">Choose Holy Weapon as your Signature Arcanum spell.</content>
+  <content contentuid="h7940419870185f31995c068f6d4077e0" version="1">Signature Arcanum: Holy Weapon</content>
+  <content contentuid="h20cfbd1bbe685ca790eee2b3906b87f2" version="1">Holy Weapon (Signature)</content>
+  <content contentuid="h82b2e7e7f01d55f1ae33097296836922" version="1">Signature Arcanum: Ice Storm (level 4)</content>
+  <content contentuid="ha27c6512876051b8bee7498088c196dc" version="1">Choose Ice Storm as your Signature Arcanum spell.</content>
+  <content contentuid="h0d1313cf13d258cfa558e92d6ce4aa3f" version="1">Signature Arcanum: Ice Storm</content>
+  <content contentuid="h4c2b02e399cf5a8ca17fcbeb0ae745a5" version="1">Ice Storm (Signature)</content>
+  <content contentuid="h2d6560a3cec152afa90a172d410c5a31" version="1">Signature Arcanum: Moonbeam (level 2)</content>
+  <content contentuid="h18df516d345152bebcdb1413a71cb5b6" version="1">Choose Moonbeam as your Signature Arcanum spell.</content>
+  <content contentuid="hb4f1adf1779d554b8978701ed3b6f526" version="1">Signature Arcanum: Moonbeam</content>
+  <content contentuid="h5a78a6ce9fb059579fc1364dc03ad58f" version="1">Moonbeam (Signature)</content>
+  <content contentuid="h32c83e6cb0435f2cb5821fc88d814274" version="1">Signature Arcanum: Shatter (level 2)</content>
+  <content contentuid="h9aa42b537a4b5873a85f19299c70da49" version="1">Choose Shatter as your Signature Arcanum spell.</content>
+  <content contentuid="h131adeb9287753f3a8f76de8e2e93a6e" version="1">Signature Arcanum: Shatter</content>
+  <content contentuid="ha2cabc4616e959a98b29f6744afff787" version="1">Shatter (Signature)</content>
+  <content contentuid="hb43b35015b14538ab20ce9328001c574" version="1">Signature Arcanum: Blinding Smite (level 3)</content>
+  <content contentuid="h0d13509e84bc565bb1ef863763f6a6d3" version="1">Choose Blinding Smite as your Signature Arcanum spell.</content>
+  <content contentuid="hf39c25bae4a15192b17b5da794f97582" version="1">Signature Arcanum: Blinding Smite</content>
+  <content contentuid="h42ede234c04b5bd68af8af4d533097cc" version="1">Blinding Smite (Signature)</content>
+  <content contentuid="hab61745e02865b04a103a8a6f5f7ce32" version="1">Signature Arcanum: Searing Smite (level 1)</content>
+  <content contentuid="h2a2bdece7a6757528f173eda60ac9818" version="1">Choose Searing Smite as your Signature Arcanum spell.</content>
+  <content contentuid="h028416da84bc55a0a077e8b813fbe944" version="1">Signature Arcanum: Searing Smite</content>
+  <content contentuid="h11e71940717f541bbe66f98a7b67fc17" version="1">Searing Smite (Signature)</content>
+  <content contentuid="h214eed8ad4545ac8bd4cc7f4ff789ecb" version="1">Signature Arcanum: Thunderous Smite (level 1)</content>
+  <content contentuid="hb604967fc96a53c5be16a2550b653283" version="1">Choose Thunderous Smite as your Signature Arcanum spell.</content>
+  <content contentuid="h320fc66c1356548dabee1e6d1c13d83d" version="1">Signature Arcanum: Thunderous Smite</content>
+  <content contentuid="h119f0837e3c8564d9d4a0971245d7ad4" version="1">Thunderous Smite (Signature)</content>
+  <content contentuid="hb4439e372fe7503a8da30c2600489a95" version="1">Signature Arcanum: Spellfire Storm (level 4)</content>
+  <content contentuid="h2a39b36a634a571f96bdad4f469443c1" version="1">Choose Spellfire Storm as your Signature Arcanum spell.</content>
+  <content contentuid="hab6a074105d454059f9183adcc13f6f7" version="1">Signature Arcanum: Spellfire Storm</content>
+  <content contentuid="h82329e24421756a5bbbb5fe68b855fb8" version="1">Spellfire Storm (Signature)</content>
+  <content contentuid="he07a55ed872859bfa39cfcd7c5bc5f8d" version="1">Signature Arcanum: Umbral Tendril (level 1)</content>
+  <content contentuid="he23d51c18cf0514e8b7dbe9f3ef31627" version="1">Choose Umbral Tendril as your Signature Arcanum spell.</content>
+  <content contentuid="habaf8f487ad45e3cabc39d1c6b6fabf2" version="1">Signature Arcanum: Umbral Tendril</content>
+  <content contentuid="h3e46812304415108885b6c5a5c3725ea" version="1">Umbral Tendril (Signature)</content>
+  <content contentuid="h0fa4cf6ac61c59fda9ce4d9fd31ba74a" version="1">Signature Arcanum: Blade Barrier (level 6)</content>
+  <content contentuid="hd05fcd35eb6b5ca4af4151db3112d173" version="1">Choose Blade Barrier as your Signature Arcanum spell.</content>
+  <content contentuid="h3868b879ae5b566aa7edcfd307365baa" version="1">Signature Arcanum: Blade Barrier</content>
+  <content contentuid="h71ddfee616775213ae0ee23fc53e44dc" version="1">Blade Barrier (Signature)</content>
+  <content contentuid="h7875e7a6195257cbabfb0dc599ce5553" version="1">Signature Arcanum: Wall of Fire (level 4)</content>
+  <content contentuid="h4c5425aa2c855e5ca550f6f7ce1ca305" version="1">Choose Wall of Fire as your Signature Arcanum spell.</content>
+  <content contentuid="h003077a92622505b9826a867cdec674b" version="1">Signature Arcanum: Wall of Fire</content>
+  <content contentuid="h59bc865d147f5e4ca9fe8ae022ad85dc" version="1">Wall of Fire (Signature)</content>
+  <content contentuid="ha441f40a663850d5be7b626ed6c8fa4b" version="1">Signature Arcanum: Wall of Stone (level 5)</content>
+  <content contentuid="h0b55bcc1249b5061885e95e35657fb0a" version="1">Choose Wall of Stone as your Signature Arcanum spell.</content>
+  <content contentuid="hd17ea821335c51f68ae9ab82f9d6e656" version="1">Signature Arcanum: Wall of Stone</content>
+  <content contentuid="h97dd13e4e1735905bccd236548a998b1" version="1">Wall of Stone (Signature)</content>
+  <content contentuid="ha612ce4560675e49b3505c3b2798cee2" version="1">Signature Arcanum: Aganazzar's Scorcher (level 2)</content>
+  <content contentuid="h7f40cd38818854dba597bcce84e96c03" version="1">Choose Aganazzar's Scorcher as your Signature Arcanum spell.</content>
+  <content contentuid="h34e05651ab275c34931d2300b50b077b" version="1">Signature Arcanum: Aganazzar's Scorcher</content>
+  <content contentuid="h907bf289fa7955a78e98cc0adf3f581a" version="1">Aganazzar's Scorcher (Signature)</content>
+  <content contentuid="h5467302dbbaa50ee8c7b89424ede881a" version="1">Signature Arcanum: Prismatic Spray (level 7)</content>
+  <content contentuid="h5a437e7bb7455029b0035fcea9c095be" version="1">Choose Prismatic Spray as your Signature Arcanum spell.</content>
+  <content contentuid="h6551ec56833f571ea3d97d9554848ef5" version="1">Signature Arcanum: Prismatic Spray</content>
+  <content contentuid="hb3a4d3b996d1544a9d3e938528a0963f" version="1">Prismatic Spray (Signature)</content>
+  <content contentuid="h959ff573fa2e53c68dbf91da3ebf8be5" version="1">Signature Arcanum: Burning Hands (level 1)</content>
+  <content contentuid="h1196963cc6895ef187110eef970c2ffb" version="1">Choose Burning Hands as your Signature Arcanum spell.</content>
+  <content contentuid="hde9fc4d97a3d52d9956e6328c04e8035" version="1">Signature Arcanum: Burning Hands</content>
+  <content contentuid="h24936d3b016651e889e2b5037387c4d1" version="1">Burning Hands (Signature)</content>
+  <content contentuid="h8fca678b9fd0569e9fffa2f0131ced6f" version="1">Signature Arcanum: Cone of Cold (level 5)</content>
+  <content contentuid="heb6db694c48750beb948c37731ff1a59" version="1">Choose Cone of Cold as your Signature Arcanum spell.</content>
+  <content contentuid="ha0df72b8c27f5a6bbdb428d20080d2da" version="1">Signature Arcanum: Cone of Cold</content>
+  <content contentuid="h7bec51ff8cfb5332b76e37007ad5b2b1" version="1">Cone of Cold (Signature)</content>
+  <content contentuid="h9426068e731f5e2dbee866cd03d2bbbf" version="1">Signature Arcanum: Gust of Wind (level 2)</content>
+  <content contentuid="h2cb68627ce595a089180b5e846ccb34a" version="1">Choose Gust of Wind as your Signature Arcanum spell.</content>
+  <content contentuid="h6fde64bda8d45164b18f265e259ded92" version="1">Signature Arcanum: Gust of Wind</content>
+  <content contentuid="hd51a156a727d5c2b9352770b5b30f2f6" version="1">Gust of Wind (Signature)</content>
+  <content contentuid="h7aa8fad9e8d5574ca07fc7ea3e1691f5" version="1">Signature Arcanum: Laeral's Silver Lance (level 3)</content>
+  <content contentuid="h9e6b2aecdb9055ea85078c3701ba0fab" version="1">Choose Laeral's Silver Lance as your Signature Arcanum spell.</content>
+  <content contentuid="h9207d2bb996f5909b707365cd1a550e6" version="1">Signature Arcanum: Laeral's Silver Lance</content>
+  <content contentuid="hde6b62e6284d508b868583e57440d029" version="1">Laeral's Silver Lance (Signature)</content>
+  <content contentuid="h57ed5bb79e485589a90732e934960563" version="1">Signature Arcanum: Lightning Bolt (level 3)</content>
+  <content contentuid="haba3bf9b9fc85f8ca2c92678699b4b1c" version="1">Choose Lightning Bolt as your Signature Arcanum spell.</content>
+  <content contentuid="h7620d55ae7305e7daeb32a8efd2135ec" version="1">Signature Arcanum: Lightning Bolt</content>
+  <content contentuid="h604a07db18965404a1e087d2921afd43" version="1">Lightning Bolt (Signature)</content>
+  <content contentuid="h7b1bd5fb89cd5e7081eb70cb25f058e9" version="1">Signature Arcanum: Rime's Binding Ice (level 2)</content>
+  <content contentuid="h7b431f636f225edc83e4464a1e5cacb2" version="1">Choose Rime's Binding Ice as your Signature Arcanum spell.</content>
+  <content contentuid="hecfa6618e66b579aa6a68fd328fad4ad" version="1">Signature Arcanum: Rime's Binding Ice</content>
+  <content contentuid="h2023ade9fb3b56feb44e209cb8affc0c" version="1">Rime's Binding Ice (Signature)</content>
+  <content contentuid="h7fd8448a47b4540b91ba0c39b48ab61e" version="1">Signature Arcanum: Sunbeam (level 6)</content>
+  <content contentuid="hc34ebf3d1f2257e2855e0fb62a8aa8c1" version="1">Choose Sunbeam as your Signature Arcanum spell.</content>
+  <content contentuid="hef04d963ba0053b08b8b491d76883c11" version="1">Signature Arcanum: Sunbeam</content>
+  <content contentuid="hf1718e8fa0f85549ac46a5326472ddf3" version="1">Sunbeam (Signature)</content>
+  <content contentuid="h2d5eb81697435cf887b0f89b234cd4af" version="1">Signature Arcanum: Thunderwave (level 1)</content>
+  <content contentuid="h4c166596f2c0509a82ca360733425123" version="1">Choose Thunderwave as your Signature Arcanum spell.</content>
+  <content contentuid="h4aa4e16275745ebfb1c35a4bd6c99174" version="1">Signature Arcanum: Thunderwave</content>
+  <content contentuid="h37e4dc1aa18a516f933aab782e6b83ec" version="1">Thunderwave (Signature)</content>
+  <content contentuid="h2869ae59a81b5d698abb0ec987a47d46" version="1">Mastered School: Illusion</content>
+  <content contentuid="h5cc42d17bbe15b6987382ac08fa79399" version="1">Master the Illusion school.</content>
+  <content contentuid="h8dc5f0e951ec5423be37a36733843e2f" version="1">Mastered School: Illusion</content>
+  <content contentuid="h9696860bb10156f984351884ccaace9b" version="1">Rote Casting (Illusion)</content>
+  <content contentuid="h41572c04dafe5bef9c8d705f770fb501" version="1">Choose a level 1 Illusion spell to cast at will.</content>
+  <content contentuid="h5df178c395f35d59a97390965943818d" version="1">Signature Arcanum (Illusion, level 1-3)</content>
+  <content contentuid="h082ca715ebda5c488b298af0f063115e" version="1">Choose a level 1-3 Illusion spell.</content>
+  <content contentuid="hf1aabbce2c4352b5a8964dd59d0fac8a" version="1">Signature Arcanum (Illusion, level 4-7)</content>
+  <content contentuid="h1ca6278f17ab543989680cce0fb2a720" version="1">Choose a level 4-7 Illusion spell.</content>
+  <content contentuid="hf07f43d5e82a5a36ae2a8ea2f90832f3" version="1">Rote Casting: Colour Spray (level 1)</content>
+  <content contentuid="h3ea1e8244ae0584b86f89bef85e5fc1b" version="1">Choose Colour Spray as your Rote Casting spell.</content>
+  <content contentuid="h6228eb8d1d9a5f6b88080bad327db38f" version="1">Rote Casting: Colour Spray</content>
+  <content contentuid="he54655497cbe5dc4a32e581c363b20ac" version="1">Colour Spray (Rote)</content>
+  <content contentuid="h6f9239707c155974b7601da3bd6d7484" version="1">Signature Arcanum: Blur (level 2)</content>
+  <content contentuid="hbe92908494825d2a8a123e7018868a41" version="1">Choose Blur as your Signature Arcanum spell.</content>
+  <content contentuid="h80458f10822e5b5e8cbc90002649fb84" version="1">Signature Arcanum: Blur</content>
+  <content contentuid="hd23595dbb659547ea81be9aba72c99f5" version="1">Blur (Signature)</content>
+  <content contentuid="hb3f1c01dea505c23b8894c0a9678825c" version="1">Signature Arcanum: Fire Dance (level 4)</content>
+  <content contentuid="hf06f0505a27c5567aa973a59ea98c695" version="1">Choose Fire Dance as your Signature Arcanum spell.</content>
+  <content contentuid="ha5efc01746b6537d8beea6df029c1c9c" version="1">Signature Arcanum: Fire Dance</content>
+  <content contentuid="hde237deb5ece5570a3a274f5ab665980" version="1">Fire Dance (Signature)</content>
+  <content contentuid="hb00258771eee555ab06255cc3fde695d" version="1">Signature Arcanum: Mirror Image (level 2)</content>
+  <content contentuid="h31e75d7977dd5f6786fc71b0b023406e" version="1">Choose Mirror Image as your Signature Arcanum spell.</content>
+  <content contentuid="hf6cdeff90cba52c0931d1db077b3c497" version="1">Signature Arcanum: Mirror Image</content>
+  <content contentuid="h72cb9597f1895c418bdaa38a1f43441a" version="1">Mirror Image (Signature)</content>
+  <content contentuid="hf6ed7359d9ec51018ac5b9e0f38e0fc9" version="1">Signature Arcanum: Shadow Blade (level 2)</content>
+  <content contentuid="hb6555d3d83d15449a6f51be31fa0cf1a" version="1">Choose Shadow Blade as your Signature Arcanum spell.</content>
+  <content contentuid="h68f1f25879e45f148fc3098693975cb9" version="1">Signature Arcanum: Shadow Blade</content>
+  <content contentuid="he9ab8d633a5c575fbe7d980230d2d72e" version="1">Shadow Blade (Signature)</content>
+  <content contentuid="h9ddf6f2366a05a77b27509f596d2b19b" version="1">Signature Arcanum: Mirage Arcane (level 7)</content>
+  <content contentuid="h7982241d178a5796a962e41ed515e922" version="1">Choose Mirage Arcane as your Signature Arcanum spell.</content>
+  <content contentuid="ha3d07fcee8205ca4a79af362618d6ccd" version="1">Signature Arcanum: Mirage Arcane</content>
+  <content contentuid="he2ff3b83916f5cc298cd24057a409f4f" version="1">Mirage Arcane (Signature)</content>
+  <content contentuid="hf3cb8ad5de5555a68e278b30ab1e4e77" version="1">Signature Arcanum: Simulacrum (level 7)</content>
+  <content contentuid="h100e2742d19855c686c9e29a6a5835d2" version="1">Choose Simulacrum as your Signature Arcanum spell.</content>
+  <content contentuid="h11356ea3fb62564a84966cf83fd4d591" version="1">Signature Arcanum: Simulacrum</content>
+  <content contentuid="hfedee2e272ee5c2aa31113fa1f75e3b0" version="1">Simulacrum (Signature)</content>
+  <content contentuid="h342124a6dcdd55b7a5d62e544b4a5bf2" version="1">Signature Arcanum: Dream (level 5)</content>
+  <content contentuid="ha4ca066ea26659c0a7d764e5559ce5e6" version="1">Choose Dream as your Signature Arcanum spell.</content>
+  <content contentuid="h87e42a886cbd5d2d9b4a70a0fe1f2d92" version="1">Signature Arcanum: Dream</content>
+  <content contentuid="h05d430344c1d5235805db374c6b15a9f" version="1">Dream (Signature)</content>
+  <content contentuid="ha1aff1fde76c5251b21fe75756b91239" version="1">Signature Arcanum: Hypnotic Pattern (level 3)</content>
+  <content contentuid="h6c5940b1196759fb9a7af2b0593390c2" version="1">Choose Hypnotic Pattern as your Signature Arcanum spell.</content>
+  <content contentuid="hdf52f16a4a9252b48aeadbc43a1a5afa" version="1">Signature Arcanum: Hypnotic Pattern</content>
+  <content contentuid="h4219d670388d56d08537266329e3e049" version="1">Hypnotic Pattern (Signature)</content>
+  <content contentuid="h1cdfdfadb3b250e588d6b9098f30f7dc" version="1">Signature Arcanum: Invisibility (level 2)</content>
+  <content contentuid="h6ff0a683524d57a2b343f38160bc04ef" version="1">Choose Invisibility as your Signature Arcanum spell.</content>
+  <content contentuid="h2e7758e9d42257fb9d4dc48dae82b327" version="1">Signature Arcanum: Invisibility</content>
+  <content contentuid="h21811ad9a9ee55d281490e7938350f0a" version="1">Invisibility (Signature)</content>
+  <content contentuid="h799fde777cc057b5a9be5b489f6d6e21" version="1">Signature Arcanum: Greater Invisibility (level 4)</content>
+  <content contentuid="h2b5dbe7f511554c3adfec4117aca26ab" version="1">Choose Greater Invisibility as your Signature Arcanum spell.</content>
+  <content contentuid="h64bbfdf2357b504a8d463ffd56db29d6" version="1">Signature Arcanum: Greater Invisibility</content>
+  <content contentuid="hcb15c67a2c1854fda5e7c2074a88cd12" version="1">Greater Invisibility (Signature)</content>
+  <content contentuid="ha23510eb115058b3a0d58c8e7905b76d" version="1">Signature Arcanum: Phantasmal Force (level 2)</content>
+  <content contentuid="h6759ca4ae0d25052ba5c7a1be0bb11f0" version="1">Choose Phantasmal Force as your Signature Arcanum spell.</content>
+  <content contentuid="h044e8968f4225bc6840f9d164c98ab3d" version="1">Signature Arcanum: Phantasmal Force</content>
+  <content contentuid="h6d09c7b306d558a0a75a6554adf3482f" version="1">Phantasmal Force (Signature)</content>
+  <content contentuid="hdc7803eb3baa57a08d0799921427a8ce" version="1">Signature Arcanum: Phantasmal Killer (level 4)</content>
+  <content contentuid="h9ea38064d6d85288a0fa0550e65276ed" version="1">Choose Phantasmal Killer as your Signature Arcanum spell.</content>
+  <content contentuid="h01c8d220f0985adfaf3013df75929f91" version="1">Signature Arcanum: Phantasmal Killer</content>
+  <content contentuid="haa59163fc7b35def8bd020517b1481de" version="1">Phantasmal Killer (Signature)</content>
+  <content contentuid="h7481787d30405f949b08f953aef8cc44" version="1">Signature Arcanum: Project Image (level 7)</content>
+  <content contentuid="h3248cc62a61c52e88afb26c520f84699" version="1">Choose Project Image as your Signature Arcanum spell.</content>
+  <content contentuid="haea60ebe2a94551582f7d348b98222b7" version="1">Signature Arcanum: Project Image</content>
+  <content contentuid="h455e796f1d9958d1a176f4e772629984" version="1">Project Image (Signature)</content>
+  <content contentuid="h5aafe83d001759e497c2e79b8d4d7f79" version="1">Signature Arcanum: Seeming (level 5)</content>
+  <content contentuid="h4683e1420098502981b53077e33ef3e9" version="1">Choose Seeming as your Signature Arcanum spell.</content>
+  <content contentuid="h93c2ec7959a8517b9b6169e3448ad955" version="1">Signature Arcanum: Seeming</content>
+  <content contentuid="hf0f4fc08ebfc562cb9ac4e6ea9c465c4" version="1">Seeming (Signature)</content>
+  <content contentuid="h816b19299a1259ddb9d87bb2e2167f79" version="1">Signature Arcanum: Silence (level 2)</content>
+  <content contentuid="h7d0d43ce55355b7388b6a71fb9ae7847" version="1">Choose Silence as your Signature Arcanum spell.</content>
+  <content contentuid="hf2989c583d375b6c9e2379c85d51b978" version="1">Signature Arcanum: Silence</content>
+  <content contentuid="heef95e912e7f5373b63fb0271f341f42" version="1">Silence (Signature)</content>
+  <content contentuid="h60752a935a8057fda452e873d4f5027e" version="1">Signature Arcanum: Colour Spray (level 1)</content>
+  <content contentuid="hf7482df5b74c5508b0b917899f8c2a3a" version="1">Choose Colour Spray as your Signature Arcanum spell.</content>
+  <content contentuid="h2bd1d2cda575595ea75c575c2786c0d6" version="1">Signature Arcanum: Colour Spray</content>
+  <content contentuid="h577a584b59bd5fc6bd6692c11ac9aa33" version="1">Colour Spray (Signature)</content>
+  <content contentuid="h4ccf8114a6aa543d8e0281c59b61f687" version="1">Signature Arcanum: Fear (level 3)</content>
+  <content contentuid="ha849ebe949a85bcfb6771caac85440b2" version="1">Choose Fear as your Signature Arcanum spell.</content>
+  <content contentuid="h917cf01dda3b5126b50e99eace07c436" version="1">Signature Arcanum: Fear</content>
+  <content contentuid="hea8cbcf4dc3b5f94acb72e46b124bb6e" version="1">Fear (Signature)</content>
+  <content contentuid="h69134b4c17c35fa39855c87fca91c9c3" version="1">Mastered School: Necromancy</content>
+  <content contentuid="h2487d62b80b75dafabfa62493dac8258" version="1">Master the Necromancy school.</content>
+  <content contentuid="hed138d41ec3f569c9efb07557951f6ba" version="1">Mastered School: Necromancy</content>
+  <content contentuid="hdaa01cf1d8825bf98a361c2ed989a452" version="1">Rote Casting (Necromancy)</content>
+  <content contentuid="h7279e59dce61543b888b687aec7eddf7" version="1">Choose a level 1 Necromancy spell to cast at will.</content>
+  <content contentuid="hd78723d1fdbf58cdaf112a1567c89d33" version="1">Signature Arcanum (Necromancy, level 1-3)</content>
+  <content contentuid="h0dc769d50c195c9a96a243c7af01d192" version="1">Choose a level 1-3 Necromancy spell.</content>
+  <content contentuid="hd5c472e4d5445fc7a19ba1010cffc822" version="1">Signature Arcanum (Necromancy, level 4-7)</content>
+  <content contentuid="h41ea1215408d5752a9793aabd08ba4cc" version="1">Choose a level 4-7 Necromancy spell.</content>
+  <content contentuid="h125e7567313a5a86bf919b7d941cb774" version="1">Rote Casting: Ray of Sickness (level 1)</content>
+  <content contentuid="h6da57d00d3f85a2f82208f29e5d9ec6e" version="1">Choose Ray of Sickness as your Rote Casting spell.</content>
+  <content contentuid="hb55f33264dff5498a78aca620e3bbaf4" version="1">Rote Casting: Ray of Sickness</content>
+  <content contentuid="h8974f0cbc0c75a4ea5652e0cd75f3b57" version="1">Ray of Sickness (Rote)</content>
+  <content contentuid="h54f66177c821553e853a75787109b710" version="1">Rote Casting: False Life (level 1)</content>
+  <content contentuid="he9faa460cb18591ba1510800e8ac381d" version="1">Choose False Life as your Rote Casting spell.</content>
+  <content contentuid="hdf62ac7d12f65323b77b48a4e0289a87" version="1">Rote Casting: False Life</content>
+  <content contentuid="h1f4ad4616883547fbbf658f3784af614" version="1">False Life (Rote)</content>
+  <content contentuid="h63612dc79273577fbcae0f393be34f84" version="1">Rote Casting: Hungering Blade (level 1)</content>
+  <content contentuid="h5bb1d1ac130b516280db7074fa0b1726" version="1">Choose Hungering Blade as your Rote Casting spell.</content>
+  <content contentuid="hf0be61db56c951df9d8c8dd5f999d432" version="1">Rote Casting: Hungering Blade</content>
+  <content contentuid="h9d7996ff684a53bd97badf5dbe49206d" version="1">Hungering Blade (Rote)</content>
+  <content contentuid="h835b7b1ecf665b9d8bb222365d3ca590" version="1">Rote Casting: Inflict Wounds (level 1)</content>
+  <content contentuid="ha40c728ae9095c90a7fdb3f458200ccb" version="1">Choose Inflict Wounds as your Rote Casting spell.</content>
+  <content contentuid="hc04d123b8a5556bd9f5ead4b84e3ac83" version="1">Rote Casting: Inflict Wounds</content>
+  <content contentuid="h7ee6fe7cbf8954baa754178b50828c39" version="1">Inflict Wounds (Rote)</content>
+  <content contentuid="h611845f65abb5f8d8ca015a8ecaca38c" version="1">Rote Casting: Wrathful Smite (level 1)</content>
+  <content contentuid="h494ae9dcded651a0852e451e8c800531" version="1">Choose Wrathful Smite as your Rote Casting spell.</content>
+  <content contentuid="h73b80aa58eb8547aab7eb95fb04aeb3a" version="1">Rote Casting: Wrathful Smite</content>
+  <content contentuid="ha6016661526b5c1685f4d3a222813962" version="1">Wrathful Smite (Rote)</content>
+  <content contentuid="h906b332f136d52f881b785328d77635f" version="1">Signature Arcanum: Ray of Sickness (level 1)</content>
+  <content contentuid="h618908a1a37156b181b651c362f1def6" version="1">Choose Ray of Sickness as your Signature Arcanum spell.</content>
+  <content contentuid="hcb159cb6096d59bf8d6a89caf0a99e7a" version="1">Signature Arcanum: Ray of Sickness</content>
+  <content contentuid="hb8514a99dd1a5a6d9cbec798e583b744" version="1">Ray of Sickness (Signature)</content>
+  <content contentuid="h940410d401d355a59ff23f7587f3878d" version="1">Signature Arcanum: False Life (level 1)</content>
+  <content contentuid="hb62ce1fd30c6598c81766392b3e5ff98" version="1">Choose False Life as your Signature Arcanum spell.</content>
+  <content contentuid="h617208a53cc05832b958b4510b714344" version="1">Signature Arcanum: False Life</content>
+  <content contentuid="ha7c7c6cedb095e758e19c2e847901019" version="1">False Life (Signature)</content>
+  <content contentuid="h53cc0a7c8fe053be9e5a46b8a01bbeb8" version="1">Signature Arcanum: Hungering Blade (level 1)</content>
+  <content contentuid="hedf7deb8957e5ec18da798ff66a9004b" version="1">Choose Hungering Blade as your Signature Arcanum spell.</content>
+  <content contentuid="h7771c18913875942bd57d1abcfe5f694" version="1">Signature Arcanum: Hungering Blade</content>
+  <content contentuid="h6ad4f44eeabc530b82e6f28fe5c5d8cd" version="1">Hungering Blade (Signature)</content>
+  <content contentuid="h8204d079d6955954bbed2c5292ee8265" version="1">Signature Arcanum: Finger of Death (level 7)</content>
+  <content contentuid="hde969f0b305b5bfc946e1475cce827fb" version="1">Choose Finger of Death as your Signature Arcanum spell.</content>
+  <content contentuid="h4435acab820b51c8aa0023c96d4e27ea" version="1">Signature Arcanum: Finger of Death</content>
+  <content contentuid="h57d04daf4ab15745b398d785106b6c1f" version="1">Finger of Death (Signature)</content>
+  <content contentuid="h480c11251b835ca8aac0dfcd2d452813" version="1">Signature Arcanum: Blight (level 4)</content>
+  <content contentuid="hcd1373e447a250d0a5b7a61f62b75189" version="1">Choose Blight as your Signature Arcanum spell.</content>
+  <content contentuid="hd53bff24b7605340823e6e08481d9257" version="1">Signature Arcanum: Blight</content>
+  <content contentuid="h57a595b5cf2155dfa87e4c22d32fe074" version="1">Blight (Signature)</content>
+  <content contentuid="h1d8598edf07e520195ab8cd3f45543a1" version="1">Signature Arcanum: Circle of Death (level 6)</content>
+  <content contentuid="h9e2d8c74727b5144802fa7ac3a44e724" version="1">Choose Circle of Death as your Signature Arcanum spell.</content>
+  <content contentuid="h93bf138eb1865466bda1f9edadebe1a8" version="1">Signature Arcanum: Circle of Death</content>
+  <content contentuid="h4705c56ae5ba51c28816be89e2ed02f3" version="1">Circle of Death (Signature)</content>
+  <content contentuid="h532bdb9c47fc545e82c95ca80582885e" version="1">Signature Arcanum: Create Undead (level 6)</content>
+  <content contentuid="he75a16ea4b035b748c026479439d5aa9" version="1">Choose Create Undead as your Signature Arcanum spell.</content>
+  <content contentuid="h9e6bfffd8c735b4a8fc0c61f0ddaf764" version="1">Signature Arcanum: Create Undead</content>
+  <content contentuid="h6598d370038157a2b0380fca63cc4cea" version="1">Create Undead (Signature)</content>
+  <content contentuid="h3c90dc8065f85a6d92df3777badb0f9b" version="1">Signature Arcanum: Death Armor (level 2)</content>
+  <content contentuid="h75107f5aa3b152be9e70cfb3c29b3f35" version="1">Choose Death Armor as your Signature Arcanum spell.</content>
+  <content contentuid="ha4553b06640d5c7f9ab9bbaebf4b0322" version="1">Signature Arcanum: Death Armor</content>
+  <content contentuid="hb0790da3a4fd5ffda52381446cbb66ef" version="1">Death Armor (Signature)</content>
+  <content contentuid="h80f5683101505a4aa0194576e1227184" version="1">Signature Arcanum: Enervation (level 5)</content>
+  <content contentuid="h52bfab9ef3025252858955de6c2a683e" version="1">Choose Enervation as your Signature Arcanum spell.</content>
+  <content contentuid="h213cfe5f6f4557348b7c1c8b069ae8da" version="1">Signature Arcanum: Enervation</content>
+  <content contentuid="hd35cef60b2f45238a681d4b59a192170" version="1">Enervation (Signature)</content>
+  <content contentuid="h7400f21230185f18b41cd5b9289e7607" version="1">Signature Arcanum: Feign Death (level 3)</content>
+  <content contentuid="h3c9e11be9e40520eb5faa3d6b2cc85e6" version="1">Choose Feign Death as your Signature Arcanum spell.</content>
+  <content contentuid="h58b9a9d447e95701a25b68882aa082ef" version="1">Signature Arcanum: Feign Death</content>
+  <content contentuid="h491b44a174165dc39a2a726bf4c7740e" version="1">Feign Death (Signature)</content>
+  <content contentuid="hbf9ecb9ec8145533b1c79c9ef077eff6" version="1">Signature Arcanum: Harm (level 6)</content>
+  <content contentuid="hb8ae85b6a0675a8da062e573c2ba6154" version="1">Choose Harm as your Signature Arcanum spell.</content>
+  <content contentuid="h5099fc6bac1850c6853ad319d7c49af3" version="1">Signature Arcanum: Harm</content>
+  <content contentuid="h6ca46bbd13cd573982b38402b6404393" version="1">Harm (Signature)</content>
+  <content contentuid="h9e6142926b8157798fbeafda930a279f" version="1">Signature Arcanum: Inflict Wounds (level 1)</content>
+  <content contentuid="h4c8a815325965832bdb4a3d729248bc9" version="1">Choose Inflict Wounds as your Signature Arcanum spell.</content>
+  <content contentuid="hd6e46e5ce3735742a580553508fb87af" version="1">Signature Arcanum: Inflict Wounds</content>
+  <content contentuid="h05e454761b125d05a2024fdf06abe40c" version="1">Inflict Wounds (Signature)</content>
+  <content contentuid="hb077b771a267575b912fded6b5be175a" version="1">Signature Arcanum: Murmurs of Doom (level 3)</content>
+  <content contentuid="hceef7f37117357b8a5670b9242b2fbf9" version="1">Choose Murmurs of Doom as your Signature Arcanum spell.</content>
+  <content contentuid="h82a53e4121785f87a5cf863060199855" version="1">Signature Arcanum: Murmurs of Doom</content>
+  <content contentuid="ha42d5cc6d44c5e2789fa486eff01a170" version="1">Murmurs of Doom (Signature)</content>
+  <content contentuid="h8a78cba7ef875e269e4751541b4be76d" version="1">Signature Arcanum: Resurrection (level 7)</content>
+  <content contentuid="h2daf7c80ee375a44b2725394c51ed462" version="1">Choose Resurrection as your Signature Arcanum spell.</content>
+  <content contentuid="h3d1e944c176c5777a855949efe256f48" version="1">Signature Arcanum: Resurrection</content>
+  <content contentuid="h08b5b0a1c05655cbafb42c7770ea6b75" version="1">Resurrection (Signature)</content>
+  <content contentuid="h31e797baf2bf58619b7fbdbaf243f962" version="1">Signature Arcanum: Wrathful Smite (level 1)</content>
+  <content contentuid="h41d0b5ff6db85db3b2e146607bea2333" version="1">Choose Wrathful Smite as your Signature Arcanum spell.</content>
+  <content contentuid="ha7f3ed15e11e525d9ac4221d0d81c6be" version="1">Signature Arcanum: Wrathful Smite</content>
+  <content contentuid="hb64b63b0d2525b58bb4b05efda4f10bc" version="1">Wrathful Smite (Signature)</content>
+  <content contentuid="hca10a4d7afcf5d129622b1ddd903eca9" version="1">Signature Arcanum: Speak with Dead (level 3)</content>
+  <content contentuid="h73da81aa09da5937a42cc912a5e184f8" version="1">Choose Speak with Dead as your Signature Arcanum spell.</content>
+  <content contentuid="h53a627b5739a5f05991929a90c20ea3c" version="1">Signature Arcanum: Speak with Dead</content>
+  <content contentuid="h00d8bf6bfd775986b5c07e87a938fb66" version="1">Speak with Dead (Signature)</content>
+  <content contentuid="hdd55df7f94f05c82ad15a2fa039aa3f0" version="1">Signature Arcanum: Vampiric Touch (level 3)</content>
+  <content contentuid="hf87bed76d0b45409a9a921b3037294f3" version="1">Choose Vampiric Touch as your Signature Arcanum spell.</content>
+  <content contentuid="heeb348e38f0a58d39a64f0f6bcd40bdc" version="1">Signature Arcanum: Vampiric Touch</content>
+  <content contentuid="h508f9b9eaf6b5d6a83597fa2e665b687" version="1">Vampiric Touch (Signature)</content>
+  <content contentuid="hfac482b184b253f685f4df4c575b6f31" version="1">Signature Arcanum: Revivify (level 3)</content>
+  <content contentuid="habd3d9cf6e955002b5963003502062b6" version="1">Choose Revivify as your Signature Arcanum spell.</content>
+  <content contentuid="hdb7cd898a27b56f3955bc49ef6e6daa1" version="1">Signature Arcanum: Revivify</content>
+  <content contentuid="h8d07b57edc2755e988846564265f9ab3" version="1">Revivify (Signature)</content>
+  <content contentuid="h7c7e5f44ce8552e1b363991f57f2299a" version="1">Mastered School: Transmutation</content>
+  <content contentuid="h6b2be0cf4cf65c8a98761e76586b295e" version="1">Master the Transmutation school.</content>
+  <content contentuid="h52d79799302e57cab9f77f1ff809f138" version="1">Mastered School: Transmutation</content>
+  <content contentuid="h623c4693d7885449a21a7d4e708b1cc0" version="1">Rote Casting (Transmutation)</content>
+  <content contentuid="h93c18eec1cc7503cbd257e7d4b7768e0" version="1">Choose a level 1 Transmutation spell to cast at will.</content>
+  <content contentuid="h1a2139e98ce35189855c39cc0b5c5169" version="1">Signature Arcanum (Transmutation, level 1-3)</content>
+  <content contentuid="hd310c387d7885d5596c34f7383fab104" version="1">Choose a level 1-3 Transmutation spell.</content>
+  <content contentuid="ha1b881f111175b0c83408c93ca0fafc4" version="1">Signature Arcanum (Transmutation, level 4-7)</content>
+  <content contentuid="hef984256f26854a0baf898e8cbc528d5" version="1">Choose a level 4-7 Transmutation spell.</content>
+  <content contentuid="h8ac1831efb7d52a586a058e1b3e55e4e" version="1">Rote Casting: Catapult (level 1)</content>
+  <content contentuid="h14ee400fdb1a56049c57e9ff5766b12e" version="1">Choose Catapult as your Rote Casting spell.</content>
+  <content contentuid="hc028e559312a58d6a998a02f32a68ec5" version="1">Rote Casting: Catapult</content>
+  <content contentuid="hcf082bbc4bf05c9aa8e3c61a2f1f5877" version="1">Catapult (Rote)</content>
+  <content contentuid="h0dbb8504e103544c9d2ff34e001a1b6a" version="1">Rote Casting: Divine Favour (level 1)</content>
+  <content contentuid="h4cec2a1228ec589399449d71b55efef0" version="1">Choose Divine Favour as your Rote Casting spell.</content>
+  <content contentuid="h9a099bb157cd50b29f9a797dd06e5a66" version="1">Rote Casting: Divine Favour</content>
+  <content contentuid="ha9b51524bfe65764aaa2698aa265e4e4" version="1">Divine Favour (Rote)</content>
+  <content contentuid="hdb803b5b2fcf520e93d2faa678302121" version="1">Rote Casting: Expeditious Retreat (level 1)</content>
+  <content contentuid="h8a7e2b2606165555b6a049f8cc9128a6" version="1">Choose Expeditious Retreat as your Rote Casting spell.</content>
+  <content contentuid="h5382f26b4d6e5979b70c3e7bb2566139" version="1">Rote Casting: Expeditious Retreat</content>
+  <content contentuid="hfccde1a4609c5b00a80b71263f98794a" version="1">Expeditious Retreat (Rote)</content>
+  <content contentuid="h3e203543203155d49785414f42ce1015" version="1">Rote Casting: Feather Fall (level 1)</content>
+  <content contentuid="h4d5e3bcd8775566fbf8a1f1e4c4c525a" version="1">Choose Feather Fall as your Rote Casting spell.</content>
+  <content contentuid="h6ae53bf6e95957b786edaead193bfc87" version="1">Rote Casting: Feather Fall</content>
+  <content contentuid="ha674ae086d9054fab3dae98862f4e934" version="1">Feather Fall (Rote)</content>
+  <content contentuid="h43fd82d995a65c3e969161473a415aed" version="1">Rote Casting: Body Warping of Gorgoroth (level 1)</content>
+  <content contentuid="he1457599645d5bdea7c9c05c1c67af55" version="1">Choose Body Warping of Gorgoroth as your Rote Casting spell.</content>
+  <content contentuid="h8c6ed81c0c0052e89361c71c2e49f950" version="1">Rote Casting: Body Warping of Gorgoroth</content>
+  <content contentuid="h70a179a9ff425846b6318612e6179d7f" version="1">Body Warping of Gorgoroth (Rote)</content>
+  <content contentuid="h53efcb88c5075cc989109b9bb89de67a" version="1">Rote Casting: Goodberry (level 1)</content>
+  <content contentuid="h1016a92ea53a5079b6f8aac12399bf92" version="1">Choose Goodberry as your Rote Casting spell.</content>
+  <content contentuid="he1b089160c9f5180be11fdb411d62570" version="1">Rote Casting: Goodberry</content>
+  <content contentuid="h57fc07ea55f45d1aa2f3173fc08b2edf" version="1">Goodberry (Rote)</content>
+  <content contentuid="h786cd91bfc7b5f9cb39400005f80bcd9" version="1">Rote Casting: Enhance Leap (level 1)</content>
+  <content contentuid="hca4ef53abb1a5dca803d15dc79cd08bf" version="1">Choose Enhance Leap as your Rote Casting spell.</content>
+  <content contentuid="h205199920e3555a495ef074de4d11ab0" version="1">Rote Casting: Enhance Leap</content>
+  <content contentuid="hf609086c9268568db1d3a7477b48de4a" version="1">Enhance Leap (Rote)</content>
+  <content contentuid="ha59d442143875904b87c18cf679c1f5a" version="1">Rote Casting: Longstrider (level 1)</content>
+  <content contentuid="h6ddb01c23b66516091d43130602b94ab" version="1">Choose Longstrider as your Rote Casting spell.</content>
+  <content contentuid="h2e6608cd0e6d51e09963ceffb65182cf" version="1">Rote Casting: Longstrider</content>
+  <content contentuid="h762e2e8e8b245207a138534d8d156cd6" version="1">Longstrider (Rote)</content>
+  <content contentuid="hb89e43fcefb65bc696d44158c07ebec2" version="1">Signature Arcanum: Catapult (level 1)</content>
+  <content contentuid="hbdd3caac79355d7f85b57c8681f3ac06" version="1">Choose Catapult as your Signature Arcanum spell.</content>
+  <content contentuid="h82fe638e85ae51858af2f4a3e350af7e" version="1">Signature Arcanum: Catapult</content>
+  <content contentuid="h4454ba7241b754898ee87a6e83a7fe1a" version="1">Catapult (Signature)</content>
+  <content contentuid="hd662f8aa1cb6580191f40e1e80eff467" version="1">Signature Arcanum: Disintegrate (level 6)</content>
+  <content contentuid="hae9f41537d005200a5b9d2b6daf69358" version="1">Choose Disintegrate as your Signature Arcanum spell.</content>
+  <content contentuid="hd5a1546524a25aa6989810bc4c9fa71a" version="1">Signature Arcanum: Disintegrate</content>
+  <content contentuid="ha39818f2358953c8a870099c63bfb1e2" version="1">Disintegrate (Signature)</content>
+  <content contentuid="h607945be6fe7584b9a3756f826f1aded" version="1">Signature Arcanum: Lightning Arrow (level 3)</content>
+  <content contentuid="h72d13fe268b551f0a9cb23e4de536fc1" version="1">Choose Lightning Arrow as your Signature Arcanum spell.</content>
+  <content contentuid="h6bd1503c827455e89fc92827696e0f0c" version="1">Signature Arcanum: Lightning Arrow</content>
+  <content contentuid="ha0b77563e19056bab32536e836d9f786" version="1">Lightning Arrow (Signature)</content>
+  <content contentuid="h5c28964ba1505dac802670c2f1b11481" version="1">Signature Arcanum: Alter Self (level 2)</content>
+  <content contentuid="h6133518bc6fc50728a3c0377212e33be" version="1">Choose Alter Self as your Signature Arcanum spell.</content>
+  <content contentuid="he1b957b22aa7566c92f499b35b5cce11" version="1">Signature Arcanum: Alter Self</content>
+  <content contentuid="h6968d87c28e5566d8bd1df2c6a110e77" version="1">Alter Self (Signature)</content>
+  <content contentuid="h6b1f71e6747c5f5c9417d3eb6d50d108" version="1">Signature Arcanum: Ashardalon's Stride (level 3)</content>
+  <content contentuid="h59da7826da14588a99f485ebcf3f53ef" version="1">Choose Ashardalon's Stride as your Signature Arcanum spell.</content>
+  <content contentuid="h0f956b5472325b5eb891da05055c9384" version="1">Signature Arcanum: Ashardalon's Stride</content>
+  <content contentuid="h22e6925959a35609ab3a309088b56f11" version="1">Ashardalon's Stride (Signature)</content>
+  <content contentuid="hde69f908161b5b539aa26baf0f3764d3" version="1">Signature Arcanum: Blink (level 3)</content>
+  <content contentuid="h1e0e60dc3c0d57009a72ad5575ea0658" version="1">Choose Blink as your Signature Arcanum spell.</content>
+  <content contentuid="h5bc4203b7999589a81fd0e08469406fc" version="1">Signature Arcanum: Blink</content>
+  <content contentuid="heb6fcfc90f855905b0c8430441985b26" version="1">Blink (Signature)</content>
+  <content contentuid="h615d2382ab035d21a7c70342f7d3acfb" version="1">Signature Arcanum: Divine Favour (level 1)</content>
+  <content contentuid="ha023a3c467775aeb8735b3f52aafb7b3" version="1">Choose Divine Favour as your Signature Arcanum spell.</content>
+  <content contentuid="hfc09f1e57d9f5e6cade386214fe08267" version="1">Signature Arcanum: Divine Favour</content>
+  <content contentuid="hf0332e938f2a5ef4933e7b9ef56e914f" version="1">Divine Favour (Signature)</content>
+  <content contentuid="hec116e7d01da5ad49c599a1a59ea190d" version="1">Signature Arcanum: Expeditious Retreat (level 1)</content>
+  <content contentuid="hb26c57ef68345810b5bf3952bd93412a" version="1">Choose Expeditious Retreat as your Signature Arcanum spell.</content>
+  <content contentuid="h87a4297071975a1581bf435245ef807e" version="1">Signature Arcanum: Expeditious Retreat</content>
+  <content contentuid="h87d019d48d915a439949bf36bac9dcb0" version="1">Expeditious Retreat (Signature)</content>
+  <content contentuid="h04a01c66cda15200851968af831acb55" version="1">Signature Arcanum: Feather Fall (level 1)</content>
+  <content contentuid="h300437fd94ba527a9eb59c15645c81dc" version="1">Choose Feather Fall as your Signature Arcanum spell.</content>
+  <content contentuid="ha979d156b50c50cd861cb2460313992a" version="1">Signature Arcanum: Feather Fall</content>
+  <content contentuid="h20ba5b38b97f5644bc528e369cec0dae" version="1">Feather Fall (Signature)</content>
+  <content contentuid="h95de079cd1765e738abeccf76372a05a" version="1">Signature Arcanum: Wind Walk (level 6)</content>
+  <content contentuid="h8547ae9bf1115d8eb72594e0f6f62f93" version="1">Choose Wind Walk as your Signature Arcanum spell.</content>
+  <content contentuid="h84f1f11c9d7754cda8dba9e2f9a21c42" version="1">Signature Arcanum: Wind Walk</content>
+  <content contentuid="h10cedab2b4695e68a11fd8c4845dfa83" version="1">Wind Walk (Signature)</content>
+  <content contentuid="h79b53339c3025fda9fd0e084dee605ca" version="1">Signature Arcanum: Etherealness (level 7)</content>
+  <content contentuid="h612b851c07c750498b2348506de78bd4" version="1">Choose Etherealness as your Signature Arcanum spell.</content>
+  <content contentuid="h230d989e6eae525caabac3d848cb2d33" version="1">Signature Arcanum: Etherealness</content>
+  <content contentuid="h1f4725eea12f534d8c762334b9c917cf" version="1">Etherealness (Signature)</content>
+  <content contentuid="hea19204d29db5cdda01b231f18e57c65" version="1">Signature Arcanum: Reverse Gravity (level 7)</content>
+  <content contentuid="he2477f7188825492af8ce2fbd598f7fc" version="1">Choose Reverse Gravity as your Signature Arcanum spell.</content>
+  <content contentuid="h41305b55626d50ffad6bf4aa9ea72c92" version="1">Signature Arcanum: Reverse Gravity</content>
+  <content contentuid="h086d77a650395930a6fc8145e983ca33" version="1">Reverse Gravity (Signature)</content>
+  <content contentuid="h98020cdf379255eaad73d8f221f75987" version="1">Signature Arcanum: Sequester (level 7)</content>
+  <content contentuid="hecd9b4ffc62852569b84e148eb408293" version="1">Choose Sequester as your Signature Arcanum spell.</content>
+  <content contentuid="h327235bf687450dab8c990e40f45dbb9" version="1">Signature Arcanum: Sequester</content>
+  <content contentuid="he4622ca41ca656699cd4015d163c83fb" version="1">Sequester (Signature)</content>
+  <content contentuid="h819cabe55a4758308940abb6fd44a373" version="1">Signature Arcanum: Awaken (level 5)</content>
+  <content contentuid="h38920252852952b7b113784114b1c1d0" version="1">Choose Awaken as your Signature Arcanum spell.</content>
+  <content contentuid="h36dd8bc92e8d50bfbb3fe396370adf91" version="1">Signature Arcanum: Awaken</content>
+  <content contentuid="hd014bf41b8075530a0666ac01ecc7a30" version="1">Awaken (Signature)</content>
+  <content contentuid="hf356edad98375d5cb102644ee658748f" version="1">Signature Arcanum: Barkskin (level 2)</content>
+  <content contentuid="h49c2da77715857bd8216b4d24b82465c" version="1">Choose Barkskin as your Signature Arcanum spell.</content>
+  <content contentuid="hb75099ba378f531dbbd4ec543b023daa" version="1">Signature Arcanum: Barkskin</content>
+  <content contentuid="h5f04f6bf24855449966342b3e4f69ca4" version="1">Barkskin (Signature)</content>
+  <content contentuid="he683b1da4b035d038a799a5dc0734bf4" version="1">Signature Arcanum: Blindness (level 2)</content>
+  <content contentuid="hd531bfa60bb556db8411743711f2a367" version="1">Choose Blindness as your Signature Arcanum spell.</content>
+  <content contentuid="h02d90df4e81b5787a047f36206532c1e" version="1">Signature Arcanum: Blindness</content>
+  <content contentuid="hff212f0a75b05e18b2bf8ffda8153d80" version="1">Blindness (Signature)</content>
+  <content contentuid="hf0fb2ac006d35598a5ed20b71367ea81" version="1">Signature Arcanum: Body Warping of Gorgoroth (level 1)</content>
+  <content contentuid="h439ba2bed62156fb8f4b47ff6d6c12c7" version="1">Choose Body Warping of Gorgoroth as your Signature Arcanum spell.</content>
+  <content contentuid="ha2709ad7a0495d56bb082135655fd006" version="1">Signature Arcanum: Body Warping of Gorgoroth</content>
+  <content contentuid="hc248ffb49e325a4ab5d7d6bb4c25fb32" version="1">Body Warping of Gorgoroth (Signature)</content>
+  <content contentuid="hf0c30fc5ba66538891f48b7edddf41f3" version="1">Signature Arcanum: Darkvision (level 2)</content>
+  <content contentuid="h685bb5d6239a5e8da711c88e329a1558" version="1">Choose Darkvision as your Signature Arcanum spell.</content>
+  <content contentuid="h6e14d7c16687550c8f0fec66ace12101" version="1">Signature Arcanum: Darkvision</content>
+  <content contentuid="hd74e4cb72e2959aa9c5df7973027c9ec" version="1">Darkvision (Signature)</content>
+  <content contentuid="hb63d0ea3bbc15ff4aafc4e069359bdfe" version="1">Signature Arcanum: Flesh to Stone (level 6)</content>
+  <content contentuid="h29ebb6f2d69353229fb5f138d4bf8cf0" version="1">Choose Flesh to Stone as your Signature Arcanum spell.</content>
+  <content contentuid="hb24d39bff204594fa84d4296714a633a" version="1">Signature Arcanum: Flesh to Stone</content>
+  <content contentuid="hcb69a5589bbc5e5bbc25e4d6c10c4af5" version="1">Flesh to Stone (Signature)</content>
+  <content contentuid="ha4e2b70d7b3f5605b51773e6ee79de47" version="1">Signature Arcanum: Fly (level 3)</content>
+  <content contentuid="hc6e3af58d75b509f925b51258c61b64d" version="1">Choose Fly as your Signature Arcanum spell.</content>
+  <content contentuid="h53c9f194fbf65c6babdba5f1aab210a8" version="1">Signature Arcanum: Fly</content>
+  <content contentuid="h32d2d62529cc517e914813c381b68a8d" version="1">Fly (Signature)</content>
+  <content contentuid="h6b676266b51c5dfe96b7b9ebd18c43b4" version="1">Signature Arcanum: Gaseous Form (level 3)</content>
+  <content contentuid="he968e31fd3635744a2aafc0ff904f541" version="1">Choose Gaseous Form as your Signature Arcanum spell.</content>
+  <content contentuid="h047bbb0d535c555096ddad0ae2946d6d" version="1">Signature Arcanum: Gaseous Form</content>
+  <content contentuid="h9ff2b6becab4574299e1784323446897" version="1">Gaseous Form (Signature)</content>
+  <content contentuid="h5e4bf9aa154b5e8b9f0e229c92af1dd2" version="1">Signature Arcanum: Goodberry (level 1)</content>
+  <content contentuid="h9d86343913a85fd0b7d5a5401dcc3684" version="1">Choose Goodberry as your Signature Arcanum spell.</content>
+  <content contentuid="h93dfc0479a3556dc887c5671c41ddfea" version="1">Signature Arcanum: Goodberry</content>
+  <content contentuid="hc16cd7767f725d029a390eb11208c8dc" version="1">Goodberry (Signature)</content>
+  <content contentuid="h124282ac61fb59e3b32816c790403edb" version="1">Signature Arcanum: Haste (level 3)</content>
+  <content contentuid="hada85febdc035cab85d260d747e844ea" version="1">Choose Haste as your Signature Arcanum spell.</content>
+  <content contentuid="h2e031b46289b52ff9c79140d1fb0761f" version="1">Signature Arcanum: Haste</content>
+  <content contentuid="h794a48f10ebf5733b465c88bf583f5c0" version="1">Haste (Signature)</content>
+  <content contentuid="h700fb87ee95950c28212da806439eb57" version="1">Signature Arcanum: Heat Metal (level 2)</content>
+  <content contentuid="hc79b32ac818c536b808b53dba8b4b7d5" version="1">Choose Heat Metal as your Signature Arcanum spell.</content>
+  <content contentuid="h6b24fb1aaeaa5f8ea2211666691ebbcb" version="1">Signature Arcanum: Heat Metal</content>
+  <content contentuid="h1235cacc37815b59800723b8d17eda1f" version="1">Heat Metal (Signature)</content>
+  <content contentuid="h10c7bcdb09b5584cae4aa6d967da106c" version="1">Signature Arcanum: Enhance Leap (level 1)</content>
+  <content contentuid="h28e3941b618655158f52c37ec1f4c9c8" version="1">Choose Enhance Leap as your Signature Arcanum spell.</content>
+  <content contentuid="hb893a47123c55806af8b47d7cae8c89f" version="1">Signature Arcanum: Enhance Leap</content>
+  <content contentuid="h42356a94332550129e1ac901422097e1" version="1">Enhance Leap (Signature)</content>
+  <content contentuid="h187d6ca904985ec284b89ab5684149ef" version="1">Signature Arcanum: Knock (level 2)</content>
+  <content contentuid="hc57f744163cd5292b74fae41138c5680" version="1">Choose Knock as your Signature Arcanum spell.</content>
+  <content contentuid="hb0bccc81c87150a5b8106e9e9e7e8bcd" version="1">Signature Arcanum: Knock</content>
+  <content contentuid="hfe015a6f42955623a224cfd9cdf462b6" version="1">Knock (Signature)</content>
+  <content contentuid="h14353754c9865804a167c5288999c95c" version="1">Signature Arcanum: Longstrider (level 1)</content>
+  <content contentuid="h1c0d79d2b0b458ac8b9ec3eb48f328fe" version="1">Choose Longstrider as your Signature Arcanum spell.</content>
+  <content contentuid="hd33640a6e1c85fd383db11ca17b79cd3" version="1">Signature Arcanum: Longstrider</content>
+  <content contentuid="h610a7732643559f3b1b6d91a9625462d" version="1">Longstrider (Signature)</content>
+  <content contentuid="hdd1224482b635fb5beb41fe44201f454" version="1">Signature Arcanum: Magic Weapon (level 2)</content>
+  <content contentuid="hf46196fcebe253d59fb5a5be5862489f" version="1">Choose Magic Weapon as your Signature Arcanum spell.</content>
+  <content contentuid="h40da2784538f5824aa85e4de44c0a39b" version="1">Signature Arcanum: Magic Weapon</content>
+  <content contentuid="h67dde99ac37d52729dae0c78ac593e4e" version="1">Magic Weapon (Signature)</content>
+  <content contentuid="h3b39b1656b4a53ed92b8b01ccd6fdf07" version="1">Signature Arcanum: Plant Growth (level 3)</content>
+  <content contentuid="h5ddfdfe346c3569ea5b88338e269abbe" version="1">Choose Plant Growth as your Signature Arcanum spell.</content>
+  <content contentuid="h0249e274f3285cf1bf4408cfc55126a9" version="1">Signature Arcanum: Plant Growth</content>
+  <content contentuid="h172b48747f0955ba87c088681828836f" version="1">Plant Growth (Signature)</content>
+  <content contentuid="h1f923681d59053ddbbcc52f1aa3a2c3f" version="1">Signature Arcanum: Polymorph (level 4)</content>
+  <content contentuid="h80ab8dae4e1655b58d7e1cb2614e3313" version="1">Choose Polymorph as your Signature Arcanum spell.</content>
+  <content contentuid="h008f0adfc6ac59438a49a7010d1f7853" version="1">Signature Arcanum: Polymorph</content>
+  <content contentuid="hfcb357a8f8355da5b9207dd30b67b407" version="1">Polymorph (Signature)</content>
+  <content contentuid="h791c0ec26c305f36814d5ca625cd38b9" version="1">Signature Arcanum: Regenerate (level 7)</content>
+  <content contentuid="hb3da345d8dfc5ecd965af586897bac54" version="1">Choose Regenerate as your Signature Arcanum spell.</content>
+  <content contentuid="hb186daefc0695d7ebfc3ee29e7cb2888" version="1">Signature Arcanum: Regenerate</content>
+  <content contentuid="hc2758c0f0cb357c492385aeb10e53972" version="1">Regenerate (Signature)</content>
+  <content contentuid="hffe7a587ddeb536884f29601486d36ab" version="1">Signature Arcanum: Slow (level 3)</content>
+  <content contentuid="ha98be72530385a95b105366d7df1c823" version="1">Choose Slow as your Signature Arcanum spell.</content>
+  <content contentuid="h1bec5df138d35a0ea52b4196e7af5b76" version="1">Signature Arcanum: Slow</content>
+  <content contentuid="he842ddd0cf75542f8ee1e3dd95434c99" version="1">Slow (Signature)</content>
+  <content contentuid="hd1f836c7906559ddb57bba45db50c579" version="1">Signature Arcanum: Spike Growth (level 2)</content>
+  <content contentuid="h2465131fbbc152b3980890819bf09009" version="1">Choose Spike Growth as your Signature Arcanum spell.</content>
+  <content contentuid="h5e2e61b785e457638aa269d71a2987be" version="1">Signature Arcanum: Spike Growth</content>
+  <content contentuid="hfd19eaee30f95726a20e957fb042cb8a" version="1">Spike Growth (Signature)</content>
+  <content contentuid="hc534cfab09685820a274d63b29c60c33" version="1">Signature Arcanum: Stoneskin (level 4)</content>
+  <content contentuid="he3f3e512d7395be68640da444b161f7f" version="1">Choose Stoneskin as your Signature Arcanum spell.</content>
+  <content contentuid="hc07185993bf15e7a90dd047153990e48" version="1">Signature Arcanum: Stoneskin</content>
+  <content contentuid="hd2878525617359ffbc35ffc6096923b5" version="1">Stoneskin (Signature)</content>
+  <content contentuid="h9affe74a6a6b55579bf71c9647b86230" version="1">Signature Arcanum: Trollblood Infusion (level 3)</content>
+  <content contentuid="h68799c482c8650fa83cd987427cf13b0" version="1">Choose Trollblood Infusion as your Signature Arcanum spell.</content>
+  <content contentuid="hf683ffb7bd655f43bbe9997f7205c81f" version="1">Signature Arcanum: Trollblood Infusion</content>
+  <content contentuid="h678329c0d2405fca86f77881771d954a" version="1">Trollblood Infusion (Signature)</content>
+  <content contentuid="h04d38a403b2551b8aa64c4c8b6310cb5" version="1">Signature Arcanum: Telekinesis (level 5)</content>
+  <content contentuid="h5453f489df915bb3a86aa3d2da391857" version="1">Choose Telekinesis as your Signature Arcanum spell.</content>
+  <content contentuid="h58e99fad4371514f8bd07e992702a257" version="1">Signature Arcanum: Telekinesis</content>
+  <content contentuid="he6847c2d837b53f28b97bbc23eec22b1" version="1">Telekinesis (Signature)</content>
   <content contentuid="he6e9de9eebcb5dd08741fa61b7f4ff84" version="1">Epic Boon: +1 Strength</content>
   <content contentuid="ha39ad8d5c9ee53daa6a06db17a4a78c6" version="1">Increase your Strength score by 1 (to a maximum of 30).</content>
   <content contentuid="h7acac08143b1543485a027c1f009bfc4" version="1">Epic Boon: +1 Dexterity</content>
@@ -1006,4 +2238,24 @@
   <content contentuid="hea67f5a5c78c5253a22695d868137a32" version="1">Your pool of ten d10s for Recover Vitality. Returns on a Long Rest.</content>
   <content contentuid="h55eaa29ec16d5a66b3d1d3274e0fc5ab" version="1">Boon of Skill Expertise</content>
   <content contentuid="h5420cab05ba05802a240883286702b8f" version="1">Choose the skill you gain Expertise in.</content>
+  <content contentuid="h60786509e6a352c7b27e64e36c24abd0" version="1">Fortune's Favor</content>
+  <content contentuid="hb3b26de01ad55c9ca28f9d134928b62f" version="1">Reroll a failed saving throw. Returns at the start of your turn.</content>
+  <content contentuid="hce8969353cb65a478b769c1a0bc1c1d3" version="1">Inspire Dance</content>
+  <content contentuid="hdc030739bcd951c6bcfe258b2b1a8c19" version="1">Cast Otto's Irresistible Dance without a spell slot. Returns on a Long Rest.</content>
+  <content contentuid="hbb21fba149475de0813a18b1b4d7a6d9" version="1">Flee, Fools!</content>
+  <content contentuid="h36abed609f1e5c1da842562b98d8713e" version="1">Stoke a Frightened creature's terror. Returns on a Short or Long Rest.</content>
+  <content contentuid="hbd43ffbb585359849a1bd08027061b0a" version="1">Siphon Life</content>
+  <content contentuid="h1544e676635453f6b055b36e85af08c6" version="1">Regain 50 Hit Points when an enemy drops. Returns on a Short or Long Rest.</content>
+  <content contentuid="hce69e38970c85cb7a9aa851f1675bd77" version="1">Spell Overload</content>
+  <content contentuid="h505c5009b0655c7d9a107e746e9c9e6e" version="1">Surge a damaging spell. Returns when you roll Initiative or finish a rest.</content>
+  <content contentuid="h4f15314c55865aacb26e4c0684ff307c" version="1">Shapechanger</content>
+  <content contentuid="h7aca9869ac255876877d9414a09921a2" version="1">Shape-shift into another creature. Returns on a Long Rest.</content>
+  <content contentuid="h1e79ef64561d559c9089c1cb16c3e464" version="1">Mastered School</content>
+  <content contentuid="h3c82103a13245728ae1c7356e1b92c2b" version="1">Choose your Boon of Magic School Mastery school.</content>
+  <content contentuid="hcbde9f64e76c5de794709041fa252bad" version="1">Rote Casting</content>
+  <content contentuid="hb1b3f24f29175f3c86a379d76f2eab30" version="1">Choose your Rote Casting spell.</content>
+  <content contentuid="he50131668c3350248d6a2c8fe6d29700" version="1">Signature Arcanum</content>
+  <content contentuid="h85612fcf2a2c5c41bfcb14933e6cf244" version="1">Choose your Signature Arcanum spell.</content>
+  <content contentuid="h84317bb9543e5276ac1e478dda3461d4" version="1">Signature Arcanum</content>
+  <content contentuid="hd9456f70302e54c1864cd61b535d2cae" version="1">Cast your Signature Arcanum without a spell slot. Returns on a Long Rest.</content>
 </contentList>

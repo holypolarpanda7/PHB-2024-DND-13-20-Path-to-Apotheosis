@@ -210,3 +210,246 @@ ai_rounds = 4
 spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 8 }, { as = "B", template = "wolf", faction = "friendly", hp = 300, distance = 6 }]
 setup = [{ target = "host", max_hp = 300 }, { target = "A", boost = "AC(30)" }]
 expect = [{ cast_only = "B" }, { target = "A", damage_count = { by = "B", count = [0, 1] } }]
+
+# --- phase 2: Heroes of Faerun + Arcana Unleashed (References/Feats/EpicBoons.txt) -------------------------
+# Host: Tavizard, wizard 3, max 20 HP. Melee cases block the target's Reaction (an opportunity attack cancels them).
+
+[[case]]
+id = "boon2-bloodshed-power-from-pain"
+title = "Boon of Bloodshed: Power from Pain - a hit while Bloodied adds the Proficiency Bonus (+2)"
+spell = "Target_MainHandAttack"
+target = "A"
+real_rolls = true
+safety = false
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 1.2 }]
+setup = [{ target = "host", hp = 8 }, { target = "host", boost = "Ability(Strength,20)" }, { target = "host", boost = "RollBonus(Attack,30)" }, { target = "host", passive = "EpicBoon_Bloodshed" }, { target = "A", boost = "ActionResourceBlock(ReactionActionPoint)" }]
+expect = [{ target = "host", status_applied = ["EPIC_POWER_FROM_PAIN_USED"] }, { target = "A", hp_change = [-19, -12] }]
+notes = "Quarterstaff 1d6/1d8 + 9 = 10-17, plus 2."
+
+[[case]]
+id = "boon2-bloodshed-killers-fortune"
+title = "Boon of Bloodshed: Killer's Fortune - an enemy you see drop gives you Advantage on your next attack"
+spell = "Target_MainHandAttack"
+target = "A"
+real_rolls = true
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 1, distance = 1.2 }]
+setup = [{ target = "host", boost = "RollBonus(Attack,30)" }, { target = "host", passive = "EpicBoon_Bloodshed" }, { target = "A", boost = "ActionResourceBlock(ReactionActionPoint)" }]
+expect = [{ target = "A", dead = true }, { target = "host", status_applied = ["EPIC_KILLERS_FORTUNE"] }]
+
+[[case]]
+id = "boon2-bountiful-health-augmented"
+title = "Boon of Bountiful Health: Augmented Health - gaining Temporary Hit Points adds 5 more"
+spell = "Shout_FalseLife"
+target = "host"
+setup = [{ target = "host", passive = "EpicBoon_BountifulHealth" }]
+expect = [{ target = "host", temp_hp = [11, 30] }]
+notes = "False Life alone gives 2d4+4 (6-12) or its 2024 value; with the boon at least 11."
+
+[[case]]
+id = "boon2-bountiful-health-recuperation"
+title = "Boon of Bountiful Health: Superior Recuperation - a Hit Point Die heals its maximum"
+spell = "Shout_HitPointDice06"
+target = "host"
+setup = [{ target = "host", passive = "EpicBoon_BountifulHealth" }, { target = "host", hp = 1 }]
+expect = [{ target = "host", status_applied = ["EPIC_SUPERIOR_RECUPERATION"] }, { target = "host", hp_change = [5, 9] }]
+notes = "1d6 + Constitution modifier, maximized: 6 + Con (Tavizard's Con modifier is -1 to +3)."
+
+[[case]]
+id = "boon2-communication-ability"
+title = "Boon of Communication (+1 Intelligence): the boon's own ability increase"
+grant_passive = "EpicBoon_Communication_Int"
+expect = [{ target = "host", ability = "Intelligence", change = 1 }]
+
+[[case]]
+id = "boon2-desperate-resilience"
+title = "Boon of Desperate Resilience: while Bloodied, Fire damage is halved (1d10+10 -> 5-10)"
+spell = "Projectile_FireBolt"
+caster = "A"
+target = "host"
+safety = false
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 4 }]
+setup = [{ target = "host", remove_status = "ARCANE_WARD*" }, { target = "host", max_hp = 100 }, { target = "host", passive = "EpicBoon_DesperateResilience_Con" }, { target = "host", hp = 40 }, { target = "A", boost = "DamageBonus(10)" }]
+expect = [{ target = "host", hp_change = [-10, -5] }]
+notes = "The flat +10 keeps halved (5-10) and full (11-20) damage apart, so one roll decides it."
+
+[[case]]
+id = "boon2-desperate-resilience-control"
+title = "Control: not Bloodied, the same Fire Bolt isn't halved (1d10+10 -> 11-20)"
+spell = "Projectile_FireBolt"
+caster = "A"
+target = "host"
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 4 }]
+setup = [{ target = "host", remove_status = "ARCANE_WARD*" }, { target = "host", max_hp = 100 }, { target = "host", passive = "EpicBoon_DesperateResilience_Con" }, { target = "A", boost = "DamageBonus(10)" }]
+expect = [{ target = "host", hp_change = [-20, -11] }]
+
+[[case]]
+id = "boon2-exquisite-radiance"
+title = "Boon of Exquisite Radiance: Powerful Radiance maximizes a Radiant roll (Guiding Bolt 4d6 = 24) once"
+spell = "Projectile_GuidingBolt"
+target = "A"
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 6 }]
+setup = [{ target = "host", passive = "EpicBoon_ExquisiteRadiance" }, { target = "host", status = "EPIC_POWERFUL_RADIANCE", turns = -1 }]
+expect = [{ target = "A", hp_change = [-24, -24] }, { target = "host", status_absent = ["EPIC_POWERFUL_RADIANCE"] }]
+
+[[case]]
+id = "boon2-fluid-forms"
+title = "Boon of Fluid Forms: Shapechanger into a Dire Wolf with 37 + 20 Temporary Hit Points"
+spell = "Shout_EpicBoon_FluidForms_DireWolf"
+target = "host"
+setup = [{ target = "host", passive = "EpicBoon_FluidForms_Int" }]
+expect = [{ target = "host", status_present = ["TRUE_POLYMORPH_DIREWOLF", "TRUE_POLYMORPH_TEMPHP_DIREWOLF_HARDY"] }, { target = "host", temp_hp = [57, 57] }]
+
+[[case]]
+id = "boon2-poison-mastery-antitoxic"
+title = "Boon of Poison Mastery: Antitoxic - Ray of Sickness deals no Poison damage and doesn't poison"
+spell = "Projectile_RayOfSickness"
+caster = "A"
+target = "host"
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 4 }]
+setup = [{ target = "host", remove_status = "ARCANE_WARD*" }, { target = "host", max_hp = 100 }, { target = "host", passive = "EpicBoon_PoisonMastery" }]
+expect = [{ target = "host", hp_change = [0, 0] }, { target = "host", status_absent = ["POISONED"] }]
+
+[[case]]
+id = "boon2-poison-mastery-perfect"
+title = "Boon of Poison Mastery: Perfect Poisoner maximizes a Poison roll (Ray of Sickness 3d8 = 24)"
+spell = "Projectile_RayOfSickness"
+target = "A"
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 6 }]
+setup = [{ target = "host", passive = "EpicBoon_PoisonMastery" }, { target = "host", status = "EPIC_PERFECT_POISONER", turns = -1 }]
+expect = [{ target = "A", hp_change = [-24, -24] }]
+
+[[case]]
+id = "boon2-revelry"
+title = "Boon of Revelry: Inspire Dance - the free dance charms, Sings Out (no verbal spells) and protects your Concentration"
+spell = "Target_EpicBoon_IrresistibleDance"
+target = "A"
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 6 }]
+setup = [{ target = "host", passive = "EpicBoon_Revelry_Cha" }]
+expect = [{ target = "A", status_present = ["IRRESISTIBLE_DANCE", "EPIC_SING_OUT"] }, { target = "host", status_applied = ["EPIC_REVELRY_FOCUS"] }]
+
+[[case]]
+id = "boon2-terror-fearless"
+title = "Boon of Terror: Fearless (Frightened can't be applied) and Intimidating (proficiency + Expertise)"
+grant_passive = "EpicBoon_Terror_Cha"
+setup = [{ target = "host", passive = "EpicBoon_Terror_Cha" }, { target = "host", status = "FRIGHTENED", turns = 5 }]
+expect = [{ target = "host", status_absent = ["FRIGHTENED"] }]
+
+[[case]]
+id = "boon2-terror-intimidation"
+title = "Boon of Terror: Intimidating - +4 Intimidation (proficiency and Expertise) for a non-proficient character"
+grant_passive = "EpicBoon_Terror_Cha"
+expect = [{ target = "host", skill = "Intimidation", change = 4 }]
+
+[[case]]
+id = "boon2-terror-flee-fools"
+title = "Boon of Terror: Flee, Fools! - a Frightened enemy starting its turn nearby triggers the Reaction"
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 6 }]
+setup = [{ target = "host", max_hp = 300 }, { target = "host", passive = "EpicBoon_Terror_Cha" }, { target = "A", status = "FRIGHTENED", turns = 10 }]
+end_turns = 2
+expect = [{ cast = "Target_EpicBoon_FleeFools" }]
+
+[[case]]
+id = "boon2-bright-sun"
+title = "Boon of the Bright Sun: Daylight Presence, and Fortifying Light gives 10 Temporary Hit Points at your turn's start"
+spell = "Shout_EpicBoon_DaylightPresence"
+target = "host"
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 12 }]
+setup = [{ target = "host", max_hp = 300 }, { target = "host", passive = "EpicBoon_BrightSun_Wis" }, { target = "A", boost = "ActionResourceBlock(ActionPoint);ActionResourceBlock(BonusActionPoint)" }]
+end_turns = 1
+expect = [{ target = "host", status_present = ["EPIC_DAYLIGHT_PRESENCE"] }, { target = "host", status_applied = ["EPIC_FORTIFYING_LIGHT"] }, { target = "host", temp_hp = [10, 30] }]
+
+[[case]]
+id = "boon2-furious-storm-resistance"
+title = "Boon of the Furious Storm: Lightning resistance - Shocking Grasp is halved"
+spell = "Target_ShockingGrasp"
+caster = "A"
+target = "host"
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 1.2 }]
+setup = [{ target = "host", remove_status = "ARCANE_WARD*" }, { target = "host", max_hp = 100 }, { target = "host", passive = "EpicBoon_FuriousStorm_Int" }, { target = "host", boost = "ActionResourceBlock(ReactionActionPoint)" }]
+expect = [{ target = "host", hp_change = [-4, 0] }]
+
+[[case]]
+id = "boon2-furious-storm-strength"
+title = "Boon of the Furious Storm: Storm's Strength - targets save against your Thunderwave with Disadvantage"
+spell = "Zone_Thunderwave"
+target = "A"
+real_rolls = true
+repeat = 2
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 2 }]
+setup = [{ target = "host", passive = "EpicBoon_FuriousStorm_Int" }]
+expect = [{ target = "A", saves = { ability = "Constitution", spell_only = true, n = [1, 9], disadvantage = true } }]
+
+[[case]]
+id = "boon2-furious-storm-strength-control"
+title = "Control: Storm's Strength leaves saves against your other spells alone (Sacred Flame, Radiant)"
+spell = "Target_SacredFlame"
+target = "A"
+real_rolls = true
+repeat = 2
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 4 }]
+setup = [{ target = "host", passive = "EpicBoon_FuriousStorm_Int" }]
+expect = [{ target = "A", saves = { ability = "Dexterity", spell_only = true, n = [1, 9], disadvantage = false } }]
+
+[[case]]
+id = "boon2-soul-drinker-siphon"
+title = "Boon of the Soul Drinker: Siphon Life - an enemy dropping heals you 50 (Reaction)"
+spell = "Target_MainHandAttack"
+target = "A"
+real_rolls = true
+safety = false
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 1, distance = 1.2 }]
+setup = [{ target = "host", hp = 1 }, { target = "host", boost = "RollBonus(Attack,30)" }, { target = "host", passive = "EpicBoon_SoulDrinker" }, { target = "A", boost = "ActionResourceBlock(ReactionActionPoint)" }]
+expect = [{ target = "A", dead = true }, { target = "host", status_applied = ["EPIC_SIPHON_LIFE"] }, { target = "host", hp_change = [10, 99] }]
+
+[[case]]
+id = "boon2-erupting-spellpower"
+title = "Boon of Erupting Spellpower: Spell Overload - Magic Missile's darts treat 1-2 as 3 and the target is knocked Prone"
+spell = "Projectile_MagicMissile"
+target = "A"
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 6 }]
+setup = [{ target = "host", passive = "EpicBoon_EruptingSpellpower_Int" }]
+casts = [{ spell = "Shout_EpicBoon_SpellOverload", target = "host" }]
+expect = [{ target = "A", status_applied = ["PRONE"] }, { target = "A", hp_change = [-15, -12] }, { resource = "EpicBoonOverload", level = 0, amount_change = -1 }]
+notes = "Three darts of 1d4+1, each die at least 3: 4-5 per dart, 12-15 total."
+
+[[case]]
+id = "boon2-iron-mind"
+title = "Boon of the Iron Mind: damage doesn't break Concentration (Bless survives a hit with Constitution saves auto-failing)"
+spell = "Projectile_FireBolt"
+caster = "A"
+target = "host"
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 4 }]
+setup = [{ target = "host", remove_status = "ARCANE_WARD*" }, { target = "host", max_hp = 100 }, { target = "host", passive = "EpicBoon_IronMind" }, { target = "host", boost = "AbilityFailedSavingThrow(Constitution)" }]
+casts = [{ spell = "Target_Bless", target = "host" }]
+expect = [{ target = "host", status_present = ["BLESS"] }]
+
+[[case]]
+id = "boon2-iron-mind-control"
+title = "Control: without the boon the same hit breaks the Concentration on Bless"
+spell = "Projectile_FireBolt"
+caster = "A"
+target = "host"
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 4 }]
+setup = [{ target = "host", remove_status = "ARCANE_WARD*" }, { target = "host", max_hp = 100 }, { target = "host", boost = "AbilityFailedSavingThrow(Constitution)" }]
+casts = [{ spell = "Target_Bless", target = "host" }]
+expect = [{ target = "host", status_absent = ["BLESS"] }]
+
+[[case]]
+id = "boon2-msm-rote"
+title = "Boon of Magic School Mastery: Evocation, Rote Casting Magic Missile - cast with no spell slot"
+spell = "Projectile_MagicMissile_EpicRote"
+target = "A"
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 6 }]
+setup = [{ target = "host", passive = "EpicBoon_MagicSchoolMastery_Int" }]
+casts = [{ spell = "Shout_EpicBoon_MSM_School_Evocation", target = "host" }, { spell = "Shout_EpicBoon_MSM_RotePick_Projectile_MagicMissile", target = "host", wait = 3 }]
+expect = [{ target = "host", status_present = ["EPIC_MSM_EVOCATION", "EPIC_MSM_ROTE_PROJECTILE_MAGICMISSILE"] }, { cast = true }, { target = "A", hp_change = [-15, -6] }, { resource = "SpellSlot", level = 1, change = 0 }]
+
+[[case]]
+id = "boon2-msm-signature"
+title = "Boon of Magic School Mastery: Signature Arcanum Fireball - cast once per Long Rest without a spell slot"
+spell = "Projectile_Fireball_EpicSignature"
+target = "A"
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 8 }]
+setup = [{ target = "host", max_hp = 300 }, { target = "host", passive = "EpicBoon_MagicSchoolMastery_Int" }]
+casts = [{ spell = "Shout_EpicBoon_MSM_School_Evocation", target = "host" }, { spell = "Shout_EpicBoon_MSM_SigPick_Projectile_Fireball", target = "host", wait = 3 }]
+expect = [{ target = "host", status_present = ["EPIC_MSM_SIG_PROJECTILE_FIREBALL"] }, { cast = true }, { resource = "SpellSlot", level = 3, change = 0 }, { resource = "EpicBoonSignature", level = 0, change = -1 }]

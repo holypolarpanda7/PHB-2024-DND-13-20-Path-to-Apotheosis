@@ -16,6 +16,7 @@ Script Extender halves live in ScriptExtender/Lua/EpicBoons.lua.
 Run: python3 Scripts/gen_epic_boons.py
 """
 import glob
+import json
 import os
 import re
 import uuid
@@ -50,6 +51,16 @@ SKILLS = ["Acrobatics", "AnimalHandling", "Arcana", "Athletics", "Deception", "H
 SKILL_NAME = {"AnimalHandling": "Animal Handling", "SleightOfHand": "Sleight of Hand"}
 NIGHT_RESIST = ["Acid", "Bludgeoning", "Cold", "Fire", "Force", "Lightning", "Necrotic", "Piercing", "Poison", "Slashing", "Thunder"]
 DARK = "(HasObscuredState(ObscuredState.HeavilyObscured) or HasObscuredState(ObscuredState.LightlyObscured))"
+# Bloodied for defensive boosts (resistances): the BLOODED status on the owner (context.Source), as dnd55e writes its
+# status-conditioned resistances (SG_Rage, LAND_*). An HP-percentage condition there didn't follow HP (2026-10-02).
+BLOODIED = "HasStatus('BLOODED', context.Source)"
+# IF() boosts are only re-evaluated on their passive's BoostContext events - without one the condition stays as it was
+# when the passive was added (dnd55e Fractured_6_BrainsAndBrawn: OnStatusApplied;OnStatusRemoved)
+BLOODIED_CONTEXT = "OnStatusApplied;OnStatusRemoved"
+ALL_DAMAGE = ["Acid", "Bludgeoning", "Cold", "Fire", "Lightning", "Necrotic", "Piercing", "Poison", "Psychic", "Radiant", "Slashing", "Thunder"]
+SCHOOLS = ["Abjuration", "Conjuration", "Divination", "Enchantment", "Evocation", "Illusion", "Necromancy", "Transmutation"]
+MENTAL = ["Intelligence", "Wisdom", "Charisma"]
+QUIET = "DisableOverhead;DisableCombatlog;DisablePortraitIndicator"
 
 RESOURCES = [  # name, max, replenish, display, description
     ("EpicBoonPeerlessAim", 1, "Turn", "Peerless Aim", "Turn a missed attack into a hit. Returns at the start of your turn."),
@@ -57,6 +68,17 @@ RESOURCES = [  # name, max, replenish, display, description
     ("EpicBoonEnergyChoice", 2, "Rest", "Energy Resistance Choices", "Choose your two Boon of Energy Resistance damage types. Resets on a Long Rest."),
     ("EpicBoonRecoveryDie", 10, "Rest", "Recover Vitality Dice", "Your pool of ten d10s for Recover Vitality. Returns on a Long Rest."),
     ("EpicBoonExpertiseChoice", 1, "Never", "Boon of Skill Expertise", "Choose the skill you gain Expertise in."),
+    # phase 2 (Heroes of Faerun, Arcana Unleashed)
+    ("EpicBoonFortune", 1, "Turn", "Fortune's Favor", "Reroll a failed saving throw. Returns at the start of your turn."),
+    ("EpicBoonRevelry", 1, "Rest", "Inspire Dance", "Cast Otto's Irresistible Dance without a spell slot. Returns on a Long Rest."),
+    ("EpicBoonTerror", 1, "ShortRest", "Flee, Fools!", "Stoke a Frightened creature's terror. Returns on a Short or Long Rest."),
+    ("EpicBoonSoulDrinker", 1, "ShortRest", "Siphon Life", "Regain 50 Hit Points when an enemy drops. Returns on a Short or Long Rest."),
+    ("EpicBoonOverload", 1, "ShortRest", "Spell Overload", "Surge a damaging spell. Returns when you roll Initiative or finish a rest."),
+    ("EpicBoonFluidForms", 1, "Rest", "Shapechanger", "Shape-shift into another creature. Returns on a Long Rest."),
+    ("EpicBoonMSMSchool", 1, "Never", "Mastered School", "Choose your Boon of Magic School Mastery school."),
+    ("EpicBoonRoteChoice", 1, "Never", "Rote Casting", "Choose your Rote Casting spell."),
+    ("EpicBoonSignatureChoice", 1, "Never", "Signature Arcanum", "Choose your Signature Arcanum spell."),
+    ("EpicBoonSignature", 1, "Rest", "Signature Arcanum", "Cast your Signature Arcanum without a spell slot. Returns on a Long Rest."),
 ]
 
 
@@ -199,14 +221,14 @@ S.append(entry("EPIC_LAST_STAND_DOWNED", "StatusData", {
     "OnApplyFunctors": "RemoveStatus(EPIC_LAST_STAND);RegainHitPoints(1,Guaranteed)"}, using="RELENTLESS_ENDURANCE_DOWNED"))
 SP.append(entry("Shout_EpicBoon_RecoverVitality", "SpellData", {
     "SpellType": "Shout", "Level": "0", "DisplayName": h("Vitality:n", "Recover Vitality"),
-    "Description": h("Vitality:d", "Spend d10s from your Recover Vitality pool to regain Hit Points."), "Icon": "Action_SecondWind",
+    "Description": h("Vitality:d", "Spend d10s from your Recover Vitality pool to regain Hit Points."), "Icon": "Skill_Fighter_SecondWind",
     "ContainerSpells": ";".join(f"Shout_EpicBoon_RecoverVitality_{n}" for n in (1, 2, 3, 5, 10)), "SpellFlags": "IsLinkedSpellContainer",
     "UseCosts": "BonusActionPoint:1;EpicBoonRecoveryDie:1", "TargetConditions": "Self()"}))
 for n in (1, 2, 3, 5, 10):
     SP.append(entry(f"Shout_EpicBoon_RecoverVitality_{n}", "SpellData", {
         "SpellType": "Shout", "Level": "0", "SpellContainerID": "Shout_EpicBoon_RecoverVitality",
         "DisplayName": h(f"Vitality{n}:n", f"Recover Vitality ({n}d10)"), "Description": h(f"Vitality{n}:d", f"Spend {n} dice: regain {n}d10 Hit Points."),
-        "Icon": "Action_SecondWind", "UseCosts": f"BonusActionPoint:1;EpicBoonRecoveryDie:{n}", "TargetConditions": "Self()",
+        "Icon": "Skill_Fighter_SecondWind", "UseCosts": f"BonusActionPoint:1;EpicBoonRecoveryDie:{n}", "TargetConditions": "Self()",
         "SpellProperties": f"RegainHitPoints({n}d10)", "TooltipDamageList": f"RegainHitPoints({n}d10)"}))
 
 boon("EpicBoon_Skill", "Boon of Skill",
@@ -254,6 +276,247 @@ S.append(entry("EPIC_MERGE_WITH_SHADOWS", "StatusData", {
 boon("EpicBoon_Truesight", "Boon of Truesight", "Truesight: you have Truesight with a range of 60 feet.",
      {"StatsFunctorContext": "OnCreate;OnLongRest;OnShortRest", "StatsFunctors": "ApplyStatus(SELF,TRUESIGHT,100,-1)"})
 
+# ---------------------------------------------------------------- phase 2: Heroes of Faerun + Arcana Unleashed
+# References/Feats/EpicBoons.txt. Script Extender halves in EpicBoons.lua (search "phase 2").
+
+def st(name, fields, using=None, comment=None):
+    S.append(entry(name, "StatusData", {"StatusType": "BOOST", "Icon": "PassiveFeature_Generic_Magical",
+                                        "StatusPropertyFlags": QUIET, **fields}, using=using, comment=comment))
+
+
+boon("EpicBoon_Bloodshed", "Boon of Bloodshed",
+     "Killer's Fortune: when an enemy you can see is reduced to 0 Hit Points, you have Advantage on your next attack roll before the end of your next turn. Power from Pain: once per turn, when you hit with an attack roll while Bloodied, deal extra damage equal to your Proficiency Bonus of the attack's type.",
+     {"Boosts": None})
+st("EPIC_KILLERS_FORTUNE", {"DisplayName": h("Killers:n", "Killer's Fortune"), "Description": h("Killers:d", "Advantage on your next attack roll."),
+                            "Boosts": "Advantage(AttackRoll)", "RemoveEvents": "OnAttack", "RemoveConditions": "IsAttack()",
+                            "StatusPropertyFlags": None})
+st("EPIC_POWER_FROM_PAIN_USED", {"DisplayName": h("PainUsed:n", "Power from Pain used")})
+
+boon("EpicBoon_BountifulHealth", "Boon of Bountiful Health",
+     "Augmented Health: whenever you gain Temporary Hit Points, you gain 5 more. Superior Recuperation: when you spend Hit Point Dice to regain Hit Points, each die heals its maximum.",
+     {"Boosts": None})
+st("EPIC_SUPERIOR_RECUPERATION", {"DisplayName": h("Recup:n", "Superior Recuperation"), "Boosts": "MaximizeHealing(Incoming)"})
+
+boon("EpicBoon_Communication", "Boon of Communication",
+     "Cunning Speaker, Gifted Interpreter and Mental Communication (telepathy 120 feet). BG3 has no hostile-influence penalty, language barrier or telepathy, so this boon gives only its ability increase.",
+     {"Boosts": None}, variants=MENTAL)
+
+boon("EpicBoon_DesperateResilience", "Boon of Desperate Resilience",
+     "Defense of Body and Mind: while you are Bloodied, you have Resistance to every damage type except Force.",
+     {"Boosts": ";".join(f"IF({BLOODIED}):Resistance({d},Resistant)" for d in ALL_DAMAGE), "BoostContext": BLOODIED_CONTEXT},
+     variants=["Strength", "Constitution"])
+
+boon("EpicBoon_ExquisiteRadiance", "Boon of Exquisite Radiance",
+     "Powerful Radiance: once per Long Rest, when you roll Radiant damage, each die rolls its maximum. Eternal Rest (creatures you kill can't become Undead) has no BG3 equivalent.",
+     {"StatsFunctorContext": "OnCreate;OnLongRest", "StatsFunctors": "ApplyStatus(SELF,EPIC_POWERFUL_RADIANCE,100,-1)"})
+st("EPIC_POWERFUL_RADIANCE", {"DisplayName": h("Radiance:n", "Powerful Radiance"),
+                              "Description": h("Radiance:d", "Your next Radiant damage roll uses the highest number on each die."),
+                              "Boosts": "IF(MainDamageTypeIs(DamageType.Radiant)):MinimumRollResult(Damage,20)",
+                              "StatusPropertyFlags": "IgnoreResting"}, comment="EpicBoons.lua removes it after one Radiant damage roll.")
+
+boon("EpicBoon_FluidForms", "Boon of Fluid Forms",
+     "Shapechanger: once per Long Rest, as a Magic action, shape-shift into a Beast or Monstrosity for 1 hour, gaining Temporary Hit Points equal to the form's Hit Points plus 20 (Hardy Transformation). It ends when they run out or you take a Magic action to revert.",
+     {"Boosts": "UnlockSpell(Shout_EpicBoon_FluidForms);UnlockSpell(Shout_EpicBoon_FluidForms_Revert);ActionResource(EpicBoonFluidForms,1,0)"},
+     variants=MENTAL)
+FLUID = [("Sheep", "SHEEP", 3), ("DireWolf", "DIREWOLF", 37), ("ShadowMastiff", "SHADOWMASTIFF", 33),
+         ("PhaseSpider", "PHASESPIDER", 24), ("Minotaur", "MINOTAUR", 84)]  # the True Polymorph forms (#20)
+SP.append(entry("Shout_EpicBoon_FluidForms", "SpellData", {
+    "SpellType": "Shout", "Level": "0", "DisplayName": h("Fluid:n", "Shapechanger"),
+    "Description": h("Fluid:d", "Shape-shift into another creature for 1 hour."), "Icon": "Spell_Transmutation_Polymorph",
+    "ContainerSpells": ";".join(f"Shout_EpicBoon_FluidForms_{k}" for k, _, _ in FLUID), "SpellFlags": "IsLinkedSpellContainer",
+    "UseCosts": "ActionPoint:1;EpicBoonFluidForms:1", "TargetConditions": "Self()"}))
+for k, form, hp in FLUID:
+    SP.append(entry(f"Shout_EpicBoon_FluidForms_{k}", "SpellData", {
+        "SpellType": "Shout", "Level": "0", "SpellContainerID": "Shout_EpicBoon_FluidForms",
+        "DisplayName": h(f"Fluid{k}:n", f"Shapechanger: {k}"), "Description": h(f"Fluid{k}:d", f"Become a {k} ({hp} + 20 temporary Hit Points)."),
+        "Icon": "Spell_Transmutation_Polymorph", "UseCosts": "ActionPoint:1;EpicBoonFluidForms:1", "TargetConditions": "Self()",
+        "SpellProperties": f"ApplyStatus(SELF,TRUE_POLYMORPH_{form},100,600)"}))
+    st(f"TRUE_POLYMORPH_TEMPHP_{form}_HARDY", {"DisplayName": h(f"Hardy{k}:n", "Hardy Transformation"),
+                                              "Boosts": f"TemporaryHP({hp + 20})", "StackId": "TRUE_POLYMORPH_TEMPHP", "StackType": "Overwrite"},
+       comment="Boon of Fluid Forms: the form's HP + 20. TruePolymorph.lua applies it for a self-cast Fluid Forms shape.")
+SP.append(entry("Shout_EpicBoon_FluidForms_Revert", "SpellData", {
+    "SpellType": "Shout", "Level": "0", "DisplayName": h("FluidRevert:n", "Return to True Form"),
+    "Description": h("FluidRevert:d", "End your Shapechanger form."), "Icon": "Spell_Transmutation_Polymorph",
+    "UseCosts": "ActionPoint:1", "TargetConditions": "Self()",
+    "RequirementConditions": " or ".join(f"HasStatus('TRUE_POLYMORPH_{f}')" for _, f, _ in FLUID),
+    "SpellProperties": ";".join(f"RemoveStatus(SELF,TRUE_POLYMORPH_{f})" for _, f, _ in FLUID)}))
+
+boon("EpicBoon_FortunesFavor", "Boon of Fortune's Favor",
+     "Saving Throw Reroll: when you fail a saving throw, you can reroll it and must use the new roll. Once you use this, you can't again until the start of your next turn.",
+     {"Boosts": "UnlockInterrupt(Interrupt_EpicBoon_FortunesFavor);ActionResource(EpicBoonFortune,1,0)"})
+I.append(entry("Interrupt_EpicBoon_FortunesFavor", "InterruptData", {
+    "DisplayName": h("Fortune:n", "Fortune's Favor"), "Description": h("Fortune:d", "You failed a saving throw: reroll it."),
+    "Icon": "PassiveFeature_Generic_Magical", "InterruptContext": "OnPostRoll", "InterruptContextScope": "Self", "Container": "YesNoDecision",
+    "Conditions": "not Dead(context.Observer) and HasInterruptedSavingThrow() and Self(context.Observer,context.Target) and not AnyEntityIsItem() and IsRerollInterruptInteresting()",
+    "Properties": "SetReroll(19,true)", "Cost": "EpicBoonFortune:1", "InterruptDefaultValue": "Ask;Enabled"},
+    comment="As base Fighter Indomitable (SetReroll(19,true) = reroll, use the new roll)."))
+
+boon("EpicBoon_PoisonMastery", "Boon of Poison Mastery",
+     "Antitoxic: Immunity to Poison damage and the Poisoned condition. Perfect Poisoner: once per turn, when you roll Poison damage, each die rolls its maximum.",
+     {"Boosts": "Resistance(Poison,Immune);StatusImmunity(SG_Poisoned)",
+      "StatsFunctorContext": "OnCreate", "StatsFunctors": "ApplyStatus(SELF,EPIC_PERFECT_POISONER,100,-1)"})
+st("EPIC_PERFECT_POISONER", {"DisplayName": h("Poisoner:n", "Perfect Poisoner"),
+                             "Boosts": "IF(MainDamageTypeIs(DamageType.Poison)):MinimumRollResult(Damage,20)", "StatusPropertyFlags": "IgnoreResting"},
+   comment="EpicBoons.lua removes it after a Poison damage roll and restores it at the start of your turn.")
+
+boon("EpicBoon_Revelry", "Boon of Revelry",
+     "Inspire Dance: you always have Otto's Irresistible Dance prepared and can cast it once per Long Rest without a slot or components; damage doesn't break your Concentration on it. Sing Out: a creature charmed by your dance can't cast spells with Verbal components.",
+     {"Boosts": "UnlockSpell(Target_IrresistibleDance);UnlockSpell(Target_EpicBoon_IrresistibleDance);ActionResource(EpicBoonRevelry,1,0)"},
+     variants=MENTAL)
+SP.append(entry("Target_EpicBoon_IrresistibleDance", "SpellData", {
+    "DisplayName": h("Dance:n", "Inspire Dance"), "Description": h("Dance:d", "Otto's Irresistible Dance, without a spell slot or components."),
+    "UseCosts": "ActionPoint:1;EpicBoonRevelry:1",
+    "SpellFlags": "HasHighGroundRangeExtension;IsConcentration;IsSpell;CannotTargetItems;CannotTargetTerrain;IsHarmful"},
+    using="Target_IrresistibleDance"))
+st("EPIC_REVELRY_FOCUS", {"DisplayName": h("RevFocus:n", "Inspire Dance"), "Boosts": "ConcentrationIgnoreDamage(Enchantment)"},
+   comment="While your dance holds: damage doesn't break the Concentration (EpicBoons.lua applies and removes it).")
+st("EPIC_SING_OUT", {"DisplayName": h("SingOut:n", "Sing Out"), "Description": h("SingOut:d", "Sings delightful nonsense: can't cast spells with Verbal components."),
+                     "Boosts": "BlockVerbalComponent()", "StatusPropertyFlags": None})
+
+boon("EpicBoon_Terror", "Boon of Terror",
+     "Fearless: Immunity to the Frightened condition. Flee, Fools!: when a Frightened creature you can see starts its turn within 60 feet, you can use your Reaction to make it pass a Wisdom save (DC 8 + Charisma modifier + Proficiency Bonus) or flee; once per Short or Long Rest. Intimidating: proficiency and Expertise in Intimidation.",
+     {"Boosts": "StatusImmunity(SG_Frightened);ProficiencyBonus(Skill,Intimidation);ExpertiseBonus(Intimidation);ActionResource(EpicBoonTerror,1,0)"},
+     variants=["Charisma"])
+SP.append(entry("Target_EpicBoon_FleeFools", "SpellData", {
+    "SpellType": "Target", "Level": "0", "DisplayName": h("Flee:n", "Flee, Fools!"), "Description": h("Flee:d", "The creature flees on a failed Wisdom save."),
+    "Icon": "Spell_Enchantment_CommandFlee", "TargetRadius": "18", "TargetConditions": "Character() and not Dead() and not Self()",
+    "SpellRoll": "not SavingThrow(Ability.Wisdom, 8+CharismaModifier+ProficiencyBonus)", "SpellSuccess": "ApplyStatus(COMMAND_FLEE,100,1)",
+    "UseCosts": "", "SpellFlags": "IsHarmful", "TooltipAttackSave": "Wisdom"}, comment="Cast by EpicBoons.lua (real save) as a Reaction."))
+
+boon("EpicBoon_BrightSun", "Boon of the Bright Sun",
+     "Daylight Presence: as a Bonus Action, you radiate a 30-foot emanation of sunlight until you dismiss it, die or are Incapacitated; it dispels overlapping magical Darkness. Fortifying Light: at the start of each of your turns, you and allies you can see in it gain 10 Temporary Hit Points.",
+     {"Boosts": "UnlockSpell(Shout_EpicBoon_DaylightPresence);UnlockSpell(Shout_EpicBoon_DaylightPresence_Dismiss)"},
+     variants=["Constitution", "Wisdom", "Charisma"])
+SP.append(entry("Shout_EpicBoon_DaylightPresence", "SpellData", {
+    "SpellType": "Shout", "Level": "0", "DisplayName": h("Daylight:n", "Daylight Presence"), "Description": h("Daylight:d", "Radiate sunlight in a 30-foot emanation."),
+    "Icon": "Spell_Evocation_Daylight", "UseCosts": "BonusActionPoint:1", "TargetConditions": "Self()",
+    "RequirementConditions": "not HasStatus('EPIC_DAYLIGHT_PRESENCE')", "SpellProperties": "ApplyStatus(SELF,EPIC_DAYLIGHT_PRESENCE,100,-1)"}))
+SP.append(entry("Shout_EpicBoon_DaylightPresence_Dismiss", "SpellData", {
+    "SpellType": "Shout", "Level": "0", "DisplayName": h("DaylightOff:n", "Dismiss Daylight Presence"), "Description": h("DaylightOff:d", "End your Daylight Presence."),
+    "Icon": "Spell_Evocation_Daylight", "UseCosts": "", "TargetConditions": "Self()",
+    "RequirementConditions": "HasStatus('EPIC_DAYLIGHT_PRESENCE')", "SpellProperties": "RemoveStatus(SELF,EPIC_DAYLIGHT_PRESENCE)"}))
+st("EPIC_DAYLIGHT_PRESENCE", {"DisplayName": h("DaylightSt:n", "Daylight Presence"), "Description": h("DaylightSt:d", "You radiate sunlight in a 30-foot emanation."),
+                              "Icon": "Spell_Evocation_Daylight", "Boosts": "GameplayLight(9,false,0.1,true)",
+                              "RemoveConditions": "HasStatus('SG_Incapacitated') or Dead()", "RemoveEvents": "OnStatusApplied",
+                              "StatusPropertyFlags": "IgnoreResting"}, comment="EpicBoons.lua: Fortifying Light each turn, dispels Darkness.")
+st("EPIC_FORTIFYING_LIGHT", {"DisplayName": h("Fortifying:n", "Fortifying Light"), "Boosts": "TemporaryHP(10)",
+                             "RemoveConditions": "not HasTemporaryHP()", "RemoveEvents": "OnDamage", "StatusPropertyFlags": None},
+   comment="dnd55e DEFENSIVE_FIELD/RALLY pattern: GainTemporaryHitPoints is only a DescriptionParams macro, not a functor.")
+
+boon("EpicBoon_FuriousStorm", "Boon of the Furious Storm",
+     "Eye of the Storm: Resistance to Lightning and Thunder damage, Immunity while you are Bloodied. Storm's Strength: creatures have Disadvantage on saving throws against your spells that deal Lightning or Thunder damage. (Requires the Spellcasting or Pact Magic feature.)",
+     {"Boosts": "Resistance(Lightning,Resistant);Resistance(Thunder,Resistant);"
+                f"IF({BLOODIED}):Resistance(Lightning,Immune);IF({BLOODIED}):Resistance(Thunder,Immune)"
+                # Storm's Strength: Heightened Spell's own mechanism (a caster-side variant), verified in game 2026-10-02
+                ";UnlockSpellVariant(HasSpellFlag(SpellFlags.Spell) and (SpellDamageTypeIs(DamageType.Lightning) or "
+                "SpellDamageTypeIs(DamageType.Thunder)),ModifySavingThrowDisadvantage())", "BoostContext": BLOODIED_CONTEXT},
+     variants=MENTAL)
+
+boon("EpicBoon_SoulDrinker", "Boon of the Soul Drinker",
+     "Grave Resistance: Resistance to Cold and Necrotic damage. Siphon Life: when an enemy within 120 feet is reduced to 0 Hit Points, you can use your Reaction to regain 50 Hit Points; once per Short or Long Rest.",
+     {"Boosts": "Resistance(Cold,Resistant);Resistance(Necrotic,Resistant);ActionResource(EpicBoonSoulDrinker,1,0)"})
+st("EPIC_SIPHON_LIFE", {"DisplayName": h("Siphon:n", "Siphon Life"), "OnApplyFunctors": "RegainHitPoints(50)", "StatusPropertyFlags": None})
+
+boon("EpicBoon_EruptingSpellpower", "Boon of Erupting Spellpower",
+     "Spell Overload: as a free action, ready an overload; the next damaging spell you cast with a spell slot treats any 1 or 2 on a damage die as a 3, and creatures it damages are knocked Prone. Returns when you roll Initiative or finish a Short or Long Rest. (Requires the Spellcasting or Pact Magic feature.)",
+     {"Boosts": "ActionResource(EpicBoonOverload,1,0);UnlockSpell(Shout_EpicBoon_SpellOverload);UnlockSpell(Shout_EpicBoon_SpellOverload_Cancel)"},
+     variants=MENTAL)
+SP.append(entry("Shout_EpicBoon_SpellOverload", "SpellData", {
+    "SpellType": "Shout", "Level": "0", "DisplayName": h("OverloadArm:n", "Spell Overload"), "Description": h("OverloadArm:d", "Your next damaging spell cast with a spell slot treats 1s and 2s on damage dice as 3s and knocks the creatures it damages Prone."),
+    "Icon": "Spell_Evocation_Thunderwave", "UseCosts": "", "TargetConditions": "Self()",
+    "RequirementConditions": "not HasStatus('EPIC_SPELL_OVERLOAD_ARMED')", "SpellProperties": "ApplyStatus(SELF,EPIC_SPELL_OVERLOAD_ARMED,100,-1)",
+    "SpellFlags": "IgnoreSilence"}))
+SP.append(entry("Shout_EpicBoon_SpellOverload_Cancel", "SpellData", {
+    "SpellType": "Shout", "Level": "0", "DisplayName": h("OverloadOff:n", "Cancel Spell Overload"), "Description": h("OverloadOff:d", "Stop readying Spell Overload."),
+    "Icon": "Spell_Evocation_Thunderwave", "UseCosts": "", "TargetConditions": "Self()",
+    "RequirementConditions": "HasStatus('EPIC_SPELL_OVERLOAD_ARMED')", "SpellProperties": "RemoveStatus(SELF,EPIC_SPELL_OVERLOAD_ARMED)",
+    "SpellFlags": "IgnoreSilence"}))
+st("EPIC_SPELL_OVERLOAD_ARMED", {"DisplayName": h("OverloadArmed:n", "Spell Overload ready"), "StatusPropertyFlags": "IgnoreResting"})
+st("EPIC_SPELL_OVERLOAD", {"DisplayName": h("Overload:n", "Spell Overload"), "Boosts": "MinimumRollResult(Damage,3)"},
+   comment="On the caster while the surged spell resolves (EpicBoons.lua), like Elemental Adept's MinimumRollResult(Damage,2).")
+
+boon("EpicBoon_IronMind", "Boon of the Iron Mind",
+     "Unshakable Focus: taking damage never breaks your Concentration. (BG3 conditions that end Concentration on their own, such as being stunned, still do.)",
+     {"Boosts": ";".join(f"ConcentrationIgnoreDamage({sch})" for sch in SCHOOLS)})
+
+
+# Boon of Magic School Mastery: school -> Rote Casting (a level 1 spell, at will, no slot or components) and Signature
+# Arcanum (a level 1-7 spell, once per Long Rest without a slot). Spell pool: Scripts/data/magic_school_spells.json
+# (the class spell lists, exported with bg3-data-mcp; container spells are left out). Pickers follow Spell Mastery.
+# The Magic School Mastery spell copies (`using` the original) go in their own file, sorting after every other one.
+SP_LATE = []
+MSM = json.load(open(os.path.join(REPO, "Scripts", "data", "magic_school_spells.json"), encoding="utf-8"))
+# Signature pickers are split by spell level: a 44-spell container (ContainerSpells ~2080 chars) hung the game at
+# LoadModule, 43 (2030 chars) loaded - bisected 2026-10-02. The largest shipped container is 42 spells / ~1000 chars.
+SIG_BANDS = (("13", "1-3", range(1, 4)), ("47", "4-7", range(4, 8)))
+boon("EpicBoon_MagicSchoolMastery", "Boon of Magic School Mastery",
+     "Mastered School: choose a school of magic. Rote Casting: a level 1 spell of that school is always prepared and you can cast it without a spell slot or components. Signature Arcanum: a level 7 or lower spell of that school is always prepared; cast it once per Long Rest without a spell slot. (Requires the Spellcasting or Pact Magic feature; spells with variant menus aren't offered.)",
+     {"Boosts": "UnlockSpell(Shout_EpicBoon_MSM_School);ActionResource(EpicBoonMSMSchool,1,0);ActionResource(EpicBoonRoteChoice,1,0);"
+                "ActionResource(EpicBoonSignatureChoice,1,0);ActionResource(EpicBoonSignature,1,0)"}, variants=MENTAL)
+
+
+def picker(name, title, desc, children, cost):
+    SP.append(entry(name, "SpellData", {"SpellType": "Shout", "Level": "0", "DisplayName": h(name + ":n", title),
+                                        "Description": h(name + ":d", desc), "Icon": "PassiveFeature_Generic_Magical",
+                                        "ContainerSpells": ";".join(children), "SpellFlags": "IsLinkedSpellContainer",
+                                        "UseCosts": cost, "TargetConditions": "Self()"}))
+
+
+def free_copy(spell, suffix, extra_cost, strip_components):
+    info = MSM["spells"][spell]
+    costs = ";".join(c for c in info["costs"].split(";") if c and not c.startswith("SpellSlotsGroup") and not c.startswith("WarlockSpellSlot"))
+    costs = ";".join(c for c in [costs, extra_cost] if c)
+    flags = info["flags"]
+    if strip_components:
+        flags = ";".join(f for f in flags.split(";") if f and f not in ("HasVerbalComponent", "HasSomaticComponent"))
+    SP_LATE.append(entry(f"{spell}_{suffix}", "SpellData", {"UseCosts": costs, "SpellFlags": flags,
+                                                       "DisplayName": h(f"{spell}_{suffix}:n", f"{info['name']} ({'Rote' if suffix == 'EpicRote' else 'Signature'})")},
+                    using=spell))
+
+
+picker("Shout_EpicBoon_MSM_School", "Mastered School", "Choose your school of magic.",
+       [f"Shout_EpicBoon_MSM_School_{sch}" for sch in SCHOOLS], "EpicBoonMSMSchool:1")
+for sch in SCHOOLS:
+    pool = MSM["schools"].get(sch, {})
+    rote = sorted(pool.get("1", []))
+    sig = sorted(sp for lv in pool.values() for sp in lv)
+    SP.append(entry(f"Shout_EpicBoon_MSM_School_{sch}", "SpellData", {
+        "SpellType": "Shout", "Level": "0", "SpellContainerID": "Shout_EpicBoon_MSM_School",
+        "DisplayName": h(f"MSM{sch}:n", f"Mastered School: {sch}"), "Description": h(f"MSM{sch}:d", f"Master the {sch} school."),
+        "Icon": "PassiveFeature_Generic_Magical", "UseCosts": "EpicBoonMSMSchool:1", "TargetConditions": "Self()",
+        "SpellProperties": f"ApplyStatus(SELF,EPIC_MSM_{sch.upper()},100,-1)"}))
+    st(f"EPIC_MSM_{sch.upper()}", {"DisplayName": h(f"MSMSt{sch}:n", f"Mastered School: {sch}"),
+                                   "Boosts": f"UnlockSpell(Shout_EpicBoon_MSM_Rote_{sch});" + ";".join(
+                                       f"UnlockSpell(Shout_EpicBoon_MSM_Signature_{sch}_L{b})" for b, _, lv in SIG_BANDS
+                                       if any(MSM["spells"][x]["level"] in lv for x in sig)),
+                                   "StatusPropertyFlags": "DisableOverhead;DisableCombatlog;IgnoreResting", "StatusGroups": "SG_RemoveOnRespec"})
+    picker(f"Shout_EpicBoon_MSM_Rote_{sch}", f"Rote Casting ({sch})", f"Choose a level 1 {sch} spell to cast at will.",
+           [f"Shout_EpicBoon_MSM_RotePick_{sp}" for sp in rote], "EpicBoonRoteChoice:1")
+    for b, label_, lv in SIG_BANDS:
+        band = [sp for sp in sig if MSM["spells"][sp]["level"] in lv]
+        if band:
+            picker(f"Shout_EpicBoon_MSM_Signature_{sch}_L{b}", f"Signature Arcanum ({sch}, level {label_})",
+                   f"Choose a level {label_} {sch} spell.", [f"Shout_EpicBoon_MSM_SigPick_{sp}" for sp in band],
+                   "EpicBoonSignatureChoice:1")
+    for kind, spells, res_, status_prefix, suffix, extra, strip in (
+            ("Rote", rote, "EpicBoonRoteChoice", "EPIC_MSM_ROTE_", "EpicRote", "", True),
+            ("Sig", sig, "EpicBoonSignatureChoice", "EPIC_MSM_SIG_", "EpicSignature", "EpicBoonSignature:1", False)):
+        for sp in spells:
+            info = MSM["spells"][sp]
+            label = "Rote Casting" if kind == "Rote" else "Signature Arcanum"
+            SP.append(entry(f"Shout_EpicBoon_MSM_{kind}Pick_{sp}", "SpellData", {
+                "SpellType": "Shout", "Level": "0", "SpellContainerID": f"Shout_EpicBoon_MSM_Rote_{sch}" if kind == "Rote" else
+                f"Shout_EpicBoon_MSM_Signature_{sch}_L{next(b for b, _, lv in SIG_BANDS if info['level'] in lv)}",
+                "DisplayName": h(f"MSM{kind}Pick{sp}:n", f"{label}: {info['name']} (level {info['level']})"),
+                "Description": h(f"MSM{kind}Pick{sp}:d", f"Choose {info['name']} as your {label} spell."),
+                "Icon": "PassiveFeature_Generic_Magical", "UseCosts": f"{res_}:1", "TargetConditions": "Self()",
+                "SpellProperties": f"ApplyStatus(SELF,{status_prefix}{sp.upper()},100,-1)"}))
+            st(f"{status_prefix}{sp.upper()}", {"DisplayName": h(f"MSM{kind}St{sp}:n", f"{label}: {info['name']}"),
+                                                 "Boosts": f"UnlockSpell({sp});UnlockSpell({sp}_{suffix})",
+                                                 "StatusPropertyFlags": "DisableOverhead;DisableCombatlog;IgnoreResting", "StatusGroups": "SG_RemoveOnRespec"})
+            free_copy(sp, suffix, extra, strip)
+
+
 # ---------------------------------------------------------------- ability pick
 for ab in ABILITIES:
     n = f"EpicBoonAbility_{SHORT[ab]}"
@@ -289,7 +552,7 @@ def write_stats():
     head = ("// GENERATED by Scripts/gen_epic_boons.py (Epic Boons, issue #1) - edit the generator, not this file.\n"
             "// Script Extender half: ScriptExtender/Lua/EpicBoons.lua\n\n")
     for fname, rows in (("Passive_EpicBoons.txt", P), ("Status_EpicBoons.txt", S), ("Spell_EpicBoons.txt", [animate(x) for x in SP]),
-                        ("Interrupt_EpicBoons.txt", I)):
+                        ("Interrupt_EpicBoons.txt", I), ("Spell_ZZ_EpicBoons_MSM.txt", SP_LATE)):
         with open(os.path.join(DATA, fname), "w", encoding="utf-8", newline="\n") as f:
             f.write(head + "\n".join(rows))
 

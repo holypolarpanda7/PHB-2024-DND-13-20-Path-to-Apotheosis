@@ -44,6 +44,7 @@ function TP.EndForm(obj, form)
     remove(obj, PREFIX .. form)
     remove(obj, PREFIX .. form .. "_PERMANENT")
     remove(obj, PREFIX .. "TEMPHP_" .. form)
+    remove(obj, PREFIX .. "TEMPHP_" .. form .. "_HARDY")
     Log.Info("True Polymorph: " .. tostring(obj) .. " ran out of temporary hit points - back to its true form")
 end
 
@@ -66,7 +67,7 @@ function TP.Check(obj)
         return
     end
     if t.hasTemp and (tempHp(obj) or 1) <= 0 then return TP.EndForm(obj, t.form) end
-    if not t.permanent then
+    if not t.permanent and not t.fluid then  -- a Fluid Forms shape just lasts its hour
         local left = secondsLeft(obj, status)
         if left and left >= 0 and left <= 7.0 then TP.MakePermanent(obj, t) end  -- its last round
     end
@@ -78,11 +79,18 @@ function TP.Poll()
     if TP.polling then Ext.Timer.WaitFor(POLL_MS, function() TP.Poll() end) end
 end
 
+local function fluidForms(obj, caster)  -- Boon of Fluid Forms: a self-cast shape, not the spell
+    if not caster or string.sub(caster, -36) ~= string.sub(obj, -36) then return false end
+    for _, s in ipairs({ "Int", "Wis", "Cha" }) do if Osi.HasPassive(obj, "EpicBoon_FluidForms_" .. s) == 1 then return true end end
+    return false
+end
+
 function TP.Track(obj, form, caster, permanent)
-    local hp = PREFIX .. "TEMPHP_" .. form
+    local fluid = fluidForms(obj, caster)
+    local hp = PREFIX .. "TEMPHP_" .. form .. (fluid and "_HARDY" or "")  -- Hardy Transformation: form HP + 20
     local hasTemp = Ext.Stats.Get(hp) ~= nil
     if hasTemp and not permanent and Osi.HasActiveStatus(obj, hp) ~= 1 then Osi.ApplyStatus(obj, hp, -1, 1, caster or obj) end
-    TP.tracked[obj] = { form = form, caster = caster, permanent = permanent, hasTemp = hasTemp }
+    TP.tracked[obj] = { form = form, caster = caster, permanent = permanent, hasTemp = hasTemp, fluid = fluid }
     if not TP.polling then
         TP.polling = true
         Ext.Timer.WaitFor(POLL_MS, function() TP.Poll() end)
@@ -106,6 +114,7 @@ Ext.Osiris.RegisterListener("StatusRemoved", 4, "after", guard("StatusRemoved", 
     if form and form ~= "TEMPHP" and not TP.converting[obj] then
         TP.tracked[obj] = nil
         remove(obj, PREFIX .. "TEMPHP_" .. form)
+        remove(obj, PREFIX .. "TEMPHP_" .. form .. "_HARDY")
     end
 end))
 -- damage: check the temporary HP right away rather than at the next poll

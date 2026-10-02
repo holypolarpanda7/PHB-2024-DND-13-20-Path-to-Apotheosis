@@ -144,6 +144,13 @@ function EB.OnStatus(object, status, causee)
 end
 
 function EB.OnEnteredCombat(object)
+    if hasAny(object, "EpicBoon_EruptingSpellpower") then  -- Spell Overload returns when you roll Initiative
+        local entries, e = resourceEntries(object, "EpicBoonOverload")
+        if entries and entries[1] and entries[1].Amount < entries[1].MaxAmount then
+            entries[1].Amount = entries[1].MaxAmount
+            e:Replicate("ActionResources")
+        end
+    end
     if not has(object, "EpicBoon_Fate") then return end
     local entries, e = resourceEntries(object, "EpicBoonFate")
     if entries and entries[1] and entries[1].Amount < entries[1].MaxAmount then
@@ -154,8 +161,13 @@ end
 
 -- A restricted boon already contains its +1; a second +1 from the ability pick is removed.
 function EB.Validate(c)
-    local restricted = nil
-    for passive in pairs(VARIANT_ABILITY) do if has(c, passive) then restricted = passive end end
+    local restricted = nil  -- any boon with its +1 built in (EpicBoon_<Name>_<Str|Dex|Con|Int|Wis|Cha>)
+    pcall(function()
+        for _, p in ipairs(Ext.Entity.Get(c).PassiveContainer.Passives) do
+            local id = p.Passive.PassiveId
+            if id:match("^EpicBoon_.+_%u%l%l$") then restricted = id end
+        end
+    end)
     if restricted then
         for _, pick in ipairs(ABILITY_PICKS) do
             if has(c, pick) then
@@ -173,6 +185,183 @@ function EB.Validate(c)
     if has(c, "EpicBoon_Truesight") and Osi.HasActiveStatus(c, "TRUESIGHT") ~= 1 then
         Osi.ApplyStatus(c, "TRUESIGHT", -1, 1)
     end
+    if has(c, "EpicBoon_ExquisiteRadiance") and Osi.HasActiveStatus(c, "EPIC_POWERFUL_RADIANCE") ~= 1 and Osi.GetLevel(c) == 19 then
+        Osi.ApplyStatus(c, "EPIC_POWERFUL_RADIANCE", -1, 1)
+    end
+    if has(c, "EpicBoon_PoisonMastery") and Osi.HasActiveStatus(c, "EPIC_PERFECT_POISONER") ~= 1 then
+        Osi.ApplyStatus(c, "EPIC_PERFECT_POISONER", -1, 1)
+    end
+end
+
+-- ---------------------------------------------------------------- phase 2 (Heroes of Faerun, Arcana Unleashed)
+local function hasAny(c, base) -- a boon with per-ability variants (EpicBoon_X_Int, ...) or a plain one
+    if has(c, base) then return true end
+    for _, s in ipairs({ "Str", "Dex", "Con", "Int", "Wis", "Cha" }) do if has(c, base .. "_" .. s) then return true end end
+    return false
+end
+local function res(c, name) return Osi.GetActionResourceValuePersonal(c, name, 0) or 0 end
+local function spend(c, name)
+    local entries, e = resourceEntries(c, name)
+    local r = entries and entries[1]
+    if not r or r.Amount < 1 then return false end
+    r.Amount = r.Amount - 1
+    e:Replicate("ActionResources")
+    return true
+end
+local function bloodied(c)
+    local hp, mx = Osi.GetHitpoints(c), Osi.GetMaxHitpoints(c)
+    return hp and mx and mx > 0 and hp * 2 <= mx
+end
+local function profBonus(c) local ok, v = pcall(function() return Ext.Entity.Get(c).Stats.ProficiencyBonus end) return ok and v or 2 end
+local function nearbyCharacters(c, radius)
+    local out = {}
+    for _, ent in ipairs(Ext.Entity.GetAllEntitiesWithComponent("ServerCharacter")) do
+        local g = ent.Uuid and ent.Uuid.EntityUuid
+        if g and Osi.IsDead(g) ~= 1 then
+            local d = Osi.GetDistanceTo(g, c)
+            if d and d <= radius then out[#out + 1] = g end
+        end
+    end
+    return out
+end
+local function frightened(c)  -- dnd55e's FRIGHTENED is a BOOST status: check the SG_Frightened group, not FEAR type
+    local ok, found = pcall(function()
+        for _, sid in pairs(Ext.Entity.Get(c).StatusContainer.Statuses) do
+            local s = Ext.Stats.Get(tostring(sid))
+            if tostring(sid) == "FRIGHTENED" or (s and tostring(s.StatusGroups):find("SG_Frightened")) then return true end
+        end
+        return false
+    end)
+    return ok and found
+end
+local function spellDealsType(spell, types)
+    local s = Ext.Stats.Get(spell)
+    if not s then return false end
+    -- SpellProperties/SpellSuccess come back as parsed functor arrays, not text: read the string fields
+    local text = tostring(s.TooltipDamageList or "") .. ";" .. tostring(s.DamageType or "")
+    for _, t in ipairs(types) do if text:find(t) then return true end end
+    return false
+end
+
+-- an enemy dropped to 0 Hit Points (died or downed): Killer's Fortune, Siphon Life
+function EB.OnEnemyDown(victim)
+    for _, c in ipairs(nearbyCharacters(victim, 36)) do
+        if c ~= string.sub(victim, -36) and Osi.IsEnemy(c, victim) == 1 then
+            if hasAny(c, "EpicBoon_Bloodshed") and Osi.CanSee(c, victim) == 1 then
+                Osi.ApplyStatus(c, "EPIC_KILLERS_FORTUNE", 12.0, 1, c)
+            end
+            if hasAny(c, "EpicBoon_SoulDrinker") and res(c, "EpicBoonSoulDrinker") >= 1 and res(c, "ReactionActionPoint") >= 1 then
+                spend(c, "EpicBoonSoulDrinker") spend(c, "ReactionActionPoint")
+                Osi.ApplyStatus(c, "EPIC_SIPHON_LIFE", 0, 1, c)
+                Log.Info("Siphon Life: " .. tostring(c) .. " regains 50 Hit Points")
+            end
+        end
+    end
+end
+
+local overloadWindow = {}
+function EB.OnDamageDealt(defender, attacker, damageType, amount, cause)
+    if not (attacker and defender and amount and amount > 0) or attacker == defender then return end
+    -- Power from Pain: once per turn, an attack hit while Bloodied adds the Proficiency Bonus
+    if cause == "Attack" and hasAny(attacker, "EpicBoon_Bloodshed") and bloodied(attacker)
+        and Osi.HasActiveStatus(attacker, "EPIC_POWER_FROM_PAIN_USED") ~= 1 then
+        Osi.ApplyStatus(attacker, "EPIC_POWER_FROM_PAIN_USED", 6.0, 1, attacker)
+        Osi.ApplyDamage(defender, profBonus(attacker), damageType, attacker)
+        Log.Info(string.format("Power from Pain: %s +%d %s", tostring(attacker), profBonus(attacker), tostring(damageType)))
+    end
+    -- Powerful Radiance / Perfect Poisoner: the maximized roll was used
+    if damageType == "Radiant" and Osi.HasActiveStatus(attacker, "EPIC_POWERFUL_RADIANCE") == 1 then
+        Ext.Timer.WaitFor(300, function() Osi.RemoveStatus(attacker, "EPIC_POWERFUL_RADIANCE") end)
+    end
+    if damageType == "Poison" and Osi.HasActiveStatus(attacker, "EPIC_PERFECT_POISONER") == 1 then
+        Ext.Timer.WaitFor(300, function() Osi.RemoveStatus(attacker, "EPIC_PERFECT_POISONER") end)
+    end
+    -- Spell Overload: creatures the surged spell damages are knocked Prone
+    if overloadWindow[attacker] then Osi.ApplyStatus(defender, "PRONE", 6.0, 1, attacker) end
+end
+
+function EB.OnUsingSpell(caster, spell)
+    if spell:find("^Shout_HitPointDice") and hasAny(caster, "EpicBoon_BountifulHealth") then  -- Superior Recuperation
+        Osi.ApplyStatus(caster, "EPIC_SUPERIOR_RECUPERATION", 6.0, 1, caster)
+        Ext.Timer.WaitFor(3000, function() Osi.RemoveStatus(caster, "EPIC_SUPERIOR_RECUPERATION") end)
+    end
+    local costs, stat = useCosts(spell)
+    if Osi.HasActiveStatus(caster, "EPIC_SPELL_OVERLOAD_ARMED") == 1 and costs:find("SpellSlot")
+        and spellDealsType(spell, { "DealDamage" }) and res(caster, "EpicBoonOverload") >= 1 then
+        spend(caster, "EpicBoonOverload")
+        Osi.ApplyStatus(caster, "EPIC_SPELL_OVERLOAD", 6.0, 1, caster)
+        overloadWindow[caster] = true
+        Ext.Timer.WaitFor(4000, function() overloadWindow[caster] = nil Osi.RemoveStatus(caster, "EPIC_SPELL_OVERLOAD") end)
+        Log.Info("Spell Overload: " .. tostring(caster) .. " surges " .. spell)
+    end
+end
+
+function EB.OnTurnStarted(c)
+    if hasAny(c, "EpicBoon_PoisonMastery") and Osi.HasActiveStatus(c, "EPIC_PERFECT_POISONER") ~= 1 then
+        Osi.ApplyStatus(c, "EPIC_PERFECT_POISONER", -1, 1, c)
+    end
+    if Osi.HasActiveStatus(c, "EPIC_DAYLIGHT_PRESENCE") == 1 then  -- Fortifying Light
+        for _, g in ipairs(nearbyCharacters(c, 9)) do
+            if (g == string.sub(c, -36) or Osi.IsAlly(c, g) == 1) and Osi.CanSee(c, g) == 1 then
+                Osi.ApplyStatus(g, "EPIC_FORTIFYING_LIGHT", -1, 1, c)
+            end
+        end
+    end
+    -- Flee, Fools!: a Frightened creature starts its turn within 60 feet of a Boon of Terror holder
+    if frightened(c) then
+        for _, holder in ipairs(nearbyCharacters(c, 18)) do
+            if hasAny(holder, "EpicBoon_Terror") and Osi.IsEnemy(holder, c) == 1 and Osi.CanSee(holder, c) == 1
+                and res(holder, "EpicBoonTerror") >= 1 and res(holder, "ReactionActionPoint") >= 1 then
+                spend(holder, "EpicBoonTerror") spend(holder, "ReactionActionPoint")
+                castWithRolls(holder, "Target_EpicBoon_FleeFools", c)
+                Log.Info("Flee, Fools!: " .. tostring(holder) .. " stokes " .. tostring(c))
+                break
+            end
+        end
+    end
+end
+
+function EB.OnStatusPhase2(object, status, causee)
+    if status:find("DOWNED") then EB.OnEnemyDown(object) end
+    if status == "IRRESISTIBLE_DANCE" and causee and hasAny(causee, "EpicBoon_Revelry") then  -- Sing Out
+        Osi.ApplyStatus(object, "EPIC_SING_OUT", 60.0, 1, causee)
+    end
+end
+
+function EB.OnStatusRemoved(object, status, causee)
+    if status == "IRRESISTIBLE_DANCE" then
+        Osi.RemoveStatus(object, "EPIC_SING_OUT")
+        if causee then Osi.RemoveStatus(causee, "EPIC_REVELRY_FOCUS") end
+    end
+end
+
+function EB.OnCastPhase2(caster, spell)
+    if (spell == "Target_IrresistibleDance" or spell == "Target_EpicBoon_IrresistibleDance") and hasAny(caster, "EpicBoon_Revelry") then
+        Osi.ApplyStatus(caster, "EPIC_REVELRY_FOCUS", 60.0, 1, caster)
+    end
+end
+
+-- Augmented Health: +5 whenever you gain Temporary Hit Points (watched every few frames for boon holders)
+local lastTemp, tickN = {}, 0
+function EB.TickAugmentedHealth()
+    tickN = tickN + 1
+    if tickN % 10 ~= 0 then return end
+    for _, row in pairs(Osi.DB_Players:Get(nil) or {}) do
+        local c = row[1]
+        if hasAny(c, "EpicBoon_BountifulHealth") then
+            local e = Ext.Entity.Get(c)
+            local cur = e and e.Health and e.Health.TemporaryHp or 0
+            local was = lastTemp[c] or 0
+            if cur > was then
+                e.Health.TemporaryHp = cur + 5
+                if e.Health.MaxTemporaryHp and e.Health.MaxTemporaryHp < cur + 5 then e.Health.MaxTemporaryHp = cur + 5 end
+                e:Replicate("Health")
+                cur = cur + 5
+                Log.Info(string.format("Augmented Health: %s gains 5 more Temporary Hit Points (%d)", tostring(c), cur))
+            end
+            lastTemp[c] = cur
+        end
+    end
 end
 
 local function guard(name, fn)
@@ -182,11 +371,19 @@ local function guard(name, fn)
     end
 end
 
-Ext.Osiris.RegisterListener("CastedSpell", 5, "after", guard("CastedSpell", function(caster, spell) EB.OnCast(caster, spell) end))
-Ext.Osiris.RegisterListener("AttackedBy", 7, "after", guard("AttackedBy", function(defender, attackerOwner, _, damageType, amount)
+Ext.Osiris.RegisterListener("CastedSpell", 5, "after", guard("CastedSpell", function(caster, spell) EB.OnCast(caster, spell) EB.OnCastPhase2(caster, spell) end))
+Ext.Osiris.RegisterListener("AttackedBy", 7, "after", guard("AttackedBy", function(defender, attackerOwner, _, damageType, amount, cause)
     EB.OnAttacked(defender, attackerOwner, damageType, amount)
+    EB.OnDamageDealt(defender, attackerOwner, damageType, amount, cause)
 end))
-Ext.Osiris.RegisterListener("StatusApplied", 4, "after", guard("StatusApplied", function(object, status, causee) EB.OnStatus(object, status, causee) end))
+Ext.Osiris.RegisterListener("StatusApplied", 4, "after", guard("StatusApplied", function(object, status, causee)
+    EB.OnStatus(object, status, causee) EB.OnStatusPhase2(object, status, causee)
+end))
+Ext.Osiris.RegisterListener("StatusRemoved", 4, "after", guard("StatusRemoved", function(object, status, causee) EB.OnStatusRemoved(object, status, causee) end))
+Ext.Osiris.RegisterListener("Died", 1, "after", guard("Died", function(c) EB.OnEnemyDown(c) end))
+Ext.Osiris.RegisterListener("UsingSpell", 5, "after", guard("UsingSpell", function(caster, spell) EB.OnUsingSpell(caster, spell) end))
+Ext.Osiris.RegisterListener("TurnStarted", 1, "after", guard("TurnStarted", function(c) EB.OnTurnStarted(c) end))
+Ext.Events.Tick:Subscribe(function() local ok, err = pcall(EB.TickAugmentedHealth) if not ok then Log.Error("EpicBoons Tick: " .. tostring(err)) end end)
 Ext.Osiris.RegisterListener("EnteredCombat", 2, "after", guard("EnteredCombat", function(object) EB.OnEnteredCombat(object) end))
 Ext.Osiris.RegisterListener("LeveledUp", 1, "after", guard("LeveledUp", function(c) EB.Validate(c) end))
 

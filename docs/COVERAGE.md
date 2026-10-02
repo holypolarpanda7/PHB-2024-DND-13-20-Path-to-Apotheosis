@@ -61,3 +61,15 @@ python Scripts/completeness_audit.py
 python Scripts/compat_audit.py
 python Scripts/build_all_class_expectations.py
 ```
+
+## Epic Boons
+
+Approximations and gaps (2026-10-02):
+- **Communication:** only the ability increase. Telepathy and the language features have no BG3 equivalent.
+- **Iron Mind:** stops damage from breaking Concentration. Other things that break Concentration (incapacitation,
+  casting another Concentration spell) still do.
+- **Magic School Mastery:** spells with variant menus (container spells) aren't offered. The Spellcasting/Pact Magic
+  prerequisite isn't enforced (true of every boon that has it).
+- **Bright Sun:** Daylight Presence lights the area but doesn't dispel magical Darkness.
+- **Eternal Rest** (Soul Drinker) isn't implemented.
+

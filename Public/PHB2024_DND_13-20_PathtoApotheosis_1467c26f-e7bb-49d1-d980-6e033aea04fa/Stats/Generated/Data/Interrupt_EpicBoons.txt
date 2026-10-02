@@ -66,3 +66,17 @@ data "Conditions" "not Dead(context.Observer) and HasInterruptedSavingThrow() an
 data "Properties" "AdjustRoll(OBSERVER_OBSERVER,0-2d4)"
 data "Cost" "EpicBoonFate:1"
 data "InterruptDefaultValue" "Ask;Enabled"
+
+// As base Fighter Indomitable (SetReroll(19,true) = reroll, use the new roll).
+new entry "Interrupt_EpicBoon_FortunesFavor"
+type "InterruptData"
+data "DisplayName" "h317cb444db7958099d34d3f2cd92eb66"
+data "Description" "h5bbd7c32812f541592dc261e524e24c3"
+data "Icon" "PassiveFeature_Generic_Magical"
+data "InterruptContext" "OnPostRoll"
+data "InterruptContextScope" "Self"
+data "Container" "YesNoDecision"
+data "Conditions" "not Dead(context.Observer) and HasInterruptedSavingThrow() and Self(context.Observer,context.Target) and not AnyEntityIsItem() and IsRerollInterruptInteresting()"
+data "Properties" "SetReroll(19,true)"
+data "Cost" "EpicBoonFortune:1"
+data "InterruptDefaultValue" "Ask;Enabled"
