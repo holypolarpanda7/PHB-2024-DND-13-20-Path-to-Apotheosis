@@ -401,7 +401,7 @@ st("EPIC_DAYLIGHT_PRESENCE", {"DisplayName": h("DaylightSt:n", "Daylight Presenc
                               "StatusPropertyFlags": "IgnoreResting"}, comment="EpicBoons.lua: Fortifying Light each turn, dispels Darkness.")
 st("EPIC_FORTIFYING_LIGHT", {"DisplayName": h("Fortifying:n", "Fortifying Light"), "Boosts": "TemporaryHP(10)",
                              "RemoveConditions": "not HasTemporaryHP()", "RemoveEvents": "OnDamage", "StatusPropertyFlags": None},
-   comment="dnd55e DEFENSIVE_FIELD/RALLY pattern: GainTemporaryHitPoints is only a DescriptionParams macro, not a functor.")
+   comment="dnd55e DEFENSIVE_FIELD/RALLY pattern; GainTemporaryHitPoints(10) on a duration-0 status granted nothing (2026-10-02).")
 
 boon("EpicBoon_FuriousStorm", "Boon of the Furious Storm",
      "Eye of the Storm: Resistance to Lightning and Thunder damage, Immunity while you are Bloodied. Storm's Strength: creatures have Disadvantage on saving throws against your spells that deal Lightning or Thunder damage. (Requires the Spellcasting or Pact Magic feature.)",
@@ -618,7 +618,10 @@ def patch_loca():
     open(LOCA, "w", encoding="utf-8", newline="").write(s)
 
 
-PHB_CLASSES = {"Barbarian", "Bard", "Cleric", "Druid", "Fighter", "Monk", "Paladin", "Ranger", "Rogue", "Sorcerer", "Warlock", "Wizard"}
+# The PHB classes plus dnd55e classes whose own source gives an Epic Boon at 19 (Gunslinger: gen_gunslinger.py
+# overrides dnd55e's level-19 node to drop its ASI)
+PHB_CLASSES = {"Barbarian", "Bard", "Cleric", "Druid", "Fighter", "Monk", "Paladin", "Ranger", "Rogue", "Sorcerer", "Warlock", "Wizard",
+               "Gunslinger"}
 
 
 def patch_progressions():

@@ -235,6 +235,19 @@
                     <attribute id="UUID" type="guid" value="c031f16a-583d-5f7a-b711-af51a2bb1476"/>
                 </node>
                 <!-- EPIC BOONS END -->
+                <!-- GUNSLINGER 13-20 BEGIN (Scripts/gen_gunslinger.py) -->
+                <node id="ActionResourceDefinition">
+                    <attribute id="DisplayName" type="TranslatedString" handle="h206aa7aad7435fdcabe314b9be3cc7ed" version="1"/>
+                    <attribute id="Description" type="TranslatedString" handle="h5ebcf000e00f563fab9ff0ff9ff7f1cd" version="1"/>
+                    <attribute id="IsHidden" type="bool" value="false"/>
+                    <attribute id="MaxLevel" type="uint32" value="0"/>
+                    <attribute id="MaxValue" type="uint32" value="1"/>
+                    <attribute id="Name" type="FixedString" value="GunslingerHeadshot"/>
+                    <attribute id="ReplenishType" type="FixedString" value="ShortRest"/>
+                    <attribute id="ShowOnActionResourcePanel" type="bool" value="true"/>
+                    <attribute id="UUID" type="guid" value="9e2e62a0-80b8-5c56-84c7-12dcf1825ea5"/>
+                </node>
+                <!-- GUNSLINGER 13-20 END -->
             </children>
         </node>
     </region>

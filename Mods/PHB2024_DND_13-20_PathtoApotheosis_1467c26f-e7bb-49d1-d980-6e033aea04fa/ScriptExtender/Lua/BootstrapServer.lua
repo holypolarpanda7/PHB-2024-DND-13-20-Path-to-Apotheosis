@@ -1160,6 +1160,13 @@ if Ext and type(Ext.Require) == "function" then
         Log.Warn("IndomitableMight bootstrap load failed: " .. tostring(imOrErr))
     end
 
+    local okGs, gsOrErr = pcall(Ext.Require, "Gunslinger.lua")
+    if okGs and type(gsOrErr) == "table" then
+        Log.Info("Gunslinger loaded at bootstrap")
+    else
+        Log.Warn("Gunslinger bootstrap load failed: " .. tostring(gsOrErr))
+    end
+
     local okSt, stOrErr = pcall(Ext.Require, "SpellTests.lua")
     if okSt and type(stOrErr) == "table" then
         Log.Info("SpellTests loaded at bootstrap")

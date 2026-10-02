@@ -329,30 +329,31 @@ M.classes["Fighter"] = {
 M.classes["Gunslinger"] = {
     levels = {
         [13] = {
-            passives  = {},
+            passives  = { "Gunslinger_13_CheatDeath" },
         },
         [14] = {
             passives  = {},
+            boosts    = "ActionResource(Risk,1,0)",
         },
         [15] = {
-            passives  = { "Gunslinger_LightningReload" },
+            passives  = { "Gunslinger_15_DireGambit", "Gunslinger_15_DireGambit_Initiative" },
         },
         [16] = {
             passives  = {},
         },
         [17] = {
-            passives  = {},
-            boosts    = "ActionResource(Risk,1,0)",
+            passives  = { "Gunslinger_17_CriticalShot" },
         },
         [18] = {
-            passives  = { "Gunslinger_ViciousIntent" },
+            passives  = { "Gunslinger_18_DeftManeuver" },
         },
         [19] = {
             passives  = {},
+            boosts    = "ActionResource(HitPointDice08,1,0);",
+            selectors = "SelectPassives(23b18ae7-dc54-5b4f-8939-a9af322e3cef,1,EpicBoon);SelectPassives(4ef62eb1-4735-5e99-8568-dc013af9df15,1,EpicBoonAbility)",
         },
         [20] = {
-            passives  = { "Gunslinger_HemorrhagingCritical" },
-            boosts    = "ActionResource(Risk,1,0)",
+            passives  = { "Gunslinger_20_Headshot" },
         },
     },
 }
@@ -1294,12 +1295,6 @@ M.subclasses["HighRoller"] = {
         [14] = {
             passives  = { "HighRoller_14_DoubleOrNothing" },
         },
-        [15] = {
-            passives  = { "HighRoller_15_StackedDeck" },
-        },
-        [18] = {
-            passives  = { "HighRoller_18_Jackpot" },
-        },
     },
 }
 
@@ -1632,35 +1627,26 @@ M.subclasses["Spellslinger"] = {
     levels = {
         [13] = {
             passives  = {},
-            boosts    = "ActionResource(SpellSlot,1,2)",
-            selectors = "SelectSpells(80c6b070-c3a6-4864-84ca-e78626784eb4,1,1,EldritchKnightAbjEvo)",
+            boosts    = "ActionResource(SpellSlot,2,3)",
+            selectors = "SelectSpells(22755771-ca11-49f4-b772-13d8b8fecd93,1,1,EldritchKnightAbjEvo)",
         },
         [14] = {
             passives  = { "Spellslinger_14_MagicBullet" },
-        },
-        [15] = {
-            passives  = { "SpellSlinger_15_ArcaneBarrage" },
-            selectors = "SelectSpells(80c6b070-c3a6-4864-84ca-e78626784eb4,1,1,EldritchKnightAbjEvo)",
+            selectors = "SelectSpells(22755771-ca11-49f4-b772-13d8b8fecd93,1,1,EldritchKnightAbjEvo)",
         },
         [16] = {
             passives  = {},
             boosts    = "ActionResource(SpellSlot,1,3)",
-        },
-        [17] = {
-            passives  = {},
-            selectors = "SelectSpells(80c6b070-c3a6-4864-84ca-e78626784eb4,1,1,EldritchKnightAbjEvo)",
-        },
-        [18] = {
-            passives  = { "SpellSlinger_18_SpellStorm" },
+            selectors = "SelectSpells(22755771-ca11-49f4-b772-13d8b8fecd93,1,1,EldritchKnightAbjEvo)",
         },
         [19] = {
             passives  = {},
-            boosts    = "ActionResource(SpellSlot,1,3)",
-            selectors = "SelectSpells(80c6b070-c3a6-4864-84ca-e78626784eb4,1,1,EldritchKnightAbjEvo)",
+            boosts    = "ActionResource(SpellSlot,1,4)",
+            selectors = "SelectSpells(820b1220-0385-426d-ae15-458dc8a6f5c0,1,1,EldritchKnightAbjEvo)",
         },
         [20] = {
             passives  = {},
-            selectors = "SelectSpells(80c6b070-c3a6-4864-84ca-e78626784eb4,1,1,EldritchKnightAbjEvo)",
+            selectors = "SelectSpells(820b1220-0385-426d-ae15-458dc8a6f5c0,1,1,EldritchKnightAbjEvo)",
         },
     },
 }
@@ -1781,13 +1767,7 @@ M.subclasses["WhiteHat"] = {
     parent = "Gunslinger",
     levels = {
         [14] = {
-            passives  = { "WhiteHat_14_GoldStarHero" },
-        },
-        [15] = {
-            passives  = { "WhiteHat_15_Peacekeeper" },
-        },
-        [18] = {
-            passives  = { "WhiteHat_18_LawgiversReach" },
+            passives  = { "WhiteHat_14_GoldStarHero", "WhiteHat_14_GoldStarHero_Surrender" },
         },
     },
 }

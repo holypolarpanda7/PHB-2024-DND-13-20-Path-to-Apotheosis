@@ -49,6 +49,16 @@
                     <attribute id="PreferredClassUUID" type="guid" value="721dfac3-92d4-41f5-b773-b7072a86232f"/>
                     <attribute id="UUID" type="guid" value="f81e8e9e-ffe0-4173-83d6-7cd8cf718477"/>
                 </node>
+                <!-- GUNSLINGER 13-20 BEGIN (Scripts/gen_gunslinger.py) -->
+                <node id="LevelMapSeries">
+                    <attribute id="Level1" type="LSString" value="1d8"/>
+                    <attribute id="Level10" type="LSString" value="1d10"/>
+                    <attribute id="Level18" type="LSString" value="1d12"/>
+                    <attribute id="Name" type="FixedString" value="Risk"/>
+                    <attribute id="PreferredClassUUID" type="guid" value="b6cd23fa-ec1a-44a6-86c5-693201654dba"/>
+                    <attribute id="UUID" type="guid" value="f2694731-e5cf-40a4-a9bd-b24b602fb54e"/>
+                </node>
+                <!-- GUNSLINGER 13-20 END -->
             </children>
         </node>
     </region>

@@ -1,0 +1,107 @@
+# Gunslinger 13-20 (issue #6) effect tests. Features are granted to the host for the case (any class works;
+# ClassLevel(Gunslinger) is 0 on a non-Gunslinger, so Cheat Death heals 1). Ranged cases need a ranged weapon
+# equipped (a hand crossbow on the test save). Run: bg3_test_run("apotheosis", "<id>").
+
+[suite]
+name = "Gunslinger 13-20"
+mode = "script"
+
+[[case]]
+id = "gs-cheat-death"
+title = "Cheat Death: a hit that would drop you to 0 leaves you standing"
+spell = "Target_Bite_Wolf"
+caster = "A"
+target = "host"
+safety = false
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 2 }]
+setup = [{ target = "host", remove_status = "ARCANE_WARD*" }, { target = "host", passive = "Gunslinger_13_CheatDeath" }, { target = "host", status = "GUNSLINGER_CHEAT_DEATH", turns = -1 }, { target = "host", hp = 1 }, { target = "A", boost = "RollBonus(Attack,30)" }]
+expect = [{ target = "host", status_applied = ["GUNSLINGER_CHEAT_DEATH_DOWNED"] }, { target = "host", dead = false }, { target = "host", hp_change = [0, 999] }, { target = "host", status_absent = ["GUNSLINGER_CHEAT_DEATH"] }]
+notes = "Heals 1 + Gunslinger level: 1 on a non-Gunslinger host."
+
+[[case]]
+id = "gs-dire-gambit-crit"
+title = "Dire Gambit: a Critical Hit returns a Risk Die"
+spell = "Projectile_MainHandAttack"
+target = "A"
+real_rolls = true
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 6 }]
+setup = [{ target = "host", boost = "ActionResource(Risk,6,0)" }, { target = "host", boost = "CriticalHit(AttackRoll,Success,ForcedAlways)" }, { target = "host", passive = "Gunslinger_15_DireGambit" }, { target = "host", resource = "Risk", amount = 0 }]
+expect = [{ resource = "Risk", level = 0, amount_change = 1 }]
+
+[[case]]
+id = "gs-dire-gambit-initiative"
+title = "Dire Gambit: rolling Initiative returns a Risk Die"
+combat = "after_setup"
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 18 }]
+setup = [{ target = "host", boost = "ActionResource(Risk,6,0)" }, { target = "host", passive = "Gunslinger_15_DireGambit_Initiative" }, { target = "host", resource = "Risk", amount = 0 }]
+expect = [{ resource = "Risk", level = 0, amount_change = 1 }]
+notes = "18 m away: a hostile spawn the host can see starts the fight by itself during staging."
+
+[[case]]
+id = "gs-headshot-kill"
+title = "Headshot: a ranged Critical Hit kills a creature under 100 Hit Points"
+spell = "Projectile_MainHandAttack"
+target = "A"
+real_rolls = true
+reactions = ["Gunslinger_Headshot"]
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 90, distance = 6 }]
+setup = [{ target = "host", boost = "CriticalHit(AttackRoll,Success,ForcedAlways)" }, { target = "host", passive = "Gunslinger_20_Headshot" }]
+expect = [{ target = "A", dead = true }, { resource = "GunslingerHeadshot", level = 0, amount_change = -1 }]
+
+[[case]]
+id = "gs-headshot-damage"
+title = "Headshot: a creature with 100+ Hit Points takes an extra 10d10"
+spell = "Projectile_MainHandAttack"
+target = "A"
+real_rolls = true
+reactions = ["Gunslinger_Headshot"]
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 6 }]
+setup = [{ target = "host", boost = "CriticalHit(AttackRoll,Success,ForcedAlways)" }, { target = "host", passive = "Gunslinger_20_Headshot" }]
+expect = [{ target = "A", dead = false }, { target = "A", hp_change = [-140, -14] }, { target = "A", damage_count = { by = "host", count = [2, 9] } }, { resource = "GunslingerHeadshot", level = 0, amount_change = -1 }]
+
+[[case]]
+id = "gs-headshot-reload"
+title = "Headshot: three Risk Dice restore it"
+spell = "Shout_Gunslinger_HeadshotReload"
+target = "host"
+setup = [{ target = "host", boost = "ActionResource(Risk,6,0)" }, { target = "host", passive = "Gunslinger_20_Headshot" }, { target = "host", resource = "GunslingerHeadshot", amount = 0 }]
+expect = [{ resource = "GunslingerHeadshot", level = 0, amount_change = 1 }, { resource = "Risk", level = 0, change = -3 }]
+
+[[case]]
+id = "gs-double-or-nothing"
+title = "Double or Nothing: a ranged Critical Hit is gambled (Gunslinger.lua logs the d20)"
+spell = "Projectile_MainHandAttack"
+target = "A"
+real_rolls = true
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 6 }]
+setup = [{ target = "host", boost = "CriticalHit(AttackRoll,Success,ForcedAlways)" }, { target = "host", passive = "HighRoller_14_DoubleOrNothing" }, { target = "host", status = "HIGHROLLER_DOUBLE_OR_NOTHING", turns = -1 }]
+expect = [{ target = "A", hp_change = [-60, -1] }]
+notes = "Check the [Apotheosis] 'Double or Nothing: ... rolled' line: x2 on 10+, half on 9 or lower."
+
+[[case]]
+id = "gs-magic-bullet"
+title = "Magic Bullet: a spell attack also deals the ranged weapon's damage"
+spell = "Projectile_FireBolt"
+target = "A"
+real_rolls = true
+reactions = ["MagicBullet"]
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 6 }]
+setup = [{ target = "host", boost = "ActionResource(Risk,6,0)" }, { target = "host", boost = "RollBonus(RangedSpellAttack,30)" }, { target = "host", passive = "Spellslinger_14_MagicBullet" }]
+expect = [{ target = "host", status_applied = ["SPELLSLINGER_MAGIC_BULLET"] }, { target = "A", damage_count = { by = "host", count = [2, 9] } }, { resource = "Risk", level = 0, amount_change = -1 }]
+
+[[case]]
+id = "gs-gold-star-aura"
+title = "Gold Star Hero: allies within 30 feet gain Advantage against being Frightened"
+grant_passive = "WhiteHat_14_GoldStarHero"
+spawn = [{ as = "B", template = "wolf", faction = "friendly", hp = 300, distance = 5 }]
+expect = [{ target = "host", status_present = ["WHITEHAT_GOLD_STAR_AURA"] }, { target = "B", status_present = ["WHITEHAT_STEELY_EYED_ALLY"] }]
+
+[[case]]
+id = "gs-stunned-surrender"
+title = "Gold Star Hero: Stunned Surrender - a Critical Hit stuns on a failed Wisdom save"
+spell = "Projectile_MainHandAttack"
+target = "A"
+real_rolls = true
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 6 }]
+setup = [{ target = "host", boost = "CriticalHit(AttackRoll,Success,ForcedAlways)" }, { target = "host", passive = "WhiteHat_14_GoldStarHero_Surrender" }, { target = "A", boost = "AbilityFailedSavingThrow(Wisdom)" }]
+expect = [{ target = "A", status_applied = ["WHITEHAT_STUNNED_SURRENDER"] }, { target = "A", status_present = ["WHITEHAT_STUNNED_SURRENDER"] }]

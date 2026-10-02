@@ -420,7 +420,7 @@ data "Boosts" "GameplayLight(9,false,0.1,true)"
 data "RemoveConditions" "HasStatus('SG_Incapacitated') or Dead()"
 data "RemoveEvents" "OnStatusApplied"
 
-// dnd55e DEFENSIVE_FIELD/RALLY pattern: GainTemporaryHitPoints is only a DescriptionParams macro, not a functor.
+// dnd55e DEFENSIVE_FIELD/RALLY pattern; GainTemporaryHitPoints(10) on a duration-0 status granted nothing (2026-10-02).
 new entry "EPIC_FORTIFYING_LIGHT"
 type "StatusData"
 data "StatusType" "BOOST"

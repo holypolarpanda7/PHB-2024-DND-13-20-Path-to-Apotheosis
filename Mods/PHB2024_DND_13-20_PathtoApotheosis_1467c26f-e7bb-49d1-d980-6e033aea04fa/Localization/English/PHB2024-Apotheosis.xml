@@ -823,6 +823,49 @@
   <content contentuid="hbc382a0250be5978b737374ba2be5c30" version="1">Choose a level 1-7 Necromancy spell.</content>
   <content contentuid="h92496daea2e55f258ec57cad87d9f9b6" version="1">Signature Arcanum (Transmutation)</content>
   <content contentuid="h1344e716890057f0a3ee6d47a9014bfc" version="1">Choose a level 1-7 Transmutation spell.</content>
+  <content contentuid="h45f21628cbf454f0835f68aa3abaa983" version="1">Cheat Death</content>
+  <content contentuid="h27a7e1814ea35cacb211606e358959a2" version="1">When you are reduced to 0 Hit Points and not killed outright, you drop to 1 Hit Point instead and regain Hit Points equal to your Gunslinger level. Once per Short or Long Rest.</content>
+  <content contentuid="hcbff72c3a4d35c80b5632e29082f66ea" version="1">Cheat Death</content>
+  <content contentuid="h1b53aefa1a5b5c85a99f08b30ba4b52a" version="1">The next time you drop to 0 Hit Points, you drop to 1 instead and regain Hit Points equal to your Gunslinger level.</content>
+  <content contentuid="h434ffaaaa5755266adcb62c28126653d" version="1">Cheat Death</content>
+  <content contentuid="hc0e0cd6e0ca35ce383da9aca4b514053" version="1">Dire Gambit</content>
+  <content contentuid="h8ef5a525e53652c0a5bf42d2c7fd95da" version="1">Whenever you roll Initiative or score a Critical Hit, you regain one expended Risk Die.</content>
+  <content contentuid="h380fe75c3a91543a9040cf89ee7630bf" version="1">Dire Gambit</content>
+  <content contentuid="hf3238c6743825beebc47f1261dc64953" version="1">Regain a Risk Die when you roll Initiative.</content>
+  <content contentuid="h2b4fb39bec2e5e9f9181a41d8c0c23de" version="1">Critical Shot</content>
+  <content contentuid="h5d58e19374395853afd44f14566f6422" version="1">Your attack rolls with Ranged weapons score a Critical Hit on a roll of 17-20 on the d20.</content>
+  <content contentuid="h47184a8e0db15943a146ad9ff0d045b5" version="1">Deft Maneuver</content>
+  <content contentuid="h57d69e36136b5dd2a3555ba9fde0ffcb" version="1">You gain a special Bonus Action each turn that you can use only for a maneuver. Your maneuvers here never cost a Bonus Action, so they are always ready to use alongside your other actions. Your Risk Die becomes a d12.</content>
+  <content contentuid="h47a5b308ad2a565ea3bd193d1aa98847" version="1">Headshot</content>
+  <content contentuid="ha258de729bb6576ab1be2cd23f3692db" version="1">When you score a Critical Hit with a Ranged weapon, you can make it a Headshot: a creature with fewer than 100 Hit Points dies, any other takes an extra 10d10 damage of the weapon's type. Once per Short or Long Rest; expend three Risk Dice to use it again.</content>
+  <content contentuid="hd7a1cd641cca584aab251dbf24a2bcbd" version="1">Headshot</content>
+  <content contentuid="hcd4f25016ef05cc8bb9cb7e8f3a4e37b" version="1">Make this Critical Hit a Headshot: the target dies if it has fewer than 100 Hit Points; otherwise it takes an extra 10d10 damage.</content>
+  <content contentuid="hf4d8e373eda75b9b9a70bdb83635484d" version="1">Headshot</content>
+  <content contentuid="h67b2114e133c5ab2939a13bb6134e0bf" version="1">Headshot: Spend Risk Dice</content>
+  <content contentuid="h9ad285f781b15d978130cfc2acb3101f" version="1">Expend three Risk Dice to use Headshot again.</content>
+  <content contentuid="h9394cefe4cdd5073a218dd365e5f49ac" version="1">Double or Nothing</content>
+  <content contentuid="hb9ed9d4fd2c1594a94cad58efa6b0051" version="1">While this is on, each Critical Hit you score with a Ranged weapon is a gamble: roll a d20. On 10 or higher its damage dice are rolled four times instead of twice; on 9 or lower it becomes a normal hit.</content>
+  <content contentuid="h90cf672d4de054f2b9290a9971bc6333" version="1">Double or Nothing</content>
+  <content contentuid="ha5d75fde0d065b199b2a5f3b9b8ccee9" version="1">Your ranged Critical Hits are a gamble: 10+ on a d20 doubles their damage, 9 or lower makes them normal hits.</content>
+  <content contentuid="ha412c7de0c305cc59d40b55f7d92a194" version="1">Gold Star Hero</content>
+  <content contentuid="hc06e8291953458b9b37090f70ea2bdb4" version="1">Improved Aura: allies within 30 feet of you have Advantage on saving throws against being Frightened while you aren't Incapacitated. Iron-Clad Law: an ally you protect with Lay Down the Law has Resistance to Bludgeoning, Piercing and Slashing damage until the start of your next turn. Stunned Surrender: a creature you score a Critical Hit against makes a Wisdom saving throw against your maneuver DC or is Stunned.</content>
+  <content contentuid="hfbead69a2d7e5325a834b2048790f3a4" version="1">Stunned Surrender</content>
+  <content contentuid="h0c1e61f7df405c25827e38cf889e8e94" version="1">Critical Hits can stun.</content>
+  <content contentuid="hf9295f6ddefe56f499620060afec43e2" version="1">Gold Star Hero</content>
+  <content contentuid="hb2cd062616d4523b9c54ab4912bf3c1f" version="1">Allies within 30 feet have Advantage on saving throws against being Frightened.</content>
+  <content contentuid="he65160b48d8e57cfab65fc127acd39cf" version="1">Steely-Eyed</content>
+  <content contentuid="h2f95b46872d8552db918e626bd64111c" version="1">Advantage on saving throws against being Frightened.</content>
+  <content contentuid="hc51399e24a5852849221347a0870a0bc" version="1">Iron-Clad Law</content>
+  <content contentuid="haccbe7a274fb540aba4d8b8d9b451e80" version="1">Resistance to Bludgeoning, Piercing and Slashing damage.</content>
+  <content contentuid="h404d5dab2efb5cd4a6d2a88be1f7e306" version="1">Surrendered</content>
+  <content contentuid="h8df47199b4fd5b389b88beb9ac5bd057" version="1">Stunned. Ends if the creature takes damage, and it repeats the Wisdom saving throw at the end of each of its turns.</content>
+  <content contentuid="hc623fb9ec60e5097a7c3bdca77e9670b" version="1">Magic Bullet</content>
+  <content contentuid="hb74aeb46bb8a5f5e8ccfd91bce0613f7" version="1">When you make a spell attack roll, you can expend a Risk Die to fire it as a ranged weapon attack: add the Risk Die to the attack roll, and on a hit the target also takes your ranged weapon's normal damage.</content>
+  <content contentuid="h25ab05b247ba5c1893375e76b5c39d0c" version="1">Magic Bullet</content>
+  <content contentuid="h92f07b05ad0952b1b5fac38223f4e119" version="1">Add a Risk Die to this spell attack roll; on a hit, it also deals your ranged weapon's damage.</content>
+  <content contentuid="h4b09ecd54b595a5392654c7ae3666561" version="1">Magic Bullet</content>
+  <content contentuid="h206aa7aad7435fdcabe314b9be3cc7ed" version="1">Headshot</content>
+  <content contentuid="h5ebcf000e00f563fab9ff0ff9ff7f1cd" version="1">Make a Critical Hit a Headshot. Returns on a Short or Long Rest, or by expending three Risk Dice.</content>
   <content contentuid="h07109fede297590d8ad816e36146c75d" version="1">Boon of Combat Prowess</content>
   <content contentuid="h8cb09ad5271a51889d40f440eaebae6d" version="1">Peerless Aim: when you miss with an attack roll, you can hit instead. Once you use this, you can't again until the start of your next turn.</content>
   <content contentuid="hbece0f220b06584b81e540d08a1461ca" version="1">Peerless Aim</content>
