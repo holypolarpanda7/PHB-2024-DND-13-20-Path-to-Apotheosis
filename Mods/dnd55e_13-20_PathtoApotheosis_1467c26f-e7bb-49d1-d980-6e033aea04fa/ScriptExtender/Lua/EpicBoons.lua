@@ -345,7 +345,7 @@ end
 local lastTemp, tickN = {}, 0
 function EB.TickAugmentedHealth()
     tickN = tickN + 1
-    if tickN % 10 ~= 0 then return end
+    if tickN % 10 ~= 0 or not Osi.DB_Players then return end  -- the tick starts before the story's databases exist
     for _, row in pairs(Osi.DB_Players:Get(nil) or {}) do
         local c = row[1]
         if hasAny(c, "EpicBoon_BountifulHealth") then
