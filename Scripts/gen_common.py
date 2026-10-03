@@ -95,9 +95,10 @@ class Gen:
     def template(self, key, name, parent, stats, title, skills=(), level=None, spellset="CommonPlayerActions", extra=None):
         """A character root template (a new creature): MapKey is stable per generator key. The model and effects come
         from `parent` (a base-game template) - swap it, or add VisualTemplate/CharacterVisualResourceID in `extra`,
-        to give the creature a new look. Returns the MapKey."""
+        to give the creature a new look. title=None / spellset=None inherit them from the parent. Returns the MapKey."""
         mk = self.gid("template:" + key)
-        self.T.append(dict(mk=mk, name=name, parent=parent, stats=stats, handle=self.h(f"template:{key}", title),
+        handle = self.h(f"template:{key}", title) if title is not None else None
+        self.T.append(dict(mk=mk, name=name, parent=parent, stats=stats, handle=handle,
                            skills=list(skills), level=level, spellset=spellset, extra=extra or {}))
         return mk
 
@@ -123,8 +124,11 @@ class Gen:
             o = ['<node id="GameObjects">', a("MapKey", "FixedString", t["mk"]), a("Name", "LSString", t["name"]),
                  a("LevelName", "FixedString", ""), a("Type", "FixedString", "character"),
                  a("ParentTemplateId", "FixedString", t["parent"]),
-                 f'<attribute id="DisplayName" type="TranslatedString" handle="{t["handle"]}" version="1" />',
-                 a("Stats", "FixedString", t["stats"]), a("SpellSet", "FixedString", t["spellset"])]
+                 *([f'<attribute id="DisplayName" type="TranslatedString" handle="{t["handle"]}" version="1" />']
+                   if t["handle"] else []),
+                 a("Stats", "FixedString", t["stats"])]  # (same order as before: existing LSX digests stay stable)
+            if t["spellset"]:
+                o.append(a("SpellSet", "FixedString", t["spellset"]))
             if t["level"]:
                 o.append(a("LevelOverride", "int32", t["level"]))
             o += [a(k, typ, v) for k, (typ, v) in t["extra"].items()]

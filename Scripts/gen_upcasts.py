@@ -19,11 +19,14 @@ import re
 import sqlite3
 from pathlib import Path
 
+from gen_common import Gen as TemplateGen
+
 GUID = "PHB2024_DND_13-20_PathtoApotheosis_1467c26f-e7bb-49d1-d980-6e033aea04fa"
 DATA = Path(__file__).resolve().parent.parent / f"Public/{GUID}/Stats/Generated/Data"
 DB = os.path.expanduser("~/.cache/bg3-data-mcp/cache/index.sqlite")
 OUT = {"SpellData": "Spell_Upcast79.txt", "StatusData": "Status_Upcast79.txt", "InterruptData": "Interrupt_Upcast79.txt",
-       "PassiveData": "Passive_Upcast79.txt"}
+       "PassiveData": "Passive_Upcast79.txt", "Character": "Character_Upcast79.txt"}
+GUIDRE = re.compile(r"[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}")
 TYPE_FIELD = {"SpellData": "SpellType", "StatusData": "StatusType"}
 SKIP = {"Level", "RootSpellID", "DisplayName", "Description", "ExtraDescription", "ShortDescription",
         "TooltipUpcastDescription", "TooltipUpcastDescriptionParams", "Icon"}
@@ -64,7 +67,8 @@ class Stats:
                 declared.setdefault(name, {}).update({k: v for k, v in json.loads(data).items() if v is not None})
         roots = {}
         for name, f in declared.items():
-            pl, root = f.get("PowerLevel"), f.get("RootSpellID")
+            pl = f.get("PowerLevel")  # declared (a spell `using` an upcast inherits it)...
+            root = pl and (self.get(name) or ("", {}))[1].get("RootSpellID")  # ...RootSpellID often inherited
             if root and pl and str(pl).isdigit():
                 roots.setdefault(root, {})[int(pl)] = name
         out = {}
@@ -103,6 +107,29 @@ class Gen:
         self.S = Stats()
         self.made = {}      # name -> (type, using, overrides)
         self.warn = []
+        self.T = TemplateGen("upcasts", "UPCASTS 7-9")
+        self.summons = {}   # (6th level template, k) -> new template MapKey
+
+    def template(self, mk):
+        r = self.S.db.execute("SELECT name, parent, attrs FROM templates WHERE mapkey=? ORDER BY rank DESC", (mk,)).fetchone()
+        return r and (r[0], r[1], json.loads(r[2]))
+
+    def summon(self, t5, t6, k):
+        """The creature a summon spell conjures k levels above its 6th level one: a template extending the 6th level
+        template (same model), whose Character stats are stepped like any other entry. None if not that pattern."""
+        if (t6, k) in self.summons:
+            return self.summons[(t6, k)]
+        a, b = self.template(t5), self.template(t6)
+        mk = None
+        if a and b and b[1] == t5:  # dnd55e's per-level summons: X_6 extends X_5 and changes only its Stats
+            sa, sb, n = a[2].get("Stats"), b[2].get("Stats"), 6 + k
+            if sa and sb and sb.endswith("_6") and self.S.get(sa) and self.S.get(sb):
+                stats = sb[:-1] + str(n)
+                self.make(stats, sa, sb, k)
+                name = (b[0][:-1] if b[0].endswith("_6") else b[0] + "_") + str(n)
+                mk = self.T.template(f"upcast:{name}", name, t6, stats, None, spellset=None)
+        self.summons[(t6, k)] = mk
+        return mk
 
     def exists(self, name):
         return name in self.made or self.S.get(name) is not None
@@ -116,19 +143,31 @@ class Gen:
         self.made[name] = None  # reserve against recursion
         over = {}
         for f in sorted(set(a) | set(b)):
-            if f in SKIP or f == "using" or a.get(f) == b.get(f):
+            if (f in SKIP and not (typ == "Character" and f == "Level")) or f == "using" or a.get(f) == b.get(f):
                 continue
             if f not in a or f not in b:
                 continue  # one side only: inherit the 6th level value
-            av = str(a[f])
+            av, bv = str(a[f]), str(b[f])
+            if typ == "Character" and f == "Passives" and "ExtraAttack" in bv:
+                # summons attack half the spell's level (round down) times (PHB 2024 Summon X spells)
+                ea = {1: "", 2: "ExtraAttack", 3: "ExtraAttack_2", 4: "ExtraAttack_3"}[(6 + k) // 2]
+                over[f] = re.sub(r"ExtraAttack(_\d)?(?![A-Za-z0-9_])", ea, bv)
+                continue
+            placed = {}
+            for i, (x, y) in enumerate(zip(GUIDRE.findall(av), GUIDRE.findall(bv))):
+                if x != y and (mk := self.summon(x, y, k)):
+                    av, bv = av.replace(x, f"QQS{i}L5QQ", 1), bv.replace(y, f"QQS{i}L6QQ", 1)
+                    placed[f"QQS{i}L{6 + k}QQ"] = mk
             for nm in set(re.findall(r"([A-Za-z][A-Za-z0-9_]*?)_6(?![0-9])", str(b[f]))):  # root X -> 6th level X_6
                 av = re.sub(rf"(?<![A-Za-z0-9_]){nm}(?![A-Za-z0-9_])", nm + "_5", av)
-            r = step(av, str(b[f]), k)
+            r = step(av, bv, k)
             if r is None:
                 if f not in ("DescriptionParams",):
                     self.warn.append(f"{name}: {f} doesn't step ({a[f]!r} -> {b[f]!r}); inherited")
                 continue
             val, refs = r
+            for ph, mk in placed.items():
+                val = val.replace(ph, mk)
             ok = True
             for pre, num, tail, d in refs:
                 ref = pre + num + tail
@@ -197,6 +236,8 @@ if __name__ == "__main__":
                 if fixed != cost:  # a few base _6 variants spend the wrong slot (See Invisibility_6: level 2)
                     over[cf] = fixed
     write(g)
+    g.T.write_templates("Upcast79")
+    print(f"{len(g.T.T)} summon templates")
     print(f"{len(fams)} families extended to 9th level")
     for w in g.warn:
         print("WARN", w)

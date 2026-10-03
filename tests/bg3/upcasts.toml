@@ -55,3 +55,35 @@ spell = "Target_MageArmor_7"
 target = "host"
 setup = [{ target = "host", boost = "ActionResource(SpellSlot,1,7)" }]
 expect = [{ target = "host", status_applied = ["MAGE_ARMOR"] }]
+
+# Per-level summons: the 7th-9th level creature is a generated template extending the 6th level one (same model)
+# with stepped Character stats; attacks = half the spell's level (round down).
+[[case]]
+id = "upcast-summon-beast-wolf-8"
+title = "Summon Beast (Wolf) at 8th level: 60 HP, four attacks (ExtraAttack_3)"
+spell = "Target_SummonBeast_Wolf_8"
+mode = "script"
+target = "ground"
+distance = 3
+expect = [{ summon = { stats = "Wolf_8", max_hp = 60, passives = ["ExtraAttack_3", "PackTactics_SummonBeast"] } }]
+notes = """Needs dnd55e with the Summon Beast wolf form (upstream 2026-10-03); the 2026-08-16 release has no Summon Beast
+templates, so the cast silently does nothing there (dnd55e's own Wolf_6 too). Verified 2026-10-03 by spawning the
+generated template: Wolf_8 60 HP, ExtraAttack_3; Beholder_7 70 HP, ExtraAttack_2."""
+
+[[case]]
+id = "upcast-summon-dragon-9"
+title = "Summon Dragon at 9th level: 90 HP (50 + 10 per level above 5), four Rends"
+spell = "Target_SummonDragon_9"
+mode = "script"
+target = "ground"
+distance = 3
+expect = [{ summon = { stats = "SummonDragon_9", max_hp = 90, passives = ["ExtraAttack_3", "Blindsight"] } }]
+
+[[case]]
+id = "upcast-summon-celestial-7"
+title = "Summon Celestial at 7th level: 60 HP, three attacks"
+spell = "Target_SummonCelestial_7"
+mode = "script"
+target = "ground"
+distance = 3
+expect = [{ summon = { stats = "SummonCelestial_7", max_hp = 60, passives = ["ExtraAttack_2"] } }]
