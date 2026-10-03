@@ -107,6 +107,13 @@ Known limits (inherit the 6th level behaviour, listed by the generator's WARN li
 - **Danse Macabre** can't resolve at any level (dnd55e bug, see UPSTREAM_FINDINGS.md).
 - Families already reaching 9th level (hand-written in `Spell_HighLevel.txt`, the Apotheosis summons) are untouched.
 
+## Level maps (2026-10-03)
+
+`Scripts/gen_levelmaps.py` extends 20 series past 12 and, by owner decision, restores the PHB 2024 steps base/dnd55e
+compress to fit the 12-level cap (Sneak Attack, cantrip dice, Eldritch Blast, True Strike, Booming Blade, Breath
+Weapon, Land's Aid). The overrides apply to every user of those series, monsters included. Verified in game by reading
+the series back (Ext.StaticData LevelMap).
+
 ## Regenerating this audit
 
 ```bash
