@@ -54,6 +54,23 @@ These are the largest outstanding content work. Each needs: 13–20 progression
 rows (features typically at 14/15/17/18/20 depending on class), passives with
 real boosts, localization handles, and expectations regeneration.
 
+## Subclass features 13-20 for dnd55e's other subclasses (2026-10-03)
+
+`Scripts/subclass_gap_audit.py` lists every subclass whose 13-20 feature levels (2024 class tables) or 13/17 subclass
+spells have no Apotheosis node. Built so far (`Scripts/gen_subclass_features.py` + `SubclassFeatures.lua`, tests
+`tests/bg3/subclass_features.toml`; source texts `References/Subclasses/Subclasses_13_20_Sources.txt`):
+- **Half-caster subclass spells at 13/17** (`gen_subclass_spells.py`): 9 oaths, 5 ranger and 4 artificer subclasses.
+  Not in BG3, so skipped: Commune, Compulsion, Legend Lore, Yolande's Regal Presence, Commune with Nature, Tree Stride,
+  Contact Other Plane, Mislead, Hallucinatory Terrain, Passwall, Wall of Force. Untested in game (needs a 13+ level-up).
+- **Storm Sorcery** 14 Storm's Fury (the base game's reaction, which dnd55e blanks at 11), 18 Wind Soul.
+- **Shadow Sorcery** 14 Shadow Walk, 18 Umbral Form (real Charisma save at 0 HP via Lua; incorporeal movement not
+  implemented).
+- **Divine Soul** 14 Otherworldly Wings, 18 Unearthly Recovery.
+- **Hexblade** 14 Masterful Hex (19-20 crits on the Hex target, Infectious Hex, Resilient Hex).
+- **Undead Patron** 14 Superior Dread (fly + Vitality Siphon; Profane Casting's no-components isn't expressible).
+- **College of Spirits** 14 Mystical Connection (second roll offered as a free switch).
+- **Hollow Warden** 15 Ancient Endurance (Exhaustion immunity; Persistent Hunt spends the lowest level 4+ slot).
+
 ## Regenerating this audit
 
 ```bash

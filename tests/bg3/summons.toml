@@ -45,7 +45,7 @@ caster = "S"
 target = "A"
 real_rolls = true
 spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 3 }]
-setup = [{ target = "A", boost = "AC(-30)" }, { target = "A", boost = "CriticalHit(AttackTarget,Success,Never)" }]
+setup = [{ target = "A", boost = "AC(-30)" }, { target = "A", boost = "CriticalHit(AttackTarget,Success,Never)" }, { target = "A", boost = "ActionResourceBlock(ReactionActionPoint)" }]
 casts = [{ spell = "Target_ApoSummonElemental_Fire", target = "ground", distance = 2, summon_as = "S", near = "A" }]
 expect = [{ target = "A", hp_change = [-18, -9] }, { target = "S", status_applied = ["EXTRA_ATTACK"] }]
 notes = "Damage: the level-4 Slam variant (1d10 + 8), unlocked by the level status."
@@ -70,7 +70,7 @@ caster = "S"
 target = "A"
 real_rolls = true
 spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 3 }]
-setup = [{ target = "A", boost = "AC(-30)" }, { target = "A", boost = "CriticalHit(AttackTarget,Success,Never)" }]
+setup = [{ target = "A", boost = "AC(-30)" }, { target = "A", boost = "CriticalHit(AttackTarget,Success,Never)" }, { target = "A", boost = "ActionResourceBlock(ReactionActionPoint)" }]
 casts = [{ spell = "Target_ApoSummonElemental_Earth_6", target = "ground", distance = 2, summon_as = "S", near = "A" }]
 expect = [{ target = "A", hp_change = [-20, -11] }]
 

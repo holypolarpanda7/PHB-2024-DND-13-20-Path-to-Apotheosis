@@ -3121,4 +3121,94 @@
   <content contentuid="h967f6b0b0f7353b6b97f05e6fd10ad32" version="1">Up to your spellcasting modifier's worth of nonmagical objects (Medium or smaller: 1, Large: 2, Huge: 3) become Animated Objects (AC 15; 10/20/40 HP) that act right after you. Slam: your spell attack modifier; 1d4 + 3 / 2d6 + 3 + your spellcasting modifier / 2d12 + 3 + your spellcasting modifier Force damage, +1d4/1d6/1d12 per slot level above 5. When one drops to 0 Hit Points it reverts to its object. Concentration, up to 1 minute.</content>
   <content contentuid="h7a835c784f3458c49f982bc0ce43a69b" version="1">Animate Objects</content>
   <content contentuid="h86323f6c847a5f17bc45f80ed8494801" version="1">Up to your spellcasting modifier's worth of nonmagical objects (Medium or smaller: 1, Large: 2, Huge: 3) become Animated Objects (AC 15; 10/20/40 HP) that act right after you. Slam: your spell attack modifier; 1d4 + 3 / 2d6 + 3 + your spellcasting modifier / 2d12 + 3 + your spellcasting modifier Force damage, +1d4/1d6/1d12 per slot level above 5. When one drops to 0 Hit Points it reverts to its object. Concentration, up to 1 minute.</content>
+  <content contentuid="h4bad185e3011537490f88a7c7cbe2587" version="1">Storm's Fury</content>
+  <content contentuid="h47cda7fabc3051a2a89194a8d0184ba1" version="1">When you are hit by a melee attack, you can use your Reaction to deal Lightning damage equal to your Sorcerer level to the attacker; it makes a Strength saving throw or is pushed up to 20 feet away.</content>
+  <content contentuid="h9136d9a523f258839bd0bd86570ab96b" version="1">Wind Soul</content>
+  <content contentuid="h31852c82b7e154ea86e8d22c3cf99d1b" version="1">Share your flight.</content>
+  <content contentuid="h13bcce14dc0959f685d3832c93e43fa0" version="1">Wind Soul</content>
+  <content contentuid="hfcc65ef4cfd35f349443980c9290ed31" version="1">You have Immunity to Lightning and Thunder damage and a magical Fly Speed. As an action you can give up to 3 + your Charisma modifier creatures within 30 feet a Fly Speed for 1 hour (once per Short or Long Rest).</content>
+  <content contentuid="h338b9f52eb1c58bdb99520440b6167ba" version="1">Wind Soul: Share Flight</content>
+  <content contentuid="h89b8b0bdd9325470803131ed67706d6a" version="1">Up to 3 + your Charisma modifier creatures within 30 feet gain a Fly Speed for 1 hour.</content>
+  <content contentuid="h514c3070921e53b2a7c2c8d224d5925c" version="1">Shadow Walk</content>
+  <content contentuid="hd9c053c86924523abea94c2d8e586696" version="1">While you are in Dim Light or Darkness, teleport up to 120 feet to an unoccupied space you can see that is also in Dim Light or Darkness.</content>
+  <content contentuid="hf6491749040357949d46d9d721efa841" version="1">Shadow Walk</content>
+  <content contentuid="h4c2c68595a52505f828722aa0c4c7fa4" version="1">As a Bonus Action while in Dim Light or Darkness, teleport up to 120 feet to a space in Dim Light or Darkness.</content>
+  <content contentuid="h0a93e820613552828191fd5ad367fd98" version="1">Umbral Form</content>
+  <content contentuid="h9b602c302eb15a0999b5ba03f06e4f2b" version="1">For 1 minute: Resistance to all damage except Force and Radiant, and if you would drop to 0 Hit Points you make a Charisma saving throw (DC 5 + half the damage taken); on a success your Hit Points instead become three times your Sorcerer level.</content>
+  <content contentuid="hd6c6c3648199586c9f10fdf03ee4e3d2" version="1">Strength of the Grave</content>
+  <content contentuid="had67e060b7a650fe86ca5997b8354aac" version="1">Umbral Form</content>
+  <content contentuid="h3f645820ef725b36834365308f452388" version="1">Adopt a shadowy form. For 1 minute: Resistance to all damage except Force and Radiant, and if you would drop to 0 Hit Points you make a Charisma saving throw (DC 5 + half the damage taken); on a success your Hit Points instead become three times your Sorcerer level.</content>
+  <content contentuid="h9d241ff503995f058700fabb5bee6da8" version="1">Umbral Form (6 Sorcery Points)</content>
+  <content contentuid="hce67a3a54ad75b55ab74e578042751e1" version="1">Adopt a shadowy form again by spending 6 Sorcery Points. For 1 minute: Resistance to all damage except Force and Radiant, and if you would drop to 0 Hit Points you make a Charisma saving throw (DC 5 + half the damage taken); on a success your Hit Points instead become three times your Sorcerer level.</content>
+  <content contentuid="h3b898aba2ceb5e8694689a1e5e7441c0" version="1">Umbral Form</content>
+  <content contentuid="hdafd2a943d5c5752980733ad1ed605f5" version="1">Adopt your shadowy form.</content>
+  <content contentuid="h3bf73fb290e95b898acff2ce55807966" version="1">Umbral Form</content>
+  <content contentuid="hbb3e33c9d4c75a729c940eceef75460f" version="1">As a Bonus Action, once per Long Rest (or for 6 Sorcery Points): For 1 minute: Resistance to all damage except Force and Radiant, and if you would drop to 0 Hit Points you make a Charisma saving throw (DC 5 + half the damage taken); on a success your Hit Points instead become three times your Sorcerer level.</content>
+  <content contentuid="h08cdd398fc695bfcb4d7318eac46f1d6" version="1">Otherworldly Wings</content>
+  <content contentuid="h4bbe001d7638508d91a735383eb55ebf" version="1">Spectral wings: you have a Fly Speed.</content>
+  <content contentuid="h3c7c355626e55802b103059d920e93d7" version="1">Otherworldly Wings</content>
+  <content contentuid="h459120ca270b57199ab4bd5d4a8d3db3" version="1">Manifest spectral wings: you have a Fly Speed until you're Incapacitated.</content>
+  <content contentuid="h029f4f460f0552a5982260432b8e98b2" version="1">Otherworldly Wings</content>
+  <content contentuid="h21300b9078235b73ab220930251f1be5" version="1">As a Bonus Action, manifest spectral wings and gain a Fly Speed.</content>
+  <content contentuid="h5e607d1a958958eeb1d3f016d1e5765b" version="1">Unearthly Recovery</content>
+  <content contentuid="he1b6a36136d95dd190fbb4716675e639" version="1">While you have fewer than half your Hit Points, regain Hit Points equal to half your Hit Point maximum.</content>
+  <content contentuid="h5225bb5c507a50ad88daeeb3ed8ecef7" version="1">Unearthly Recovery</content>
+  <content contentuid="h9f6d9a68d1c65b61a607cc212a700635" version="1">Recover from grievous injuries.</content>
+  <content contentuid="h253844ebbea9505dbe33a4ffd0e28a6d" version="1">Unearthly Recovery</content>
+  <content contentuid="h3262f26da0495713943455c18f11e707" version="1">Once per Long Rest, as a Bonus Action while below half your Hit Points, regain half your Hit Point maximum.</content>
+  <content contentuid="h5e101e5e76f95a2ea8f1d807acdee04a" version="1">Infectious Hex</content>
+  <content contentuid="h4bb0e294da935c1c95d2b189e85f14e5" version="1">Infectious Hex</content>
+  <content contentuid="h534f8980b99c535ba6fc4248d3919773" version="1">Resilient Hex</content>
+  <content contentuid="h97c0c0c0a5545840ae9424fdee9afe68" version="1">Taking damage can't break your Concentration on Hex.</content>
+  <content contentuid="h260d6e909242572aaef4816c66835a0f" version="1">Masterful Hex</content>
+  <content contentuid="h3c395e1af2a950aa8bfdce3deaf36ea6" version="1">Your attacks against the target of your Hex score a Critical Hit on a 19 or 20. When you use a Hexblade's Maneuver, one other creature within 30 feet of the cursed target takes 1d6 Necrotic damage. Taking damage can't break your Concentration on Hex.</content>
+  <content contentuid="h97cf6f8b16645398be7a62ddd178c6e2" version="1">Vitality Siphon</content>
+  <content contentuid="h484e55eabfca5ea6bcd9182d7bea0e92" version="1">Superior Dread</content>
+  <content contentuid="h2e47a756a60558edba146675d639eab3" version="1">While in your Form of Dread you have a Fly Speed, and once per turn when you deal Necrotic damage you regain Hit Points equal to your Charisma modifier (minimum 1).</content>
+  <content contentuid="h91ccc7e300725ee6b9f70c5371010ebb" version="1">Mystical Connection</content>
+  <content contentuid="h67a7053cecdb5a07aa6617fe6835b277" version="1">Whenever you roll on the Spirits from Beyond table, you roll twice and choose: the second spirit is offered as a free switch.</content>
+  <content contentuid="h9c9c6dbcb1b95aa39f68ef629c953cc8" version="1">Mystical Connection: Beloved</content>
+  <content contentuid="h90975269caa6534cb7ee3921956d0e10" version="1">Your second roll on the Spirits from Beyond table: Beloved. You can switch to it (no action).</content>
+  <content contentuid="h746e74da657d5360873e76851bd0fe45" version="1">Mystical Connection: take the Beloved</content>
+  <content contentuid="h081955b7541a588bad4a72a03ecf2b15" version="1">Take the Beloved instead of the spirit you rolled first.</content>
+  <content contentuid="h841cd927e3da5c33b25a31279e1d074c" version="1">Mystical Connection: Sharpshooter</content>
+  <content contentuid="h845c07f6e6e95198b211930b018d532e" version="1">Your second roll on the Spirits from Beyond table: Sharpshooter. You can switch to it (no action).</content>
+  <content contentuid="h3c9f57b840a95ab09c84bfaea88970e3" version="1">Mystical Connection: take the Sharpshooter</content>
+  <content contentuid="hc9d0d7d62869584a81d73b53edef12ff" version="1">Take the Sharpshooter instead of the spirit you rolled first.</content>
+  <content contentuid="h341cd6ce1c005b87a2d1de17d096d32e" version="1">Mystical Connection: Avenger</content>
+  <content contentuid="h8fc3cc983ac0550695d55a886aef20c2" version="1">Your second roll on the Spirits from Beyond table: Avenger. You can switch to it (no action).</content>
+  <content contentuid="h94ddbb00d7a559378cb18fd30041419c" version="1">Mystical Connection: take the Avenger</content>
+  <content contentuid="h0ceb085aaeeb59c4873114e8845ba050" version="1">Take the Avenger instead of the spirit you rolled first.</content>
+  <content contentuid="hdc5977d522bb5665a8a95eecae092f81" version="1">Mystical Connection: Renegade</content>
+  <content contentuid="h1b8f6a96807b5405973302967b58c74d" version="1">Your second roll on the Spirits from Beyond table: Renegade. You can switch to it (no action).</content>
+  <content contentuid="h0afaa194378d50d1826d005e7fcf8dfd" version="1">Mystical Connection: take the Renegade</content>
+  <content contentuid="h897091cf39ef5b67a855b22461719fac" version="1">Take the Renegade instead of the spirit you rolled first.</content>
+  <content contentuid="h69f4b94fe92f5b2499c3dd99bbec7e1c" version="1">Mystical Connection: Fortune Teller</content>
+  <content contentuid="hd277f1d2d5c15a7da423328e8139e4a0" version="1">Your second roll on the Spirits from Beyond table: Fortune Teller. You can switch to it (no action).</content>
+  <content contentuid="hb158a41ad56359bdbd51bdb960a60bb1" version="1">Mystical Connection: take the Fortune Teller</content>
+  <content contentuid="h785c043456bb51a2a7dac96947a1960b" version="1">Take the Fortune Teller instead of the spirit you rolled first.</content>
+  <content contentuid="ha06a53bf9e4e5147a6633f32e3e4067c" version="1">Mystical Connection: Wayfarer</content>
+  <content contentuid="h9faea5e420905f67aff3420b70c4401b" version="1">Your second roll on the Spirits from Beyond table: Wayfarer. You can switch to it (no action).</content>
+  <content contentuid="hbfdedf823dbc56ed8c3b5f4b14b2aee1" version="1">Mystical Connection: take the Wayfarer</content>
+  <content contentuid="he8e369797bd154c681dfc2a5f167b29e" version="1">Take the Wayfarer instead of the spirit you rolled first.</content>
+  <content contentuid="h758f44ad07f25fc99b007df51f982085" version="1">Mystical Connection: Trickster</content>
+  <content contentuid="h858e1ab4425d596e8a2e323a8b9eb6f2" version="1">Your second roll on the Spirits from Beyond table: Trickster. You can switch to it (no action).</content>
+  <content contentuid="hcbb122d107a851e5b8912b4573bb2b61" version="1">Mystical Connection: take the Trickster</content>
+  <content contentuid="h4695cf54b4b65765b381897c1f86f0f8" version="1">Take the Trickster instead of the spirit you rolled first.</content>
+  <content contentuid="hdbaab214550a512fa41c1f0615f133a9" version="1">Mystical Connection: Shade</content>
+  <content contentuid="he0f6e213cce05720be4644215e1ce087" version="1">Your second roll on the Spirits from Beyond table: Shade. You can switch to it (no action).</content>
+  <content contentuid="h7b760772531953d8a68facdf25dce14b" version="1">Mystical Connection: take the Shade</content>
+  <content contentuid="h061768ed08c95b7bb110ee41525478b4" version="1">Take the Shade instead of the spirit you rolled first.</content>
+  <content contentuid="h4e0d24b0c1db566190783b01c26fb0ec" version="1">Mystical Connection: Arsonist</content>
+  <content contentuid="hbaa91f4a6a6a5631a05749c69a24664e" version="1">Your second roll on the Spirits from Beyond table: Arsonist. You can switch to it (no action).</content>
+  <content contentuid="hf235947252fc567db2f7dd98cf358997" version="1">Mystical Connection: take the Arsonist</content>
+  <content contentuid="hcc91954c246850978506ac70880b3530" version="1">Take the Arsonist instead of the spirit you rolled first.</content>
+  <content contentuid="h77b3d35201a553858826b344227b3f65" version="1">Mystical Connection: Coward</content>
+  <content contentuid="ha6afe187ede75ad3b5df0a9b9b3dd1cb" version="1">Your second roll on the Spirits from Beyond table: Coward. You can switch to it (no action).</content>
+  <content contentuid="h299c66930c31566da720deb1d2fc1b03" version="1">Mystical Connection: take the Coward</content>
+  <content contentuid="h876b81407f4951b7b0e9cef1ccf6217a" version="1">Take the Coward instead of the spirit you rolled first.</content>
+  <content contentuid="h03fb93dee10d5530b8dd7edd1678afbf" version="1">Ancient Endurance</content>
+  <content contentuid="h864549f1c2ef5faba269acb8da68b719" version="1">Timeless: you have Immunity to Exhaustion. Persistent Hunt: if you drop to 0 Hit Points while transformed by Wrath of the Wild and don't die outright, you can expend a level 4+ spell slot; your Hit Points instead become five times the slot's level.</content>
+  <content contentuid="h378cf9848d275b52ac3e433fea398663" version="1">Persistent Hunt</content>
+  <content contentuid="h721636c0ca27541cace2914e0e6bed87" version="1">Persistent Hunt</content>
 </contentList>

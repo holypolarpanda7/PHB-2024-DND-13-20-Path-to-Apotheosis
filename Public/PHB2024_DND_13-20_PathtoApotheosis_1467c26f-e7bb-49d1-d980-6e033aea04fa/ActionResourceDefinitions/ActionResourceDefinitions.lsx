@@ -373,6 +373,41 @@
                     <attribute id="UUID" type="guid" value="cd0f4899-6127-5f0d-ae56-2bb738555058"/>
                 </node>
                 <!-- CLASS FEATURES 2024 END -->
+                <!-- SUBCLASS FEATURES 13-20 BEGIN (generated) -->
+                <node id="ActionResourceDefinition">
+                    <attribute id="DisplayName" type="TranslatedString" handle="h9136d9a523f258839bd0bd86570ab96b" version="1"/>
+                    <attribute id="Description" type="TranslatedString" handle="h31852c82b7e154ea86e8d22c3cf99d1b" version="1"/>
+                    <attribute id="IsHidden" type="bool" value="false"/>
+                    <attribute id="MaxLevel" type="uint32" value="0"/>
+                    <attribute id="MaxValue" type="uint32" value="1"/>
+                    <attribute id="Name" type="FixedString" value="ApoWindSoul"/>
+                    <attribute id="ReplenishType" type="FixedString" value="ShortRest"/>
+                    <attribute id="ShowOnActionResourcePanel" type="bool" value="true"/>
+                    <attribute id="UUID" type="guid" value="a8d3f468-126b-5595-a5e3-451d0b47145f"/>
+                </node>
+                <node id="ActionResourceDefinition">
+                    <attribute id="DisplayName" type="TranslatedString" handle="h3b898aba2ceb5e8694689a1e5e7441c0" version="1"/>
+                    <attribute id="Description" type="TranslatedString" handle="hdafd2a943d5c5752980733ad1ed605f5" version="1"/>
+                    <attribute id="IsHidden" type="bool" value="false"/>
+                    <attribute id="MaxLevel" type="uint32" value="0"/>
+                    <attribute id="MaxValue" type="uint32" value="1"/>
+                    <attribute id="Name" type="FixedString" value="ApoUmbralForm"/>
+                    <attribute id="ReplenishType" type="FixedString" value="Rest"/>
+                    <attribute id="ShowOnActionResourcePanel" type="bool" value="true"/>
+                    <attribute id="UUID" type="guid" value="4a584ec1-d8fd-5fdc-b7b8-4506daad7931"/>
+                </node>
+                <node id="ActionResourceDefinition">
+                    <attribute id="DisplayName" type="TranslatedString" handle="h5225bb5c507a50ad88daeeb3ed8ecef7" version="1"/>
+                    <attribute id="Description" type="TranslatedString" handle="h9f6d9a68d1c65b61a607cc212a700635" version="1"/>
+                    <attribute id="IsHidden" type="bool" value="false"/>
+                    <attribute id="MaxLevel" type="uint32" value="0"/>
+                    <attribute id="MaxValue" type="uint32" value="1"/>
+                    <attribute id="Name" type="FixedString" value="ApoUnearthlyRecovery"/>
+                    <attribute id="ReplenishType" type="FixedString" value="Rest"/>
+                    <attribute id="ShowOnActionResourcePanel" type="bool" value="true"/>
+                    <attribute id="UUID" type="guid" value="fc78bcbb-a4e7-5595-a4fa-a07467456b68"/>
+                </node>
+                <!-- SUBCLASS FEATURES 13-20 END -->
             </children>
         </node>
     </region>

@@ -1,0 +1,116 @@
+# 13-20 subclass features (Scripts/gen_subclass_features.py + SubclassFeatures.lua). The feature passives are added to
+# the test host for the case; values that scale with the subclass's class level read 0 on a host of another class,
+# so those cases check the mechanism (reaction fires, status lands, Lua decides) rather than the number.
+
+[suite]
+name = "Subclass features 13-20"
+mode = "script"
+
+[[case]]
+id = "storm-sorcery-storms-fury"
+title = "Storm Sorcery 14 Storm's Fury: hit in melee -> reaction, Strength save or pushed 20 feet"
+spell = "Target_Bite_Wolf"
+caster = "A"
+target = "host"
+real_rolls = true
+reactions = ["Interrupt_StormsFury"]
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 2 }]
+setup = [{ target = "host", passive = "StormSorcery_14_StormsFury" }, { target = "A", boost = "RollBonus(Attack,30)" },
+         { target = "A", boost = "AbilityFailedSavingThrow(Strength)" }]
+expect = [{ cast_count = { spell = "Target_StormsFury", by = "host", count = [1, 1] } }]
+notes = "The push (Strength save, 20 ft) is the base game's Target_StormsFury; with 0 Sorcerer levels the test host deals 0 damage."
+
+[[case]]
+id = "storm-sorcery-wind-soul"
+title = "Storm Sorcery 18 Wind Soul: share flight with allies within 30 feet"
+spell = "Shout_ApoWindSoul"
+target = "host"
+spawn = [{ as = "B", template = "wolf", faction = "friendly", hp = 300, distance = 3 }]
+setup = [{ target = "host", passive = "StormSorcery_18_WindSoul" }]
+expect = [{ target = "B", status_applied = ["FLY"] }]
+
+[[case]]
+id = "shadow-sorcery-umbral-form"
+title = "Shadow Sorcery 18 Umbral Form: resistances, and the Charisma save at 0 HP"
+spell = "Target_Bite_Wolf"
+caster = "A"
+target = "host"
+real_rolls = true
+safety = false
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 2 }]
+setup = [{ target = "host", passive = "ShadowMagic_18_UmbralForm" }, { target = "host", status = "APO_UMBRAL_FORM", turns = 10 },
+         { target = "host", hp = 1 }, { target = "A", boost = "RollBonus(Attack,30)" }, { target = "host", boost = "RollBonus(SavingThrow,30)" }]
+expect = [{ target = "host", status_applied = ["APO_UMBRAL_GRAVE_DOWNED"] }, { log = "/Strength of the Grave Charisma save vs DC \\d+ -> success/" },
+          { target = "host", dead = false }]
+
+[[case]]
+id = "divine-soul-unearthly-recovery"
+title = "Divine Soul 18 Unearthly Recovery: below half HP, regain half your HP maximum"
+spell = "Shout_ApoUnearthlyRecovery"
+target = "host"
+setup = [{ target = "host", passive = "DivineSoul_18_UnearthlyRecovery" }, { target = "host", hp = 5 }]
+expect = [{ target = "host", hp_change = [9, 11] }]
+notes = "Test host max HP 20: half = 10."
+
+[[case]]
+id = "divine-soul-wings"
+title = "Divine Soul 14 Otherworldly Wings: Bonus Action, fly"
+spell = "Shout_ApoOtherworldlyWings"
+target = "host"
+setup = [{ target = "host", passive = "DivineSoul_14_OtherworldlyWings" }]
+expect = [{ target = "host", status_applied = ["APO_OTHERWORLDLY_WINGS"] }]
+
+[[case]]
+id = "hexblade-infectious-hex"
+title = "Hexblade 14 Masterful Hex: hitting the hexed target deals 1d6 Necrotic to another enemy within 30 feet"
+spell = "Target_UnarmedAttack"
+target = "A"
+real_rolls = true
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 1.5 },
+         { as = "B", template = "wolf", faction = "hostile", hp = 300, distance = 5 }]
+setup = [{ target = "host", passive = "Hexblade_14_MasterfulHex" }, { target = "A", status = "HEX_CHARISMA", turns = 10, by = "host" },
+         { target = "host", boost = "RollBonus(Attack,30)" }, { target = "A", boost = "ActionResourceBlock(ReactionActionPoint)" },
+         { target = "B", boost = "ActionResourceBlock(ReactionActionPoint)" }]
+expect = [{ target = "A", status_applied = ["APO_INFECTIOUS_HEX"] }, { target = "B", hp_change = [-6, -1] }]
+
+[[case]]
+id = "hexblade-resilient-hex"
+title = "Hexblade 14 Masterful Hex: concentrating on Hex gives Resilient Hex"
+spell = "Target_Hex"
+target = "A"
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 4 }]
+setup = [{ target = "host", passive = "Hexblade_14_MasterfulHex" }]
+expect = [{ target = "host", status_applied = ["APO_RESILIENT_HEX"] }]
+
+[[case]]
+id = "undead-vitality-siphon"
+title = "Undead Patron 14 Superior Dread: Necrotic damage in Form of Dread heals Charisma modifier"
+spell = "Target_InflictWounds"
+target = "A"
+real_rolls = true
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 4 }]
+setup = [{ target = "host", passive = "UndeadPatron_14_SuperiorDread" }, { target = "host", status = "FORM_OF_DREAD", turns = 10 },
+         { target = "host", hp = 10 }, { target = "A", boost = "AbilityFailedSavingThrow(Constitution)" }, { target = "A", boost = "ActionResourceBlock(ReactionActionPoint)" }]
+expect = [{ target = "host", hp_change = [1, 1] }]
+notes = "Test host Charisma 12: +1."
+
+[[case]]
+id = "spirits-mystical-connection"
+title = "College of Spirits 14 Mystical Connection: a second spirit is offered"
+target = "host"
+setup = [{ target = "host", passive = "Spirits_14_MysticalConnection" }, { target = "host", status = "SPIRITS_FROM_BEYOND", turns = 1 }]
+expect = [{ target = "host", status_applied_any = ["APO_MYSTICAL_CONNECTION_0", "APO_MYSTICAL_CONNECTION_1", "APO_MYSTICAL_CONNECTION_2", "APO_MYSTICAL_CONNECTION_3", "APO_MYSTICAL_CONNECTION_4", "APO_MYSTICAL_CONNECTION_5", "APO_MYSTICAL_CONNECTION_6", "APO_MYSTICAL_CONNECTION_7", "APO_MYSTICAL_CONNECTION_8", "APO_MYSTICAL_CONNECTION_9"] }]
+notes = "When the second roll matches the first nothing is offered (re-run)."
+
+[[case]]
+id = "hollow-warden-persistent-hunt"
+title = "Hollow Warden 15 Persistent Hunt: at 0 HP in Wrath of the Wild, a level 4+ slot keeps you up"
+spell = "Target_Bite_Wolf"
+caster = "A"
+target = "host"
+real_rolls = true
+safety = false
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 2 }]
+setup = [{ target = "host", passive = "HollowWarden_15_AncientEndurance" }, { target = "host", status = "WRATH_OF_THE_WILD", turns = 10 },
+         { target = "host", boost = "ActionResource(SpellSlot,1,4)" }, { target = "host", hp = 1 }, { target = "A", boost = "RollBonus(Attack,30)" }]
+expect = [{ log = "/Persistent Hunt: .* spends a level 4 slot and stays up with 20 HP/" }, { target = "host", dead = false }]

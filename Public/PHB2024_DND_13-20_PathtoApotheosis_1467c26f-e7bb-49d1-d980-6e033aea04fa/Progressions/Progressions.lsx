@@ -3481,6 +3481,88 @@
                     <attribute id="UUID" type="guid" value="a64dd376-a662-5b4e-b75b-4c9dd5395fbb"/>
                 </node>
                 <!-- SUBCLASS SPELLS 13-17 END -->
+                <!-- SUBCLASS FEATURES 13-20 BEGIN (generated) -->
+                <node id="Progression">
+                    <attribute id="Level" type="uint8" value="14"/>
+                    <attribute id="Name" type="LSString" value="StormSorcery"/>
+                    <attribute id="PassivesAdded" type="LSString" value="StormSorcery_14_StormsFury"/>
+                    <attribute id="ProgressionType" type="uint8" value="1"/>
+                    <attribute id="TableUUID" type="guid" value="fac6ea25-a7f8-4793-b331-d884041e5adb"/>
+                    <attribute id="UUID" type="guid" value="f5d18657-ec66-5c21-bc1a-fe24fba5d3aa"/>
+                </node>
+                <node id="Progression">
+                    <attribute id="Level" type="uint8" value="18"/>
+                    <attribute id="Name" type="LSString" value="StormSorcery"/>
+                    <attribute id="PassivesAdded" type="LSString" value="StormSorcery_18_WindSoul"/>
+                    <attribute id="ProgressionType" type="uint8" value="1"/>
+                    <attribute id="TableUUID" type="guid" value="fac6ea25-a7f8-4793-b331-d884041e5adb"/>
+                    <attribute id="UUID" type="guid" value="c72fc8a3-cb3f-599c-a5bd-3659651d103f"/>
+                </node>
+                <node id="Progression">
+                    <attribute id="Level" type="uint8" value="14"/>
+                    <attribute id="Name" type="LSString" value="ShadowMagic"/>
+                    <attribute id="PassivesAdded" type="LSString" value="ShadowMagic_14_ShadowWalk"/>
+                    <attribute id="ProgressionType" type="uint8" value="1"/>
+                    <attribute id="TableUUID" type="guid" value="02d68ea9-5b8d-4f3f-a37a-96ae78d233cd"/>
+                    <attribute id="UUID" type="guid" value="84c72c2e-1665-53d5-aa25-e84fe3d9ba23"/>
+                </node>
+                <node id="Progression">
+                    <attribute id="Level" type="uint8" value="18"/>
+                    <attribute id="Name" type="LSString" value="ShadowMagic"/>
+                    <attribute id="PassivesAdded" type="LSString" value="ShadowMagic_18_UmbralForm"/>
+                    <attribute id="ProgressionType" type="uint8" value="1"/>
+                    <attribute id="TableUUID" type="guid" value="02d68ea9-5b8d-4f3f-a37a-96ae78d233cd"/>
+                    <attribute id="UUID" type="guid" value="14089103-1802-5f3a-8d85-e86a71f73b82"/>
+                </node>
+                <node id="Progression">
+                    <attribute id="Level" type="uint8" value="14"/>
+                    <attribute id="Name" type="LSString" value="DivineSoul"/>
+                    <attribute id="PassivesAdded" type="LSString" value="DivineSoul_14_OtherworldlyWings"/>
+                    <attribute id="ProgressionType" type="uint8" value="1"/>
+                    <attribute id="TableUUID" type="guid" value="f98f8748-4842-4441-a3c0-1c2785333e02"/>
+                    <attribute id="UUID" type="guid" value="c76f9dac-8caf-5edb-8820-468805d370aa"/>
+                </node>
+                <node id="Progression">
+                    <attribute id="Level" type="uint8" value="18"/>
+                    <attribute id="Name" type="LSString" value="DivineSoul"/>
+                    <attribute id="PassivesAdded" type="LSString" value="DivineSoul_18_UnearthlyRecovery"/>
+                    <attribute id="ProgressionType" type="uint8" value="1"/>
+                    <attribute id="TableUUID" type="guid" value="f98f8748-4842-4441-a3c0-1c2785333e02"/>
+                    <attribute id="UUID" type="guid" value="994723b4-0e8e-55dc-a33a-02bacc4af72d"/>
+                </node>
+                <node id="Progression">
+                    <attribute id="Level" type="uint8" value="14"/>
+                    <attribute id="Name" type="LSString" value="Hexblade"/>
+                    <attribute id="PassivesAdded" type="LSString" value="Hexblade_14_MasterfulHex"/>
+                    <attribute id="ProgressionType" type="uint8" value="1"/>
+                    <attribute id="TableUUID" type="guid" value="2b9b50de-48e2-4b1c-b40d-6050aa85009a"/>
+                    <attribute id="UUID" type="guid" value="f7bafee7-c283-5486-b22d-35c027f17af9"/>
+                </node>
+                <node id="Progression">
+                    <attribute id="Level" type="uint8" value="14"/>
+                    <attribute id="Name" type="LSString" value="UndeadPatron"/>
+                    <attribute id="PassivesAdded" type="LSString" value="UndeadPatron_14_SuperiorDread"/>
+                    <attribute id="ProgressionType" type="uint8" value="1"/>
+                    <attribute id="TableUUID" type="guid" value="35c30532-8f59-4980-b21b-4f729d2cd786"/>
+                    <attribute id="UUID" type="guid" value="3f192f6a-e079-56e1-9733-8cad191108c7"/>
+                </node>
+                <node id="Progression">
+                    <attribute id="Level" type="uint8" value="14"/>
+                    <attribute id="Name" type="LSString" value="SpiritsCollege"/>
+                    <attribute id="PassivesAdded" type="LSString" value="Spirits_14_MysticalConnection"/>
+                    <attribute id="ProgressionType" type="uint8" value="1"/>
+                    <attribute id="TableUUID" type="guid" value="3669d6ce-d951-4491-8c23-fe2fa922357c"/>
+                    <attribute id="UUID" type="guid" value="8bfeb809-fc9f-5afb-9a89-a3702aff75cd"/>
+                </node>
+                <node id="Progression">
+                    <attribute id="Level" type="uint8" value="15"/>
+                    <attribute id="Name" type="LSString" value="HollowWarden"/>
+                    <attribute id="PassivesAdded" type="LSString" value="HollowWarden_15_AncientEndurance"/>
+                    <attribute id="ProgressionType" type="uint8" value="1"/>
+                    <attribute id="TableUUID" type="guid" value="e5e8acd6-4fd3-4295-8e78-3a77b8c30f2d"/>
+                    <attribute id="UUID" type="guid" value="aab166e8-91a2-5ea0-ab97-6a2a8656a04a"/>
+                </node>
+                <!-- SUBCLASS FEATURES 13-20 END -->
             </children>
         </node>
     </region>
