@@ -13,7 +13,7 @@ set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 
-MOD_FOLDER="PHB2024_DND_13-20_PathtoApotheosis_1467c26f-e7bb-49d1-d980-6e033aea04fa"
+MOD_FOLDER="dnd55e_13-20_PathtoApotheosis_1467c26f-e7bb-49d1-d980-6e033aea04fa"
 MOD_UUID="1467c26f-e7bb-49d1-d980-6e033aea04fa"
 
 if [[ -d /mnt/c ]]; then C=/mnt/c; D=/mnt/d; to_win() { wslpath -w "$1"; }
@@ -112,7 +112,7 @@ main() {
                 print "                        <node id=\"ModuleShortDesc\">"
                 print i "<attribute id=\"Folder\" type=\"LSString\" value=\"" folder "\"/>"
                 print i "<attribute id=\"MD5\" type=\"LSString\" value=\"\"/>"
-                print i "<attribute id=\"Name\" type=\"LSString\" value=\"PHB2024_DND_13-20_PathtoApotheosis\"/>"
+                print i "<attribute id=\"Name\" type=\"LSString\" value=\"dnd55e_13-20_PathtoApotheosis\"/>"
                 print i "<attribute id=\"PublishHandle\" type=\"uint64\" value=\"0\"/>"
                 print i "<attribute id=\"UUID\" type=\"guid\" value=\"" uuid "\"/>"
                 print i "<attribute id=\"Version64\" type=\"int64\" value=\"36028797018963968\"/>"

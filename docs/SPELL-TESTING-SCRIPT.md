@@ -24,7 +24,7 @@ Two kinds of coverage:
 
 1. **Deploy the current build** (from WSL, uses Git Bash for `/c/` paths):
    ```
-   "/mnt/c/Program Files/Git/bin/bash.exe" -lc "cd /d/BG3Modding/Mod_Projects/PHB-2024-DND-13-20-Path-to-Apotheosis && ./Scripts/pack_deploy_test.sh"
+   "/mnt/c/Program Files/Git/bin/bash.exe" -lc "cd /d/BG3Modding/Mod_Projects/dnd55e-13-20-Path-to-Apotheosis && ./Scripts/pack_deploy_test.sh"
    ```
    This packs the mod, deploys the `.pak` to the BG3 `Mods\` folder, and
    ensures the Apotheosis UUID is enabled in `modsettings.lsx`.

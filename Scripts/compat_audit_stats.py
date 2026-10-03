@@ -13,9 +13,9 @@ import glob, os, re, subprocess, sys
 from collections import defaultdict
 
 WS = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-APO_MOD = "PHB2024_DND_13-20_PathtoApotheosis_1467c26f-e7bb-49d1-d980-6e033aea04fa"
+APO_MOD = "dnd55e_13-20_PathtoApotheosis_1467c26f-e7bb-49d1-d980-6e033aea04fa"
 DND_MOD = "DnD2024_897914ef-5c96-053c-44af-0be823f895fe"
-APO = os.path.join(WS, "PHB-2024-DND-13-20-Path-to-Apotheosis")
+APO = os.path.join(WS, "dnd55e-13-20-Path-to-Apotheosis")
 DNDR = os.environ.get("DND55E_ROOT", os.path.join(WS, "dnd55e"))
 BASELINE = os.environ.get("BASELINE", "2026-07-15")
 VAN = "/mnt/d/SteamLibrary/steamapps/common/Baldurs Gate 3/Data/Editor/Mods"

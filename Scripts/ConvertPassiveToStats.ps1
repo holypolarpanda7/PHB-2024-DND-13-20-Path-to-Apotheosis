@@ -4,8 +4,8 @@
 $scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 $projectRoot = Split-Path -Parent $scriptDir
 
-$PassiveTxtPath = Join-Path $projectRoot 'Public\PHB2024_DND_13-20_PathtoApotheosis_1467c26f-e7bb-49d1-d980-6e033aea04fa\Stats\Generated\Data\Passive.txt'
-$OutputDir = Join-Path $projectRoot 'Editor\Mods\PHB2024_DND_13-20_PathtoApotheosis_1467c26f-e7bb-49d1-d980-6e033aea04fa\Stats\Stats'
+$PassiveTxtPath = Join-Path $projectRoot 'Public\dnd55e_13-20_PathtoApotheosis_1467c26f-e7bb-49d1-d980-6e033aea04fa\Stats\Generated\Data\Passive.txt'
+$OutputDir = Join-Path $projectRoot 'Editor\Mods\dnd55e_13-20_PathtoApotheosis_1467c26f-e7bb-49d1-d980-6e033aea04fa\Stats\Stats'
 $OutputFile = Join-Path $OutputDir 'Passive.stats'
 
 # Create directory if not exists

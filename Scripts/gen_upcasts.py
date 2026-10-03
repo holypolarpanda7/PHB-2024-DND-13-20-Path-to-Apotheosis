@@ -21,7 +21,7 @@ from pathlib import Path
 
 from gen_common import Gen as TemplateGen
 
-GUID = "PHB2024_DND_13-20_PathtoApotheosis_1467c26f-e7bb-49d1-d980-6e033aea04fa"
+GUID = "dnd55e_13-20_PathtoApotheosis_1467c26f-e7bb-49d1-d980-6e033aea04fa"
 DATA = Path(__file__).resolve().parent.parent / f"Public/{GUID}/Stats/Generated/Data"
 DB = os.path.expanduser("~/.cache/bg3-data-mcp/cache/index.sqlite")
 OUT = {"SpellData": "Spell_Upcast79.txt", "StatusData": "Status_Upcast79.txt", "InterruptData": "Interrupt_Upcast79.txt",

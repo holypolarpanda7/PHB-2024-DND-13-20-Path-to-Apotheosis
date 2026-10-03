@@ -21,7 +21,7 @@ import uuid
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PUB = glob.glob(os.path.join(REPO, "Public", "*"))[0]
 DATA = os.path.join(PUB, "Stats", "Generated", "Data")
-LOCA = glob.glob(os.path.join(REPO, "Mods", "*", "Localization", "English", "PHB2024-Apotheosis.xml"))[0]
+LOCA = glob.glob(os.path.join(REPO, "Mods", "*", "Localization", "English", "dnd55e-Apotheosis.xml"))[0]
 from gen_common import DND  # dnd55e as released (the dependency pak)
 NS = uuid.NAMESPACE_URL
 LOCA_ROWS = {}

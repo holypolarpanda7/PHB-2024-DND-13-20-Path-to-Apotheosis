@@ -6,7 +6,7 @@
 
 Run from the repo root (needs the bg3-data-mcp index for spell types and progression levels):
   UV_PROJECT_ENVIRONMENT=~/.cache/bg3-data-mcp/venv uv run --directory ../bg3-data-mcp python \
-      ../PHB-2024-DND-13-20-Path-to-Apotheosis/Scripts/gen_bg3_tests.py
+      ../dnd55e-13-20-Path-to-Apotheosis/Scripts/gen_bg3_tests.py
 """
 import glob
 import json

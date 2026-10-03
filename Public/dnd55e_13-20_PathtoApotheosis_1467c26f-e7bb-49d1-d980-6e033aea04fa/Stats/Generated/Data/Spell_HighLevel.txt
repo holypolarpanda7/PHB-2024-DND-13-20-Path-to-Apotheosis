@@ -1,5 +1,5 @@
 // ==================================================================================
-// PHB 2024 DND 13-20: Path to Apotheosis - Level 9 Spell Overrides
+// dnd55e 13-20: Path to Apotheosis - Level 9 Spell Overrides
 // ==================================================================================
 // These spells use the built-in level 9 spell slot system.
 // Note: Level 9 slots don't show in the UI but function correctly.

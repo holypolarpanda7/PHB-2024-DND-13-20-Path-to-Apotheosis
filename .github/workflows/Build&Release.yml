@@ -10,10 +10,10 @@ permissions:
 
 env:
   # === Display name (human-readable) ===
-  MOD_NAME: "PHB-2024-DND-13-20-Path-to-Apotheosis"
+  MOD_NAME: "dnd55e-13-20-Path-to-Apotheosis"
 
   # === Safe slug for filenames ===
-  MOD_SLUG: "PHB-2024-DND-13-20-Path-to-Apotheosis"
+  MOD_SLUG: "dnd55e-13-20-Path-to-Apotheosis"
 
   GAME: "bg3"
 

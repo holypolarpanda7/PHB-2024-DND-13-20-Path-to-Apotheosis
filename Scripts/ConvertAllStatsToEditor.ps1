@@ -4,8 +4,8 @@
 $scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 $projectRoot = Split-Path -Parent $scriptDir
 
-$StatsDir = Join-Path $projectRoot 'Public\PHB2024_DND_13-20_PathtoApotheosis_1467c26f-e7bb-49d1-d980-6e033aea04fa\Stats\Generated\Data'
-$OutputDir = Join-Path $projectRoot 'Editor\Mods\PHB2024_DND_13-20_PathtoApotheosis_1467c26f-e7bb-49d1-d980-6e033aea04fa\Stats\Stats'
+$StatsDir = Join-Path $projectRoot 'Public\dnd55e_13-20_PathtoApotheosis_1467c26f-e7bb-49d1-d980-6e033aea04fa\Stats\Generated\Data'
+$OutputDir = Join-Path $projectRoot 'Editor\Mods\dnd55e_13-20_PathtoApotheosis_1467c26f-e7bb-49d1-d980-6e033aea04fa\Stats\Stats'
 
 # Create directory if not exists
 New-Item -ItemType Directory -Path $OutputDir -Force | Out-Null

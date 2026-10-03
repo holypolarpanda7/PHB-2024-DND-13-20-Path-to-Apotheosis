@@ -5,7 +5,7 @@
         <node id="root">
             <attribute id="GameProject" type="LSString" value=""/>
             <attribute id="Module" type="LSString" value="1467c26f-e7bb-49d1-d980-6e033aea04fa"/>
-            <attribute id="Name" type="LSString" value="PHB2024_DND_13-20_PathtoApotheosis"/>
+            <attribute id="Name" type="LSString" value="dnd55e_13-20_PathtoApotheosis"/>
             <attribute id="UUID" type="LSString" value="a3467f21-32b3-2084-61ad-4256461b6d1f"/>
             <attribute id="UpdatedDependencies" type="bool" value="true"/>
             <children>

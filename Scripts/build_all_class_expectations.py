@@ -19,7 +19,7 @@ import re
 from pathlib import Path
 
 APO_PUBLIC = Path(
-    "Public/PHB2024_DND_13-20_PathtoApotheosis_1467c26f-e7bb-49d1-d980-6e033aea04fa"
+    "Public/dnd55e_13-20_PathtoApotheosis_1467c26f-e7bb-49d1-d980-6e033aea04fa"
 )
 PROGRESSIONS = APO_PUBLIC / "Progressions" / "Progressions.lsx"
 # later sources override earlier ones (dnd55e wins over base game)
@@ -34,7 +34,7 @@ CLASSDESC_SOURCES = [
 ]
 OUT_JSON = Path("Scripts/test_build_manifests/all_class_expectations.json")
 OUT_LUA = Path(
-    "Mods/PHB2024_DND_13-20_PathtoApotheosis_1467c26f-e7bb-49d1-d980-6e033aea04fa"
+    "Mods/dnd55e_13-20_PathtoApotheosis_1467c26f-e7bb-49d1-d980-6e033aea04fa"
     "/ScriptExtender/Lua/ClassExpectations.lua"
 )
 

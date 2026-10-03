@@ -132,13 +132,13 @@
                 <node id="ModuleInfo">
                     <attribute id="Author" type="LSString" value="holypolarpanda"/>
                     <attribute id="CharacterCreationLevelName" type="FixedString" value=""/>
-                    <attribute id="Description" type="LSString" value="BG3 mod to extend PHB2024 DND All in one mod. Extend class levels and caps past lvl 12 to 20."/>
+                    <attribute id="Description" type="LSString" value="Path to Apotheosis for dnd55e (DnD 5.5e All-in-One): extends classes and caps past level 12 to 20."/>
                     <attribute id="FileSize" type="uint64" value="0"/>
-                    <attribute id="Folder" type="LSString" value="PHB2024_DND_13-20_PathtoApotheosis_1467c26f-e7bb-49d1-d980-6e033aea04fa"/>
+                    <attribute id="Folder" type="LSString" value="dnd55e_13-20_PathtoApotheosis_1467c26f-e7bb-49d1-d980-6e033aea04fa"/>
                     <attribute id="LobbyLevelName" type="FixedString" value=""/>
                     <attribute id="MD5" type="LSString" value=""/>
                     <attribute id="MenuLevelName" type="FixedString" value=""/>
-                    <attribute id="Name" type="LSString" value="PHB2024_DND_13-20_PathtoApotheosis"/>
+                    <attribute id="Name" type="LSString" value="dnd55e_13-20_PathtoApotheosis"/>
                     <attribute id="NumPlayers" type="uint8" value="4"/>
                     <attribute id="PhotoBooth" type="FixedString" value=""/>
                     <attribute id="PublishHandle" type="uint64" value="0"/>

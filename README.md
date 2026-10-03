@@ -1,4 +1,4 @@
-# PHB 2024 — Path to Apotheosis (Levels 13–20)
+# dnd55e — Path to Apotheosis (Levels 13–20)
 
 Extends the [DnD 5.5e (PHB 2024) mod](https://github.com/Yoonmoonsik/dnd55e) past
 Baldur's Gate 3's level-12 cap: full class progressions, subclass features, spell

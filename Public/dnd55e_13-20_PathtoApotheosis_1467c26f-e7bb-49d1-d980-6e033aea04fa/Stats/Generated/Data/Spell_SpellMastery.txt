@@ -1,5 +1,5 @@
 // ==============================================================================
-// PHB 2024 DND 13-20: Path to Apotheosis - Spell Mastery Free-Cast Spells
+// dnd55e 13-20: Path to Apotheosis - Spell Mastery Free-Cast Spells
 // These are at-will versions of L1 and L2 spells (cost only ActionPoint)
 // ==============================================================================
 

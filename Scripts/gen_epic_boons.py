@@ -10,7 +10,7 @@ as one entry per allowed ability with the +1 built in; for those the ability pic
 
 Owns (rewritten every run): Stats/Generated/Data/{Passive,Status,Spell,Interrupt}_EpicBoons.txt.
 Patches idempotently (between markers / by UUID): Lists/PassiveLists.lsx, ActionResourceDefinitions,
-Localization/English/PHB2024-Apotheosis.xml, Progressions.lsx (level-19 nodes).
+Localization/English/dnd55e-Apotheosis.xml, Progressions.lsx (level-19 nodes).
 Script Extender halves live in ScriptExtender/Lua/EpicBoons.lua.
 
 Run: python3 Scripts/gen_epic_boons.py
@@ -24,7 +24,7 @@ import uuid
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PUB = glob.glob(os.path.join(REPO, "Public", "*"))[0]
 DATA = os.path.join(PUB, "Stats", "Generated", "Data")
-LOCA = glob.glob(os.path.join(REPO, "Mods", "*", "Localization", "English", "PHB2024-Apotheosis.xml"))[0]
+LOCA = glob.glob(os.path.join(REPO, "Mods", "*", "Localization", "English", "dnd55e-Apotheosis.xml"))[0]
 NS = uuid.NAMESPACE_URL
 
 

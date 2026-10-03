@@ -1,6 +1,6 @@
 # Wizard test script
 
-Generated 2026-09-30 16:48 CDT from `/mnt/d/BG3Modding/Mod_Projects/PHB-2024-DND-13-20-Path-to-Apotheosis/tests/bg3` (layers: base, dnd55e, apotheosis).
+Generated 2026-09-30 16:48 CDT from `/mnt/d/BG3Modding/Mod_Projects/dnd55e-13-20-Path-to-Apotheosis/tests/bg3` (layers: base, dnd55e, apotheosis).
 Say the words in **bold quotes** to me; I run the tools. Never save while a test is staged.
 
 ## Level 1

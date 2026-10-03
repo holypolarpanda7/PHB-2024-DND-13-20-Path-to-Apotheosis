@@ -15,7 +15,7 @@ from pathlib import Path
 
 EXPECTATIONS_JSON = Path("Scripts/test_build_manifests/wizard_13_20_expectations.json")
 OUTPUT_LUA = Path(
-    "Mods/PHB2024_DND_13-20_PathtoApotheosis_1467c26f-e7bb-49d1-d980-6e033aea04fa"
+    "Mods/dnd55e_13-20_PathtoApotheosis_1467c26f-e7bb-49d1-d980-6e033aea04fa"
     "/ScriptExtender/Lua/WizardManifestExpectations.lua"
 )
 

@@ -1,5 +1,5 @@
 {
     "RequiredVersion": 20,
-    "ModTable": "PHB2024_Apotheosis",
+    "ModTable": "dnd55e_Apotheosis",
     "FeatureFlags": ["Lua"]
 }

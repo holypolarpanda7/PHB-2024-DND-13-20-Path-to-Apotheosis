@@ -4,6 +4,6 @@ Editor/
 # Local build/package artifacts
 .build/
 .pack_out/
-PHB2024_DND_13-20_PathtoApotheosis_1467c26f-e7bb-49d1-d980-6e033aea04fa.pak
+dnd55e_13-20_PathtoApotheosis_1467c26f-e7bb-49d1-d980-6e033aea04fa.pak
 .tmp_apotheosis_test.pak
 __pycache__/

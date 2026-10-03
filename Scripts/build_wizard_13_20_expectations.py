@@ -79,7 +79,7 @@ def build_parser() -> argparse.ArgumentParser:
         "--progressions",
         type=Path,
         default=Path(
-            "Public/PHB2024_DND_13-20_PathtoApotheosis_1467c26f-e7bb-49d1-d980-6e033aea04fa/Progressions/Progressions.lsx"
+            "Public/dnd55e_13-20_PathtoApotheosis_1467c26f-e7bb-49d1-d980-6e033aea04fa/Progressions/Progressions.lsx"
         ),
         help="Path to Apotheosis Progressions.lsx",
     )

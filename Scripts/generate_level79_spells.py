@@ -7,7 +7,7 @@ design doc. Tweak a design here and re-run; all outputs regenerate.
 Outputs:
   Public/<guid>/Stats/Generated/Data/Spell_Epic79.txt      (overwritten)
   Public/<guid>/Stats/Generated/Data/Status_Epic79.txt     (overwritten)
-  Mods/<guid>/Localization/English/PHB2024-Apotheosis.xml  (hsp*/hst* entries replaced)
+  Mods/<guid>/Localization/English/dnd55e-Apotheosis.xml  (hsp*/hst* entries replaced)
   Public/<guid>/Lists/SpellLists.lsx                       (spells unioned into class lists)
   docs/SPELLS-7-9.md                                       (overwritten)
 
@@ -27,10 +27,10 @@ from __future__ import annotations
 import re
 from pathlib import Path
 
-GUID = "PHB2024_DND_13-20_PathtoApotheosis_1467c26f-e7bb-49d1-d980-6e033aea04fa"
+GUID = "dnd55e_13-20_PathtoApotheosis_1467c26f-e7bb-49d1-d980-6e033aea04fa"
 OUT_SPELLS = Path(f"Public/{GUID}/Stats/Generated/Data/Spell_Epic79.txt")
 OUT_STATUSES = Path(f"Public/{GUID}/Stats/Generated/Data/Status_Epic79.txt")
-LOCA = Path(f"Mods/{GUID}/Localization/English/PHB2024-Apotheosis.xml")
+LOCA = Path(f"Mods/{GUID}/Localization/English/dnd55e-Apotheosis.xml")
 SPELL_LISTS = Path(f"Public/{GUID}/Lists/SpellLists.lsx")
 DOC = Path("docs/SPELLS-7-9.md")
 

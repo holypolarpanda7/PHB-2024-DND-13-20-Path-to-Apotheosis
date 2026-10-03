@@ -2,8 +2,8 @@
 # Converts Progressions.lsx to Progressions.tbl with proper toolkit format
 
 param(
-    [string]$InputPath = "..\Public\PHB2024_DND_13-20_PathtoApotheosis_1467c26f-e7bb-49d1-d980-6e033aea04fa\Progressions\Progressions.lsx",
-    [string]$OutputPath = "..\Editor\Mods\PHB2024_DND_13-20_PathtoApotheosis_1467c26f-e7bb-49d1-d980-6e033aea04fa\Progressions\Progressions.tbl"
+    [string]$InputPath = "..\Public\dnd55e_13-20_PathtoApotheosis_1467c26f-e7bb-49d1-d980-6e033aea04fa\Progressions\Progressions.lsx",
+    [string]$OutputPath = "..\Editor\Mods\dnd55e_13-20_PathtoApotheosis_1467c26f-e7bb-49d1-d980-6e033aea04fa\Progressions\Progressions.tbl"
 )
 
 $scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
