@@ -45,6 +45,7 @@ class Gen:
     def __init__(self, key, marker):
         self.key, self.marker = key, marker
         self.P, self.S, self.SP, self.I, self.C, self.T = [], [], [], [], [], []
+        self.TI = []  # item root templates (traps)
         self.loca, self.resources, self.lists, self.levelmaps = {}, [], [], []
 
     def gid(self, k):
@@ -106,11 +107,18 @@ class Gen:
                            skills=list(skills), level=level, spellset=spellset, extra=extra or {}))
         return mk
 
+    def item_template(self, key, name, parent, projectile):
+        """A trap item root template: it carries one thing, the name of the projectile spell the trap casts (the
+        `Projectile` constellation parameter, as the base game's PUZ_Trap_Spell_* items). Returns the MapKey."""
+        mk = self.gid("template:" + key)
+        self.TI.append(dict(mk=mk, name=name, parent=parent, projectile=projectile))
+        return mk
+
     # ------------------------------------------------------------ writers
     def write_templates(self, fname):
         """Write the templates as Public/<mod>/RootTemplates/<fname>.lsf (binary, what the game loads)."""
         path = os.path.join(PUB, "RootTemplates", fname + ".lsf")
-        if not self.T:
+        if not self.T and not self.TI:
             if os.path.exists(path):
                 os.remove(path)
             return
@@ -139,6 +147,16 @@ class Gen:
             o.append("<children><node id=\"SkillList\"><children>" + "".join(skill(x) for x in t["skills"])
                      + "</children></node></children></node>")
             objs.append("".join(o))
+        for t in self.TI:  # the nested Scalar/String nodes are what the base game's trap items use
+            s_ = ('<node id="String">' + a("String", "LSString", t["projectile"]) + "</node>")
+            for nm in ("Scalar", "Scalar"):
+                s_ = f'<node id="{nm}"><children>{s_}</children></node>'
+            val = f'<node id="Value"><children>{s_}</children></node>'
+            objs.append('<node id="GameObjects">' + a("LevelName", "FixedString", "") + a("MapKey", "FixedString", t["mk"])
+                        + a("Name", "LSString", t["name"]) + a("ParentTemplateId", "FixedString", t["parent"])
+                        + a("Type", "FixedString", "item")
+                        + '<children><node id="ConstellationConfigGlobalParameters"><children><node id="ConstellationConfigParameter">'
+                        + a("Name", "LSString", "Projectile") + f"<children>{val}</children></node></children></node></children></node>")
         lsx = ('<?xml version="1.0" encoding="utf-8"?><save><version major="4" minor="8" revision="0" build="500" />'
                '<region id="Templates"><node id="Templates"><children>' + "".join(objs)
                + "</children></node></region></save>")

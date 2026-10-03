@@ -85,3 +85,31 @@ mode = "script"
 target = "ground"
 distance = 3
 expect = [{ summon = { stats = "SummonCelestial_7", max_hp = 60, passives = ["ExtraAttack_2"] } }]
+
+[[case]]
+id = "upcast-summon-fey-9"
+title = "Summon Fey at 9th level: a Red Cap with 90 HP and four attacks (stepped from the 5th/6th level creatures)"
+spell = "Target_SummonFey_9"
+mode = "script"
+target = "ground"
+distance = 3
+expect = [{ summon = { stats = "RedCap_9", max_hp = 90, passives = ["ExtraAttack_3"] } }]
+
+[[case]]
+id = "upcast-summon-undead-8"
+title = "Summon Undead at 8th level: 80 HP, three-plus attacks"
+spell = "Target_SummonUndead_8"
+mode = "script"
+target = "ground"
+distance = 3
+expect = [{ summon = { stats = "SummonUndead_8", max_hp = 80 } }]
+
+[[case]]
+id = "upcast-glyph-of-warding-fire-9"
+title = "Glyph of Warding (Fire) at 9th level: the cast resolves and places its own 9th level trap item"
+spell = "Target_GlyphOfWarding_Fire_9"
+mode = "script"
+target = "ground"
+distance = 3
+expect = [{ cast_count = { by = "host", count = [1, 1] } }]
+notes = "The trap item (PUZ_Trap_Spell_GlyphOfWarding_Fire_9) names Projectile_GlyphOfWarding_Fire_Trap_9 (11d8 Fire); checked from the loaded templates/stats, the explosion itself needs an enemy to trigger it."

@@ -121,7 +121,9 @@ class Gen:
             return self.summons[(t6, k)]
         a, b = self.template(t5), self.template(t6)
         mk = None
-        if a and b and b[1] == t5:  # dnd55e's per-level summons: X_6 extends X_5 and changes only its Stats
+        # dnd55e's per-level summons: X_6 extends X_5 (wolf, beholder...) or X_5 / X_6 share a parent (Summon Fey / Undead)
+        # and each changes only its Stats
+        if a and b and (b[1] == t5 or b[1] == a[1]):
             sa, sb, n = a[2].get("Stats"), b[2].get("Stats"), 6 + k
             if sa and sb and sb.endswith("_6") and self.S.get(sa) and self.S.get(sb):
                 stats = sb[:-1] + str(n)
@@ -235,9 +237,23 @@ if __name__ == "__main__":
                 fixed = re.sub(r"(SpellSlotsGroup:\d+:\d+:)\d+", rf"\g<1>{n}", cost.strip())
                 if fixed != cost:  # a few base _6 variants spend the wrong slot (See Invisibility_6: level 2)
                     over[cf] = fixed
+    # Glyph of Warding: the trap is an item whose only job is to name its projectile spell, so a 7th-9th level glyph needs
+    # its own trap item + stepped trap projectile (Sleep and Detonation have no dice and keep the 6th level trap).
+    for el in ("Acid", "Cold", "Fire", "Lightning", "Thunder"):
+        p5, p6 = f"Projectile_GlyphOfWarding_{el}_Trap_5", f"Projectile_GlyphOfWarding_{el}_Trap_6"
+        props6 = str(g.S.get(f"Target_GlyphOfWarding_{el}_6")[1]["SpellProperties"])
+        t6 = GUIDRE.search(props6).group(0)
+        tpl6 = g.template(t6)
+        for n in (7, 8, 9):
+            proj = f"Projectile_GlyphOfWarding_{el}_Trap_{n}"
+            g.make(proj, p5, p6, n - 6)
+            mk = g.T.item_template(f"glyph:{el}:{n}", f"PUZ_Trap_Spell_GlyphOfWarding_{el}_{n}", tpl6[1], proj)
+            spell = f"Target_GlyphOfWarding_{el}_{n}"
+            g.made[spell][2]["SpellProperties"] = props6.replace(t6, mk)
+            g.warn = [w for w in g.warn if not (w.startswith(f"{spell}:") and "SpellProperties" in w)]
     write(g)
     g.T.write_templates("Upcast79")
-    print(f"{len(g.T.T)} summon templates")
+    print(f"{len(g.T.T)} summon templates, {len(g.T.TI)} trap items")
     print(f"{len(fams)} families extended to 9th level")
     for w in g.warn:
         print("WARN", w)

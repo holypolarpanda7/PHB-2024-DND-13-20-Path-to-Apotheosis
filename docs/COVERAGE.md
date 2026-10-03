@@ -92,19 +92,25 @@ spells have no Apotheosis node. Built so far (`Scripts/gen_subclass_features.py`
 
 Base BG3 and dnd55e stop every spell's `_N` upcast variants at 6th level, so a 7th-9th level slot couldn't upcast
 Bless, Hex, Ice Knife, Counterspell, Chromatic Orb... `Scripts/gen_upcasts.py` adds `_7`..`_9` for all 333 families
-that stop at 6 (~1100 spells, ~150 statuses, 15 interrupts, 12 passives, 45 creatures in `*_Upcast79.txt`). Each variant uses `X_6` and
+that stop at 6 (~1100 spells, ~190 statuses, 15 interrupts, 12 passives, 51 creatures and 15 trap items in `*_Upcast79.txt`). Each variant uses `X_6` and
 extends the 5th->6th level step linearly (PHB 2024 upcasting is linear per slot level), generating any referenced
 status / interrupt / container child at the new level the same way. Verified in game: the engine offers the `_9`
 variants once a 9th level slot exists; `tests/bg3/upcasts.toml` (6 cases) passes.
 
-Known limits (inherit the 6th level behaviour, listed by the generator's WARN lines):
-- **Summons**: dnd55e's per-level summons (Summon Beast, Aberration, Celestial, Dragon) get generated 7th-9th level
-  creatures (`RootTemplates/Upcast79.lsf` + `Character_Upcast79.txt`: stepped HP/AC/damage, attacks = half the spell
-  level). Summon Fey / Summon Undead (a different creature per level) and Glyph of Warding (trap templates) still
-  conjure the 6th level creature at 7th-9th.
+Per-level creatures and traps (generated like everything else, tests in `tests/bg3/upcasts.toml`):
+- **Summons**: dnd55e's per-level summons (Summon Beast, Aberration, Celestial, Dragon, Fey, Undead) get generated 7th-9th
+  level creatures (`RootTemplates/Upcast79.lsf` + `Character_Upcast79.txt`: stepped HP/AC/damage, attacks = half the
+  spell level), whether their levels chain (wolf, beholder) or are siblings (Red Cap, Summon Undead).
+- **Glyph of Warding** (Acid, Cold, Fire, Lightning, Thunder): a trap item per level that names its own stepped trap
+  projectile (11d8 at 9th). Sleep and Detonation have no dice and keep the 6th level trap.
 - **Summon Elemental** is dnd55e's own (deferred 2026-10-03); Apotheosis's `Target_ApoSummonElemental` was retired.
-- **Cloudkill** scales through a per-level surface (`Cloudkill6Cloud`); 7th-9th deal 6th level damage.
-- **Danse Macabre** can't resolve at any level (dnd55e bug, see UPSTREAM_FINDINGS.md).
+
+Known limits (7th-9th inherit the 6th level behaviour):
+- **Cloudkill** scales through a per-level surface (`Cloudkill6Cloud`); 7th-9th deal 6th level damage (needs per-level
+  surface definitions).
+- **Conjure Elemental**'s Myrmidon forms (their 6th level entry isn't named `_6`) and **Seeming**'s AI helper spell aren't
+  extended.
+- **Danse Macabre** can't resolve at any level (dnd55e bug, filed as bg3dnd #1539).
 - Families already reaching 9th level (hand-written in `Spell_HighLevel.txt`, the Apotheosis summons) are untouched.
 
 ## Level maps (2026-10-03)
