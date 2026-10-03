@@ -13,3 +13,15 @@ needs a character of that subclass levelled through the listed level before repo
   MOVE_10_TO_11; verified in game): Sneak Attack 7d6 at 11 (2024: 6d6; 7d6 at 13), cantrip dice / Eldritch Blast /
   True Strike / Booming Blade / Breath Weapon third tier at 10 (2024: 11), Land's Aid 3d6 at 5 / 4d6 at 10 (2024: 10 / 14).
   Worth reporting upstream if dnd55e wants the same: base BG3 compresses the cantrip tiers (5/10) for its 12-level cap.
+
+## Filed upstream (2026-10-03, against 4.12.18.1; repo is Yoonmoonsik/bg3dnd)
+
+- [#1539](https://github.com/Yoonmoonsik/bg3dnd/issues/1539) Danse Macabre can't be cast: it inherits from the emptied
+  `Target_AnimateDead_Ghoul*` entries (no SpellAnimation). Repro: `tests/bg3/upstream_bugs.toml` (the Danse Macabre case
+  fails, its control `Target_SummonUndead_6` passes).
+- [#1540](https://github.com/Yoonmoonsik/bg3dnd/issues/1540) `Target_Awaken_6` has no UseCosts and spends a 5th level slot.
+
+Not filed: the stacked Nature / Tempest / Enchantment / Battle Master choice nodes. Verified at data level only (the base
+game's Nature Domain level 3 node and dnd55e's both load); whether the level-up UI offers the choices twice needs a
+level-up in game, and the project only takes confirmed bugs from a fresh campaign. The issues above state plainly that the
+template's fresh-campaign / no-other-mods checks were not done (the findings are in the release data files).

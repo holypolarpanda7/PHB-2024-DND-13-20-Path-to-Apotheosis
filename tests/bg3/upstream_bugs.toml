@@ -1,0 +1,22 @@
+# dnd55e bugs found while building on it (docs/UPSTREAM_FINDINGS.md). These cases FAIL while the bug exists - they are repros,
+# not Apotheosis features. Controls show the harness itself works.
+[suite]
+name = "dnd55e upstream bugs (repros)"
+
+[[case]]
+id = "upstream-danse-macabre-resolves"
+title = "dnd55e Danse Macabre: the cast should resolve (it has no SpellAnimation, so it never finishes)"
+mode = "script"
+spell = "Target_DanseMacabre"
+target = "ground"
+distance = 3
+expect = [{ cast_count = { by = "host", count = [1, 1] } }]
+
+[[case]]
+id = "upstream-danse-macabre-control"
+title = "Control: dnd55e's Summon Undead (6th level, intact) through the same scripted cast resolves"
+mode = "script"
+spell = "Target_SummonUndead_6"
+target = "ground"
+distance = 3
+expect = [{ cast_count = { by = "host", count = [1, 1] } }]
