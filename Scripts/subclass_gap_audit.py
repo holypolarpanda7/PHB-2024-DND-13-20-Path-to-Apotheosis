@@ -18,6 +18,8 @@ for u,(n,a) in cd.items():
 EXP={'Barbarian':[14],'Bard':[14],'Cleric':[17],'Druid':[14],'Fighter':[15,18],'Monk':[17],'Paladin':[15,20],
      'Ranger':[15],'Rogue':[13,17],'Sorcerer':[14,18],'Warlock':[14],'Wizard':[14],'Artificer':[15]}
 SPELLS={'Paladin','Ranger','Artificer'}
+NO_SPELL_TABLE={'BeastMaster','Hunter'}  # no subclass spell table
+KNOWN_EMPTY={'Glory':(17,),'Ancients':(17,),'FeyWanderer':(17,),'HollowWarden':(13,),'Armorer':(17,)}  # every spell missing in BG3
 apo={}
 for t,lv,a in c.execute("select table_uuid,level,attrs from prog where layer='apotheosis'"):
     apo.setdefault(t,{})[int(lv)]=json.loads(a)
@@ -31,8 +33,10 @@ for sub,cl in sorted(cls_of.items(), key=lambda x:(x[1],x[0])):
     if t not in low: continue   # not a playable subclass table in base/dnd55e
     have=apo.get(t,{})
     miss=[f"L{L}" for L in EXP[cl] if L not in have]
-    if cl in SPELLS:
+    if cl in SPELLS and sub not in NO_SPELL_TABLE:
         for L in (13,17):
+            if L in KNOWN_EMPTY.get(sub, ()):
+                continue
             sel=(have.get(L) or {}).get('Selectors','') or ''
             if 'AddSpells' not in sel: miss.append(f"spells{L}")
     if miss: out.append(f"{cl:10s} {sub:28s} {t}  missing: {', '.join(miss)}")

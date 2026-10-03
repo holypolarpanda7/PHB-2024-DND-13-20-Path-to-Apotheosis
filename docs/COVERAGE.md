@@ -86,7 +86,7 @@ spells have no Apotheosis node. Built so far (`Scripts/gen_subclass_features.py`
   Mortal Bulwark's banishment, Vigilant Defender, Arcane Archer, Unerring Accuracy, Master Duelist, Stormborn,
   Walker in Dreams, Unyielding Spirit.
 - Still missing: Nature 17 Master of Nature (commanding charmed beasts/plants), and the subclasses whose 13-20 texts
-  aren't available here (third-party or unknown sources): see `References/Subclasses/Sourcing.md`.
+  aren't available here (third-party or unknown sources): see `docs/SUBCLASS_SOURCING.md`.
 
 ## Regenerating this audit
 
