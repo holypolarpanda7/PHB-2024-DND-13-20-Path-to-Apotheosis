@@ -606,21 +606,14 @@ def patch_resources():
 
 
 def patch_loca():
-    s = open(LOCA, encoding="utf-8").read()
-    s = re.sub(r'  <content contentuid="(h[0-9a-f]{32})" version="\d+">[^<]*</content>\n',
-               lambda m: "" if m.group(1) in LOCA_ROWS else m.group(0), s)
-    def esc(t):
-        return t.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
-    rows = "".join(f'  <content contentuid="{k}" version="1">{esc(v)}</content>\n' for k, v in LOCA_ROWS.items())
-    i = s.rindex("</contentList>")
-    s = s[:i] + rows + s[i:]
-    assert "<!--" not in s, "loca must not contain XML comments (Toolkit crash)"
-    open(LOCA, "w", encoding="utf-8", newline="").write(s)
+    from gen_common import update_loca
+    update_loca(LOCA_ROWS)
 
 
 # The PHB classes plus dnd55e classes whose own source gives an Epic Boon at 19 (Gunslinger: gen_gunslinger.py
 # overrides dnd55e's level-19 node to drop its ASI)
-PHB_CLASSES = {"Barbarian", "Bard", "Cleric", "Druid", "Fighter", "Monk", "Paladin", "Ranger", "Rogue", "Sorcerer", "Warlock", "Wizard",
+# Artificer: Eberron - Forge of the Artificer (2025) also gives an Epic Boon at 19 (added 2026-10-03)
+PHB_CLASSES = {"Artificer", "Barbarian", "Bard", "Cleric", "Druid", "Fighter", "Monk", "Paladin", "Ranger", "Rogue", "Sorcerer", "Warlock", "Wizard",
                "Gunslinger"}
 
 

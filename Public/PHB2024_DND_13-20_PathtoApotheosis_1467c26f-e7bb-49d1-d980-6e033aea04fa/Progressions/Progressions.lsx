@@ -935,11 +935,11 @@
                     <attribute id="UUID" type="guid" value="cccccccc-cccc-cccc-cccc-ccccccccc906"/>
                 </node>
                 <node id="Progression">
-                    <attribute id="AllowImprovement" type="bool" value="true"/>
                     <attribute id="Boosts" type="LSString" value="ActionResource(SpellSlot,1,5)"/>
                     <attribute id="Level" type="uint8" value="19"/>
                     <attribute id="Name" type="LSString" value="Artificer"/>
                     <attribute id="ProgressionType" type="uint8" value="0"/>
+                    <attribute id="Selectors" type="LSString" value="SelectPassives(23b18ae7-dc54-5b4f-8939-a9af322e3cef,1,EpicBoon);SelectPassives(4ef62eb1-4735-5e99-8568-dc013af9df15,1,EpicBoonAbility)"/>
                     <attribute id="TableUUID" type="guid" value="1e84493e-aeff-4d0e-b3ae-6c2187245d23"/>
                     <attribute id="UUID" type="guid" value="cccccccc-cccc-cccc-cccc-ccccccccc907"/>
                 </node>
