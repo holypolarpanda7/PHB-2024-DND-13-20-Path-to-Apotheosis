@@ -1,31 +1,40 @@
-# Subclasses without a 13-20 source (2026-10-03)
+# Sources for dnd55e's third-party subclasses (researched 2026-10-03)
 
-`Scripts/subclass_gap_audit.py` still lists these dnd55e subclasses with no features past level 12. Their 13-20
-features aren't built because the rules text dnd55e follows isn't available here (VISION.md principle 1: follow the
-source dnd55e uses; principle 4: no homebrew in its place). To finish one, add its source text to
-`References/Subclasses/` (or The Oracle) and its features to `Scripts/gen_subclass_features.py`.
+`Scripts/subclass_gap_audit.py` lists dnd55e subclasses with no features past level 12. dnd55e's wiki
+(`github.com/Yoonmoonsik/bg3dnd/wiki`, cloned from `bg3dnd.wiki.git`) describes what it built but names no sources, so the
+sources below were found by web search on feature names (VISION principle 1: follow the source dnd55e uses; principle 4:
+no homebrew). dnd55e often rewrites its subclasses for the 2024 rules (features moved, merged or reworked), so a source's
+13+ feature is only "missing" if dnd55e didn't already fold it into levels 1-12.
 
-| Class | Subclass | Missing levels | dnd55e has (1-12) | Likely source (web search, unverified) |
+Status: BUILT = in `Scripts/gen_subclass_features.py` and tested in game; TEXT = source text found, not built yet; NO TEXT =
+source identified but its rules text isn't reachable (paid book, site blocks automated fetches); UNKNOWN = no source found.
+
+| Class | Subclass | Source (confidence) | Source's 13+ features | Status |
 | --- | --- | --- | --- | --- |
-| Barbarian | Fractured | 14 | 3 Face of Rage / Mask of Civility, 6 Brains and Brawn, 10 Cunning and Brutal | GamingBrew Tomes Subclass Pack? (mentions "fractured") |
-| Barbarian | Shadow Gnawer | 14 | 3 Shadow Smoke, 6 Creeping Fog, 10 Consume Darkness | 5esrd.com "Shadow Gnawer (Barbarian)" (third party) |
-| Bard | College of Choreography | 14 | - | unknown (maybe dnd55e's own) |
-| Cleric | Apocalypse Domain | 17 | 3 Visions of Annihilation, Doom Song; 6 All Will Be Dust | D&D Beyond promoted it (2025-07) - source book not found |
-| Cleric | Astral Domain | 17 | 3 Create Void, Planar Reach; 6 Spatial Exchange | unknown |
-| Cleric | Dragon Domain | 17 | 3 Chromatic Affinity, Draconic Majesty; 6 Wyrm's Blessing | unknown |
-| Cleric | Mind Domain | 17 | 3 Psychic Feedback, Psychic Force; 6 Gestalt Anchor | unknown |
-| Cleric | Shadow Domain | 17 | 3 Cover of Night, Lengthen Shadow, Shadow Grasp; 6 Fade to Black | unknown |
-| Druid | Circle of Dragons | 14 | 3 Draconic Lore, Dragon Shape; 6 Improved Dragon Shape; 10 Draconic Magic | unknown |
-| Druid | Circle of the Unbroken | 14 | 3 Improved Shillelagh, Wild Recovery; 6 Extra Attack; 10 War Magic | The Griffon's Saddlebag, Book 1 (14: Nature Armor?) |
-| Fighter | Viking | 15, 18 | 10 Call of the Northlands | unknown |
-| Rogue | Arachnoid Stalker | 13, 17 | 9 Paralytic Venom | Valda's Spire of Secrets (Mage Hand Press) |
-| Rogue | Blade of Radiance | 13, 17 | 3 Sanctified Champion...; 9 Chains of Judgement, Divine Retaliation, Erupting Blades | Steinhardt's Guide to the Eldritch Hunt |
-| Rogue | Highway Rider | 13, 17 | 3 Hair Trigger, Trusty Mount, Ride Them Down; 9 Horse Lord | Grim Hollow |
-| Sorcerer | Frost Sorcery | 14, 18 | 3 Create Ice, Frozen Body; 6 Cold-Hearted | unknown |
-| Sorcerer | Heroic Sorcery | 14, 18 | - | unknown |
+| Barbarian | Shadow Gnawer | Book of Ebon Tides, Open Design 2022 (OGL, 5esrd) - certain | 14 Corrosive Haze | BUILT |
+| Cleric | Shadow Domain | Book of Ebon Tides, Open Design 2022 (OGL, 5esrd) - certain | 17 Army of Shadow | BUILT |
+| Cleric | Mind Domain | Exploring Eberron, Keith Baker (dnd5e.wikidot "Mind Domain (HB)") - certain | 17 Bend Reality | BUILT (interrupt is a manual check) |
+| Rogue | Highway Rider | Grim Hollow Player's Guide (Nieb's Critical Collection mirror) - certain | 13 True Grit, 17 Desperado | 13 BUILT (Constitution proficiency only); 17 TEXT |
+| Rogue | Arachnoid Stalker | Valda's Spire of Secrets, Mage Hand Press, 2024 version (magehandpress.com/2024/10/arachnoid-stalker) - certain | 13 Web Walker, 17 Paralytic Venom | 13 BUILT; 17 TEXT (dnd55e already has a Cunning Strike Paralytic Venom at 9) |
+| Druid | Circle of Dragons | The Griffon's Saddlebag: Book Two - certain | 14 Heart of a Dragon (breath weapon outside dragon form, better AC and Fly speed, three attacks) | NO TEXT (summary only, no numbers) |
+| Druid | Circle of the Unbroken | The Griffon's Saddlebag: Book One (Bell of Lost Souls) - certain | 14: Shillelagh Mastery d12 | NO TEXT |
+| Bard | College of Choreography | The Griffon's Saddlebag: Book One - certain | 14: ? | NO TEXT |
+| Cleric | Astral Domain | The Griffon's Saddlebag: Book One - certain | 17 Supreme Switching (upgrades Spatial Exchange / Misty Step) | NO TEXT |
+| Cleric | Dragon Domain | Valda's Spire of Secrets (D&D Beyond lists "Cleric - Dragon Domain") - likely | 17: ? | NO TEXT |
+| Sorcerer | Heroic Sorcery | Valda's Spire of Secrets "Heroic Bloodline" (capstone: Haste without Concentration) - likely; dnd55e's version (Heroic Spells, Martial Sorcery, Extra Attack, War Magic) is a rework | 14 / 18: ? | NO TEXT (Mage Hand Press's 2017 "Reincarnated Hero" is a different, older subclass) |
+| Fighter | Viking | Kobold Press, Northlands Worldbook (Seaborne, Savage Charge, Call of the Northlands) - certain | 15 Marauder's Reprisal, 18 Unstoppable Assault (levels per the dnd55e gap) | NO TEXT |
+| Rogue | Blade of Radiance | Steinhardt's Guide to the Eldritch Hunt (World Anvil homebrew, masongarth2000) - certain | 13 / 17: ? (Chains of Judgement, Divine Retaliation are 9) | NO TEXT (World Anvil returns 403) |
+| Barbarian | Fractured | Grim Hollow, "Barbarian: Path of the Fractured" (grimhollow.fandom.com, Scribd copy) - certain | 14: ? (3 Face of Rage / Mask of Civility, 6 Brains and Brawn, 10 Cunning and Brutal) | NO TEXT (fandom returns 402) |
+| Cleric | Apocalypse Domain | not Midgard Heroes Handbook (features differ: Ranting Ruin, Damnation, Weight of Guilt, Herald of the Apocalypse) | ? | UNKNOWN (dnd55e's Visions of Annihilation / Doom Song / All Will Be Dust aren't in any version found) |
+| Sorcerer | Frost Sorcery | dandwiki "Frost Sorcery" is a different design | ? | UNKNOWN |
 
-If a subclass turns out to be dnd55e's own design (no published source), its 13-20 features would be new homebrew -
-a decision for the project owner (VISION.md principle 4), not something to invent here.
+Not built on purpose:
+- **Highway Rider 17 Desperado** ("when you're reduced to 0 Hit Points, use your Reaction for one Hair Trigger action before
+  you fall unconscious"): needs the would-drop-to-0 stand-in (DownedStatus + Lua, as Cheat Death) plus a free action while
+  down. Next in line.
+- **True Grit's Evasion-style half**: the engine's Evasion is Dexterity-only.
 
-Also open (documented, not gaps in sourcing): the half-caster 13/17 spells BG3 doesn't have (see
-`Scripts/gen_subclass_spells.py` MISSING), Beast Master / Hunter have no subclass spells (audit false positives).
+To finish a NO TEXT row, add the book's text under `References/Subclasses/` (or The Oracle's `owned_books`) and its features to
+`Scripts/gen_subclass_features.py`. `Scripts/regen_all.sh` then regenerates everything.
+
+Also open (not sourcing gaps): the half-caster 13/17 spells BG3 doesn't have (`Scripts/gen_subclass_spells.py` MISSING).

@@ -3379,4 +3379,25 @@
   <content contentuid="h8074c418172954578051b59730bed234" version="1">Use Action Surge a second time before a rest (not on a turn you already did).</content>
   <content contentuid="he83a6b2cedfd52ed9d8f1e1b82df9d19" version="1">Action Surge (two uses)</content>
   <content contentuid="h3cb23f3f19a950c5a3d84845df1cf3f6" version="1">You can use Action Surge twice before a rest, but only once on a turn.</content>
+  <content contentuid="h69a050b8faa6588ba0a78169aa208a8c" version="1">Corrosive Haze</content>
+  <content contentuid="hacb6be5b9eb3547489c79a5d4a0cd079" version="1">Already tested against the haze this turn.</content>
+  <content contentuid="h296f7949879b56189baa50914aeacb18" version="1">Corrosive Haze</content>
+  <content contentuid="h91e26851f0025056ad38988b1c349fda" version="1">Corrosive Haze</content>
+  <content contentuid="hbbc97b2480745335a2c57ce33a2a2518" version="1">While you rage, a hostile creature within 10 feet of you makes a Constitution saving throw (DC 8 + your Proficiency Bonus and Constitution modifier) or is Blinded until the start of its next turn.</content>
+  <content contentuid="hb6e2680ad51a5adabd5a673a01764dd8" version="1">Corrosive Haze</content>
+  <content contentuid="hf0d70a1a4e30503abe087f1860306102" version="1">Your Shadow Smoke is more potent: while you rage, a hostile creature within 10 feet of you makes a Constitution saving throw (DC 8 + your Proficiency Bonus and Constitution modifier) or is Blinded until the start of its next turn, once per creature per turn. Oozes and other creatures that don't rely on eyesight are immune. (The aura is always on while you rage, not only while the Shadow Smoke is up.)</content>
+  <content contentuid="haa859e59a6c55ee9a27d53c34004c05b" version="1">Shadow Grasp: Army of Shadow</content>
+  <content contentuid="hab50ac373a285e63a187f27b6ac26bca" version="1">Use Shadow Grasp on up to 6 creatures (your Proficiency Bonus at level 17) with a single use of Channel Divinity.</content>
+  <content contentuid="he085afcb79375ec3a985e1fa39962a74" version="1">Army of Shadow</content>
+  <content contentuid="h8425fd6c79d553bc874242e6d90d0e4c" version="1">When you use Shadow Grasp, you can affect a number of creatures equal to your Proficiency Bonus (6).</content>
+  <content contentuid="h395a9ab46aac5460959eecb06129f565" version="1">Bend Reality</content>
+  <content contentuid="h665706d499fb54a5a9b6dce4fad6ea9e" version="1">When an ally fails a saving throw, replace the roll with a 20.</content>
+  <content contentuid="h066f679bb2b552d18acc81a586999aff" version="1">Bend Reality</content>
+  <content contentuid="h3a05ca007c8a50e19c28888f14be4827" version="1">Replace an ally's failed saving throw with a 20.</content>
+  <content contentuid="h0aa27ec89b98559487cd7499472c3bb8" version="1">Bend Reality</content>
+  <content contentuid="hf6237edd57e95545b107ee88833506ab" version="1">When you see an ally fail a saving throw, you can use your Reaction to replace the roll with a 20. Once per Short or Long Rest.</content>
+  <content contentuid="h01b0b2315ba4501d8621533a4845e76f" version="1">True Grit</content>
+  <content contentuid="h33752e03025c582aa9d21031e41497d7" version="1">You gain proficiency in Constitution saving throws. (The Evasion-style rule for Constitution saves that deal half damage isn't implemented: the engine's Evasion is Dexterity-only.)</content>
+  <content contentuid="h0ffeb3a1abd353b5be43b96a19540074" version="1">Web Walker</content>
+  <content contentuid="h1fe8b434f5e35b89b803a4f2491d282e" version="1">Webs never hinder you, and your Web charges are fully restored at the start of each of your turns and on every rest (Web at will).</content>
 </contentList>

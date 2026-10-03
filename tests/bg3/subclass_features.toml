@@ -275,3 +275,43 @@ spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance 
 setup = [{ target = "host", passive = "NatureDomain_17_MasterOfNature" }, { target = "A", status = "CHARM_ANIMALS_AND_PLANTS", turns = 10, by = "host" }]
 combat = false
 expect = [{ target = "A", status_applied = ["APO_MASTER_OF_NATURE"] }]
+
+# ---------------------------------------------------------------- dnd55e's third-party subclasses (docs/SUBCLASS_SOURCING.md)
+[[case]]
+id = "shadow-gnawer-corrosive-haze"
+title = "Shadow Gnawer 14 Corrosive Haze: raging, a hostile within 10 feet fails a Constitution save and is Blinded"
+target = "host"
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 1.5 }]
+setup = [{ target = "host", passive = "ShadowGnawer_14_CorrosiveHaze" }, { target = "A", boost = "AbilityFailedSavingThrow(Constitution)" },
+         { target = "A", boost = "ActionResourceBlock(ReactionActionPoint)" }, { target = "host", status = "RAGE", turns = -1 }]
+combat = "after_setup"
+expect = [{ target = "host", status_applied = ["APO_CORROSIVE_HAZE"] }, { target = "A", status_applied = ["BLINDED"] }]
+
+[[case]]
+id = "shadow-domain-army-of-shadow"
+title = "Shadow Domain 17 Army of Shadow: the six-target Shadow Grasp restrains a hostile wolf"
+mode = "script"
+spell = "Target_ApoShadowGrasp_Army"
+target = "A"
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 6 }]
+setup = [{ target = "host", passive = "ShadowDomain_17_ArmyOfShadow" }, { target = "A", boost = "AbilityFailedSavingThrow(Strength)" }]
+expect = [{ target = "A", status_applied_any = ["SHADOW_GRASP"] }]
+
+[[case]]
+id = "mind-domain-bend-reality"
+title = "Mind Domain 17 Bend Reality: grants its once-per-rest resource (the interrupt itself is a manual check)"
+target = "host"
+setup = [{ target = "host", passive = "MindDomain_17_BendReality" }]
+expect = [{ target = "host", resource = "ApoBendReality", level = 0, amount = 1 }]
+notes = "Manual: an ally fails a save -> the Reaction prompt 'Bend Reality' offers a 20 (SetRoll(20)); not rolled by the harness."
+
+[[case]]
+id = "arachnoid-stalker-web-walker"
+title = "Arachnoid Stalker 13 Web Walker: Web charges are back to full when a turn starts"
+target = "host"
+combat = "after_setup"
+end_turns = 1
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 8 }]
+setup = [{ target = "host", passive = "ArachnoidStalker_3_Webbing" }, { target = "host", passive = "ArachnoidStalker_13_WebWalker" },
+         { target = "host", resource = "Web_ArachnoidStalker", level = 0, amount = 0 }]
+expect = [{ target = "host", resource = "Web_ArachnoidStalker", level = 0, amount = 2 }]

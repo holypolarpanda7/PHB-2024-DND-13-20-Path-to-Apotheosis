@@ -523,6 +523,68 @@ node(MYSTIC, "MysticArts", 18, selectors=f"SelectSpells({SORC3},0,1)")
 node(MYSTIC, "MysticArts", 19, boosts="ActionResource(SpellSlot,1,4)", selectors=f"SelectSpells({SORC4},1,1)")
 node(MYSTIC, "MysticArts", 20, selectors=f"SelectSpells({SORC4},1,1)")
 
+# ================================================================ dnd55e's third-party subclasses (sources: docs/SUBCLASS_SOURCING.md, 2026-10-03)
+# ---------------------------------------------------------------- Barbarian: Shadow Gnawer 14 Corrosive Haze (Book of Ebon Tides, Open Design)
+SHADOW_GNAWER = "636456e2-93bc-4567-aae5-0abb0aad450e"
+G.status("APO_CORROSIVE_HAZE_SAVED", "Corrosive Haze", "Already tested against the haze this turn.", {
+    "StackId": "APO_CORROSIVE_HAZE_SAVED", "StatusPropertyFlags": "DisableOverhead;DisablePortraitIndicator"})
+G.status("APO_CORROSIVE_HAZE_NEAR", "Corrosive Haze", None, {
+    "OnApplyConditions": "not HasStatus('APO_CORROSIVE_HAZE_SAVED') and not Tagged('OOZE')",
+    "OnApplyRoll": "not SavingThrow(Ability.Constitution, SourceSpellDC(10, context.Source, Ability.Constitution))",
+    "OnApplySuccess": "ApplyStatus(BLINDED,100,1)", "OnApplyFunctors": "ApplyStatus(APO_CORROSIVE_HAZE_SAVED,100,1)",
+    "StackId": "APO_CORROSIVE_HAZE_NEAR", "StatusPropertyFlags": "DisableOverhead;DisablePortraitIndicator"})
+G.status("APO_CORROSIVE_HAZE", "Corrosive Haze",
+         "While you rage, a hostile creature within 10 feet of you makes a Constitution saving throw (DC 8 + your Proficiency Bonus and Constitution modifier) or is Blinded until the start of its next turn.", {
+             "AuraRadius": "3", "AuraStatuses": "IF(Enemy() and not Dead()):ApplyStatus(APO_CORROSIVE_HAZE_NEAR,100,0)",
+             "RemoveConditions": "not HasStatus('SG_Rage')", "RemoveEvents": "OnStatusRemoved", "StackId": "APO_CORROSIVE_HAZE",
+             "StatusPropertyFlags": "DisableOverhead;DisablePortraitIndicator"}, icon=icon_of("Spell_Conjuration_FogCloud"))
+G.passive("ShadowGnawer_14_CorrosiveHaze", "Corrosive Haze",
+          "Your Shadow Smoke is more potent: while you rage, a hostile creature within 10 feet of you makes a Constitution saving throw (DC 8 + your Proficiency Bonus and Constitution modifier) or is Blinded until the start of its next turn, once per creature per turn. Oozes and other creatures that don't rely on eyesight are immune. (The aura is always on while you rage, not only while the Shadow Smoke is up.)", {
+              "StatsFunctorContext": "OnStatusApplied", "Conditions": "HasStatus('SG_Rage', context.Source)",
+              "StatsFunctors": "ApplyStatus(SELF,APO_CORROSIVE_HAZE,100,-1)"},
+          icon=icon_of("Spell_Conjuration_FogCloud"))
+node(SHADOW_GNAWER, "ShadowGnawer", 14, "ShadowGnawer_14_CorrosiveHaze")
+
+# ---------------------------------------------------------------- Cleric: Shadow Domain 17 Army of Shadow (Book of Ebon Tides, Open Design)
+SHADOW_DOMAIN = "976b6b96-3c5a-4d06-86ee-c2a809bdb3e8"
+G.spell("Target_ApoShadowGrasp_Army", "Shadow Grasp: Army of Shadow",
+        "Use Shadow Grasp on up to 6 creatures (your Proficiency Bonus at level 17) with a single use of Channel Divinity.", {
+            "AmountOfTargets": "6", "DescriptionParams": "Distance(9);6"}, using="Target_ShadowGrasp", icon=icon_of("Target_ShadowGrasp"))
+G.passive("ShadowDomain_17_ArmyOfShadow", "Army of Shadow",
+          "When you use Shadow Grasp, you can affect a number of creatures equal to your Proficiency Bonus (6).",
+          {"Boosts": "UnlockSpell(Target_ApoShadowGrasp_Army)"}, icon=icon_of("Target_ShadowGrasp"))
+node(SHADOW_DOMAIN, "ShadowDomain", 17, "ShadowDomain_17_ArmyOfShadow")
+
+# ---------------------------------------------------------------- Cleric: Mind Domain 17 Bend Reality (Exploring Eberron, Keith Baker)
+MIND_DOMAIN = "c20c34ee-5e13-4755-9116-a350f50454e7"
+G.interrupt("Interrupt_ApoBendReality", "Bend Reality",
+            "When an ally fails a saving throw, replace the roll with a 20.", {
+                "InterruptContext": "OnPostRoll", "InterruptContextScope": "Nearby", "Container": "YesNoDecision",
+                "Conditions": "not Dead(context.Observer) and HasInterruptedSavingThrow() and Ally(context.Target, context.Observer) and not AnyEntityIsItem() and IsSetInterruptInteresting(20)",
+                "Properties": "SetRoll(20)", "Cost": "ApoBendReality:1", "InterruptDefaultValue": "Ask;Enabled"},
+            icon=icon_of("Interrupt_Portent_20", "PassiveFeature_Portent_20"))
+G.passive("MindDomain_17_BendReality", "Bend Reality",
+          "When you see an ally fail a saving throw, you can use your Reaction to replace the roll with a 20. Once per Short or Long Rest.",
+          {"Boosts": "UnlockInterrupt(Interrupt_ApoBendReality);" + limited("ApoBendReality", "Bend Reality", "Replace an ally's failed saving throw with a 20.", "ShortRest")},
+          icon=icon_of("Interrupt_Portent_20", "PassiveFeature_Portent_20"))
+node(MIND_DOMAIN, "MindDomain", 17, "MindDomain_17_BendReality")
+
+# ---------------------------------------------------------------- Rogue: Highway Rider 13 True Grit (Grim Hollow Player's Guide)
+HIGHWAY = "8e20bc2e-8a65-472d-8e14-66d91edfcdd3"
+G.passive("HighwayRider_13_TrueGrit", "True Grit",
+          "You gain proficiency in Constitution saving throws. (The Evasion-style rule for Constitution saves that deal half damage isn't implemented: the engine's Evasion is Dexterity-only.)",
+          {"Boosts": "ProficiencyBonus(SavingThrow,Constitution)"}, icon=icon_of("Evasion", "PassiveFeature_Evasion"))
+node(HIGHWAY, "HighwayRider", 13, "HighwayRider_13_TrueGrit")
+
+# ---------------------------------------------------------------- Rogue: Arachnoid Stalker 13 Web Walker (Valda's Spire of Secrets, 2024 version)
+ARACHNOID = "d69b2fcd-c3e9-40c7-b857-23c9c5dcd668"
+G.passive("ArachnoidStalker_13_WebWalker", "Web Walker",
+          "Webs never hinder you, and your Web charges are fully restored at the start of each of your turns and on every rest (Web at will).", {
+              "Boosts": "StatusImmunity(WEB)", "StatsFunctorContext": "OnTurn;OnShortRest;OnLongRest",
+              "StatsFunctors": "RestoreResource(Web_ArachnoidStalker,2,0)"},
+          icon=icon_of("Spell_Conjuration_Web"))
+node(ARACHNOID, "ArachnoidStalker", 13, "ArachnoidStalker_13_WebWalker")
+
 # ---------------------------------------------------------------- Fighter: Eldritch Knight, Rogue: Arcane Trickster (third casters)
 # Their slots and prepared spells stopped at 12: level 13 +2 level 3 slots, 16 +1 level 3, 19 +1 level 4; a prepared
 # spell more at 13, 14, 16, 19, 20 (2024 table; dnd55e's selector pattern, Wizard level 3 / 4 lists).

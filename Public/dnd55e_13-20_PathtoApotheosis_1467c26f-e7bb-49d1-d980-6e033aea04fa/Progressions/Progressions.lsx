@@ -3835,6 +3835,46 @@
                     <attribute id="UUID" type="guid" value="d7006cb8-b485-55a4-b869-e094c72a9db1"/>
                 </node>
                 <node id="Progression">
+                    <attribute id="Level" type="uint8" value="14"/>
+                    <attribute id="Name" type="LSString" value="ShadowGnawer"/>
+                    <attribute id="PassivesAdded" type="LSString" value="ShadowGnawer_14_CorrosiveHaze"/>
+                    <attribute id="ProgressionType" type="uint8" value="1"/>
+                    <attribute id="TableUUID" type="guid" value="636456e2-93bc-4567-aae5-0abb0aad450e"/>
+                    <attribute id="UUID" type="guid" value="24176895-a963-5364-9eb3-44f6bba7698c"/>
+                </node>
+                <node id="Progression">
+                    <attribute id="Level" type="uint8" value="17"/>
+                    <attribute id="Name" type="LSString" value="ShadowDomain"/>
+                    <attribute id="PassivesAdded" type="LSString" value="ShadowDomain_17_ArmyOfShadow"/>
+                    <attribute id="ProgressionType" type="uint8" value="1"/>
+                    <attribute id="TableUUID" type="guid" value="976b6b96-3c5a-4d06-86ee-c2a809bdb3e8"/>
+                    <attribute id="UUID" type="guid" value="db34daa0-7340-524a-b531-27e817e3e663"/>
+                </node>
+                <node id="Progression">
+                    <attribute id="Level" type="uint8" value="17"/>
+                    <attribute id="Name" type="LSString" value="MindDomain"/>
+                    <attribute id="PassivesAdded" type="LSString" value="MindDomain_17_BendReality"/>
+                    <attribute id="ProgressionType" type="uint8" value="1"/>
+                    <attribute id="TableUUID" type="guid" value="c20c34ee-5e13-4755-9116-a350f50454e7"/>
+                    <attribute id="UUID" type="guid" value="f721aa4a-c6ec-5316-8a5a-810dadbb1e4a"/>
+                </node>
+                <node id="Progression">
+                    <attribute id="Level" type="uint8" value="13"/>
+                    <attribute id="Name" type="LSString" value="HighwayRider"/>
+                    <attribute id="PassivesAdded" type="LSString" value="HighwayRider_13_TrueGrit"/>
+                    <attribute id="ProgressionType" type="uint8" value="1"/>
+                    <attribute id="TableUUID" type="guid" value="8e20bc2e-8a65-472d-8e14-66d91edfcdd3"/>
+                    <attribute id="UUID" type="guid" value="212cf6f4-571f-5f1e-84a9-5eb65e05a04a"/>
+                </node>
+                <node id="Progression">
+                    <attribute id="Level" type="uint8" value="13"/>
+                    <attribute id="Name" type="LSString" value="ArachnoidStalker"/>
+                    <attribute id="PassivesAdded" type="LSString" value="ArachnoidStalker_13_WebWalker"/>
+                    <attribute id="ProgressionType" type="uint8" value="1"/>
+                    <attribute id="TableUUID" type="guid" value="d69b2fcd-c3e9-40c7-b857-23c9c5dcd668"/>
+                    <attribute id="UUID" type="guid" value="c418455b-cdaa-5bb5-a57c-ba1870d40e28"/>
+                </node>
+                <node id="Progression">
                     <attribute id="Boosts" type="LSString" value="ActionResource(SpellSlot,2,3)"/>
                     <attribute id="Level" type="uint8" value="13"/>
                     <attribute id="Name" type="LSString" value="EldritchKnight"/>
