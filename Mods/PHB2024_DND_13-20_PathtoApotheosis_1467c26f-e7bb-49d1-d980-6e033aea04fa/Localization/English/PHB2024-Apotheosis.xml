@@ -2948,4 +2948,177 @@
   <content contentuid="h9f67ec0a892a5599b66f301ac4673214" version="1">You call forth the spirit of a Construct made of Clay, Metal or Stone (Concentration, up to 1 hour). It uses your Proficiency Bonus, spell attack modifier and spell save DC; AC 13 + the spell's level, 40 HP + 15 for each level above 4, and a number of Slam attacks equal to half the spell's level (1d8 + 4 + the spell's level). Clay: Berserk Lashing. Metal: Heated Body. Stone: Stony Lethargy.</content>
   <content contentuid="h04a04dea814b5245bf5bf5749b85a871" version="1">Summon Construct: Stone</content>
   <content contentuid="h6be597ecc6085a62901934b2fd05af11" version="1">You call forth the spirit of a Construct made of Clay, Metal or Stone (Concentration, up to 1 hour). It uses your Proficiency Bonus, spell attack modifier and spell save DC; AC 13 + the spell's level, 40 HP + 15 for each level above 4, and a number of Slam attacks equal to half the spell's level (1d8 + 4 + the spell's level). Clay: Berserk Lashing. Metal: Heated Body. Stone: Stony Lethargy.</content>
+  <content contentuid="h5672350ed8d55852becbac2d0873a8c7" version="1">Faithful Hound</content>
+  <content contentuid="ha1235a9149f65c13960d2a6baa30131c" version="1">Faithful Hound</content>
+  <content contentuid="hefb0d17336aa528e8870a197afd77845" version="1">A phantom watchdog: intangible and invulnerable. At the start of your turns it bites one enemy within 5 feet of it (Dexterity save or 4d8 Force damage).</content>
+  <content contentuid="h0225603b14f05a4cb4535c668276c988" version="1">Faithful Hound</content>
+  <content contentuid="h671b80e9d813549d968dbf97fd3cc7fb" version="1">Your Faithful Hound keeps watch; you can take a Magic action to move it up to 30 feet.</content>
+  <content contentuid="ha4936d676a6152008bf44a30b07e8824" version="1">Faithful Hound's bite</content>
+  <content contentuid="hb19c8d7d61b956b9998b98f63a66da7e" version="1">Mordenkainen's Faithful Hound</content>
+  <content contentuid="h1229270a5e125aa38d2adb7255f3ee15" version="1">You conjure a phantom watchdog for 8 hours. It is invulnerable, and at the start of each of your turns it bites one enemy within 5 feet of it: Dexterity saving throw or 4d8 Force damage. You can take a Magic action to move it up to 30 feet.</content>
+  <content contentuid="hc804e676cccc523591417848a6678644" version="1">Move Faithful Hound</content>
+  <content contentuid="hce05198a4f8757a987b28bb8f1013147" version="1">Move your Faithful Hound up to 30 feet.</content>
+  <content contentuid="h6fcc237aded45300a64585f54632e424" version="1">Grasped by Bigby's Hand</content>
+  <content contentuid="hb59c24c03a915e8cba5dc6b1718eb4a9" version="1">Grappled: Speed 0 and Disadvantage on attack rolls. At the end of each of its turns it makes a Strength (Athletics) check against the caster's spell save DC to escape.</content>
+  <content contentuid="h4d3d732cfc8e53d8872bdc4b0a90e433" version="1">Forceful Hand</content>
+  <content contentuid="hddd798af94075ddea136c19ad82d61f4" version="1">Pushed away by Bigby's Hand.</content>
+  <content contentuid="h6c6b1cbde914587e9347304b3d7bd23b" version="1">Interposing Hand</content>
+  <content contentuid="hd5523c7a6ca85482aff598ddc7ea771e" version="1">Half Cover: +2 to AC and Dexterity saving throws until the hand's next turn.</content>
+  <content contentuid="h1dde3c6e493c5b59bc936bcfc328ba94" version="1">Clenched Fist</content>
+  <content contentuid="hb5b95e2a3a075568b9d5195ea2cf072e" version="1">Melee spell attack: Force damage.</content>
+  <content contentuid="h9dcb2bc13647545b90c058c79f39cbe4" version="1">Crush</content>
+  <content contentuid="h19617ca62f1c5425a6563abf836e8434" version="1">Crush the creature the hand grasps: Bludgeoning damage.</content>
+  <content contentuid="h5a03e614e1555295bedf2f97c8461068" version="1">Clenched Fist</content>
+  <content contentuid="h7bd7abbb3d7a5aef81b7bc3b76e31f1d" version="1">Melee spell attack: Force damage.</content>
+  <content contentuid="h65b48663f6345cf183d4ce7e100a9725" version="1">Crush</content>
+  <content contentuid="h2bd430278f545196b7ab3b864606c1e7" version="1">Crush the creature the hand grasps: Bludgeoning damage.</content>
+  <content contentuid="hb4ad3c5434d456f99a18a3c6206582c2" version="1">Clenched Fist</content>
+  <content contentuid="hc076b3da45055e28b8925aa162200660" version="1">Melee spell attack: Force damage.</content>
+  <content contentuid="h586d1ab26c0656f391591eba3c1b42a8" version="1">Crush</content>
+  <content contentuid="h30f87afe72865444a84f6001488cd241" version="1">Crush the creature the hand grasps: Bludgeoning damage.</content>
+  <content contentuid="h79a34ea7b6b05b2d878c23fb234cab9e" version="1">Clenched Fist</content>
+  <content contentuid="hf56f30e048f75db497fb7640e79c326a" version="1">Melee spell attack: Force damage.</content>
+  <content contentuid="hb8a49763e5f35c35858871d68b780de3" version="1">Crush</content>
+  <content contentuid="hadf2ad77352a5c03bd2fec2cbf36aa5c" version="1">Crush the creature the hand grasps: Bludgeoning damage.</content>
+  <content contentuid="h66d3ca959ec65844848839b2ddab261e" version="1">Clenched Fist</content>
+  <content contentuid="hcf00c826442c5dc290101bbe5d0bd20b" version="1">Melee spell attack: Force damage.</content>
+  <content contentuid="h5702d606b3cb503494eed023e93e2c12" version="1">Crush</content>
+  <content contentuid="h30f1b00c53dd5ec0926a3a111b572550" version="1">Crush the creature the hand grasps: Bludgeoning damage.</content>
+  <content contentuid="hd273793de9245972b04354183db58de8" version="1">Forceful Hand</content>
+  <content contentuid="h4295ad9ac59d54f98cc80abf19d785c9" version="1">Strength saving throw or pushed 5 feet + 5 feet x your spellcasting modifier.</content>
+  <content contentuid="h614cfcd266f95ddf8ce2c43747c512c9" version="1">Grasping Hand</content>
+  <content contentuid="hd603aa0dece55ac598a38898e9000193" version="1">Dexterity saving throw or Grappled by the hand.</content>
+  <content contentuid="h571e35f2dc89517abdb4e69fd6fde435" version="1">Interposing Hand</content>
+  <content contentuid="h41c1ed548a715c209b368891bc76263c" version="1">An ally gains Half Cover (+2 AC and Dexterity saves) until the hand's next turn.</content>
+  <content contentuid="ha6e797706b2458e38701368d7b07a1f9" version="1">Bigby's Hand</content>
+  <content contentuid="hadfa540f8b7253798f4a0591816f887d" version="1">Level 5 Bigby's Hand</content>
+  <content contentuid="h2da0f5cd3a755951bb45a8d01b75c0a2" version="1">Uses your spell attack modifier and spell save DC; its Hit Points equal your Hit Point maximum.</content>
+  <content contentuid="ha598daa1aa56540b9c51eead41e48f1c" version="1">Level 6 Bigby's Hand</content>
+  <content contentuid="h841cd066c73d5e96b95621ec61c604f1" version="1">Uses your spell attack modifier and spell save DC; its Hit Points equal your Hit Point maximum.</content>
+  <content contentuid="h02afe3c73b1958a28443a745ed124758" version="1">Level 7 Bigby's Hand</content>
+  <content contentuid="hd8c0884a133f58e99905fec976ce33d0" version="1">Uses your spell attack modifier and spell save DC; its Hit Points equal your Hit Point maximum.</content>
+  <content contentuid="hfa00b37d332b57adbf1970354ac21bf8" version="1">Level 8 Bigby's Hand</content>
+  <content contentuid="h8601a0b37584537aa68fadce566d2420" version="1">Uses your spell attack modifier and spell save DC; its Hit Points equal your Hit Point maximum.</content>
+  <content contentuid="h2ed89548d0505f9fa8917898ff57550d" version="1">Level 9 Bigby's Hand</content>
+  <content contentuid="h2e59c433f764505e925bf1ff48b8e9ac" version="1">Uses your spell attack modifier and spell save DC; its Hit Points equal your Hit Point maximum.</content>
+  <content contentuid="h3384515326b458c185d101cd09cda835" version="1">Bigby's Hand</content>
+  <content contentuid="h8b4b7a22572b521b8dcdb634e839a4e5" version="1">A Large hand of magical energy (AC 20, Hit Points equal to your Hit Point maximum) that acts right after you and moves up to 60 feet: Clenched Fist (melee spell attack, 5d8 Force), Forceful Hand (Strength save or pushed 5 feet + 5 x your spellcasting modifier), Grasping Hand (Dexterity save or Grappled; then Crush: 4d6 + your spellcasting modifier Bludgeoning) or Interposing Hand (you have Half Cover). Concentration, up to 1 minute. Higher slots: Clenched Fist +2d8 and Crush +2d6 per level above 5.</content>
+  <content contentuid="h2dcae41b489758b19e32ca6310e41f06" version="1">Bigby's Hand</content>
+  <content contentuid="hf2c5611379af57e3bbfe85c413cfcce1" version="1">A Large hand of magical energy (AC 20, Hit Points equal to your Hit Point maximum) that acts right after you and moves up to 60 feet: Clenched Fist (melee spell attack, 5d8 Force), Forceful Hand (Strength save or pushed 5 feet + 5 x your spellcasting modifier), Grasping Hand (Dexterity save or Grappled; then Crush: 4d6 + your spellcasting modifier Bludgeoning) or Interposing Hand (you have Half Cover). Concentration, up to 1 minute. Higher slots: Clenched Fist +2d8 and Crush +2d6 per level above 5.</content>
+  <content contentuid="h6037851fa4df575fa73f306b8f00305c" version="1">Bigby's Hand</content>
+  <content contentuid="h0cf5c06a8930570a880efe303743cccd" version="1">A Large hand of magical energy (AC 20, Hit Points equal to your Hit Point maximum) that acts right after you and moves up to 60 feet: Clenched Fist (melee spell attack, 5d8 Force), Forceful Hand (Strength save or pushed 5 feet + 5 x your spellcasting modifier), Grasping Hand (Dexterity save or Grappled; then Crush: 4d6 + your spellcasting modifier Bludgeoning) or Interposing Hand (you have Half Cover). Concentration, up to 1 minute. Higher slots: Clenched Fist +2d8 and Crush +2d6 per level above 5.</content>
+  <content contentuid="h61388ea6668c5570a80c83895e819199" version="1">Bigby's Hand</content>
+  <content contentuid="h18e1b07ae389553b85e1554a9df93501" version="1">A Large hand of magical energy (AC 20, Hit Points equal to your Hit Point maximum) that acts right after you and moves up to 60 feet: Clenched Fist (melee spell attack, 5d8 Force), Forceful Hand (Strength save or pushed 5 feet + 5 x your spellcasting modifier), Grasping Hand (Dexterity save or Grappled; then Crush: 4d6 + your spellcasting modifier Bludgeoning) or Interposing Hand (you have Half Cover). Concentration, up to 1 minute. Higher slots: Clenched Fist +2d8 and Crush +2d6 per level above 5.</content>
+  <content contentuid="h39793ceef8e7587787229d5aae8dc481" version="1">Bigby's Hand</content>
+  <content contentuid="he3845e781a4155d1a999a690fdb93cd6" version="1">A Large hand of magical energy (AC 20, Hit Points equal to your Hit Point maximum) that acts right after you and moves up to 60 feet: Clenched Fist (melee spell attack, 5d8 Force), Forceful Hand (Strength save or pushed 5 feet + 5 x your spellcasting modifier), Grasping Hand (Dexterity save or Grappled; then Crush: 4d6 + your spellcasting modifier Bludgeoning) or Interposing Hand (you have Half Cover). Concentration, up to 1 minute. Higher slots: Clenched Fist +2d8 and Crush +2d6 per level above 5.</content>
+  <content contentuid="ha19269c18ece56178cbe23bb6d0f7d98" version="1">Animated Object (Medium)</content>
+  <content contentuid="hddb542fbfaac54c2ad461a17e8272db7" version="1">Slam</content>
+  <content contentuid="h9dbb1d09c5885ca6b15869deba27e57e" version="1">Melee attack with your spell attack modifier: Force damage.</content>
+  <content contentuid="h623ca38a3c975fa98f809b2cfcf7d881" version="1">Level 5 Animated Object</content>
+  <content contentuid="h2215b9516a8a5d4bb24ef8c1322aed01" version="1">Uses your Proficiency Bonus and spell attack modifier.</content>
+  <content contentuid="hae9ffa1013aa52dfaaebc303d6da0571" version="1">Animated Object (Medium)</content>
+  <content contentuid="h8906ef4629135630bb437404aef7d866" version="1">Summons.lua casts this where an animated object stood.</content>
+  <content contentuid="hd2c58e51f6cf55ad9c4a241d2684aeb3" version="1">Slam</content>
+  <content contentuid="hb3c6d7b5d851530390aa1c0822f76f4b" version="1">Melee attack with your spell attack modifier: Force damage.</content>
+  <content contentuid="h731930bddd4c5ebc8d5a87655c590932" version="1">Level 6 Animated Object</content>
+  <content contentuid="h6449b022939c593bbd765a48788753be" version="1">Uses your Proficiency Bonus and spell attack modifier.</content>
+  <content contentuid="h381c4d45538652a48e0595e04b7ed59a" version="1">Animated Object (Medium)</content>
+  <content contentuid="h57a745c7e0eb537eafa191b6d505f9fa" version="1">Summons.lua casts this where an animated object stood.</content>
+  <content contentuid="he01a9d0684b556b890bf7df22bf6f462" version="1">Slam</content>
+  <content contentuid="h4a2ca9e6734e52af8f0acfc28e0c5dcf" version="1">Melee attack with your spell attack modifier: Force damage.</content>
+  <content contentuid="h3762ea717c8f5b3ca81a18023b2839c5" version="1">Level 7 Animated Object</content>
+  <content contentuid="ha620a6a6ebf1597baf52991a804ec33c" version="1">Uses your Proficiency Bonus and spell attack modifier.</content>
+  <content contentuid="hf75e527d525557c39a3c5eeaed7ab2e9" version="1">Animated Object (Medium)</content>
+  <content contentuid="h6a56352d60b559efbdb352e88dda8668" version="1">Summons.lua casts this where an animated object stood.</content>
+  <content contentuid="hedb2690583f25ee68d12f3428ce60a2d" version="1">Slam</content>
+  <content contentuid="hf805e423f1555659a443b02064186a84" version="1">Melee attack with your spell attack modifier: Force damage.</content>
+  <content contentuid="h739751d6e0255c9c8232172a216d988a" version="1">Level 8 Animated Object</content>
+  <content contentuid="h8fdbb536f4ef5449b918656ec4e01867" version="1">Uses your Proficiency Bonus and spell attack modifier.</content>
+  <content contentuid="hc903edd05e7153f7bec7bb6e98633d43" version="1">Animated Object (Medium)</content>
+  <content contentuid="h1184b28aefb1534c958c9980b5fd523a" version="1">Summons.lua casts this where an animated object stood.</content>
+  <content contentuid="h54ed641121f054c886a029b59798f8d4" version="1">Slam</content>
+  <content contentuid="h175d816a66a55798990d07d6343cd4a8" version="1">Melee attack with your spell attack modifier: Force damage.</content>
+  <content contentuid="h9e0b7d9e9ae45f4abc03edd9aebde323" version="1">Level 9 Animated Object</content>
+  <content contentuid="he3f5c760f6a4584c8391596c85c4dd5b" version="1">Uses your Proficiency Bonus and spell attack modifier.</content>
+  <content contentuid="hf931658c048c57d0b3cad83a95029b90" version="1">Animated Object (Medium)</content>
+  <content contentuid="h18008487457351ba902be2c5705560e2" version="1">Summons.lua casts this where an animated object stood.</content>
+  <content contentuid="h61d9e04cd5675c6789463a97ed92b590" version="1">Animated Object (Large)</content>
+  <content contentuid="h53f10a2dad1b51648efbb9a75b8f3285" version="1">Slam</content>
+  <content contentuid="hee56329cc2a35b2bb4438cac3147d165" version="1">Melee attack with your spell attack modifier: Force damage.</content>
+  <content contentuid="h265802580ff35f2e9cf0b9bd95bcc5ed" version="1">Level 5 Animated Object</content>
+  <content contentuid="h1d7e637bd16056fb9a7e6efb5fe09245" version="1">Uses your Proficiency Bonus and spell attack modifier.</content>
+  <content contentuid="hea358571bbac5d36bb04a764fc93bbd7" version="1">Animated Object (Large)</content>
+  <content contentuid="h854fe0f998c25e009b3f26994db0b67a" version="1">Summons.lua casts this where an animated object stood.</content>
+  <content contentuid="h19a139b789dd599f86c35f7111cf6fb3" version="1">Slam</content>
+  <content contentuid="h27098c25d9935ee7a15b94935a793e18" version="1">Melee attack with your spell attack modifier: Force damage.</content>
+  <content contentuid="hd91a2cb3aa1b55189de1f789a6ea1e87" version="1">Level 6 Animated Object</content>
+  <content contentuid="he64252d95f645f6582b158fa4e51663e" version="1">Uses your Proficiency Bonus and spell attack modifier.</content>
+  <content contentuid="h040659c3cfc35f93ac4418a531c66d32" version="1">Animated Object (Large)</content>
+  <content contentuid="h0dcdf3f33ed756b494db1b2181204e49" version="1">Summons.lua casts this where an animated object stood.</content>
+  <content contentuid="h9184a2ef8796586eac987c1393714b88" version="1">Slam</content>
+  <content contentuid="hfa93f880cc1c5924ac666c5bfeb1e24a" version="1">Melee attack with your spell attack modifier: Force damage.</content>
+  <content contentuid="he37d7ae7fd8256588f1ae2a9b41aef2a" version="1">Level 7 Animated Object</content>
+  <content contentuid="he5655cfca0a057a0b1337d55406e0f96" version="1">Uses your Proficiency Bonus and spell attack modifier.</content>
+  <content contentuid="h84d14fb2f8815fbe9c143d5c0b7dd578" version="1">Animated Object (Large)</content>
+  <content contentuid="h2c312cde2f5b5e25ab2b5359d1f4b8e9" version="1">Summons.lua casts this where an animated object stood.</content>
+  <content contentuid="h211127bb748c5ccc98bd104ad14b4e33" version="1">Slam</content>
+  <content contentuid="hb658c230b18d5a8b951a55fa5063bcd6" version="1">Melee attack with your spell attack modifier: Force damage.</content>
+  <content contentuid="hbb8603ac3c9351cc96c2bd1b2423e2a3" version="1">Level 8 Animated Object</content>
+  <content contentuid="hf0457c0196a752c0875fd2755d03687e" version="1">Uses your Proficiency Bonus and spell attack modifier.</content>
+  <content contentuid="hf50a9efca2ba56eab191720d8a61b4f5" version="1">Animated Object (Large)</content>
+  <content contentuid="hb98ad81f5b655853895dda2c9e3ab3d9" version="1">Summons.lua casts this where an animated object stood.</content>
+  <content contentuid="h825bb386b01951438e299b9da300195b" version="1">Slam</content>
+  <content contentuid="h10f3eb39dbb8576f89270f7b82eb3f23" version="1">Melee attack with your spell attack modifier: Force damage.</content>
+  <content contentuid="hee3e29e1811c596991222ce27ce0ed6d" version="1">Level 9 Animated Object</content>
+  <content contentuid="h2081b10ae3415405b1ec8bb471565920" version="1">Uses your Proficiency Bonus and spell attack modifier.</content>
+  <content contentuid="h25cef58840a154d9b03f4b4630d89973" version="1">Animated Object (Large)</content>
+  <content contentuid="h62f2a19e64e95b6783f4625b9c85bf92" version="1">Summons.lua casts this where an animated object stood.</content>
+  <content contentuid="h416e81f64d03597d8b1193f173d0981c" version="1">Animated Object (Huge)</content>
+  <content contentuid="h34d2f86945905a3981d8a185f00f4d95" version="1">Slam</content>
+  <content contentuid="hc68d56a3767b5e25b514036cd6075e50" version="1">Melee attack with your spell attack modifier: Force damage.</content>
+  <content contentuid="had37fda377715d6d83013d044d374fdd" version="1">Level 5 Animated Object</content>
+  <content contentuid="h3d67ed8996b95c3b88e729a8f8b20dbd" version="1">Uses your Proficiency Bonus and spell attack modifier.</content>
+  <content contentuid="h204b79ff01615d00b38eeb71d5cd3e28" version="1">Animated Object (Huge)</content>
+  <content contentuid="hb333d925f3dc59dfa84af5c741180f40" version="1">Summons.lua casts this where an animated object stood.</content>
+  <content contentuid="h7f5eaa4484fb5a98b262a10088181064" version="1">Slam</content>
+  <content contentuid="h322c6c7f75ee5fe4a9f69acc44511d87" version="1">Melee attack with your spell attack modifier: Force damage.</content>
+  <content contentuid="hbd27652c599458d79f81cb3c956d94e8" version="1">Level 6 Animated Object</content>
+  <content contentuid="h7f1aac9e25295db1a196750d3265f285" version="1">Uses your Proficiency Bonus and spell attack modifier.</content>
+  <content contentuid="hf1cf389c0aa953ec9bbf634844bc86fa" version="1">Animated Object (Huge)</content>
+  <content contentuid="h474ccb4f014c5f44aa007bd3874f6ce0" version="1">Summons.lua casts this where an animated object stood.</content>
+  <content contentuid="he00c00ebd0a45d9d91e16b46d96d9632" version="1">Slam</content>
+  <content contentuid="h35168dd4bc725516803585edce46a356" version="1">Melee attack with your spell attack modifier: Force damage.</content>
+  <content contentuid="h618f1b8e8ba252f4b7e413429f592b6d" version="1">Level 7 Animated Object</content>
+  <content contentuid="h35a3853b633c5f71a6741f2fb5c7ab30" version="1">Uses your Proficiency Bonus and spell attack modifier.</content>
+  <content contentuid="h76b7d7832c3d5954a94549e98704c0c5" version="1">Animated Object (Huge)</content>
+  <content contentuid="h6e33be8a75995214a44474560194e7bd" version="1">Summons.lua casts this where an animated object stood.</content>
+  <content contentuid="h237a1d13830e5da6803f41eadfd7e805" version="1">Slam</content>
+  <content contentuid="hd3d06ad862b95b47894916ca82053891" version="1">Melee attack with your spell attack modifier: Force damage.</content>
+  <content contentuid="hc34bea0a02f95caeb6a56517d67d5ca8" version="1">Level 8 Animated Object</content>
+  <content contentuid="hdecc041c325e58458831aea02c0ab1a6" version="1">Uses your Proficiency Bonus and spell attack modifier.</content>
+  <content contentuid="h864333d8af955de6b4e3b5a46e1a36f9" version="1">Animated Object (Huge)</content>
+  <content contentuid="h78ea2ae0e74b564ea93db01875947f49" version="1">Summons.lua casts this where an animated object stood.</content>
+  <content contentuid="h4d3dafad6d025aa993c829f53514df5b" version="1">Slam</content>
+  <content contentuid="h6d259418c594579c889be1667edb8df3" version="1">Melee attack with your spell attack modifier: Force damage.</content>
+  <content contentuid="had3bb34b2a5d5459a5ee13521a805c3d" version="1">Level 9 Animated Object</content>
+  <content contentuid="h093d089ad908544c9e4c0fb9ade4b548" version="1">Uses your Proficiency Bonus and spell attack modifier.</content>
+  <content contentuid="h1253b088c07a50c4a51655e9a8b6e659" version="1">Animated Object (Huge)</content>
+  <content contentuid="h62102b9f73bf59ebae37fa9d1e63df15" version="1">Summons.lua casts this where an animated object stood.</content>
+  <content contentuid="hbf9a905f904e5f749d628eee9ab0a615" version="1">Animate Objects</content>
+  <content contentuid="hde8590a495835e1e9e7ff4b38bfe1dc3" version="1">This object is being animated.</content>
+  <content contentuid="hbf9f73ddf851538091489d036bca43e7" version="1">Animate Objects</content>
+  <content contentuid="h63863ef62c115e699707641876efff5f" version="1">Animate Objects</content>
+  <content contentuid="hfae4dd39063a52579cd2dfc0a8c199bd" version="1">Animate Objects</content>
+  <content contentuid="ha4e8e2ecf4b5518b9d0770e4970a7d8f" version="1">Animate Objects</content>
+  <content contentuid="hb4631cafe4b1582880e3a6608e05650c" version="1">Animate Objects</content>
+  <content contentuid="hfe3ad9fc581b54d5a2f7316afd078f31" version="1">Animate Objects</content>
+  <content contentuid="h08c2627a7b0c5b48ac36c48f0265451f" version="1">Up to your spellcasting modifier's worth of nonmagical objects (Medium or smaller: 1, Large: 2, Huge: 3) become Animated Objects (AC 15; 10/20/40 HP) that act right after you. Slam: your spell attack modifier; 1d4 + 3 / 2d6 + 3 + your spellcasting modifier / 2d12 + 3 + your spellcasting modifier Force damage, +1d4/1d6/1d12 per slot level above 5. When one drops to 0 Hit Points it reverts to its object. Concentration, up to 1 minute.</content>
+  <content contentuid="h6ea57d329de35a4cbdc97ce601863959" version="1">Animate Objects</content>
+  <content contentuid="hdb8bbc4a9fd553e79f91d90901e8a1da" version="1">Up to your spellcasting modifier's worth of nonmagical objects (Medium or smaller: 1, Large: 2, Huge: 3) become Animated Objects (AC 15; 10/20/40 HP) that act right after you. Slam: your spell attack modifier; 1d4 + 3 / 2d6 + 3 + your spellcasting modifier / 2d12 + 3 + your spellcasting modifier Force damage, +1d4/1d6/1d12 per slot level above 5. When one drops to 0 Hit Points it reverts to its object. Concentration, up to 1 minute.</content>
+  <content contentuid="he06100dc687a50dd9fab10b95380f1df" version="1">Animate Objects</content>
+  <content contentuid="h8b1bcccbb21e53ab8309a5db422f1ff8" version="1">Up to your spellcasting modifier's worth of nonmagical objects (Medium or smaller: 1, Large: 2, Huge: 3) become Animated Objects (AC 15; 10/20/40 HP) that act right after you. Slam: your spell attack modifier; 1d4 + 3 / 2d6 + 3 + your spellcasting modifier / 2d12 + 3 + your spellcasting modifier Force damage, +1d4/1d6/1d12 per slot level above 5. When one drops to 0 Hit Points it reverts to its object. Concentration, up to 1 minute.</content>
+  <content contentuid="he936626a8c54591a8ebf4236dde983f0" version="1">Animate Objects</content>
+  <content contentuid="h967f6b0b0f7353b6b97f05e6fd10ad32" version="1">Up to your spellcasting modifier's worth of nonmagical objects (Medium or smaller: 1, Large: 2, Huge: 3) become Animated Objects (AC 15; 10/20/40 HP) that act right after you. Slam: your spell attack modifier; 1d4 + 3 / 2d6 + 3 + your spellcasting modifier / 2d12 + 3 + your spellcasting modifier Force damage, +1d4/1d6/1d12 per slot level above 5. When one drops to 0 Hit Points it reverts to its object. Concentration, up to 1 minute.</content>
+  <content contentuid="h7a835c784f3458c49f982bc0ce43a69b" version="1">Animate Objects</content>
+  <content contentuid="h86323f6c847a5f17bc45f80ed8494801" version="1">Up to your spellcasting modifier's worth of nonmagical objects (Medium or smaller: 1, Large: 2, Huge: 3) become Animated Objects (AC 15; 10/20/40 HP) that act right after you. Slam: your spell attack modifier; 1d4 + 3 / 2d6 + 3 + your spellcasting modifier / 2d12 + 3 + your spellcasting modifier Force damage, +1d4/1d6/1d12 per slot level above 5. When one drops to 0 Hit Points it reverts to its object. Concentration, up to 1 minute.</content>
 </contentList>

@@ -1181,6 +1181,13 @@ if Ext and type(Ext.Require) == "function" then
         Log.Warn("ClassFeatures bootstrap load failed: " .. tostring(cfOrErr))
     end
 
+    local okSm, smnOrErr = pcall(Ext.Require, "Summons.lua")
+    if okSm and type(smnOrErr) == "table" then
+        Log.Info("Summons loaded at bootstrap")
+    else
+        Log.Warn("Summons bootstrap load failed: " .. tostring(smnOrErr))
+    end
+
     local okSt, stOrErr = pcall(Ext.Require, "SpellTests.lua")
     if okSt and type(stOrErr) == "table" then
         Log.Info("SpellTests loaded at bootstrap")

@@ -138,7 +138,17 @@ the level's Slam variant). Models are base-game placeholders, swappable per form
   tested 2026-10-03. Approximations: no Burrow/Swim/Amorphous Form; Opportunity Attacks use the unarmed attack, not
   the Slam; Stony Lethargy blocks all reactions (as dnd55e's Shocking Grasp) and ignores "if it can see it"; Heated
   Body ignores grapples; Berserk Lashing doesn't move toward a creature out of reach.
-- Not built yet (summons pass 2): Animate Objects, Bigby's Hand, Mordenkainen's Faithful Hound. Exploration-only spells BG3 can't express: Locate Creature, Commune with Nature, Tree Stride,
+- **Mordenkainen's Faithful Hound** (4), **Bigby's Hand** (5-9) and **Animate Objects** (5-9): built and tested
+  2026-10-03, with `Summons.lua`. The hound is invulnerable, skips its own turns and bites an enemy within 5 ft at
+  the start of yours (Dex save vs your DC, 4d8 Force); a Magic action moves it 30 ft; it ends beyond 300 ft. The
+  hand has AC 20 and your Hit Point maximum; Forceful Hand's push is done in Lua (Force() takes no formula). Animate
+  Objects hides each targeted object and summons a Medium/Large/Huge Animated Object in its place within your
+  spellcasting modifier's budget; the object returns when the creature ends or your Concentration does.
+  Approximations: the hand **acts on its own turn** (one effect, 60 ft move) instead of on your Bonus Action, as BG3
+  does with summons such as Spiritual Weapon; Interposing Hand gives an ally +2 AC/Dex saves instead of
+  space-based cover and no Difficult Terrain; Grappled is Speed 0 + Disadvantage on attacks with an Athletics
+  check at the end of its turns to escape; the hound is visible to everyone and has no alarm bark or Truesight;
+  animated objects don't carry excess damage over to the object, and "nonmagical / not fixed" isn't checked. Exploration-only spells BG3 can't express: Locate Creature, Commune with Nature, Tree Stride,
 Fabricate, Creation, Stone Shape, Transmute Rock, Leomund's Secret Chest, Mordenkainen's Private Sanctum.
 
 ## Quivering Palm (Open Hand 17, issue #16)

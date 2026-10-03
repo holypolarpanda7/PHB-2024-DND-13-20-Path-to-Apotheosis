@@ -96,3 +96,83 @@ setup = [{ target = "A", boost = "AbilityFailedSavingThrow(Wisdom)" }]
 casts = [{ spell = "Target_ApoSummonConstruct_Stone", target = "ground", distance = 2, summon_as = "S", near = "A" }]
 end_turns = 1
 expect = [{ target = "A", status_applied = ["APO_STONY_LETHARGY_NEAR", "APO_STONY_LETHARGY"] }]
+
+# ---------------------------------------------------------------- pass 2 (Summons.lua)
+[[case]]
+id = "summon-faithful-hound"
+title = "Mordenkainen's Faithful Hound: an invulnerable hound, and you can move it"
+spell = "Target_ApoFaithfulHound"
+target = "ground"
+distance = 3
+expect = [{ summon = { stats = "Apo_FaithfulHound", status_present = ["APO_FAITHFUL_HOUND"] } },
+          { target = "host", status_applied = ["APO_FAITHFUL_HOUND_OWNER"] }]
+
+[[case]]
+id = "summon-faithful-hound-bite"
+title = "Faithful Hound bites an adjacent enemy at the start of your turn: failed Dex save, 4d8 Force"
+target = "A"
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 3 }]
+setup = [{ target = "A", boost = "AbilityFailedSavingThrow(Dexterity)" }]
+casts = [{ spell = "Target_ApoFaithfulHound", target = "ground", distance = 2, summon_as = "H", near = "A" }]
+end_turns = 1
+expect = [{ target = "A", status_applied = ["APO_FAITHFUL_HOUND_BITE"] }, { target = "A", hp_change = [-32, -4] },
+          { log = "Faithful Hound bites" }]
+notes = "The hound skips its own turns (Osi.EndTurn); the wolf may also bite back - only the hound's bite is checked by status."
+
+[[case]]
+id = "summon-bigbys-hand"
+title = "Bigby's Hand (level 5): AC 20, Hit Points equal to your maximum, level-5 Clenched Fist"
+spell = "Target_ApoBigbysHand"
+target = "ground"
+distance = 3
+expect = [{ summon = { stats = "Apo_BigbysHand", ac = 20, max_hp = 20, status_present = ["APO_BIGBYSHAND_5"], spells = ["Target_ApoBigbysHand_Fist_5", "Target_ApoBigbysHand_Crush_5"] } }]
+notes = "max_hp = the test host's maximum (Tavizard L3: 20) - adjust for another host."
+
+[[case]]
+id = "summon-bigbys-fist"
+title = "Bigby's Hand Clenched Fist (level 7 slot): melee spell attack, 9d8 Force"
+spell = "Target_ApoBigbysHand_Fist_7"
+caster = "H"
+target = "A"
+real_rolls = true
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 3 }]
+setup = [{ target = "A", boost = "AC(-30)" }, { target = "A", boost = "CriticalHit(AttackTarget,Success,Never)" }, { target = "A", boost = "ActionResourceBlock(ReactionActionPoint)" }]
+casts = [{ spell = "Target_ApoBigbysHand_7", target = "ground", distance = 2, summon_as = "H", near = "A" }]
+expect = [{ target = "A", hp_change = [-72, -9] }]
+notes = "The wolf's reactions are blocked: the hand shuffling into reach drew an Opportunity Attack that swallowed its action."
+
+[[case]]
+id = "summon-bigbys-forceful"
+title = "Bigby's Hand Forceful Hand: failed Strength save, pushed 5 ft + 5 ft x your modifier"
+spell = "Target_ApoBigbysHand_Forceful"
+caster = "H"
+target = "A"
+real_rolls = true
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 3 }]
+setup = [{ target = "A", boost = "AbilityFailedSavingThrow(Strength)" }, { target = "A", boost = "ActionResourceBlock(ReactionActionPoint)" }]
+casts = [{ spell = "Target_ApoBigbysHand", target = "ground", distance = 2, summon_as = "H", near = "A" }]
+expect = [{ target = "A", moved = [4, 8] }]
+notes = "Test host Int +3: 1.5 + 1.5 x 3 = 6 m (a summon's formulas see the summoner's modifier)."
+
+[[case]]
+id = "summon-bigbys-grasp-crush"
+title = "Bigby's Hand Grasping Hand then Crush: Grappled, then 4d6 + your modifier Bludgeoning"
+spell = "Target_ApoBigbysHand_Crush_5"
+caster = "H"
+target = "A"
+real_rolls = true
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 3 }]
+setup = [{ target = "A", boost = "AbilityFailedSavingThrow(Dexterity)" }, { target = "A", boost = "ActionResourceBlock(ReactionActionPoint)" }]
+casts = [{ spell = "Target_ApoBigbysHand", target = "ground", distance = 2, summon_as = "H", near = "A" },
+         { spell = "Target_ApoBigbysHand_Grasping", by = "H", target = "A", real_rolls = true }]
+expect = [{ target = "A", status_applied = ["APO_BIGBYS_HAND_GRASPED"] }, { target = "A", hp_change = [-27, -7] }]
+
+[[case]]
+id = "summon-animate-objects"
+title = "Animate Objects: a barrel becomes a Medium Animated Object (AC 15, 10 HP) and comes back when it ends"
+spell = "Target_ApoAnimateObjects"
+target = "O"
+combat = false
+spawn = [{ as = "O", template = "1849ce97-45ac-43ea-9518-9f80aaa0c005", faction = "neutral", distance = 4 }]
+expect = [{ target = "O", status_applied = ["APO_ANIMATE_OBJECTS_5"] }, { log = "becomes a Medium Animated Object" },
+          { summon = { stats = "Apo_AnimatedObject_Medium", ac = 15, max_hp = 10, status_present = ["APO_ANIMATEDOBJECT_MEDIUM_5"], spells = ["Target_ApoAnimatedObject_Slam_Medium_5"] } }]
