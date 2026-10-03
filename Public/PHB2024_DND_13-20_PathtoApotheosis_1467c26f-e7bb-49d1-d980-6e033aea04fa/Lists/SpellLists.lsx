@@ -350,13 +350,13 @@
                 <node id="SpellList">
                     <attribute id="Comment" type="LSString" value="Paladin level 4 spells (PHB 2024 list; spells not in the game yet are tracked in GitHub issues)"/>
                     <attribute id="Name" type="FixedString" value="Apotheosis Paladin SLevel 4 List"/>
-                    <attribute id="Spells" type="LSString" value="Target_Banishment;Target_DeathWard;Target_StaggeringSmite"/>
+                    <attribute id="Spells" type="LSString" value="Target_Banishment;Target_DeathWard;Target_StaggeringSmite;Shout_AuraOfLife;Shout_AuraOfPurity"/>
                     <attribute id="UUID" type="guid" value="b88aff43-b75a-5947-b283-3c6ca5bf2591"/>
                 </node>
                 <node id="SpellList">
                     <attribute id="Comment" type="LSString" value="Paladin level 5 spells (PHB 2024 list; spells not in the game yet are tracked in GitHub issues)"/>
                     <attribute id="Name" type="FixedString" value="Apotheosis Paladin SLevel 5 List"/>
-                    <attribute id="Spells" type="LSString" value="Target_Smite_Banishing;Shout_CircleOfPower;Shout_DestructiveWave;Shout_DispelEvilAndGood"/>
+                    <attribute id="Spells" type="LSString" value="Target_Smite_Banishing;Shout_CircleOfPower;Shout_DestructiveWave;Shout_DispelEvilAndGood;Target_Geas;Teleportation_RaiseDead;Target_SummonCelestial"/>
                     <attribute id="UUID" type="guid" value="bce36493-022a-5a20-8b8d-fd97f89be9a7"/>
                 </node>
                 <node id="SpellList">
@@ -368,7 +368,7 @@
                 <node id="SpellList">
                     <attribute id="Comment" type="LSString" value="Ranger level 5 spells (PHB 2024 list; spells not in the game yet are tracked in GitHub issues)"/>
                     <attribute id="Name" type="FixedString" value="Apotheosis Ranger SLevel 5 List"/>
-                    <attribute id="Spells" type="LSString" value="Target_GreaterRestoration;Target_SteelWindStrike"/>
+                    <attribute id="Spells" type="LSString" value="Target_GreaterRestoration;Target_SteelWindStrike;Projectile_ConjureVolley;Shout_SwiftQuiver"/>
                     <attribute id="UUID" type="guid" value="6b625ece-306d-576a-9fa2-896d884e4e05"/>
                 </node>
                 
@@ -383,7 +383,7 @@
                 <node id="SpellList">
                     <attribute id="Comment" type="LSString" value="Artificer level 5 spells (spells not in the game yet are tracked in GitHub issues)"/>
                     <attribute id="Name" type="FixedString" value="Apotheosis Artificer SLevel 5 List"/>
-                    <attribute id="Spells" type="LSString" value="Target_GreaterRestoration;Wall_WallOfStone"/>
+                    <attribute id="Spells" type="LSString" value="Target_GreaterRestoration;Wall_WallOfStone;Target_SkillEmpowerment"/>
                     <attribute id="UUID" type="guid" value="dfb36751-25c2-59d2-a021-69cdac534724"/>
                 </node>
                 

@@ -1,0 +1,62 @@
+# PHB 2024 spells added for issue #10 (Scripts/gen_spells_2024.py), drafted with bg3_test_draft and reviewed.
+# Raise Dead needs a dead party member (it only targets playable characters) - test it by hand.
+
+[suite]
+name = "Spells 2024 (issue #10)"
+mode = "script"
+
+[[case]]
+id = "spell-aura-of-life"
+title = "Aura of Life: the aura reaches an ally"
+spell = "Shout_AuraOfLife"
+target = "host"
+spawn = [{ as = "B", template = "wolf", faction = "friendly", hp = 300, distance = 3 }]
+expect = [{ target = "host", status_applied = ["AURAOFLIFE_AURA"] }, { target = "B", status_present = ["AURAOFLIFE_BUFF"] }]
+
+[[case]]
+id = "spell-aura-of-purity"
+title = "Aura of Purity: the aura reaches an ally"
+spell = "Shout_AuraOfPurity"
+target = "host"
+spawn = [{ as = "B", template = "wolf", faction = "friendly", hp = 300, distance = 3 }]
+expect = [{ target = "host", status_applied = ["AURAOFPURITY_AURA"] }, { target = "B", status_present = ["AURAOFPURITY_BUFF"] }]
+
+[[case]]
+id = "spell-conjure-volley"
+title = "Conjure Volley: 8d8 Force on a failed Dexterity save"
+spell = "Projectile_ConjureVolley"
+target = "A"
+real_rolls = true
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 10 }]
+setup = [{ target = "A", boost = "AbilityFailedSavingThrow(Dexterity)" }]
+expect = [{ target = "A", hp_change = [-64, -8] }]
+
+[[case]]
+id = "spell-swift-quiver"
+title = "Swift Quiver: the casting comes with a two-attack volley"
+spell = "Projectile_SwiftQuiver_Volley_Free"
+target = "A"
+real_rolls = true
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 6 }]
+setup = [{ target = "host", boost = "RollBonus(Attack,30)" }]
+casts = [{ spell = "Shout_SwiftQuiver", target = "host", wait = 2 }]
+expect = [{ target = "host", status_present = ["SWIFT_QUIVER"] }, { target = "A", damage_count = { by = "host", count = [2, 2] } }]
+
+[[case]]
+id = "spell-geas"
+title = "Geas: a failed Wisdom save charms the target"
+spell = "Target_Geas"
+target = "A"
+real_rolls = true
+combat = false
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 6 }]
+setup = [{ target = "A", boost = "AbilityFailedSavingThrow(Wisdom)" }]
+expect = [{ target = "A", status_applied = ["GEAS"] }]
+
+[[case]]
+id = "spell-skill-empowerment"
+title = "Skill Empowerment: Expertise in the chosen skill"
+spell = "Target_SkillEmpowerment_Stealth"
+target = "host"
+expect = [{ target = "host", status_applied = ["SKILL_EMPOWERMENT_STEALTH"] }]
+notes = "One of 18 options stands for the rest."

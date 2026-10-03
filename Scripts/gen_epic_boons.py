@@ -266,7 +266,7 @@ boon("EpicBoon_NightSpirit", "Boon of the Night Spirit",
      {"Boosts": "UnlockSpell(Shout_EpicBoon_MergeWithShadows);" + ";".join(f"IF({DARK}):Resistance({t},Resistant)" for t in NIGHT_RESIST)})
 SP.append(entry("Shout_EpicBoon_MergeWithShadows", "SpellData", {
     "SpellType": "Shout", "Level": "0", "DisplayName": h("Merge:n", "Merge with Shadows"),
-    "Description": h("Merge:d", "In Dim Light or Darkness: become Invisible until you act."), "Icon": "Action_Monk_CloakOfShadows",
+    "Description": h("Merge:d", "In Dim Light or Darkness: become Invisible until you act."), "Icon": "Action_Cleric_ChannelDivinity_CloakOfShadows",
     "UseCosts": "BonusActionPoint:1", "TargetConditions": "Self()", "RequirementConditions": DARK,
     "SpellProperties": "ApplyStatus(SELF,EPIC_MERGE_WITH_SHADOWS,100,-1)", "SpellFlags": "Invisible", "CastTextEvent": "Cast"}))
 S.append(entry("EPIC_MERGE_WITH_SHADOWS", "StatusData", {

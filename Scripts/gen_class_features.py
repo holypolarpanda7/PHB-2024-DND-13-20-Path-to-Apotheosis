@@ -56,7 +56,7 @@ G.interrupt("Interrupt_Glamour_UnbreakableMajesty", "Unbreakable Majesty", "The 
 G.resource("BattleMasterRelentless", 1, "Turn", "Relentless", "Once per turn, a maneuver costs no Superiority Die.")
 G.passive("BattleMaster_Relentless", "Relentless",
           "Once per turn, when you use a maneuver, you can roll a d8 and use it instead of expending a Superiority Die.",
-          {"Boosts": "ActionResource(BattleMasterRelentless,1,0)"}, icon="PassiveFeature_ImprovedCombatSuperiority",
+          {"Boosts": "ActionResource(BattleMasterRelentless,1,0)"}, icon="Action_ForcedManeuver",
           comment="ClassFeatures.lua returns the first Superiority Die a maneuver spends each turn.")
 
 # ---------------------------------------------------------------- progression

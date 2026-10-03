@@ -118,3 +118,18 @@ Assassin (dnd55e 7, source 13), Dispater's Supremacy and Blood for Blood (dnd55e
 - **Haemal Exchange:** the d8 goes to the nearest ally within 30 feet.
 - **Dark Malediction:** uses the Darkness spell's cloud, which (unlike the source) darkvision can't see through.
 - **By the Throat:** the "no more than one size larger" limit isn't checked.
+
+## Spells added for issue #10
+
+From the PHB 2024 text (Skill Empowerment: Xanathar's), `References/Spells/Issue10_Spells.txt`;
+`Scripts/gen_spells_2024.py`; tests `tests/bg3/spells_2024.toml`. Approximations:
+- **Aura of Life:** "Hit Point maximums can't be reduced" isn't implemented (no boost for it).
+- **Aura of Purity:** Advantage on saves against Charmed, Frightened, Paralyzed and Poisoned (the engine's
+  *_ADV tags); Blinded, Deafened and Stunned have no such tag.
+- **Geas:** a 30-day Charmed (cast out of combat); the 5d10 Psychic for acting against the command isn't implemented.
+- **Raise Dead:** out of combat, playable characters only; the material diamond isn't consumed. Untested in game
+  (needs a dead party member).
+- **Skill Empowerment:** doesn't check that the target is proficient in the chosen skill.
+Not built yet: Summon Elemental, Summon Construct, Animate Objects, Bigby's Hand, Mordenkainen's Faithful Hound
+(the summons pass). Exploration-only spells BG3 can't express: Locate Creature, Commune with Nature, Tree Stride,
+Fabricate, Creation, Stone Shape, Transmute Rock, Leomund's Secret Chest, Mordenkainen's Private Sanctum.
