@@ -1,0 +1,30 @@
+# True Polymorph follow-ups (issue #23): CR 7 forms and object into creature. Scripted casts skip target checks,
+# so the level-7 gate doesn't stop casting a CR 7 form on the test host.
+
+[suite]
+name = "True Polymorph (issue #23)"
+mode = "script"
+
+[[case]]
+id = "tp-earth-myrmidon"
+title = "True Polymorph: Earth Myrmidon form with 103 temporary HP"
+spell = "Target_TruePolymorph_EarthMyrmidon"
+target = "host"
+expect = [{ target = "host", status_applied = ["TRUE_POLYMORPH_EARTHMYRMIDON", "TRUE_POLYMORPH_TEMPHP_EARTHMYRMIDON"] }, { target = "host", temp_hp = [103, 103] }]
+
+[[case]]
+id = "tp-mind-flayer"
+title = "True Polymorph: Mind Flayer form with 150 temporary HP"
+spell = "Target_TruePolymorph_MindFlayer"
+target = "host"
+expect = [{ target = "host", status_applied = ["TRUE_POLYMORPH_MINDFLAYER", "TRUE_POLYMORPH_TEMPHP_MINDFLAYER"] }, { target = "host", temp_hp = [150, 150] }]
+
+[[case]]
+id = "tp-object-into-dire-wolf"
+title = "True Polymorph: a barrel becomes a Dire Wolf that follows you"
+spell = "Target_TruePolymorph_ObjectDireWolf"
+target = "A"
+combat = false
+spawn = [{ as = "A", template = "1849ce97-45ac-43ea-9518-9f80aaa0c005", faction = "neutral", distance = 4 }]
+expect = [{ target = "A", status_applied = ["TRUE_POLYMORPH_OBJECT_DIREWOLF"] }, { log = "is now a DIREWOLF" }]
+notes = "Log: 'True Polymorph: object ... is now a DIREWOLF'; the barrel leaves the stage and a Dire Wolf follows you."

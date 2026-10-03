@@ -141,3 +141,12 @@ The 2024 two-step feature (`Scripts/gen_class_features.py`): an Unarmed Strike h
 Force, half on a success); a free spell ends them harmlessly. Approximations: the vibrations last until ended
 (not "days equal to your Monk level"), and ending them costs an action rather than replacing one attack of the
 Attack action.
+
+## True Polymorph follow-ups (issue #23)
+
+`Scripts/gen_true_polymorph.py` + `ScriptExtender/Lua/TruePolymorph.lua`; tests `tests/bg3/true_polymorph.toml`.
+- CR 7 forms for targets of level 7+: Earth/Fire/Air/Water Myrmidon and Mind Flayer (the base game's player
+  shapeshift templates), temporary HP = the BG3 form's HP (103 / 90 / 90 / 90 / 150), as the #20 forms.
+- Object into creature: a nonmagical object becomes a Minotaur, Dire Wolf, Phase Spider or Shadow Mastiff that
+  follows you; it reverts if Concentration ends early, stays after the full hour. BG3 has no full-statblock
+  forms between CR 7 and CR 9 to offer for objects, so the choice stops at CR 3 there.

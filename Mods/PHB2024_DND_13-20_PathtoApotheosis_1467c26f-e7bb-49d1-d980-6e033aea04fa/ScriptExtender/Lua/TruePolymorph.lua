@@ -130,12 +130,92 @@ Ext.Osiris.RegisterListener("LevelGameplayStarted", 2, "after", guard("LevelGame
     for _, e in ipairs(Ext.Entity.GetAllEntitiesWithComponent("ServerCharacter")) do
         local g = e.Uuid and e.Uuid.EntityUuid
         if g then
-            for _, form in ipairs({ "SHEEP", "DIREWOLF", "SHADOWMASTIFF", "PHASESPIDER", "MINOTAUR", "CHEESE" }) do
+            for _, form in ipairs({ "SHEEP", "DIREWOLF", "SHADOWMASTIFF", "PHASESPIDER", "MINOTAUR", "CHEESE",
+                                    "EARTHMYRMIDON", "FIREMYRMIDON", "AIRMYRMIDON", "WATERMYRMIDON", "MINDFLAYER" }) do
                 if Osi.HasActiveStatus(g, PREFIX .. form) == 1 then TP.Track(g, form, nil, false) end
                 if Osi.HasActiveStatus(g, PREFIX .. form .. "_PERMANENT") == 1 then TP.Track(g, form, nil, true) end
             end
         end
     end
+end))
+
+-- ---------------------------------------------------------------- object into creature (issue #23)
+-- TRUE_POLYMORPH_OBJECT_<FORM> on an item: the item leaves the stage and a <FORM> that follows the caster takes
+-- its place. If the status ends early (Concentration broken), the creature goes and the object comes back; if it
+-- ran the whole hour (last seen in its final round), the creature stays and the object is gone for good.
+local OBJECT_TEMPLATES = {
+    MINOTAUR = "867c3061-624e-4b02-babb-a23e743fb5d3", DIREWOLF = "67f39af3-b9ea-4e95-8237-7aa4f6bd7cef",
+    PHASESPIDER = "5acff443-0e4f-4d26-ae1c-deb640d2f729", SHADOWMASTIFF = "94696b69-bd4b-4ddb-885a-51790025f758",
+}
+TP.objects = TP.objects or {}  -- item -> { creature, caster, status, left }
+
+local function itemSecondsLeft(item, status)
+    local ok, left = pcall(function()
+        local e = Ext.Entity.Get(item)
+        local sm = (e.ServerItem and e.ServerItem.StatusManager) or (e.ServerCharacter and e.ServerCharacter.StatusManager)
+        for _, st in pairs(sm.Statuses) do if st.StatusId == status then return st.CurrentLifeTime end end
+    end)
+    return ok and left or nil
+end
+
+function TP.ObjectApplied(item, status, caster)
+    local key = status:match("^TRUE_POLYMORPH_OBJECT_(%u+)$")
+    local template = key and OBJECT_TEMPLATES[key]
+    if not template then return end
+    local x, y, z = Osi.GetPosition(item)
+    Osi.SetOnStage(item, 0)  -- the object's own footprint blocks the spot (CreateAt failed there, 2026-10-02)
+    local creature
+    for _, d in ipairs({ { 0, 0 }, { 1, 0 }, { -1, 0 }, { 0, 1 }, { 0, -1 }, { 2, 0 }, { -2, 0 }, { 0, 2 } }) do
+        creature = Osi.CreateAt(template, x + d[1], y, z + d[2], 0, 1, "")
+        if creature then break end
+    end
+    if not creature then
+        Osi.SetOnStage(item, 1)
+        Log.Warn("True Polymorph: couldn't create a " .. key .. " near " .. tostring(item))
+        return
+    end
+    if caster then
+        pcall(Osi.SetFaction, creature, Osi.GetFaction(caster))
+        pcall(Osi.AddPartyFollower, creature, caster)
+    end
+    TP.objects[item] = { creature = creature, caster = caster, status = status, left = 3600 }
+    Log.Info(string.format("True Polymorph: object %s is now a %s (%s)", item, key, creature))
+    local function watch()
+        local t = TP.objects[item]
+        if not t then return end
+        local gone = not pcall(Ext.Entity.Get, item) or Ext.Entity.Get(item) == nil
+        if gone or Osi.IsDead(t.creature) == 1 then  -- object destroyed (no StatusRemoved then) or creature killed
+            TP.objects[item] = nil
+            if gone then pcall(Osi.RemovePartyFollower, t.creature, t.caster) pcall(Osi.RequestDelete, t.creature) end
+            Log.Info("True Polymorph: the transformation of " .. item .. " ends (" .. (gone and "object gone" or "creature died") .. ")")
+            return
+        end
+        t.left = itemSecondsLeft(item, status) or t.left
+        Ext.Timer.WaitFor(POLL_MS, watch)
+    end
+    Ext.Timer.WaitFor(POLL_MS, watch)
+end
+
+function TP.ObjectRemoved(item, status)
+    local t = TP.objects[item]
+    if not t or t.status ~= status then return end
+    TP.objects[item] = nil
+    if t.left and t.left <= 6.5 then  -- concentration held the whole hour: the creature stays
+        Osi.RequestDelete(item)
+        Log.Info("True Polymorph: the hour passed - " .. t.creature .. " stays a creature")
+    else
+        pcall(Osi.RemovePartyFollower, t.creature, t.caster)
+        Osi.RequestDelete(t.creature)
+        Osi.SetOnStage(item, 1)
+        Log.Info("True Polymorph: the object " .. item .. " returns")
+    end
+end
+
+Ext.Osiris.RegisterListener("StatusApplied", 4, "after", guard("ObjectApplied", function(obj, status, causee)
+    if status:find("^TRUE_POLYMORPH_OBJECT_") then TP.ObjectApplied(obj, status, causee) end
+end))
+Ext.Osiris.RegisterListener("StatusRemoved", 4, "after", guard("ObjectRemoved", function(obj, status)
+    if status:find("^TRUE_POLYMORPH_OBJECT_") then TP.ObjectRemoved(obj, status) end
 end))
 
 Apotheosis = Apotheosis or {}

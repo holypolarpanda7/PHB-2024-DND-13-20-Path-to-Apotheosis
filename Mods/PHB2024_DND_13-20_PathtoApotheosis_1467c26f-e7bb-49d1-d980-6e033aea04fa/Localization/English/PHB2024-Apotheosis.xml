@@ -2608,4 +2608,60 @@
   <content contentuid="hcacd5860ccf45311a59f9b456cb08a18" version="1">The creature makes a Constitution saving throw: 10d12 Force damage, or half on a success.</content>
   <content contentuid="hc99a23afbdab5cc69c5c836a08427cb4" version="1">Quivering Palm: Release</content>
   <content contentuid="h0e7b1ac231f957b092497de76259da8c" version="1">End the vibrations harmlessly.</content>
+  <content contentuid="hdb1fc4d0bccf504988539652114e2e85" version="1">True Polymorph: Earth Myrmidon</content>
+  <content contentuid="hf4e26edc573c5d919ac469a81abb49cc" version="1">Transformed into a Earth Myrmidon. You keep your Hit Points and have temporary Hit Points equal to the form's; the transformation ends when they run out.</content>
+  <content contentuid="hc775a8a004155e5dbc8bca9c0b8ee2a9" version="1">True Polymorph: Earth Myrmidon</content>
+  <content contentuid="h8333627ad5d6529da8f67f93761fbdc5" version="1">Permanently transformed into a Earth Myrmidon (the caster held Concentration for the full hour).</content>
+  <content contentuid="hcf56655189905b158d91e3b909546271" version="1">Earth Myrmidon form</content>
+  <content contentuid="h0b8c024dde665d50b22b7d83043d4cbd" version="1">103 temporary Hit Points from the Earth Myrmidon form.</content>
+  <content contentuid="h7647cce7cd6a5402ba01598c91594468" version="1">True Polymorph: Earth Myrmidon</content>
+  <content contentuid="h5d12649dbb0c55f6b4a597b3f87cb027" version="1">A creature of level 7 or higher becomes a Earth Myrmidon (Wisdom save if unwilling).</content>
+  <content contentuid="ha6d3e383554f5d0ea9a9667986c7d616" version="1">True Polymorph: Fire Myrmidon</content>
+  <content contentuid="hcba5bd4bf381550a9e12e1484bc08194" version="1">Transformed into a Fire Myrmidon. You keep your Hit Points and have temporary Hit Points equal to the form's; the transformation ends when they run out.</content>
+  <content contentuid="hee66d2545d73523d9a08ee442f1844c4" version="1">True Polymorph: Fire Myrmidon</content>
+  <content contentuid="hcecc094be34956abb439abf794987eca" version="1">Permanently transformed into a Fire Myrmidon (the caster held Concentration for the full hour).</content>
+  <content contentuid="hbcb5047d049c54729a24e626ea972e5d" version="1">Fire Myrmidon form</content>
+  <content contentuid="h672b97ea09415d3f8406af8dc84e558d" version="1">90 temporary Hit Points from the Fire Myrmidon form.</content>
+  <content contentuid="hb30cdb69bf8e55c59346b1acc43f8425" version="1">True Polymorph: Fire Myrmidon</content>
+  <content contentuid="h1fc891c863b35a8b9f6316ef91cdfa8f" version="1">A creature of level 7 or higher becomes a Fire Myrmidon (Wisdom save if unwilling).</content>
+  <content contentuid="hdc63a6ccd9d25634816b36a7cb5eac22" version="1">True Polymorph: Air Myrmidon</content>
+  <content contentuid="h8a77dd1ad311505f956de27191648f1f" version="1">Transformed into a Air Myrmidon. You keep your Hit Points and have temporary Hit Points equal to the form's; the transformation ends when they run out.</content>
+  <content contentuid="hcd969f684a8451d78a8834603d3f7d78" version="1">True Polymorph: Air Myrmidon</content>
+  <content contentuid="hec73d39248365304a7d1d131781231f3" version="1">Permanently transformed into a Air Myrmidon (the caster held Concentration for the full hour).</content>
+  <content contentuid="hcf8156185b4b509cad8f6c1d24dd1d94" version="1">Air Myrmidon form</content>
+  <content contentuid="hcde7f16b31b75d5fa2dca15ca3ce6be0" version="1">90 temporary Hit Points from the Air Myrmidon form.</content>
+  <content contentuid="he0447c5ca56a56c3859fb932ae828535" version="1">True Polymorph: Air Myrmidon</content>
+  <content contentuid="ha1ac3920e9165d5dbf5615b077342e07" version="1">A creature of level 7 or higher becomes a Air Myrmidon (Wisdom save if unwilling).</content>
+  <content contentuid="h374df164d17957158bf9adaa673d1ffe" version="1">True Polymorph: Water Myrmidon</content>
+  <content contentuid="h7e0fb8fc61845d5bb9808238cd8e05f3" version="1">Transformed into a Water Myrmidon. You keep your Hit Points and have temporary Hit Points equal to the form's; the transformation ends when they run out.</content>
+  <content contentuid="h7a7756f231a15f3e85abbd6e8988db85" version="1">True Polymorph: Water Myrmidon</content>
+  <content contentuid="h1ec002a427a6591a8a88d5d5a341114b" version="1">Permanently transformed into a Water Myrmidon (the caster held Concentration for the full hour).</content>
+  <content contentuid="hf9d89549bca85b51b7b215914b070c52" version="1">Water Myrmidon form</content>
+  <content contentuid="heb9f08b3b09252099f86de82ba524564" version="1">90 temporary Hit Points from the Water Myrmidon form.</content>
+  <content contentuid="hafcec99ac0155d699d27e31f1f3cdb07" version="1">True Polymorph: Water Myrmidon</content>
+  <content contentuid="hef54f4215ff453dc83e90b60b99f034a" version="1">A creature of level 7 or higher becomes a Water Myrmidon (Wisdom save if unwilling).</content>
+  <content contentuid="h296534efd6735d83b4947d57e2945f60" version="1">True Polymorph: Mind Flayer</content>
+  <content contentuid="h10317d7887cb5c82b33199a452fdee0d" version="1">Transformed into a Mind Flayer. You keep your Hit Points and have temporary Hit Points equal to the form's; the transformation ends when they run out.</content>
+  <content contentuid="hddcf4437471f550e9711ed181682c9de" version="1">True Polymorph: Mind Flayer</content>
+  <content contentuid="h0ad6d4b24d7751519680ad8f7ea7aad2" version="1">Permanently transformed into a Mind Flayer (the caster held Concentration for the full hour).</content>
+  <content contentuid="h9e0885ed792a501f9affd6decd071e70" version="1">Mind Flayer form</content>
+  <content contentuid="hb0e8b19087825733a5f9d003434c4137" version="1">150 temporary Hit Points from the Mind Flayer form.</content>
+  <content contentuid="hedbb737f14ed5df0803356a92cd9483c" version="1">True Polymorph: Mind Flayer</content>
+  <content contentuid="hcc9017e15f8b59238c9c6be48af6e67c" version="1">A creature of level 7 or higher becomes a Mind Flayer (Wisdom save if unwilling).</content>
+  <content contentuid="h49fe6f036eb358748aa817a0b9d12d0b" version="1">True Polymorph: becoming a Minotaur</content>
+  <content contentuid="h6bdace01ead5542e8b5157282a2f92ff" version="1">This object is a Minotaur that follows the caster.</content>
+  <content contentuid="hffff1bc0f9d4519884cc25366ffe2178" version="1">True Polymorph: Object into Minotaur</content>
+  <content contentuid="hb02ca9e37ef4550caed5c138709abffa" version="1">A nonmagical object you can see (not worn or carried) becomes a Minotaur that is friendly to you.</content>
+  <content contentuid="h10436374fac755b09ba0834247decc57" version="1">True Polymorph: becoming a Dire Wolf</content>
+  <content contentuid="h4a2e57b4eb025f3682821845226892af" version="1">This object is a Dire Wolf that follows the caster.</content>
+  <content contentuid="h71e1271f36a55377b705c1e68dd139f4" version="1">True Polymorph: Object into Dire Wolf</content>
+  <content contentuid="h7788b400a4c2508fa0d12e03050aaf2d" version="1">A nonmagical object you can see (not worn or carried) becomes a Dire Wolf that is friendly to you.</content>
+  <content contentuid="h64379b9d8dd8514a95bebb14cc4a6f1b" version="1">True Polymorph: becoming a Phase Spider</content>
+  <content contentuid="h1b92b8c284d85646911657b14653bb1a" version="1">This object is a Phase Spider that follows the caster.</content>
+  <content contentuid="h9c92683c4621568f85a118e7a8e6ee18" version="1">True Polymorph: Object into Phase Spider</content>
+  <content contentuid="hfb3abcabecf55b5493669c00a1e809d3" version="1">A nonmagical object you can see (not worn or carried) becomes a Phase Spider that is friendly to you.</content>
+  <content contentuid="h4e33a6f2b1565209b8b6fa43f6b05286" version="1">True Polymorph: becoming a Shadow Mastiff</content>
+  <content contentuid="hc67c941035345d509b73bd5aa82a87b5" version="1">This object is a Shadow Mastiff that follows the caster.</content>
+  <content contentuid="hc3deb8137f6b50aca8bfa0c7b83db38d" version="1">True Polymorph: Object into Shadow Mastiff</content>
+  <content contentuid="he5960c9848535fa7af98e0fe905194f4" version="1">A nonmagical object you can see (not worn or carried) becomes a Shadow Mastiff that is friendly to you.</content>
 </contentList>
