@@ -462,16 +462,6 @@ data "StatsFunctorContext" "OnCast;OnStatusRemoved;OnStatusApplied"
 data "Conditions" "((context.HasContextFlag(StatsFunctorContext.OnCast) and IsSpell() and not IsWeaponAttack() and not IsRecastSpell() and HasUseCosts('ActionPoint', true) and not Tagged('EXTRA_ATTACK_BLOCKED',context.Source) and TurnBased(context.Source)) or (context.HasContextFlag(StatsFunctorContext.OnStatusRemoved) and StatusId('INITIAL_ATTACK_WAR_MAGIC_TECHNICAL') and TurnBased()) or (context.HasContextFlag(StatsFunctorContext.OnStatusApplied) and StatusId('EXTRA_ATTACK_WAR_MAGIC_Q'))) and not HasStatus('TAD_MIND_SANCTUARY',context.Source) and HasActionResource('BonusActionPoint', 1, 0, false, false, context.Source);"
 data "StatsFunctors" "IF(context.HasContextFlag(StatsFunctorContext.OnCast)):ApplyStatus(SELF,EXTRA_ATTACK_WAR_MAGIC_Q,100,1);IF(context.HasContextFlag(StatsFunctorContext.OnStatusRemoved)):ApplyStatus(EXTRA_ATTACK_WAR_MAGIC_Q,100,1);IF(context.HasContextFlag(StatsFunctorContext.OnStatusApplied) and not HasHigherPriorityExtraAttackQueued('EXTRA_ATTACK_WAR_MAGIC_Q') and not HasAnyExtraAttack()):ApplyStatus(EXTRA_ATTACK_WAR_MAGIC, 100, 1)"
 
-new entry "BattleMaster_Relentless"
-type "PassiveData"
-data "DisplayName" "he6a7b8c9a0000000000000000000063"
-data "Description" "he6a7b8caa0000000000000000000064"
-data "Icon" "PassiveFeature_SuperiorityDice"
-data "Properties" "Highlighted"
-data "Boosts" "ActionResource(SuperiorityDie,1,0)"
-
-// PHB 2024 Battle Master 18: superiority dice become d12 (SuperiorityDie level map, Levelmaps/LevelMapValues.lsx).
-// Display marker, like dnd55e's ImprovedCombatSuperiority at 10.
 new entry "BattleMaster_UltimateCombatSuperiority"
 type "PassiveData"
 using "ImprovedCombatSuperiority"

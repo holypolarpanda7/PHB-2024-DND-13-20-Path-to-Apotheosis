@@ -327,6 +327,52 @@
                     <attribute id="UUID" type="guid" value="14b05bae-8021-508f-a5d6-165619a45ef9"/>
                 </node>
                 <!-- ILLRIGGER 13-20 END -->
+                <!-- CLASS FEATURES 2024 BEGIN (generated) -->
+                <node id="ActionResourceDefinition">
+                    <attribute id="DisplayName" type="TranslatedString" handle="h792ba6f3e2565072b3af93b515519772" version="1"/>
+                    <attribute id="Description" type="TranslatedString" handle="hb155682211cb532d8b5fd2b4bf7f42c5" version="1"/>
+                    <attribute id="IsHidden" type="bool" value="false"/>
+                    <attribute id="MaxLevel" type="uint32" value="0"/>
+                    <attribute id="MaxValue" type="uint32" value="7"/>
+                    <attribute id="Name" type="FixedString" value="NaturesVeil"/>
+                    <attribute id="ReplenishType" type="FixedString" value="Rest"/>
+                    <attribute id="ShowOnActionResourcePanel" type="bool" value="true"/>
+                    <attribute id="UUID" type="guid" value="20aa137d-8816-578f-9f8b-45d9370f919b"/>
+                </node>
+                <node id="ActionResourceDefinition">
+                    <attribute id="DisplayName" type="TranslatedString" handle="h52c0742cc8c05db38debe1e612850ed1" version="1"/>
+                    <attribute id="Description" type="TranslatedString" handle="he1e1a6cb685057638f3c98fbce9ff0a6" version="1"/>
+                    <attribute id="IsHidden" type="bool" value="false"/>
+                    <attribute id="MaxLevel" type="uint32" value="0"/>
+                    <attribute id="MaxValue" type="uint32" value="1"/>
+                    <attribute id="Name" type="FixedString" value="UnbreakableMajesty"/>
+                    <attribute id="ReplenishType" type="FixedString" value="ShortRest"/>
+                    <attribute id="ShowOnActionResourcePanel" type="bool" value="true"/>
+                    <attribute id="UUID" type="guid" value="4ee56209-571e-5fb9-b348-4aedbc550c16"/>
+                </node>
+                <node id="ActionResourceDefinition">
+                    <attribute id="DisplayName" type="TranslatedString" handle="hbe493904414e5315bf8ce158eeb29cf6" version="1"/>
+                    <attribute id="Description" type="TranslatedString" handle="h3126f85c9fb3555fa4d116fb507a6e5f" version="1"/>
+                    <attribute id="IsHidden" type="bool" value="false"/>
+                    <attribute id="MaxLevel" type="uint32" value="0"/>
+                    <attribute id="MaxValue" type="uint32" value="1"/>
+                    <attribute id="Name" type="FixedString" value="UnbreakableMajestyHit"/>
+                    <attribute id="ReplenishType" type="FixedString" value="Turn"/>
+                    <attribute id="ShowOnActionResourcePanel" type="bool" value="true"/>
+                    <attribute id="UUID" type="guid" value="89c1e8f3-060f-5500-bd05-2107e98015ae"/>
+                </node>
+                <node id="ActionResourceDefinition">
+                    <attribute id="DisplayName" type="TranslatedString" handle="ha9c4a4042f1f5de49a13c8e80d449e50" version="1"/>
+                    <attribute id="Description" type="TranslatedString" handle="h6c09879cf5685a9fafb50030395bcfcd" version="1"/>
+                    <attribute id="IsHidden" type="bool" value="false"/>
+                    <attribute id="MaxLevel" type="uint32" value="0"/>
+                    <attribute id="MaxValue" type="uint32" value="1"/>
+                    <attribute id="Name" type="FixedString" value="BattleMasterRelentless"/>
+                    <attribute id="ReplenishType" type="FixedString" value="Turn"/>
+                    <attribute id="ShowOnActionResourcePanel" type="bool" value="true"/>
+                    <attribute id="UUID" type="guid" value="cd0f4899-6127-5f0d-ae56-2bb738555058"/>
+                </node>
+                <!-- CLASS FEATURES 2024 END -->
             </children>
         </node>
     </region>

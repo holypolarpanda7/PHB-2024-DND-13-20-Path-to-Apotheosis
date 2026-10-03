@@ -2460,4 +2460,32 @@
   <content contentuid="h423dc647be42593d87a96b570199c4fe" version="1">Creatures you interdict radiate darkness in a 10-foot radius.</content>
   <content contentuid="hb6b66c73d59d529e910725a82a577caa" version="1">Dark Malediction</content>
   <content contentuid="h9613862dd38e5a71bb6971875a60bb92" version="1">Radiates darkness in a 10-foot radius.</content>
+  <content contentuid="h792ba6f3e2565072b3af93b515519772" version="1">Nature's Veil</content>
+  <content contentuid="hb155682211cb532d8b5fd2b4bf7f42c5" version="1">Become Invisible until the end of your next turn. Uses equal to your Wisdom modifier; returns on a Long Rest.</content>
+  <content contentuid="h07b2b7f09dfb5350aca46e18deb24f22" version="1">Nature's Veil</content>
+  <content contentuid="h9b51036752c159e3986188d7449799f1" version="1">As a Bonus Action, you become Invisible until the end of your next turn. You can do this a number of times equal to your Wisdom modifier (minimum once), regaining all uses on a Long Rest.</content>
+  <content contentuid="h9f11038ab16d58d3b4ec03e486bc4078" version="1">Nature's Veil</content>
+  <content contentuid="hda415b89ae8f552e9da3e23ec60789f1" version="1">Become Invisible until the end of your next turn.</content>
+  <content contentuid="hb3aa4e52457156768108e81e5a4c62eb" version="1">Nature's Veil</content>
+  <content contentuid="h24416ad552355410b319f2fae646fa02" version="1">Invisible until the end of your next turn.</content>
+  <content contentuid="hbc50236bc1be50feadf336d2527c4457" version="1">Precise Hunter</content>
+  <content contentuid="h8f33b16a54b25a27b34ed13f2bc8f821" version="1">You have Advantage on attack rolls against the creature currently marked by your Hunter's Mark.</content>
+  <content contentuid="h52c0742cc8c05db38debe1e612850ed1" version="1">Unbreakable Majesty</content>
+  <content contentuid="he1e1a6cb685057638f3c98fbce9ff0a6" version="1">Assume a majestic presence. Returns on a Short or Long Rest.</content>
+  <content contentuid="hbe493904414e5315bf8ce158eeb29cf6" version="1">Unbreakable Majesty (this turn)</content>
+  <content contentuid="h3126f85c9fb3555fa4d116fb507a6e5f" version="1">Once per turn, an attacker must save or miss.</content>
+  <content contentuid="h8c90f90b139c5b268e36f32c57548074" version="1">Unbreakable Majesty</content>
+  <content contentuid="h76ba493d83dd54c0a32c7ad04180b58e" version="1">As a Bonus Action, assume a majestic presence for 1 minute or until you're Incapacitated. During it, the first time a creature hits you on a turn, it must succeed on a Charisma saving throw against your spell save DC or the attack misses. Once per Short or Long Rest, or by expending a level 5+ spell slot.</content>
+  <content contentuid="h02ba3ba2055251bbb839b5c38125fe12" version="1">Unbreakable Majesty</content>
+  <content contentuid="hc8d3ebbac4b657f28099ce6bcbd8bd2d" version="1">Assume a majestic presence for 1 minute: the first creature to hit you each turn must save or miss.</content>
+  <content contentuid="h49e423aa08865fb6a65479e02aab7c72" version="1">Unbreakable Majesty (spell slot)</content>
+  <content contentuid="h482d3dd26c0e5decb7e162631828e2cd" version="1">Assume a majestic presence for 1 minute: the first creature to hit you each turn must save or miss.</content>
+  <content contentuid="h872ceaf908075ce582bc1ffe5a49079b" version="1">Unbreakable Majesty</content>
+  <content contentuid="h6382824331ec5739932b3ce2711c2988" version="1">The first creature to hit you each turn must succeed on a Charisma saving throw or miss.</content>
+  <content contentuid="had3a5d0ec589593595d5ee96d3edab43" version="1">Unbreakable Majesty</content>
+  <content contentuid="hff7532c5fbe0573794a1ee02ac472fd6" version="1">The attacker must succeed on a Charisma saving throw or miss.</content>
+  <content contentuid="ha9c4a4042f1f5de49a13c8e80d449e50" version="1">Relentless</content>
+  <content contentuid="h6c09879cf5685a9fafb50030395bcfcd" version="1">Once per turn, a maneuver costs no Superiority Die.</content>
+  <content contentuid="hed3462a77768556f91ca6641ba217c1c" version="1">Relentless</content>
+  <content contentuid="ha25f4fb5fd865037ba5b3c31f7282fed" version="1">Once per turn, when you use a maneuver, you can roll a d8 and use it instead of expending a Superiority Die.</content>
 </contentList>

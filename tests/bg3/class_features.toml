@@ -1,0 +1,67 @@
+# Single PHB 2024 class features (issues #11 #12 #13), drafted with bg3_test_draft (2026-10-02) and reviewed.
+# Run: bg3_test_run("apotheosis", "<id>").
+
+[suite]
+name = "Class features 2024"
+mode = "script"
+
+[[case]]
+id = "ranger-natures-veil"
+title = "Nature's Veil: a Bonus Action makes you Invisible until the end of your next turn"
+spell = "Shout_Ranger_NaturesVeil"
+target = "host"
+setup = [{ target = "host", passive = "Ranger_14_NaturesVeil" }]
+expect = [{ target = "host", status_applied = ["RANGER_NATURES_VEIL"] }, { resource = "NaturesVeil", level = 0, change = -1 }]
+
+[[case]]
+id = "ranger-precise-hunter"
+title = "Precise Hunter: Advantage on attacks against your Hunter's Mark target"
+spell = "Target_MainHandAttack"
+target = "A"
+real_rolls = true
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 1.2 }]
+setup = [{ target = "host", passive = "Ranger_17_PreciseHunter" }, { target = "host", boost = "RollBonus(Attack,30)" }, { target = "A", boost = "ActionResourceBlock(ReactionActionPoint)" }, { target = "A", status = "HUNTERS_MARK", turns = -1, by = "host" }]
+expect = [{ target = "A", hits = { by = "host", flag = "AttackAdvantage", count = [1, 9] } }]
+
+[[case]]
+id = "ranger-precise-hunter-control"
+title = "Control: without Precise Hunter the same attack has no Advantage"
+spell = "Target_MainHandAttack"
+target = "A"
+real_rolls = true
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 1.2 }]
+setup = [{ target = "host", boost = "RollBonus(Attack,30)" }, { target = "A", boost = "ActionResourceBlock(ReactionActionPoint)" }, { target = "A", status = "HUNTERS_MARK", turns = -1, by = "host" }]
+expect = [{ target = "A", hits = { by = "host", flag = "AttackAdvantage", count = [1, 9], absent = true } }]
+
+[[case]]
+id = "glamour-unbreakable-majesty"
+title = "Unbreakable Majesty: a Bonus Action assumes the majestic presence"
+spell = "Shout_Glamour_UnbreakableMajesty"
+target = "host"
+setup = [{ target = "host", passive = "Glamour_14_UnbreakableMajesty" }]
+expect = [{ target = "host", status_applied = ["GLAMOUR_UNBREAKABLE_MAJESTY"] }, { resource = "UnbreakableMajesty", level = 0, change = -1 }]
+
+[[case]]
+id = "glamour-unbreakable-majesty-hit"
+title = "Unbreakable Majesty: a creature that hits you must save or miss"
+mode = "ai"
+spell = "Target_Bite_Wolf"
+caster = "A"
+target = "host"
+reactions = ["Glamour_UnbreakableMajesty"]
+ai_rounds = 8
+sanctuary = false
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 2 }]
+setup = [{ target = "host", max_hp = 200 }, { target = "host", passive = "Glamour_14_UnbreakableMajesty" }, { target = "host", status = "GLAMOUR_UNBREAKABLE_MAJESTY", turns = -1 }, { target = "A", boost = "AbilityFailedSavingThrow(Charisma)" }, { target = "A", boost = "RollBonus(Attack,10)" }]
+expect = [{ target = "A", saves = { ability = "Charisma", n = [1, 9] } }, { target = "host", damage_count = { by = "A", count = [0, 0] } }]
+notes = "The wolf's Charisma save is forced to fail, so every hit it lands becomes a miss. (Its per-turn charge refills on your turn, so the cost can't be read at the end.)"
+
+[[case]]
+id = "battlemaster-relentless"
+title = "Relentless: once per turn a maneuver keeps its Superiority Die"
+mode = "player"
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 1.5 }]
+setup = [{ target = "host", boost = "ActionResource(SuperiorityDie,4,0)" }, { target = "host", passive = "BattleMaster_Relentless" }, { target = "host", passive = "TripAttack" }]
+instructions = "Use Trip Attack on the wolf from the hotbar (a scripted cast never pays costs, so this needs a real one)."
+expect = [{ resource = "SuperiorityDie", level = 0, amount_change = 0 }]
+notes = "Log: 'Relentless: ... keeps the Superiority Die'. A second maneuver the same turn spends normally."

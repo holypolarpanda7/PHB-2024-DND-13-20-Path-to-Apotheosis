@@ -637,7 +637,9 @@
         },
         "14": {
           "boosts": "",
-          "passives": [],
+          "passives": [
+            "Ranger_14_NaturesVeil"
+          ],
           "selectors": ""
         },
         "15": {
@@ -652,7 +654,9 @@
         },
         "17": {
           "boosts": "ActionResource(SpellSlot,1,4);ActionResource(SpellSlot,1,5)",
-          "passives": [],
+          "passives": [
+            "Ranger_17_PreciseHunter"
+          ],
           "selectors": "AddSpells(6b625ece-306d-576a-9fa2-896d884e4e05)"
         },
         "18": {
@@ -1220,7 +1224,7 @@
     "BattleMaster": {
       "levels": {
         "15": {
-          "boosts": "",
+          "boosts": "ActionResource(SuperiorityDie,1,0)",
           "passives": [
             "BattleMaster_Relentless"
           ],
@@ -1820,7 +1824,9 @@
         },
         "14": {
           "boosts": "",
-          "passives": [],
+          "passives": [
+            "Glamour_14_UnbreakableMajesty"
+          ],
           "selectors": ""
         }
       },

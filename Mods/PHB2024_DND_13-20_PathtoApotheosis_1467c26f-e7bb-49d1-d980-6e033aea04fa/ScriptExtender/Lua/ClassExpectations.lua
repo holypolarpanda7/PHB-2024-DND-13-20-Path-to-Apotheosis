@@ -502,7 +502,7 @@ M.classes["Ranger"] = {
             selectors = "AddSpells(6e77d7ac-4b79-5691-bde3-357017ad4cdc)",
         },
         [14] = {
-            passives  = {},
+            passives  = { "Ranger_14_NaturesVeil" },
         },
         [15] = {
             passives  = {},
@@ -512,7 +512,7 @@ M.classes["Ranger"] = {
             passives  = {},
         },
         [17] = {
-            passives  = {},
+            passives  = { "Ranger_17_PreciseHunter" },
             boosts    = "ActionResource(SpellSlot,1,4);ActionResource(SpellSlot,1,5)",
             selectors = "AddSpells(6b625ece-306d-576a-9fa2-896d884e4e05)",
         },
@@ -842,6 +842,7 @@ M.subclasses["BattleMaster"] = {
     levels = {
         [15] = {
             passives  = { "BattleMaster_Relentless" },
+            boosts    = "ActionResource(SuperiorityDie,1,0)",
             selectors = "SelectPassives(e51a2ef5-3663-43f9-8e74-5e28520323f1,2,Maneuvers)",
         },
         [18] = {
@@ -1235,7 +1236,7 @@ M.subclasses["GlamourCollege"] = {
             passives  = {},
         },
         [14] = {
-            passives  = {},
+            passives  = { "Glamour_14_UnbreakableMajesty" },
         },
     },
 }

@@ -1174,6 +1174,13 @@ if Ext and type(Ext.Require) == "function" then
         Log.Warn("Illrigger bootstrap load failed: " .. tostring(ilOrErr))
     end
 
+    local okCf, cfOrErr = pcall(Ext.Require, "ClassFeatures.lua")
+    if okCf and type(cfOrErr) == "table" then
+        Log.Info("ClassFeatures loaded at bootstrap")
+    else
+        Log.Warn("ClassFeatures bootstrap load failed: " .. tostring(cfOrErr))
+    end
+
     local okSt, stOrErr = pcall(Ext.Require, "SpellTests.lua")
     if okSt and type(stOrErr) == "table" then
         Log.Info("SpellTests loaded at bootstrap")
