@@ -395,6 +395,8 @@ CLASS_ADDS = {
 }
 APO_ADDS = {  # Apotheosis-owned lists, by name
     "Apotheosis Ranger SLevel 4 List": ["Target_ApoSummonElemental"],
+    "Apotheosis Artificer SLevel 4 List": ["Target_ApoFaithfulHound", "Target_ApoSummonConstruct"],
+    "Apotheosis Artificer SLevel 5 List": ["Target_ApoAnimateObjects", "Target_ApoBigbysHand"],
     **{f"WizardUpToL{n}": ["Target_ApoSummonElemental", "Target_ApoSummonConstruct", "Target_ApoFaithfulHound",
                            "Target_ApoAnimateObjects", "Target_ApoBigbysHand"] for n in (7, 8, 9)},
 }

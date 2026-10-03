@@ -377,13 +377,13 @@
                 <node id="SpellList">
                     <attribute id="Comment" type="LSString" value="Artificer level 4 spells (spells not in the game yet are tracked in GitHub issues)"/>
                     <attribute id="Name" type="FixedString" value="Apotheosis Artificer SLevel 4 List"/>
-                    <attribute id="Spells" type="LSString" value="Target_ArcaneEye;Target_FreedomOfMovement;Target_ResilientSphere;Target_Stoneskin"/>
+                    <attribute id="Spells" type="LSString" value="Target_ArcaneEye;Target_FreedomOfMovement;Target_ResilientSphere;Target_Stoneskin;Target_ApoFaithfulHound;Target_ApoSummonConstruct"/>
                     <attribute id="UUID" type="guid" value="ee537fcf-8372-502b-ba07-a0887575e49f"/>
                 </node>
                 <node id="SpellList">
                     <attribute id="Comment" type="LSString" value="Artificer level 5 spells (spells not in the game yet are tracked in GitHub issues)"/>
                     <attribute id="Name" type="FixedString" value="Apotheosis Artificer SLevel 5 List"/>
-                    <attribute id="Spells" type="LSString" value="Target_GreaterRestoration;Wall_WallOfStone;Target_SkillEmpowerment"/>
+                    <attribute id="Spells" type="LSString" value="Target_GreaterRestoration;Wall_WallOfStone;Target_SkillEmpowerment;Target_ApoAnimateObjects;Target_ApoBigbysHand"/>
                     <attribute id="UUID" type="guid" value="dfb36751-25c2-59d2-a021-69cdac534724"/>
                 </node>
                 
