@@ -3562,6 +3562,190 @@
                     <attribute id="TableUUID" type="guid" value="e5e8acd6-4fd3-4295-8e78-3a77b8c30f2d"/>
                     <attribute id="UUID" type="guid" value="aab166e8-91a2-5ea0-ab97-6a2a8656a04a"/>
                 </node>
+                <node id="Progression">
+                    <attribute id="Level" type="uint8" value="15"/>
+                    <attribute id="Name" type="LSString" value="Conquest"/>
+                    <attribute id="PassivesAdded" type="LSString" value="Conquest_15_ScornfulRebuke"/>
+                    <attribute id="ProgressionType" type="uint8" value="1"/>
+                    <attribute id="TableUUID" type="guid" value="06cd782b-69b2-4200-93ea-77a611f87363"/>
+                    <attribute id="UUID" type="guid" value="948f219b-aec3-5f1b-ad9d-9f526de123e5"/>
+                </node>
+                <node id="Progression">
+                    <attribute id="Level" type="uint8" value="20"/>
+                    <attribute id="Name" type="LSString" value="Conquest"/>
+                    <attribute id="PassivesAdded" type="LSString" value="Conquest_20_InvincibleConqueror"/>
+                    <attribute id="ProgressionType" type="uint8" value="1"/>
+                    <attribute id="TableUUID" type="guid" value="06cd782b-69b2-4200-93ea-77a611f87363"/>
+                    <attribute id="UUID" type="guid" value="00bbace5-7acd-5a9c-ab7a-fc5f65548533"/>
+                </node>
+                <node id="Progression">
+                    <attribute id="Level" type="uint8" value="15"/>
+                    <attribute id="Name" type="LSString" value="Crown"/>
+                    <attribute id="PassivesAdded" type="LSString" value="Crown_15_UnyieldingSpirit"/>
+                    <attribute id="ProgressionType" type="uint8" value="1"/>
+                    <attribute id="TableUUID" type="guid" value="e3a25a7a-e793-4b99-9d4a-0fbc17fcc1ff"/>
+                    <attribute id="UUID" type="guid" value="f8b06eeb-1688-58a2-9e41-3d231a801270"/>
+                </node>
+                <node id="Progression">
+                    <attribute id="Level" type="uint8" value="20"/>
+                    <attribute id="Name" type="LSString" value="Crown"/>
+                    <attribute id="PassivesAdded" type="LSString" value="Crown_20_ExaltedChampion"/>
+                    <attribute id="ProgressionType" type="uint8" value="1"/>
+                    <attribute id="TableUUID" type="guid" value="e3a25a7a-e793-4b99-9d4a-0fbc17fcc1ff"/>
+                    <attribute id="UUID" type="guid" value="9fafe656-ce28-596f-ac50-1c3ce058072d"/>
+                </node>
+                <node id="Progression">
+                    <attribute id="Level" type="uint8" value="15"/>
+                    <attribute id="Name" type="LSString" value="Watchers"/>
+                    <attribute id="PassivesAdded" type="LSString" value="Watchers_15_VigilantRebuke"/>
+                    <attribute id="ProgressionType" type="uint8" value="1"/>
+                    <attribute id="TableUUID" type="guid" value="403102da-744a-4f16-b392-c1da7e9bbf2c"/>
+                    <attribute id="UUID" type="guid" value="0206873d-b060-5e80-80ad-11eee90e59b4"/>
+                </node>
+                <node id="Progression">
+                    <attribute id="Level" type="uint8" value="20"/>
+                    <attribute id="Name" type="LSString" value="Watchers"/>
+                    <attribute id="PassivesAdded" type="LSString" value="Watchers_20_MortalBulwark"/>
+                    <attribute id="ProgressionType" type="uint8" value="1"/>
+                    <attribute id="TableUUID" type="guid" value="403102da-744a-4f16-b392-c1da7e9bbf2c"/>
+                    <attribute id="UUID" type="guid" value="bd339ff3-471b-5c17-81b7-37e83f0feed5"/>
+                </node>
+                <node id="Progression">
+                    <attribute id="Level" type="uint8" value="15"/>
+                    <attribute id="Name" type="LSString" value="Oathbreaker"/>
+                    <attribute id="PassivesAdded" type="LSString" value="Oathbreaker_15_SupernaturalResistance"/>
+                    <attribute id="ProgressionType" type="uint8" value="1"/>
+                    <attribute id="TableUUID" type="guid" value="f0d6f933-4532-463f-b378-a1e8b0164325"/>
+                    <attribute id="UUID" type="guid" value="c770612e-04da-5278-b572-815779d3f8e2"/>
+                </node>
+                <node id="Progression">
+                    <attribute id="Level" type="uint8" value="20"/>
+                    <attribute id="Name" type="LSString" value="Oathbreaker"/>
+                    <attribute id="PassivesAdded" type="LSString" value="Oathbreaker_20_DreadLord"/>
+                    <attribute id="ProgressionType" type="uint8" value="1"/>
+                    <attribute id="TableUUID" type="guid" value="f0d6f933-4532-463f-b378-a1e8b0164325"/>
+                    <attribute id="UUID" type="guid" value="cf285e1f-21cc-5731-bf28-db6d03e6fe50"/>
+                </node>
+                <node id="Progression">
+                    <attribute id="Level" type="uint8" value="15"/>
+                    <attribute id="Name" type="LSString" value="Cavalier"/>
+                    <attribute id="PassivesAdded" type="LSString" value="Cavalier_15_FerociousCharger"/>
+                    <attribute id="ProgressionType" type="uint8" value="1"/>
+                    <attribute id="TableUUID" type="guid" value="ef6183fe-474b-440b-bd03-6e5cecc7e001"/>
+                    <attribute id="UUID" type="guid" value="32b6285f-61f3-5bbe-bba8-624c8793b9cc"/>
+                </node>
+                <node id="Progression">
+                    <attribute id="Level" type="uint8" value="18"/>
+                    <attribute id="Name" type="LSString" value="Cavalier"/>
+                    <attribute id="PassivesAdded" type="LSString" value="Cavalier_18_VigilantDefender"/>
+                    <attribute id="ProgressionType" type="uint8" value="1"/>
+                    <attribute id="TableUUID" type="guid" value="ef6183fe-474b-440b-bd03-6e5cecc7e001"/>
+                    <attribute id="UUID" type="guid" value="20934ce0-ccd3-5d31-b73d-38baf0f3de35"/>
+                </node>
+                <node id="Progression">
+                    <attribute id="Level" type="uint8" value="15"/>
+                    <attribute id="Name" type="LSString" value="ArcaneArcher"/>
+                    <attribute id="PassivesAdded" type="LSString" value="ArcaneArcher_15_EverReadyShot"/>
+                    <attribute id="ProgressionType" type="uint8" value="1"/>
+                    <attribute id="TableUUID" type="guid" value="537d34a9-c60d-4f1b-be41-312ab5d8c792"/>
+                    <attribute id="UUID" type="guid" value="7ca85eda-96c8-52a5-a3af-7ce21de2d720"/>
+                </node>
+                <node id="Progression">
+                    <attribute id="Level" type="uint8" value="18"/>
+                    <attribute id="Name" type="LSString" value="ArcaneArcher"/>
+                    <attribute id="PassivesAdded" type="LSString" value="ArcaneArcher_18_ImprovedShots"/>
+                    <attribute id="ProgressionType" type="uint8" value="1"/>
+                    <attribute id="TableUUID" type="guid" value="537d34a9-c60d-4f1b-be41-312ab5d8c792"/>
+                    <attribute id="UUID" type="guid" value="2557cf4b-147e-53bc-aaa8-ca00d4c7bf50"/>
+                </node>
+                <node id="Progression">
+                    <attribute id="Level" type="uint8" value="17"/>
+                    <attribute id="Name" type="LSString" value="Kensei"/>
+                    <attribute id="PassivesAdded" type="LSString" value="Kensei_17_UnerringAccuracy"/>
+                    <attribute id="ProgressionType" type="uint8" value="1"/>
+                    <attribute id="TableUUID" type="guid" value="92b14b25-7da0-440e-95d9-08df115936fc"/>
+                    <attribute id="UUID" type="guid" value="9ee01c54-f53c-597b-a03c-3186088fe0ae"/>
+                </node>
+                <node id="Progression">
+                    <attribute id="Level" type="uint8" value="17"/>
+                    <attribute id="Name" type="LSString" value="SunSoul"/>
+                    <attribute id="PassivesAdded" type="LSString" value="SunSoul_17_SunShield"/>
+                    <attribute id="ProgressionType" type="uint8" value="1"/>
+                    <attribute id="TableUUID" type="guid" value="878250ea-7516-4989-812a-be1d7c9a7726"/>
+                    <attribute id="UUID" type="guid" value="f4ceae07-cacd-5844-8632-1552c477503e"/>
+                </node>
+                <node id="Progression">
+                    <attribute id="Level" type="uint8" value="17"/>
+                    <attribute id="Name" type="LSString" value="DrunkenMaster"/>
+                    <attribute id="PassivesAdded" type="LSString" value="DrunkenMaster_17_IntoxicatedFrenzy"/>
+                    <attribute id="ProgressionType" type="uint8" value="1"/>
+                    <attribute id="TableUUID" type="guid" value="dbffd3ed-ef5c-4a0d-8b3b-86f017c30e21"/>
+                    <attribute id="UUID" type="guid" value="520aa5ab-1de3-50d9-89be-9b8b92b6448a"/>
+                </node>
+                <node id="Progression">
+                    <attribute id="Level" type="uint8" value="13"/>
+                    <attribute id="Name" type="LSString" value="Swashbuckler"/>
+                    <attribute id="PassivesAdded" type="LSString" value="Swashbuckler_13_ElegantManeuver"/>
+                    <attribute id="ProgressionType" type="uint8" value="1"/>
+                    <attribute id="TableUUID" type="guid" value="0a0f8dbb-ca06-4753-ac64-7c6876deeeae"/>
+                    <attribute id="UUID" type="guid" value="006fd8a7-a3bc-5dfd-bcd2-c81a59b0a33d"/>
+                </node>
+                <node id="Progression">
+                    <attribute id="Level" type="uint8" value="17"/>
+                    <attribute id="Name" type="LSString" value="Swashbuckler"/>
+                    <attribute id="PassivesAdded" type="LSString" value="Swashbuckler_17_MasterDuelist"/>
+                    <attribute id="ProgressionType" type="uint8" value="1"/>
+                    <attribute id="TableUUID" type="guid" value="0a0f8dbb-ca06-4753-ac64-7c6876deeeae"/>
+                    <attribute id="UUID" type="guid" value="d1dca052-8d48-5664-838d-89dbf1d19725"/>
+                </node>
+                <node id="Progression">
+                    <attribute id="Level" type="uint8" value="17"/>
+                    <attribute id="Name" type="LSString" value="ForgeDomain"/>
+                    <attribute id="PassivesAdded" type="LSString" value="ForgeDomain_17_SaintOfForgeAndFire"/>
+                    <attribute id="ProgressionType" type="uint8" value="1"/>
+                    <attribute id="TableUUID" type="guid" value="defe59d4-62be-4428-80cd-c34a10a4cb0d"/>
+                    <attribute id="UUID" type="guid" value="6fb4621e-f632-5941-bb51-c4afc26ae130"/>
+                </node>
+                <node id="Progression">
+                    <attribute id="Level" type="uint8" value="17"/>
+                    <attribute id="Name" type="LSString" value="TwilightDomain"/>
+                    <attribute id="PassivesAdded" type="LSString" value="TwilightDomain_17_TwilightShroud"/>
+                    <attribute id="ProgressionType" type="uint8" value="1"/>
+                    <attribute id="TableUUID" type="guid" value="c7da9e63-0991-4492-b966-26e8533866d1"/>
+                    <attribute id="UUID" type="guid" value="4e0cc4d0-eb98-5430-a96c-7f2b003903a6"/>
+                </node>
+                <node id="Progression">
+                    <attribute id="Level" type="uint8" value="17"/>
+                    <attribute id="Name" type="LSString" value="TempestDomain"/>
+                    <attribute id="PassivesAdded" type="LSString" value="TempestDomain_17_Stormborn"/>
+                    <attribute id="ProgressionType" type="uint8" value="1"/>
+                    <attribute id="TableUUID" type="guid" value="0630b55b-36f4-41d2-aacc-28e99d6ae252"/>
+                    <attribute id="UUID" type="guid" value="c9bef6a9-4663-524f-abc1-401074f4f286"/>
+                </node>
+                <node id="Progression">
+                    <attribute id="Level" type="uint8" value="14"/>
+                    <attribute id="Name" type="LSString" value="CircleOfTheSpores"/>
+                    <attribute id="PassivesAdded" type="LSString" value="Spores_14_FungalBody"/>
+                    <attribute id="ProgressionType" type="uint8" value="1"/>
+                    <attribute id="TableUUID" type="guid" value="288c9d1e-ab18-46dd-8fa3-d4fcfa44147a"/>
+                    <attribute id="UUID" type="guid" value="c5fc0627-a4ee-5ffc-8256-1e7ed98ab8a5"/>
+                </node>
+                <node id="Progression">
+                    <attribute id="Level" type="uint8" value="14"/>
+                    <attribute id="Name" type="LSString" value="CircleOfDreams"/>
+                    <attribute id="PassivesAdded" type="LSString" value="Dreams_14_WalkerInDreams"/>
+                    <attribute id="ProgressionType" type="uint8" value="1"/>
+                    <attribute id="TableUUID" type="guid" value="aba806c9-d349-4c70-9a1a-0cb0ae699e3f"/>
+                    <attribute id="UUID" type="guid" value="a52ae677-1581-5f26-8e8e-88bdf7229ebd"/>
+                </node>
+                <node id="Progression">
+                    <attribute id="Level" type="uint8" value="15"/>
+                    <attribute id="Name" type="LSString" value="Swarmkeeper"/>
+                    <attribute id="PassivesAdded" type="LSString" value="Swarmkeeper_15_SwarmingDispersal"/>
+                    <attribute id="ProgressionType" type="uint8" value="1"/>
+                    <attribute id="TableUUID" type="guid" value="54ad9a98-9656-4aa5-858e-b302f83c4577"/>
+                    <attribute id="UUID" type="guid" value="c71a2b74-c348-5760-a90e-90c09a186ef6"/>
+                </node>
                 <!-- SUBCLASS FEATURES 13-20 END -->
             </children>
         </node>

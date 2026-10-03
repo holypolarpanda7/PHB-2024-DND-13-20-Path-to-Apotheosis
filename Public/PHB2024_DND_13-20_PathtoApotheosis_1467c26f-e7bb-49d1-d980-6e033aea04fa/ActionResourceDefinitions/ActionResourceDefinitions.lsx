@@ -407,6 +407,116 @@
                     <attribute id="ShowOnActionResourcePanel" type="bool" value="true"/>
                     <attribute id="UUID" type="guid" value="fc78bcbb-a4e7-5595-a4fa-a07467456b68"/>
                 </node>
+                <node id="ActionResourceDefinition">
+                    <attribute id="DisplayName" type="TranslatedString" handle="h957f74f30d74540e8e5aa6c14519dc30" version="1"/>
+                    <attribute id="Description" type="TranslatedString" handle="h4c5738d597a757548f2f6f9224cc5c22" version="1"/>
+                    <attribute id="IsHidden" type="bool" value="false"/>
+                    <attribute id="MaxLevel" type="uint32" value="0"/>
+                    <attribute id="MaxValue" type="uint32" value="1"/>
+                    <attribute id="Name" type="FixedString" value="ApoInvincibleConqueror"/>
+                    <attribute id="ReplenishType" type="FixedString" value="Rest"/>
+                    <attribute id="ShowOnActionResourcePanel" type="bool" value="true"/>
+                    <attribute id="UUID" type="guid" value="6714d872-fc5d-5344-9317-adabfbb989ac"/>
+                </node>
+                <node id="ActionResourceDefinition">
+                    <attribute id="DisplayName" type="TranslatedString" handle="h6381c3591b0357fb850c1ae0741bf6f7" version="1"/>
+                    <attribute id="Description" type="TranslatedString" handle="h95cbfeb41e8556c5b0194078edf775e2" version="1"/>
+                    <attribute id="IsHidden" type="bool" value="false"/>
+                    <attribute id="MaxLevel" type="uint32" value="0"/>
+                    <attribute id="MaxValue" type="uint32" value="1"/>
+                    <attribute id="Name" type="FixedString" value="ApoExaltedChampion"/>
+                    <attribute id="ReplenishType" type="FixedString" value="Rest"/>
+                    <attribute id="ShowOnActionResourcePanel" type="bool" value="true"/>
+                    <attribute id="UUID" type="guid" value="08501280-2490-58b8-af56-74da77a3638e"/>
+                </node>
+                <node id="ActionResourceDefinition">
+                    <attribute id="DisplayName" type="TranslatedString" handle="hea9eb99fb0b45c21ac8ba53a5e7775dc" version="1"/>
+                    <attribute id="Description" type="TranslatedString" handle="h89e5c484e0e7570a8ada428d98dd99da" version="1"/>
+                    <attribute id="IsHidden" type="bool" value="false"/>
+                    <attribute id="MaxLevel" type="uint32" value="0"/>
+                    <attribute id="MaxValue" type="uint32" value="1"/>
+                    <attribute id="Name" type="FixedString" value="ApoMortalBulwark"/>
+                    <attribute id="ReplenishType" type="FixedString" value="Rest"/>
+                    <attribute id="ShowOnActionResourcePanel" type="bool" value="true"/>
+                    <attribute id="UUID" type="guid" value="6ce4056e-3a4e-56aa-bbb4-06227e92b2c9"/>
+                </node>
+                <node id="ActionResourceDefinition">
+                    <attribute id="DisplayName" type="TranslatedString" handle="h7339f3a5f4f152ca9419169d10438533" version="1"/>
+                    <attribute id="Description" type="TranslatedString" handle="h861a3b54c5645d41a9705c7744a8658b" version="1"/>
+                    <attribute id="IsHidden" type="bool" value="false"/>
+                    <attribute id="MaxLevel" type="uint32" value="0"/>
+                    <attribute id="MaxValue" type="uint32" value="1"/>
+                    <attribute id="Name" type="FixedString" value="ApoDreadLord"/>
+                    <attribute id="ReplenishType" type="FixedString" value="Rest"/>
+                    <attribute id="ShowOnActionResourcePanel" type="bool" value="true"/>
+                    <attribute id="UUID" type="guid" value="3d66a2ef-e2aa-559b-a91d-5091fe94a1d4"/>
+                </node>
+                <node id="ActionResourceDefinition">
+                    <attribute id="DisplayName" type="TranslatedString" handle="hab7f85a121a559089cd3779d1ec7bf35" version="1"/>
+                    <attribute id="Description" type="TranslatedString" handle="h3e36a68567e6531a9e4b88f083e1a4d1" version="1"/>
+                    <attribute id="IsHidden" type="bool" value="false"/>
+                    <attribute id="MaxLevel" type="uint32" value="0"/>
+                    <attribute id="MaxValue" type="uint32" value="1"/>
+                    <attribute id="Name" type="FixedString" value="ApoVigilantDefender"/>
+                    <attribute id="ReplenishType" type="FixedString" value="Never"/>
+                    <attribute id="ShowOnActionResourcePanel" type="bool" value="true"/>
+                    <attribute id="UUID" type="guid" value="db8c09e1-3de6-52f1-8d60-b01f78714afc"/>
+                </node>
+                <node id="ActionResourceDefinition">
+                    <attribute id="DisplayName" type="TranslatedString" handle="hcb61da58a2315687a00d3044db2aaf69" version="1"/>
+                    <attribute id="Description" type="TranslatedString" handle="he2b997b4db2d55199b020003f74a7c1d" version="1"/>
+                    <attribute id="IsHidden" type="bool" value="false"/>
+                    <attribute id="MaxLevel" type="uint32" value="0"/>
+                    <attribute id="MaxValue" type="uint32" value="1"/>
+                    <attribute id="Name" type="FixedString" value="ApoUnerringAccuracy"/>
+                    <attribute id="ReplenishType" type="FixedString" value="Turn"/>
+                    <attribute id="ShowOnActionResourcePanel" type="bool" value="true"/>
+                    <attribute id="UUID" type="guid" value="0969d325-5e0c-5096-a4f3-953fc446ae72"/>
+                </node>
+                <node id="ActionResourceDefinition">
+                    <attribute id="DisplayName" type="TranslatedString" handle="hed2dbd1b4a5a5f83b36604564729ff6f" version="1"/>
+                    <attribute id="Description" type="TranslatedString" handle="h1d399566b04c59ce86ef46270ee06fb1" version="1"/>
+                    <attribute id="IsHidden" type="bool" value="false"/>
+                    <attribute id="MaxLevel" type="uint32" value="0"/>
+                    <attribute id="MaxValue" type="uint32" value="3"/>
+                    <attribute id="Name" type="FixedString" value="ApoIntoxicatedFrenzy"/>
+                    <attribute id="ReplenishType" type="FixedString" value="Never"/>
+                    <attribute id="ShowOnActionResourcePanel" type="bool" value="true"/>
+                    <attribute id="UUID" type="guid" value="aaee06b3-e343-5bfa-8b91-03271d7bf4b4"/>
+                </node>
+                <node id="ActionResourceDefinition">
+                    <attribute id="DisplayName" type="TranslatedString" handle="hd7b80305242a542d88cd67acfa10ac8c" version="1"/>
+                    <attribute id="Description" type="TranslatedString" handle="h980058aa7f4851d9b6ce83b4fe8a3049" version="1"/>
+                    <attribute id="IsHidden" type="bool" value="false"/>
+                    <attribute id="MaxLevel" type="uint32" value="0"/>
+                    <attribute id="MaxValue" type="uint32" value="1"/>
+                    <attribute id="Name" type="FixedString" value="ApoMasterDuelist"/>
+                    <attribute id="ReplenishType" type="FixedString" value="ShortRest"/>
+                    <attribute id="ShowOnActionResourcePanel" type="bool" value="true"/>
+                    <attribute id="UUID" type="guid" value="406ffc48-4145-53c1-bb57-76f6f1e865cb"/>
+                </node>
+                <node id="ActionResourceDefinition">
+                    <attribute id="DisplayName" type="TranslatedString" handle="hac8b10aca0fd500d88821632fde6538e" version="1"/>
+                    <attribute id="Description" type="TranslatedString" handle="h60a68c216e345c359b20c89ff08bd86d" version="1"/>
+                    <attribute id="IsHidden" type="bool" value="false"/>
+                    <attribute id="MaxLevel" type="uint32" value="0"/>
+                    <attribute id="MaxValue" type="uint32" value="1"/>
+                    <attribute id="Name" type="FixedString" value="ApoWalkerInDreams"/>
+                    <attribute id="ReplenishType" type="FixedString" value="Rest"/>
+                    <attribute id="ShowOnActionResourcePanel" type="bool" value="true"/>
+                    <attribute id="UUID" type="guid" value="73fb4d7c-c8e7-5bda-95da-15e14c43eec7"/>
+                </node>
+                <node id="ActionResourceDefinition">
+                    <attribute id="DisplayName" type="TranslatedString" handle="habb5cb1c86d958899a9adecb61c871a8" version="1"/>
+                    <attribute id="Description" type="TranslatedString" handle="hff04d5d877935a1d99b1205b0aecee81" version="1"/>
+                    <attribute id="IsHidden" type="bool" value="false"/>
+                    <attribute id="MaxLevel" type="uint32" value="0"/>
+                    <attribute id="MaxValue" type="uint32" value="6"/>
+                    <attribute id="Name" type="FixedString" value="ApoSwarmingDispersal"/>
+                    <attribute id="ReplenishType" type="FixedString" value="Rest"/>
+                    <attribute id="ShowOnActionResourcePanel" type="bool" value="true"/>
+                    <attribute id="UUID" type="guid" value="5b633e71-42a4-59ff-b573-51b20e158eed"/>
+                </node>
                 <!-- SUBCLASS FEATURES 13-20 END -->
             </children>
         </node>

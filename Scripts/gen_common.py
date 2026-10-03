@@ -20,6 +20,23 @@ SHOUT_ANIM = "9122eb08-93f1-4010-a275-f5ae3ec7c76e,,;,,;9fb11cca-02d4-4d2f-955f-
 TARGET_ANIM = "3ff87abf-1ea1-4c32-aadf-c822d74c7dc0,,;,,;ab7b6aac-b3c9-4918-8f17-f777a94dcb5e,,;57211a11-ed0b-46d7-9369-81df25a85df6,,;d8925ce4-d6d9-400c-92f5-ad772ef7f178,,;,,;eadedcce-d01b-4fbb-a1ae-d218f13aa5d6,,;,,;,,"
 
 
+def icon_of(name, fallback="PassiveFeature_Generic"):
+    """The Icon an existing stats entry uses (base / dnd55e / Apotheosis, from the bg3-data MCP index): reuse a
+    subclass's own earlier feature icon instead of guessing names that don't exist (29 guesses on 2026-10-03)."""
+    import json
+    import sqlite3
+    db = os.path.expanduser("~/.cache/bg3-data-mcp/cache/index.sqlite")
+    try:
+        con = sqlite3.connect(db)
+        for (data,) in con.execute("SELECT data FROM stats WHERE name=? ORDER BY rank DESC", (name,)):
+            icon = json.loads(data).get("Icon")
+            if icon:
+                return icon
+    except sqlite3.Error:
+        pass
+    return fallback
+
+
 class Gen:
     def __init__(self, key, marker):
         self.key, self.marker = key, marker

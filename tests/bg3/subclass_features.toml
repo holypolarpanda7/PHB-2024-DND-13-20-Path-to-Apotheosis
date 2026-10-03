@@ -114,3 +114,146 @@ spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance 
 setup = [{ target = "host", passive = "HollowWarden_15_AncientEndurance" }, { target = "host", status = "WRATH_OF_THE_WILD", turns = 10 },
          { target = "host", boost = "ActionResource(SpellSlot,1,4)" }, { target = "host", hp = 1 }, { target = "A", boost = "RollBonus(Attack,30)" }]
 expect = [{ log = "/Persistent Hunt: .* spends a level 4 slot and stays up with 20 HP/" }, { target = "host", dead = false }]
+
+# ---------------------------------------------------------------- group 2
+[[case]]
+id = "conquest-scornful-rebuke"
+title = "Conquest 15 Scornful Rebuke: a creature that hits you takes Psychic damage equal to your Charisma modifier"
+spell = "Target_Bite_Wolf"
+caster = "A"
+target = "host"
+real_rolls = true
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 2 }]
+setup = [{ target = "host", passive = "Conquest_15_ScornfulRebuke" }, { target = "A", boost = "RollBonus(Attack,30)" }]
+expect = [{ target = "A", hp_change = [-1, -1] }]
+notes = "Test host Charisma 12: +1."
+
+[[case]]
+id = "conquest-invincible-conqueror"
+title = "Conquest 20 Invincible Conqueror: 1 minute of resistance, an extra attack and 19-20 crits"
+spell = "Shout_ApoInvincibleConqueror"
+target = "host"
+setup = [{ target = "host", passive = "Conquest_20_InvincibleConqueror" }]
+expect = [{ target = "host", status_applied = ["APO_INVINCIBLE_CONQUEROR"] }]
+
+[[case]]
+id = "crown-exalted-champion"
+title = "Crown 20 Exalted Champion: allies within 30 feet get Advantage on Wisdom and death saves"
+spell = "Shout_ApoExaltedChampion"
+target = "host"
+spawn = [{ as = "B", template = "wolf", faction = "friendly", hp = 300, distance = 3 }]
+setup = [{ target = "host", passive = "Crown_20_ExaltedChampion" }]
+expect = [{ target = "host", status_applied = ["APO_EXALTED_CHAMPION"] }, { target = "B", status_present = ["APO_EXALTED_CHAMPION_ALLY"] }]
+
+[[case]]
+id = "watchers-vigilant-rebuke"
+title = "Watchers 15 Vigilant Rebuke: you succeed on a Charisma save -> 2d8 + Charisma Force to the caster"
+spell = "Target_Bane"
+caster = "A"
+target = "host"
+real_rolls = true
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 4 }]
+setup = [{ target = "host", passive = "Watchers_15_VigilantRebuke" }, { target = "host", boost = "RollBonus(SavingThrow,30)" }]
+expect = [{ target = "A", hp_change = [-17, -3] }, { log = "Vigilant Rebuke" }]
+
+[[case]]
+id = "watchers-mortal-bulwark"
+title = "Watchers 20 Mortal Bulwark: Bonus Action, 1 minute"
+spell = "Shout_ApoMortalBulwark"
+target = "host"
+setup = [{ target = "host", passive = "Watchers_20_MortalBulwark" }]
+expect = [{ target = "host", status_applied = ["APO_MORTAL_BULWARK"] }]
+
+[[case]]
+id = "oathbreaker-dread-lord"
+title = "Oathbreaker 20 Dread Lord: a Frightened enemy starting its turn in the aura takes 4d10 Psychic"
+spell = "Shout_ApoDreadLord"
+target = "host"
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 3 }]
+setup = [{ target = "host", passive = "Oathbreaker_20_DreadLord" }, { target = "A", status = "FRIGHTENED", turns = 10, by = "host" },
+         { target = "A", boost = "ActionResourceBlock(ReactionActionPoint)" }]
+end_turns = 2
+expect = [{ target = "host", status_applied = ["APO_DREAD_LORD"] }, { target = "A", status_applied = ["APO_DREAD_LORD_FEAR"] },
+          { target = "A", hp_change = [-40, -4] }]
+
+[[case]]
+id = "cavalier-ferocious-charger"
+title = "Cavalier 15 Ferocious Charger: first round, a creature within 5 feet fails a Strength save and falls Prone"
+target = "host"
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 1.5 }]
+setup = [{ target = "host", passive = "Cavalier_15_FerociousCharger" }, { target = "A", boost = "AbilityFailedSavingThrow(Strength)" }]
+combat = "after_setup"
+expect = [{ target = "host", status_applied = ["APO_FEROCIOUS_CHARGER"] }, { target = "A", status_applied = ["PRONE"] }]
+
+[[case]]
+id = "sun-soul-sun-shield"
+title = "Sun Soul 17 Sun Shield: hit in melee while shining -> 5 + Wisdom Radiant to the attacker"
+spell = "Target_Bite_Wolf"
+caster = "A"
+target = "host"
+real_rolls = true
+reactions = ["Interrupt_ApoSunShield"]
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 2 }]
+setup = [{ target = "host", passive = "SunSoul_17_SunShield" }, { target = "host", status = "APO_SUN_SHIELD", turns = -1 },
+         { target = "A", boost = "RollBonus(Attack,30)" }]
+expect = [{ target = "A", hp_change = [-5, -5] }]
+notes = "Test host Wisdom 10: 5 + 0."
+
+[[case]]
+id = "drunken-intoxicated-frenzy"
+title = "Drunken Master 17 Intoxicated Frenzy: after Flurry of Blows, an extra strike at a different creature"
+spell = "Target_ApoIntoxicatedFrenzy"
+target = "B"
+real_rolls = true
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 1.5 }, { as = "B", template = "wolf", faction = "hostile", hp = 300, distance = -1.5 }]
+setup = [{ target = "host", passive = "DrunkenMaster_17_IntoxicatedFrenzy" }, { target = "host", boost = "RollBonus(Attack,30)" },
+         { target = "A", boost = "ActionResourceBlock(ReactionActionPoint)" }, { target = "B", boost = "ActionResourceBlock(ReactionActionPoint)" }]
+casts = [{ spell = "Target_FlurryOfBlows", target = "A", real_rolls = true }]
+expect = [{ target = "A", status_applied = ["APO_FRENZY_STRUCK"] }, { target = "B", hp_change = [-20, -1] }]
+
+[[case]]
+id = "swashbuckler-elegant-maneuver"
+title = "Swashbuckler 13 Elegant Maneuver: Bonus Action, Advantage on Acrobatics and Athletics"
+spell = "Shout_ApoElegantManeuver"
+target = "host"
+setup = [{ target = "host", passive = "Swashbuckler_13_ElegantManeuver" }]
+expect = [{ target = "host", status_applied = ["APO_ELEGANT_MANEUVER"] }]
+
+[[case]]
+id = "forge-saint-fire-immunity"
+title = "Forge 17 Saint of Forge and Fire: Immunity to Fire damage"
+spell = "Projectile_FireBolt"
+caster = "A"
+target = "host"
+real_rolls = true
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 4 }]
+setup = [{ target = "host", passive = "ForgeDomain_17_SaintOfForgeAndFire" }, { target = "A", boost = "RollBonus(Attack,30)" }]
+expect = [{ target = "host", hp_change = [0, 0] }]
+
+[[case]]
+id = "twilight-shroud"
+title = "Twilight 17 Twilight Shroud: Twilight Sanctuary also gives Half Cover to you and your allies"
+spell = "Shout_TwilightSanctuary"
+target = "host"
+spawn = [{ as = "B", template = "wolf", faction = "friendly", hp = 300, distance = 3 }]
+setup = [{ target = "host", passive = "TwilightDomain_17_TwilightShroud" }]
+expect = [{ target = "host", status_applied = ["APO_TWILIGHT_SHROUD_AURA"] }, { target = "B", status_present = ["APO_TWILIGHT_SHROUD"] }]
+
+[[case]]
+id = "spores-fungal-body"
+title = "Spores 14 Fungal Body: can't be Frightened"
+target = "host"
+setup = [{ target = "host", passive = "Spores_14_FungalBody" }, { target = "host", status = "FRIGHTENED", turns = 2 }]
+expect = [{ target = "host", status_absent = ["FRIGHTENED"] }]
+
+[[case]]
+id = "swarmkeeper-swarming-dispersal"
+title = "Swarmkeeper 15 Swarming Dispersal: Reaction when damaged -> Resistance and a free 30-foot teleport"
+spell = "Target_Bite_Wolf"
+caster = "A"
+target = "host"
+real_rolls = true
+reactions = ["Interrupt_ApoSwarmingDispersal"]
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 2 }]
+setup = [{ target = "host", passive = "Swarmkeeper_15_SwarmingDispersal" }, { target = "A", boost = "RollBonus(Attack,30)" }]
+expect = [{ target = "host", status_applied = ["UNCANNY_DODGE_REDUCE_DAMAGE", "APO_SWARMING_DISPERSAL"] }]

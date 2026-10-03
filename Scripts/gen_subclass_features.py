@@ -2,7 +2,10 @@
 
 Each feature follows the source dnd55e uses for the subclass (texts: References/Subclasses/Subclasses_13_20_Sources.txt):
   UA 2025 Horror Subclasses: College of Spirits 14, Hollow Warden 15, Shadow Sorcery 14/18, Hexblade 14, Undead 14
-  XGE: Storm Sorcery 14/18, Divine Soul 14/18
+  XGE: Storm Sorcery 14/18, Divine Soul 14/18, Conquest 15/20, Arcane Archer 15/18, Kensei/Sun Soul/Drunken Master 17,
+       Swashbuckler 13/17, Forge 17, Circle of Dreams 14
+  UA 2025 Subclasses Update: Cavalier 15/18   DMG 2014 (as the base game): Oathbreaker 15/20
+  SCAG: Crown 15/20   TCoE: Watchers 15/20, Twilight 17, Spores 14, Swarmkeeper 15   PHB 2014: Tempest 17
 Lua for what stats can't do: SubclassFeatures.lua.
 
 Owns Stats/Generated/Data/{Passive,Status,Spell,Interrupt}_SubclassFeatures.txt, the resources/progression nodes
@@ -176,6 +179,301 @@ G.status("APO_PERSISTENT_HUNT_SPENT", "Persistent Hunt", None, {
     "StackId": "APO_PERSISTENT_HUNT_SPENT", "StatusPropertyFlags": "DisableOverhead;DisableCombatlog;DisablePortraitIndicator"},
     comment="Set when no level 4+ slot was left, so the next drop goes down normally instead of looping.")
 node(HOLLOW, "HollowWarden", 15, "HollowWarden_15_AncientEndurance")
+
+
+# ================================================================ group 2 (2026-10-03)
+ALL_TYPES = ALL_BUT_FORCE_RADIANT + ["Force", "Radiant"]
+EXTRAPLANAR = "(Tagged('ABERRATION',context.Target) or Tagged('CELESTIAL',context.Target) or Tagged('ELEMENTAL',context.Target) or Tagged('FEY',context.Target) or Tagged('FIEND',context.Target))"
+NONMAGICAL_BPS = "Resistance(Bludgeoning,ResistantToNonMagical);Resistance(Piercing,ResistantToNonMagical);Resistance(Slashing,ResistantToNonMagical)"
+
+
+def once(spell_id, status, title, text, turns, cost_action, res, replenish="Rest", icon=None, extra=None):
+    """A once-per-rest self buff: the shout, its resource and the passive boost that grants both."""
+    G.spell(spell_id, title, text, {
+        "SpellType": "Shout", "TargetConditions": "Self()", "SpellProperties": f"ApplyStatus({status},100,{turns})",
+        "TooltipStatusApply": f"ApplyStatus({status},100,{turns})", "UseCosts": f"{cost_action}:1;{res}:1",
+        "VerbalIntent": "Buff", **(extra or {})}, icon=icon)
+    return f"UnlockSpell({spell_id});" + limited(res, title, text, replenish)
+
+
+# ---------------------------------------------------------------- Paladin: Oath of Conquest (XGE)
+CONQUEST = "06cd782b-69b2-4200-93ea-77a611f87363"
+G.passive("Conquest_15_ScornfulRebuke", "Scornful Rebuke",
+          "Whenever a creature hits you with an attack, it takes Psychic damage equal to your Charisma modifier (minimum 1).", {
+              "StatsFunctorContext": "OnAttacked", "Conditions": "HasDamageEffectFlag(DamageFlags.Hit) and not SpellTypeIs(SpellType.Throw)",
+              "StatsFunctors": "DealDamage(SWAP,max(1,CharismaModifier),Psychic,Magical)"}, icon="Action_Paladin_DreadfulAspect")
+G.status("APO_INVINCIBLE_CONQUEROR", "Invincible Conqueror",
+         "Resistance to all damage, one additional attack when you take the Attack action, and your melee weapon attacks score a Critical Hit on a 19 or 20.", {
+             "Boosts": ";".join(f"Resistance({t},Resistant)" for t in ALL_TYPES) + ";IF(IsMeleeWeaponAttack()):ReduceCriticalAttackThreshold(1)",
+             "Passives": "ExtraAttack_2", "StackId": "APO_INVINCIBLE_CONQUEROR"}, icon="Action_Paladin_DreadfulAspect")
+G.passive("Conquest_20_InvincibleConqueror", "Invincible Conqueror",
+          "As an action, once per Long Rest: for 1 minute you have Resistance to all damage, make one additional attack with the Attack action, and score a Critical Hit with melee weapon attacks on a 19 or 20.", {
+              "Boosts": once("Shout_ApoInvincibleConqueror", "APO_INVINCIBLE_CONQUEROR", "Invincible Conqueror",
+                             "Become an avatar of conquest for 1 minute.", 10, "ActionPoint", "ApoInvincibleConqueror",
+                             icon="Action_Paladin_DreadfulAspect")},
+          icon="Action_Paladin_DreadfulAspect")
+node(CONQUEST, "Conquest", 15, "Conquest_15_ScornfulRebuke")
+node(CONQUEST, "Conquest", 20, "Conquest_20_InvincibleConqueror")
+
+# ---------------------------------------------------------------- Paladin: Oath of the Crown (SCAG)
+CROWN = "e3a25a7a-e793-4b99-9d4a-0fbc17fcc1ff"
+G.passive("Crown_15_UnyieldingSpirit", "Unyielding Spirit",
+          "You have Advantage on saving throws to avoid becoming Paralyzed or Stunned.", {"Boosts": "Tag(PARALYZED_ADV)"},
+          icon="PassiveFeature_Generic_Magical", comment="Stunned has no *_ADV tag in the engine: only Paralyzed is covered.")
+G.status("APO_EXALTED_CHAMPION_ALLY", "Exalted Champion", "Advantage on Death Saving Throws and Wisdom saving throws.", {
+    "Boosts": "Advantage(DeathSavingThrow);Advantage(SavingThrow,Wisdom)", "StackId": "APO_EXALTED_CHAMPION_ALLY"},
+    icon="PassiveFeature_Generic_Magical")
+G.status("APO_EXALTED_CHAMPION", "Exalted Champion",
+         "Resistance to Bludgeoning, Piercing and Slashing damage from nonmagical attacks; you and your allies within 30 feet have Advantage on Wisdom saving throws and Death Saving Throws.", {
+             "Boosts": NONMAGICAL_BPS + ";Advantage(SavingThrow,Wisdom)", "AuraRadius": "9",
+             "AuraStatuses": "IF(Ally() and not Self()):ApplyStatus(APO_EXALTED_CHAMPION_ALLY)", "StackId": "APO_EXALTED_CHAMPION",
+             "RemoveEvents": "OnStatusApplied", "RemoveConditions": "HasAnyStatus({'SG_Incapacitated'})"}, icon="PassiveFeature_Generic_Magical")
+G.passive("Crown_20_ExaltedChampion", "Exalted Champion",
+          "As an action, once per Long Rest, for 1 hour: Resistance to nonmagical Bludgeoning, Piercing and Slashing damage, and you and your allies within 30 feet have Advantage on Wisdom saving throws (allies also on Death Saving Throws).", {
+              "Boosts": once("Shout_ApoExaltedChampion", "APO_EXALTED_CHAMPION", "Exalted Champion", "Inspire those who fight beside you for 1 hour.",
+                             600, "ActionPoint", "ApoExaltedChampion", icon="PassiveFeature_Generic_Magical")},
+          icon="PassiveFeature_Generic_Magical")
+node(CROWN, "Crown", 15, "Crown_15_UnyieldingSpirit")
+node(CROWN, "Crown", 20, "Crown_20_ExaltedChampion")
+
+# ---------------------------------------------------------------- Paladin: Oath of the Watchers (TCoE)
+WATCHERS = "403102da-744a-4f16-b392-c1da7e9bbf2c"
+G.status("APO_VIGILANT_REBUKE", "Vigilant Rebuke", None, {
+    "OnApplyFunctors": "DealDamage(2d8+CharismaModifier,Force,Magical)", "StackId": "APO_VIGILANT_REBUKE",
+    "StatusPropertyFlags": "DisableOverhead;DisablePortraitIndicator"})
+G.passive("Watchers_15_VigilantRebuke", "Vigilant Rebuke",
+          "When you or a creature you can see within 30 feet succeeds on an Intelligence, Wisdom or Charisma saving throw, you can use your Reaction to deal 2d8 + your Charisma modifier Force damage to the creature that forced the save.",
+          {}, icon="Spell_Abjuration_MagicCircle", comment="SubclassFeatures.lua (saving throw event; spends your Reaction).")
+G.status("APO_MORTAL_BULWARK_RESISTED", "Resisted banishment", "Can't be banished by Mortal Bulwark for 24 hours.", {
+    "StackId": "APO_MORTAL_BULWARK_RESISTED", "StatusPropertyFlags": "DisableOverhead"})
+G.status("APO_MORTAL_BULWARK", "Mortal Bulwark",
+         "Advantage on attack rolls against Aberrations, Celestials, Elementals, Fey and Fiends; a creature you hit makes a Charisma saving throw or is banished.", {
+             "Boosts": f"IF({EXTRAPLANAR}):Advantage(AttackRoll)", "StackId": "APO_MORTAL_BULWARK"},
+         icon="Spell_Abjuration_MagicCircle")
+G.passive("Watchers_20_MortalBulwark", "Mortal Bulwark",
+          "As a Bonus Action, once per Long Rest (or by expending a level 5 spell slot), for 1 minute: Advantage on attack rolls against Aberrations, Celestials, Elementals, Fey and Fiends, and a creature of those kinds you hit makes a Charisma saving throw or is banished (on a success it can't be banished this way for 24 hours).", {
+              "Boosts": once("Shout_ApoMortalBulwark", "APO_MORTAL_BULWARK", "Mortal Bulwark", "Defend the mortal realms for 1 minute.",
+                             10, "BonusActionPoint", "ApoMortalBulwark", icon="Spell_Abjuration_MagicCircle")
+                        + ";UnlockSpell(Shout_ApoMortalBulwark_Slot)",
+              "StatsFunctorContext": "OnDamage",
+              "Conditions": f"HasStatus('APO_MORTAL_BULWARK',context.Source) and IsAttack() and {EXTRAPLANAR} and not HasStatus('APO_MORTAL_BULWARK_RESISTED')",
+              "StatsFunctors": "IF(not SavingThrow(Ability.Charisma, SourceSpellDC())):ApplyStatus(BANISHED,100,10);IF(not HasStatus('BANISHED')):ApplyStatus(APO_MORTAL_BULWARK_RESISTED,100,1440)"},
+          icon="Spell_Abjuration_MagicCircle")
+G.spell("Shout_ApoMortalBulwark_Slot", "Mortal Bulwark (level 5 slot)", "Use Mortal Bulwark again by expending a level 5 spell slot.", {
+    "UseCosts": "BonusActionPoint:1;SpellSlotsGroup:1:1:5",
+    "RequirementConditions": "not HasActionResource('ApoMortalBulwark',1,0,false,false,context.Source)"},
+    using="Shout_ApoMortalBulwark", icon="Spell_Abjuration_MagicCircle")
+node(WATCHERS, "Watchers", 15, "Watchers_15_VigilantRebuke")
+node(WATCHERS, "Watchers", 20, "Watchers_20_MortalBulwark")
+
+# ---------------------------------------------------------------- Paladin: Oathbreaker (DMG 2014, as the base game)
+OATHBREAKER = "f0d6f933-4532-463f-b378-a1e8b0164325"
+G.passive("Oathbreaker_15_SupernaturalResistance", "Supernatural Resistance",
+          "You have Resistance to Bludgeoning, Piercing and Slashing damage from nonmagical attacks.", {"Boosts": NONMAGICAL_BPS},
+          icon="PassiveFeature_Generic_Magical")
+G.status("APO_DREAD_LORD_FEAR", "Dread Lord", None, {
+    "StackId": "APO_DREAD_LORD_FEAR", "TickType": "StartTurn",
+    "TickFunctors": "IF(HasStatus('SG_Frightened')):DealDamage(4d10,Psychic,Magical)",
+    "StatusPropertyFlags": "DisableOverhead;DisablePortraitIndicator"})
+G.status("APO_DREAD_LORD_SHADOW", "Draped in Shadow", "Creatures that rely on sight have Disadvantage on attack rolls against you.", {
+    "Boosts": "Disadvantage(AttackTarget)", "StackId": "APO_DREAD_LORD_SHADOW"}, icon="Spell_Evocation_Darkness")
+G.status("APO_DREAD_LORD", "Dread Lord",
+         "An aura of gloom (30 feet): Frightened enemies that start their turn in it take 4d10 Psychic damage, you and your allies in it are draped in shadow, and you can make Shadow Strike attacks.", {
+             "Boosts": "UnlockSpell(Target_ApoDreadLordShadowStrike)", "AuraRadius": "9",
+             "AuraStatuses": "IF(Enemy()):ApplyStatus(APO_DREAD_LORD_FEAR);IF(Ally() or Self()):ApplyStatus(APO_DREAD_LORD_SHADOW)",
+             "StackId": "APO_DREAD_LORD"}, icon="Spell_Evocation_Darkness")
+G.spell("Target_ApoDreadLordShadowStrike", "Shadow Strike", "Melee spell attack against a creature in your aura: 3d10 + your Charisma modifier Necrotic damage.", {
+    "SpellType": "Target", "TargetRadius": "9", "TargetConditions": "Character() and not Self() and not Dead()",
+    "SpellRoll": "Attack(AttackType.MeleeSpellAttack)", "SpellSuccess": "DealDamage(3d10+CharismaModifier,Necrotic,Magical)",
+    "TooltipDamageList": "DealDamage(3d10+CharismaModifier,Necrotic)", "TooltipAttackSave": "MeleeSpellAttack",
+    "UseCosts": "BonusActionPoint:1", "SpellFlags": "IsSpell;IsHarmful", "VerbalIntent": "Damage", "DamageType": "Necrotic"},
+    icon="Spell_Evocation_Darkness")
+G.passive("Oathbreaker_20_DreadLord", "Dread Lord",
+          "As an action, once per Long Rest, surround yourself with a 30-foot aura of gloom for 1 minute: Frightened enemies starting their turn in it take 4d10 Psychic damage, attackers relying on sight have Disadvantage against you and your allies in it, and as a Bonus Action you can make a Shadow Strike (3d10 + Charisma modifier Necrotic).", {
+              "Boosts": once("Shout_ApoDreadLord", "APO_DREAD_LORD", "Dread Lord", "Surround yourself with an aura of gloom for 1 minute.",
+                             10, "ActionPoint", "ApoDreadLord", icon="Spell_Evocation_Darkness")},
+          icon="Spell_Evocation_Darkness")
+node(OATHBREAKER, "Oathbreaker", 15, "Oathbreaker_15_SupernaturalResistance")
+node(OATHBREAKER, "Oathbreaker", 20, "Oathbreaker_20_DreadLord")
+
+# ---------------------------------------------------------------- Fighter: Cavalier (UA 2025 Subclasses Update)
+CAVALIER = "ef6183fe-474b-440b-bd03-6e5cecc7e001"
+G.status("APO_FEROCIOUS_CHARGE_SAVED", "Ferocious Charger", None, {
+    "StackId": "APO_FEROCIOUS_CHARGE_SAVED", "StatusPropertyFlags": "DisableOverhead;DisableCombatlog;DisablePortraitIndicator"})
+G.status("APO_FEROCIOUS_CHARGE_NEAR", "Ferocious Charger", None, {
+    "OnApplyConditions": "not HasStatus('APO_FEROCIOUS_CHARGE_SAVED')",
+    "OnApplyRoll": "not SavingThrow(Ability.Strength, SourceSpellDC(10, context.Source, Ability.Strength))",
+    "OnApplySuccess": "ApplyStatus(PRONE,100,1)", "OnApplyFunctors": "ApplyStatus(APO_FEROCIOUS_CHARGE_SAVED,100,1)",
+    "StackId": "APO_FEROCIOUS_CHARGE_NEAR", "StatusPropertyFlags": "DisableOverhead;DisableCombatlog;DisablePortraitIndicator"},
+    comment="Strength save DC 8 + your Strength modifier and Proficiency Bonus, once per creature per turn; Prone on a failure (the push option isn't offered).")
+G.status("APO_FEROCIOUS_CHARGER", "Ferocious Charger",
+         "First round of combat: +10 feet Speed, your movement doesn't provoke Opportunity Attacks, and a creature you move within 5 feet of makes a Strength saving throw or falls Prone.", {
+             "Boosts": "ActionResource(Movement,3,0);IgnoreLeaveAttackRange()", "AuraRadius": "1.5",
+             "AuraStatuses": "IF(Enemy() and not Dead()):ApplyStatus(APO_FEROCIOUS_CHARGE_NEAR,100,0)", "StackId": "APO_FEROCIOUS_CHARGER"},
+         icon="PassiveFeature_HuntersMark")
+G.passive("Cavalier_15_FerociousCharger", "Ferocious Charger",
+          "During the first round of each combat your Speed increases by 10 feet and your movement doesn't provoke Opportunity Attacks; a creature you move within 5 feet of that round makes a Strength saving throw (DC 8 + your Strength modifier and Proficiency Bonus) or has the Prone condition.", {
+              "StatsFunctorContext": "OnCombatStarted", "StatsFunctors": "ApplyStatus(SELF,APO_FEROCIOUS_CHARGER,100,1)"},
+          icon="PassiveFeature_HuntersMark")
+G.passive("Cavalier_18_VigilantDefender", "Vigilant Defender",
+          "In combat you get a special Reaction once on every creature's turn except yours, usable only for an Opportunity Attack and not on a turn you use your normal Reaction.", {
+              "Boosts": "UnlockInterrupt(Interrupt_ApoVigilantDefender);ActionResource(ApoVigilantDefender,1,0)"},
+          icon="PassiveFeature_HuntersMark", comment="SubclassFeatures.lua refills the special Reaction at each other creature's turn.")
+G.resource("ApoVigilantDefender", 1, "Never", "Vigilant Defender", "A special Reaction for Opportunity Attacks on another creature's turn.")
+G.interrupt("Interrupt_ApoVigilantDefender", "Vigilant Defender",
+            "Make an Opportunity Attack with your special Reaction.", {
+                "InterruptContext": "OnLeaveAttackRange", "InterruptContextScope": "Nearby", "Container": "YesNoDecision",
+                "Conditions": "Enemy(context.Source,context.Observer) and not HasActionResource('ReactionActionPoint',1,0,false,false,context.Observer) and not Dead(context.Observer) and not HasAnyStatus({'SG_Incapacitated'},{},{},context.Observer)",
+                "Properties": "UseSpell(OBSERVER_SOURCE,Target_MainHandAttack_OpportunityAttack,true,true,true)",
+                "Cost": "ApoVigilantDefender:1", "Stack": "ApoVigilantDefender", "InterruptDefaultValue": "Enabled"},
+            icon="PassiveFeature_HuntersMark")
+node(CAVALIER, "Cavalier", 15, "Cavalier_15_FerociousCharger")
+node(CAVALIER, "Cavalier", 18, "Cavalier_18_VigilantDefender")
+
+# ---------------------------------------------------------------- Fighter: Arcane Archer (XGE, as the base game)
+ARCHER = "537d34a9-c60d-4f1b-be41-312ab5d8c792"
+G.passive("ArcaneArcher_15_EverReadyShot", "Ever-Ready Shot",
+          "If you roll Initiative and have no uses of Arcane Shot remaining, you regain one.", {
+              "StatsFunctorContext": "OnCombatStarted",
+              "Conditions": "not HasActionResource('ArcaneShot',1,0,false,false,context.Source)",
+              "StatsFunctors": "RestoreResource(SELF,ArcaneShot,1,0)"}, icon="Action_ArcaneArcher_BurstingArrow")
+IMPROVED = {  # option: (damage type, extra dice at 18)
+    "BanishingArrow": ("Force", "2d6"), "BeguilingArrow": ("Psychic", "2d6"), "BurstingArrow": ("Force", "2d6"),
+    "EnfeeblingArrow": ("Necrotic", "2d6"), "GraspingArrow": ("Poison", "2d6"), "SeekingArrow": ("Force", "1d6"),
+    "ShadowArrow": ("Psychic", "2d6"),
+}
+G.passive("ArcaneArcher_18_ImprovedShots", "Improved Shots",
+          "Your Arcane Shot options deal more damage: Bursting, Enfeebling, Grasping, Shadow and Beguiling Arrow 4d6, Seeking Arrow 2d6, and Banishing Arrow also deals 2d6 Force.", {
+              "Boosts": ";".join(f"IF(SpellId('Projectile_ArcaneShot_{k}')):DamageBonus({dice},{t})" for k, (t, dice) in IMPROVED.items())},
+          icon="Action_ArcaneArcher_BurstingArrow")
+node(ARCHER, "ArcaneArcher", 15, "ArcaneArcher_15_EverReadyShot")
+node(ARCHER, "ArcaneArcher", 18, "ArcaneArcher_18_ImprovedShots")
+
+# ---------------------------------------------------------------- Monk: Kensei, Sun Soul, Drunken Master (XGE)
+KENSEI = "92b14b25-7da0-440e-95d9-08df115936fc"
+G.resource("ApoUnerringAccuracy", 1, "Turn", "Unerring Accuracy", "Reroll a missed monk weapon attack once per turn.")
+G.interrupt("Interrupt_ApoUnerringAccuracy", "Unerring Accuracy",
+            "When you miss with a monk weapon attack on your turn, reroll it (once per turn).", {
+                "InterruptContext": "OnPostRoll", "InterruptContextScope": "Self", "Container": "YesNoDecision",
+                "Conditions": "not Dead(context.Observer) and HasInterruptedAttack() and Self(context.Observer,context.Source) and IsMonkWeaponAttack() and not AnyEntityIsItem() and IsRerollInterruptInteresting(context.Source)",
+                "Properties": "SetReroll(19,true)", "Cost": "ApoUnerringAccuracy:1", "Stack": "ApoUnerringAccuracy",
+                "InterruptDefaultValue": "Enabled"}, icon="Action_Paladin_SacredWeapon")
+G.passive("Kensei_17_UnerringAccuracy", "Unerring Accuracy",
+          "If you miss with an attack roll using a monk weapon on your turn, you can reroll it (once on each of your turns).",
+          {"Boosts": "UnlockInterrupt(Interrupt_ApoUnerringAccuracy);ActionResource(ApoUnerringAccuracy,1,0)"}, icon="Action_Paladin_SacredWeapon")
+node(KENSEI, "Kensei", 17, "Kensei_17_UnerringAccuracy")
+
+SUNSOUL = "878250ea-7516-4989-812a-be1d7c9a7726"
+G.status("APO_SUN_SHIELD", "Sun Shield", "You shed Bright Light in a 30-foot radius; a creature that hits you with a melee attack can be burned (Reaction).", {
+    "Boosts": "GameplayLight(9,false,0.1)", "StackId": "APO_SUN_SHIELD", "StatusGroups": "SG_Light"}, icon="SunSoul_11_SearingSunburst")
+G.spell("Target_ApoSunShield", "Sun Shield", "Radiant damage equal to 5 + your Wisdom modifier to a creature that hit you in melee.", {
+    "SpellType": "Target", "TargetRadius": "9", "TargetConditions": "Character()", "SpellProperties": "DealDamage(5+WisdomModifier,Radiant,Magical)",
+    "TooltipDamageList": "DealDamage(5+WisdomModifier,Radiant)", "SpellFlags": "IsHarmful", "VerbalIntent": "Damage", "DamageType": "Radiant"},
+    icon="SunSoul_11_SearingSunburst")
+G.interrupt("Interrupt_ApoSunShield", "Sun Shield", "When a creature hits you with a melee attack while your light shines, deal 5 + your Wisdom modifier Radiant damage to it.", {
+    "InterruptContext": "OnCastHit", "InterruptContextScope": "Self", "Container": "YesNoDecision",
+    "Conditions": "IsAbleToReact(context.Observer) and Self(context.Target,context.Observer) and Enemy(context.Source,context.Observer) and HasStatus('APO_SUN_SHIELD',context.Observer) and IsHit() and IsMeleeAttack() and not AnyEntityIsItem() and HasLastAttackTriggered()",
+    "Properties": "UseSpell(SWAP,Target_ApoSunShield,true,true,true)", "Cost": "ReactionActionPoint:1", "Stack": "ApoSunShield",
+    "InterruptDefaultValue": "Ask;Enabled"}, icon="SunSoul_11_SearingSunburst")
+G.passive("SunSoul_17_SunShield", "Sun Shield",
+          "You shed Bright Light in a 30-foot radius (toggle). While it shines, when a creature hits you with a melee attack you can use your Reaction to deal 5 + your Wisdom modifier Radiant damage to it.", {
+              "Properties": "IsToggled;ToggledDefaultOn;ToggledDefaultAddToHotbar;Highlighted",
+              "ToggleOnFunctors": "ApplyStatus(SELF,APO_SUN_SHIELD,100,-1)", "ToggleOffFunctors": "RemoveStatus(SELF,APO_SUN_SHIELD)",
+              "ToggleOffContext": "OnToggleOff", "Boosts": "UnlockInterrupt(Interrupt_ApoSunShield)"}, icon="SunSoul_11_SearingSunburst")
+node(SUNSOUL, "SunSoul", 17, "SunSoul_17_SunShield")
+
+DRUNKEN = "dbffd3ed-ef5c-4a0d-8b3b-86f017c30e21"
+G.resource("ApoIntoxicatedFrenzy", 3, "Never", "Intoxicated Frenzy", "Additional Flurry of Blows attacks against different creatures this turn.")
+G.status("APO_FRENZY_STRUCK", "Struck by the frenzy", None, {
+    "StackId": "APO_FRENZY_STRUCK", "StatusPropertyFlags": "DisableOverhead;DisableCombatlog;DisablePortraitIndicator"})
+G.spell("Target_ApoIntoxicatedFrenzy", "Intoxicated Frenzy", "An additional Flurry of Blows strike against a creature you haven't struck with it this turn.", {
+    "UseCosts": "ApoIntoxicatedFrenzy:1", "TargetConditions": "not Self() and not Dead() and not HasStatus('APO_FRENZY_STRUCK',context.Target,context.Source)",
+    "SpellProperties": "ApplyStatus(APO_FRENZY_STRUCK,100,1)"}, using="Target_UnarmedAttack", icon="Action_Monk_FlurryOfBlows")
+G.passive("DrunkenMaster_17_IntoxicatedFrenzy", "Intoxicated Frenzy",
+          "When you use Flurry of Blows you can make up to three additional Flurry attacks, each against a different creature this turn.", {
+              "Boosts": "UnlockSpell(Target_ApoIntoxicatedFrenzy);ActionResource(ApoIntoxicatedFrenzy,3,0)"},
+          icon="Action_Monk_FlurryOfBlows", comment="SubclassFeatures.lua gives the three attacks when you use Flurry of Blows (and empties them at turn end).")
+node(DRUNKEN, "DrunkenMaster", 17, "DrunkenMaster_17_IntoxicatedFrenzy")
+
+# ---------------------------------------------------------------- Rogue: Swashbuckler (XGE)
+SWASH = "0a0f8dbb-ca06-4753-ac64-7c6876deeeae"
+G.status("APO_ELEGANT_MANEUVER", "Elegant Maneuver", "Advantage on your next Acrobatics or Athletics check this turn.", {
+    "Boosts": "Advantage(Skill,Acrobatics);Advantage(Skill,Athletics)", "StackId": "APO_ELEGANT_MANEUVER"}, icon="PassiveFeature_ExtraAttack")
+G.spell("Shout_ApoElegantManeuver", "Elegant Maneuver", "Advantage on your next Dexterity (Acrobatics) or Strength (Athletics) check this turn.", {
+    "SpellType": "Shout", "TargetConditions": "Self()", "SpellProperties": "ApplyStatus(APO_ELEGANT_MANEUVER,100,1)",
+    "UseCosts": "BonusActionPoint:1", "VerbalIntent": "Buff"}, icon="PassiveFeature_ExtraAttack")
+G.passive("Swashbuckler_13_ElegantManeuver", "Elegant Maneuver",
+          "As a Bonus Action, gain Advantage on the next Dexterity (Acrobatics) or Strength (Athletics) check you make this turn.",
+          {"Boosts": "UnlockSpell(Shout_ApoElegantManeuver)"}, icon="PassiveFeature_ExtraAttack")
+G.interrupt("Interrupt_ApoMasterDuelist", "Master Duelist", "If you miss with an attack roll, roll it again with Advantage (once per Short Rest).", {
+    "InterruptContext": "OnPostRoll", "InterruptContextScope": "Self", "Container": "YesNoDecision",
+    "Conditions": "not Dead(context.Observer) and HasInterruptedAttack() and Self(context.Observer,context.Source) and not AnyEntityIsItem() and IsRerollInterruptInteresting(context.Source)",
+    "Properties": "SetAdvantage()", "Cost": "ApoMasterDuelist:1", "Stack": "ApoMasterDuelist", "InterruptDefaultValue": "Ask;Enabled"},
+    icon="PassiveFeature_ExtraAttack")
+G.passive("Swashbuckler_17_MasterDuelist", "Master Duelist",
+          "If you miss with an attack roll, you can roll it again with Advantage; once per Short or Long Rest.", {
+              "Boosts": "UnlockInterrupt(Interrupt_ApoMasterDuelist);" + limited("ApoMasterDuelist", "Master Duelist", "Turn a miss around.", "ShortRest")},
+          icon="PassiveFeature_ExtraAttack")
+node(SWASH, "Swashbuckler", 13, "Swashbuckler_13_ElegantManeuver")
+node(SWASH, "Swashbuckler", 17, "Swashbuckler_17_MasterDuelist")
+
+# ---------------------------------------------------------------- Cleric: Forge (XGE), Twilight (TCoE), Tempest, Nature (PHB 2014)
+G.passive("ForgeDomain_17_SaintOfForgeAndFire", "Saint of Forge and Fire",
+          "You have Immunity to Fire damage, and while wearing Heavy Armor you have Resistance to Bludgeoning, Piercing and Slashing damage from nonmagical attacks.", {
+              "Boosts": "Resistance(Fire,Immune);IF(HasHeavyArmor()):" + NONMAGICAL_BPS.replace(";", ";IF(HasHeavyArmor()):"),
+              "BoostContext": "OnEquip;OnCreate"}, icon="Action_DivineStrike_Fire_Melee")
+node("defe59d4-62be-4428-80cd-c34a10a4cb0d", "ForgeDomain", 17, "ForgeDomain_17_SaintOfForgeAndFire")
+G.status("APO_TWILIGHT_SHROUD", "Twilight Shroud", "Half Cover: +2 to AC and Dexterity saving throws.", {
+    "Boosts": "AC(2);RollBonus(SavingThrow,2,Dexterity)", "StackId": "APO_TWILIGHT_SHROUD"}, icon="Action_Paladin_AuraOfWarding")
+G.status("APO_TWILIGHT_SHROUD_AURA", "Twilight Shroud", None, {
+    "AuraRadius": "9", "AuraStatuses": "IF(Ally() or Self()):ApplyStatus(APO_TWILIGHT_SHROUD)", "StackId": "APO_TWILIGHT_SHROUD_AURA",
+    "StatusPropertyFlags": "DisableOverhead;DisableCombatlog;DisablePortraitIndicator"})
+G.passive("TwilightDomain_17_TwilightShroud", "Twilight Shroud",
+          "You and your allies have Half Cover while in the sphere of your Twilight Sanctuary.", {
+              "StatsFunctorContext": "OnStatusApplied;OnStatusRemoved",
+              "Conditions": "StatusId('TWILIGHT_SANCTUARY_AURA')",
+              "StatsFunctors": "IF(context.HasContextFlag(StatsFunctorContext.OnStatusApplied)):ApplyStatus(SELF,APO_TWILIGHT_SHROUD_AURA,100,10);IF(context.HasContextFlag(StatsFunctorContext.OnStatusRemoved)):RemoveStatus(SELF,APO_TWILIGHT_SHROUD_AURA)"},
+          icon="Action_Paladin_AuraOfWarding")
+node("c7da9e63-0991-4492-b966-26e8533866d1", "TwilightDomain", 17, "TwilightDomain_17_TwilightShroud")
+G.passive("TempestDomain_17_Stormborn", "Stormborn", "You have a Fly Speed equal to your Speed (outdoors).",
+          {"Boosts": "UnlockSpell(Projectile_Fly_Spell)"}, icon="PassiveFeature_WrathOfTheStorm_Lightning",
+          comment="BG3 doesn't tell outdoors from indoors: the Fly Speed is always on.")
+node("0630b55b-36f4-41d2-aacc-28e99d6ae252", "TempestDomain", 17, "TempestDomain_17_Stormborn")
+
+# ---------------------------------------------------------------- Druid: Spores (TCoE), Dreams (XGE)
+G.passive("Spores_14_FungalBody", "Fungal Body",
+          "You can't be Blinded, Frightened or Poisoned (Deafened isn't a condition in the game), and a Critical Hit against you counts as a normal hit unless you're Incapacitated.", {
+              "Boosts": "StatusImmunity(SG_Blinded);StatusImmunity(SG_Frightened);StatusImmunity(SG_Poisoned);"
+                        "IF(not HasAnyStatus({'SG_Incapacitated'},{},{},context.Source)):CriticalHit(AttackTarget,Success,Never)",
+              "BoostContext": "OnStatusApplied;OnStatusRemoved"}, icon="PassiveFeature_Generic_Magical")
+node("288c9d1e-ab18-46dd-8fa3-d4fcfa44147a", "CircleOfTheSpores", 14, "Spores_14_FungalBody")
+G.spell("Target_ApoWalkerInDreams_Scrying", "Walker in Dreams: Scrying", "Cast Scrying without a spell slot (once per Long Rest).", {
+    "UseCosts": "ActionPoint:1;ApoWalkerInDreams:1"}, using="Target_Scrying")
+G.passive("Dreams_14_WalkerInDreams", "Walker in Dreams",
+          "Once per Long Rest you can cast Scrying without a spell slot. (Dream and the special Teleportation Circle aren't in the game.)", {
+              "Boosts": "UnlockSpell(Target_ApoWalkerInDreams_Scrying);"
+                        + limited("ApoWalkerInDreams", "Walker in Dreams", "Travel the dreamlands.", "Rest")}, icon="PassiveFeature_Generic_Magical")
+node("aba806c9-d349-4c70-9a1a-0cb0ae699e3f", "CircleOfDreams", 14, "Dreams_14_WalkerInDreams")
+
+# ---------------------------------------------------------------- Ranger: Swarmkeeper (TCoE)
+G.status("APO_SWARMING_DISPERSAL", "Swarming Dispersal", "Teleport up to 30 feet (free).", {
+    "Boosts": "UnlockSpell(Target_ApoSwarmingDispersal_Teleport)", "StackId": "APO_SWARMING_DISPERSAL"}, icon="PassiveFeature_Generic_Magical")
+G.spell("Target_ApoSwarmingDispersal_Teleport", "Swarming Dispersal", "Teleport to an unoccupied space you can see within 30 feet.", {
+    "TargetRadius": "9", "UseCosts": "", "SpellProperties": "GROUND:TeleportSource();GROUND:RemoveStatus(SELF,APO_SWARMING_DISPERSAL)",
+    "RechargeValues": "", "RequirementConditions": "", "RequirementEvents": ""}, using="Target_MistyStep", icon="PassiveFeature_Generic_Magical")
+G.interrupt("Interrupt_ApoSwarmingDispersal", "Swarming Dispersal",
+            "When you take damage, use your Reaction to gain Resistance to it and vanish into your swarm: you can then teleport up to 30 feet.", {
+                "InterruptContext": "OnPreDamage", "InterruptContextScope": "Self", "Container": "YesNoDecision",
+                "Conditions": "IsAbleToReact(context.Observer) and Self(context.Target,context.Observer) and HasDamageEffectFlag(DamageFlags.Hit)",
+                "Properties": "ApplyStatus(OBSERVER_OBSERVER,UNCANNY_DODGE_REDUCE_DAMAGE,100,0);ApplyStatus(OBSERVER_OBSERVER,APO_SWARMING_DISPERSAL,100,1)",
+                "Cost": "ReactionActionPoint:1;ApoSwarmingDispersal:1", "Stack": "ApoSwarmingDispersal", "InterruptDefaultValue": "Ask;Enabled"},
+            icon="PassiveFeature_Generic_Magical")
+G.passive("Swarmkeeper_15_SwarmingDispersal", "Swarming Dispersal",
+          "When you take damage, you can use your Reaction to gain Resistance to that damage and teleport up to 30 feet. Uses: your Proficiency Bonus per Long Rest.", {
+              "Boosts": "UnlockInterrupt(Interrupt_ApoSwarmingDispersal);ActionResource(ApoSwarmingDispersal,5,0);IF(CharacterLevelGreaterThan(16)):ActionResource(ApoSwarmingDispersal,1,0)"},
+          icon="PassiveFeature_Generic_Magical")
+G.resource("ApoSwarmingDispersal", 6, "Rest", "Swarming Dispersal", "Vanish into your swarm.")
+node("54ad9a98-9656-4aa5-858e-b302f83c4577", "Swarmkeeper", 15, "Swarmkeeper_15_SwarmingDispersal")
 
 
 def write():

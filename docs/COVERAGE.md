@@ -70,6 +70,23 @@ spells have no Apotheosis node. Built so far (`Scripts/gen_subclass_features.py`
 - **Undead Patron** 14 Superior Dread (fly + Vitality Siphon; Profane Casting's no-components isn't expressible).
 - **College of Spirits** 14 Mystical Connection (second roll offered as a free switch).
 - **Hollow Warden** 15 Ancient Endurance (Exhaustion immunity; Persistent Hunt spends the lowest level 4+ slot).
+- **Conquest** (XGE) 15 Scornful Rebuke, 20 Invincible Conqueror. **Crown** (SCAG) 15 Unyielding Spirit (Paralyzed only:
+  the engine has no Stunned-save tag), 20 Exalted Champion. **Watchers** (TCoE) 15 Vigilant Rebuke (Lua, automatic,
+  spends your Reaction), 20 Mortal Bulwark (no Truesight; banishes Aberrations/Celestials/Elementals/Fey/Fiends).
+  **Oathbreaker** (DMG 2014, as the base game) 15 Supernatural Resistance, 20 Dread Lord.
+- **Cavalier** (UA 2025) 15 Ferocious Charger (Prone on a failed save; the push option isn't offered), 18 Vigilant
+  Defender (special Reaction for Opportunity Attacks, refilled by Lua). **Arcane Archer** (XGE) 15 Ever-Ready Shot,
+  18 Improved Shots.
+- **Kensei** 17 Unerring Accuracy, **Sun Soul** 17 Sun Shield, **Drunken Master** 17 Intoxicated Frenzy (Lua),
+  **Swashbuckler** 13 Elegant Maneuver / 17 Master Duelist (XGE).
+- **Forge** 17 (XGE), **Twilight** 17 Twilight Shroud (TCoE), **Tempest** 17 Stormborn (always on: BG3 has no
+  outdoors test). **Spores** 14 Fungal Body (no Deafened condition in BG3), **Dreams** 14 Walker in Dreams (Scrying
+  only; Dream and the special Teleportation Circle aren't in BG3), **Swarmkeeper** 15 Swarming Dispersal.
+- In-game tested: 24 cases in `tests/bg3/subclass_features.toml`. Not tested in game yet: Supernatural Resistance,
+  Mortal Bulwark's banishment, Vigilant Defender, Arcane Archer, Unerring Accuracy, Master Duelist, Stormborn,
+  Walker in Dreams, Unyielding Spirit.
+- Still missing: Nature 17 Master of Nature (commanding charmed beasts/plants), and the subclasses whose 13-20 texts
+  aren't available here (third-party or unknown sources): see `References/Subclasses/Sourcing.md`.
 
 ## Regenerating this audit
 

@@ -4,6 +4,8 @@
 --  * Hexblade 14 Masterful Hex: Infectious Hex (1d6 Necrotic to another creature within 30 ft of the cursed target)
 --    and Resilient Hex (APO_RESILIENT_HEX only while you concentrate on Hex).
 --  * College of Spirits 14 Mystical Connection: a second Spirits from Beyond roll, offered as a free switch.
+--  * Cavalier 18 Vigilant Defender (special Reaction per turn), Drunken Master 17 Intoxicated Frenzy (strikes after
+--    Flurry of Blows), Watchers 15 Vigilant Rebuke (successful Int/Wis/Cha saves).
 local Log = Apotheosis and Apotheosis.Log or { Info = print, Warn = print, Error = print, Debug = print }
 local SF = {}
 local NULL = "NULL_00000000-0000-0000-0000-000000000000"
@@ -166,6 +168,85 @@ function SF.SpiritRolled(bard, idx)
     Log.Info(string.format("Mystical Connection: rolled spirit %d, second roll %d offered", idx, second))
 end
 
+-- ---------------------------------------------------------------- group 2: resources and save reactions
+local function resource(c, name)
+    local entry
+    pcall(function()
+        for u, entries in pairs(Ext.Entity.Get(c).ActionResources.Resources) do
+            local def = Ext.StaticData.Get(u, "ActionResource")
+            if def and def.Name == name then entry = entries[1] end
+        end
+    end)
+    return entry
+end
+
+local function setResource(c, name, amount)
+    local e = resource(c, name)
+    if e and e.Amount ~= amount then
+        e.Amount = amount
+        Ext.Entity.Get(c):Replicate("ActionResources")
+    end
+end
+
+local function inCombatWith(c)  -- characters near c (60 m) that are in combat
+    local out, cx, cy, cz = {}, Osi.GetPosition(c)
+    if not cx then return out end
+    for _, e in ipairs(Ext.Entity.GetAllEntitiesWithComponent("ServerCharacter")) do
+        local ok, g = pcall(function() return e.Uuid.EntityUuid end)
+        if ok and g and Osi.IsInCombat(g) == 1 then
+            local x, y, z = Osi.GetPosition(g)
+            if x and math.sqrt((x - cx) ^ 2 + (z - cz) ^ 2) < 60 then out[#out + 1] = g end
+        end
+    end
+    return out
+end
+
+-- Cavalier 18 Vigilant Defender: the special Reaction is there on every other creature's turn, never on your own
+function SF.VigilantDefenderTurn(current)
+    for _, g in ipairs(inCombatWith(current)) do
+        if has(g, "Cavalier_18_VigilantDefender") then setResource(g, "ApoVigilantDefender", g == current and 0 or 1) end
+    end
+end
+
+-- Drunken Master 17 Intoxicated Frenzy: three extra strikes after Flurry of Blows, gone at the start of your turn
+function SF.FlurryUsed(monk, target)
+    if not has(monk, "DrunkenMaster_17_IntoxicatedFrenzy") then return end
+    setResource(monk, "ApoIntoxicatedFrenzy", 3)
+    if target then Osi.ApplyStatus(target, "APO_FRENZY_STRUCK", 6, 1, monk) end
+end
+
+-- Watchers 15 Vigilant Rebuke: a successful Int/Wis/Cha save by you or an ally within 30 feet
+local MENTAL = { Intelligence = true, Wisdom = true, Charisma = true }
+local seenSaves = {}
+
+function SF.OnSave(c)
+    local key = tostring(c.ConditionRoll.RollUuid)
+    if seenSaves[key] then return end
+    seenSaves[key] = true
+    if not MENTAL[tostring(c.Ability)] then return end
+    if c.ConditionRoll.Roll.Result.Total < c.ConditionRoll.Difficulty then return end
+    local function g(h) local ok2, v = pcall(function() return h.Uuid.EntityUuid end) return ok2 and v or nil end
+    local saver, source = g(c.Target), g(c.Source)
+    local sc = tostring(c.SpellCastUuid)
+    if sc ~= "00000000-0000-0000-0000-000000000000" and sc ~= "nil" then saver, source = source, saver end
+    if c.ConditionRoll.SwappedSourceAndTarget then saver, source = source, saver end
+    if not saver or not source or saver == source then return end
+    for _, w in ipairs(inCombatWith(saver)) do
+        if has(w, "Watchers_15_VigilantRebuke") and (w == saver or Osi.IsAlly(w, saver) == 1) and Osi.IsEnemy(w, source) == 1 then
+            local x1, y1, z1 = Osi.GetPosition(w)
+            local x2, y2, z2 = Osi.GetPosition(saver)
+            local react = resource(w, "ReactionActionPoint")
+            if x1 and math.sqrt((x1 - x2) ^ 2 + (z1 - z2) ^ 2) <= 9 and react and react.Amount >= 1 then
+                react.Amount = react.Amount - 1
+                Ext.Entity.Get(w):Replicate("ActionResources")
+                Osi.ApplyStatus(source, "APO_VIGILANT_REBUKE", 0, 1, w)
+                Log.Info("Vigilant Rebuke: " .. source .. " takes 2d8 + Charisma Force damage")
+                return
+            end
+        end
+    end
+end
+
 -- ---------------------------------------------------------------- listeners
 local function guard(name, fn)
     return function(...)
@@ -206,6 +287,18 @@ Ext.Osiris.RegisterListener("RollResult", 6, "after", guard("RollResult", functi
 end))
 
 Ext.Osiris.RegisterListener("CastedSpell", 5, "after", guard("CastedSpell", function(c, spell) SF.OnCasted(short(c), spell) end))
-Ext.Osiris.RegisterListener("TurnStarted", 1, "after", guard("TurnStarted", function(c) SF.OnTurnStarted(short(c)) end))
+Ext.Osiris.RegisterListener("TurnStarted", 1, "after", guard("TurnStarted", function(c)
+    c = short(c)
+    SF.OnTurnStarted(c)
+    SF.VigilantDefenderTurn(c)
+    if has(c, "DrunkenMaster_17_IntoxicatedFrenzy") then setResource(c, "ApoIntoxicatedFrenzy", 0) end
+end))
+Ext.Osiris.RegisterListener("UsingSpellOnTarget", 6, "after", guard("UsingSpellOnTarget", function(c, target, spell)
+    if spell == "Target_FlurryOfBlows" or spell:sub(1, 20) == "Target_FlurryOfBlows" then SF.FlurryUsed(short(c), short(target)) end
+end))
+Ext.Entity.OnCreateDeferred("SavingThrowRolledEvent", function(_, _, c)
+    local ok, err = pcall(SF.OnSave, c)
+    if not ok then Log.Error("SubclassFeatures SavingThrowRolledEvent: " .. tostring(err)) end
+end)
 
 return SF
