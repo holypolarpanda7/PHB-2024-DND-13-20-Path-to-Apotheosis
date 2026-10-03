@@ -22,7 +22,7 @@ REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PUB = glob.glob(os.path.join(REPO, "Public", "*"))[0]
 DATA = os.path.join(PUB, "Stats", "Generated", "Data")
 LOCA = glob.glob(os.path.join(REPO, "Mods", "*", "Localization", "English", "PHB2024-Apotheosis.xml"))[0]
-DND = glob.glob(os.path.join(REPO, "..", "dnd55e", "Public", "DnD2024*"))[0]
+from gen_common import DND  # dnd55e as released (the dependency pak)
 NS = uuid.NAMESPACE_URL
 LOCA_ROWS = {}
 MARK = "GUNSLINGER 13-20"

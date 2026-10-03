@@ -13,7 +13,11 @@ REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PUB = glob.glob(os.path.join(REPO, "Public", "*"))[0]
 DATA = os.path.join(PUB, "Stats", "Generated", "Data")
 LOCA = glob.glob(os.path.join(REPO, "Mods", "*", "Localization", "English", "PHB2024-Apotheosis.xml"))[0]
-DND = glob.glob(os.path.join(REPO, "..", "dnd55e", "Public", "DnD2024*"))[0]
+# dnd55e as the game loads it: the dependency pak, extracted by the bg3-data MCP (layer `dnd55e`, see
+# bg3deps.lock.json). DND55E_ROOT overrides; the git clone is only a fallback (it runs ahead of the release).
+DND = (glob.glob(os.path.join(os.environ.get("DND55E_ROOT", os.path.expanduser("~/.cache/bg3-data-mcp/cache/mods/dnd55e")),
+                              "Public", "DnD2024*"))
+       or glob.glob(os.path.join(REPO, "..", "dnd55e", "Public", "DnD2024*")))[0]
 NODE_RE = re.compile(r'[ \t]*<node id="Progression">(?:(?!</node>).)*?</node>\n', re.S)
 # A spell with no SpellAnimation (own or inherited) never finishes casting - verified in game 2026-09-30.
 SHOUT_ANIM = "9122eb08-93f1-4010-a275-f5ae3ec7c76e,,;,,;9fb11cca-02d4-4d2f-955f-2826c0553b17,,;5103d398-d8de-4aa4-9633-db2e1b7f6254,,;5301d674-b7da-47b6-b4cf-2802ba33a9e9,,;,,;86b3cf93-21fb-4a3d-bed9-97d0a567d084,,;,,;,,"
