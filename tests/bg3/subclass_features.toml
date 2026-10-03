@@ -318,13 +318,13 @@ expect = [{ target = "host", resource = "Web_ArachnoidStalker", level = 0, amoun
 
 [[case]]
 id = "highway-rider-desperado"
-title = "Highway Rider 17 Desperado: a hit that drops you to 0 spends your Reaction on a free Hair Trigger attack, then you fall"
+title = "Highway Rider 17 Desperado: a hit that drops its holder to 0 spends the Reaction on a free Hair Trigger attack, then it falls"
 spell = "Target_Bite_Wolf"
-settle = 8  # the free attack is queued behind the wolf's turn: it lands ~4 s after the stand-in
 caster = "A"
-target = "host"
+target = "B"
+settle = 8  # the free attack is queued behind the wolf's turn: it lands ~4 s after the stand-in
 safety = false
-spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 2 }]
-setup = [{ target = "host", remove_status = "ARCANE_WARD*" }, { target = "host", passive = "HighwayRider_17_Desperado" }, { target = "host", hp = 1 }, { target = "A", boost = "RollBonus(Attack,30)" }]
-expect = [{ target = "host", status_applied = ["APO_DESPERADO_DOWNED", "DOWNED"] }, { cast_count = { spell = "Target_HairTrigger", by = "host", count = [1, 9] } }]
-notes = "Then the host falls (the stand-in status can't repeat: the Reaction is spent). Only the free weapon attack option of Hair Trigger is offered."
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 2 }, { as = "B", template = "wolf", faction = "friendly", hp = 300, distance = 3 }]
+setup = [{ target = "B", passive = "HighwayRider_17_Desperado" }, { target = "B", hp = 1 }, { target = "A", boost = "RollBonus(Attack,30)" }]
+expect = [{ target = "B", status_applied = ["APO_DESPERADO_DOWNED"] }, { cast_count = { spell = "Target_HairTrigger", by = "B", count = [1, 9] } }, { target = "B", dead = true }]
+notes = "Run on a spawned friendly creature, not the host: the solo host dropping ends in the engine's Game Over box (Main Menu / Load Game, no cancel). A creature (unlike a player character) dies at 0 HP instead of getting DOWNED. Only the free weapon attack option of Hair Trigger is offered."
