@@ -523,6 +523,34 @@ node(MYSTIC, "MysticArts", 18, selectors=f"SelectSpells({SORC3},0,1)")
 node(MYSTIC, "MysticArts", 19, boosts="ActionResource(SpellSlot,1,4)", selectors=f"SelectSpells({SORC4},1,1)")
 node(MYSTIC, "MysticArts", 20, selectors=f"SelectSpells({SORC4},1,1)")
 
+# ---------------------------------------------------------------- Fighter: Eldritch Knight, Rogue: Arcane Trickster (third casters)
+# Their slots and prepared spells stopped at 12: level 13 +2 level 3 slots, 16 +1 level 3, 19 +1 level 4; a prepared
+# spell more at 13, 14, 16, 19, 20 (2024 table; dnd55e's selector pattern, Wizard level 3 / 4 lists).
+WIZ3, WIZ4 = "22755771-ca11-49f4-b772-13d8b8fecd93", "820b1220-0385-426d-ae15-458dc8a6f5c0"
+EXISTING = {}  # existing Apotheosis node UUID -> its full attributes after the patch
+for table, name, tag, existing in (
+        ("2db3f02e-dfa9-4235-b9bd-28a89bf41435", "EldritchKnight", "EldritchKnightAbjEvo",
+         {15: ("07070707-0707-0707-0707-070707070702", "ArcaneCharge"), 18: ("07070707-0707-0707-0707-070707070703", "EldritchKnight_ImprovedWarMagic")}),
+        ("7205dbe2-5eef-4cd6-ad7f-45b3dc254f78", "ArcaneTrickster", "ArcaneTricksterIlluEnch",
+         {13: ("01010101-0101-0101-0101-010101010102", "ArcaneTrickster_VersatileTrickster"), 17: ("01010101-0101-0101-0101-010101010103", "ArcaneTrickster_11_SpellThief")})):
+    for lvl in range(13, 21):
+        boosts = {13: "ActionResource(SpellSlot,2,3)", 16: "ActionResource(SpellSlot,1,3)", 19: "ActionResource(SpellSlot,1,4)"}.get(lvl)
+        learn = 1 if lvl in (13, 14, 16, 19, 20) else 0
+        sel = f"SelectSpells({WIZ4 if lvl >= 19 else WIZ3},{learn},1,{tag})"
+        if lvl in existing:
+            u, passive = existing[lvl]
+            attrs = {"PassivesAdded": passive, "Selectors": sel}
+            if boosts:
+                attrs["Boosts"] = boosts
+            EXISTING[u] = attrs
+        else:
+            node(table, name, lvl, boosts=boosts, selectors=sel)
+
+# ---------------------------------------------------------------- Warlock 17: the fourth Pact Magic slot (2024 table: 3 slots at 11, 4 at 17)
+EXISTING["bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbb905"] = {
+    "PassivesAdded": "Warlock_MysticArcanum_9", "Selectors": "SelectSpells(00190001-0001-0001-0001-000000000007,1,0,MysticArcanum9)",
+    "Boosts": "ActionResource(WarlockSpellSlot,1,5)"}
+
 def write():
     new_nodes = []
     for table, name, level, passives, boosts, selectors in NODES:
@@ -534,7 +562,7 @@ def write():
         new_nodes.append((G.gid(f"node:{table}:{level}"), name, level, 1, table, attrs))
     G.write_stats("SubclassFeatures", "gen_subclass_features.py", "13-20 subclass features")
     G.patch_files()
-    patch_progressions({}, new_nodes, G.marker)
+    patch_progressions(EXISTING, new_nodes, G.marker)
     G.patch_loca()
 
 

@@ -94,7 +94,12 @@ spells have no Apotheosis node. Built so far (`Scripts/gen_subclass_features.py`
 python Scripts/completeness_audit.py
 python Scripts/compat_audit.py
 python Scripts/build_all_class_expectations.py
+python3 Scripts/subclass_gap_audit.py   # subclass 13-20 features / 13-17 spells (bg3-data MCP index)
+python3 Scripts/slot_audit.py           # spell-slot curves vs the 2024 tables, levels 1-20
 ```
+
+Slot curves (2026-10-03): all full, half and third casters match the 2024 tables through 20 after adding the Eldritch
+Knight / Arcane Trickster / Mystic Arts 13-20 rows; Warlock gets its fourth Pact Magic slot at 17.
 
 ## Epic Boons
 
