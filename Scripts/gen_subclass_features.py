@@ -12,7 +12,7 @@ Owns Stats/Generated/Data/{Passive,Status,Spell,Interrupt}_SubclassFeatures.txt,
 between SUBCLASS FEATURES 13-20 markers, and their loca.
 Run: python3 Scripts/gen_subclass_features.py
 """
-from gen_common import Gen, patch_progressions, SHOUT_ANIM
+from gen_common import Gen, patch_progressions, SHOUT_ANIM, icon_of
 
 G = Gen("subclassfeat", "SUBCLASS FEATURES 13-20")
 NODES = []  # (table, name, level, passives)
@@ -20,8 +20,8 @@ ALL_BUT_FORCE_RADIANT = ["Acid", "Bludgeoning", "Cold", "Fire", "Lightning", "Ne
                          "Slashing", "Thunder"]
 
 
-def node(table, name, level, *passives):
-    NODES.append((table, name, level, list(passives)))
+def node(table, name, level, *passives, boosts=None, selectors=None):
+    NODES.append((table, name, level, list(passives), boosts, selectors))
 
 
 def limited(res, title, text, replenish, mx=1):
@@ -476,10 +476,62 @@ G.resource("ApoSwarmingDispersal", 6, "Rest", "Swarming Dispersal", "Vanish into
 node("54ad9a98-9656-4aa5-858e-b302f83c4577", "Swarmkeeper", 15, "Swarmkeeper_15_SwarmingDispersal")
 
 
+# ---------------------------------------------------------------- Barbarian: Path of the Giant (Bigby Presents: Glory of the Giants)
+GIANT = "bdd02775-b9ee-480c-a260-d844580453b4"
+GIANT_RAGE = "(HasStatus('RAGE_GIANT',context.Source) or HasStatus('RAGE_GIANT_2',context.Source))"
+for el in ("Acid", "Cold", "Fire", "Lightning", "Thunder"):
+    G.status(f"APO_COLOSSUS_CLEAVER_{el.upper()}", "Demiurgic Colossus", f"Elemental Cleaver deals 2d6 {el} damage.", {
+        "Boosts": f"IF(IsMeleeWeaponAttack() or IsRangedWeaponAttack()):DamageBonus(1d6,{el})", "StackId": "APO_COLOSSUS_CLEAVER",
+        "StatusPropertyFlags": "DisableCombatlog"}, icon=icon_of("Shout_ElementalCleaver"))
+G.passive("GiantPath_14_DemiurgicColossus", "Demiurgic Colossus",
+          "While raging you grow to Huge, and your Elemental Cleaver's extra damage increases to 2d6. (Reach +10 feet and Mighty Impel on Large creatures aren't implemented.)", {
+              "BoostContext": "OnStatusApplied;OnStatusRemoved",
+              "Boosts": f"IF({GIANT_RAGE}):ObjectSize(+1);IF({GIANT_RAGE}):ScaleMultiplier(1.25)"},
+          icon=icon_of("RageGiantUnlock"), comment="SubclassFeatures.lua adds the Cleaver's second d6 when you cast Elemental Cleaver.")
+node(GIANT, "GiantPath", 14, "GiantPath_14_DemiurgicColossus")
+
+# ---------------------------------------------------------------- Cleric: Nature Domain 17 Master of Nature (PHB 2014, as the base game)
+G.status("APO_MASTER_OF_NATURE", "Commanded by Nature", "Under your command until the end of its next turn.", {
+    "Boosts": "FactionOverride(Source)", "StackId": "APO_MASTER_OF_NATURE", "StatusPropertyFlags": "LoseControl",
+    "StatusGroups": "SG_Charmed"}, icon=icon_of("Shout_CharmAnimalsAndPlants"),
+    comment="The base game's Dominate Beast mechanism (FactionOverride + LoseControl), one turn at a time.")
+G.spell("Shout_ApoMasterOfNature", "Master of Nature",
+        "Command every creature charmed by your Charm Animals and Plants: you control each one on its next turn.", {
+            "SpellType": "Shout", "AreaRadius": "18",
+            "TargetConditions": "HasStatus('CHARM_ANIMALS_AND_PLANTS',context.Target,context.Source) and not Self()",
+            "SpellProperties": "ApplyStatus(APO_MASTER_OF_NATURE,100,1)", "TooltipStatusApply": "ApplyStatus(APO_MASTER_OF_NATURE,100,1)",
+            "UseCosts": "BonusActionPoint:1", "VerbalIntent": "Control"}, icon=icon_of("Shout_CharmAnimalsAndPlants"))
+G.passive("NatureDomain_17_MasterOfNature", "Master of Nature",
+          "As a Bonus Action, command the Beasts and Plants charmed by your Charm Animals and Plants: you control what each does on its next turn.",
+          {"Boosts": "UnlockSpell(Shout_ApoMasterOfNature)"}, icon=icon_of("Shout_CharmAnimalsAndPlants"))
+node("c668b65d-2848-4feb-981f-eb54cc5ceb15", "NatureDomain", 17, "NatureDomain_17_MasterOfNature")
+
+# ---------------------------------------------------------------- Monk: Warrior of the Mystic Arts (UA 2026 Mystic Subclasses)
+# The third-caster table past 12 (slots: L13 +2 level 3, L16 +1 level 3, L19 +1 level 4; prepared spells +1 at 13, 14,
+# 16, 19, 20 - new picks from the Sorcerer level 3 / 4 lists, as dnd55e picks from the level 2 list at 7-12).
+MYSTIC = "8514c075-f719-4540-a8c6-08b516a302d8"
+SORC3, SORC4 = "dcbaf2ae-1f45-453e-ab83-cd154f8277a4", "5fe40622-1d3e-4cc1-8d89-e66fe51d8c5c"
+G.passive("MysticArts_17_ImprovedMysticFightingStyle", "Improved Mystic Fighting Style",
+          "When you cast a level 1 or 2 Sorcerer spell with your action on your turn, you can still make an attack as part of the Attack action (BG3's Improved War Magic).",
+          {}, using="EldritchKnight_ImprovedWarMagic", icon=icon_of("EldritchKnight_ImprovedWarMagic"))
+node(MYSTIC, "MysticArts", 13, boosts="ActionResource(SpellSlot,2,3)", selectors=f"SelectSpells({SORC3},1,1)")
+node(MYSTIC, "MysticArts", 14, selectors=f"SelectSpells({SORC3},1,1)")
+node(MYSTIC, "MysticArts", 15, selectors=f"SelectSpells({SORC3},0,1)")
+node(MYSTIC, "MysticArts", 16, boosts="ActionResource(SpellSlot,1,3)", selectors=f"SelectSpells({SORC3},1,1)")
+node(MYSTIC, "MysticArts", 17, "MysticArts_17_ImprovedMysticFightingStyle", selectors=f"SelectSpells({SORC3},0,1)")
+node(MYSTIC, "MysticArts", 18, selectors=f"SelectSpells({SORC3},0,1)")
+node(MYSTIC, "MysticArts", 19, boosts="ActionResource(SpellSlot,1,4)", selectors=f"SelectSpells({SORC4},1,1)")
+node(MYSTIC, "MysticArts", 20, selectors=f"SelectSpells({SORC4},1,1)")
+
 def write():
     new_nodes = []
-    for table, name, level, passives in NODES:
-        new_nodes.append((G.gid(f"node:{table}:{level}"), name, level, 1, table, {"PassivesAdded": ";".join(passives)}))
+    for table, name, level, passives, boosts, selectors in NODES:
+        attrs = {"PassivesAdded": ";".join(passives)} if passives else {}
+        if boosts:
+            attrs["Boosts"] = boosts
+        if selectors:
+            attrs["Selectors"] = selectors
+        new_nodes.append((G.gid(f"node:{table}:{level}"), name, level, 1, table, attrs))
     G.write_stats("SubclassFeatures", "gen_subclass_features.py", "13-20 subclass features")
     G.patch_files()
     patch_progressions({}, new_nodes, G.marker)

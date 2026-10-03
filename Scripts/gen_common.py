@@ -59,10 +59,10 @@ class Gen:
         out += [f'data "{k}" "{v}"' for k, v in fields.items() if v is not None]
         return "\n".join(out) + "\n"
 
-    def passive(self, name, title, text, fields=None, icon="PassiveFeature_Generic_Magical", hidden=False, comment=None):
+    def passive(self, name, title, text, fields=None, icon="PassiveFeature_Generic_Magical", hidden=False, comment=None, using=None):
         base = {"DisplayName": self.h(name + ":n", title), "Description": self.h(name + ":d", text), "Icon": icon,
                 "Properties": "IsHidden" if hidden else "Highlighted"}
-        self.P.append(self.entry(name, "PassiveData", {**base, **(fields or {})}, comment=comment))
+        self.P.append(self.entry(name, "PassiveData", {**base, **(fields or {})}, using=using, comment=comment))
 
     def status(self, name, title, text, fields=None, using=None, icon=None, comment=None):
         base = {"DisplayName": self.h(name + ":n", title)}

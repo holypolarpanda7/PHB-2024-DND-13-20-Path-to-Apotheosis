@@ -3746,6 +3746,90 @@
                     <attribute id="TableUUID" type="guid" value="54ad9a98-9656-4aa5-858e-b302f83c4577"/>
                     <attribute id="UUID" type="guid" value="c71a2b74-c348-5760-a90e-90c09a186ef6"/>
                 </node>
+                <node id="Progression">
+                    <attribute id="Level" type="uint8" value="14"/>
+                    <attribute id="Name" type="LSString" value="GiantPath"/>
+                    <attribute id="PassivesAdded" type="LSString" value="GiantPath_14_DemiurgicColossus"/>
+                    <attribute id="ProgressionType" type="uint8" value="1"/>
+                    <attribute id="TableUUID" type="guid" value="bdd02775-b9ee-480c-a260-d844580453b4"/>
+                    <attribute id="UUID" type="guid" value="911c1ac7-49a2-5544-89c5-bb86f3dfd76f"/>
+                </node>
+                <node id="Progression">
+                    <attribute id="Level" type="uint8" value="17"/>
+                    <attribute id="Name" type="LSString" value="NatureDomain"/>
+                    <attribute id="PassivesAdded" type="LSString" value="NatureDomain_17_MasterOfNature"/>
+                    <attribute id="ProgressionType" type="uint8" value="1"/>
+                    <attribute id="TableUUID" type="guid" value="c668b65d-2848-4feb-981f-eb54cc5ceb15"/>
+                    <attribute id="UUID" type="guid" value="cd0a3488-6843-57db-92c0-9bc9b42eede5"/>
+                </node>
+                <node id="Progression">
+                    <attribute id="Boosts" type="LSString" value="ActionResource(SpellSlot,2,3)"/>
+                    <attribute id="Level" type="uint8" value="13"/>
+                    <attribute id="Name" type="LSString" value="MysticArts"/>
+                    <attribute id="ProgressionType" type="uint8" value="1"/>
+                    <attribute id="Selectors" type="LSString" value="SelectSpells(dcbaf2ae-1f45-453e-ab83-cd154f8277a4,1,1)"/>
+                    <attribute id="TableUUID" type="guid" value="8514c075-f719-4540-a8c6-08b516a302d8"/>
+                    <attribute id="UUID" type="guid" value="de47445e-a9ed-5cc1-9a2e-098d16683ede"/>
+                </node>
+                <node id="Progression">
+                    <attribute id="Level" type="uint8" value="14"/>
+                    <attribute id="Name" type="LSString" value="MysticArts"/>
+                    <attribute id="ProgressionType" type="uint8" value="1"/>
+                    <attribute id="Selectors" type="LSString" value="SelectSpells(dcbaf2ae-1f45-453e-ab83-cd154f8277a4,1,1)"/>
+                    <attribute id="TableUUID" type="guid" value="8514c075-f719-4540-a8c6-08b516a302d8"/>
+                    <attribute id="UUID" type="guid" value="ed97ebaf-8a75-5d65-8c4c-94d1272a7aa3"/>
+                </node>
+                <node id="Progression">
+                    <attribute id="Level" type="uint8" value="15"/>
+                    <attribute id="Name" type="LSString" value="MysticArts"/>
+                    <attribute id="ProgressionType" type="uint8" value="1"/>
+                    <attribute id="Selectors" type="LSString" value="SelectSpells(dcbaf2ae-1f45-453e-ab83-cd154f8277a4,0,1)"/>
+                    <attribute id="TableUUID" type="guid" value="8514c075-f719-4540-a8c6-08b516a302d8"/>
+                    <attribute id="UUID" type="guid" value="a88c45f8-6974-59de-84f9-2569b184f449"/>
+                </node>
+                <node id="Progression">
+                    <attribute id="Boosts" type="LSString" value="ActionResource(SpellSlot,1,3)"/>
+                    <attribute id="Level" type="uint8" value="16"/>
+                    <attribute id="Name" type="LSString" value="MysticArts"/>
+                    <attribute id="ProgressionType" type="uint8" value="1"/>
+                    <attribute id="Selectors" type="LSString" value="SelectSpells(dcbaf2ae-1f45-453e-ab83-cd154f8277a4,1,1)"/>
+                    <attribute id="TableUUID" type="guid" value="8514c075-f719-4540-a8c6-08b516a302d8"/>
+                    <attribute id="UUID" type="guid" value="9a6ee551-1507-588d-a882-5388a4027ec3"/>
+                </node>
+                <node id="Progression">
+                    <attribute id="Level" type="uint8" value="17"/>
+                    <attribute id="Name" type="LSString" value="MysticArts"/>
+                    <attribute id="PassivesAdded" type="LSString" value="MysticArts_17_ImprovedMysticFightingStyle"/>
+                    <attribute id="ProgressionType" type="uint8" value="1"/>
+                    <attribute id="Selectors" type="LSString" value="SelectSpells(dcbaf2ae-1f45-453e-ab83-cd154f8277a4,0,1)"/>
+                    <attribute id="TableUUID" type="guid" value="8514c075-f719-4540-a8c6-08b516a302d8"/>
+                    <attribute id="UUID" type="guid" value="a91c4498-e0ea-5575-b65a-f6aca7a876ce"/>
+                </node>
+                <node id="Progression">
+                    <attribute id="Level" type="uint8" value="18"/>
+                    <attribute id="Name" type="LSString" value="MysticArts"/>
+                    <attribute id="ProgressionType" type="uint8" value="1"/>
+                    <attribute id="Selectors" type="LSString" value="SelectSpells(dcbaf2ae-1f45-453e-ab83-cd154f8277a4,0,1)"/>
+                    <attribute id="TableUUID" type="guid" value="8514c075-f719-4540-a8c6-08b516a302d8"/>
+                    <attribute id="UUID" type="guid" value="a8e7c299-6e90-5f67-8f51-35f196b848aa"/>
+                </node>
+                <node id="Progression">
+                    <attribute id="Boosts" type="LSString" value="ActionResource(SpellSlot,1,4)"/>
+                    <attribute id="Level" type="uint8" value="19"/>
+                    <attribute id="Name" type="LSString" value="MysticArts"/>
+                    <attribute id="ProgressionType" type="uint8" value="1"/>
+                    <attribute id="Selectors" type="LSString" value="SelectSpells(5fe40622-1d3e-4cc1-8d89-e66fe51d8c5c,1,1)"/>
+                    <attribute id="TableUUID" type="guid" value="8514c075-f719-4540-a8c6-08b516a302d8"/>
+                    <attribute id="UUID" type="guid" value="1b6add72-3310-5754-a008-420d4b3a0da9"/>
+                </node>
+                <node id="Progression">
+                    <attribute id="Level" type="uint8" value="20"/>
+                    <attribute id="Name" type="LSString" value="MysticArts"/>
+                    <attribute id="ProgressionType" type="uint8" value="1"/>
+                    <attribute id="Selectors" type="LSString" value="SelectSpells(5fe40622-1d3e-4cc1-8d89-e66fe51d8c5c,1,1)"/>
+                    <attribute id="TableUUID" type="guid" value="8514c075-f719-4540-a8c6-08b516a302d8"/>
+                    <attribute id="UUID" type="guid" value="d7006cb8-b485-55a4-b869-e094c72a9db1"/>
+                </node>
                 <!-- SUBCLASS FEATURES 13-20 END -->
             </children>
         </node>

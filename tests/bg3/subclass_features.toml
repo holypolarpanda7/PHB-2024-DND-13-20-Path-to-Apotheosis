@@ -257,3 +257,21 @@ reactions = ["Interrupt_ApoSwarmingDispersal"]
 spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 2 }]
 setup = [{ target = "host", passive = "Swarmkeeper_15_SwarmingDispersal" }, { target = "A", boost = "RollBonus(Attack,30)" }]
 expect = [{ target = "host", status_applied = ["UNCANNY_DODGE_REDUCE_DAMAGE", "APO_SWARMING_DISPERSAL"] }]
+
+[[case]]
+id = "giant-demiurgic-colossus"
+title = "Path of the Giant 14 Demiurgic Colossus: Elemental Cleaver's damage becomes 2d6"
+spell = "Shout_ElementalCleaver_Fire"
+target = "host"
+setup = [{ target = "host", passive = "GiantPath_14_DemiurgicColossus" }]
+expect = [{ target = "host", status_applied = ["APO_COLOSSUS_CLEAVER_FIRE"] }]
+
+[[case]]
+id = "nature-master-of-nature"
+title = "Nature 17 Master of Nature: a charmed beast comes under your command"
+spell = "Shout_ApoMasterOfNature"
+target = "host"
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 4 }]
+setup = [{ target = "host", passive = "NatureDomain_17_MasterOfNature" }, { target = "A", status = "CHARM_ANIMALS_AND_PLANTS", turns = 10, by = "host" }]
+combat = false
+expect = [{ target = "A", status_applied = ["APO_MASTER_OF_NATURE"] }]

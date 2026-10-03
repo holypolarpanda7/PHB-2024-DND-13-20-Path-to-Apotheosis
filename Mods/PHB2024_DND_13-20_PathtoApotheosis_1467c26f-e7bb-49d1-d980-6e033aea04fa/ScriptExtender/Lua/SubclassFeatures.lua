@@ -136,6 +136,10 @@ function SF.InfectiousHex(target, warlock)
 end
 
 function SF.OnCasted(caster, spell)
+    local el = spell:match("^Shout_ElementalCleaver_(%a+)$")
+    if el and has(caster, "GiantPath_14_DemiurgicColossus") then  -- Demiurgic Colossus: the Cleaver's second d6
+        Osi.ApplyStatus(caster, "APO_COLOSSUS_CLEAVER_" .. el:upper(), 60, 1, caster)
+    end
     if not has(caster, "Hexblade_14_MasterfulHex") then return end
     if spell:sub(1, 10) == "Target_Hex" then
         Osi.ApplyStatus(caster, "APO_RESILIENT_HEX", -1, 1, caster)
