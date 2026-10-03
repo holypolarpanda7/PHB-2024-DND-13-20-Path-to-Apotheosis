@@ -1,8 +1,12 @@
 """Shared helpers for the class generators (gen_illrigger.py, ...): stats entries, loca handles, idempotent
-patches of Progressions / ActionResourceDefinitions / LevelMapValues / PassiveLists / loca between markers."""
+patches of Progressions / ActionResourceDefinitions / LevelMapValues / PassiveLists / loca between markers,
+creature stats (Character_*.txt) and root templates (RootTemplates/*.lsf, built as LSX and converted with Divine
+through the bg3-data CLI)."""
 import glob
 import os
 import re
+import subprocess
+import tempfile
 import uuid
 
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -19,7 +23,7 @@ TARGET_ANIM = "3ff87abf-1ea1-4c32-aadf-c822d74c7dc0,,;,,;ab7b6aac-b3c9-4918-8f17
 class Gen:
     def __init__(self, key, marker):
         self.key, self.marker = key, marker
-        self.P, self.S, self.SP, self.I = [], [], [], []
+        self.P, self.S, self.SP, self.I, self.C, self.T = [], [], [], [], [], []
         self.loca, self.resources, self.lists, self.levelmaps = {}, [], [], []
 
     def gid(self, k):
@@ -68,10 +72,63 @@ class Gen:
             base["Icon"] = icon
         self.I.append(self.entry(name, "InterruptData", {**base, **fields}, comment=comment))
 
+    def character(self, name, fields, using=None, comment=None):
+        self.C.append(self.entry(name, "Character", fields, using=using, comment=comment))
+
+    def template(self, key, name, parent, stats, title, skills=(), level=None, spellset="CommonPlayerActions", extra=None):
+        """A character root template (a new creature): MapKey is stable per generator key. The model and effects come
+        from `parent` (a base-game template) - swap it, or add VisualTemplate/CharacterVisualResourceID in `extra`,
+        to give the creature a new look. Returns the MapKey."""
+        mk = self.gid("template:" + key)
+        self.T.append(dict(mk=mk, name=name, parent=parent, stats=stats, handle=self.h(f"template:{key}", title),
+                           skills=list(skills), level=level, spellset=spellset, extra=extra or {}))
+        return mk
+
     # ------------------------------------------------------------ writers
+    def write_templates(self, fname):
+        """Write the templates as Public/<mod>/RootTemplates/<fname>.lsf (binary, what the game loads)."""
+        path = os.path.join(PUB, "RootTemplates", fname + ".lsf")
+        if not self.T:
+            if os.path.exists(path):
+                os.remove(path)
+            return
+        a = lambda i, t, v: f'<attribute id="{i}" type="{t}" value="{v}" />'
+        cond = ('<node id="{0}">' + a("MinimumHealthPercentage", "int32", 0) + a("MaximumHealthPercentage", "int32", 100)
+                + '<children><node id="Tags" /></children></node>')
+        skill = lambda sp: ('<node id="Skill">' + a("Skill", "FixedString", sp) + a("SpellCastingAbility", "uint8", 0)
+                            + a("LearningStrategy", "uint8", 0) + a("ScoreModifier", "float", 1) + a("StartRound", "int32", 0)
+                            + a("FallbackStartRound", "int32", -1) + a("MinimumImpact", "int32", 0)
+                            + a("OnlyCastOnSelf", "bool", "False") + a("AIFlags", "uint16", 0)
+                            + "<children>" + cond.format("SourceConditions") + cond.format("TargetConditions")
+                            + "</children></node>")
+        objs = []
+        for t in self.T:
+            o = ['<node id="GameObjects">', a("MapKey", "FixedString", t["mk"]), a("Name", "LSString", t["name"]),
+                 a("LevelName", "FixedString", ""), a("Type", "FixedString", "character"),
+                 a("ParentTemplateId", "FixedString", t["parent"]),
+                 f'<attribute id="DisplayName" type="TranslatedString" handle="{t["handle"]}" version="1" />',
+                 a("Stats", "FixedString", t["stats"]), a("SpellSet", "FixedString", t["spellset"])]
+            if t["level"]:
+                o.append(a("LevelOverride", "int32", t["level"]))
+            o += [a(k, typ, v) for k, (typ, v) in t["extra"].items()]
+            o.append("<children><node id=\"SkillList\"><children>" + "".join(skill(x) for x in t["skills"])
+                     + "</children></node></children></node>")
+            objs.append("".join(o))
+        lsx = ('<?xml version="1.0" encoding="utf-8"?><save><version major="4" minor="8" revision="0" build="500" />'
+               '<region id="Templates"><node id="Templates"><children>' + "".join(objs)
+               + "</children></node></region></save>")
+        os.makedirs(os.path.dirname(path), exist_ok=True)
+        tmp = os.path.join(tempfile.gettempdir(), f"apotheosis_{fname}.lsx")
+        open(tmp, "w", encoding="utf-8").write(lsx)
+        mcp = os.path.join(REPO, "..", "bg3-data-mcp")
+        env = dict(os.environ, UV_PROJECT_ENVIRONMENT=os.path.expanduser("~/.cache/bg3-data-mcp/venv"))
+        subprocess.run(["uv", "run", "--project", mcp, "bg3-data", "convert", tmp, path], check=True, env=env,
+                       stdout=subprocess.DEVNULL)
+
     def write_stats(self, prefix, script, issue):
         head = (f"// GENERATED by Scripts/{script} ({issue}) - edit the generator, not this file.\n\n")
-        for kind, rows in (("Passive", self.P), ("Status", self.S), ("Spell", self.SP), ("Interrupt", self.I)):
+        for kind, rows in (("Passive", self.P), ("Status", self.S), ("Spell", self.SP), ("Interrupt", self.I),
+                           ("Character", self.C)):
             path = os.path.join(DATA, f"{kind}_{prefix}.txt")
             if rows:
                 with open(path, "w", encoding="utf-8", newline="\n") as f:

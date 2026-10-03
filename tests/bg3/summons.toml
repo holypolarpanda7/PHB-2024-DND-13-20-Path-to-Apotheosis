@@ -1,0 +1,98 @@
+# PHB 2024 summon spells (issue #10, Scripts/gen_summons.py): new creatures whose stat block scales with the slot.
+# Stat-block rows: AC 11/13 + level, HP 50 + 10 / 40 + 15 per level above 4, Slams = half the level (Extra Attack).
+
+[suite]
+name = "Summons (issue #10)"
+mode = "script"
+
+[[case]]
+id = "summon-elemental-fire-4"
+title = "Summon Elemental (Fire, level 4): AC 15, 50 HP, two Slams"
+spell = "Target_ApoSummonElemental_Fire"
+target = "ground"
+distance = 3
+expect = [{ summon = { stats = "Apo_ElementalSpirit_Fire", ac = 15, max_hp = 50, status_present = ["APO_ELEMENTALSPIRIT_FIRE_4"], passives = ["ExtraAttack"], spells = ["Target_ApoElementalSpirit_Slam_Fire_4"] } }]
+
+[[case]]
+id = "summon-elemental-water-9"
+title = "Summon Elemental (Water, level 9 slot): AC 20, 100 HP, four Slams"
+spell = "Target_ApoSummonElemental_Water_9"
+target = "ground"
+distance = 3
+expect = [{ summon = { stats = "Apo_ElementalSpirit_Water", ac = 20, max_hp = 100, status_present = ["APO_ELEMENTALSPIRIT_WATER_9"], passives = ["ExtraAttack_3"] } }]
+
+[[case]]
+id = "summon-construct-stone-6"
+title = "Summon Construct (Stone, level 6 slot): AC 19, 70 HP, three Slams, Stony Lethargy aura"
+spell = "Target_ApoSummonConstruct_Stone_6"
+target = "ground"
+distance = 3
+expect = [{ summon = { stats = "Apo_ConstructSpirit_Stone", ac = 19, max_hp = 70, status_present = ["APO_CONSTRUCTSPIRIT_STONE_6", "APO_STONY_LETHARGY_AURA"], passives = ["ExtraAttack_2"] } }]
+
+[[case]]
+id = "summon-construct-metal-4"
+title = "Summon Construct (Metal, level 4): AC 17, 40 HP, Heated Body"
+spell = "Target_ApoSummonConstruct_Metal"
+target = "ground"
+distance = 3
+expect = [{ summon = { stats = "Apo_ConstructSpirit_Metal", ac = 17, max_hp = 40, passives = ["Apo_ConstructSpirit_HeatedBody", "ExtraAttack"] } }]
+
+[[case]]
+id = "summon-elemental-fire-slam"
+title = "Fire Elemental Spirit (level 4) Slam: 1d10 + 4 + 4 Fire, and Extra Attack queues the second Slam"
+spell = "Target_ApoElementalSpirit_Slam_Fire_4"
+caster = "S"
+target = "A"
+real_rolls = true
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 3 }]
+setup = [{ target = "A", boost = "AC(-30)" }, { target = "A", boost = "CriticalHit(AttackTarget,Success,Never)" }]
+casts = [{ spell = "Target_ApoSummonElemental_Fire", target = "ground", distance = 2, summon_as = "S", near = "A" }]
+expect = [{ target = "A", hp_change = [-18, -9] }, { target = "S", status_applied = ["EXTRA_ATTACK"] }]
+notes = "Damage: the level-4 Slam variant (1d10 + 8), unlocked by the level status."
+
+[[case]]
+id = "summon-construct-metal-heated-body"
+title = "Metal Construct Spirit: a creature that hits it in melee takes 1d10 Fire"
+spell = "Target_Bite_Wolf"
+caster = "A"
+target = "S"
+real_rolls = true
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 3 }]
+setup = [{ target = "A", boost = "RollBonus(Attack,30)" }]
+casts = [{ spell = "Target_ApoSummonConstruct_Metal", target = "ground", distance = 2, summon_as = "S", near = "A" }]
+expect = [{ target = "A", hp_change = [-10, -1] }]
+
+[[case]]
+id = "summon-elemental-earth-slam-6"
+title = "Earth Elemental Spirit (level 6 slot) Slam: 1d10 + 4 + 6 Bludgeoning"
+spell = "Target_ApoElementalSpirit_Slam_Earth_6"
+caster = "S"
+target = "A"
+real_rolls = true
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 3 }]
+setup = [{ target = "A", boost = "AC(-30)" }, { target = "A", boost = "CriticalHit(AttackTarget,Success,Never)" }]
+casts = [{ spell = "Target_ApoSummonElemental_Earth_6", target = "ground", distance = 2, summon_as = "S", near = "A" }]
+expect = [{ target = "A", hp_change = [-20, -11] }]
+
+[[case]]
+id = "summon-construct-clay-berserk"
+title = "Clay Construct Spirit: Berserk Lashing Slams back at a creature that damages it"
+spell = "Target_Bite_Wolf"
+caster = "A"
+target = "S"
+real_rolls = true
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 3 }]
+setup = [{ target = "A", boost = "RollBonus(Attack,30)" }, { target = "A", boost = "AC(-30)" }, { target = "A", boost = "CriticalHit(AttackTarget,Success,Never)" }]
+casts = [{ spell = "Target_ApoSummonConstruct_Clay", target = "ground", distance = 2, summon_as = "S", near = "A" }]
+expect = [{ target = "A", hp_change = [-17, -9] }, { target = "A", damage_count = { by = "host", count = [1, 1] } }, { target = "S", status_absent = ["EXTRA_ATTACK"] }]
+notes = "Slam 1d8 + 8 Bludgeoning; a summon's damage is attributed to you, the summoner (hence by = host)."
+
+[[case]]
+id = "summon-construct-stone-lethargy"
+title = "Stone Construct Spirit: an enemy starting its turn within 10 ft fails a Wisdom save - Stony Lethargy"
+target = "A"
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 3 }]
+setup = [{ target = "A", boost = "AbilityFailedSavingThrow(Wisdom)" }]
+casts = [{ spell = "Target_ApoSummonConstruct_Stone", target = "ground", distance = 2, summon_as = "S", near = "A" }]
+end_turns = 1
+expect = [{ target = "A", status_applied = ["APO_STONY_LETHARGY_NEAR", "APO_STONY_LETHARGY"] }]

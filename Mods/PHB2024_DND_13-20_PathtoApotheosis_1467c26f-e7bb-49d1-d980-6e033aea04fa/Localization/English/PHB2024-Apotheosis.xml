@@ -2664,4 +2664,288 @@
   <content contentuid="hc67c941035345d509b73bd5aa82a87b5" version="1">This object is a Shadow Mastiff that follows the caster.</content>
   <content contentuid="hc3deb8137f6b50aca8bfa0c7b83db38d" version="1">True Polymorph: Object into Shadow Mastiff</content>
   <content contentuid="he5960c9848535fa7af98e0fe905194f4" version="1">A nonmagical object you can see (not worn or carried) becomes a Shadow Mastiff that is friendly to you.</content>
+  <content contentuid="h10bf9614a65351b3a7e824161a18df1c" version="1">Slam</content>
+  <content contentuid="hd9c3d87dd4e45adbb7db0ded879210ae" version="1">Melee attack with your spell attack modifier: 1d10 + 4 + the spell's level Lightning damage.</content>
+  <content contentuid="h8de99b863b4c519bbbcf04f31ecd613a" version="1">Slam</content>
+  <content contentuid="he20886fe264c56e9b454d3b29c8ea134" version="1">Melee attack with your spell attack modifier: 1d10 + 4 + the spell's level Bludgeoning damage.</content>
+  <content contentuid="h7742f490d1a95de3aed273c8f9c48d95" version="1">Slam</content>
+  <content contentuid="hcdf8c7877d5d52188703b8acb87fc82d" version="1">Melee attack with your spell attack modifier: 1d10 + 4 + the spell's level Fire damage.</content>
+  <content contentuid="h85052bf793355095a07442ba439aead1" version="1">Slam</content>
+  <content contentuid="he40da0783ba4572bbda5b0dd26671a1e" version="1">Melee attack with your spell attack modifier: 1d10 + 4 + the spell's level Cold damage.</content>
+  <content contentuid="h1c0ee069de9557a9bdd2b91c7f7bba53" version="1">Slam</content>
+  <content contentuid="h5a26d67515095f99a6ada018e117893d" version="1">Melee attack with your spell attack modifier: 1d8 + 4 + the spell's level Bludgeoning damage.</content>
+  <content contentuid="hd81a5c72304e53998bab1fcabcdfbeac" version="1">Berserk Lashing</content>
+  <content contentuid="hd53135d2a1065497a481213d0aea9bca" version="1">When a creature damages the spirit, it makes a Slam attack against that creature as a reaction.</content>
+  <content contentuid="h45def8d1dc11595caa5adbde7687686a" version="1">Slam</content>
+  <content contentuid="h3354483007625c378b6e16665d3b66ad" version="1">Melee attack with your spell attack modifier: 1d10 + 4 + the spell's level Lightning damage.</content>
+  <content contentuid="h7f17e8fa6c28556781eb7c643127120a" version="1">Slam</content>
+  <content contentuid="hf53dfabe5b115f1d9203401f9815e7f3" version="1">Melee attack with your spell attack modifier: 1d10 + 4 + the spell's level Lightning damage.</content>
+  <content contentuid="h736467d2b00559398c52ecb1f67eae2a" version="1">Slam</content>
+  <content contentuid="h4f223cd097f45907b7992f88150349ff" version="1">Melee attack with your spell attack modifier: 1d10 + 4 + the spell's level Lightning damage.</content>
+  <content contentuid="h0c0cabf14572573382fd1f388aa5b844" version="1">Slam</content>
+  <content contentuid="h549a3311bcd050f796f785e7ba6d7968" version="1">Melee attack with your spell attack modifier: 1d10 + 4 + the spell's level Lightning damage.</content>
+  <content contentuid="hc1ff7196fa2650afa3e56ac8edcfcbc2" version="1">Slam</content>
+  <content contentuid="h23dbd1a27b6659a4a39d1218d1a6639e" version="1">Melee attack with your spell attack modifier: 1d10 + 4 + the spell's level Lightning damage.</content>
+  <content contentuid="h9fadd2c2f8e05e6a98ab4fa297ddbd91" version="1">Slam</content>
+  <content contentuid="h0e937c15ed045a03a40c059eedeb8bc6" version="1">Melee attack with your spell attack modifier: 1d10 + 4 + the spell's level Lightning damage.</content>
+  <content contentuid="hcd2ae7a8863e52e7b716093b6dd25e0c" version="1">Air Elemental Spirit</content>
+  <content contentuid="h1b52d3641774535d986799d5439a663d" version="1">Level 4 Air Elemental Spirit</content>
+  <content contentuid="h65bfd2e558ec5bbf826d2552ce1a043f" version="1">Summoned with a level 4 spell slot: uses your Proficiency Bonus, spell attack modifier and spell save DC.</content>
+  <content contentuid="hae82766516c05c88936e6934d23973d0" version="1">Level 5 Air Elemental Spirit</content>
+  <content contentuid="hc7421f058d33518cb5af5657c2b7ed35" version="1">Summoned with a level 5 spell slot: uses your Proficiency Bonus, spell attack modifier and spell save DC.</content>
+  <content contentuid="h8cbd76abee425607968e29fa9d00a207" version="1">Level 6 Air Elemental Spirit</content>
+  <content contentuid="he838920875de5d5a8b59c753907a0591" version="1">Summoned with a level 6 spell slot: uses your Proficiency Bonus, spell attack modifier and spell save DC.</content>
+  <content contentuid="ha7bcb5aceba95cf6a29675520748e6d4" version="1">Level 7 Air Elemental Spirit</content>
+  <content contentuid="hf47e96c386995842a3cd31b5b1906a67" version="1">Summoned with a level 7 spell slot: uses your Proficiency Bonus, spell attack modifier and spell save DC.</content>
+  <content contentuid="hd9af690c75505bf79b1d124bceb7af68" version="1">Level 8 Air Elemental Spirit</content>
+  <content contentuid="h697839bf4b695b39a228710214484259" version="1">Summoned with a level 8 spell slot: uses your Proficiency Bonus, spell attack modifier and spell save DC.</content>
+  <content contentuid="h5ead0896d7eb5bfaaf4530cd7b01d47e" version="1">Level 9 Air Elemental Spirit</content>
+  <content contentuid="h36f4e0e14f3959a586600a934200c3dc" version="1">Summoned with a level 9 spell slot: uses your Proficiency Bonus, spell attack modifier and spell save DC.</content>
+  <content contentuid="h854a7cddc85c5afb8bddc9ffda3a24bf" version="1">Slam</content>
+  <content contentuid="h8407cf615d6c5f11a033f656e94ba383" version="1">Melee attack with your spell attack modifier: 1d10 + 4 + the spell's level Bludgeoning damage.</content>
+  <content contentuid="hef05d98d97d65ba2bb249599400bf3a6" version="1">Slam</content>
+  <content contentuid="ha03c34ae5d05586aa31227ddd7ce4ca3" version="1">Melee attack with your spell attack modifier: 1d10 + 4 + the spell's level Bludgeoning damage.</content>
+  <content contentuid="h12c0f62e8d305a1dae922d720df2f7cb" version="1">Slam</content>
+  <content contentuid="hcde71792f20157e29ef347e6a9a51301" version="1">Melee attack with your spell attack modifier: 1d10 + 4 + the spell's level Bludgeoning damage.</content>
+  <content contentuid="h5b3d7e7202545335947330231227f1a8" version="1">Slam</content>
+  <content contentuid="h98612074e4085062b747aa62ed5a373c" version="1">Melee attack with your spell attack modifier: 1d10 + 4 + the spell's level Bludgeoning damage.</content>
+  <content contentuid="ha5a555f359a7568ab9c53cd8b18d9925" version="1">Slam</content>
+  <content contentuid="hfb6d68348f96523e8cd2403ee51212eb" version="1">Melee attack with your spell attack modifier: 1d10 + 4 + the spell's level Bludgeoning damage.</content>
+  <content contentuid="h889e544ba6e854fe898316f796d14f33" version="1">Slam</content>
+  <content contentuid="h3b64b18bdb9f5d749655c995e8bf0c67" version="1">Melee attack with your spell attack modifier: 1d10 + 4 + the spell's level Bludgeoning damage.</content>
+  <content contentuid="hb5b3d42975c0520691d64b9fd97568ff" version="1">Earth Elemental Spirit</content>
+  <content contentuid="hc585e04d35875a2f9defe99dbde92bfb" version="1">Level 4 Earth Elemental Spirit</content>
+  <content contentuid="ha69ee35dc2d755d0bd95261bbd134a0f" version="1">Summoned with a level 4 spell slot: uses your Proficiency Bonus, spell attack modifier and spell save DC.</content>
+  <content contentuid="h0a31984e89475099a17e8de03e684a98" version="1">Level 5 Earth Elemental Spirit</content>
+  <content contentuid="h2ee3d4746b8a575c905654094fe0bfb2" version="1">Summoned with a level 5 spell slot: uses your Proficiency Bonus, spell attack modifier and spell save DC.</content>
+  <content contentuid="h363ca62e3bd553c097e8b7eabaf2f3ee" version="1">Level 6 Earth Elemental Spirit</content>
+  <content contentuid="h82e18c58a7b65a46a0f43a39420c6fe1" version="1">Summoned with a level 6 spell slot: uses your Proficiency Bonus, spell attack modifier and spell save DC.</content>
+  <content contentuid="h7bbd155bde305880be71b951d4ad42c6" version="1">Level 7 Earth Elemental Spirit</content>
+  <content contentuid="hce2e630693ae5e27a96261d7efde8785" version="1">Summoned with a level 7 spell slot: uses your Proficiency Bonus, spell attack modifier and spell save DC.</content>
+  <content contentuid="h4cbd3411ab8e56c18544334383e569b4" version="1">Level 8 Earth Elemental Spirit</content>
+  <content contentuid="h4ec7d7fcd0fc542ebb1d0c51c36fc56a" version="1">Summoned with a level 8 spell slot: uses your Proficiency Bonus, spell attack modifier and spell save DC.</content>
+  <content contentuid="h8b26ae98a11d5c2aae2ea787fa8e7d9b" version="1">Level 9 Earth Elemental Spirit</content>
+  <content contentuid="h41681010b318508ab6f4fb5de8572ea9" version="1">Summoned with a level 9 spell slot: uses your Proficiency Bonus, spell attack modifier and spell save DC.</content>
+  <content contentuid="hae0677abc9c159b49c246d1d5159e15a" version="1">Slam</content>
+  <content contentuid="ha66cd7fcfa1156bda1f8daab967bb2c2" version="1">Melee attack with your spell attack modifier: 1d10 + 4 + the spell's level Fire damage.</content>
+  <content contentuid="hac0649ef730b5c47b9a8aceb1281adc8" version="1">Slam</content>
+  <content contentuid="hd8162cf6487b52ab833501b21a4b4e90" version="1">Melee attack with your spell attack modifier: 1d10 + 4 + the spell's level Fire damage.</content>
+  <content contentuid="he33fee660bd5535da648fdeb24974fab" version="1">Slam</content>
+  <content contentuid="h0468a3d4dff0578a85bac8beeb07c29b" version="1">Melee attack with your spell attack modifier: 1d10 + 4 + the spell's level Fire damage.</content>
+  <content contentuid="h646a5dd2566a516a9f65ed177d1fa04a" version="1">Slam</content>
+  <content contentuid="h86b36da5989c5e69b8d36f5393b63145" version="1">Melee attack with your spell attack modifier: 1d10 + 4 + the spell's level Fire damage.</content>
+  <content contentuid="h3b4f7b92777e5b1dbac8149fad6ce7fa" version="1">Slam</content>
+  <content contentuid="h4ff0c5ef43f45d0f8610c49c007ba97a" version="1">Melee attack with your spell attack modifier: 1d10 + 4 + the spell's level Fire damage.</content>
+  <content contentuid="h4edd0ecf070e5de089276a087f48731a" version="1">Slam</content>
+  <content contentuid="ha4b9253cd63e5098b39953d2c245766f" version="1">Melee attack with your spell attack modifier: 1d10 + 4 + the spell's level Fire damage.</content>
+  <content contentuid="h2ec61d9927f854ed93015f161434495e" version="1">Fire Elemental Spirit</content>
+  <content contentuid="h21ac0cd59a6554d4ae7dd44aae031fd3" version="1">Level 4 Fire Elemental Spirit</content>
+  <content contentuid="h5dd6b56b12be5bd19ec7456295f2326a" version="1">Summoned with a level 4 spell slot: uses your Proficiency Bonus, spell attack modifier and spell save DC.</content>
+  <content contentuid="h6afaf61f7b725fa38639425bd80569e7" version="1">Level 5 Fire Elemental Spirit</content>
+  <content contentuid="hef4c96ebb61e57f0b3cc3498272e52c0" version="1">Summoned with a level 5 spell slot: uses your Proficiency Bonus, spell attack modifier and spell save DC.</content>
+  <content contentuid="h6bd2bf68573b5b5183807063cc481fe4" version="1">Level 6 Fire Elemental Spirit</content>
+  <content contentuid="h7297015b7ab2562798d45156817ffb4f" version="1">Summoned with a level 6 spell slot: uses your Proficiency Bonus, spell attack modifier and spell save DC.</content>
+  <content contentuid="h6caf536301ec523191af982992d38065" version="1">Level 7 Fire Elemental Spirit</content>
+  <content contentuid="h770eccb122a8502186aaa0e13793fb12" version="1">Summoned with a level 7 spell slot: uses your Proficiency Bonus, spell attack modifier and spell save DC.</content>
+  <content contentuid="h860b8071f4485801b0c7ac3fe7f8b5cd" version="1">Level 8 Fire Elemental Spirit</content>
+  <content contentuid="h8ff4ef2ecebe5918bd07920c46d7455d" version="1">Summoned with a level 8 spell slot: uses your Proficiency Bonus, spell attack modifier and spell save DC.</content>
+  <content contentuid="hd58a1aaea094517c905e4d398259f56f" version="1">Level 9 Fire Elemental Spirit</content>
+  <content contentuid="h8893ec8fef5d5a5b88dfdc5403203c02" version="1">Summoned with a level 9 spell slot: uses your Proficiency Bonus, spell attack modifier and spell save DC.</content>
+  <content contentuid="h4b56bfed8a315594885eb21236b20d89" version="1">Slam</content>
+  <content contentuid="h1a28655413485ebcb8fe868af7d8a503" version="1">Melee attack with your spell attack modifier: 1d10 + 4 + the spell's level Cold damage.</content>
+  <content contentuid="h589ebb38a3be50b1b8bd4f954338e9e1" version="1">Slam</content>
+  <content contentuid="h5dbffdb195935850974d31ef5ab1139d" version="1">Melee attack with your spell attack modifier: 1d10 + 4 + the spell's level Cold damage.</content>
+  <content contentuid="h54c8c20b16ee54218f37ebcf8075e0ae" version="1">Slam</content>
+  <content contentuid="h7c44a40a51695fba864b3ef8366ba26f" version="1">Melee attack with your spell attack modifier: 1d10 + 4 + the spell's level Cold damage.</content>
+  <content contentuid="h689df8535ff85e408cf23f2784eb0674" version="1">Slam</content>
+  <content contentuid="h8823a6c90e6f59cb859e19d73eeaebec" version="1">Melee attack with your spell attack modifier: 1d10 + 4 + the spell's level Cold damage.</content>
+  <content contentuid="h9bde1d1cb6ea5716bd6d2d1c0549d39d" version="1">Slam</content>
+  <content contentuid="had57306a30475bada7d065d9aa33d12c" version="1">Melee attack with your spell attack modifier: 1d10 + 4 + the spell's level Cold damage.</content>
+  <content contentuid="h16eeecc1669a56f58df4b3534e5676f8" version="1">Slam</content>
+  <content contentuid="h4d2d6a28d0cd5a26a74df390098430fc" version="1">Melee attack with your spell attack modifier: 1d10 + 4 + the spell's level Cold damage.</content>
+  <content contentuid="h311217c16d6a59d5b6c44b8ea3c56b05" version="1">Water Elemental Spirit</content>
+  <content contentuid="h277c565052695c2da0a9a405449bf395" version="1">Level 4 Water Elemental Spirit</content>
+  <content contentuid="ha47009ed34845479a6025f72367e00b3" version="1">Summoned with a level 4 spell slot: uses your Proficiency Bonus, spell attack modifier and spell save DC.</content>
+  <content contentuid="h40887bb813c0572eb793151fce49bc23" version="1">Level 5 Water Elemental Spirit</content>
+  <content contentuid="h1572cdfb02865980a3ba590165b2dfc9" version="1">Summoned with a level 5 spell slot: uses your Proficiency Bonus, spell attack modifier and spell save DC.</content>
+  <content contentuid="h4bcacc39d1e051169dd8f59443c116cb" version="1">Level 6 Water Elemental Spirit</content>
+  <content contentuid="h62d2199ca4255547b544cd65e329ae1f" version="1">Summoned with a level 6 spell slot: uses your Proficiency Bonus, spell attack modifier and spell save DC.</content>
+  <content contentuid="h9b5ec1cce8235910a38aab3f838fce01" version="1">Level 7 Water Elemental Spirit</content>
+  <content contentuid="h4c736fb005ad56d2bf430f0e81ce8ffe" version="1">Summoned with a level 7 spell slot: uses your Proficiency Bonus, spell attack modifier and spell save DC.</content>
+  <content contentuid="hdc1cffe95474577b89a75825ea62df9b" version="1">Level 8 Water Elemental Spirit</content>
+  <content contentuid="h48ca90020a36522981336df0759381f5" version="1">Summoned with a level 8 spell slot: uses your Proficiency Bonus, spell attack modifier and spell save DC.</content>
+  <content contentuid="h495ba45a7f155fec84d477ef48a4b354" version="1">Level 9 Water Elemental Spirit</content>
+  <content contentuid="h89e61895ff67538c9390b0cfdf06e83c" version="1">Summoned with a level 9 spell slot: uses your Proficiency Bonus, spell attack modifier and spell save DC.</content>
+  <content contentuid="he661fabb978356a8a4b59fe156e1a660" version="1">Summon Elemental</content>
+  <content contentuid="h5cfcebb814d75c8a805d54a711931aaf" version="1">You call forth an Elemental spirit of the chosen element (Concentration, up to 1 hour). It uses your Proficiency Bonus, spell attack modifier and spell save DC; AC 11 + the spell's level, 50 HP + 10 for each level above 4, and a number of Slam attacks equal to half the spell's level (1d10 + 4 + the spell's level).</content>
+  <content contentuid="hc1524868995f5ec49a86d8482afcc1a4" version="1">Summon Elemental: Air</content>
+  <content contentuid="h9ea35eb41c505a6d83f4236c9487c901" version="1">You call forth an Elemental spirit of the chosen element (Concentration, up to 1 hour). It uses your Proficiency Bonus, spell attack modifier and spell save DC; AC 11 + the spell's level, 50 HP + 10 for each level above 4, and a number of Slam attacks equal to half the spell's level (1d10 + 4 + the spell's level).</content>
+  <content contentuid="had8e8d677df4557fa69c95666eb339e2" version="1">Summon Elemental: Air</content>
+  <content contentuid="hae1228cd28e1521c8a05383b6407fe47" version="1">You call forth an Elemental spirit of the chosen element (Concentration, up to 1 hour). It uses your Proficiency Bonus, spell attack modifier and spell save DC; AC 11 + the spell's level, 50 HP + 10 for each level above 4, and a number of Slam attacks equal to half the spell's level (1d10 + 4 + the spell's level).</content>
+  <content contentuid="h572ccd41de8254ddbebc3d39def3f339" version="1">Summon Elemental: Air</content>
+  <content contentuid="hfe25b95e06c152c8909aed9351006149" version="1">You call forth an Elemental spirit of the chosen element (Concentration, up to 1 hour). It uses your Proficiency Bonus, spell attack modifier and spell save DC; AC 11 + the spell's level, 50 HP + 10 for each level above 4, and a number of Slam attacks equal to half the spell's level (1d10 + 4 + the spell's level).</content>
+  <content contentuid="h98ec01a0d35b5dc397d776b6cbfb942d" version="1">Summon Elemental: Air</content>
+  <content contentuid="hc493623dbe86505593e8e742c68698f7" version="1">You call forth an Elemental spirit of the chosen element (Concentration, up to 1 hour). It uses your Proficiency Bonus, spell attack modifier and spell save DC; AC 11 + the spell's level, 50 HP + 10 for each level above 4, and a number of Slam attacks equal to half the spell's level (1d10 + 4 + the spell's level).</content>
+  <content contentuid="h1dccff3a93d4592c9d5be4c2476c2bcc" version="1">Summon Elemental: Air</content>
+  <content contentuid="hfbd40c710a7158f2993867cd1f2fc335" version="1">You call forth an Elemental spirit of the chosen element (Concentration, up to 1 hour). It uses your Proficiency Bonus, spell attack modifier and spell save DC; AC 11 + the spell's level, 50 HP + 10 for each level above 4, and a number of Slam attacks equal to half the spell's level (1d10 + 4 + the spell's level).</content>
+  <content contentuid="hc1033eab918d5ac1a486f6542c9de0ae" version="1">Summon Elemental: Air</content>
+  <content contentuid="h4fdc16d6836f5ee08c22f58cfecd546d" version="1">You call forth an Elemental spirit of the chosen element (Concentration, up to 1 hour). It uses your Proficiency Bonus, spell attack modifier and spell save DC; AC 11 + the spell's level, 50 HP + 10 for each level above 4, and a number of Slam attacks equal to half the spell's level (1d10 + 4 + the spell's level).</content>
+  <content contentuid="h4fe04000726f592b92e79d78dffb8d0d" version="1">Summon Elemental: Earth</content>
+  <content contentuid="h024ac7c97d2553f8b0b81a5aaa3345c1" version="1">You call forth an Elemental spirit of the chosen element (Concentration, up to 1 hour). It uses your Proficiency Bonus, spell attack modifier and spell save DC; AC 11 + the spell's level, 50 HP + 10 for each level above 4, and a number of Slam attacks equal to half the spell's level (1d10 + 4 + the spell's level).</content>
+  <content contentuid="h5962d36999355cd0b4ef3becb0e79a42" version="1">Summon Elemental: Earth</content>
+  <content contentuid="hfdcc8c50938854f2b3f99dd4a34f6306" version="1">You call forth an Elemental spirit of the chosen element (Concentration, up to 1 hour). It uses your Proficiency Bonus, spell attack modifier and spell save DC; AC 11 + the spell's level, 50 HP + 10 for each level above 4, and a number of Slam attacks equal to half the spell's level (1d10 + 4 + the spell's level).</content>
+  <content contentuid="h152545d8522f511d8ba190afef78c4bd" version="1">Summon Elemental: Earth</content>
+  <content contentuid="hd003b23b05a451a98f7c85d81567b90b" version="1">You call forth an Elemental spirit of the chosen element (Concentration, up to 1 hour). It uses your Proficiency Bonus, spell attack modifier and spell save DC; AC 11 + the spell's level, 50 HP + 10 for each level above 4, and a number of Slam attacks equal to half the spell's level (1d10 + 4 + the spell's level).</content>
+  <content contentuid="h4b2d314a497b515eac76ab7a74ea8931" version="1">Summon Elemental: Earth</content>
+  <content contentuid="h624530ec7eb0596da3f2bf899852a5ba" version="1">You call forth an Elemental spirit of the chosen element (Concentration, up to 1 hour). It uses your Proficiency Bonus, spell attack modifier and spell save DC; AC 11 + the spell's level, 50 HP + 10 for each level above 4, and a number of Slam attacks equal to half the spell's level (1d10 + 4 + the spell's level).</content>
+  <content contentuid="haa41520683bd57c88726647c0b06006c" version="1">Summon Elemental: Earth</content>
+  <content contentuid="hbd3787627e1d5948b5d2251bd8d1e071" version="1">You call forth an Elemental spirit of the chosen element (Concentration, up to 1 hour). It uses your Proficiency Bonus, spell attack modifier and spell save DC; AC 11 + the spell's level, 50 HP + 10 for each level above 4, and a number of Slam attacks equal to half the spell's level (1d10 + 4 + the spell's level).</content>
+  <content contentuid="h8afd2706d96450269c9558161725beff" version="1">Summon Elemental: Earth</content>
+  <content contentuid="haa89c52de5025b76afeb410e9e77acc7" version="1">You call forth an Elemental spirit of the chosen element (Concentration, up to 1 hour). It uses your Proficiency Bonus, spell attack modifier and spell save DC; AC 11 + the spell's level, 50 HP + 10 for each level above 4, and a number of Slam attacks equal to half the spell's level (1d10 + 4 + the spell's level).</content>
+  <content contentuid="h29c9b192306b5224908ca00382bcc57e" version="1">Summon Elemental: Fire</content>
+  <content contentuid="hedc561fa01c85bfd974ffef16bc79bf3" version="1">You call forth an Elemental spirit of the chosen element (Concentration, up to 1 hour). It uses your Proficiency Bonus, spell attack modifier and spell save DC; AC 11 + the spell's level, 50 HP + 10 for each level above 4, and a number of Slam attacks equal to half the spell's level (1d10 + 4 + the spell's level).</content>
+  <content contentuid="h7e2dd119e3ac5e6aae52a8a17a82a5f0" version="1">Summon Elemental: Fire</content>
+  <content contentuid="h186051150ad15667bb6c113d4c591116" version="1">You call forth an Elemental spirit of the chosen element (Concentration, up to 1 hour). It uses your Proficiency Bonus, spell attack modifier and spell save DC; AC 11 + the spell's level, 50 HP + 10 for each level above 4, and a number of Slam attacks equal to half the spell's level (1d10 + 4 + the spell's level).</content>
+  <content contentuid="h6ef266fc19e950e988359490415f3912" version="1">Summon Elemental: Fire</content>
+  <content contentuid="h1c2ebd34533751c4a9c945eda0080720" version="1">You call forth an Elemental spirit of the chosen element (Concentration, up to 1 hour). It uses your Proficiency Bonus, spell attack modifier and spell save DC; AC 11 + the spell's level, 50 HP + 10 for each level above 4, and a number of Slam attacks equal to half the spell's level (1d10 + 4 + the spell's level).</content>
+  <content contentuid="h5c3f95381dd55e078bd45bba96c92a19" version="1">Summon Elemental: Fire</content>
+  <content contentuid="h3e7e7fb7bf655d59ae0e2165c4497f2f" version="1">You call forth an Elemental spirit of the chosen element (Concentration, up to 1 hour). It uses your Proficiency Bonus, spell attack modifier and spell save DC; AC 11 + the spell's level, 50 HP + 10 for each level above 4, and a number of Slam attacks equal to half the spell's level (1d10 + 4 + the spell's level).</content>
+  <content contentuid="hd35f53f5a26c58329cb05e0ef77dce90" version="1">Summon Elemental: Fire</content>
+  <content contentuid="hc329753a696f56fa8549c0f88c28a214" version="1">You call forth an Elemental spirit of the chosen element (Concentration, up to 1 hour). It uses your Proficiency Bonus, spell attack modifier and spell save DC; AC 11 + the spell's level, 50 HP + 10 for each level above 4, and a number of Slam attacks equal to half the spell's level (1d10 + 4 + the spell's level).</content>
+  <content contentuid="h0ce90190fb745606a55c31f7b04f94cd" version="1">Summon Elemental: Fire</content>
+  <content contentuid="hde0d13f4e5555774bb8d3ef83eeaa4c0" version="1">You call forth an Elemental spirit of the chosen element (Concentration, up to 1 hour). It uses your Proficiency Bonus, spell attack modifier and spell save DC; AC 11 + the spell's level, 50 HP + 10 for each level above 4, and a number of Slam attacks equal to half the spell's level (1d10 + 4 + the spell's level).</content>
+  <content contentuid="hbdd25c0dc5ef559ba842f30baec644b3" version="1">Summon Elemental: Water</content>
+  <content contentuid="h5e6eeba8b4ee585d96970566f29b7372" version="1">You call forth an Elemental spirit of the chosen element (Concentration, up to 1 hour). It uses your Proficiency Bonus, spell attack modifier and spell save DC; AC 11 + the spell's level, 50 HP + 10 for each level above 4, and a number of Slam attacks equal to half the spell's level (1d10 + 4 + the spell's level).</content>
+  <content contentuid="h49ae1638af0258dfa888845b58a84ecb" version="1">Summon Elemental: Water</content>
+  <content contentuid="ha7e7c218460e5652afbbf9490b51899f" version="1">You call forth an Elemental spirit of the chosen element (Concentration, up to 1 hour). It uses your Proficiency Bonus, spell attack modifier and spell save DC; AC 11 + the spell's level, 50 HP + 10 for each level above 4, and a number of Slam attacks equal to half the spell's level (1d10 + 4 + the spell's level).</content>
+  <content contentuid="hc5bb4708b38d5787a40b9026dba01098" version="1">Summon Elemental: Water</content>
+  <content contentuid="h8f9f3aab6790503dad1002d269f917a3" version="1">You call forth an Elemental spirit of the chosen element (Concentration, up to 1 hour). It uses your Proficiency Bonus, spell attack modifier and spell save DC; AC 11 + the spell's level, 50 HP + 10 for each level above 4, and a number of Slam attacks equal to half the spell's level (1d10 + 4 + the spell's level).</content>
+  <content contentuid="h30acc130b46551b6bee777f225273a48" version="1">Summon Elemental: Water</content>
+  <content contentuid="h0381e2a310725e6683ab63720cc6c829" version="1">You call forth an Elemental spirit of the chosen element (Concentration, up to 1 hour). It uses your Proficiency Bonus, spell attack modifier and spell save DC; AC 11 + the spell's level, 50 HP + 10 for each level above 4, and a number of Slam attacks equal to half the spell's level (1d10 + 4 + the spell's level).</content>
+  <content contentuid="h77bc4a335f3a5a3dbcb8e76ec7dcea31" version="1">Summon Elemental: Water</content>
+  <content contentuid="h21bbff34d80a5751b6ca4f6706f5b5d2" version="1">You call forth an Elemental spirit of the chosen element (Concentration, up to 1 hour). It uses your Proficiency Bonus, spell attack modifier and spell save DC; AC 11 + the spell's level, 50 HP + 10 for each level above 4, and a number of Slam attacks equal to half the spell's level (1d10 + 4 + the spell's level).</content>
+  <content contentuid="hd6ccdb03cb8b5451806159d683bf7c8e" version="1">Summon Elemental: Water</content>
+  <content contentuid="hc4454a01f6c3558f8aa9fa8fa0522cff" version="1">You call forth an Elemental spirit of the chosen element (Concentration, up to 1 hour). It uses your Proficiency Bonus, spell attack modifier and spell save DC; AC 11 + the spell's level, 50 HP + 10 for each level above 4, and a number of Slam attacks equal to half the spell's level (1d10 + 4 + the spell's level).</content>
+  <content contentuid="hec1bc509475452748a91a39c368a594e" version="1">Slam</content>
+  <content contentuid="h8ac5365cfce459c9ada5320e28f90194" version="1">Melee attack with your spell attack modifier: 1d8 + 4 + the spell's level Bludgeoning damage.</content>
+  <content contentuid="hae780755815f5a8cbab346037ee31931" version="1">Slam</content>
+  <content contentuid="h4a6696d3b794545c884c72f970fe048b" version="1">Melee attack with your spell attack modifier: 1d8 + 4 + the spell's level Bludgeoning damage.</content>
+  <content contentuid="h0f8b01ecac3654e98c769e718d7a17fc" version="1">Slam</content>
+  <content contentuid="h0c54d585e4a1505eadc3d0e8e6d4916f" version="1">Melee attack with your spell attack modifier: 1d8 + 4 + the spell's level Bludgeoning damage.</content>
+  <content contentuid="h4d1f14450f925bfe80986f93f442c841" version="1">Slam</content>
+  <content contentuid="h0b72dd61d7a050ceb0165e68237cc8ab" version="1">Melee attack with your spell attack modifier: 1d8 + 4 + the spell's level Bludgeoning damage.</content>
+  <content contentuid="ha3d880c02e295873bfed097b47a04d6b" version="1">Slam</content>
+  <content contentuid="h5bf6a481cab95d23b8fba96c4534eb92" version="1">Melee attack with your spell attack modifier: 1d8 + 4 + the spell's level Bludgeoning damage.</content>
+  <content contentuid="hc0f9a49a0c0b5e15bf26f9a573753c36" version="1">Slam</content>
+  <content contentuid="h6ac0e969fd895f2dbe7c1c863eea35bc" version="1">Melee attack with your spell attack modifier: 1d8 + 4 + the spell's level Bludgeoning damage.</content>
+  <content contentuid="h83ca4dfecc6a54baa66a559a04007f10" version="1">Berserk Lashing</content>
+  <content contentuid="h95a49dc0d1e95410b5272d6201348a41" version="1">The spirit Slams the creature that damaged it.</content>
+  <content contentuid="h59e091da55045c0ba6b711bb60d5a08b" version="1">Berserk Lashing</content>
+  <content contentuid="h4c7f788b51c35a2fb929170062557ddf" version="1">When a creature damages the spirit, it makes a Slam attack against that creature as a reaction.</content>
+  <content contentuid="heccc12de7bc45c03a1f0ce26e348d244" version="1">Berserk Lashing</content>
+  <content contentuid="h95a7475071b956fb946808883cfa7398" version="1">The spirit Slams the creature that damaged it.</content>
+  <content contentuid="he4261c94f56c59c89440d7f16752ed50" version="1">Berserk Lashing</content>
+  <content contentuid="h7cddc684753151b4a353ed7fc8ca6187" version="1">When a creature damages the spirit, it makes a Slam attack against that creature as a reaction.</content>
+  <content contentuid="h7febd6559d0f5639b507bf89cf860e4c" version="1">Berserk Lashing</content>
+  <content contentuid="h7e111cd3ca075a12bfb418ce3885aab5" version="1">The spirit Slams the creature that damaged it.</content>
+  <content contentuid="he66c5cff4a885d97b9ddacadd4bdcc7e" version="1">Berserk Lashing</content>
+  <content contentuid="h5f35fe58f1975f5a93ad318e91d61146" version="1">When a creature damages the spirit, it makes a Slam attack against that creature as a reaction.</content>
+  <content contentuid="h2bb084c24c8856e089dbebcc827c975a" version="1">Berserk Lashing</content>
+  <content contentuid="h4cf358c7d1e25c12b27c3dddce1de29e" version="1">The spirit Slams the creature that damaged it.</content>
+  <content contentuid="h754fa333febc551c8d1de5edff8836f2" version="1">Berserk Lashing</content>
+  <content contentuid="h7927dd5e55d75e1dab6676e05ed5b1e3" version="1">When a creature damages the spirit, it makes a Slam attack against that creature as a reaction.</content>
+  <content contentuid="h179c0d1a5b4053da8e006a43bd6a8f8d" version="1">Berserk Lashing</content>
+  <content contentuid="h272aad1d6289529fbd0e7e002879038e" version="1">The spirit Slams the creature that damaged it.</content>
+  <content contentuid="h29a687c753bb534eb8d0526c5350210f" version="1">Berserk Lashing</content>
+  <content contentuid="hdc5296883a4d549196461eadd7300bb0" version="1">When a creature damages the spirit, it makes a Slam attack against that creature as a reaction.</content>
+  <content contentuid="h386c8c37e54f599a92ce1b9d2297f7bd" version="1">Berserk Lashing</content>
+  <content contentuid="hf10d45328fa55434be1dee50dd192cf8" version="1">The spirit Slams the creature that damaged it.</content>
+  <content contentuid="he5d9b1ea46e551fb9647a0692c08115f" version="1">Berserk Lashing</content>
+  <content contentuid="h6458d955f0525feeaccf971a581dc6e4" version="1">When a creature damages the spirit, it makes a Slam attack against that creature as a reaction.</content>
+  <content contentuid="hd9d546e072825976b33bf7397bdb2dd3" version="1">Berserk Lashing</content>
+  <content contentuid="h62b16e4ca1945fbdb494b0878d7ab9e2" version="1">Reaction: when a creature damages the spirit, the spirit makes a Slam attack against it.</content>
+  <content contentuid="ha4e134edce2950689eff726cc69e9e75" version="1">Heated Body</content>
+  <content contentuid="h5dfed2fedd1256f384cf934fdfcb0d66" version="1">A creature that hits the spirit with a melee attack takes 1d10 Fire damage.</content>
+  <content contentuid="h93f8b9f598b9569c92c5c3dcbf0349ca" version="1">Stony Lethargy</content>
+  <content contentuid="h9f4ffa3b152b5abb84eb18c421bc066a" version="1">Speed halved and can't make Opportunity Attacks (reactions) until the start of its next turn.</content>
+  <content contentuid="h6a9e7692e1965a8eb5250e98b6247016" version="1">Within reach of Stony Lethargy</content>
+  <content contentuid="h7173ce75cb305b5ea2817789a365a6af" version="1">Stony Lethargy</content>
+  <content contentuid="hb924e402cab057e08e826c1130aa925b" version="1">A creature that starts its turn within 10 feet of the spirit makes a Wisdom saving throw against your spell save DC; on a failure its Speed is halved and it can't make Opportunity Attacks until the start of its next turn.</content>
+  <content contentuid="h3026f838f8085b9cb478c39d4ecfc07d" version="1">Clay Construct Spirit</content>
+  <content contentuid="he1d39908bd155e26954bde5a96eb227a" version="1">Level 4 Clay Construct Spirit</content>
+  <content contentuid="h7e5f0f18f6f451b9b2091bcfbb2c2908" version="1">Summoned with a level 4 spell slot: uses your Proficiency Bonus, spell attack modifier and spell save DC.</content>
+  <content contentuid="h6517f780999d551688fc1c34807b2a88" version="1">Level 5 Clay Construct Spirit</content>
+  <content contentuid="ha7a5321606ea5a22be86309cda283e1b" version="1">Summoned with a level 5 spell slot: uses your Proficiency Bonus, spell attack modifier and spell save DC.</content>
+  <content contentuid="h0984a308bc5c552db73221b0b3d6339b" version="1">Level 6 Clay Construct Spirit</content>
+  <content contentuid="hefb718cc80f1545fbc1f42ca564145f2" version="1">Summoned with a level 6 spell slot: uses your Proficiency Bonus, spell attack modifier and spell save DC.</content>
+  <content contentuid="hcd7015274a8c5f74a69d0416e0102ec2" version="1">Level 7 Clay Construct Spirit</content>
+  <content contentuid="h14423cc3cc0253918d0e27fd0664a834" version="1">Summoned with a level 7 spell slot: uses your Proficiency Bonus, spell attack modifier and spell save DC.</content>
+  <content contentuid="hd62953b6f7575660879e858d3be9ade8" version="1">Level 8 Clay Construct Spirit</content>
+  <content contentuid="h91a72a51044b52938c948c8313874eee" version="1">Summoned with a level 8 spell slot: uses your Proficiency Bonus, spell attack modifier and spell save DC.</content>
+  <content contentuid="hf2fd0bc9704e52deb5d09c4af60fad3b" version="1">Level 9 Clay Construct Spirit</content>
+  <content contentuid="h533e2653990d52ca8de4b8815e6a1bf3" version="1">Summoned with a level 9 spell slot: uses your Proficiency Bonus, spell attack modifier and spell save DC.</content>
+  <content contentuid="h23042eddc6315448a655d9ed8437da86" version="1">Metal Construct Spirit</content>
+  <content contentuid="h0a1271f5684d54f7b0898e4ccaf66a0c" version="1">Level 4 Metal Construct Spirit</content>
+  <content contentuid="h7a3c614ee03d5318a1a4f851c3babe6a" version="1">Summoned with a level 4 spell slot: uses your Proficiency Bonus, spell attack modifier and spell save DC.</content>
+  <content contentuid="hcdcf86ba0e1d5827a8c899ec48bea0ca" version="1">Level 5 Metal Construct Spirit</content>
+  <content contentuid="h5947b9268d445e2084b6b4ed89f6bf53" version="1">Summoned with a level 5 spell slot: uses your Proficiency Bonus, spell attack modifier and spell save DC.</content>
+  <content contentuid="hb9c261b807a8563093269d969a4a2a2b" version="1">Level 6 Metal Construct Spirit</content>
+  <content contentuid="hfb78d4025f865f87b05baa542b4c1075" version="1">Summoned with a level 6 spell slot: uses your Proficiency Bonus, spell attack modifier and spell save DC.</content>
+  <content contentuid="h714987e7232e5668bdddfe4e875b5875" version="1">Level 7 Metal Construct Spirit</content>
+  <content contentuid="hec65c46559b05c1ab4fa4448da9e6a77" version="1">Summoned with a level 7 spell slot: uses your Proficiency Bonus, spell attack modifier and spell save DC.</content>
+  <content contentuid="h38e475db2344565aa038de09dc6a770a" version="1">Level 8 Metal Construct Spirit</content>
+  <content contentuid="h8fc62c5285355cc5ad1a76787d9cbcf9" version="1">Summoned with a level 8 spell slot: uses your Proficiency Bonus, spell attack modifier and spell save DC.</content>
+  <content contentuid="h129a3907580c5f78b17f57e41cf9882d" version="1">Level 9 Metal Construct Spirit</content>
+  <content contentuid="h66caa9a199405694b536e2297bea68d0" version="1">Summoned with a level 9 spell slot: uses your Proficiency Bonus, spell attack modifier and spell save DC.</content>
+  <content contentuid="hacb7543ccd5b590aaac8d8ee1cc687d5" version="1">Stone Construct Spirit</content>
+  <content contentuid="h58b70e51068f505eb53d0204a6ba73e1" version="1">Level 4 Stone Construct Spirit</content>
+  <content contentuid="he636de80e02e5797bfb9d4002291b9da" version="1">Summoned with a level 4 spell slot: uses your Proficiency Bonus, spell attack modifier and spell save DC.</content>
+  <content contentuid="h36868e712812535994217f249ee23042" version="1">Level 5 Stone Construct Spirit</content>
+  <content contentuid="h50752de1d3675ebaac637566941f8ce8" version="1">Summoned with a level 5 spell slot: uses your Proficiency Bonus, spell attack modifier and spell save DC.</content>
+  <content contentuid="ha3fa9afb6baf58c387a60c15a4c7beff" version="1">Level 6 Stone Construct Spirit</content>
+  <content contentuid="h41a06b6bcef455d18e625579f43fc31d" version="1">Summoned with a level 6 spell slot: uses your Proficiency Bonus, spell attack modifier and spell save DC.</content>
+  <content contentuid="h285f2accdb6d5ebc999f712822fe51d7" version="1">Level 7 Stone Construct Spirit</content>
+  <content contentuid="h407b0c2d7ccb5f0284d98ca882d0f462" version="1">Summoned with a level 7 spell slot: uses your Proficiency Bonus, spell attack modifier and spell save DC.</content>
+  <content contentuid="h1cbe4b345e4e5d13a4dc5c4f25b1f1fb" version="1">Level 8 Stone Construct Spirit</content>
+  <content contentuid="h778b8b6daff755c089b6e74562777fe0" version="1">Summoned with a level 8 spell slot: uses your Proficiency Bonus, spell attack modifier and spell save DC.</content>
+  <content contentuid="h068f7ccdbfd05bdf95f38544dfe105fb" version="1">Level 9 Stone Construct Spirit</content>
+  <content contentuid="h3461835446ee596ca64ea07e319afc39" version="1">Summoned with a level 9 spell slot: uses your Proficiency Bonus, spell attack modifier and spell save DC.</content>
+  <content contentuid="h1756ba361bfc5b4b8941e4ce5c33c5dc" version="1">Summon Construct</content>
+  <content contentuid="hf2eab08d8cf25caaa3b30af6b9df0347" version="1">You call forth the spirit of a Construct made of Clay, Metal or Stone (Concentration, up to 1 hour). It uses your Proficiency Bonus, spell attack modifier and spell save DC; AC 13 + the spell's level, 40 HP + 15 for each level above 4, and a number of Slam attacks equal to half the spell's level (1d8 + 4 + the spell's level). Clay: Berserk Lashing. Metal: Heated Body. Stone: Stony Lethargy.</content>
+  <content contentuid="h927b3073e4a75009816a6c20c72f2d59" version="1">Summon Construct: Clay</content>
+  <content contentuid="hb689621eaa9956b4a905d4186e1ca48e" version="1">You call forth the spirit of a Construct made of Clay, Metal or Stone (Concentration, up to 1 hour). It uses your Proficiency Bonus, spell attack modifier and spell save DC; AC 13 + the spell's level, 40 HP + 15 for each level above 4, and a number of Slam attacks equal to half the spell's level (1d8 + 4 + the spell's level). Clay: Berserk Lashing. Metal: Heated Body. Stone: Stony Lethargy.</content>
+  <content contentuid="hfdf521f0db285f329c2a2f8805ae5621" version="1">Summon Construct: Clay</content>
+  <content contentuid="h33b0102ad96a55a78756139ef500fb05" version="1">You call forth the spirit of a Construct made of Clay, Metal or Stone (Concentration, up to 1 hour). It uses your Proficiency Bonus, spell attack modifier and spell save DC; AC 13 + the spell's level, 40 HP + 15 for each level above 4, and a number of Slam attacks equal to half the spell's level (1d8 + 4 + the spell's level). Clay: Berserk Lashing. Metal: Heated Body. Stone: Stony Lethargy.</content>
+  <content contentuid="h57307926cd8d5b90bd874d9dc7aba95e" version="1">Summon Construct: Clay</content>
+  <content contentuid="h740b1b1d42005db0bb876cbcd95ad1c3" version="1">You call forth the spirit of a Construct made of Clay, Metal or Stone (Concentration, up to 1 hour). It uses your Proficiency Bonus, spell attack modifier and spell save DC; AC 13 + the spell's level, 40 HP + 15 for each level above 4, and a number of Slam attacks equal to half the spell's level (1d8 + 4 + the spell's level). Clay: Berserk Lashing. Metal: Heated Body. Stone: Stony Lethargy.</content>
+  <content contentuid="h259a3e603df9578c93cb7677c23fa274" version="1">Summon Construct: Clay</content>
+  <content contentuid="he05223f4817e508599abeb32fa0265dc" version="1">You call forth the spirit of a Construct made of Clay, Metal or Stone (Concentration, up to 1 hour). It uses your Proficiency Bonus, spell attack modifier and spell save DC; AC 13 + the spell's level, 40 HP + 15 for each level above 4, and a number of Slam attacks equal to half the spell's level (1d8 + 4 + the spell's level). Clay: Berserk Lashing. Metal: Heated Body. Stone: Stony Lethargy.</content>
+  <content contentuid="h163e1b2c699e5936821205c82a01dc5d" version="1">Summon Construct: Clay</content>
+  <content contentuid="hc0f81a9119aa56c3964956951d981bde" version="1">You call forth the spirit of a Construct made of Clay, Metal or Stone (Concentration, up to 1 hour). It uses your Proficiency Bonus, spell attack modifier and spell save DC; AC 13 + the spell's level, 40 HP + 15 for each level above 4, and a number of Slam attacks equal to half the spell's level (1d8 + 4 + the spell's level). Clay: Berserk Lashing. Metal: Heated Body. Stone: Stony Lethargy.</content>
+  <content contentuid="h8544a579ebd95017a343c3744b350f48" version="1">Summon Construct: Clay</content>
+  <content contentuid="h2a58c9d76358570c910924e84c68fb82" version="1">You call forth the spirit of a Construct made of Clay, Metal or Stone (Concentration, up to 1 hour). It uses your Proficiency Bonus, spell attack modifier and spell save DC; AC 13 + the spell's level, 40 HP + 15 for each level above 4, and a number of Slam attacks equal to half the spell's level (1d8 + 4 + the spell's level). Clay: Berserk Lashing. Metal: Heated Body. Stone: Stony Lethargy.</content>
+  <content contentuid="h29cc4469bf63558494bec6972188075a" version="1">Summon Construct: Metal</content>
+  <content contentuid="h8b7a1da041bc527f80afcdefa504e756" version="1">You call forth the spirit of a Construct made of Clay, Metal or Stone (Concentration, up to 1 hour). It uses your Proficiency Bonus, spell attack modifier and spell save DC; AC 13 + the spell's level, 40 HP + 15 for each level above 4, and a number of Slam attacks equal to half the spell's level (1d8 + 4 + the spell's level). Clay: Berserk Lashing. Metal: Heated Body. Stone: Stony Lethargy.</content>
+  <content contentuid="hc48db39765665b92b7d10338b9cfdb97" version="1">Summon Construct: Metal</content>
+  <content contentuid="h5af6b481d29559b59a37333ee5505886" version="1">You call forth the spirit of a Construct made of Clay, Metal or Stone (Concentration, up to 1 hour). It uses your Proficiency Bonus, spell attack modifier and spell save DC; AC 13 + the spell's level, 40 HP + 15 for each level above 4, and a number of Slam attacks equal to half the spell's level (1d8 + 4 + the spell's level). Clay: Berserk Lashing. Metal: Heated Body. Stone: Stony Lethargy.</content>
+  <content contentuid="hd43fb32678495985901dad877075a095" version="1">Summon Construct: Metal</content>
+  <content contentuid="h7066519ab074596ab62204942a7788f6" version="1">You call forth the spirit of a Construct made of Clay, Metal or Stone (Concentration, up to 1 hour). It uses your Proficiency Bonus, spell attack modifier and spell save DC; AC 13 + the spell's level, 40 HP + 15 for each level above 4, and a number of Slam attacks equal to half the spell's level (1d8 + 4 + the spell's level). Clay: Berserk Lashing. Metal: Heated Body. Stone: Stony Lethargy.</content>
+  <content contentuid="h779704e6837e5226809d2bae7a28050c" version="1">Summon Construct: Metal</content>
+  <content contentuid="hf0b3032b0d29547b99ad7fef8a9d02d6" version="1">You call forth the spirit of a Construct made of Clay, Metal or Stone (Concentration, up to 1 hour). It uses your Proficiency Bonus, spell attack modifier and spell save DC; AC 13 + the spell's level, 40 HP + 15 for each level above 4, and a number of Slam attacks equal to half the spell's level (1d8 + 4 + the spell's level). Clay: Berserk Lashing. Metal: Heated Body. Stone: Stony Lethargy.</content>
+  <content contentuid="hef972735367350bb91654d1f4d01d2ca" version="1">Summon Construct: Metal</content>
+  <content contentuid="h940e8f8751a555a1a447c665e0ceb860" version="1">You call forth the spirit of a Construct made of Clay, Metal or Stone (Concentration, up to 1 hour). It uses your Proficiency Bonus, spell attack modifier and spell save DC; AC 13 + the spell's level, 40 HP + 15 for each level above 4, and a number of Slam attacks equal to half the spell's level (1d8 + 4 + the spell's level). Clay: Berserk Lashing. Metal: Heated Body. Stone: Stony Lethargy.</content>
+  <content contentuid="h0db2f126d63f5f998f13d3a0a2c6e274" version="1">Summon Construct: Metal</content>
+  <content contentuid="hc8c1f2a1bdab5423a58c2da0ffecbab5" version="1">You call forth the spirit of a Construct made of Clay, Metal or Stone (Concentration, up to 1 hour). It uses your Proficiency Bonus, spell attack modifier and spell save DC; AC 13 + the spell's level, 40 HP + 15 for each level above 4, and a number of Slam attacks equal to half the spell's level (1d8 + 4 + the spell's level). Clay: Berserk Lashing. Metal: Heated Body. Stone: Stony Lethargy.</content>
+  <content contentuid="hee12e669d22b56f3bbb655ce2565951c" version="1">Summon Construct: Stone</content>
+  <content contentuid="hfb19b785cb185160bd1b5b1a5ee2db51" version="1">You call forth the spirit of a Construct made of Clay, Metal or Stone (Concentration, up to 1 hour). It uses your Proficiency Bonus, spell attack modifier and spell save DC; AC 13 + the spell's level, 40 HP + 15 for each level above 4, and a number of Slam attacks equal to half the spell's level (1d8 + 4 + the spell's level). Clay: Berserk Lashing. Metal: Heated Body. Stone: Stony Lethargy.</content>
+  <content contentuid="h7712a80329d6518096cf7f2c22296aeb" version="1">Summon Construct: Stone</content>
+  <content contentuid="hf93ab393fb115d8a8523c537223c4f18" version="1">You call forth the spirit of a Construct made of Clay, Metal or Stone (Concentration, up to 1 hour). It uses your Proficiency Bonus, spell attack modifier and spell save DC; AC 13 + the spell's level, 40 HP + 15 for each level above 4, and a number of Slam attacks equal to half the spell's level (1d8 + 4 + the spell's level). Clay: Berserk Lashing. Metal: Heated Body. Stone: Stony Lethargy.</content>
+  <content contentuid="h62fefb7f3d075034903f0de0835504ce" version="1">Summon Construct: Stone</content>
+  <content contentuid="hdc1920c7c9e657c68b870407dd0a19dd" version="1">You call forth the spirit of a Construct made of Clay, Metal or Stone (Concentration, up to 1 hour). It uses your Proficiency Bonus, spell attack modifier and spell save DC; AC 13 + the spell's level, 40 HP + 15 for each level above 4, and a number of Slam attacks equal to half the spell's level (1d8 + 4 + the spell's level). Clay: Berserk Lashing. Metal: Heated Body. Stone: Stony Lethargy.</content>
+  <content contentuid="h2e0eea61abf956c78c381ef6365e7d6f" version="1">Summon Construct: Stone</content>
+  <content contentuid="h621a2db23dce5ca7824572a47e864bc0" version="1">You call forth the spirit of a Construct made of Clay, Metal or Stone (Concentration, up to 1 hour). It uses your Proficiency Bonus, spell attack modifier and spell save DC; AC 13 + the spell's level, 40 HP + 15 for each level above 4, and a number of Slam attacks equal to half the spell's level (1d8 + 4 + the spell's level). Clay: Berserk Lashing. Metal: Heated Body. Stone: Stony Lethargy.</content>
+  <content contentuid="h54e3b9aed0965a7993b58fec8202e3e3" version="1">Summon Construct: Stone</content>
+  <content contentuid="h9f67ec0a892a5599b66f301ac4673214" version="1">You call forth the spirit of a Construct made of Clay, Metal or Stone (Concentration, up to 1 hour). It uses your Proficiency Bonus, spell attack modifier and spell save DC; AC 13 + the spell's level, 40 HP + 15 for each level above 4, and a number of Slam attacks equal to half the spell's level (1d8 + 4 + the spell's level). Clay: Berserk Lashing. Metal: Heated Body. Stone: Stony Lethargy.</content>
+  <content contentuid="h04a04dea814b5245bf5bf5749b85a871" version="1">Summon Construct: Stone</content>
+  <content contentuid="h6be597ecc6085a62901934b2fd05af11" version="1">You call forth the spirit of a Construct made of Clay, Metal or Stone (Concentration, up to 1 hour). It uses your Proficiency Bonus, spell attack modifier and spell save DC; AC 13 + the spell's level, 40 HP + 15 for each level above 4, and a number of Slam attacks equal to half the spell's level (1d8 + 4 + the spell's level). Clay: Berserk Lashing. Metal: Heated Body. Stone: Stony Lethargy.</content>
 </contentList>

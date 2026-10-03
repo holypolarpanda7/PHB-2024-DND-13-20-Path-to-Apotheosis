@@ -130,8 +130,15 @@ From the PHB 2024 text (Skill Empowerment: Xanathar's), `References/Spells/Issue
 - **Raise Dead:** out of combat, playable characters only; the material diamond isn't consumed. Untested in game
   (needs a dead party member).
 - **Skill Empowerment:** doesn't check that the target is proficient in the chosen skill.
-Not built yet: Summon Elemental, Summon Construct, Animate Objects, Bigby's Hand, Mordenkainen's Faithful Hound
-(the summons pass). Exploration-only spells BG3 can't express: Locate Creature, Commune with Nature, Tree Stride,
+Summons are new creatures (`Scripts/gen_summons.py`, tests `tests/bg3/summons.toml`): each form has its own root
+template (`RootTemplates/Apotheosis_Summons.lsf`) and Character stats, and the slot level arrives as a level status
+(your PB, spell attack modifier and save DC; the stat block's "+ spell level" AC/HP; Multiattack via Extra Attack;
+the level's Slam variant). Models are base-game placeholders, swappable per form in `MODELS`.
+- **Summon Elemental** (Air/Earth/Fire/Water, levels 4-9) and **Summon Construct** (Clay/Metal/Stone, 4-9): built and
+  tested 2026-10-03. Approximations: no Burrow/Swim/Amorphous Form; Opportunity Attacks use the unarmed attack, not
+  the Slam; Stony Lethargy blocks all reactions (as dnd55e's Shocking Grasp) and ignores "if it can see it"; Heated
+  Body ignores grapples; Berserk Lashing doesn't move toward a creature out of reach.
+- Not built yet (summons pass 2): Animate Objects, Bigby's Hand, Mordenkainen's Faithful Hound. Exploration-only spells BG3 can't express: Locate Creature, Commune with Nature, Tree Stride,
 Fabricate, Creation, Stone Shape, Transmute Rock, Leomund's Secret Chest, Mordenkainen's Private Sanctum.
 
 ## Quivering Palm (Open Hand 17, issue #16)
