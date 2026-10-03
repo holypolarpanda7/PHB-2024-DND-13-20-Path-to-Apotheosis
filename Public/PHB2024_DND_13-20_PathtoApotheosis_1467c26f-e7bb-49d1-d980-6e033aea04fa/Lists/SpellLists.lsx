@@ -468,6 +468,194 @@
                     <attribute id="UUID" type="guid" value="dac64a58-a4f9-4d36-a48b-3cf605d04d8a"/>
                 </node>
                 <!-- SUMMONS 10 END -->
+                <!-- SUBCLASS SPELLS 13-17 BEGIN (generated) -->
+                <node id="SpellList">
+                    <attribute id="Comment" type="LSString" value="Apotheosis Devotion spells level 13"/>
+                    <attribute id="Name" type="FixedString" value="Apotheosis Devotion Spells Level 13"/>
+                    <attribute id="Spells" type="LSString" value="Target_FreedomOfMovement;Target_GuardianOfFaith"/>
+                    <attribute id="UUID" type="guid" value="981695e7-407e-5244-9361-a714ed28f20d"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="Comment" type="LSString" value="Apotheosis Devotion spells level 17"/>
+                    <attribute id="Name" type="FixedString" value="Apotheosis Devotion Spells Level 17"/>
+                    <attribute id="Spells" type="LSString" value="Target_FlameStrike"/>
+                    <attribute id="UUID" type="guid" value="fb27c72c-71e9-52e4-89b4-0a2d5c97d5b8"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="Comment" type="LSString" value="Apotheosis Glory spells level 13"/>
+                    <attribute id="Name" type="FixedString" value="Apotheosis Glory Spells Level 13"/>
+                    <attribute id="Spells" type="LSString" value="Target_FreedomOfMovement"/>
+                    <attribute id="UUID" type="guid" value="9b2a1ef2-dc02-51af-acdf-f1e6d1091426"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="Comment" type="LSString" value="Apotheosis Ancients spells level 13"/>
+                    <attribute id="Name" type="FixedString" value="Apotheosis Ancients Spells Level 13"/>
+                    <attribute id="Spells" type="LSString" value="Target_IceStorm;Target_Stoneskin"/>
+                    <attribute id="UUID" type="guid" value="9da7e6d4-b7c1-5d9f-8aa2-7946195f8b35"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="Comment" type="LSString" value="Apotheosis Vengeance spells level 13"/>
+                    <attribute id="Name" type="FixedString" value="Apotheosis Vengeance Spells Level 13"/>
+                    <attribute id="Spells" type="LSString" value="Target_Banishment;Teleportation_DimensionDoor"/>
+                    <attribute id="UUID" type="guid" value="6a312591-3892-5743-bc85-39514f55f3e1"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="Comment" type="LSString" value="Apotheosis Vengeance spells level 17"/>
+                    <attribute id="Name" type="FixedString" value="Apotheosis Vengeance Spells Level 17"/>
+                    <attribute id="Spells" type="LSString" value="Target_HoldMonster;Target_Scrying"/>
+                    <attribute id="UUID" type="guid" value="00997cb1-183b-560f-a4a8-d7c3b97ccf58"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="Comment" type="LSString" value="Apotheosis Conquest spells level 13"/>
+                    <attribute id="Name" type="FixedString" value="Apotheosis Conquest Spells Level 13"/>
+                    <attribute id="Spells" type="LSString" value="Target_DominateBeast;Target_Stoneskin"/>
+                    <attribute id="UUID" type="guid" value="fc28acb9-5ef8-5b0f-aa2f-a83091feea86"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="Comment" type="LSString" value="Apotheosis Conquest spells level 17"/>
+                    <attribute id="Name" type="FixedString" value="Apotheosis Conquest Spells Level 17"/>
+                    <attribute id="Spells" type="LSString" value="Target_Cloudkill;Target_DominatePerson"/>
+                    <attribute id="UUID" type="guid" value="9c3dd579-5eb8-5c28-a48d-1448b276d7ff"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="Comment" type="LSString" value="Apotheosis Crown spells level 13"/>
+                    <attribute id="Name" type="FixedString" value="Apotheosis Crown Spells Level 13"/>
+                    <attribute id="Spells" type="LSString" value="Target_Banishment;Target_GuardianOfFaith"/>
+                    <attribute id="UUID" type="guid" value="debad68e-062a-57ae-96cd-8c29fb701110"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="Comment" type="LSString" value="Apotheosis Crown spells level 17"/>
+                    <attribute id="Name" type="FixedString" value="Apotheosis Crown Spells Level 17"/>
+                    <attribute id="Spells" type="LSString" value="Shout_CircleOfPower;Target_Geas"/>
+                    <attribute id="UUID" type="guid" value="dc71ea44-fdaa-5fea-9079-06aafd8757f6"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="Comment" type="LSString" value="Apotheosis Watchers spells level 13"/>
+                    <attribute id="Name" type="FixedString" value="Apotheosis Watchers Spells Level 13"/>
+                    <attribute id="Spells" type="LSString" value="Shout_AuraOfPurity;Target_Banishment"/>
+                    <attribute id="UUID" type="guid" value="7cda3360-812b-554a-a4cb-4eeb2d88017b"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="Comment" type="LSString" value="Apotheosis Watchers spells level 17"/>
+                    <attribute id="Name" type="FixedString" value="Apotheosis Watchers Spells Level 17"/>
+                    <attribute id="Spells" type="LSString" value="Target_HoldMonster;Target_Scrying"/>
+                    <attribute id="UUID" type="guid" value="10fd2a57-b115-58bd-bcc5-dbd4692a52bf"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="Comment" type="LSString" value="Apotheosis Oathbreaker spells level 13"/>
+                    <attribute id="Name" type="FixedString" value="Apotheosis Oathbreaker Spells Level 13"/>
+                    <attribute id="Spells" type="LSString" value="Target_Blight;Target_Confusion"/>
+                    <attribute id="UUID" type="guid" value="9fecff02-6798-5bf1-8a05-b9f1b9d8b9f7"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="Comment" type="LSString" value="Apotheosis Oathbreaker spells level 17"/>
+                    <attribute id="Name" type="FixedString" value="Apotheosis Oathbreaker Spells Level 17"/>
+                    <attribute id="Spells" type="LSString" value="Target_Contagion;Target_DominatePerson"/>
+                    <attribute id="UUID" type="guid" value="3d9b8c00-8bcf-51b9-b729-9b519a3dcd49"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="Comment" type="LSString" value="Apotheosis NobleGenie spells level 13"/>
+                    <attribute id="Name" type="FixedString" value="Apotheosis NobleGenie Spells Level 13"/>
+                    <attribute id="Spells" type="LSString" value="Target_ConjureElementals_Minor_Container;Target_ApoSummonElemental"/>
+                    <attribute id="UUID" type="guid" value="4d0f1df4-2e68-5e80-9625-856465bddff2"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="Comment" type="LSString" value="Apotheosis NobleGenie spells level 17"/>
+                    <attribute id="Name" type="FixedString" value="Apotheosis NobleGenie Spells Level 17"/>
+                    <attribute id="Spells" type="LSString" value="Target_Smite_Banishing"/>
+                    <attribute id="UUID" type="guid" value="59cdbc4f-1958-5c50-8593-1b07a0765560"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="Comment" type="LSString" value="Apotheosis FeyWanderer spells level 13"/>
+                    <attribute id="Name" type="FixedString" value="Apotheosis FeyWanderer Spells Level 13"/>
+                    <attribute id="Spells" type="LSString" value="Teleportation_DimensionDoor"/>
+                    <attribute id="UUID" type="guid" value="88be3019-168b-5e48-8904-3270771c1da1"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="Comment" type="LSString" value="Apotheosis GloomStalker spells level 13"/>
+                    <attribute id="Name" type="FixedString" value="Apotheosis GloomStalker Spells Level 13"/>
+                    <attribute id="Spells" type="LSString" value="Target_Invisibility_Greater"/>
+                    <attribute id="UUID" type="guid" value="feab13ec-7831-54cf-8c3f-c5a903cb8144"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="Comment" type="LSString" value="Apotheosis GloomStalker spells level 17"/>
+                    <attribute id="Name" type="FixedString" value="Apotheosis GloomStalker Spells Level 17"/>
+                    <attribute id="Spells" type="LSString" value="Target_Seeming"/>
+                    <attribute id="UUID" type="guid" value="17e3b525-d807-5fe2-b833-99e0ab538d0a"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="Comment" type="LSString" value="Apotheosis HollowWarden spells level 17"/>
+                    <attribute id="Name" type="FixedString" value="Apotheosis HollowWarden Spells Level 17"/>
+                    <attribute id="Spells" type="LSString" value="Target_Awaken"/>
+                    <attribute id="UUID" type="guid" value="100d1158-cccf-5f64-ac27-93f32aec30c7"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="Comment" type="LSString" value="Apotheosis Swarmkeeper spells level 13"/>
+                    <attribute id="Name" type="FixedString" value="Apotheosis Swarmkeeper Spells Level 13"/>
+                    <attribute id="Spells" type="LSString" value="Target_ArcaneEye"/>
+                    <attribute id="UUID" type="guid" value="817973d3-f902-5f03-907b-c6039b3a0f87"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="Comment" type="LSString" value="Apotheosis Swarmkeeper spells level 17"/>
+                    <attribute id="Name" type="FixedString" value="Apotheosis Swarmkeeper Spells Level 17"/>
+                    <attribute id="Spells" type="LSString" value="Target_InsectPlague"/>
+                    <attribute id="UUID" type="guid" value="736561ec-7034-528a-81e5-7c20c63fbed3"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="Comment" type="LSString" value="Apotheosis WinterWalker spells level 13"/>
+                    <attribute id="Name" type="FixedString" value="Apotheosis WinterWalker Spells Level 13"/>
+                    <attribute id="Spells" type="LSString" value="Target_IceStorm"/>
+                    <attribute id="UUID" type="guid" value="74407e89-4d07-57c3-bd11-24eb484441d7"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="Comment" type="LSString" value="Apotheosis WinterWalker spells level 17"/>
+                    <attribute id="Name" type="FixedString" value="Apotheosis WinterWalker Spells Level 17"/>
+                    <attribute id="Spells" type="LSString" value="Zone_ConeOfCold"/>
+                    <attribute id="UUID" type="guid" value="64bf07aa-05bb-5642-bcf2-1c37e9314dfe"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="Comment" type="LSString" value="Apotheosis Alchemist spells level 13"/>
+                    <attribute id="Name" type="FixedString" value="Apotheosis Alchemist Spells Level 13"/>
+                    <attribute id="Spells" type="LSString" value="Target_DeathWard;Projectile_VitriolicSphere"/>
+                    <attribute id="UUID" type="guid" value="199a69c9-d47b-5f26-9928-3b591528e91b"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="Comment" type="LSString" value="Apotheosis Alchemist spells level 17"/>
+                    <attribute id="Name" type="FixedString" value="Apotheosis Alchemist Spells Level 17"/>
+                    <attribute id="Spells" type="LSString" value="Target_Cloudkill;Teleportation_RaiseDead"/>
+                    <attribute id="UUID" type="guid" value="a00accdb-f7e8-58ed-a087-bb0ee0fb6e62"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="Comment" type="LSString" value="Apotheosis Armorer spells level 13"/>
+                    <attribute id="Name" type="FixedString" value="Apotheosis Armorer Spells Level 13"/>
+                    <attribute id="Spells" type="LSString" value="Shout_FireShield;Target_Invisibility_Greater"/>
+                    <attribute id="UUID" type="guid" value="82b8c79a-44a6-574c-978a-6f98789944ab"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="Comment" type="LSString" value="Apotheosis Artillerist spells level 13"/>
+                    <attribute id="Name" type="FixedString" value="Apotheosis Artillerist Spells Level 13"/>
+                    <attribute id="Spells" type="LSString" value="Target_IceStorm;Wall_WallOfFire"/>
+                    <attribute id="UUID" type="guid" value="a414429c-8563-53bd-a220-b224bccbd0d4"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="Comment" type="LSString" value="Apotheosis Artillerist spells level 17"/>
+                    <attribute id="Name" type="FixedString" value="Apotheosis Artillerist Spells Level 17"/>
+                    <attribute id="Spells" type="LSString" value="Zone_ConeOfCold"/>
+                    <attribute id="UUID" type="guid" value="ea7836ef-eab1-5810-88e5-fff913de111c"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="Comment" type="LSString" value="Apotheosis BattleSmith spells level 13"/>
+                    <attribute id="Name" type="FixedString" value="Apotheosis BattleSmith Spells Level 13"/>
+                    <attribute id="Spells" type="LSString" value="Shout_AuraOfPurity;Shout_FireShield"/>
+                    <attribute id="UUID" type="guid" value="a344863b-bdf0-5ce7-938f-3e3192dddf80"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="Comment" type="LSString" value="Apotheosis BattleSmith spells level 17"/>
+                    <attribute id="Name" type="FixedString" value="Apotheosis BattleSmith Spells Level 17"/>
+                    <attribute id="Spells" type="LSString" value="Target_Smite_Banishing;Target_CureWounds_Mass"/>
+                    <attribute id="UUID" type="guid" value="b424c74c-bba6-598a-b16c-fcc63c3e18d2"/>
+                </node>
+                <!-- SUBCLASS SPELLS 13-17 END -->
             </children>
         </node>
     </region>
