@@ -362,32 +362,31 @@ M.classes["Illrigger"] = {
     levels = {
         [13] = {
             passives  = {},
-            boosts    = "ActionResource(SpellSlot,1,4)",
+            boosts    = "ActionResource(Seal,1,0)",
+            selectors = "SelectPassives(e2e21374-e6e1-51cd-b67a-67ea2811dff7,1,IllriggerInterdiction)",
         },
         [14] = {
-            passives  = {},
+            passives  = { "Illrigger_14_SuperiorInterdict" },
         },
         [15] = {
-            passives  = { "Illrigger_InfernalConduit" },
-            boosts    = "ActionResource(Seal,1,0)",
+            passives  = {},
         },
         [16] = {
             passives  = {},
         },
         [17] = {
-            passives  = {},
-            boosts    = "ActionResource(SpellSlot,1,5)",
+            passives  = { "Illrigger_17_InfernalMajesty" },
         },
         [18] = {
             passives  = {},
             boosts    = "ActionResource(Seal,1,0)",
+            selectors = "SelectPassives(e2e21374-e6e1-51cd-b67a-67ea2811dff7,1,IllriggerInterdiction)",
         },
         [19] = {
             passives  = {},
-            boosts    = "ActionResource(SpellSlot,1,5)",
         },
         [20] = {
-            passives  = { "Illrigger_PrinceOfHell" },
+            passives  = { "Illrigger_20_MasterOfHell" },
         },
     },
 }
@@ -774,30 +773,33 @@ M.subclasses["ArchitectOfRuin"] = {
     parent = "Illrigger",
     levels = {
         [13] = {
+            passives  = { "ArchitectOfRuin_13_Spellbreaker" },
+            boosts    = "ActionResource(SpellSlot,2,3)",
+            selectors = "SelectSpells(22755771-ca11-49f4-b772-13d8b8fecd93,1,1,EldritchKnightAbjEvo)",
+        },
+        [14] = {
             passives  = {},
-            boosts    = "ActionResource(SpellSlot,1,3)",
-            selectors = "SelectSpells(80c6b070-c3a6-4864-84ca-e78626784eb4,1,1,EldritchKnightAbjEvo)",
+            selectors = "SelectSpells(22755771-ca11-49f4-b772-13d8b8fecd93,1,1,EldritchKnightAbjEvo)",
         },
         [15] = {
             passives  = { "ArchitectsOfRuin_15_VileTransmogrification" },
-            selectors = "SelectSpells(80c6b070-c3a6-4864-84ca-e78626784eb4,1,1,EldritchKnightAbjEvo)",
         },
-        [17] = {
+        [16] = {
             passives  = {},
-            selectors = "SelectSpells(80c6b070-c3a6-4864-84ca-e78626784eb4,1,1,EldritchKnightAbjEvo)",
+            boosts    = "ActionResource(SpellSlot,1,3)",
+            selectors = "SelectSpells(22755771-ca11-49f4-b772-13d8b8fecd93,1,1,EldritchKnightAbjEvo)",
         },
         [18] = {
-            passives  = { "ArchitectsOfRuin_18_HellMage" },
-            selectors = "SelectSpells(80c6b070-c3a6-4864-84ca-e78626784eb4,1,1,EldritchKnightAbjEvo)",
+            passives  = { "ArchitectOfRuin_18_HellMage" },
         },
         [19] = {
             passives  = {},
-            boosts    = "ActionResource(SpellSlot,1,3)",
-            selectors = "SelectSpells(80c6b070-c3a6-4864-84ca-e78626784eb4,1,1,EldritchKnightAbjEvo)",
+            boosts    = "ActionResource(SpellSlot,1,4)",
+            selectors = "SelectSpells(820b1220-0385-426d-ae15-458dc8a6f5c0,1,1,EldritchKnightAbjEvo)",
         },
         [20] = {
             passives  = {},
-            selectors = "SelectSpells(80c6b070-c3a6-4864-84ca-e78626784eb4,1,1,EldritchKnightAbjEvo)",
+            selectors = "SelectSpells(820b1220-0385-426d-ae15-458dc8a6f5c0,1,1,EldritchKnightAbjEvo)",
         },
     },
 }
@@ -1280,11 +1282,17 @@ M.subclasses["GreatOldOne"] = {
 M.subclasses["Hellspeaker"] = {
     parent = "Illrigger",
     levels = {
+        [11] = {
+            passives  = {},
+        },
+        [13] = {
+            passives  = { "Hellspeaker_13_SlipperyPloy" },
+        },
         [15] = {
             passives  = { "Hellspeaker_15_QuidProQuo" },
         },
         [18] = {
-            passives  = { "Hellspeaker_18_Incontrovertible" },
+            passives  = { "HellSpeaker_11_Incontrovertible" },
         },
     },
 }
@@ -1487,11 +1495,22 @@ M.subclasses["OpenHand"] = {
 M.subclasses["Painkiller"] = {
     parent = "Illrigger",
     levels = {
+        [7] = {
+            passives  = {},
+        },
+        [13] = {
+            passives  = { "Painkiller_13_ByTheThroat" },
+        },
         [15] = {
             passives  = { "Painkiller_15_Deathstrike" },
+            boosts    = "ActionResource(IllriggerDeathstrike,5,0)",
+        },
+        [17] = {
+            passives  = {},
+            boosts    = "ActionResource(IllriggerDeathstrike,1,0)",
         },
         [18] = {
-            passives  = { "Painkiller_18_DispatersSupremacy" },
+            passives  = { "PainKiller_7_DispatersSupremacy" },
         },
     },
 }
@@ -1544,11 +1563,17 @@ M.subclasses["RuneKnight"] = {
 M.subclasses["SanguineKnight"] = {
     parent = "Illrigger",
     levels = {
+        [7] = {
+            passives  = {},
+        },
+        [13] = {
+            passives  = { "SanguineKnight_13_SanguineGift" },
+        },
         [15] = {
             passives  = { "SanguineKnight_15_HaemalExchange" },
         },
         [18] = {
-            passives  = { "SanguineKnight_18_BloodForBlood" },
+            passives  = { "SanguineKnight_7_BloodForBlood" },
         },
     },
 }
@@ -1580,11 +1605,17 @@ M.subclasses["Shadow"] = {
 M.subclasses["Shadowmaster"] = {
     parent = "Illrigger",
     levels = {
+        [7] = {
+            passives  = {},
+        },
+        [13] = {
+            passives  = { "Shadowmaster_7_HellsAssassin" },
+        },
         [15] = {
             passives  = { "Shadowmaster_Illrigger_15_DoomedToTheShadows" },
         },
         [18] = {
-            passives  = { "Shadowmaster_Illrigger_18_DarkMalediction" },
+            passives  = { "Shadowmaster_18_DarkMalediction" },
         },
     },
 }

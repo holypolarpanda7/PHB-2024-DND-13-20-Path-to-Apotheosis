@@ -59,6 +59,39 @@
                     <attribute id="UUID" type="guid" value="f2694731-e5cf-40a4-a9bd-b24b602fb54e"/>
                 </node>
                 <!-- GUNSLINGER 13-20 END -->
+                <!-- ILLRIGGER 13-20 BEGIN (generated) -->
+                <node id="LevelMapSeries">
+                    <attribute id="Level1" type="LSString" value="1d6"/>
+                    <attribute id="Level5" type="LSString" value="2d6"/>
+                    <attribute id="Level10" type="LSString" value="3d6"/>
+                    <attribute id="Level20" type="LSString" value="4d6"/>
+                    <attribute id="Name" type="FixedString" value="Seal"/>
+                    <attribute id="PreferredClassUUID" type="guid" value="33bd368d-2ff4-4add-8692-66d87372053a"/>
+                    <attribute id="UUID" type="guid" value="fcd31786-1b71-4255-9907-37491ba8806b"/>
+                </node>
+                <node id="LevelMapSeries">
+                    <attribute id="Level6" type="LSString" value="3d12"/>
+                    <attribute id="Level8" type="LSString" value="4d12"/>
+                    <attribute id="Level10" type="LSString" value="5d12"/>
+                    <attribute id="Level12" type="LSString" value="6d12"/>
+                    <attribute id="Level13" type="LSString" value="7d12"/>
+                    <attribute id="Level15" type="LSString" value="8d12"/>
+                    <attribute id="Level17" type="LSString" value="9d12"/>
+                    <attribute id="Level19" type="LSString" value="10d12"/>
+                    <attribute id="Name" type="FixedString" value="InfernalConduit"/>
+                    <attribute id="PreferredClassUUID" type="guid" value="33bd368d-2ff4-4add-8692-66d87372053a"/>
+                    <attribute id="UUID" type="guid" value="b08ec6fa-0793-4ad8-98dd-95edbf7538c7"/>
+                </node>
+                <node id="LevelMapSeries">
+                    <attribute id="Level1" type="LSString" value="2d8"/>
+                    <attribute id="Level5" type="LSString" value="3d8"/>
+                    <attribute id="Level9" type="LSString" value="4d8"/>
+                    <attribute id="Level13" type="LSString" value="5d8"/>
+                    <attribute id="Level17" type="LSString" value="6d8"/>
+                    <attribute id="Name" type="FixedString" value="ApoProficiencyBonusD8"/>
+                    <attribute id="UUID" type="guid" value="8c59a526-2706-55f6-b19e-ea6a95475b87"/>
+                </node>
+                <!-- ILLRIGGER 13-20 END -->
             </children>
         </node>
     </region>

@@ -1,0 +1,208 @@
+# Illrigger 13-20 (issue #7) effect tests. Features are granted to the host for the case (any class works);
+# the host gets a Seal pool from setup. Seal damage scales with Illrigger level (0 on another class), so Superior
+# Interdict's "ignores resistance" needs a real Illrigger to check. Values that scale with Illrigger level (seal damage, Sanguine Gift) are at
+# level 0 on a non-Illrigger host. Ranged cases need a ranged weapon equipped. Run: bg3_test_run("apotheosis", "<id>").
+
+[suite]
+name = "Illrigger 13-20"
+mode = "script"
+
+# ---------------------------------------------------------------- base class
+[[case]]
+id = "ill-regain-seal"
+title = "Superior Interdict: a Bonus Action regains a seal when you have none"
+spell = "Shout_Illrigger_RegainSeal"
+target = "host"
+setup = [{ target = "host", boost = "ActionResource(Seal,7,0)" }, { target = "host", passive = "Illrigger_14_SuperiorInterdict" }, { target = "host", resource = "Seal", amount = 0 }]
+expect = [{ resource = "Seal", level = 0, amount_change = 1 }, { resource = "IllriggerSuperiorInterdict", level = 0, change = -1 }]
+
+[[case]]
+id = "ill-infernal-majesty"
+title = "Infernal Majesty: resistances, flight and the stronger Terrorizing Force for 10 minutes"
+spell = "Shout_Illrigger_InfernalMajesty"
+target = "host"
+setup = [{ target = "host", passive = "Illrigger_17_InfernalMajesty" }]
+expect = [{ target = "host", status_present = ["ILLRIGGER_INFERNAL_MAJESTY"] }, { resource = "IllriggerInfernalMajesty", level = 0, change = -1 }]
+
+[[case]]
+id = "ill-master-of-hell-inferno"
+title = "Master of Hell: Inferno - 5d10 Fire + 5d10 Necrotic and burning on a failed save"
+spell = "Projectile_Illrigger_MasterOfHell_Inferno"
+target = "A"
+real_rolls = true
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 10 }]
+setup = [{ target = "host", passive = "Illrigger_20_MasterOfHell" }, { target = "A", boost = "AbilityFailedSavingThrow(Dexterity)" }]
+expect = [{ target = "A", hp_change = [-100, -10] }, { target = "A", status_applied = ["ILLRIGGER_HELLFIRE"] }]
+
+[[case]]
+id = "ill-master-of-hell-darkness"
+title = "Master of Hell: Darkness - 10d10 Cold and Blinded"
+spell = "Projectile_Illrigger_MasterOfHell_Darkness"
+target = "A"
+real_rolls = true
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 10 }]
+setup = [{ target = "host", passive = "Illrigger_20_MasterOfHell" }, { target = "A", boost = "AbilityFailedSavingThrow(Constitution)" }]
+expect = [{ target = "A", hp_change = [-100, -10] }, { target = "A", status_applied = ["ILLRIGGER_HELLSTORM_GLOOM"] }]
+
+# ---------------------------------------------------------------- 13th-level interdict boons
+[[case]]
+id = "ill-diss-onslaught"
+title = "Dis's Onslaught: placing a seal readies a free weapon attack"
+spell = "Target_Seal"
+target = "A"
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 6 }]
+setup = [{ target = "host", boost = "ActionResource(Seal,7,0)" }, { target = "host", passive = "InterdictBoons_13_DissOnslaught" }]
+expect = [{ target = "A", status_applied = ["INTERDICTED"] }, { target = "host", status_applied = ["ILLRIGGER_DISS_ONSLAUGHT"] }]
+
+[[case]]
+id = "ill-flash-of-brimstone"
+title = "Flash of Brimstone: after placing a seal, teleport next to the target"
+spell = "Target_Illrigger_FlashOfBrimstone"
+target = "A"
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 8 }]
+setup = [{ target = "host", boost = "ActionResource(Seal,7,0)" }, { target = "host", passive = "InterdictBoons_13_FlashOfBrimstone" }]
+casts = [{ spell = "Target_Seal", target = "A", wait = 2 }]
+expect = [{ target = "host", status_applied = ["ILLRIGGER_FLASH_READY"] }, { target = "host", status_absent = ["ILLRIGGER_FLASH_READY"] }]
+notes = "The ready status is gone at the end because the teleport used it."
+
+[[case]]
+id = "ill-hellish-frenzy"
+title = "Hellish Frenzy: a seal for doubled speed, +2 AC and an extra attack"
+spell = "Shout_Illrigger_HellishFrenzy"
+target = "host"
+setup = [{ target = "host", boost = "ActionResource(Seal,7,0)" }, { target = "host", passive = "InterdictBoons_13_HellishFrenzy" }]
+expect = [{ target = "host", status_present = ["ILLRIGGER_HELLISH_FRENZY", "ILLRIGGER_HELLISH_FRENZY_ATTACK"] }, { resource = "Seal", level = 0, change = -1 }]
+
+[[case]]
+id = "ill-hellsight"
+title = "Hellsight: a seal for an hour of Truesight"
+spell = "Shout_Illrigger_Hellsight"
+target = "host"
+setup = [{ target = "host", boost = "ActionResource(Seal,7,0)" }, { target = "host", passive = "InterdictBoons_13_Hellsight" }]
+expect = [{ target = "host", status_present = ["ILLRIGGER_HELLSIGHT"] }, { resource = "Seal", level = 0, change = -1 }]
+
+[[case]]
+id = "ill-impaling-shot"
+title = "Impaling Shot: a ranged hit on an interdicted creature lowers its AC"
+spell = "Projectile_MainHandAttack"
+target = "A"
+real_rolls = true
+reactions = ["ImpalingShot"]
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 6 }]
+setup = [{ target = "host", boost = "ActionResource(Seal,7,0)" }, { target = "host", boost = "RollBonus(Attack,30)" }, { target = "host", passive = "InterdictBoons_13_ImpalingShot" }, { target = "A", status = "INTERDICTED", turns = -1, by = "host" }]
+expect = [{ target = "A", status_present = ["ILLRIGGER_IMPALED"] }, { resource = "Seal", level = 0, amount_change = -1 }]
+
+[[case]]
+id = "ill-iron-gaol"
+title = "Iron Gaol: four seals and a failed Charisma save imprison the target"
+spell = "Target_Illrigger_IronGaol"
+target = "A"
+real_rolls = true
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 1.2 }]
+setup = [{ target = "host", boost = "ActionResource(Seal,7,0)" }, { target = "host", passive = "InterdictBoons_13_IronGaol" }, { target = "A", boost = "AbilityFailedSavingThrow(Charisma)" }, { target = "A", boost = "ActionResourceBlock(ReactionActionPoint)" }]
+expect = [{ target = "A", status_applied_any = ["ILLRIGGER_IRON_GAOL", "ILLRIGGER_IRON_GAOL_FOREVER"] }, { resource = "Seal", level = 0, change = -4 }]
+
+[[case]]
+id = "ill-last-word"
+title = "Last Word: dropping to 0 with seals left explodes and gets you back up"
+spell = "Target_Bite_Wolf"
+caster = "A"
+target = "host"
+safety = false
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 2 }]
+setup = [{ target = "host", remove_status = "ARCANE_WARD*" }, { target = "host", boost = "ActionResource(Seal,7,0)" }, { target = "host", passive = "InterdictBoons_13_LastWord" }, { target = "host", hp = 1 }, { target = "A", boost = "RollBonus(Attack,30)" }]
+expect = [{ target = "host", status_applied = ["ILLRIGGER_LAST_WORD_3"] }, { target = "host", dead = false }, { target = "host", hp_change = [1, 99] }, { target = "A", hp_change = [-60, -1] }, { resource = "Seal", level = 0, amount_change = -3 }]
+
+[[case]]
+id = "ill-souls-doom"
+title = "Soul's Doom: a doomed creature takes extra damage whenever it's hurt"
+spell = "Projectile_FireBolt"
+target = "A"
+real_rolls = true
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 6 }]
+setup = [{ target = "host", boost = "ActionResource(Seal,7,0)" }, { target = "host", boost = "RollBonus(RangedSpellAttack,30)" }, { target = "host", passive = "InterdictBoons_13_SoulsDoom" }]
+casts = [{ spell = "Target_Seal", target = "A" }]
+expect = [{ target = "A", status_applied = ["ILLRIGGER_SOULS_DOOM"] }, { target = "A", damage_count = { by = "host", count = [2, 9] } }]
+
+# ---------------------------------------------------------------- subclasses
+[[case]]
+id = "ill-vile-transmogrification-seals"
+title = "Vile Transmogrification: a level 2 spell slot becomes two seals"
+spell = "Shout_Illrigger_Vile_Seals_2"
+target = "host"
+setup = [{ target = "host", boost = "ActionResource(Seal,7,0)" }, { target = "host", passive = "ArchitectsOfRuin_15_VileTransmogrification" }, { target = "host", resource = "Seal", amount = 0 }]
+expect = [{ resource = "Seal", level = 0, amount_change = 2 }, { resource = "SpellSlot", level = 2, change = -1 }]
+
+[[case]]
+id = "ill-quid-pro-quo"
+title = "Quid Pro Quo: a failed Charisma save banishes the target and a devil takes its place"
+spell = "Target_Illrigger_QuidProQuo"
+target = "A"
+real_rolls = true
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 6 }]
+setup = [{ target = "host", passive = "Hellspeaker_15_QuidProQuo" }, { target = "A", boost = "AbilityFailedSavingThrow(Charisma)" }]
+expect = [{ target = "A", status_applied = ["ILLRIGGER_QUID_PRO_QUO"] }, { resource = "IllriggerQuidProQuo", level = 0, amount_change = -1 }]
+notes = "Gunslinger.lua-style log: 'Quid Pro Quo: a devil takes the place of ...' (a Merregon appears as your follower)."
+
+[[case]]
+id = "ill-by-the-throat"
+title = "By the Throat: placing a seal restrains on a failed Wisdom save"
+spell = "Target_Seal"
+target = "A"
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 6 }]
+setup = [{ target = "host", boost = "ActionResource(Seal,7,0)" }, { target = "host", passive = "Painkiller_13_ByTheThroat" }, { target = "A", boost = "AbilityFailedSavingThrow(Wisdom)" }]
+expect = [{ target = "A", status_applied = ["ILLRIGGER_BY_THE_THROAT"] }]
+
+[[case]]
+id = "ill-deathstrike"
+title = "Deathstrike: a melee hit on an interdicted creature becomes a crit and burns a seal twice over"
+spell = "Target_MainHandAttack"
+target = "A"
+real_rolls = true
+reactions = ["Deathstrike"]
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 1.2 }]
+setup = [{ target = "host", boost = "ActionResource(IllriggerDeathstrike,5,0)" }, { target = "host", boost = "RollBonus(Attack,30)" }, { target = "host", passive = "Painkiller_15_Deathstrike" }, { target = "A", status = "INTERDICTED", turns = -1, by = "host" }, { target = "A", boost = "ActionResourceBlock(ReactionActionPoint)" }]
+expect = [{ target = "A", status_applied = ["ILLRIGGER_DEATHSTRIKE_SEAL"] }, { target = "A", status_absent = ["INTERDICTED"] }, { resource = "IllriggerDeathstrike", level = 0, amount_change = -1 }]
+
+[[case]]
+id = "ill-sanguine-gift"
+title = "Sanguine Gift: healing near you costs a seal and heals more"
+spell = "Target_CureWounds"
+target = "host"
+setup = [{ target = "host", boost = "ActionResource(Seal,7,0)" }, { target = "host", passive = "SanguineKnight_13_SanguineGift" }, { target = "host", status = "ILLRIGGER_SANGUINE_GIFT", turns = -1 }, { target = "host", hp = 1 }]
+safety = false
+expect = [{ resource = "Seal", level = 0, amount_change = -1 }, { target = "host", hp_change = [2, 40] }]
+
+[[case]]
+id = "ill-haemal-exchange"
+title = "Haemal Exchange: an interdicted attacker loses 1d8 and the nearest ally gains it"
+mode = "ai"
+spell = "Target_Bite_Wolf"
+caster = "A"
+target = "host"
+ai_rounds = 8
+reactions = ["HaemalExchange"]
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 2 }, { as = "B", template = "wolf", faction = "friendly", hp = 300, distance = 3 }]
+setup = [{ target = "host", max_hp = 200 }, { target = "host", passive = "SanguineKnight_15_HaemalExchange" }, { target = "A", status = "INTERDICTED", turns = -1, by = "host" }]
+sanctuary = false
+expect = [{ target = "host", status_applied = ["ILLRIGGER_HAEMAL_PENDING"] }]
+notes = "The 1d8 goes to the nearest ally (often a companion, not B): check the 'Haemal Exchange: ... gains 1d8' log line."
+
+[[case]]
+id = "ill-doomed-to-the-shadows"
+title = "Doomed to the Shadows: Strike from the Dark deals Proficiency Bonus d8s"
+spell = "Target_Illrigger_StrikeFromTheDark"
+target = "A"
+real_rolls = true
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 1.2 }]
+setup = [{ target = "host", boost = "Advantage(AttackRoll)" }, { target = "host", boost = "RollBonus(Attack,30)" }, { target = "host", passive = "Shadowmaster_Illrigger_15_DoomedToTheShadows" }, { target = "A", status = "INTERDICTED", turns = -1, by = "host" }, { target = "A", boost = "ActionResourceBlock(ReactionActionPoint)" }]
+expect = [{ target = "A", hp_change = [-80, -4] }]
+
+[[case]]
+id = "ill-dark-malediction"
+title = "Dark Malediction: an interdicted creature radiates darkness"
+spell = "Target_Seal"
+target = "A"
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 6 }]
+setup = [{ target = "host", boost = "ActionResource(Seal,7,0)" }, { target = "host", passive = "Shadowmaster_18_DarkMalediction" }]
+expect = [{ target = "A", status_applied = ["ILLRIGGER_DARK_MALEDICTION"] }]

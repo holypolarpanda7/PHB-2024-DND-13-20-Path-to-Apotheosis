@@ -418,26 +418,6 @@ data "StatsFunctors" "ApplyStatus(SELF,DEATH_WARD,100,-1)"
 // GUNSLINGER - Base Class Passives (Homebrew)
 // ==============================================================================
 
-new entry "Illrigger_InfernalConduit"
-type "PassiveData"
-data "DisplayName" "hd9f0a1b2a0000000000000000000055"
-data "Description" "hd9f0a1b3a0000000000000000000056"
-data "Icon" "PassiveFeature_Generic_Magical"
-data "Properties" "Highlighted"
-data "Boosts" "Resistance(Fire,Resistant);ActionResource(Seal,1,0)"
-
-new entry "Illrigger_PrinceOfHell"
-type "PassiveData"
-data "DisplayName" "he0a1b2c3a0000000000000000000057"
-data "Description" "he0a1b2c4a0000000000000000000058"
-data "Icon" "PassiveFeature_Generic_Magical"
-data "Properties" "Highlighted"
-data "Boosts" "Resistance(Fire,Resistant);IF(IsWeaponAttack()):CharacterWeaponDamage(1d8,Necrotic);ReduceCriticalAttackThreshold(1)"
-
-// ==============================================================================
-// PSION - Base Class Passives (Homebrew)
-// ==============================================================================
-
 new entry "Psion_MindOverMatter"
 type "PassiveData"
 data "DisplayName" "hf1b2c3d4a0000000000000000000059"
@@ -1102,90 +1082,6 @@ data "DisplayName" "hf3b4c5d6c00000000000000000000e9"
 data "Description" "hf3b4c5d7c00000000000000000000ea"
 data "Icon" "PassiveFeature_Generic_Physical"
 data "Properties" "Highlighted"
-
-new entry "ArchitectsOfRuin_15_VileTransmogrification"
-type "PassiveData"
-data "DisplayName" "hf9b0c1d2c00000000000000000000f5"
-data "Description" "hf9b0c1d3c00000000000000000000f6"
-data "Icon" "PassiveFeature_Generic_Magical"
-data "Properties" "Highlighted"
-data "Boosts" "SpellSaveDC(1);RollBonus(SavingThrow,1)"
-
-new entry "ArchitectsOfRuin_18_HellMage"
-type "PassiveData"
-data "DisplayName" "ha0c1d2e3d00000000000000000000f7"
-data "Description" "ha0c1d2e4d00000000000000000000f8"
-data "Icon" "PassiveFeature_Generic_Magical"
-data "Properties" "Highlighted"
-data "Boosts" "SpellSaveDC(1);RollBonus(MeleeSpellAttack,1);RollBonus(RangedSpellAttack,1)"
-
-new entry "Hellspeaker_15_QuidProQuo"
-type "PassiveData"
-data "DisplayName" "hb1d2e3f4d00000000000000000000f9"
-data "Description" "hb1d2e3f5d00000000000000000000fa"
-data "Icon" "PassiveFeature_Generic_Magical"
-data "Properties" "Highlighted"
-data "Boosts" "ExpertiseBonus(Persuasion);ExpertiseBonus(Deception)"
-
-new entry "Hellspeaker_18_Incontrovertible"
-type "PassiveData"
-data "DisplayName" "hc2e3f4a5d00000000000000000000fb"
-data "Description" "hc2e3f4a6d00000000000000000000fc"
-data "Icon" "PassiveFeature_Generic_Magical"
-data "Properties" "Highlighted"
-data "Boosts" "Advantage(Ability,Charisma);SpellSaveDC(1)"
-
-new entry "Painkiller_15_Deathstrike"
-type "PassiveData"
-data "DisplayName" "hd3f4a5b6d00000000000000000000fd"
-data "Description" "hd3f4a5b7d00000000000000000000fe"
-data "Icon" "PassiveFeature_Generic_Physical"
-data "Properties" "Highlighted"
-data "Boosts" "IF(IsMeleeWeaponAttack()):CharacterWeaponDamage(1d8,Necrotic)"
-
-new entry "Painkiller_18_DispatersSupremacy"
-type "PassiveData"
-data "DisplayName" "he4a5b6c7d00000000000000000000ff"
-data "Description" "he4a5b6c8d0000000000000000000100"
-data "Icon" "PassiveFeature_Generic_Magical"
-data "Properties" "Highlighted"
-data "Boosts" "AC(2);RollBonus(SavingThrow,1)"
-
-new entry "SanguineKnight_15_HaemalExchange"
-type "PassiveData"
-data "DisplayName" "hf5b6c7d8d0000000000000000000101"
-data "Description" "hf5b6c7d9d0000000000000000000102"
-data "Icon" "PassiveFeature_Generic_Magical"
-data "Properties" "Highlighted"
-data "Boosts" "IF(IsMeleeWeaponAttack()):CharacterWeaponDamage(1d6,Necrotic)"
-
-new entry "SanguineKnight_18_BloodForBlood"
-type "PassiveData"
-data "DisplayName" "ha6c7d8e9d0000000000000000000103"
-data "Description" "ha6c7d8ead0000000000000000000104"
-data "Icon" "PassiveFeature_Generic_Magical"
-data "Properties" "Highlighted"
-data "Boosts" "AC(1);Resistance(Necrotic,Resistant)"
-
-new entry "Shadowmaster_Illrigger_15_DoomedToTheShadows"
-type "PassiveData"
-data "DisplayName" "hb7d8e9f0d0000000000000000000105"
-data "Description" "hb7d8e9f1d0000000000000000000106"
-data "Icon" "PassiveFeature_Generic_Magical"
-data "Properties" "Highlighted"
-data "Boosts" "Advantage(Skill,Stealth);IF(IsMeleeWeaponAttack()):CharacterWeaponDamage(1d6,Necrotic)"
-
-new entry "Shadowmaster_Illrigger_18_DarkMalediction"
-type "PassiveData"
-data "DisplayName" "hc8e9f0a1d0000000000000000000107"
-data "Description" "hc8e9f0a2d0000000000000000000108"
-data "Icon" "PassiveFeature_Generic_Magical"
-data "Properties" "Highlighted"
-data "Boosts" "RollBonus(Attack,1);IF(IsWeaponAttack()):CharacterWeaponDamage(1d8,Necrotic)"
-
-// ==============================================================================
-// PSION SUBCLASS PASSIVES (Homebrew)
-// ==============================================================================
 
 new entry "Telepath_14_ScrambleMinds"
 type "PassiveData"

@@ -1167,6 +1167,13 @@ if Ext and type(Ext.Require) == "function" then
         Log.Warn("Gunslinger bootstrap load failed: " .. tostring(gsOrErr))
     end
 
+    local okIl, ilOrErr = pcall(Ext.Require, "Illrigger.lua")
+    if okIl and type(ilOrErr) == "table" then
+        Log.Info("Illrigger loaded at bootstrap")
+    else
+        Log.Warn("Illrigger bootstrap load failed: " .. tostring(ilOrErr))
+    end
+
     local okSt, stOrErr = pcall(Ext.Require, "SpellTests.lua")
     if okSt and type(stOrErr) == "table" then
         Log.Info("SpellTests loaded at bootstrap")

@@ -1008,7 +1008,8 @@
                 
                 <!-- ==================== ILLRIGGER LEVELS 13-20 ==================== -->
                 <node id="Progression">
-                    <attribute id="Boosts" type="LSString" value="ActionResource(SpellSlot,1,4)"/>
+                    <attribute id="Boosts" type="LSString" value="ActionResource(Seal,1,0)"/>
+                    <attribute id="Selectors" type="LSString" value="SelectPassives(e2e21374-e6e1-51cd-b67a-67ea2811dff7,1,IllriggerInterdiction)"/>
                     <attribute id="Level" type="uint8" value="13"/>
                     <attribute id="Name" type="LSString" value="Illrigger"/>
                     <attribute id="ProgressionType" type="uint8" value="0"/>
@@ -1016,6 +1017,7 @@
                     <attribute id="UUID" type="guid" value="eeeeeeee-eeee-eeee-eeee-eeeeeeeee901"/>
                 </node>
                 <node id="Progression">
+                    <attribute id="PassivesAdded" type="LSString" value="Illrigger_14_SuperiorInterdict"/>
                     <attribute id="Level" type="uint8" value="14"/>
                     <attribute id="Name" type="LSString" value="Illrigger"/>
                     <attribute id="ProgressionType" type="uint8" value="0"/>
@@ -1023,10 +1025,8 @@
                     <attribute id="UUID" type="guid" value="eeeeeeee-eeee-eeee-eeee-eeeeeeeee902"/>
                 </node>
                 <node id="Progression">
-                    <attribute id="Boosts" type="LSString" value="ActionResource(Seal,1,0)"/>
                     <attribute id="Level" type="uint8" value="15"/>
                     <attribute id="Name" type="LSString" value="Illrigger"/>
-                    <attribute id="PassivesAdded" type="LSString" value="Illrigger_InfernalConduit"/>
                     <attribute id="ProgressionType" type="uint8" value="0"/>
                     <attribute id="TableUUID" type="guid" value="bd529197-9010-417b-90dc-e6cbf2568cce"/>
                     <attribute id="UUID" type="guid" value="eeeeeeee-eeee-eeee-eeee-eeeeeeeee903"/>
@@ -1039,7 +1039,7 @@
                     <attribute id="UUID" type="guid" value="eeeeeeee-eeee-eeee-eeee-eeeeeeeee904"/>
                 </node>
                 <node id="Progression">
-                    <attribute id="Boosts" type="LSString" value="ActionResource(SpellSlot,1,5)"/>
+                    <attribute id="PassivesAdded" type="LSString" value="Illrigger_17_InfernalMajesty"/>
                     <attribute id="Level" type="uint8" value="17"/>
                     <attribute id="Name" type="LSString" value="Illrigger"/>
                     <attribute id="ProgressionType" type="uint8" value="0"/>
@@ -1048,6 +1048,7 @@
                 </node>
                 <node id="Progression">
                     <attribute id="Boosts" type="LSString" value="ActionResource(Seal,1,0)"/>
+                    <attribute id="Selectors" type="LSString" value="SelectPassives(e2e21374-e6e1-51cd-b67a-67ea2811dff7,1,IllriggerInterdiction)"/>
                     <attribute id="Level" type="uint8" value="18"/>
                     <attribute id="Name" type="LSString" value="Illrigger"/>
                     <attribute id="ProgressionType" type="uint8" value="0"/>
@@ -1055,7 +1056,6 @@
                     <attribute id="UUID" type="guid" value="eeeeeeee-eeee-eeee-eeee-eeeeeeeee906"/>
                 </node>
                 <node id="Progression">
-                    <attribute id="Boosts" type="LSString" value="ActionResource(SpellSlot,1,5)"/>
                     <attribute id="Level" type="uint8" value="19"/>
                     <attribute id="Name" type="LSString" value="Illrigger"/>
                     <attribute id="ProgressionType" type="uint8" value="0"/>
@@ -1063,9 +1063,9 @@
                     <attribute id="UUID" type="guid" value="eeeeeeee-eeee-eeee-eeee-eeeeeeeee907"/>
                 </node>
                 <node id="Progression">
+                    <attribute id="PassivesAdded" type="LSString" value="Illrigger_20_MasterOfHell"/>
                     <attribute id="Level" type="uint8" value="20"/>
                     <attribute id="Name" type="LSString" value="Illrigger"/>
-                    <attribute id="PassivesAdded" type="LSString" value="Illrigger_PrinceOfHell"/>
                     <attribute id="ProgressionType" type="uint8" value="0"/>
                     <attribute id="TableUUID" type="guid" value="bd529197-9010-417b-90dc-e6cbf2568cce"/>
                     <attribute id="UUID" type="guid" value="eeeeeeee-eeee-eeee-eeee-eeeeeeeee908"/>
@@ -1781,21 +1781,19 @@
                 <!-- ARCHITECTS OF RUIN (Asmodeus) -->
                 <!-- Level 15: Vile Transmogrification -->
                 <node id="Progression">
+                    <attribute id="PassivesAdded" type="LSString" value="ArchitectsOfRuin_15_VileTransmogrification"/>
                     <attribute id="Level" type="uint8" value="15"/>
                     <attribute id="Name" type="LSString" value="ArchitectOfRuin"/>
-                    <attribute id="PassivesAdded" type="LSString" value="ArchitectsOfRuin_15_VileTransmogrification"/>
                     <attribute id="ProgressionType" type="uint8" value="1"/>
-                    <attribute id="Selectors" type="LSString" value="SelectSpells(80c6b070-c3a6-4864-84ca-e78626784eb4,1,1,EldritchKnightAbjEvo)"/>
                     <attribute id="TableUUID" type="guid" value="80e66947-21f9-49d5-b295-e3c97511f1b0"/>
                     <attribute id="UUID" type="guid" value="32323232-3232-3232-3232-323232323201"/>
                 </node>
                 <!-- Level 18: Hell Mage (Interdict Boon) -->
                 <node id="Progression">
+                    <attribute id="PassivesAdded" type="LSString" value="ArchitectOfRuin_18_HellMage"/>
                     <attribute id="Level" type="uint8" value="18"/>
                     <attribute id="Name" type="LSString" value="ArchitectOfRuin"/>
-                    <attribute id="PassivesAdded" type="LSString" value="ArchitectsOfRuin_18_HellMage"/>
                     <attribute id="ProgressionType" type="uint8" value="1"/>
-                    <attribute id="Selectors" type="LSString" value="SelectSpells(80c6b070-c3a6-4864-84ca-e78626784eb4,1,1,EldritchKnightAbjEvo)"/>
                     <attribute id="TableUUID" type="guid" value="80e66947-21f9-49d5-b295-e3c97511f1b0"/>
                     <attribute id="UUID" type="guid" value="32323232-3232-3232-3232-323232323202"/>
                 </node>
@@ -1803,18 +1801,18 @@
                 <!-- HELLSPEAKER (Moloch) -->
                 <!-- Level 15: Quid Pro Quo -->
                 <node id="Progression">
+                    <attribute id="PassivesAdded" type="LSString" value="Hellspeaker_15_QuidProQuo"/>
                     <attribute id="Level" type="uint8" value="15"/>
                     <attribute id="Name" type="LSString" value="Hellspeaker"/>
-                    <attribute id="PassivesAdded" type="LSString" value="Hellspeaker_15_QuidProQuo"/>
                     <attribute id="ProgressionType" type="uint8" value="1"/>
                     <attribute id="TableUUID" type="guid" value="c577a73f-ffb9-4391-9165-758c6601f051"/>
                     <attribute id="UUID" type="guid" value="aa333333-3333-3333-3333-333333333301"/>
                 </node>
                 <!-- Level 18: Incontrovertible (Interdict Boon) -->
                 <node id="Progression">
+                    <attribute id="PassivesAdded" type="LSString" value="HellSpeaker_11_Incontrovertible"/>
                     <attribute id="Level" type="uint8" value="18"/>
                     <attribute id="Name" type="LSString" value="Hellspeaker"/>
-                    <attribute id="PassivesAdded" type="LSString" value="Hellspeaker_18_Incontrovertible"/>
                     <attribute id="ProgressionType" type="uint8" value="1"/>
                     <attribute id="TableUUID" type="guid" value="c577a73f-ffb9-4391-9165-758c6601f051"/>
                     <attribute id="UUID" type="guid" value="aa333333-3333-3333-3333-333333333302"/>
@@ -1823,18 +1821,19 @@
                 <!-- PAINKILLER (Dispater) -->
                 <!-- Level 15: Deathstrike -->
                 <node id="Progression">
+                    <attribute id="PassivesAdded" type="LSString" value="Painkiller_15_Deathstrike"/>
+                    <attribute id="Boosts" type="LSString" value="ActionResource(IllriggerDeathstrike,5,0)"/>
                     <attribute id="Level" type="uint8" value="15"/>
                     <attribute id="Name" type="LSString" value="Painkiller"/>
-                    <attribute id="PassivesAdded" type="LSString" value="Painkiller_15_Deathstrike"/>
                     <attribute id="ProgressionType" type="uint8" value="1"/>
                     <attribute id="TableUUID" type="guid" value="5f7ba6ef-490a-4f0b-bcfe-50cb86f9886e"/>
                     <attribute id="UUID" type="guid" value="34343434-3434-3434-3434-343434343401"/>
                 </node>
                 <!-- Level 18: Dispater's Supremacy (Interdict Boon) -->
                 <node id="Progression">
+                    <attribute id="PassivesAdded" type="LSString" value="PainKiller_7_DispatersSupremacy"/>
                     <attribute id="Level" type="uint8" value="18"/>
                     <attribute id="Name" type="LSString" value="Painkiller"/>
-                    <attribute id="PassivesAdded" type="LSString" value="Painkiller_18_DispatersSupremacy"/>
                     <attribute id="ProgressionType" type="uint8" value="1"/>
                     <attribute id="TableUUID" type="guid" value="5f7ba6ef-490a-4f0b-bcfe-50cb86f9886e"/>
                     <attribute id="UUID" type="guid" value="34343434-3434-3434-3434-343434343402"/>
@@ -1843,18 +1842,18 @@
                 <!-- SANGUINE KNIGHT (Sutekh) -->
                 <!-- Level 15: Haemal Exchange -->
                 <node id="Progression">
+                    <attribute id="PassivesAdded" type="LSString" value="SanguineKnight_15_HaemalExchange"/>
                     <attribute id="Level" type="uint8" value="15"/>
                     <attribute id="Name" type="LSString" value="SanguineKnight"/>
-                    <attribute id="PassivesAdded" type="LSString" value="SanguineKnight_15_HaemalExchange"/>
                     <attribute id="ProgressionType" type="uint8" value="1"/>
                     <attribute id="TableUUID" type="guid" value="283cff6c-8c2a-4f08-afe4-419dee51bc9b"/>
                     <attribute id="UUID" type="guid" value="35353535-3535-3535-3535-353535353501"/>
                 </node>
                 <!-- Level 18: Blood for Blood (Interdict Boon) -->
                 <node id="Progression">
+                    <attribute id="PassivesAdded" type="LSString" value="SanguineKnight_7_BloodForBlood"/>
                     <attribute id="Level" type="uint8" value="18"/>
                     <attribute id="Name" type="LSString" value="SanguineKnight"/>
-                    <attribute id="PassivesAdded" type="LSString" value="SanguineKnight_18_BloodForBlood"/>
                     <attribute id="ProgressionType" type="uint8" value="1"/>
                     <attribute id="TableUUID" type="guid" value="283cff6c-8c2a-4f08-afe4-419dee51bc9b"/>
                     <attribute id="UUID" type="guid" value="35353535-3535-3535-3535-353535353502"/>
@@ -1863,18 +1862,19 @@
                 <!-- SHADOWMASTER (Belial) - Illrigger Subclass -->
                 <!-- Level 15: Doomed to the Shadows -->
                 <node id="Progression">
+                    <attribute id="PassivesAdded" type="LSString" value="Shadowmaster_Illrigger_15_DoomedToTheShadows"/>
+                    <attribute id="PassivesRemoved" type="LSString" value="Shadowmaster_3_StrikeFromTheDark"/>
                     <attribute id="Level" type="uint8" value="15"/>
                     <attribute id="Name" type="LSString" value="Shadowmaster"/>
-                    <attribute id="PassivesAdded" type="LSString" value="Shadowmaster_Illrigger_15_DoomedToTheShadows"/>
                     <attribute id="ProgressionType" type="uint8" value="1"/>
                     <attribute id="TableUUID" type="guid" value="4e800d7d-f45c-4258-a475-85452c8c615d"/>
                     <attribute id="UUID" type="guid" value="36363636-3636-3636-3636-363636363601"/>
                 </node>
                 <!-- Level 18: Dark Malediction (Interdict Boon) -->
                 <node id="Progression">
+                    <attribute id="PassivesAdded" type="LSString" value="Shadowmaster_18_DarkMalediction"/>
                     <attribute id="Level" type="uint8" value="18"/>
                     <attribute id="Name" type="LSString" value="Shadowmaster"/>
-                    <attribute id="PassivesAdded" type="LSString" value="Shadowmaster_Illrigger_18_DarkMalediction"/>
                     <attribute id="ProgressionType" type="uint8" value="1"/>
                     <attribute id="TableUUID" type="guid" value="4e800d7d-f45c-4258-a475-85452c8c615d"/>
                     <attribute id="UUID" type="guid" value="36363636-3636-3636-3636-363636363602"/>
@@ -3011,36 +3011,29 @@
 
                 <!-- ILLRIGGER: ARCHITECT OF RUIN (caster) - L13/L17/L19/L20 (L15/L18 augmented above) -->
                 <node id="Progression">
-                    <attribute id="Boosts" type="LSString" value="ActionResource(SpellSlot,1,3)"/>
+                    <attribute id="Boosts" type="LSString" value="ActionResource(SpellSlot,2,3)"/>
+                    <attribute id="Selectors" type="LSString" value="SelectSpells(22755771-ca11-49f4-b772-13d8b8fecd93,1,1,EldritchKnightAbjEvo)"/>
+                    <attribute id="PassivesAdded" type="LSString" value="ArchitectOfRuin_13_Spellbreaker"/>
                     <attribute id="Level" type="uint8" value="13"/>
                     <attribute id="Name" type="LSString" value="ArchitectOfRuin"/>
                     <attribute id="ProgressionType" type="uint8" value="1"/>
-                    <attribute id="Selectors" type="LSString" value="SelectSpells(80c6b070-c3a6-4864-84ca-e78626784eb4,1,1,EldritchKnightAbjEvo)"/>
                     <attribute id="TableUUID" type="guid" value="80e66947-21f9-49d5-b295-e3c97511f1b0"/>
                     <attribute id="UUID" type="guid" value="32323232-3232-3232-3232-323232323213"/>
                 </node>
                 <node id="Progression">
-                    <attribute id="Level" type="uint8" value="17"/>
-                    <attribute id="Name" type="LSString" value="ArchitectOfRuin"/>
-                    <attribute id="ProgressionType" type="uint8" value="1"/>
-                    <attribute id="Selectors" type="LSString" value="SelectSpells(80c6b070-c3a6-4864-84ca-e78626784eb4,1,1,EldritchKnightAbjEvo)"/>
-                    <attribute id="TableUUID" type="guid" value="80e66947-21f9-49d5-b295-e3c97511f1b0"/>
-                    <attribute id="UUID" type="guid" value="32323232-3232-3232-3232-323232323217"/>
-                </node>
-                <node id="Progression">
-                    <attribute id="Boosts" type="LSString" value="ActionResource(SpellSlot,1,3)"/>
+                    <attribute id="Boosts" type="LSString" value="ActionResource(SpellSlot,1,4)"/>
+                    <attribute id="Selectors" type="LSString" value="SelectSpells(820b1220-0385-426d-ae15-458dc8a6f5c0,1,1,EldritchKnightAbjEvo)"/>
                     <attribute id="Level" type="uint8" value="19"/>
                     <attribute id="Name" type="LSString" value="ArchitectOfRuin"/>
                     <attribute id="ProgressionType" type="uint8" value="1"/>
-                    <attribute id="Selectors" type="LSString" value="SelectSpells(80c6b070-c3a6-4864-84ca-e78626784eb4,1,1,EldritchKnightAbjEvo)"/>
                     <attribute id="TableUUID" type="guid" value="80e66947-21f9-49d5-b295-e3c97511f1b0"/>
                     <attribute id="UUID" type="guid" value="32323232-3232-3232-3232-323232323219"/>
                 </node>
                 <node id="Progression">
+                    <attribute id="Selectors" type="LSString" value="SelectSpells(820b1220-0385-426d-ae15-458dc8a6f5c0,1,1,EldritchKnightAbjEvo)"/>
                     <attribute id="Level" type="uint8" value="20"/>
                     <attribute id="Name" type="LSString" value="ArchitectOfRuin"/>
                     <attribute id="ProgressionType" type="uint8" value="1"/>
-                    <attribute id="Selectors" type="LSString" value="SelectSpells(80c6b070-c3a6-4864-84ca-e78626784eb4,1,1,EldritchKnightAbjEvo)"/>
                     <attribute id="TableUUID" type="guid" value="80e66947-21f9-49d5-b295-e3c97511f1b0"/>
                     <attribute id="UUID" type="guid" value="32323232-3232-3232-3232-323232323220"/>
                 </node>
@@ -3143,6 +3136,97 @@
                     <attribute id="TableUUID" type="guid" value="8faeda62-04df-403f-a4ca-26c090cb9b8d"/>
                     <attribute id="UUID" type="guid" value="465b1578-a2dd-476a-b4ac-d3955332b5f3"/>
                 </node>
+                <!-- ILLRIGGER 13-20 BEGIN (generated) -->
+                <node id="Progression">
+                    <attribute id="Level" type="uint8" value="14"/>
+                    <attribute id="Name" type="LSString" value="ArchitectOfRuin"/>
+                    <attribute id="ProgressionType" type="uint8" value="1"/>
+                    <attribute id="Selectors" type="LSString" value="SelectSpells(22755771-ca11-49f4-b772-13d8b8fecd93,1,1,EldritchKnightAbjEvo)"/>
+                    <attribute id="TableUUID" type="guid" value="80e66947-21f9-49d5-b295-e3c97511f1b0"/>
+                    <attribute id="UUID" type="guid" value="48a0e446-96f5-58d8-af8c-5803abeeb8dc"/>
+                </node>
+                <node id="Progression">
+                    <attribute id="Boosts" type="LSString" value="ActionResource(SpellSlot,1,3)"/>
+                    <attribute id="Level" type="uint8" value="16"/>
+                    <attribute id="Name" type="LSString" value="ArchitectOfRuin"/>
+                    <attribute id="ProgressionType" type="uint8" value="1"/>
+                    <attribute id="Selectors" type="LSString" value="SelectSpells(22755771-ca11-49f4-b772-13d8b8fecd93,1,1,EldritchKnightAbjEvo)"/>
+                    <attribute id="TableUUID" type="guid" value="80e66947-21f9-49d5-b295-e3c97511f1b0"/>
+                    <attribute id="UUID" type="guid" value="e2d3a8c0-3ad5-5917-b5b8-eb7874c65010"/>
+                </node>
+                <node id="Progression">
+                    <attribute id="Level" type="uint8" value="11"/>
+                    <attribute id="Name" type="LSString" value="Hellspeaker"/>
+                    <attribute id="PassivesRemoved" type="LSString" value="HellSpeaker_11_Incontrovertible"/>
+                    <attribute id="ProgressionType" type="uint8" value="1"/>
+                    <attribute id="TableUUID" type="guid" value="c577a73f-ffb9-4391-9165-758c6601f051"/>
+                    <attribute id="UUID" type="guid" value="68698e52-db0a-5443-96c5-6893f40db811"/>
+                </node>
+                <node id="Progression">
+                    <attribute id="Level" type="uint8" value="7"/>
+                    <attribute id="Name" type="LSString" value="Painkiller"/>
+                    <attribute id="PassivesRemoved" type="LSString" value="PainKiller_7_DispatersSupremacy"/>
+                    <attribute id="ProgressionType" type="uint8" value="1"/>
+                    <attribute id="TableUUID" type="guid" value="5f7ba6ef-490a-4f0b-bcfe-50cb86f9886e"/>
+                    <attribute id="UUID" type="guid" value="a6c7ec20-34b5-57ac-85be-fe978b381caf"/>
+                </node>
+                <node id="Progression">
+                    <attribute id="Level" type="uint8" value="7"/>
+                    <attribute id="Name" type="LSString" value="SanguineKnight"/>
+                    <attribute id="PassivesRemoved" type="LSString" value="SanguineKnight_7_BloodForBlood"/>
+                    <attribute id="ProgressionType" type="uint8" value="1"/>
+                    <attribute id="TableUUID" type="guid" value="283cff6c-8c2a-4f08-afe4-419dee51bc9b"/>
+                    <attribute id="UUID" type="guid" value="3e02ed63-c140-5683-8c9c-b281ad5e5992"/>
+                </node>
+                <node id="Progression">
+                    <attribute id="Level" type="uint8" value="7"/>
+                    <attribute id="Name" type="LSString" value="Shadowmaster"/>
+                    <attribute id="PassivesRemoved" type="LSString" value="Shadowmaster_7_HellsAssassin"/>
+                    <attribute id="ProgressionType" type="uint8" value="1"/>
+                    <attribute id="TableUUID" type="guid" value="4e800d7d-f45c-4258-a475-85452c8c615d"/>
+                    <attribute id="UUID" type="guid" value="3547bc60-5297-5fda-95d3-a10b5ce637db"/>
+                </node>
+                <node id="Progression">
+                    <attribute id="Level" type="uint8" value="13"/>
+                    <attribute id="Name" type="LSString" value="Shadowmaster"/>
+                    <attribute id="PassivesAdded" type="LSString" value="Shadowmaster_7_HellsAssassin"/>
+                    <attribute id="ProgressionType" type="uint8" value="1"/>
+                    <attribute id="TableUUID" type="guid" value="4e800d7d-f45c-4258-a475-85452c8c615d"/>
+                    <attribute id="UUID" type="guid" value="419c71cf-1c06-5aad-ba74-abdd0d9b901c"/>
+                </node>
+                <node id="Progression">
+                    <attribute id="Level" type="uint8" value="13"/>
+                    <attribute id="Name" type="LSString" value="Hellspeaker"/>
+                    <attribute id="PassivesAdded" type="LSString" value="Hellspeaker_13_SlipperyPloy"/>
+                    <attribute id="ProgressionType" type="uint8" value="1"/>
+                    <attribute id="TableUUID" type="guid" value="c577a73f-ffb9-4391-9165-758c6601f051"/>
+                    <attribute id="UUID" type="guid" value="2ca3d17e-8fa5-541a-9966-12a157b10b64"/>
+                </node>
+                <node id="Progression">
+                    <attribute id="Level" type="uint8" value="13"/>
+                    <attribute id="Name" type="LSString" value="Painkiller"/>
+                    <attribute id="PassivesAdded" type="LSString" value="Painkiller_13_ByTheThroat"/>
+                    <attribute id="ProgressionType" type="uint8" value="1"/>
+                    <attribute id="TableUUID" type="guid" value="5f7ba6ef-490a-4f0b-bcfe-50cb86f9886e"/>
+                    <attribute id="UUID" type="guid" value="e34541e2-2e66-5674-bb8e-62a4d63e7a04"/>
+                </node>
+                <node id="Progression">
+                    <attribute id="Boosts" type="LSString" value="ActionResource(IllriggerDeathstrike,1,0)"/>
+                    <attribute id="Level" type="uint8" value="17"/>
+                    <attribute id="Name" type="LSString" value="Painkiller"/>
+                    <attribute id="ProgressionType" type="uint8" value="1"/>
+                    <attribute id="TableUUID" type="guid" value="5f7ba6ef-490a-4f0b-bcfe-50cb86f9886e"/>
+                    <attribute id="UUID" type="guid" value="ee7913f8-539b-5bfa-9102-26c070708bf9"/>
+                </node>
+                <node id="Progression">
+                    <attribute id="Level" type="uint8" value="13"/>
+                    <attribute id="Name" type="LSString" value="SanguineKnight"/>
+                    <attribute id="PassivesAdded" type="LSString" value="SanguineKnight_13_SanguineGift"/>
+                    <attribute id="ProgressionType" type="uint8" value="1"/>
+                    <attribute id="TableUUID" type="guid" value="283cff6c-8c2a-4f08-afe4-419dee51bc9b"/>
+                    <attribute id="UUID" type="guid" value="557c65f6-5647-55ac-8c93-a564ba92da53"/>
+                </node>
+                <!-- ILLRIGGER 13-20 END -->
             </children>
         </node>
     </region>

@@ -248,6 +248,85 @@
                     <attribute id="UUID" type="guid" value="9e2e62a0-80b8-5c56-84c7-12dcf1825ea5"/>
                 </node>
                 <!-- GUNSLINGER 13-20 END -->
+                <!-- ILLRIGGER 13-20 BEGIN (generated) -->
+                <node id="ActionResourceDefinition">
+                    <attribute id="DisplayName" type="TranslatedString" handle="h9b379a28183c5f88bd941aca3c1f0e8d" version="1"/>
+                    <attribute id="Description" type="TranslatedString" handle="hf05c4b37a0735ccb8d4227dc758a239e" version="1"/>
+                    <attribute id="IsHidden" type="bool" value="false"/>
+                    <attribute id="MaxLevel" type="uint32" value="0"/>
+                    <attribute id="MaxValue" type="uint32" value="1"/>
+                    <attribute id="Name" type="FixedString" value="IllriggerSuperiorInterdict"/>
+                    <attribute id="ReplenishType" type="FixedString" value="Rest"/>
+                    <attribute id="ShowOnActionResourcePanel" type="bool" value="true"/>
+                    <attribute id="UUID" type="guid" value="7cab5173-b87e-5a12-88ed-7460a350ef44"/>
+                </node>
+                <node id="ActionResourceDefinition">
+                    <attribute id="DisplayName" type="TranslatedString" handle="h201c40e255bc5424b869ad93195699ed" version="1"/>
+                    <attribute id="Description" type="TranslatedString" handle="h0bf511e01d2e5ba7b8ce2c34789a3c5d" version="1"/>
+                    <attribute id="IsHidden" type="bool" value="false"/>
+                    <attribute id="MaxLevel" type="uint32" value="0"/>
+                    <attribute id="MaxValue" type="uint32" value="1"/>
+                    <attribute id="Name" type="FixedString" value="IllriggerInfernalMajesty"/>
+                    <attribute id="ReplenishType" type="FixedString" value="Rest"/>
+                    <attribute id="ShowOnActionResourcePanel" type="bool" value="true"/>
+                    <attribute id="UUID" type="guid" value="4fea068f-3163-5e90-b6ba-69931299840e"/>
+                </node>
+                <node id="ActionResourceDefinition">
+                    <attribute id="DisplayName" type="TranslatedString" handle="h3855e2a31b695715b61a5e889b98fd4b" version="1"/>
+                    <attribute id="Description" type="TranslatedString" handle="h7665363708b1559da8b1c2c6fd587627" version="1"/>
+                    <attribute id="IsHidden" type="bool" value="false"/>
+                    <attribute id="MaxLevel" type="uint32" value="0"/>
+                    <attribute id="MaxValue" type="uint32" value="1"/>
+                    <attribute id="Name" type="FixedString" value="IllriggerMasterOfHell"/>
+                    <attribute id="ReplenishType" type="FixedString" value="Rest"/>
+                    <attribute id="ShowOnActionResourcePanel" type="bool" value="true"/>
+                    <attribute id="UUID" type="guid" value="a12ac711-7293-5cad-8da2-e0b3c7844794"/>
+                </node>
+                <node id="ActionResourceDefinition">
+                    <attribute id="DisplayName" type="TranslatedString" handle="h89419a5aeefc5753ab2ae22d224102dc" version="1"/>
+                    <attribute id="Description" type="TranslatedString" handle="h228c58b50a045857a64f797de4d66c43" version="1"/>
+                    <attribute id="IsHidden" type="bool" value="false"/>
+                    <attribute id="MaxLevel" type="uint32" value="0"/>
+                    <attribute id="MaxValue" type="uint32" value="1"/>
+                    <attribute id="Name" type="FixedString" value="IllriggerVileSeals"/>
+                    <attribute id="ReplenishType" type="FixedString" value="Rest"/>
+                    <attribute id="ShowOnActionResourcePanel" type="bool" value="true"/>
+                    <attribute id="UUID" type="guid" value="cbb197c5-88f6-54c1-9567-05154f1bf582"/>
+                </node>
+                <node id="ActionResourceDefinition">
+                    <attribute id="DisplayName" type="TranslatedString" handle="h10f9235f70d251f593b7f29866e388dc" version="1"/>
+                    <attribute id="Description" type="TranslatedString" handle="h973d5430745356e08edaae3dd4771a9f" version="1"/>
+                    <attribute id="IsHidden" type="bool" value="false"/>
+                    <attribute id="MaxLevel" type="uint32" value="0"/>
+                    <attribute id="MaxValue" type="uint32" value="1"/>
+                    <attribute id="Name" type="FixedString" value="IllriggerVileSlots"/>
+                    <attribute id="ReplenishType" type="FixedString" value="Rest"/>
+                    <attribute id="ShowOnActionResourcePanel" type="bool" value="true"/>
+                    <attribute id="UUID" type="guid" value="587471e1-b161-58ce-bcbb-5706842bd2d4"/>
+                </node>
+                <node id="ActionResourceDefinition">
+                    <attribute id="DisplayName" type="TranslatedString" handle="hc56c16b71fcf5ba58c89937383d9185d" version="1"/>
+                    <attribute id="Description" type="TranslatedString" handle="h58a4c6b2dd1a53549c467680436f6d89" version="1"/>
+                    <attribute id="IsHidden" type="bool" value="false"/>
+                    <attribute id="MaxLevel" type="uint32" value="0"/>
+                    <attribute id="MaxValue" type="uint32" value="1"/>
+                    <attribute id="Name" type="FixedString" value="IllriggerQuidProQuo"/>
+                    <attribute id="ReplenishType" type="FixedString" value="Rest"/>
+                    <attribute id="ShowOnActionResourcePanel" type="bool" value="true"/>
+                    <attribute id="UUID" type="guid" value="98c2c006-1dc5-5ccc-9880-b3b9977db4a2"/>
+                </node>
+                <node id="ActionResourceDefinition">
+                    <attribute id="DisplayName" type="TranslatedString" handle="hd0140cc0d8c155afbcfc5536c8c407cf" version="1"/>
+                    <attribute id="Description" type="TranslatedString" handle="h7f8c89fe4a8f5eb79f1782ddb61f58aa" version="1"/>
+                    <attribute id="IsHidden" type="bool" value="false"/>
+                    <attribute id="MaxLevel" type="uint32" value="0"/>
+                    <attribute id="MaxValue" type="uint32" value="6"/>
+                    <attribute id="Name" type="FixedString" value="IllriggerDeathstrike"/>
+                    <attribute id="ReplenishType" type="FixedString" value="Rest"/>
+                    <attribute id="ShowOnActionResourcePanel" type="bool" value="true"/>
+                    <attribute id="UUID" type="guid" value="14b05bae-8021-508f-a5d6-165619a45ef9"/>
+                </node>
+                <!-- ILLRIGGER 13-20 END -->
             </children>
         </node>
     </region>

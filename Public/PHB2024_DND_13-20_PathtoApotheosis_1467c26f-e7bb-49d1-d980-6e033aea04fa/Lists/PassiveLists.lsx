@@ -25,6 +25,13 @@
                     <attribute id="UUID" type="guid" value="4ef62eb1-4735-5e99-8568-dc013af9df15"/>
                 </node>
                 <!-- EPIC BOONS END -->
+                <!-- ILLRIGGER 13-20 BEGIN (generated) -->
+                <node id="PassiveList">
+                    <attribute id="Name" type="FixedString" value="IllriggerInterdiction13"/>
+                    <attribute id="Passives" type="LSString" value="InterdictBoons_2_AbatingSeal,InterdictBoons_2_Bedevil,InterdictBoons_2_SoulEater,InterdictBoons_2_StyxsApathy,InterdictBoons_2_SwiftRetribution,InterdictBoons_7_AcheronsChain,InterdictBoons_7_ConflagrantChannel,InterdictBoons_7_ShadowShroud,InterdictBoons_7_UnleashHell,InterdictBoons_7_VengefulShot,InterdictBoons_13_DissOnslaught,InterdictBoons_13_FlashOfBrimstone,InterdictBoons_13_HellishFrenzy,InterdictBoons_13_Hellsight,InterdictBoons_13_ImpalingShot,InterdictBoons_13_IronGaol,InterdictBoons_13_LastWord,InterdictBoons_13_SoulsDoom"/>
+                    <attribute id="UUID" type="guid" value="e2e21374-e6e1-51cd-b67a-67ea2811dff7"/>
+                </node>
+                <!-- ILLRIGGER 13-20 END -->
             </children>
         </node>
     </region>
