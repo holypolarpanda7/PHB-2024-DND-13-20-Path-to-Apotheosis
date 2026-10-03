@@ -1702,7 +1702,7 @@
                 </node>
                 
                 <!-- WILD MAGIC PATH -->
-                <!-- Wild Magic Path Level 14: Controlled Surge (PHB 2024) -->
+                <!-- Wild Magic Path (Barbarian) Level 14: Controlled Surge (TCoE); was on the Sorcerer table until 2026-10-03 -->
                 <!-- Triggers a second wild magic effect from the enhanced "Controlled" table -->
                 <!-- Note: Level 10 Unstable Backlash is correct in base game, no override needed -->
                 <node id="Progression">
@@ -1710,7 +1710,7 @@
                     <attribute id="Name" type="LSString" value="WildMagicPath"/>
                     <attribute id="PassivesAdded" type="LSString" value="WildMagic_14_ControlledSurge"/>
                     <attribute id="ProgressionType" type="uint8" value="1"/>
-                    <attribute id="TableUUID" type="guid" value="dbf5281b-5a6e-486d-92db-ff67a0a3842b"/>
+                    <attribute id="TableUUID" type="guid" value="7d5237b0-9ac6-4344-8171-43fa2f553e2f"/>
                     <attribute id="UUID" type="guid" value="bb222222-2222-2222-2222-222222222201"/>
                 </node>
                 
