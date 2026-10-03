@@ -353,6 +353,15 @@ data "Icon" "PassiveFeature_Evasion"
 data "Properties" "Highlighted"
 data "Boosts" "ProficiencyBonus(SavingThrow,Constitution)"
 
+// SubclassFeatures.lua (Desperado).
+new entry "HighwayRider_17_Desperado"
+type "PassiveData"
+data "DisplayName" "h011babccdccd5fffbf7d2096511ed138"
+data "Description" "hbed5821c7fd550cd9f59eb5d92c4dee4"
+data "Icon" "Projectile_MainHandAttack_Firearm"
+data "Properties" "Highlighted"
+data "Boosts" "IF(not HasStatus('APO_DESPERADO_SPENT',context.Source) and HasActionResource('ReactionActionPoint',1,0,false,false,context.Source)):DownedStatus(APO_DESPERADO_DOWNED,7)"
+
 new entry "ArachnoidStalker_13_WebWalker"
 type "PassiveData"
 data "DisplayName" "h0ffeb3a1abd353b5be43b96a19540074"

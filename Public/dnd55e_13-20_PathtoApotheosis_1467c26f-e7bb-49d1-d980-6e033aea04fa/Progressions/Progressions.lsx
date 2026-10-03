@@ -3867,6 +3867,14 @@
                     <attribute id="UUID" type="guid" value="212cf6f4-571f-5f1e-84a9-5eb65e05a04a"/>
                 </node>
                 <node id="Progression">
+                    <attribute id="Level" type="uint8" value="17"/>
+                    <attribute id="Name" type="LSString" value="HighwayRider"/>
+                    <attribute id="PassivesAdded" type="LSString" value="HighwayRider_17_Desperado"/>
+                    <attribute id="ProgressionType" type="uint8" value="1"/>
+                    <attribute id="TableUUID" type="guid" value="8e20bc2e-8a65-472d-8e14-66d91edfcdd3"/>
+                    <attribute id="UUID" type="guid" value="c1c1aad8-78bd-59dd-8e6e-4169438974fa"/>
+                </node>
+                <node id="Progression">
                     <attribute id="Level" type="uint8" value="13"/>
                     <attribute id="Name" type="LSString" value="ArachnoidStalker"/>
                     <attribute id="PassivesAdded" type="LSString" value="ArachnoidStalker_13_WebWalker"/>

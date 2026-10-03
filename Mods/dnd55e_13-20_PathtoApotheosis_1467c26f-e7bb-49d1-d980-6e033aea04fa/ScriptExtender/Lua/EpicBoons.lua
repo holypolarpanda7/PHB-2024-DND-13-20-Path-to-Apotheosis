@@ -143,6 +143,7 @@ function EB.OnStatus(object, status, causee)
     end
 end
 
+local hasAny  -- defined below; used here first (it was a nil global: 'attempt to call a nil value' at every combat start)
 function EB.OnEnteredCombat(object)
     if hasAny(object, "EpicBoon_EruptingSpellpower") then  -- Spell Overload returns when you roll Initiative
         local entries, e = resourceEntries(object, "EpicBoonOverload")
@@ -194,7 +195,7 @@ function EB.Validate(c)
 end
 
 -- ---------------------------------------------------------------- phase 2 (Heroes of Faerun, Arcana Unleashed)
-local function hasAny(c, base) -- a boon with per-ability variants (EpicBoon_X_Int, ...) or a plain one
+hasAny = function(c, base) -- a boon with per-ability variants (EpicBoon_X_Int, ...) or a plain one
     if has(c, base) then return true end
     for _, s in ipairs({ "Str", "Dex", "Con", "Int", "Wis", "Cha" }) do if has(c, base .. "_" .. s) then return true end end
     return false

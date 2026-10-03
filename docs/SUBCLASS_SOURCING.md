@@ -14,7 +14,7 @@ source identified but its rules text isn't reachable (paid book, site blocks aut
 | Barbarian | Shadow Gnawer | Book of Ebon Tides, Open Design 2022 (OGL, 5esrd) - certain | 14 Corrosive Haze | BUILT |
 | Cleric | Shadow Domain | Book of Ebon Tides, Open Design 2022 (OGL, 5esrd) - certain | 17 Army of Shadow | BUILT |
 | Cleric | Mind Domain | Exploring Eberron, Keith Baker (dnd5e.wikidot "Mind Domain (HB)") - certain | 17 Bend Reality | BUILT (interrupt is a manual check) |
-| Rogue | Highway Rider | Grim Hollow Player's Guide (Nieb's Critical Collection mirror) - certain | 13 True Grit, 17 Desperado | 13 BUILT (Constitution proficiency only); 17 TEXT |
+| Rogue | Highway Rider | Grim Hollow Player's Guide (Nieb's Critical Collection mirror) - certain | 13 True Grit, 17 Desperado | 13 BUILT (Constitution proficiency only); 17 BUILT (free weapon attack option only) |
 | Rogue | Arachnoid Stalker | Valda's Spire of Secrets, Mage Hand Press, 2024 version (magehandpress.com/2024/10/arachnoid-stalker) - certain | 13 Web Walker, 17 Paralytic Venom | 13 BUILT; 17 TEXT (dnd55e already has a Cunning Strike Paralytic Venom at 9) |
 | Druid | Circle of Dragons | The Griffon's Saddlebag: Book Two - certain | 14 Heart of a Dragon (breath weapon outside dragon form, better AC and Fly speed, three attacks) | NO TEXT (summary only, no numbers) |
 | Druid | Circle of the Unbroken | The Griffon's Saddlebag: Book One (Bell of Lost Souls) - certain | 14: Shillelagh Mastery d12 | NO TEXT |
@@ -28,11 +28,11 @@ source identified but its rules text isn't reachable (paid book, site blocks aut
 | Cleric | Apocalypse Domain | not Midgard Heroes Handbook (features differ: Ranting Ruin, Damnation, Weight of Guilt, Herald of the Apocalypse) | ? | UNKNOWN (dnd55e's Visions of Annihilation / Doom Song / All Will Be Dust aren't in any version found) |
 | Sorcerer | Frost Sorcery | dandwiki "Frost Sorcery" is a different design | ? | UNKNOWN |
 
-Not built on purpose:
-- **Highway Rider 17 Desperado** ("when you're reduced to 0 Hit Points, use your Reaction for one Hair Trigger action before
-  you fall unconscious"): needs the would-drop-to-0 stand-in (DownedStatus + Lua, as Cheat Death) plus a free action while
-  down. Next in line.
-- **True Grit's Evasion-style half**: the engine's Evasion is Dexterity-only.
+Built with a known gap:
+- **Highway Rider 17 Desperado** ("reduced to 0 HP: use your Reaction for one Hair Trigger action before you fall"): a stand-in
+  `DownedStatus` plus a Lua hook fires a free Hair Trigger attack (Advantage) at the nearest hostile, then the character
+  falls. Only the attack option of Hair Trigger is offered (no move / Dodge / use object choice).
+- **True Grit's Evasion-style half**: the engine's Evasion is Dexterity-only, so only the Constitution proficiency is built.
 
 To finish a NO TEXT row, add the book's text under `References/Subclasses/` (or The Oracle's `owned_books`) and its features to
 `Scripts/gen_subclass_features.py`. `Scripts/regen_all.sh` then regenerates everything.

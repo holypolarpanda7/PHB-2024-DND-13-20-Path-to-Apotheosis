@@ -3400,4 +3400,11 @@
   <content contentuid="h33752e03025c582aa9d21031e41497d7" version="1">You gain proficiency in Constitution saving throws. (The Evasion-style rule for Constitution saves that deal half damage isn't implemented: the engine's Evasion is Dexterity-only.)</content>
   <content contentuid="h0ffeb3a1abd353b5be43b96a19540074" version="1">Web Walker</content>
   <content contentuid="h1fe8b434f5e35b89b803a4f2491d282e" version="1">Webs never hinder you, and your Web charges are fully restored at the start of each of your turns and on every rest (Web at will).</content>
+  <content contentuid="he9380443eee9502fba3c138d71be328a" version="1">Desperado</content>
+  <content contentuid="hd903d6d5286a5467ab4ac75f951cc415" version="1">Desperado</content>
+  <content contentuid="hd8818c7f59895d6a8cc8b17ed2d701f0" version="1">Advantage on your Hair Trigger attack.</content>
+  <content contentuid="h011babccdccd5fffbf7d2096511ed138" version="1">Desperado</content>
+  <content contentuid="hbed5821c7fd550cd9f59eb5d92c4dee4" version="1">When you are reduced to 0 Hit Points, you can use your Reaction to take a Hair Trigger action immediately before you fall: a free weapon attack with Advantage against the nearest hostile creature in reach. (The other Hair Trigger options - moving, Dodge, using an object - aren't offered.)</content>
+  <content contentuid="he9d0e9801be65b7c92aa8bfba0de5091" version="1">Desperado</content>
+  <content contentuid="h571db3c6fbbf525f916a02992b1324c3" version="1">You used your Reaction on Desperado.</content>
 </contentList>

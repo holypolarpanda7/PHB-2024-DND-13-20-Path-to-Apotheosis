@@ -576,6 +576,21 @@ G.passive("HighwayRider_13_TrueGrit", "True Grit",
           {"Boosts": "ProficiencyBonus(SavingThrow,Constitution)"}, icon=icon_of("Evasion", "PassiveFeature_Evasion"))
 node(HIGHWAY, "HighwayRider", 13, "HighwayRider_13_TrueGrit")
 
+# Desperado (17): reduced to 0 HP, spend your Reaction for one Hair Trigger action before you fall. Built like Persistent Hunt:
+# a conditional DownedStatus stand-in holds you at 1 HP, SubclassFeatures.lua fires the free attack and then drops you.
+G.status("APO_DESPERADO_SPENT", "Desperado", "You used your Reaction on Desperado.", {
+    "StackId": "APO_DESPERADO_SPENT", "StatusPropertyFlags": "DisableOverhead"})
+G.status("APO_DESPERADO_DOWNED", "Desperado", None, {
+    "OnApplyFunctors": "ApplyStatus(APO_DESPERADO_SPENT,100,1);RegainHitPoints(1,Guaranteed)"},
+    using="RELENTLESS_ENDURANCE_DOWNED")
+G.status("APO_DESPERADO_ADVANTAGE", "Desperado", "Advantage on your Hair Trigger attack.", {
+    "Boosts": "Advantage(AttackRoll)", "StackId": "APO_DESPERADO_ADVANTAGE", "StatusPropertyFlags": "DisableOverhead"})
+G.passive("HighwayRider_17_Desperado", "Desperado",
+          "When you are reduced to 0 Hit Points, you can use your Reaction to take a Hair Trigger action immediately before you fall: a free weapon attack with Advantage against the nearest hostile creature in reach. (The other Hair Trigger options - moving, Dodge, using an object - aren't offered.)", {
+              "Boosts": "IF(not HasStatus('APO_DESPERADO_SPENT',context.Source) and HasActionResource('ReactionActionPoint',1,0,false,false,context.Source)):DownedStatus(APO_DESPERADO_DOWNED,7)"},
+          icon=icon_of("Projectile_MainHandAttack_Firearm"), comment="SubclassFeatures.lua (Desperado).")
+node(HIGHWAY, "HighwayRider", 17, "HighwayRider_17_Desperado")
+
 # ---------------------------------------------------------------- Rogue: Arachnoid Stalker 13 Web Walker (Valda's Spire of Secrets, 2024 version)
 ARACHNOID = "d69b2fcd-c3e9-40c7-b857-23c9c5dcd668"
 G.passive("ArachnoidStalker_13_WebWalker", "Web Walker",

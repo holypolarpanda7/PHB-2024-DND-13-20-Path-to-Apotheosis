@@ -315,3 +315,16 @@ spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance 
 setup = [{ target = "host", passive = "ArachnoidStalker_3_Webbing" }, { target = "host", passive = "ArachnoidStalker_13_WebWalker" },
          { target = "host", resource = "Web_ArachnoidStalker", level = 0, amount = 0 }]
 expect = [{ target = "host", resource = "Web_ArachnoidStalker", level = 0, amount = 2 }]
+
+[[case]]
+id = "highway-rider-desperado"
+title = "Highway Rider 17 Desperado: a hit that drops you to 0 spends your Reaction on a free Hair Trigger attack, then you fall"
+spell = "Target_Bite_Wolf"
+settle = 8  # the free attack is queued behind the wolf's turn: it lands ~4 s after the stand-in
+caster = "A"
+target = "host"
+safety = false
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 2 }]
+setup = [{ target = "host", remove_status = "ARCANE_WARD*" }, { target = "host", passive = "HighwayRider_17_Desperado" }, { target = "host", hp = 1 }, { target = "A", boost = "RollBonus(Attack,30)" }]
+expect = [{ target = "host", status_applied = ["APO_DESPERADO_DOWNED", "DOWNED"] }, { cast_count = { spell = "Target_HairTrigger", by = "host", count = [1, 9] } }]
+notes = "Then the host falls (the stand-in status can't repeat: the Reaction is spent). Only the free weapon attack option of Hair Trigger is offered."

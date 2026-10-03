@@ -4,6 +4,7 @@
 --  * Hexblade 14 Masterful Hex: Infectious Hex (1d6 Necrotic to another creature within 30 ft of the cursed target)
 --    and Resilient Hex (APO_RESILIENT_HEX only while you concentrate on Hex).
 --  * College of Spirits 14 Mystical Connection: a second Spirits from Beyond roll, offered as a free switch.
+--  * Highway Rider 17 Desperado: at 0 HP, a free Hair Trigger attack with Advantage, then you fall.
 --  * Cavalier 18 Vigilant Defender (special Reaction per turn), Drunken Master 17 Intoxicated Frenzy (strikes after
 --    Flurry of Blows), Watchers 15 Vigilant Rebuke (successful Int/Wis/Cha saves).
 local Log = Apotheosis and Apotheosis.Log or { Info = print, Warn = print, Error = print, Debug = print }
@@ -58,6 +59,56 @@ local function dcGuid(value)  -- a DifficultyClass with this DC (the game ships 
         end
     end
     return best
+end
+
+-- ---------------------------------------------------------------- Highway Rider 17 Desperado
+local desperado = {}  -- guid -> true while the free attack is pending
+
+local function nearestHostile(c, range)
+    local best, bestD
+    for _, e in ipairs(Ext.Entity.GetAllEntitiesWithComponent("ServerCharacter")) do
+        local g = e.Uuid and e.Uuid.EntityUuid
+        if g and g ~= c and Osi.IsDead(g) == 0 and Osi.IsEnemy(c, g) == 1 then
+            local d = Osi.GetDistanceTo(c, g)
+            if d and d <= range and (not bestD or d < bestD) then best, bestD = g, d end
+        end
+    end
+    return best
+end
+
+function SF.Desperado(c)  -- APO_DESPERADO_DOWNED: you are up at 1 HP with your Reaction spent
+    if desperado[c] then return end  -- the engine applies the stand-in status twice: one free attack only
+    local ranged = Osi.GetEquippedItem(c, "Ranged Main Weapon") ~= nil
+    local spell = ranged and "Projectile_HairTrigger" or "Target_HairTrigger"
+    local foe = nearestHostile(c, ranged and 18 or 3.5)
+    if not foe then
+        desperado[c] = "none"
+        Ext.Timer.WaitFor(300, function() desperado[c] = nil; dropToZero(c) end)
+        return
+    end
+    desperado[c] = spell
+    Log.Info("Desperado: free " .. spell .. " requested")
+    SF.SpendReaction(c)
+    Osi.ApplyStatus(c, "HAIR_TRIGGER", 6, 1, c)  -- unlocks the free attack spells (a moment later)
+    Osi.ApplyStatus(c, "APO_DESPERADO_ADVANTAGE", 6, 1, c)
+    Ext.Timer.WaitFor(400, function()
+        Log.Info("Desperado: casting " .. spell)
+        Osi.UseSpell(c, spell, foe)
+    end)
+    Ext.Timer.WaitFor(6000, function()  -- the attack never resolved: fall anyway
+        if desperado[c] then Log.Warn("Desperado: the attack didn't resolve"); desperado[c] = nil; dropToZero(c) end
+    end)
+end
+
+local function desperadoCasted(c, spell)
+    if desperado[c] ~= spell then return end
+    desperado[c] = nil
+    Log.Info("Desperado: the attack resolved, falling")
+    Ext.Timer.WaitFor(700, function()
+        Osi.RemoveStatus(c, "APO_DESPERADO_ADVANTAGE")
+        Osi.RemoveStatus(c, "HAIR_TRIGGER")
+        dropToZero(c)
+    end)
 end
 
 local pendingGrave = {}
@@ -192,6 +243,8 @@ local function setResource(c, name, amount)
     end
 end
 
+function SF.SpendReaction(c) setResource(c, "ReactionActionPoint", 0) end
+
 local function inCombatWith(c)  -- characters near c (60 m) that are in combat
     local out, cx, cy, cz = {}, Osi.GetPosition(c)
     if not cx then return out end
@@ -269,6 +322,8 @@ Ext.Osiris.RegisterListener("StatusApplied", 4, "after", guard("StatusApplied", 
         SF.UmbralGrave(target)
     elseif status == "APO_PERSISTENT_HUNT_DOWNED" then
         SF.PersistentHunt(target)
+    elseif status == "APO_DESPERADO_DOWNED" then
+        SF.Desperado(target)
     elseif status == "APO_INFECTIOUS_HEX" and causee then
         SF.InfectiousHex(target, short(causee))
     elseif status:match("^SPIRITS_FROM_BEYOND_%d$") then
@@ -290,7 +345,10 @@ Ext.Osiris.RegisterListener("RollResult", 6, "after", guard("RollResult", functi
     end
 end))
 
-Ext.Osiris.RegisterListener("CastedSpell", 5, "after", guard("CastedSpell", function(c, spell) SF.OnCasted(short(c), spell) end))
+Ext.Osiris.RegisterListener("CastedSpell", 5, "after", guard("CastedSpell", function(c, spell)
+    SF.OnCasted(short(c), spell)
+    desperadoCasted(short(c), spell)
+end))
 Ext.Osiris.RegisterListener("TurnStarted", 1, "after", guard("TurnStarted", function(c)
     c = short(c)
     SF.OnTurnStarted(c)
