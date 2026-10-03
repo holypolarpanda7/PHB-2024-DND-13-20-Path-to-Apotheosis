@@ -113,14 +113,6 @@ data "Icon" "PassiveFeature_DeflectMissiles"
 data "Properties" "Highlighted"
 data "Boosts" "Resistance(Acid,Resistant);Resistance(Cold,Resistant);Resistance(Fire,Resistant);Resistance(Lightning,Resistant);Resistance(Thunder,Resistant)"
 
-new entry "Monk_PerfectFocus"
-type "PassiveData"
-data "DisplayName" "hd9f0a1b200000000000000000000019"
-data "Description" "hd9f0a1b30000000000000000000001a"
-data "Icon" "PassiveFeature_Generic_Tactical"
-data "Properties" "Highlighted"
-data "Boosts" "ActionResource(KiPoint,2,0)"
-
 new entry "Monk_SuperiorDefense"
 type "PassiveData"
 data "DisplayName" "he0a1b2c30000000000000000000001b"
@@ -287,15 +279,6 @@ data "Properties" "Highlighted"
 // Marker passive only. The limited Beast Spells effect (granting a curated set
 // of support spells + temporary slots while shapeshifted) is driven by Script
 // Extender in BootstrapServer.lua, keyed off the WILDSHAPE_TECHNICAL status.
-
-new entry "Druid_Archdruid"
-type "PassiveData"
-data "DisplayName" "hb5d6e7f800000000000000000000039"
-data "Description" "hb5d6e7f90000000000000000000003a"
-data "Icon" "Skill_Druid_WildShape"
-data "Properties" "Highlighted"
-data "StatsFunctorContext" "OnShortRest;OnCombatStarted"
-data "StatsFunctors" "RestoreResource(SELF,WildShape,100%,0)"
 
 new entry "Druid_ImprovedElementalFury"
 type "PassiveData"

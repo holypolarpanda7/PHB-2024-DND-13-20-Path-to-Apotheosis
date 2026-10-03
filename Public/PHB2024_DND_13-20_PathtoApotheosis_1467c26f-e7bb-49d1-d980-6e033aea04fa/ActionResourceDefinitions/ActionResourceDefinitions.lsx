@@ -372,6 +372,17 @@
                     <attribute id="ShowOnActionResourcePanel" type="bool" value="true"/>
                     <attribute id="UUID" type="guid" value="cd0f4899-6127-5f0d-ae56-2bb738555058"/>
                 </node>
+                <node id="ActionResourceDefinition">
+                    <attribute id="DisplayName" type="TranslatedString" handle="h00e7bb61f95755dfabbff2b2a2819145" version="1"/>
+                    <attribute id="Description" type="TranslatedString" handle="h8821cbc289e755a4a382e6d76e8e4365" version="1"/>
+                    <attribute id="IsHidden" type="bool" value="false"/>
+                    <attribute id="MaxLevel" type="uint32" value="0"/>
+                    <attribute id="MaxValue" type="uint32" value="1"/>
+                    <attribute id="Name" type="FixedString" value="ApoNatureMagician"/>
+                    <attribute id="ReplenishType" type="FixedString" value="Rest"/>
+                    <attribute id="ShowOnActionResourcePanel" type="bool" value="true"/>
+                    <attribute id="UUID" type="guid" value="a1216530-e9c1-59d8-a3d9-db64736e0c73"/>
+                </node>
                 <!-- CLASS FEATURES 2024 END -->
                 <!-- SUBCLASS FEATURES 13-20 BEGIN (generated) -->
                 <node id="ActionResourceDefinition">

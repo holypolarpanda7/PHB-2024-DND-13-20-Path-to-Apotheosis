@@ -96,3 +96,41 @@ target = "A"
 spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 6 }]
 setup = [{ target = "host", passive = "OpenHand_17_QuiveringPalm" }, { target = "A", status = "QUIVERING_PALM", turns = -1, by = "host" }]
 expect = [{ target = "A", status_removed = ["QUIVERING_PALM"] }, { target = "A", hp_change = [0, 0] }]
+
+# ---------------------------------------------------------------- resource audit fixes (2026-10-03)
+[[case]]
+id = "monk-perfect-focus"
+title = "Monk 15 Perfect Focus: roll Initiative with 1 Focus Point -> back up to 4"
+target = "host"
+combat = "after_setup"
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 8 }]
+setup = [{ target = "host", passive = "Monk_PerfectFocus" }, { target = "host", boost = "ActionResource(KiPoint,10,0)" },
+         { target = "host", resource = "KiPoint", level = 0, amount = 1 }]
+expect = [{ target = "host", resource = "KiPoint", level = 0, amount = 4 }]
+
+[[case]]
+id = "druid-archdruid-evergreen"
+title = "Druid 20 Archdruid: roll Initiative with no Wild Shape left -> regain one"
+target = "host"
+combat = "after_setup"
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 8 }]
+setup = [{ target = "host", passive = "Druid_Archdruid" }, { target = "host", boost = "ActionResource(WildShape,4,0)" },
+         { target = "host", resource = "WildShape", level = 0, amount = 0 }]
+expect = [{ target = "host", resource = "WildShape", level = 0, amount = 1 }]
+
+[[case]]
+id = "druid-nature-magician"
+title = "Druid 20 Archdruid: Nature Magician turns 2 Wild Shape uses into a level 4 spell slot"
+spell = "Shout_ApoNatureMagician_2"
+target = "host"
+setup = [{ target = "host", passive = "Druid_Archdruid" }, { target = "host", boost = "ActionResource(WildShape,4,0)" },
+         { target = "host", boost = "ActionResource(SpellSlot,1,4)" }, { target = "host", resource = "SpellSlot", level = 4, amount = 0 }]
+expect = [{ target = "host", resource = "SpellSlot", level = 4, amount_change = [1, 1] }]
+
+[[case]]
+id = "fighter-action-surge-second"
+title = "Fighter 17: a second Action Surge"
+spell = "Shout_ApoActionSurge_Second"
+target = "host"
+setup = [{ target = "host", passive = "Fighter_17_ActionSurgeTwice" }]
+expect = [{ target = "host", status_applied = ["ACTION_SURGE"] }]

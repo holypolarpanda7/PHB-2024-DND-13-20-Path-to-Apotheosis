@@ -9,7 +9,7 @@ ActionResourceDefinitions and loca. Script Extender half: ScriptExtender/Lua/Cla
 
 Run: python3 Scripts/gen_class_features.py && python3 Scripts/build_all_class_expectations.py
 """
-from gen_common import Gen, drop_entries, patch_progressions
+from gen_common import Gen, drop_entries, patch_progressions, icon_of
 
 G = Gen("classfeatures", "CLASS FEATURES 2024")
 
@@ -86,8 +86,54 @@ G.spell("Target_QuiveringPalm_Release", "Quivering Palm: Release", "End the vibr
     "TargetConditions": "HasStatus('QUIVERING_PALM',context.Target,context.Source)", "SpellProperties": "RemoveStatus(QUIVERING_PALM)",
     "SpellFlags": "IgnoreSilence"}, icon="Action_Monk_OpenHandTechnique_Push")
 
+
+# ---------------------------------------------------------------- class resources past 12 (resource audit 2026-10-03)
+# Monk 15 Perfect Focus (PHB 2024): at Initiative, with 3 or fewer Focus Points, regain them up to 4 (it used to raise
+# the maximum by 2). Top-down ladder: each step sees the amount the previous one left.
+KI = lambda n: f"HasActionResource('KiPoint',{n},0,false,false,context.Source)"
+G.passive("Monk_PerfectFocus", "Perfect Focus",
+          "When you roll Initiative and have 3 or fewer Focus Points, you regain expended Focus Points until you have 4.", {
+              "StatsFunctorContext": "OnCombatStarted",
+              "StatsFunctors": ";".join(f"IF({KI(have)} and not {KI(have + 1)}):RestoreResource(SELF,KiPoint,{4 - have},0)" for have in (3, 2, 1))
+                               + f";IF(not {KI(1)}):RestoreResource(SELF,KiPoint,4,0)"},
+          icon="PassiveFeature_Generic_Tactical")
+# Druid 20 Archdruid (PHB 2024): Evergreen Wild Shape + Nature Magician (it used to restore every use on a Short Rest and
+# at combat start, plus +100 uses - the 2014 "unlimited").
+G.spell("Shout_ApoNatureMagician", "Nature Magician",
+        "Once per Long Rest, convert unexpended uses of Wild Shape into a single spell slot: 2 spell levels per use.", {
+            "SpellType": "Shout", "TargetConditions": "Self()", "ContainerSpells": ";".join(f"Shout_ApoNatureMagician_{n}" for n in (1, 2, 3, 4)),
+            "SpellFlags": "IsLinkedSpellContainer", "UseCosts": "ApoNatureMagician:1", "VerbalIntent": "Utility"}, icon="Skill_Druid_WildShape")
+for n in (1, 2, 3, 4):
+    G.spell(f"Shout_ApoNatureMagician_{n}", f"Nature Magician: {n} use{'s' if n > 1 else ''} -> level {2 * n} slot",
+            f"Expend {n} use{'s' if n > 1 else ''} of Wild Shape to regain a level {2 * n} spell slot.", {
+                "SpellType": "Shout", "TargetConditions": "Self()", "SpellContainerID": "Shout_ApoNatureMagician",
+                "SpellProperties": f"RestoreResource(SELF,SpellSlot,1,{2 * n})", "UseCosts": f"WildShape:{n};ApoNatureMagician:1",
+                "VerbalIntent": "Utility"}, icon="Skill_Druid_WildShape")
+G.resource("ApoNatureMagician", 1, "Rest", "Nature Magician", "Convert Wild Shape uses into a spell slot.")
+G.passive("Druid_Archdruid", "Archdruid",
+          "Evergreen Wild Shape: when you roll Initiative with no uses of Wild Shape left, you regain one. Nature Magician: once per Long Rest, convert unexpended Wild Shape uses into a spell slot (2 spell levels per use).", {
+              "StatsFunctorContext": "OnCombatStarted",
+              "Conditions": "not HasActionResource('WildShape',1,0,false,false,context.Source)",
+              "StatsFunctors": "RestoreResource(SELF,WildShape,1,0)",
+              "Boosts": "UnlockSpell(Shout_ApoNatureMagician);ActionResource(ApoNatureMagician,1,0)"}, icon="Skill_Druid_WildShape")
+# Fighter 17 Action Surge (PHB 2024): two uses before a rest, only once per turn. The base Action Surge is a
+# once-per-Short-Rest cooldown, so the second use is its own spell with its own cooldown.
+G.spell("Shout_ApoActionSurge_Second", "Action Surge (second use)", "Use Action Surge a second time before a rest (not on a turn you already did).", {
+    "RequirementConditions": "not HasStatus('ACTION_SURGE',context.Source)"}, using="Shout_ActionSurge")
+G.passive("Fighter_17_ActionSurgeTwice", "Action Surge (two uses)",
+          "You can use Action Surge twice before a rest, but only once on a turn.", {"Boosts": "UnlockSpell(Shout_ApoActionSurge_Second)"},
+          icon=icon_of("Shout_ActionSurge"))
+
 # ---------------------------------------------------------------- progression
 NODES = {
+    # resource audit fixes (2026-10-03): real resource names, 2024 levels
+    "a1b2c3d4-e5f6-47a8-b9c0-d1e2f3a4b5c6": {"PassivesAdded": "Fighter_StudiedAttacks", "Boosts": "ActionResource(Interrupt_Indomitable,1,0)"},
+    "e5f6a7b8-c9d0-41e2-f3a4-b5c6d7e8f9a0": {"PassivesAdded": "Fighter_17_ActionSurgeTwice", "Boosts": "ActionResource(Interrupt_Indomitable,1,0)"},
+    "11111111-1111-1111-1111-111111111101": {"PassivesAdded": "Barbarian_BrutalStrike_Improved"},
+    "11111111-1111-1111-1111-111111111105": {"PassivesAdded": "Barbarian_BrutalStrike_17", "Boosts": "ActionResource(Rage,1,0)"},
+    "11111111-1111-1111-1111-111111111106": {"PassivesAdded": "Barbarian_IndomitableMight"},
+    "88888888-8888-8888-8888-888888888805": {"PassivesAdded": "UnlockedSpellSlotLevel9", "Boosts": "ActionResource(SpellSlot,1,9);ActionResource(WildShape,1,0)"},
+    "88888888-8888-8888-8888-888888888808": {"PassivesAdded": "Druid_Archdruid", "Boosts": "ActionResource(SpellSlot,1,7)"},
     "55555555-5555-5555-5555-555555555502": {"PassivesAdded": "Ranger_14_NaturesVeil"},
     "55555555-5555-5555-5555-555555555505": {"PassivesAdded": "Ranger_17_PreciseHunter", "Boosts": "ActionResource(SpellSlot,1,4);ActionResource(SpellSlot,1,5)",
                                              "Selectors": "AddSpells(6b625ece-306d-576a-9fa2-896d884e4e05)"},
@@ -97,7 +143,7 @@ NODES = {
 }
 
 if __name__ == "__main__":
-    drop_entries("Passive.txt", ["BattleMaster_Relentless", "OpenHand_17_QuiveringPalm"])
+    drop_entries("Passive.txt", ["BattleMaster_Relentless", "OpenHand_17_QuiveringPalm", "Monk_PerfectFocus", "Druid_Archdruid"])
     drop_entries("Spell_Target.txt", ["Target_Apotheosis_QuiveringPalm"])
     G.write_stats("ClassFeatures", "gen_class_features.py", "issues #11 #12 #13")
     G.patch_files()

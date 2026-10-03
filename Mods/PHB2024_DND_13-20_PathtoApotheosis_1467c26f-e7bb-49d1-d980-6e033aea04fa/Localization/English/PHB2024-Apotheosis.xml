@@ -3359,4 +3359,24 @@
   <content contentuid="h0a6e76bd84605227b1ef98410ce74089" version="1">As a Bonus Action, command the Beasts and Plants charmed by your Charm Animals and Plants: you control what each does on its next turn.</content>
   <content contentuid="h5016f68f043c52d18fc2f3c4d0646eeb" version="1">Improved Mystic Fighting Style</content>
   <content contentuid="h5ee0b8fe7ee15a54bef074c3fc877ae4" version="1">When you cast a level 1 or 2 Sorcerer spell with your action on your turn, you can still make an attack as part of the Attack action (BG3's Improved War Magic).</content>
+  <content contentuid="h3a53ee6b647c554093f6080bcec607a9" version="1">Perfect Focus</content>
+  <content contentuid="ha3c50435c7325925956c32edf3caf64a" version="1">When you roll Initiative and have 3 or fewer Focus Points, you regain expended Focus Points until you have 4.</content>
+  <content contentuid="h6f735784f543502fbf82772a7c51dd96" version="1">Nature Magician</content>
+  <content contentuid="h5d3a94a73a065e70bd645b617cabebeb" version="1">Once per Long Rest, convert unexpended uses of Wild Shape into a single spell slot: 2 spell levels per use.</content>
+  <content contentuid="hb632ffb78f23520da1664625c0f426c5" version="1">Nature Magician: 1 use -&gt; level 2 slot</content>
+  <content contentuid="hb496c7051875525cb4aab42561badb42" version="1">Expend 1 use of Wild Shape to regain a level 2 spell slot.</content>
+  <content contentuid="h6e796b0ddf0355c2811a5c78b950394f" version="1">Nature Magician: 2 uses -&gt; level 4 slot</content>
+  <content contentuid="ha8d5d01eadb95d53838d9c4994a52731" version="1">Expend 2 uses of Wild Shape to regain a level 4 spell slot.</content>
+  <content contentuid="h69c659d3701f58c0880936c618430fcc" version="1">Nature Magician: 3 uses -&gt; level 6 slot</content>
+  <content contentuid="hd69d564806ff592a944103db31341647" version="1">Expend 3 uses of Wild Shape to regain a level 6 spell slot.</content>
+  <content contentuid="h19fdf455471954abb1112f479d210146" version="1">Nature Magician: 4 uses -&gt; level 8 slot</content>
+  <content contentuid="h2d687aa9291c5529a8d8337277f1a291" version="1">Expend 4 uses of Wild Shape to regain a level 8 spell slot.</content>
+  <content contentuid="h00e7bb61f95755dfabbff2b2a2819145" version="1">Nature Magician</content>
+  <content contentuid="h8821cbc289e755a4a382e6d76e8e4365" version="1">Convert Wild Shape uses into a spell slot.</content>
+  <content contentuid="hff67b8f66bcd54d19df60eb5a5e3814e" version="1">Archdruid</content>
+  <content contentuid="hdea8f19b6d645993a5cae978e9cb1ed9" version="1">Evergreen Wild Shape: when you roll Initiative with no uses of Wild Shape left, you regain one. Nature Magician: once per Long Rest, convert unexpended Wild Shape uses into a spell slot (2 spell levels per use).</content>
+  <content contentuid="h80392cf737cd5c1fb043a67b6552a7b1" version="1">Action Surge (second use)</content>
+  <content contentuid="h8074c418172954578051b59730bed234" version="1">Use Action Surge a second time before a rest (not on a turn you already did).</content>
+  <content contentuid="he83a6b2cedfd52ed9d8f1e1b82df9d19" version="1">Action Surge (two uses)</content>
+  <content contentuid="h3cb23f3f19a950c5a3d84845df1cf3f6" version="1">You can use Action Surge twice before a rest, but only once on a turn.</content>
 </contentList>
