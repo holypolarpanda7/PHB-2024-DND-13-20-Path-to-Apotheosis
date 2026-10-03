@@ -133,3 +133,11 @@ From the PHB 2024 text (Skill Empowerment: Xanathar's), `References/Spells/Issue
 Not built yet: Summon Elemental, Summon Construct, Animate Objects, Bigby's Hand, Mordenkainen's Faithful Hound
 (the summons pass). Exploration-only spells BG3 can't express: Locate Creature, Commune with Nature, Tree Stride,
 Fabricate, Creation, Stone Shape, Transmute Rock, Leomund's Secret Chest, Mordenkainen's Private Sanctum.
+
+## Quivering Palm (Open Hand 17, issue #16)
+
+The 2024 two-step feature (`Scripts/gen_class_features.py`): an Unarmed Strike hit can start the vibrations for
+4 Focus Points (an interrupt), and an action ends them for a Constitution save against 8 + Wisdom + PB (10d12
+Force, half on a success); a free spell ends them harmlessly. Approximations: the vibrations last until ended
+(not "days equal to your Monk level"), and ending them costs an action rather than replacing one attack of the
+Attack action.

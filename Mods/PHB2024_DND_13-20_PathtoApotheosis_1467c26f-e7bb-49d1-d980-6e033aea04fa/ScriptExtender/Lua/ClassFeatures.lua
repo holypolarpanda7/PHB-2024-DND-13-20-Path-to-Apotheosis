@@ -2,6 +2,7 @@
 --  * Battle Master 15 Relentless: once per turn, the first Superiority Die a maneuver spends comes back (the d8
 --    "instead of expending a die"). Base maneuvers charge the die on hit (HitCosts) or as an interrupt cost, so a
 --    cost-swapping spell variant can't cover them; this watches the pool after each cast instead.
+--  * Open Hand 17 Quivering Palm: the vibrations are on one creature at a time.
 local Log = Apotheosis and Apotheosis.Log or { Info = print, Warn = print, Error = print, Debug = print }
 local CF = {}
 
@@ -43,6 +44,16 @@ function CF.OnCasted(c)
     end)
 end
 
+-- ---------------------------------------------------------------- Quivering Palm: one creature at a time
+local palmOn = {}  -- Monk -> creature
+function CF.OnStatusApplied(target, status, causee)
+    if status ~= "QUIVERING_PALM" or not causee then return end
+    local monk, t = short(causee), short(target)
+    local prev = palmOn[monk]
+    if prev and prev ~= t then Osi.RemoveStatus(prev, "QUIVERING_PALM") end
+    palmOn[monk] = t
+end
+
 local function guard(name, fn)
     return function(...)
         local ok, err = pcall(fn, ...)
@@ -51,6 +62,7 @@ local function guard(name, fn)
 end
 
 Ext.Osiris.RegisterListener("TurnStarted", 1, "after", guard("TurnStarted", function(c) CF.OnTurnStarted(c) end))
+Ext.Osiris.RegisterListener("StatusApplied", 4, "after", guard("StatusApplied", function(t, s, c) CF.OnStatusApplied(t, s, c) end))
 Ext.Osiris.RegisterListener("CastedSpell", 5, "after", guard("CastedSpell", function(c) CF.OnCasted(c) end))
 Ext.Osiris.RegisterListener("UsingSpell", 5, "before", guard("UsingSpell", function(c)
     c = short(c)

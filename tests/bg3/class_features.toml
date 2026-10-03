@@ -65,3 +65,34 @@ setup = [{ target = "host", boost = "ActionResource(SuperiorityDie,4,0)" }, { ta
 instructions = "Use Trip Attack on the wolf from the hotbar (a scripted cast never pays costs, so this needs a real one)."
 expect = [{ resource = "SuperiorityDie", level = 0, amount_change = 0 }]
 notes = "Log: 'Relentless: ... keeps the Superiority Die'. A second maneuver the same turn spends normally."
+
+# ---------------------------------------------------------------- #16 Quivering Palm (drafted, reviewed)
+[[case]]
+id = "openhand-quivering-palm-start"
+title = "Quivering Palm: an Unarmed Strike hit can start the vibrations for 4 Focus"
+spell = "Target_UnarmedAttack"
+target = "A"
+real_rolls = true
+reactions = ["QuiveringPalm"]
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 1.2 }]
+setup = [{ target = "host", boost = "ActionResource(KiPoint,10,0)" }, { target = "host", passive = "OpenHand_17_QuiveringPalm" }, { target = "host", boost = "RollBonus(Attack,30)" }, { target = "A", boost = "ActionResourceBlock(ReactionActionPoint)" }]
+expect = [{ target = "A", status_applied = ["QUIVERING_PALM"] }, { resource = "KiPoint", level = 0, amount_change = -4 }]
+
+[[case]]
+id = "openhand-quivering-palm-trigger"
+title = "Quivering Palm: ending the vibrations deals 10d12 Force on a failed Constitution save"
+spell = "Target_QuiveringPalm_Trigger"
+target = "A"
+real_rolls = true
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 6 }]
+setup = [{ target = "host", passive = "OpenHand_17_QuiveringPalm" }, { target = "A", status = "QUIVERING_PALM", turns = -1, by = "host" }, { target = "A", boost = "AbilityFailedSavingThrow(Constitution)" }]
+expect = [{ target = "A", status_removed = ["QUIVERING_PALM"] }, { target = "A", hp_change = [-120, -10] }]
+
+[[case]]
+id = "openhand-quivering-palm-release"
+title = "Quivering Palm: the vibrations can be ended harmlessly"
+spell = "Target_QuiveringPalm_Release"
+target = "A"
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 6 }]
+setup = [{ target = "host", passive = "OpenHand_17_QuiveringPalm" }, { target = "A", status = "QUIVERING_PALM", turns = -1, by = "host" }]
+expect = [{ target = "A", status_removed = ["QUIVERING_PALM"] }, { target = "A", hp_change = [0, 0] }]

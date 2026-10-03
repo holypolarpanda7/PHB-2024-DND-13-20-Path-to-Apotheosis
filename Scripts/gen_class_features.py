@@ -2,6 +2,7 @@
 - #11 Ranger 14 Nature's Veil, Ranger 17 Precise Hunter
 - #12 College of Glamour 14 Unbreakable Majesty
 - #13 Battle Master 15 Relentless (the +1 Superiority Die moves to the level-15 node)
+- #16 Warrior of the Open Hand 17 Quivering Palm (the 2024 two-step feature)
 
 Owns Stats/Generated/Data/{Passive,Status,Spell,Interrupt}_ClassFeatures.txt; patches Progressions (by UUID),
 ActionResourceDefinitions and loca. Script Extender half: ScriptExtender/Lua/ClassFeatures.lua (Relentless).
@@ -59,6 +60,32 @@ G.passive("BattleMaster_Relentless", "Relentless",
           {"Boosts": "ActionResource(BattleMasterRelentless,1,0)"}, icon="Action_ForcedManeuver",
           comment="ClassFeatures.lua returns the first Superiority Die a maneuver spends each turn.")
 
+# ---------------------------------------------------------------- #16 Warrior of the Open Hand 17: Quivering Palm
+MONK_DC = "SourceSpellDC(10, context.Source, Ability.Wisdom)"  # the 2024 Focus save DC: 8 + Wisdom + PB
+G.passive("OpenHand_17_QuiveringPalm", "Quivering Palm",
+          "When you hit a creature with an Unarmed Strike, you can expend 4 Focus Points to start lethal vibrations in its body. Later, as an action, you end them: it makes a Constitution saving throw, taking 10d12 Force damage on a failure or half on a success. Only one creature at a time; you can also end them harmlessly.",
+          {"Boosts": "UnlockInterrupt(Interrupt_QuiveringPalm);UnlockSpell(Target_QuiveringPalm_Trigger);UnlockSpell(Target_QuiveringPalm_Release)"},
+          icon="Action_Monk_OpenHandTechnique_Push")
+G.interrupt("Interrupt_QuiveringPalm", "Quivering Palm", "Expend 4 Focus Points to start lethal vibrations in the creature you hit.", {
+    "InterruptContext": "OnCastHit", "InterruptContextScope": "Self", "Container": "YesNoDecision",
+    "Conditions": "Self(context.Source,context.Observer) and not Self() and IsUnarmedAttack() and not IsMiss() and Character(context.Target) and not AnyEntityIsItem() and not HasStatus('QUIVERING_PALM',context.Target,context.Source)",
+    "Properties": "ApplyStatus(QUIVERING_PALM,100,-1)", "Cost": "KiPoint:4", "InterruptDefaultValue": "Ask;Enabled"},
+    icon="Action_Monk_OpenHandTechnique_Push")
+G.status("QUIVERING_PALM", "Quivering Palm", "Lethal vibrations: the Monk can end them for 10d12 Force damage (Constitution save for half).", {
+    "StackId": "QUIVERING_PALM", "StatusPropertyFlags": "IgnoreResting;DisableOverhead", "StatusGroups": "SG_RemoveOnRespec"},
+    icon="Action_Monk_OpenHandTechnique_Push", comment="Lasts until ended (the source: days equal to your Monk level). ClassFeatures.lua keeps it on one creature.")
+G.spell("Target_QuiveringPalm_Trigger", "Quivering Palm: End the Vibrations", "The creature makes a Constitution saving throw: 10d12 Force damage, or half on a success.", {
+    "SpellType": "Target", "Level": "0", "TargetRadius": "60", "UseCosts": "ActionPoint:1",
+    "TargetConditions": "HasStatus('QUIVERING_PALM',context.Target,context.Source)",
+    "SpellRoll": f"not SavingThrow(Ability.Constitution, {MONK_DC})", "SpellSuccess": "DealDamage(10d12,Force,Magical)",
+    "SpellFail": "DealDamage((10d12)/2,Force,Magical)", "SpellProperties": "RemoveStatus(QUIVERING_PALM)",
+    "TooltipDamageList": "DealDamage(10d12,Force)", "TooltipAttackSave": "Constitution", "DamageType": "Force",
+    "SpellFlags": "IsHarmful;IgnoreSilence"}, icon="Action_Monk_OpenHandTechnique_Push")
+G.spell("Target_QuiveringPalm_Release", "Quivering Palm: Release", "End the vibrations harmlessly.", {
+    "SpellType": "Target", "Level": "0", "TargetRadius": "60", "UseCosts": "", "AIFlags": "CanNotUse",
+    "TargetConditions": "HasStatus('QUIVERING_PALM',context.Target,context.Source)", "SpellProperties": "RemoveStatus(QUIVERING_PALM)",
+    "SpellFlags": "IgnoreSilence"}, icon="Action_Monk_OpenHandTechnique_Push")
+
 # ---------------------------------------------------------------- progression
 NODES = {
     "55555555-5555-5555-5555-555555555502": {"PassivesAdded": "Ranger_14_NaturesVeil"},
@@ -70,7 +97,8 @@ NODES = {
 }
 
 if __name__ == "__main__":
-    drop_entries("Passive.txt", ["BattleMaster_Relentless"])
+    drop_entries("Passive.txt", ["BattleMaster_Relentless", "OpenHand_17_QuiveringPalm"])
+    drop_entries("Spell_Target.txt", ["Target_Apotheosis_QuiveringPalm"])
     G.write_stats("ClassFeatures", "gen_class_features.py", "issues #11 #12 #13")
     G.patch_files()
     patch_progressions(NODES, [], "CLASS FEATURES 2024")

@@ -229,7 +229,6 @@ data "DisplayName" "haa11111111111111111111111111b032;1"
 data "Description" "haa11111111111111111111111111b033;1"
 data "SpellFlags" "IsMelee;IsHarmful"
 
-
 // ==============================================================================
 // WORLD TREE - Travel along the Tree Spells (Level 14)
 // ==============================================================================
@@ -557,42 +556,7 @@ data "TargetEffect" "c169922f-8636-46ce-aa1a-4c86a6cc7d08"
 data "CastSound" "Spell_Cast_Healing_Heal_L6to8"
 data "TargetSound" "Spell_Impact_Healing_Heal_L6to8"
 data "HitAnimationType" "MagicalNonDamage"
-new entry "Target_Apotheosis_QuiveringPalm"
-type "SpellData"
-data "SpellType" "Target"
-data "Level" "0"
-data "SpellSchool" "Evocation"
-data "SpellRoll" "not SavingThrow(Ability.Constitution, SourceSpellDC())"
-data "SpellSuccess" "DealDamage(10d12,Force,Magical)"
-data "SpellFail" "DealDamage(5d12,Force,Magical)"
-data "TargetRadius" "2"
-data "TargetConditions" "Enemy() and not Dead()"
-data "Icon" "Action_Monk_OpenHandTechnique_Push"
-data "DisplayName" "hc2e3f4a5c00000000000000000000bf"
-data "Description" "hc2e3f4a6c00000000000000000000c0"
-data "CastTextEvent" "Cast"
-data "UseCosts" "ActionPoint:1;KiPoint:3"
-data "Cooldown" "OncePerRest"
-data "VerbalIntent" "Damage"
-data "SpellFlags" "HasSomaticComponent;IsSpell;IsHarmful;IsMelee"
 
-// ==============================================================================
-// ARTIFICER - Alchemist: Chemical Mastery (Level 15)
-// PHB: gain Acid/Poison resistance and cast Greater Restoration & Heal at will.
-// Adapted as a free (no slot), OncePerLongRest restorative: restore a creature to
-// full HP and cleanse Poison/Disease/Curse/Charm/Fear. Resistances granted on the
-// passive; this spell granted via UnlockSpell on Alchemist_15_ChemicalMastery.
-// ==============================================================================
-// visual kit from Target_StunningStrike (a spell with no SpellAnimation never resolves - #14)
-data "SpellAnimation" "8b8bb757-21ce-4e02-a2f3-97d55cf2f90b,,;203f8bb2-6a8d-4c3c-9927-65bad54d325c,,;c369f7cf-f7ce-47dc-955c-a8aa66068457,,;843f4e10-7239-49f0-92c8-a385b920db93,,;7bb52cd4-0b1c-4926-9165-fa92b75876a3,,;5f3e4ce3-ccf4-4609-9aa7-684fc6506599,,;0b07883a-08b8-43b6-ac18-84dc9e84ff50,,;c369f7cf-f7ce-47dc-955c-a8aa66068457,,;,,"
-data "PrepareEffect" "9cf63148-8308-4f54-9557-3a2c6054dad6"
-data "CastEffect" "d4b06e85-20e3-478f-84a8-fb30f3a47679"
-data "TargetEffect" "9df0d05b-1e4a-484e-a566-7850c3bcb647"
-data "PrepareSound" "Vocal_Component_Monk_Control"
-data "CastSound" "Spell_Cast_Monk_StunningStrike_L1to3"
-data "TargetSound" "Spell_Impact_Monk_StunningStrike_L1to3"
-data "HitAnimationType" "PhysicalDamage"
-data "SpellAnimationIntentType" "Aggressive"
 new entry "Target_Apotheosis_ChemicalMastery"
 type "SpellData"
 data "SpellType" "Target"

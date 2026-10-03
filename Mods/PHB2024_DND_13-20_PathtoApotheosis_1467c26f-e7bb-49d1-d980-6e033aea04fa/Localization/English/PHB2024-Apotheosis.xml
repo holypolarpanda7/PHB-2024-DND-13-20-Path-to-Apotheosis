@@ -2598,4 +2598,14 @@
   <content contentuid="h6c09879cf5685a9fafb50030395bcfcd" version="1">Once per turn, a maneuver costs no Superiority Die.</content>
   <content contentuid="hed3462a77768556f91ca6641ba217c1c" version="1">Relentless</content>
   <content contentuid="ha25f4fb5fd865037ba5b3c31f7282fed" version="1">Once per turn, when you use a maneuver, you can roll a d8 and use it instead of expending a Superiority Die.</content>
+  <content contentuid="h015f95ed3fac5fd1b786049202e4f813" version="1">Quivering Palm</content>
+  <content contentuid="haf6c0a9f49ad57f5872cf50e870f96d6" version="1">When you hit a creature with an Unarmed Strike, you can expend 4 Focus Points to start lethal vibrations in its body. Later, as an action, you end them: it makes a Constitution saving throw, taking 10d12 Force damage on a failure or half on a success. Only one creature at a time; you can also end them harmlessly.</content>
+  <content contentuid="h9ba611980f84526caa94b309aff55ad8" version="1">Quivering Palm</content>
+  <content contentuid="hde03341619ad5ca3b89f0571e02f0725" version="1">Expend 4 Focus Points to start lethal vibrations in the creature you hit.</content>
+  <content contentuid="hbac1b6b82305587e932d4f3fc560821d" version="1">Quivering Palm</content>
+  <content contentuid="he6bbf20dc74e583e934a763fad414b8a" version="1">Lethal vibrations: the Monk can end them for 10d12 Force damage (Constitution save for half).</content>
+  <content contentuid="h30180e18456c54c29fbd27983894b00a" version="1">Quivering Palm: End the Vibrations</content>
+  <content contentuid="hcacd5860ccf45311a59f9b456cb08a18" version="1">The creature makes a Constitution saving throw: 10d12 Force damage, or half on a success.</content>
+  <content contentuid="hc99a23afbdab5cc69c5c836a08427cb4" version="1">Quivering Palm: Release</content>
+  <content contentuid="h0e7b1ac231f957b092497de76259da8c" version="1">End the vibrations harmlessly.</content>
 </contentList>

@@ -134,16 +134,6 @@ spawn = [{ as = "A", template = "wolf", faction = "neutral", distance = 5 }]
 expect = [{ cast = true }]
 
 [[case]]
-id = "cast-Target_Apotheosis_QuiveringPalm"
-title = "Quivering Palm resolves when cast"
-spell = "Target_Apotheosis_QuiveringPalm"
-target = "A"
-spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 200, distance = 1.5 }]
-setup = [{ target = "A", boost = "ActionResourceBlock(ReactionActionPoint)" }]
-expect = [{ cast = true }]
-notes = "the wolf's reaction is blocked: its opportunity attack otherwise interrupts the cast (a test artifact)"
-
-[[case]]
 id = "cast-Target_Apotheosis_HandOfUltimateMercy"
 title = "Hand of Ultimate Mercy resolves on a corpse"
 spell = "Target_Apotheosis_HandOfUltimateMercy"
