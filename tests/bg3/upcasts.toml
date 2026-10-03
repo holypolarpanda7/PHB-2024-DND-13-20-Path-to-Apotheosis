@@ -1,0 +1,57 @@
+# Upcast variants at 7th-9th level (Scripts/gen_upcasts.py, 2026-10-03). The harness checks each cast's slot cost
+# against the loaded UseCosts, so these also confirm the variants spend a 7th-9th level slot.
+
+[[case]]
+id = "upcast-acid-arrow-9"
+title = "Acid Arrow at 9th level: hits and applies the generated ACID_ARROW_9 status"
+spell = "Projectile_AcidArrow_9"
+mode = "script"  # the test wizard doesn't know it; checks the generated data, not slot costs
+target = "A"
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 6 }]
+setup = [{ target = "host", boost = "RollBonus(Attack,30)" }, { target = "host", boost = "ActionResource(SpellSlot,1,9)" }]
+expect = [{ target = "A", status_applied = ["ACID_ARROW_9"] }, { target = "A", hp_change = [-44, -11] }]
+
+[[case]]
+id = "upcast-armor-of-agathys-9"
+title = "Armor of Agathys at 9th level: 45 temporary HP (5 per slot level)"
+spell = "Shout_ArmorOfAgathys_9"
+mode = "script"  # the test wizard doesn't know it; checks the generated data, not slot costs
+target = "host"
+setup = [{ target = "host", boost = "ActionResource(SpellSlot,1,9)" }]
+expect = [{ target = "host", status_applied = ["ARMOR_OF_AGATHYS_9"] }]
+
+[[case]]
+id = "upcast-ice-knife-8"
+title = "Ice Knife at 8th level: 1d10 Piercing + 9d6 Cold on a failed save"
+spell = "Projectile_IceKnife_8"
+mode = "script"  # the test wizard doesn't know it; checks the generated data, not slot costs
+target = "A"
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 6 }]
+setup = [{ target = "host", boost = "RollBonus(Attack,30)" }, { target = "host", boost = "ActionResource(SpellSlot,1,8)" }, { target = "A", boost = "AbilityFailedSavingThrow(Dexterity)" }]
+expect = [{ target = "A", hp_change = [-64, -10] }]
+
+[[case]]
+id = "upcast-bless-7"
+title = "Bless at 7th level: the upcast variant casts and blesses"
+spell = "Target_Bless_7"
+mode = "script"  # the test wizard doesn't know it; checks the generated data, not slot costs
+target = "host"
+setup = [{ target = "host", boost = "ActionResource(SpellSlot,1,7)" }]
+expect = [{ target = "host", status_applied = ["BLESS"] }]
+
+[[case]]
+id = "upcast-chromatic-orb-acid-9"
+title = "Chromatic Orb at 9th level (known root): 10d8 Acid, spends a 9th level slot"
+spell = "Projectile_ChromaticOrb_Acid_9"
+target = "A"
+spawn = [{ as = "A", template = "wolf", faction = "hostile", hp = 300, distance = 6 }]
+setup = [{ target = "host", boost = "RollBonus(Attack,30)" }, { target = "host", boost = "ActionResource(SpellSlot,1,9)" }]
+expect = [{ target = "A", hp_change = [-160, -10] }]
+
+[[case]]
+id = "upcast-mage-armor-7"
+title = "Mage Armor at 7th level (known root): casts from a 7th level slot"
+spell = "Target_MageArmor_7"
+target = "host"
+setup = [{ target = "host", boost = "ActionResource(SpellSlot,1,7)" }]
+expect = [{ target = "host", status_applied = ["MAGE_ARMOR"] }]

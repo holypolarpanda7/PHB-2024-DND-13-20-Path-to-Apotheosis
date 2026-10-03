@@ -88,6 +88,23 @@ spells have no Apotheosis node. Built so far (`Scripts/gen_subclass_features.py`
 - Still missing: Nature 17 Master of Nature (commanding charmed beasts/plants), and the subclasses whose 13-20 texts
   aren't available here (third-party or unknown sources): see `docs/SUBCLASS_SOURCING.md`.
 
+## Upcasting to 7th-9th level (2026-10-03)
+
+Base BG3 and dnd55e stop every spell's `_N` upcast variants at 6th level, so a 7th-9th level slot couldn't upcast
+Bless, Hex, Ice Knife, Counterspell, Chromatic Orb... `Scripts/gen_upcasts.py` adds `_7`..`_9` for all 254 families
+that stop at 6 (846 spells, 87 statuses, 12 interrupts, 9 passives in `*_Upcast79.txt`). Each variant uses `X_6` and
+extends the 5th->6th level step linearly (PHB 2024 upcasting is linear per slot level), generating any referenced
+status / interrupt / container child at the new level the same way. Verified in game: the engine offers the `_9`
+variants once a 9th level slot exists; `tests/bg3/upcasts.toml` (6 cases) passes.
+
+Known limits (inherit the 6th level behaviour, listed by the generator's WARN lines):
+- **Per-level summon templates**: Summon Beast / Fey / Undead / Aberration / Celestial / Dragon / Fiend..., Spiritual
+  Weapon's weapon forms and Glyph of Warding summon a different root template per level; their 7th-9th variants summon
+  the 6th level creature. Follow-up: per-level templates (gen_summons.py style) for those.
+- **Cloudkill** scales through a per-level surface (`Cloudkill6Cloud`); 7th-9th deal 6th level damage.
+- **Danse Macabre** can't resolve at any level (dnd55e bug, see UPSTREAM_FINDINGS.md).
+- Families already reaching 9th level (hand-written in `Spell_HighLevel.txt`, the Apotheosis summons) are untouched.
+
 ## Regenerating this audit
 
 ```bash
