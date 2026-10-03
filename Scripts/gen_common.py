@@ -131,7 +131,7 @@ class Gen:
                  *([f'<attribute id="DisplayName" type="TranslatedString" handle="{t["handle"]}" version="1" />']
                    if t["handle"] else []),
                  a("Stats", "FixedString", t["stats"])]  # (same order as before: existing LSX digests stay stable)
-            if t["spellset"]:
+            if t["spellset"] is not None:  # "" deliberately clears the parent's spell set
                 o.append(a("SpellSet", "FixedString", t["spellset"]))
             if t["level"]:
                 o.append(a("LevelOverride", "int32", t["level"]))
@@ -237,7 +237,7 @@ def update_loca(rows):
             return m.group(0)
         seen.add(m.group(1))
         return f'  <content contentuid="{m.group(1)}" version="1">{esc(rows[m.group(1)])}</content>\n'
-    s = re.sub(r'  <content contentuid="(h[0-9a-f]{32})" version="\d+">[^<]*</content>\n', update, s)
+    s = re.sub(r'  <content contentuid="(h[0-9a-z]+)" version="\d+">[^<]*</content>\n', update, s)
     new = "".join(f'  <content contentuid="{k}" version="1">{esc(v)}</content>\n' for k, v in rows.items() if k not in seen)
     i = s.rindex("</contentList>")
     s = s[:i] + new + s[i:]

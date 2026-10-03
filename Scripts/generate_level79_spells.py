@@ -160,7 +160,7 @@ SPELLS = [
          design="Downtime demiplane turned into a mid-combat respite: group heal + short Sanctuary.",
          fields={
              "SpellProperties": "RegainHitPoints(4d8);ApplyStatus(SANCTUARY,100,2)",
-             "TooltipHealList": "RegainHitPoints(4d8)",
+             "TooltipDamageList": "RegainHitPoints(4d8)",
              "TooltipStatusApply": "ApplyStatus(SANCTUARY,100,2)",
          }),
     dict(entry="Target_Apo_PlaneShift", using="Target_Banishment",
@@ -242,7 +242,7 @@ SPELLS = [
          fields={
              "SpellProperties": "ApplyStatus(APO_BESTIAL,100,10)",
              "TooltipStatusApply": "ApplyStatus(APO_BESTIAL,100,10)",
-             "TooltipHealList": "",
+             "TooltipDamageList": "",
          }),
     dict(entry="Shout_Apo_AntimagicField", using="Shout_SpiritGuardians",
          level=8, school="Abjuration", hid=8003, classes=["clr", "wiz"],
@@ -625,24 +625,22 @@ def xml_escape(text: str) -> str:
 
 
 def update_loca() -> int:
-    text = LOCA.read_text(encoding="utf-8")
-    lines = [ln for ln in text.splitlines()
-             if 'contentuid="hsp' not in ln and 'contentuid="hst' not in ln]
-    inserts = []
+    """Our hsp*/hst* strings, updated in place (stable order: gen_common.update_loca); stale ones are dropped."""
+    import re
+    import sys
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    from gen_common import update_loca as write_rows
+    rows = {}
     for s in SPELLS:
-        inserts.append(f'  <content contentuid="{handle("hsp", s["hid"])}" version="1">{xml_escape(s["name"])}</content>')
-        inserts.append(f'  <content contentuid="{handle("hsp", s["hid"] + 1)}" version="1">{xml_escape(s["desc"])}</content>')
+        rows[handle("hsp", s["hid"])], rows[handle("hsp", s["hid"] + 1)] = s["name"], s["desc"]
     for s in STATUSES:
-        inserts.append(f'  <content contentuid="{handle("hst", s["hid"])}" version="1">{xml_escape(s["name"])}</content>')
-        inserts.append(f'  <content contentuid="{handle("hst", s["hid"] + 1)}" version="1">{xml_escape(s["desc"])}</content>')
-    for i, ln in enumerate(lines):
-        if "</contentList>" in ln:
-            lines[i:i] = inserts
-            break
-    else:
-        raise SystemExit("ERROR: </contentList> not found in loca XML")
-    LOCA.write_text("\n".join(lines) + "\n", encoding="utf-8")
-    return len(inserts)
+        rows[handle("hst", s["hid"])], rows[handle("hst", s["hid"] + 1)] = s["name"], s["desc"]
+    text = LOCA.read_text(encoding="utf-8")
+    stale = re.compile(r'  <content contentuid="(hs[pt]\d+)" version="\d+">[^<]*</content>\n')
+    text = stale.sub(lambda m: m.group(0) if m.group(1) in rows else "", text)
+    LOCA.write_bytes(text.encode("utf-8"))
+    write_rows(rows)
+    return len(rows)
 
 
 def update_spell_lists() -> int:
