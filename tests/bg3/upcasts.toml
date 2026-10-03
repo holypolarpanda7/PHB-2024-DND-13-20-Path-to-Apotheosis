@@ -66,9 +66,7 @@ mode = "script"
 target = "ground"
 distance = 3
 expect = [{ summon = { stats = "Wolf_8", max_hp = 60, passives = ["ExtraAttack_3", "PackTactics_SummonBeast"] } }]
-notes = """Needs dnd55e with the Summon Beast wolf form (upstream 2026-10-03); the 2026-08-16 release has no Summon Beast
-templates, so the cast silently does nothing there (dnd55e's own Wolf_6 too). Verified 2026-10-03 by spawning the
-generated template: Wolf_8 60 HP, ExtraAttack_3; Beholder_7 70 HP, ExtraAttack_2."""
+notes = """Needs dnd55e 4.12.18.1+ (Summon Beast templates; the 2026-08-16 release has none). Verified in game 2026-10-03."""
 
 [[case]]
 id = "upcast-summon-dragon-9"

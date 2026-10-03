@@ -3,7 +3,7 @@
 per-level status (the dnd55e Spiritual Weapon pattern): your Proficiency Bonus, your spell attack modifier and save
 DC, and the stat block's "+ spell level" rows (AC, HP, damage, Multiattack).
 
-Pass 1: Summon Elemental (Air/Earth/Fire/Water) and Summon Construct (Clay/Metal/Stone).
+Pass 1: Summon Construct (Clay/Metal/Stone). (Summon Elemental: dnd55e's own, since 2026-10-03.)
 Pass 2: Mordenkainen's Faithful Hound, Bigby's Hand, Animate Objects (with Lua in Summons.lua).
 
 AC: the engine adds the Dexterity modifier to the `Armor` stat, so Armor = stat-block AC - Dex modifier.
@@ -38,10 +38,6 @@ EXTRA_ATTACK = {1: "", 2: "ExtraAttack", 3: "ExtraAttack_2", 4: "ExtraAttack_3"}
 
 # Placeholder models: base-game templates the new creatures inherit their look, sounds and effects from.
 MODELS = {
-    "ElementalAir": "284b9c7f-1e04-48b7-af41-9029d1fa753c",    # Elemental_Air_ConjureElemental
-    "ElementalEarth": "2ad47124-e41a-460e-b97a-f8e9efd32ed8",  # Elemental_Earth_ConjureElemental
-    "ElementalFire": "88a6c664-877c-4d6e-81ad-dd377df2634e",   # Elemental_Fire_ConjureElemental
-    "ElementalWater": "f21e144a-3237-4faa-a99c-a15e1937bc2c",  # Elemental_Water_ConjureElemental
     "ConstructClay": "6597824a-fc73-474a-b594-b3bbd8591016",   # Construct_FleshGolem
     "ConstructMetal": "f1662ccf-44cb-4e27-8810-ca2d3eea2adf",  # dnd55e AnimatedArmor_SteelDefender
     "ConstructStone": "b5bd29ba-8105-4123-920f-a2c64a4e1dfc",  # Myrmidon_Earth_ConjureElemental
@@ -115,32 +111,8 @@ def summon_spell(root, title, text, school, base_level, forms, icon, radius="18"
     return root
 
 
-# ================================================================ Summon Elemental (level 4)
-ELEMENTS = [  # form, damage type, resistances, immunities, extra skills
-    ("Air", "Lightning", ("Lightning", "Thunder"), ("Poison",), ["Projectile_Fly"]),
-    ("Earth", "Bludgeoning", ("Piercing", "Slashing"), ("Poison",), []),
-    ("Fire", "Fire", (), ("Fire", "Poison"), []),
-    ("Water", "Cold", ("Acid",), ("Poison",), []),
-]
-ELEMENTAL_TEXT = ("You call forth an Elemental spirit of the chosen element (Concentration, up to 1 hour). It uses your Proficiency "
-                  "Bonus, spell attack modifier and spell save DC; AC 11 + the spell's level, 50 HP + 10 for each level above 4, "
-                  "and a number of Slam attacks equal to half the spell's level (1d10 + 4 + the spell's level).")
-el_forms = []
-for el, dtype, res, imm, skills in ELEMENTS:
-    sl = f"Target_ApoElementalSpirit_Slam_{el}"
-    slam(sl, "Slam", "1d10+4", dtype, f"Action_Monster_Elemental{el}_MultiAttack" if el != "Earth" else "Action_Monster_ElementalEarth_MultiAttack",
-         f"Melee attack with your spell attack modifier: 1d10 + 4 + the spell's level {dtype} damage.", 4)
-    char = {"Level": "9", "Strength": "18", "Dexterity": "15", "Constitution": "17", "Intelligence": "4", "Wisdom": "10",
-            "Charisma": "16", "Armor": "13", "ArmorType": "None", "Vitality": "50",
-            "ActionResources": "ActionPoint:1;BonusActionPoint:1;Movement:12;ReactionActionPoint:1",
-            "UnarmedAttackAbility": "Wisdom", "UnarmedRangedAttackAbility": "Wisdom", "SpellCastingAbility": "Wisdom",
-            "DarkvisionRange": "18", "Passives": "AttackOfOpportunity;Darkvision;DarknessRules;ShortResting",
-            "PersonalStatusImmunities": "SG_Paralyzed;SG_Petrified;PETRIFIED;SG_Poisoned",
-            "DifficultyStatuses": "STATUS_EASY:PLAYER_BONUSES_EASYMODE", **resistances(res, imm)}
-    tpl, levels = spirit("Elemental", el, f"{el} Elemental Spirit", char, ["Shout_Dodge"] + skills, 4, 1, 10, sl)
-    el_forms.append((el, el, tpl, levels, None))
-summon_spell("Target_ApoSummonElemental", "Summon Elemental", ELEMENTAL_TEXT, "Conjuration", 4, el_forms,
-             "Spell_Conjuration_ConjureElemental")
+# Summon Elemental: dnd55e's own Target_SummonElemental (4.12.18.1+) is used - deferred to dnd55e 2026-10-03; its
+# 7th-9th level variants come from gen_upcasts.py. Target_ApoSummonElemental is retired (RETIRED below).
 
 # ================================================================ Summon Construct (level 4)
 CONSTRUCT_TEXT = ("You call forth the spirit of a Construct made of Clay, Metal or Stone (Concentration, up to 1 hour). It uses your "
@@ -387,19 +359,19 @@ for lvl in range(6, 10):
 # ================================================================ spell lists
 # (class, spell level) -> spells. dnd55e lists named "5.5 <Class> SLevel <N>..." (incl. "to N"/"to Bard" copies).
 CLASS_ADDS = {
-    ("Druid", 4): ["Target_ApoSummonElemental"],
-    ("Wizard", 4): ["Target_ApoSummonElemental", "Target_ApoSummonConstruct", "Target_ApoFaithfulHound"],
+    ("Wizard", 4): ["Target_ApoSummonConstruct", "Target_ApoFaithfulHound"],
     ("Bard", 5): ["Target_ApoAnimateObjects"],
     ("Sorcerer", 5): ["Target_ApoAnimateObjects", "Target_ApoBigbysHand"],
     ("Wizard", 5): ["Target_ApoAnimateObjects", "Target_ApoBigbysHand"],
 }
 APO_ADDS = {  # Apotheosis-owned lists, by name
-    "Apotheosis Ranger SLevel 4 List": ["Target_ApoSummonElemental"],
+    "Apotheosis Ranger SLevel 4 List": ["Target_SummonElemental"],  # dnd55e's spell
     "Apotheosis Artificer SLevel 4 List": ["Target_ApoFaithfulHound", "Target_ApoSummonConstruct"],
     "Apotheosis Artificer SLevel 5 List": ["Target_ApoAnimateObjects", "Target_ApoBigbysHand"],
-    **{f"WizardUpToL{n}": ["Target_ApoSummonElemental", "Target_ApoSummonConstruct", "Target_ApoFaithfulHound",
+    **{f"WizardUpToL{n}": ["Target_SummonElemental", "Target_ApoSummonConstruct", "Target_ApoFaithfulHound",
                            "Target_ApoAnimateObjects", "Target_ApoBigbysHand"] for n in (7, 8, 9)},
 }
+RETIRED = {"Target_ApoSummonElemental"}  # dropped from Apotheosis-owned lists (replaced by dnd55e's spells)
 NODE = re.compile(r'[ \t]*<node id="SpellList">\s*(?:(?!</node>).)*?</node>\n', re.S)
 
 
@@ -409,7 +381,7 @@ def patch_lists():
     for name, add in APO_ADDS.items():
         m = re.search(rf'(<attribute id="Name" type="FixedString" value="{re.escape(name)}"/>\s*<attribute id="Spells" type="LSString" value=")([^"]*)', s)
         assert m, name
-        have = [x for x in m.group(2).split(";") if x]
+        have = [x for x in m.group(2).split(";") if x and x not in RETIRED]
         s = s[:m.start(2)] + ";".join(have + [a for a in add if a not in have]) + s[m.end(2):]
     open(path, "w", encoding="utf-8", newline="").write(s)
     dnd = open(os.path.join(DND, "Lists", "SpellLists.lsx"), encoding="utf-8").read()

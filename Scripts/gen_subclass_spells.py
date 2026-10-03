@@ -28,7 +28,7 @@ SUBCLASSES = [
     ("Crown", "e3a25a7a-e793-4b99-9d4a-0fbc17fcc1ff", "Paladin", {13: ["Target_Banishment", "Target_GuardianOfFaith"], 17: ["Shout_CircleOfPower", "Target_Geas"]}),
     ("Watchers", "403102da-744a-4f16-b392-c1da7e9bbf2c", "Paladin", {13: ["Shout_AuraOfPurity", "Target_Banishment"], 17: ["Target_HoldMonster", "Target_Scrying"]}),
     ("Oathbreaker", "f0d6f933-4532-463f-b378-a1e8b0164325", "Paladin", {13: ["Target_Blight", "Target_Confusion"], 17: ["Target_Contagion", "Target_DominatePerson"]}),
-    ("NobleGenie", "86ae831e-aa1b-4f18-b3d2-6c60fc32ff3c", "Paladin", {13: ["Target_ConjureElementals_Minor_Container", "Target_ApoSummonElemental"], 17: ["Target_Smite_Banishing"]}),
+    ("NobleGenie", "86ae831e-aa1b-4f18-b3d2-6c60fc32ff3c", "Paladin", {13: ["Target_ConjureElementals_Minor_Container", "Target_SummonElemental"], 17: ["Target_Smite_Banishing"]}),
     ("FeyWanderer", "4c844e73-f3c4-4490-9c65-d6d9f8007e8d", "Ranger", {13: ["Teleportation_DimensionDoor"], 17: []}),
     ("GloomStalker", "caa60bb8-8ca3-4871-b034-e10a6bc8ca29", "Ranger", {13: ["Target_Invisibility_Greater"], 17: ["Target_Seeming"]}),
     ("HollowWarden", "e5e8acd6-4fd3-4295-8e78-3a77b8c30f2d", "Ranger", {13: [], 17: ["Target_Awaken"]}),
